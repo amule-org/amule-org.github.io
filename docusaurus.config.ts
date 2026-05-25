@@ -37,6 +37,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/amule-org/amule-org.github.io/edit/main/',
         },
         blog: {
           blogTitle: 'Blog',
