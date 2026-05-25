@@ -1,25 +1,41 @@
 ---
 id: index
-title: eD2k & Kademlia
+title: eD2k & Kademlia Networks
 ---
 
-aMule connects to two peer-to-peer networks simultaneously: the classic **eD2k** (eDonkey2000) network and the serverless **Kademlia (Kad)** network.
+aMule connects simultaneously to two peer-to-peer networks: the classic **[eD2k](ed2k-network.md)** (eDonkey2000) network and the serverless **[Kademlia (Kad)](kademlia.md)** network. Both networks share the same file identification system and can be used together to maximise download sources.
 
-## What is eD2k?
+## History
 
-<!-- TODO: history of the eDonkey network, how it works (client/server model), file IDs, AICH -->
+The eD2k protocol was created by the **eDonkey2000** application, a proprietary P2P client that pioneered the network. eDonkey2000 was eventually displaced by open-source alternatives: first **mlDonkey** (Unix-focused), then **eMule** (Windows), which spawned many derivatives including **xMule** and ultimately **aMule** — the cross-platform, open-source implementation.
 
-## Kademlia (Kad)
+The eDonkey2000 website was shut down in 2006 following a RIAA lawsuit and the software is no longer maintained. aMule is a completely independent project and is not affiliated with the original eDonkey2000 in any way.
 
-<!-- TODO: DHT-based approach, how Kad differs from eD2k, bootstrapping -->
+Kademlia was introduced into the \*Mule ecosystem in response to the architectural limitations of the server-based [eD2k network](ed2k-network.md). It is based on the Kademlia algorithm by Petar Maymounkov and David Mazières (New York University, 2002). aMule has supported [Kademlia](kademlia.md) since version **2.1.0**.
 
-## eD2k vs Kad
+## How the Networks Differ
 
-<!-- TODO: comparison table: reliability, privacy, search quality, server dependency -->
+| Feature | eD2k | Kademlia |
+|---|---|---|
+| Architecture | Client-server | Fully decentralised (DHT) |
+| Requires servers | Yes | No |
+| Search scope | Server-local or global (all servers) | Distributed across all nodes |
+| Connection type | Client connects to a central server | Client bootstraps from any known node |
+| ID system | High ID / Low ID assigned by server | Open / Firewalled assigned by network |
+| Privacy | Server sees your IP and searches | No central point of observation |
+| Scalability | Limited by server capacity | Scales with number of participants |
+| Introduced | Original eD2k protocol | aMule 2.1.0 (2006) |
 
-## Further Reading
+Both networks use the same **MD4-based file hashes** and **9.28 MB chunk** system, so the same files can be downloaded from sources on either network simultaneously.
 
-- [ED2K Network](ed2k-network.md) — the classic server-based eDonkey network
-- [ED2K Clients](ed2k-clients/index.md) — compatible client applications
-- [Kademlia Network](kademlia.md) — the serverless distributed hash table network
-- [Concepts](concepts/index.md) — glossary and protocol concepts
+## In This Section
+
+| Page | Description |
+|---|---|
+| [eD2k Network](ed2k-network.md) | Architecture, servers, High/Low ID, ports, limitations |
+| [Kademlia Network](kademlia.md) | DHT algorithm, bootstrapping, contact types, firewalled status |
+| [eD2k Links](ed2k-links.md) | Link format specification and browser configuration |
+| [AICH & ICH](aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |
+| [Secure User Identification](secure-user-identification.md) | RSA-based identity and credit system |
+| [Concepts & Glossary](concepts/index.md) | Definitions for all technical terms used in the networks |
+| [eD2k Clients](ed2k-clients.md) | Compatible client applications |

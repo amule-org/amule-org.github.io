@@ -20,6 +20,6 @@ aMule se conecta simultáneamente a dos redes peer-to-peer (P2P): la red clásic
 ## Más información
 
 - [Red ED2K](ed2k-network.md) — la clásica red eDonkey basada en servidores
-- [Clientes ED2K](ed2k-clients/index.md) — aplicaciones cliente compatibles
+- [Clientes ED2K](ed2k-clients.md) — aplicaciones cliente compatibles
 - [Red Kademlia](kademlia.md) — la red DHT distribuida sin servidores
 - [Conceptos](concepts/index.md) — glosario y conceptos del protocolo

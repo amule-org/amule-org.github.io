@@ -63,13 +63,11 @@ const sidebars: SidebarsConfig = {
       link: {type: 'doc', id: 'ed2k/index'},
       items: [
         'ed2k/ed2k-network',
-        {
-          type: 'category',
-          label: 'ED2K Clients',
-          link: {type: 'doc', id: 'ed2k/ed2k-clients/index'},
-          items: [],
-        },
         'ed2k/kademlia',
+        'ed2k/ed2k-links',
+        'ed2k/aich',
+        'ed2k/secure-user-identification',
+        'ed2k/ed2k-clients',
         {
           type: 'category',
           label: 'Concepts',
