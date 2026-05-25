@@ -56,7 +56,7 @@ Al abrir aMule deberías ver el diálogo de servidores:
 
 ![Lista de servidores vacía](/img/docs/serverlist_empty.png)
 
-La lista de servidores está vacía en el primer inicio. Para rellenarla, haz clic en el campo de texto que contiene la URL (p. ej. `http://gruk.org/server.met.gz`) y pulsa Intro. Aparecerá brevemente un cuadro de diálogo mientras se descarga la lista.
+La lista de servidores está vacía en el primer inicio. Para rellenarla, haz clic en el campo de texto que contiene la URL (p. ej. `https://upd.emule-security.org/server.met`) y pulsa Intro. Aparecerá brevemente un cuadro de diálogo mientras se descarga la lista.
 
 ![Lista de servidores ED2K poblada](/img/docs/serverlist_ed2k.png)
 

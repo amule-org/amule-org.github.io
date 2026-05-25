@@ -56,7 +56,7 @@ After opening aMule you should see the servers dialog:
 
 ![Empty server list](/img/docs/serverlist_empty.png)
 
-The server list is empty on first run. To populate it, click the text field that contains the URL (e.g. `http://gruk.org/server.met.gz`) and press Enter. A dialog will appear briefly while the list downloads.
+The server list is empty on first run. To populate it, click the text field that contains the URL (e.g. `https://upd.emule-security.org/server.met`) and press Enter. A dialog will appear briefly while the list downloads.
 
 ![Server list populated via ED2K](/img/docs/serverlist_ed2k.png)
 
