@@ -81,11 +81,19 @@ const sidebars: SidebarsConfig = {
       label: 'Development',
       link: {type: 'doc', id: 'development/index'},
       items: [
+        'development/code-style',
+        'development/ec-protocol',
+        'development/debugging',
+        'development/testing',
         {
           type: 'category',
           label: 'Compilation',
           link: {type: 'doc', id: 'development/compilation/index'},
-          items: [],
+          items: [
+            'development/compilation/linux',
+            'development/compilation/macos',
+            'development/compilation/windows',
+          ],
         },
       ],
     },
@@ -94,6 +102,7 @@ const sidebars: SidebarsConfig = {
       label: 'Contributing',
       link: {type: 'doc', id: 'contributing/index'},
       items: [
+        'contributing/bug-reports',
         'contributing/translations',
         'contributing/documentation',
       ],

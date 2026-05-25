@@ -3,24 +3,75 @@ id: index
 title: Contributing
 ---
 
-aMule is a community-driven project and welcomes contributions of all kinds: code patches, bug reports, translations, and documentation improvements.
+aMule is a community-driven project. Contributions of any kind are welcome: code patches, bug reports, translations, documentation improvements, and testing.
 
-## Code
+## Ways to Contribute
 
-<!-- TODO: how to submit patches, coding style guide, commit conventions, mailing list vs GitHub workflow, building a development environment -->
+### Code
 
-## Bug Reports
+Submit a pull request on [GitHub](https://github.com/amule-org/amule):
 
-<!-- TODO: what information to include (version, OS, steps to reproduce, logs), where to file issues -->
+1. Fork the repository and create a feature branch.
+2. Follow the [coding style guide](../development/code-style.md).
+3. Keep changes focused — one logical change per pull request.
+4. Ensure the project builds without warnings on at least one supported platform (see [Compilation](../development/compilation/index.md)).
+5. Write a clear description explaining what the change does and why.
 
-## Translations
+All pull requests are built and tested automatically by the CI pipeline on Ubuntu, macOS, and Windows (MSYS2). A PR that breaks any of these builds will not be merged.
 
-Translate the aMule interface and documentation into other languages.
+### Bug Reports
 
-- [Translations](translations.md)
+Open an issue on the [GitHub issue tracker](https://github.com/amule-org/amule/issues).
 
-## Documentation
+When filing a bug report, always include:
 
-Improve or expand the aMule documentation.
+- aMule version (`amule --version`)
+- Operating system and version
+- Steps to reproduce the issue
+- Any relevant log output from `~/.aMule/logfile`
+- A GDB backtrace if the issue involves a crash
 
-- [Documentation](documentation.md)
+For detailed instructions on generating a useful backtrace, see the [Bug Reports](bug-reports.md) page.
+
+### Translations
+
+aMule uses GNU gettext for internationalization. Translations are `.po` files in `po/` and man page translations in `docs/man/po/`.
+
+See the full [Translations](translations.md) guide for:
+
+- Updating an existing translation
+- Adding a new language
+- Translating man pages with po4a
+- Format specifiers and escape codes reference
+
+### Documentation
+
+Improve or expand this documentation website. See the [Documentation](documentation.md) guide for the repository structure, writing guidelines, and the PR workflow.
+
+### Testing
+
+- Test release candidates and report regressions on the issue tracker.
+- Run the unit test suite: `cmake -DBUILD_TESTING=YES -B build && cmake --build build && ctest --test-dir build`.
+- Help maintain the test coverage by adding unit tests for new code.
+
+---
+
+## Code Review
+
+All contributions go through code review before being merged. Reviewers check for:
+
+- Correctness: does the change do what it claims?
+- Code style: does it follow the [coding style guide](../development/code-style.md)?
+- Test coverage: does it include tests where appropriate?
+- Compatibility: does it build on all supported platforms?
+- Documentation: are new features or options documented?
+
+Feedback from reviewers should be addressed in follow-up commits on the same branch.
+
+---
+
+## Communication
+
+- **GitHub Issues**: bug reports, feature requests, and specific technical questions.
+- **GitHub Discussions**: general questions, usage help, and longer discussions.
+- **Pull Requests**: code, documentation, and translation contributions.
