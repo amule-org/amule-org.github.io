@@ -37,6 +37,9 @@ const sidebars: SidebarsConfig = {
             'user-guide/amule-components/amulegui',
             'user-guide/amule-components/amuleweb',
             'user-guide/amule-components/amulecmd',
+            'user-guide/amule-components/ed2k-cli',
+            'user-guide/amule-components/alc-alcc',
+            'user-guide/amule-components/cas-wxcas',
           ],
         },
         {

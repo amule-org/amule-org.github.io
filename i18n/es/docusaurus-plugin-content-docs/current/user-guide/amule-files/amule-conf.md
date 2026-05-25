@@ -96,7 +96,7 @@ The primary section. Contains the majority of user-facing preferences.
 | `AutoConnectStaticOnly` | `0` | Auto-connect only to servers marked as static. |
 | `ManualHighPrio` | `0` | Assign High Priority to servers you add manually. |
 | `ServerKeepAliveTimeout` | `0` | Interval in **minutes** for pinging the connected eD2k server to prevent disconnection. `0` disables keep-alive pings. |
-| `Ed2kServersUrl` | `https://upd.emule-security.org/server.met` | URL to download [`server.met`](server-met.md) updates from. Used when auto-update is enabled. Supports `http://`, `https://`, and `ftp://`. |
+| `Ed2kServersUrl` | `https://upd.emule-security.org/server.met` | URL to download [`server.met`](server-met) updates from. Used when auto-update is enabled. Supports `http://`, `https://`, and `ftp://`. |
 
 ### Files
 
@@ -136,13 +136,13 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 
 | Key | Default | Description |
 |---|---|---|
-| `KadNodesUrl` | `https://upd.emule-security.org/nodes.dat` | URL to download a fresh [`nodes.dat`](nodes-dat.md) for Kademlia bootstrap. Supports `http://`, `https://`, and `ftp://`. |
+| `KadNodesUrl` | `https://upd.emule-security.org/nodes.dat` | URL to download a fresh [`nodes.dat`](nodes-dat) for Kademlia bootstrap. Supports `http://`, `https://`, and `ftp://`. |
 
 ### Online Signature
 
 | Key | Default | Description |
 |---|---|---|
-| `OnlineSignature` | `0` | Enable writing of [`amulesig.dat`](amulesig-dat.md) and `onlinesig.dat`. |
+| `OnlineSignature` | `0` | Enable writing of [`amulesig.dat`](amulesig-dat) and `onlinesig.dat`. |
 | `OnlineSignatureUpdate` | `5` | Interval in seconds between signature file updates. |
 | `OSDirectory` | `~/.aMule/` | Directory where the signature files are written. |
 
@@ -249,7 +249,7 @@ Browser selection for opening web links from within aMule.
 
 ## `[ExternalConnect]` section
 
-[External Connections (EC)](../../development/ec-protocol.md) settings used by remote tools ([`amuleweb`](../amule-components/amuleweb.md), [`amulecmd`](../amule-components/amulecmd.md), [`amulegui`](../amule-components/amulegui.md)), plus several display and security preferences.
+[External Connections (EC)](../../development/ec-protocol) settings used by remote tools ([`amuleweb`](../amule-components/amuleweb), [`amulecmd`](../amule-components/amulecmd), [`amulegui`](../amule-components/amulegui)), plus several display and security preferences.
 
 | Key | Default | Description |
 |---|---|---|
@@ -270,7 +270,7 @@ Browser selection for opening web links from within aMule.
 
 ## `[WebServer]` section
 
-[`amuleweb`](../amule-components/amuleweb.md) built-in web server settings.
+[`amuleweb`](../amule-components/amuleweb) built-in web server settings.
 
 | Key | Default | Description |
 |---|---|---|
@@ -357,7 +357,7 @@ Each event is stored as a subsection of `[UserEvents]`. For example, the "Downlo
 | Key | Default | Description |
 |---|---|---|
 | `CoreEnabled` | `0` | Execute the core command when this event fires. |
-| `CoreCommand` | _(empty)_ | Shell command run by [`amuled`](../amule-components/amuled.md) or the monolithic [`amule`](../amule-components/amule.md) binary. |
+| `CoreCommand` | _(empty)_ | Shell command run by [`amuled`](../amule-components/amuled) or the monolithic [`amule`](../amule-components/amule) binary. |
 | `GUIEnabled` | `0` | Execute the GUI command when this event fires. |
 | `GUICommand` | _(empty)_ | Shell command run by the GUI component. |
 
@@ -396,7 +396,7 @@ Or call a script:
 CoreCommand=/usr/local/bin/doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 ```
 
-If you specify both a core command and a GUI command, the monolithic [`amule`](../amule-components/amule.md) binary will execute both.
+If you specify both a core command and a GUI command, the monolithic [`amule`](../amule-components/amule) binary will execute both.
 
 ### Example: email notification on download complete (bash)
 
@@ -500,10 +500,10 @@ Each key stores the last URL that was successfully downloaded for one specific r
 | Key | Resource type | Enum value |
 |---|---|---|
 | `URL_1` | IP filter (`ipfilter.dat` / `ipfilter.zip`) | `HTTP_IPFilter` |
-| `URL_2` | Server list ([`server.met`](server-met.md)) — manual download | `HTTP_ServerMet` |
-| `URL_3` | Server list ([`server.met`](server-met.md)) — auto-update from `addresses.dat` | `HTTP_ServerMetAuto` |
+| `URL_2` | Server list ([`server.met`](server-met)) — manual download | `HTTP_ServerMet` |
+| `URL_3` | Server list ([`server.met`](server-met)) — auto-update from `addresses.dat` | `HTTP_ServerMetAuto` |
 | `URL_4` | Version check file (`last_version_check`) | `HTTP_VersionCheck` |
-| `URL_5` | Kademlia nodes list ([`nodes.dat`](nodes-dat.md)) | `HTTP_NodesDat` |
+| `URL_5` | Kademlia nodes list ([`nodes.dat`](nodes-dat)) | `HTTP_NodesDat` |
 | `URL_6` | GeoIP database (`GeoLite2-Country.mmdb`) | `HTTP_GeoIP` |
 
 Keys are only written after a successful download. A key that was never written (or whose URL has changed) simply causes a full download without the `If-Modified-Since` optimisation.

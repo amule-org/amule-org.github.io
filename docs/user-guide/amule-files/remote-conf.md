@@ -3,7 +3,7 @@ id: remote-conf
 title: remote.conf
 ---
 
-`remote.conf` is the shared configuration file for all aMule remote tools: [aMuleCMD](../amule-components/amulecmd), [AMuleWeb](../amule-components/amuleweb), and the Remote GUI (AMuleGUI). It uses standard INI syntax and is read by each tool at startup.
+`remote.conf` is the shared configuration file for all aMule remote tools: [`amulecmd`](../amule-components/amulecmd), [`amuleweb`](../amule-components/amuleweb), and the [`amulegui`](../amule-components/amulegui). It uses standard INI syntax and is read by each tool at startup.
 
 ## Location and file name
 
@@ -12,7 +12,7 @@ title: remote.conf
 Unlike all other aMule configuration files, the name and path of `remote.conf` can be changed with the `-f` / `--config-file` command-line parameter.
 
 :::note
-Command-line parameters (`-f`, `-h`, `-p`, etc.) apply to aMuleCMD and AMuleWeb only. The Remote GUI does not yet implement them.
+Command-line parameters (`-f`, `-h`, `-p`, etc.) apply to `amulecmd` and `amuleweb` only. The [`amulegui`](../amule-components/amulegui) does not yet implement them.
 :::
 
 ## Format
@@ -57,7 +57,7 @@ Hostname or IP address of the machine running `aMule` or `amuled`.
 
 ### `/EC/Port`
 
-Port number where the core listens for [External Connections](../amule-components/amuleweb) (EC protocol).
+Port number where the core listens for [External Connections](../../development/ec-protocol) (EC protocol).
 
 - **Default:** `4712`
 - **CLI override:** `-p` / `--port`
@@ -78,19 +78,19 @@ Enable zlib compression on the EC connection. Reduces bandwidth at the cost of C
 
 ---
 
-## Keys specific to aMuleCMD
+## Keys specific to amulecmd
 
-aMuleCMD has no keys of its own beyond the common keys above.
+`amulecmd` has no keys of its own beyond the common keys above.
 
 ---
 
-## Keys specific to AMuleWeb
+## Keys specific to amuleweb
 
 ### `/Webserver/Port`
 
-Port number on which AMuleWeb listens for incoming browser connections.
+Port number on which `amuleweb` listens for incoming browser connections.
 
-- **Default:** `-1` — AMuleWeb queries this value from the remote core at startup. If the query fails, it falls back to `4711`, but the web interface will most likely be unusable.
+- **Default:** `-1` — `amuleweb` queries this value from the remote core at startup. If the query fails, it falls back to `4711`, but the web interface will most likely be unusable.
 - **CLI override:** `-s` / `--server-port`
 
 ### `/Webserver/Template`
@@ -169,7 +169,7 @@ Scaling of the statistics graphs. Each pixel in the horizontal axis represents t
 
 ## Keys specific to Remote GUI
 
-The Remote GUI (AMuleGUI) currently does not have a stable, documented set of keys in `remote.conf`. It reads and writes several keys that are not formally specified, and some important keys are not saved correctly. This section will be updated once the Remote GUI's configuration handling is stabilised.
+The [`amulegui`](../amule-components/amulegui) currently does not have a stable, documented set of keys in `remote.conf`. It reads and writes several keys that are not formally specified, and some important keys are not saved correctly. This section will be updated once the Remote GUI's configuration handling is stabilised.
 
 ---
 

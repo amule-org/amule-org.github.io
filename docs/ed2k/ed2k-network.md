@@ -10,7 +10,7 @@ The **eD2k** (eDonkey2000) network is a client-server peer-to-peer network. Clie
 The eD2k network is built around a **client-server model**:
 
 - A **server** is a central machine that maintains indexes of which clients share which files. Servers are interconnected so that global searches spanning all known servers are possible.
-- A **client** (such as aMule) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
+- A **client** (such as [aMule](../user-guide/amule-components/amule.md)) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
 - **File transfers** happen directly between clients (peer-to-peer). The server is only involved in providing the initial source list. However, if one of the peers has a Low ID, the server may relay the connection.
 
 ### Chunks
@@ -132,8 +132,8 @@ Used for the extended eMule protocol, queue rating, file re-ask pings, and **Kad
 | 4662 | TCP | Incoming + Outgoing | Client-to-client file transfers and control |
 | 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia |
 | 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia |
-| 4711 | TCP | Incoming | AMuleWeb listening port |
-| 4712 | TCP | Incoming | External Connections port (EC — for AMuleCMD, AMuleGUI) |
+| 4711 | TCP | Incoming | [`amuleweb`](../user-guide/amule-components/amuleweb.md) listening port |
+| 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) port — for [`amulecmd`](../user-guide/amule-components/amulecmd.md), [`amulegui`](../user-guide/amule-components/amulegui.md) |
 
 All ports (except 4661, which is server-defined) can be changed in **Preferences → Connection**.
 
@@ -214,6 +214,6 @@ modifier = min(
 )
 ```
 
-where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in `clients.met`.
+where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../user-guide/amule-files/clients-met.md).
 
 See [Concepts & Glossary](concepts/index.md) for detailed definitions of queue, queue rank, and slots.

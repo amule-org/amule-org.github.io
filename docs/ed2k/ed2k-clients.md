@@ -29,12 +29,12 @@ aMule is protocol-compatible with eMule and can exchange files with eMule client
 
 ### aMule (2003–present)
 
-**aMule** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Linux, macOS, FreeBSD, and other Unix-like systems. It was originally forked from xMule and shares protocol compatibility with eMule.
+**[aMule](../user-guide/amule-components/amule.md)** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Linux, macOS, FreeBSD, and other Unix-like systems. It was originally forked from xMule and shares protocol compatibility with eMule.
 
-Key features that distinguish aMule:
+Key features that distinguish aMule (see the [full feature list](../index.md#features)):
 - Full eD2k + Kademlia dual-network support.
-- Daemon mode (`amuled`) for headless/server operation.
-- Web interface (`AMuleWeb`), remote GUI (`AMuleGUI`), and command-line interface (`AMuleCMD`).
+- Daemon mode ([`amuled`](../user-guide/amule-components/amuled.md)) for headless/server operation.
+- Web interface ([`amuleweb`](../user-guide/amule-components/amuleweb.md)), remote GUI ([`amulegui`](../user-guide/amule-components/amulegui.md)), and command-line interface ([`amulecmd`](../user-guide/amule-components/amulecmd.md)).
 - Cross-platform: Linux, macOS, FreeBSD, Windows (via MinGW).
 
 ## Compatibility
@@ -55,6 +55,6 @@ This means sources from aMule and eMule clients appear together in search result
 |---|---|---|---|---|
 | eDonkey2000 | Windows | No | eD2k | Discontinued (2006) |
 | eMule | Windows | Yes (GPL) | eD2k, Kademlia | Active |
-| aMule | Linux, macOS, BSD, Windows | Yes (GPL) | eD2k, Kademlia | Active |
+| [aMule](../user-guide/amule-components/amule.md) | Linux, macOS, BSD, Windows | Yes (GPL) | eD2k, Kademlia | Active |
 | mlDonkey | Linux, macOS, Windows | Yes (GPL) | eD2k, Kademlia, BitTorrent, + | Active |
 | xMule | Linux | Yes (GPL) | eD2k | Discontinued (2004) |

@@ -3,7 +3,7 @@ id: amulesig-dat
 title: amulesig.dat
 ---
 
-`amulesig.dat` is aMule's status signature file. It is written periodically by aMule to inform external applications — such as [CAS](./cas.md), [wxCAS](../amule-components/cas-wxcas.md), and IRC bots — of the current state of the running aMule instance.
+`amulesig.dat` is aMule's status signature file. It is written periodically by aMule to inform external applications — such as [CAS](./cas), [wxCAS](../amule-components/cas-wxcas), and IRC bots — of the current state of the running aMule instance.
 
 **Location:** `~/.aMule/amulesig.dat`
 

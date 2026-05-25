@@ -23,7 +23,7 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 |---|---|---|---|
 | `amule.conf` | Text (INI) | Main configuration — stores all user preferences | [amule.conf reference](./amule-conf.md) |
 | `amule.conf.bak` | Text (INI) | Automatic backup of `amule.conf` | [Deprecated note](#deprecated-files) |
-| `remote.conf` | Text (INI) | Configuration for remote tools (aMuleCMD, AMuleWeb, Remote GUI) | [remote.conf reference](./remote-conf.md) |
+| `remote.conf` | Text (INI) | Configuration for remote tools (`amulecmd`, `amuleweb`, `amulegui`) | [remote.conf reference](./remote-conf.md) |
 | `preferences.dat` | Binary | Stores the userhash and config file version | [details](#preferencesdat) |
 | `preferencesKad.dat` | Binary | Stores the client IP and Kademlia ClientID | [details](#preferenceskaddat) |
 | `cryptkey.dat` | Binary (PEM) | 384-bit RSA private key for Secure User Identification | [details](#cryptkeydat) |
@@ -50,7 +50,7 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 | `GeoLite2-Country.mmdb` | Binary | MaxMind GeoLite2 database for IP-to-country lookups | [details](#geolite2-countrymmmdb) |
 | `logfile` | Text | Log of the current aMule session | [details](#logfile) |
 | `logfile.bak` | Text | Log of the previous aMule session | [details](#logfile) |
-| `remotelogfile` | Text | Log written by AMuleGUI (Remote GUI) for its own session | [details](#logfile) |
+| `remotelogfile` | Text | Log written by [`amulegui`](../amule-components/amulegui.md) (Remote GUI) for its own session | [details](#logfile) |
 | `lastversion` | Text | History of the 10 most recently launched aMule versions | [details](#lastversion) |
 | `last_version_check` | Text | Latest official aMule release version (fetched from the internet) | [details](#last_version_check) |
 | `key_index.dat` | Binary | Kademlia keyword data this client publishes to the network | [details](#key_indexdat-and-load_indexdat) |
@@ -146,7 +146,7 @@ Decoded:
 
 **Location:** `~/.aMule/cryptkey.dat`
 
-Contains the client's **384-bit RSA private key**, used for [Secure User Identification](../../ed2k/index.md). This key is unique to each client and is generated automatically the first time aMule runs.
+Contains the client's **384-bit RSA private key**, used for [Secure User Identification](../../ed2k/secure-user-identification.md). This key is unique to each client and is generated automatically the first time aMule runs.
 
 The key is stored in a PEM-like format: 5 lines of 72 characters each, with the last line followed by a newline character.
 
@@ -248,7 +248,7 @@ The file uses a variable-length binary block format: one block per file, whose l
 
 **Location:** `~/.aMule/known2_64.met`
 
-Binary file that stores the verified [AICH](../../ed2k/index.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
+Binary file that stores the verified [AICH](../../ed2k/aich.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
 
 ---
 
@@ -322,7 +322,7 @@ Text file containing IP ranges that aMule should block or allow, in the format d
 
 | URL | Notes |
 |---|---|
-| `http://upd.emule-security.org/ipfilter.zip` | Maintained by the eMule Security project; distributed as a ZIP archive that aMule decompresses automatically |
+| `https://upd.emule-security.org/ipfilter.zip` | Maintained by the eMule Security project; distributed as a ZIP archive that aMule decompresses automatically |
 
 :::note
 This is a third-party service unaffiliated with the aMule project. Its availability may change over time.
@@ -332,7 +332,7 @@ Configure the URL via the `IPFilterURL` key in [`amule.conf`](./amule-conf.md):
 
 ```ini
 [eMule]
-IPFilterURL=http://upd.emule-security.org/ipfilter.zip
+IPFilterURL=https://upd.emule-security.org/ipfilter.zip
 ```
 
 ### `ipfilter_static.dat`
@@ -396,7 +396,7 @@ ed2k://|file|Knoppix%20v3.6-2004-08-16-En.iso|733499392|E1A848648CF99A2295909799
 ed2k://|file|debian-30r1-i386-binary-2.iso|676495360|557B59750976519476DA071BDF79A014|/
 ```
 
-This mechanism is used by browser plugins and the `ed2k` command-line tool to pass links to a running aMule session.
+This mechanism is used by browser plugins and the [`ed2k`](../amule-components/ed2k-cli.md) command-line tool to pass links to a running aMule session.
 
 ---
 
@@ -506,7 +506,7 @@ During an auto-update, aMule writes `GeoLite2-Country.mmdb.download` first, then
 
 Plain-text log of the current aMule session. Captures all messages, warnings, and errors reported by aMule during operation. When a new session starts, the previous `logfile` is renamed to `logfile.bak` and a fresh one is created.
 
-The Remote GUI (AMuleGUI) writes its own separate log to `~/.aMule/remotelogfile`. It follows the same format but records only events from the GUI process.
+The [`amulegui`](../amule-components/amulegui.md) writes its own separate log to `~/.aMule/remotelogfile`. It follows the same format but records only events from the GUI process.
 
 #### Format
 
@@ -637,7 +637,7 @@ These files are no longer created by current aMule versions but may be present i
 |---|---|
 | `~/.aMule/Incoming/` | Default location for completed downloads on Linux/Unix |
 | `~/.aMule/Temp/` | In-progress downloads (`*.part`, `*.part.met`, and related files) |
-| `~/.aMule/webserver/` | AMuleWeb skin files |
+| `~/.aMule/webserver/` | `amuleweb` skin files |
 | `~/Documents/aMule Downloads/` | Default completed-downloads location on macOS and Windows (since aMule 2.0.0) |
 | `~/aMule Downloads/` | Old Windows completed-downloads location (before aMule 2.1.0) |
 | `<app_dir>/Incoming/` | Fallback on macOS/Windows if the Documents folder cannot be determined |
