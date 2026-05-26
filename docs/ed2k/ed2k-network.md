@@ -53,7 +53,7 @@ Configure static servers in **Preferences → Server → Static servers** or by 
 
 ### Avoiding Fake Servers
 
-Some servers in the wild are operated by organisations that log user activity or serve fake search results. It is strongly recommended to maintain a curated, trusted server list. See [Keep a safe list of servers](../user-guide/configuration/index.md) for guidance.
+Some servers in the wild are operated by organisations that log user activity or serve fake search results. It is strongly recommended to maintain a curated, trusted server list. See [Fake servers and safe server list management](ed2k-servers.md#fake-servers) for a detailed guide.
 
 ## High ID and Low ID
 

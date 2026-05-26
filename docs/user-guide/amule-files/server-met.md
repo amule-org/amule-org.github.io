@@ -11,6 +11,8 @@ The format is compatible with eMule's `server.met`. Servers listed in `staticser
 
 All multi-byte integers are stored in **little-endian** byte order.
 
+For background on what eD2k servers are, how the server list works, fake servers, and how to maintain a safe server list, see [eD2k Servers](../../ed2k/ed2k-servers.md).
+
 ### Related files
 
 | File | Role |
