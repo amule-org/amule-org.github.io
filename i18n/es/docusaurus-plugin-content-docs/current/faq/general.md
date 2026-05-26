@@ -316,10 +316,7 @@ amule &
 
 ## ¿Cómo puedo obtener esas bonitas estadísticas de aMule que algunas personas publican en canales IRC?
 
-Hay dos herramientas disponibles:
-
-- **CAS** (aMule Statistics): ejecuta `cas` en un terminal para obtener un resumen en texto de tu estado de aMule.
-- **XAS** (xChat aMule Statistics): un plugin Perl para xChat2 que publica tus estadísticas de aMule directamente en un canal IRC. Requiere el módulo Perl de xChat.
+Usa **CAS** (`cas`) o su equivalente gráfico **wxCAS** (`wxcas`). Ejecuta `cas` en un terminal para obtener un resumen en texto de tu estado de aMule, o lanza `wxcas` para una visualización gráfica. Consulta [cas / wxcas](/docs/user-guide/amule-components/cas-wxcas) para más detalles.
 
 ---
 

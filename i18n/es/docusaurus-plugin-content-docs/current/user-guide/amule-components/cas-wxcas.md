@@ -32,20 +32,32 @@ Para ver la especificación completa del formato de `amulesig.dat`, consulta [am
 
 ### Ejemplo de Salida en Consola
 
-Ejecutar `cas` sin argumentos imprime una línea de estado similar a:
+Ejecutar `cas` sin argumentos imprime un resumen de estado similar a:
 
 ```
-aMule CVS has been running for 1 D 00 h
-fALSO is on Max[PT] Sado [81.84.97.64:4661] with HighID
-Total Download: 171.36 GB, Upload 188.96 GB
-Session Download: 475.42 MB, Upload 832.46 MB
-Download : 2.3 kB/s, Upload : 10.0 kB/s
-Sharing : 98 file(s), Clients on queue: 237
+aMule 2.3.3 has been running for 1 D 00 h
+user is connected to server.example.com [81.84.97.64:4661] with HighID | Kad: ok
+Total Download: 171.36 GB, Upload: 188.96 GB
+Session Download: 475.42 MB, Upload: 832.46 MB
+Download: 2.3 kB/s, Upload: 10.0 kB/s
+Sharing: 98 file(s), Clients on queue: 237
+Time: Jan 01 2024, 12:00
 ```
+
+### Opciones de Línea de Comandos
+
+| Opción | Descripción |
+|---|---|
+| `-o`, `--picture` | Genera la imagen de estadísticas (requiere libgd en tiempo de compilación) |
+| `-p`, `--html` | Genera una página HTML de estadísticas (e imagen si libgd está disponible) |
+| `-c`, `--config-dir DIR` | Usa `DIR` en lugar del directorio de configuración de aMule por defecto |
+| `-h`, `--help` | Muestra información de uso |
+
+Tanto `-o` como `-p` aceptan un argumento de ruta opcional para sobreescribir la ubicación de salida por defecto.
 
 ### Generación de Imagen
 
-Cuando se ejecuta con el flag `-o`, `cas` genera una imagen PNG ([`~/.aMule/aMule-online-sign.png`](../amule-files/cas.md)) escribiendo texto de estadísticas sobre una imagen de fondo configurable.
+Cuando se ejecuta con el flag `-o`, `cas` genera una imagen PNG ([`~/.aMule/aMule-online-sign.png`](../amule-files/cas.md)) escribiendo texto de estadísticas sobre una imagen de fondo configurable. Esta opción solo está disponible si `cas` se compiló con soporte de **libgd**.
 
 La configuración se almacena en [`~/.aMule/casrc`](../amule-files/cas.md).
 
@@ -63,29 +75,35 @@ font /usr/share/fonts/corefonts/times.ttf
 font_size 10.5
 
 # source_image - imagen de fondo sobre la que superponer el texto
-source_image /usr/share/pixmaps/stat.png
+source_image /usr/share/cas/stat.png
 
 # *_line - x,y,habilitado (1=habilitado, 0=deshabilitado)
 # Cada línea corresponde a una línea de texto de estadísticas.
-first_line  23,19,1
-second_line 23,36,1
-third_line  23,54,1
-fourth_line 23,72,1
-fifth_line  23,89,1
-sixth_line  23,106,1
+first_line   23,17,1
+second_line  23,34,1
+third_line   23,51,1
+fourth_line  23,68,1
+fifth_line   23,85,1
+sixth_line   23,102,1
+seventh_line 23,119,1
+
+template /usr/share/cas/tmp.html
+
+# img_type - 0 = PNG, cualquier otro valor = JPG
+img_type 0
 ```
 
-**Rutas del sistema por defecto** que `cas` busca:
+**Rutas del sistema por defecto** que `cas` usa al crear un nuevo `casrc`:
 
 | Recurso | Ruta por defecto |
 |---|---|
 | Fuente | `/usr/share/fonts/corefonts/times.ttf` |
-| Imagen de fondo | `/usr/share/pixmaps/stat.png` |
-| Plantilla HTML | `/usr/share/pixmaps/tmp.html` |
+| Imagen de fondo | `/usr/share/cas/stat.png` |
+| Plantilla HTML | `/usr/share/cas/tmp.html` |
 
 ### Página HTML de Estadísticas
 
-Ejecuta `cas` con el flag HTML para generar [`~/.aMule/aMule-online-sign.html`](../amule-files/cas.md), una página completa de estadísticas.
+Ejecuta `cas` con el flag `-p`/`--html` para generar [`~/.aMule/aMule-online-sign.html`](../amule-files/cas.md), una página completa de estadísticas.
 
 ### Problemas Conocidos
 
@@ -101,9 +119,37 @@ Lanza con:
 wxcas
 ```
 
-`wxcas` consulta `amulesig.dat` periódicamente y refresca la pantalla automáticamente.
+`wxcas` no acepta argumentos de línea de comandos; toda la configuración se realiza desde su diálogo de Preferencias.
 
-**Ruta de salida por defecto:** `~/aMule-online-sign.png` (o `.jpg`/`.bmp` según la configuración). Esto es distinto del valor por defecto de `cas`, que es `~/.aMule/aMule-online-sign.png`.
+`wxcas` consulta `amulesig.dat` periódicamente y refresca la pantalla automáticamente. La ventana principal muestra:
+
+- **Panel aMule**: las mismas siete líneas de estado que `cas` (versión/tiempo activo, conexión al servidor, totales, totales de sesión, tasas actuales, archivos compartidos/cola, hora local).
+- **Panel de récords de descarga**: tasa de descarga máxima de la sesión actual y el récord histórico de todas las sesiones anteriores.
+- **Panel de sistema** (solo Linux): promedios de carga del sistema (1, 5, 15 minutos) y tiempo de actividad del sistema.
+
+### Generación de Imagen
+
+`wxcas` puede generar automáticamente una imagen de estadísticas en cada ciclo de refresco. Formatos soportados: PNG, JPG, BMP. El directorio de salida es configurable.
+
+**Ruta de salida por defecto:** `~/aMule-online-sign.{png,jpg,bmp}` (según el formato configurado). Esto es distinto del valor por defecto de `cas`, que es `~/.aMule/aMule-online-sign.png`.
+
+### Subida FTP
+
+Cuando la generación automática de imagen está habilitada, `wxcas` puede subir la imagen a un servidor FTP a un intervalo configurable. Configura la URL FTP, la ruta, el nombre de usuario y la contraseña desde **Preferencias**.
+
+### Preferencias
+
+Ajustes principales disponibles en el diálogo de Preferencias:
+
+| Ajuste | Descripción | Valor por defecto |
+|---|---|---|
+| Directorio de amulesig.dat | Directorio donde aMule escribe `amulesig.dat` | `~/.aMule` |
+| Tasa de refresco | Frecuencia de relectura de `amulesig.dat`, en segundos (1–3600) | `5` |
+| Generar imagen de estadísticas | Guardar automáticamente una imagen de estadísticas en cada refresco | deshabilitado |
+| Formato de imagen | PNG, JPG o BMP | PNG |
+| Directorio de imagen | Dónde guardar la imagen generada automáticamente | `~/` |
+| Subida FTP | Subir periódicamente la imagen a un servidor FTP | deshabilitado |
+| Tasa de actualización FTP | Intervalo de subida en minutos (1–1440) | `10` |
 
 ## Resolución de Problemas
 
