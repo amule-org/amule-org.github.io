@@ -73,6 +73,7 @@ const sidebars: SidebarsConfig = {
         'ed2k/aich',
         'ed2k/secure-user-identification',
         'ed2k/concepts',
+        'ed2k/other-networks',
       ],
     },
     {
