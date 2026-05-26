@@ -9,7 +9,7 @@ SUI is implemented in aMule and eMule. It can be enabled in **Preferences → Co
 
 ## Overview
 
-Every aMule client has a permanent **userhash** — a 128-bit value stored in [`~/.aMule/preferences.dat`](../user-guide/amule-files/index.md#preferencesdat). The userhash is the primary identity of a client within the eD2k network and is used by other clients to track accumulated [credits](concepts/index.md).
+Every aMule client has a permanent **userhash** — a 128-bit value stored in [`~/.aMule/preferences.dat`](../user-guide/amule-files/index.md#preferencesdat). The userhash is the primary identity of a client within the eD2k network and is used by other clients to track accumulated [credits](concepts.md).
 
 Without SUI, any client could claim to have your userhash, steal your credits with other clients, or manipulate the credit system. SUI prevents this by associating the userhash with a unique cryptographic private key that only you possess.
 

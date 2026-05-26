@@ -86,7 +86,7 @@ See the [amule.conf reference](./amule-conf.md) for the complete key reference a
 
 In early eMule versions this file stored all user configuration. In current aMule it stores only two fields: the **configuration file version** and the **userhash**.
 
-The [userhash](../../ed2k/concepts/index.md) is a 128-bit value that uniquely identifies your client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
+The [userhash](../../ed2k/concepts.md) is a 128-bit value that uniquely identifies your client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
 
 #### Format
 

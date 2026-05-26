@@ -1,5 +1,5 @@
 ---
-id: index
+id: concepts
 title: Conceptos
 ---
 

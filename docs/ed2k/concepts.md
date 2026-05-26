@@ -1,5 +1,5 @@
 ---
-id: index
+id: concepts
 title: Concepts & Glossary
 ---
 
@@ -18,7 +18,7 @@ In the eD2k network, hashes are used to:
 - Verify the integrity of each downloaded chunk.
 - Build the AICH hash tree for sub-chunk error recovery.
 
-The most commonly used hash type is the **MD4 hash** (for file and chunk identification). **SHA-1** is used for the [AICH](../aich.md) corruption handling system.
+The most commonly used hash type is the **MD4 hash** (for file and chunk identification). **SHA-1** is used for the [AICH](./aich.md) corruption handling system.
 
 ### MD4 Hash (eD2k Hash)
 
@@ -41,13 +41,13 @@ MD4 was developed by MIT professor Ronald L. Rivest and accepted by RSA in Octob
 
 ### AICH Hash Tree
 
-See the dedicated [AICH & ICH page](../aich.md) for full documentation of Block Hashes, Verifying Hashes, Root Hash, and the AICH Hashset.
+See the dedicated [AICH & ICH page](./aich.md) for full documentation of Block Hashes, Verifying Hashes, Root Hash, and the AICH Hashset.
 
 ### Userhash
 
 The **userhash** is a 128-bit value that uniquely identifies a client within the eD2k network. It is stored in `~/.aMule/preferences.dat` and persists between sessions.
 
-The userhash is used by other clients to track accumulated credits with you. When [Secure User Identification](../secure-user-identification.md) (SUI) is enabled, the userhash is cryptographically linked to your RSA private key, preventing impersonation.
+The userhash is used by other clients to track accumulated credits with you. When [Secure User Identification](./secure-user-identification.md) (SUI) is enabled, the userhash is cryptographically linked to your RSA private key, preventing impersonation.
 
 ---
 
@@ -182,7 +182,7 @@ Clients whose TCP port is unreachable receive a **Low ID**. Any ID below **16,77
 - Only High ID clients count as "available sources" for a Low ID client.
 - Some large servers reject Low ID clients.
 
-To get a High ID: forward TCP port 4662 (or your configured port) on your router and open it in your firewall. See [Get High ID](../../user-guide/configuration/index.md) for detailed instructions.
+To get a High ID: forward TCP port 4662 (or your configured port) on your router and open it in your firewall. See [Get High ID](../user-guide/configuration/index.md) for detailed instructions.
 
 ---
 
@@ -304,7 +304,7 @@ The **blacklist** is a list of clients that are refused connections. Both client
 
 ### Friend
 
-A **friend** is a client that you have added to your friends list, identified through their [Secure User Identification](../secure-user-identification.md) key. Friends can:
+A **friend** is a client that you have added to your friends list, identified through their [Secure User Identification](./secure-user-identification.md) key. Friends can:
 - Be granted a **friend slot** — a dedicated upload slot that gives them priority over regular queued clients.
 - Be easily messaged through the Friends pane in aMule.
 
@@ -322,7 +322,7 @@ Friends are identified by their SUI public key (not just their IP, which can cha
 
 Once connected to one Kademlia-compatible client, that client shares its routing table, which gives access to more contacts, which gives access to the full network.
 
-See [Kademlia — Bootstrapping](../kademlia.md#bootstrapping) for full details.
+See [Kademlia — Bootstrapping](./kademlia.md#bootstrapping) for full details.
 
 ---
 

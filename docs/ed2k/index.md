@@ -39,4 +39,4 @@ Both networks use the same **MD4-based file hashes** and **9.28 MB chunk** syste
 | [Kademlia Network](kademlia.md) | DHT algorithm, bootstrapping, contact types, firewalled status |
 | [AICH & ICH](aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |
 | [Secure User Identification](secure-user-identification.md) | RSA-based identity and credit system |
-| [Concepts & Glossary](concepts/index.md) | Definitions for all technical terms used in the networks |
+| [Concepts & Glossary](concepts.md) | Definitions for all technical terms used in the networks |

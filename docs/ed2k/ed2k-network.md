@@ -216,4 +216,4 @@ modifier = min(
 
 where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../user-guide/amule-files/clients-met.md).
 
-See [Concepts & Glossary](concepts/index.md) for detailed definitions of queue, queue rank, and slots.
+See [Concepts & Glossary](concepts.md) for detailed definitions of queue, queue rank, and slots.

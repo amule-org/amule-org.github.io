@@ -72,12 +72,7 @@ const sidebars: SidebarsConfig = {
         'ed2k/kademlia',
         'ed2k/aich',
         'ed2k/secure-user-identification',
-        {
-          type: 'category',
-          label: 'Concepts',
-          link: {type: 'doc', id: 'ed2k/concepts/index'},
-          items: [],
-        },
+        'ed2k/concepts',
       ],
     },
     {
