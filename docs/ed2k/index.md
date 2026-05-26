@@ -40,3 +40,4 @@ Both networks use the same **MD4-based file hashes** and **9.28 MB chunk** syste
 | [AICH & ICH](aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |
 | [Secure User Identification](secure-user-identification.md) | RSA-based identity and credit system |
 | [Concepts & Glossary](concepts.md) | Definitions for all technical terms used in the networks |
+| [Other P2P Networks](other-networks.md) | Overview of P2P protocols alternative to eD2k and Kademlia |
