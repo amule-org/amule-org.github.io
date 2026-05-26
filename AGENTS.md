@@ -53,6 +53,11 @@
 - **Translation reference**: English is always the source of truth. All translations must faithfully reflect the English original — do not paraphrase or simplify.
 - **Precision over naturalness**: Translations must be as accurate as possible. Readers are software users familiar with technical terminology, so use technical language freely. Keep English terms (e.g. "hash", "changelog", "release", "peer") when a translated equivalent would be less precise or less commonly used in the target language.
 
+## Naming Conventions
+
+- **Project name**: Always write as "aMule" (not "Amule", "AMule", or "amule").
+- **Module names**: Always lowercase, always in code format: `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, `cas`, `xas`.
+
 ## Important Notes
 
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).

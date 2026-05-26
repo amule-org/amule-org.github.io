@@ -31,9 +31,17 @@
     "message": "Solución de problemas",
     "description": "The label for the doc item 'Troubleshooting' in sidebar 'docsSidebar', linking to the doc troubleshooting/index"
   },
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Solución de problemas",
+    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
+  },
   "sidebar.docsSidebar.doc.FAQ": {
     "message": "FAQ",
     "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc faq/index"
+  },
+  "sidebar.docsSidebar.category.FAQ": {
+    "message": "FAQ",
+    "description": "The label for category 'FAQ' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.doc.Changelogs": {
     "message": "Historial de cambios",

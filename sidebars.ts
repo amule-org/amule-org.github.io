@@ -106,8 +106,27 @@ const sidebars: SidebarsConfig = {
         'contributing/documentation',
       ],
     },
-    {type: 'doc', id: 'troubleshooting/index', label: 'Troubleshooting'},
-    {type: 'doc', id: 'faq/index', label: 'FAQ'},
+    {
+      type: 'category',
+      label: 'Troubleshooting',
+      link: {type: 'doc', id: 'troubleshooting/index'},
+      items: [
+        'troubleshooting/common-problems',
+        'troubleshooting/slow-speeds',
+        'troubleshooting/fake-files-and-servers',
+        'troubleshooting/remote-access',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'FAQ',
+      link: {type: 'doc', id: 'faq/index'},
+      items: [
+        'faq/general',
+        'faq/network',
+        'faq/remote-access',
+      ],
+    },
     {type: 'doc', id: 'changelogs/index', label: 'Changelogs'},
   ],
 };

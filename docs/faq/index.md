@@ -3,28 +3,34 @@ id: index
 title: FAQ
 ---
 
-Frequently asked questions about aMule.
+# FAQ
 
-## General
+Frequently asked questions about aMule, organized by topic.
 
-<!-- TODO: What is aMule? Is it legal? How does it differ from eMule? Is aMule still maintained? -->
+| Section | Contents |
+|---|---|
+| [General FAQ](./general.md) | User interface, file management, credits, settings, statistics, UPnP |
+| [Network & Connectivity FAQ](./network.md) | eD2k protocol, Kademlia, ports, IDs, protocol overhead, browser ed2k:// setup |
+| [Remote Access FAQ](./remote-access.md) | `amuled` overview and service setup, `amulecmd` scripting and scheduling, `amulegui`, `amuleweb` setup |
 
-## Connection
+---
 
-<!-- TODO: Why do I have a Low ID? Why can't I connect to any server? Why is Kad not bootstrapping? -->
+## Quick answers to the most common questions
 
-## Downloads
+**Where are my downloaded files?**
+By default in `~/.aMule/Incoming`. On macOS: `~/Library/Application Support/aMule/Incoming`.
 
-<!-- TODO: Why is my download stuck at 99%? Why are download speeds so slow? What are red segments? -->
+**Why do I have a Low ID?**
+→ TCP port 4662 is not reachable from the internet. See [eD2k Network → High ID and Low ID](../ed2k/ed2k-network.md#high-id-and-low-id) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
 
-## Uploads
+**Downloads are very slow**
+→ Work through the [Slow Download Speeds checklist](../troubleshooting/slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.
 
-<!-- TODO: Do I need to upload? How does the credit system work? Can I disable uploads? -->
+**Which ports does aMule use?**
+TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queue rating), TCP 4711 (`amuleweb`), TCP 4712 (External Connections). See [eD2k Network → Ports](../ed2k/ed2k-network.md#ports).
 
-## Configuration
+**How do I run aMule without a GUI?**
+Use `amuled` (the daemon) and control it with `amulecmd`, `amuleweb`, or `amulegui`. See [Remote Access FAQ](./remote-access.md).
 
-<!-- TODO: Where is the config file? How do I reset my preferences? How do I move my temp/incoming folders? -->
-
-## Other
-
-<!-- TODO: How do I run aMule as a service? Is there a web interface? How do I use amulecmd? -->
+**How do I switch from eMule without losing credits?**
+Copy `cryptkey.dat`, `clients.met`, `preferences.dat`, `preferencesKad.dat`, `key_index.dat`, `load_index.dat`, and `src_index.dat` from eMule's config directory into `~/.aMule`. See [General FAQ → Switching from eMule](./general.md#how-can-i-switch-from-emule-to-amule-without-losing-my-credits).

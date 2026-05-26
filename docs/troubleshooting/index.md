@@ -3,24 +3,38 @@ id: index
 title: Troubleshooting
 ---
 
+# Troubleshooting
+
 Solutions to the most common problems encountered when running aMule.
 
-## Common Issues
+| Section | Contents |
+|---|---|
+| [Common Problems](./common-problems.md) | CPU usage, Low ID, lost downloads, permissions, file descriptors, crashes, and more |
+| [Slow Download Speeds](./slow-speeds.md) | Configuration checklist, ADSL congestion fixes, network-inherent limitations, aMule slowing other apps |
+| [Fake Files and Servers](./fake-files-and-servers.md) | Detecting fake content, identifying and avoiding malicious servers, port testing |
+| [Remote Access Troubleshooting](./remote-access.md) | `amulecmd` connection errors, `amuleweb` connection and authentication issues |
 
-<!-- TODO: index of problems covered in this section; links to sub-pages when added -->
+---
 
-## Low ID
+## Quick diagnostics
 
-<!-- TODO: what Low ID means, how to diagnose it, port forwarding TCP 4662 / UDP 4665 4672, UPnP -->
+**I have a Low ID**
+→ TCP port 4662 is not reachable from the internet. See [Common Problems → Low ID](./common-problems.md#amule-connects-to-a-server-but-always-gets-a-low-id-why) and [Test Your Ports](./fake-files-and-servers.md#testing-your-ports).
 
-## Slow Download Speeds
+**Downloads are very slow**
+→ Work through the [Slow Download Speeds checklist](./slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.
 
-<!-- TODO: upload/download ratio, slot allocation, source counts, A4AF, queue position, network congestion -->
+**aMule slows down everything on my computer**
+→ Your upload limit or connection count is too high. See [aMule Makes Everything Else Slow](./slow-speeds.md#amule-makes-everything-else-slow).
 
-## Fake Files
+**I can't find my downloaded files**
+→ Check `~/.aMule/Incoming` (or `~/Library/Application Support/aMule/Incoming` on macOS). Enable "Show hidden files" in your file manager.
 
-<!-- TODO: what fake files are, how to detect them (AICH mismatch, wrong size, extension mismatch), how to report them -->
+**Kademlia says "firewalled" even though I have a High ID**
+→ Your router is remapping UDP port 4672. See [Network FAQ → Kademlia firewalled](../faq/network.md#why-does-kademlia-still-say-it-is-firewalled).
 
-## Connection Problems
+**Search results contain many suspicious files**
+→ You may be connected to a fake server. See [Fake Servers](./fake-files-and-servers.md#fake-servers).
 
-<!-- TODO: unable to connect to server, Kad bootstrap failures, firewall and NAT troubleshooting, ISP throttling -->
+**amuled won't let amulecmd connect**
+→ External Connections are not enabled or the EC password is not set. See [Remote Access Troubleshooting → amulecmd](./remote-access.md#i-cannot-connect-to-amuled--it-doesnt-seem-to-be-listening-whats-wrong).
