@@ -3,6 +3,10 @@
     "message": "Guía de usuario",
     "description": "The label for category 'User Guide' in sidebar 'docsSidebar'"
   },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Migración",
+    "description": "The label for category 'Migration' in sidebar 'docsSidebar'"
+  },
   "sidebar.docsSidebar.category.aMule Modules": {
     "message": "Componentes de aMule",
     "description": "The label for category 'aMule Modules' in sidebar 'docsSidebar'"
