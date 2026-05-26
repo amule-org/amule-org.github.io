@@ -19,7 +19,16 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Configuration',
           link: {type: 'doc', id: 'user-guide/configuration/index'},
-          items: [],
+          items: [
+            'user-guide/configuration/preferences',
+            'user-guide/configuration/get-high-id',
+            'user-guide/configuration/firewall',
+            'user-guide/configuration/upnp',
+            'user-guide/configuration/ipfilter',
+            'user-guide/configuration/proxy',
+            'user-guide/configuration/events',
+            'user-guide/configuration/skins',
+          ],
         },
         {
           type: 'category',

@@ -182,7 +182,7 @@ See the [server.met reference](./server-met.md) for the complete binary format, 
 
 **Location:** `~/.aMule/staticservers.dat`
 
-A text file listing eD2k servers that should always be treated as [static servers](../configuration/index.md). When aMule loads, entries from this file override matching entries in `server.met`. This file is never modified by aMule.
+A text file listing eD2k servers that should always be treated as [static servers](../configuration/preferences.md). When aMule loads, entries from this file override matching entries in `server.met`. This file is never modified by aMule.
 
 #### Format
 
@@ -316,7 +316,7 @@ All three files use the same format: one absolute directory path per line, UTF-8
 
 **Location:** `~/.aMule/ipfilter.dat`
 
-Text file containing IP ranges that aMule should block or allow, in the format described in the [IP Filter](../configuration/index.md) configuration guide. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success.
+Text file containing IP ranges that aMule should block or allow, in the format described in the [IP Filter](../configuration/ipfilter.md) configuration guide. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success.
 
 #### Obtaining ipfilter.dat online
 

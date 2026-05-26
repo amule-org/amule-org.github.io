@@ -52,7 +52,7 @@ The last three buttons open secondary windows:
 
 | Button | Window |
 |---|---|
-| ![Preferences](/img/docs/usage/window_toolbar12.jpg) | **Preferences** — all aMule settings |
+| ![Preferences](/img/docs/usage/window_toolbar12.jpg) | **[Preferences](../configuration/preferences.md)** — all aMule settings |
 | ![Import](/img/docs/usage/window_toolbar13.jpg) | **Import** — import eDonkey2000 part files (see [Import](../migration/import.md)) |
 | ![About](/img/docs/usage/window_toolbar14.jpg) | **About** — aMule version, copyright, contact information |
 

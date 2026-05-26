@@ -3,28 +3,15 @@ id: index
 title: Configuration
 ---
 
-aMule's Preferences dialog controls every aspect of its behaviour. This section covers each settings page in detail.
+Configuration reference for aMule: the Preferences dialog and guides for specific topics such as firewall setup, IP filtering, and skins.
 
-## Preferences Overview
-
-<!-- TODO: general description of the Preferences dialog and how to open it -->
-
-## Connection
-
-<!-- TODO: bandwidth limits, upload/download caps, ports (TCP/UDP), Max Connections -->
-
-## Servers
-
-<!-- TODO: server list management, auto-connect, static servers -->
-
-## Downloads
-
-<!-- TODO: download directory, chunk strategy, auto-rename, priority -->
-
-## Uploads
-
-<!-- TODO: upload limits, slot allocation, friend slots -->
-
-## Advanced
-
-<!-- TODO: EC port, obfuscation, proxy, scheduler, verbose logging -->
+| Page | Description |
+|---|---|
+| [Preferences](preferences.md) | Full reference for every option in the Preferences dialog |
+| [Getting a High ID](get-high-id.md) | How to configure your ports to obtain a High ID |
+| [Firewall and Router Configuration](firewall.md) | How to open the required ports in your firewall and router |
+| [UPnP](upnp.md) | Automatic port forwarding via UPnP |
+| [IP Filter](ipfilter.md) | Blocking unwanted peers using IP filter lists |
+| [Proxy](proxy.md) | Routing aMule connections through a proxy server |
+| [Events](events.md) | Automating actions on download completion, disk-full alerts, and more |
+| [Skins](skins.md) | Customising toolbar icons and GTK themes |

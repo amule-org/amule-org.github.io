@@ -143,4 +143,4 @@ Introduce tu número de puerto TCP (por defecto 4662) y ejecuta la comprobación
 
 5. **Vuelve a ejecutar la prueba de puertos** después de cada cambio.
 
-Para una guía completa sobre cómo obtener una High ID, consulta [Obtener HighID](../user-guide/configuration/index.md).
+Para una guía completa sobre cómo obtener una High ID, consulta [Obtener HighID](../user-guide/configuration/get-high-id.md).
