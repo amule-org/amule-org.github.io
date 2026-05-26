@@ -76,8 +76,8 @@ Because P2P networks require clients to connect directly to each other, being be
 
 Check the globe icon in the bottom-right corner of the window:
 
-- **Green arrows** — you have a **High ID** and full connectivity. Proceed normally.
-- **Yellow arrows** — you have a **Low ID**. A Low ID greatly reduces P2P performance. You will need to open and forward ports 4662 (TCP), 4665 (UDP), and 4672 (UDP) in your router or firewall.
+- **Green arrows** — you have a **[High ID](../ed2k/high-id-low-id.md)** and full connectivity. Proceed normally.
+- **Yellow arrows** — you have a **[Low ID](../ed2k/high-id-low-id.md)**. A Low ID greatly reduces P2P performance. You will need to open and forward ports 4662 (TCP), 4665 (UDP), and 4672 (UDP) in your router or firewall. See [High ID and Low ID](../ed2k/high-id-low-id.md) for step-by-step instructions.
 
 ## Basic Usage
 

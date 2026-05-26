@@ -21,7 +21,7 @@ Frequently asked questions about aMule, organized by topic.
 By default in `~/.aMule/Incoming`. On macOS: `~/Library/Application Support/aMule/Incoming`.
 
 **Why do I have a Low ID?**
-→ TCP port 4662 is not reachable from the internet. See [eD2k Network → High ID and Low ID](../ed2k/ed2k-network.md#high-id-and-low-id) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
+→ TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../ed2k/high-id-low-id.md) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
 
 **Downloads are very slow**
 → Work through the [Slow Download Speeds checklist](../troubleshooting/slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.

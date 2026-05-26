@@ -143,4 +143,4 @@ Enter your TCP port number (default 4662) and run the check. If the port is repo
 
 5. **Re-run the port test** after each change.
 
-For a complete guide on obtaining a High ID, see [Get HighID](../user-guide/configuration/index.md).
+For a complete guide on obtaining a High ID, see [High ID and Low ID](../ed2k/high-id-low-id.md).

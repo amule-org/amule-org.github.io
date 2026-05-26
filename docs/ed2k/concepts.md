@@ -150,39 +150,21 @@ The eD2k and Kademlia networks depend on sharing: the more clients share files, 
 
 In the eD2k context, an **ID** is a number that uniquely identifies a client to a specific server. It is not globally unique across all servers — a client may have different IDs on different servers.
 
-Two categories of ID exist:
+Two categories of ID exist: **High ID** and **Low ID**. It is always strongly recommended to achieve a High ID when possible.
 
-- **High ID** — the client's TCP port is reachable; the client can accept incoming connections.
-- **Low ID** — the client's TCP port is blocked by NAT or a firewall; the client cannot accept direct connections.
-
-It is always strongly recommended to achieve a High ID when possible.
+For a full explanation of the ID system, the High ID formula, why Low ID restricts transfers, and how to get a High ID, see the dedicated **[High ID and Low ID](high-id-low-id.md)** page.
 
 ### High ID
 
-Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID**. The ID value is computed as:
+Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** (any value ≥ 16,777,216). High ID clients can accept incoming connections from any peer and are not subject to server-side restrictions.
 
-```
-High ID = A + 256·B + 256²·C + 256³·D
-          where IP = A.B.C.D
-```
-
-**Benefits:**
-- Can connect to any other client regardless of their ID.
-- Not subject to server-side download restrictions.
-- Many servers refuse Low ID clients; High ID avoids this.
+→ See **[High ID and Low ID](high-id-low-id.md)** for the full explanation including the ID formula, benefits, and configuration steps.
 
 ### Low ID
 
-Clients whose TCP port is unreachable receive a **Low ID**. Any ID below **16,777,216** is a Low ID.
+Clients whose TCP port is unreachable receive a **Low ID** (any value < 16,777,216). Low ID clients cannot accept direct incoming connections; two Low ID clients **cannot transfer data to each other**; and many servers reject Low ID clients.
 
-**Consequences:**
-- Cannot accept direct incoming connections from other clients.
-- Two Low ID clients **cannot transfer data to each other**.
-- The server relays connection setup on their behalf.
-- Only High ID clients count as "available sources" for a Low ID client.
-- Some large servers reject Low ID clients.
-
-To get a High ID: forward TCP port 4662 (or your configured port) on your router and open it in your firewall. See [Get High ID](../user-guide/configuration/index.md) for detailed instructions.
+→ See **[High ID and Low ID](high-id-low-id.md)** for consequences, troubleshooting, and how to fix a Low ID.
 
 ---
 

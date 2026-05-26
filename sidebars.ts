@@ -96,6 +96,7 @@ const sidebars: SidebarsConfig = {
         'ed2k/ed2k-clients',
         'ed2k/ed2k-links',
         'ed2k/kademlia',
+        'ed2k/high-id-low-id',
         'ed2k/aich',
         'ed2k/secure-user-identification',
         'ed2k/concepts',

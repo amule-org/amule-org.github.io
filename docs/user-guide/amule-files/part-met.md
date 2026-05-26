@@ -174,7 +174,7 @@ Two format versions exist. All values are stored in little-endian byte order. Th
 
 | Bytes | Field | Description |
 |---|---|---|
-| 4 | Source ID | The source's eD2k ID (little-endian). For High ID clients this encodes the IPv4 address. |
+| 4 | Source ID | The source's eD2k ID (little-endian). For [High ID](../../ed2k/high-id-low-id.md) clients this encodes the IPv4 address. |
 | 2 | Port | The source's port (little-endian) |
 
 #### v2 format
@@ -214,6 +214,6 @@ This example has no timestamp — it is a v1 format file.
 
 ### Notes
 
-- **LowID sources are never stored.** A Low ID encodes only a session-relative client ID, not a routable IP address. Since it cannot be used to reconnect after a restart, Low ID clients are excluded from seeds files. Seeds files contain only High ID sources.
+- **[Low ID](../../ed2k/high-id-low-id.md) sources are never stored.** A Low ID encodes only a session-relative client ID, not a routable IP address. Since it cannot be used to reconnect after a restart, Low ID clients are excluded from seeds files. Seeds files contain only [High ID](../../ed2k/high-id-low-id.md) sources.
 - **Maximum 10 sources** per file (aMule's limit). The format itself supports up to 255 (8-bit count field).
 - **2-hour TTL.** When reading a v2 seeds file, sources are discarded if the file's timestamp is older than 2 hours. v1 files have no timestamp and all sources are always accepted.

@@ -27,7 +27,7 @@ Because file identity is determined by the **hash and size, not the name**. Two 
 
 For a complete description of all ports used by aMule, see [eD2k Network — Ports](../ed2k/ed2k-network.md#ports).
 
-aMule works even without any ports open, but you will receive a Low ID. For optimal operation (High ID), open the following ports for **incoming** connections:
+aMule works even without any ports open, but you will receive a [Low ID](../ed2k/high-id-low-id.md). For optimal operation ([High ID](../ed2k/high-id-low-id.md)), open the following ports for **incoming** connections:
 
 | Port | Protocol | Purpose |
 |---|---|---|
@@ -62,9 +62,9 @@ Note: a file named `Birthday.zip` will appear under Archive, not Video — regar
 
 A **source** is a client sharing a chunk of a file you have in your download queue that you have not yet completed. The more sources, the more download opportunities exist.
 
-When you have a Low ID:
+When you have a [Low ID](../ed2k/high-id-low-id.md):
 - **Sources**: all clients sharing a chunk or file you still need.
-- **Available sources**: only High ID clients you can actually connect to.
+- **Available sources**: only [High ID](../ed2k/high-id-low-id.md) clients you can actually connect to.
 
 ---
 

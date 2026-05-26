@@ -127,8 +127,8 @@ Arrow colour meanings:
 |---|---|
 | Red | Offline / not connected |
 | Orange | Connecting |
-| Yellow | Connected but firewalled (Low ID for eD2k) |
-| Green | Connected with High ID |
+| Yellow | Connected but firewalled ([Low ID](../../ed2k/high-id-low-id.md) for eD2k) |
+| Green | Connected with [High ID](../../ed2k/high-id-low-id.md) |
 
 All possible globe icons and their combined meanings:
 
@@ -140,8 +140,8 @@ All possible globe icons and their combined meanings:
 | ![](/img/docs/usage/window_statusbar19.jpg) | Connecting | Offline |
 | ![](/img/docs/usage/window_statusbar18.jpg) | Connecting | Connected (firewalled) |
 | ![](/img/docs/usage/window_statusbar14.jpg) | Connecting | Connected |
-| ![](/img/docs/usage/window_statusbar26.jpg) | Connected (Low ID / firewalled) | Offline |
-| ![](/img/docs/usage/window_statusbar25.jpg) | Connected (Low ID / firewalled) | Connected (firewalled) |
+| ![](/img/docs/usage/window_statusbar26.jpg) | Connected ([Low ID](../../ed2k/high-id-low-id.md) / firewalled) | Offline |
+| ![](/img/docs/usage/window_statusbar25.jpg) | Connected ([Low ID](../../ed2k/high-id-low-id.md) / firewalled) | Connected (firewalled) |
 | ![](/img/docs/usage/window_statusbar21.jpg) | Connected | Offline |
 | ![](/img/docs/usage/window_statusbar20.jpg) | Connected | Connected (firewalled) |
 | ![](/img/docs/usage/window_statusbar22.jpg) | Connected | Connected |

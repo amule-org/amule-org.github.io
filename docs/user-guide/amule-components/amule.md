@@ -79,7 +79,7 @@ The toolbar provides quick access to connect/disconnect, preferences, and the ma
 - Current eD2k connection status and server name.
 - Kademlia connection status.
 - Current download and upload speeds.
-- Your eD2k ID (High ID or Low ID).
+- Your eD2k ID ([High ID or Low ID](../../ed2k/high-id-low-id.md)).
 
 ### Networks Panel
 

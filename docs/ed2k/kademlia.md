@@ -109,14 +109,14 @@ Unlike eD2k where a search goes to a centralised server, Kademlia distributes se
 
 ## Open vs. Firewalled Status
 
-Kademlia uses the terms **Open** and **Firewalled** (analogous to eD2k's High ID / Low ID):
+Kademlia uses the terms **Open** and **Firewalled** (analogous to eD2k's [High ID / Low ID](high-id-low-id.md)):
 
 - **Open** — your Kademlia UDP port (4672) is reachable from the internet. You can participate fully as both a query target and a source.
 - **Firewalled** — your UDP port is blocked or remapped by NAT. You can still download but your participation in the DHT is limited.
 
 ### Resolving Firewalled Status
 
-If your eD2k status is High ID but Kademlia shows Firewalled, the most common cause is **NAT UDP port remapping**:
+If your eD2k status is [High ID](high-id-low-id.md) but Kademlia shows Firewalled, the most common cause is **NAT UDP port remapping**:
 
 Your router rewrites the source port of outgoing UDP packets (e.g. changes 4672 to some ephemeral port). Other Kademlia nodes then try to contact you on the port they saw (the remapped one), which fails.
 

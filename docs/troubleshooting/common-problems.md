@@ -66,7 +66,7 @@ If your internet connection was lost briefly, aMule detected the disconnection, 
 
 Three possible causes:
 
-1. **Port 4662 TCP is not open** in your firewall or not forwarded in your router. See [eD2k Network → Ports](/docs/ed2k/ed2k-network#ports) and [Test Your Ports](/docs/troubleshooting/fake-files-and-servers#testing-your-ports).
+1. **Port 4662 TCP is not open** in your firewall or not forwarded in your router. See [High ID and Low ID](../ed2k/high-id-low-id.md) and [Test Your Ports](./fake-files-and-servers.md#testing-your-ports).
 
 2. **The server is overloaded or misconfigured** and is issuing LowIDs even to clients with open ports. Try a different server.
 

@@ -57,85 +57,24 @@ Some servers in the wild are operated by organisations that log user activity or
 
 ## High ID and Low ID
 
-Every client on the eD2k network is assigned a unique **ID** (Identification number) by the server it connects to.
+Every client on the eD2k network is assigned a unique **ID** by the server it connects to. Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** and can accept direct incoming connections from any peer. Clients with a blocked TCP port receive a **Low ID** (any value below 16,777,216); two Low ID clients cannot transfer data to each other, and many servers reject Low ID clients entirely.
 
-### High ID
-
-A client receives a **High ID** when its standard client TCP port (default: 4662) is reachable from the internet — i.e., not blocked by a NAT router or firewall.
-
-The High ID value is derived from the client's IP address using the formula:
-
-```
-High ID = A + 256·B + 256²·C + 256³·D
-          where the client's IP address is A.B.C.D
-```
-
-For example, IP `80.12.34.56` produces a High ID of `80 + 12·256 + 34·65536 + 56·16777216 = 939,851,344`.
-
-**Benefits of High ID:**
-- Clients with High ID can accept incoming connections from any other client.
-- Two High ID clients connect directly to each other.
-- Some large servers refuse Low ID clients to reduce their own load.
-
-### Low ID
-
-A client receives a **Low ID** when its standard TCP port is blocked (by a router doing NAT, or a firewall). Any ID value below **16,777,216** (16 million) indicates a Low ID.
-
-**Consequences of Low ID:**
-- The server must relay connections on your behalf.
-- **Two Low ID clients cannot transfer data to each other** — they cannot establish a direct connection.
-- Available sources (for download) are reduced to High ID clients only.
-- Many servers reject Low ID clients outright.
-
-It is strongly recommended to obtain a High ID whenever possible. See [Get High ID](../user-guide/configuration/index.md) for how to configure your router and firewall.
-
-### Checking Your ID
-
-After connecting to a server, aMule displays your current ID in the status bar. If you consistently receive a Low ID despite having port 4662 open, the server may be overloaded or misconfigured — this is rare but possible.
+For the full explanation of the ID system, how to calculate your High ID, how to configure your firewall and router to get a High ID, and how the Kademlia "open/firewalled" status relates to this, see **[High ID and Low ID](high-id-low-id.md)**.
 
 ## Ports
 
-eD2k uses several well-known ports. All can be customised in **Preferences → Connection**.
-
-### Standard Client TCP Port (default: 4662)
-
-The **primary data port**. All file data, identification, requests, and basic file descriptions are transmitted over this port between clients and between clients and servers.
-
-**This is the port that must be open for a High ID.** Forward TCP port 4662 on your router and open it in your firewall.
-
-### Standard Server TCP Port (4661)
-
-The port on which eD2k **servers** listen for incoming client connections. This is a server-side setting only — aMule users do not need to configure this port. aMule connects *out to* port 4661 (or the server's configured port) automatically.
-
-### Extended Client UDP Port (default: 4665)
-
-This port is always **Standard Client TCP Port + 3** (so 4662 + 3 = 4665 by default).
-
-It is used for:
-- Extended description data: queue rank, extended file tags, comments, etc.
-- **Kademlia network communication** between nodes.
-- Global server searches and global source queries (UDP).
-
-> **Note:** In early versions of eDonkey/eMule/aMule the extended UDP port was `Standard Server TCP Port + 4` (= 4665 with default server port 4661). This was changed because many ISPs began blocking port 4661, making those servers change their port, which then broke client UDP configuration.
-
-### Kad UDP Port (default: 4672)
-
-Used for the extended eMule protocol, queue rating, file re-ask pings, and **Kademlia**.
-
-> **Important for Kademlia:** If your router does **NAT (Network Address Translation)** and remaps outgoing UDP port 4672 to a different port number, Kademlia will report "firewalled" status even if your TCP port is open. To resolve this, configure your router to preserve (not remap) UDP port 4672.
-
-### Summary of Ports
+aMule uses three configurable ports (all in **Preferences → Connection**) and two fixed service ports:
 
 | Port | Protocol | Direction | Purpose |
 |---|---|---|---|
 | 4661 | TCP | Outgoing | eD2k server listening port (server-side only) |
-| 4662 | TCP | Incoming + Outgoing | Client-to-client file transfers and control |
-| 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia |
-| 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia |
+| **4662** | TCP | Incoming + Outgoing | **Primary data port** — client-to-client transfers. Must be open for High ID. |
+| 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia. Always TCP port + 3. |
+| 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad "open" status. |
 | 4711 | TCP | Incoming | [`amuleweb`](../user-guide/amule-components/amuleweb.md) listening port |
 | 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) port — for [`amulecmd`](../user-guide/amule-components/amulecmd.md), [`amulegui`](../user-guide/amule-components/amulegui.md) |
 
-All ports (except 4661, which is server-defined) can be changed in **Preferences → Connection**.
+For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](high-id-low-id.md#ports-used-by-amule)**.
 
 ### Auxiliary Server Ports
 
