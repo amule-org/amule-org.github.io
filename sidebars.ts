@@ -129,6 +129,7 @@ const sidebars: SidebarsConfig = {
             'development/compilation/linux',
             'development/compilation/macos',
             'development/compilation/windows',
+            'development/compilation/bsd',
           ],
         },
       ],
