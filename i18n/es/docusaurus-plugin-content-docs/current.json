@@ -28,7 +28,7 @@
     "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
   },
   "sidebar.docsSidebar.doc.Quick Start": {
-    "message": "Primeros pasos",
+    "message": "Inicio rápido",
     "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide/index"
   },
   "sidebar.docsSidebar.doc.Troubleshooting": {
@@ -54,5 +54,21 @@
   "version.label": {
     "message": "Actual",
     "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Configuración",
+    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Usage": {
+    "message": "Uso",
+    "description": "The label for category 'Usage' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.aMule Files": {
+    "message": "Archivos de aMule",
+    "description": "The label for category 'aMule Files' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Compilación",
+    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
   }
 }

@@ -1,11 +1,11 @@
 {
   "title": {
     "message": "Changelog",
-    "description": "The title for the changelog used in SEO"
+    "description": "The title for the blog used in SEO"
   },
   "description": {
     "message": "Changelog",
-    "description": "The description for the changelog used in SEO"
+    "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
     "message": "Versiones",

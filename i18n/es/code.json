@@ -15,7 +15,7 @@
     "message": "Descargar"
   },
   "homepage.hero.cta.quickstart": {
-    "message": "Primeros pasos"
+    "message": "Inicio rápido"
   },
   "homepage.whatisamule.title": {
     "message": "¿Qué es aMule?"
@@ -717,6 +717,6 @@
     "message": "¿Eres nuevo en aMule? La {link} te guía a través de la configuración y tu primera descarga."
   },
   "homepage.download.install.link": {
-    "message": "guía de primeros pasos"
+    "message": "guía de inicio rápido"
   }
 }
