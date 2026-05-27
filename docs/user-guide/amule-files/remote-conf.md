@@ -34,8 +34,6 @@ For keys that enable or disable a feature: `0` = false / disabled, `1` = true / 
 
 For keys that accept an MD5 hash: the value is **always case-insensitive**.
 
----
-
 ## Common keys
 
 These keys apply to all remote tools.
@@ -76,13 +74,9 @@ Enable zlib compression on the EC connection. Reduces bandwidth at the cost of C
 - **Default:** `1` (enabled)
 - **No CLI override** (always enabled when connecting to a core that supports it)
 
----
-
 ## Keys specific to amulecmd
 
 `amulecmd` has no keys of its own beyond the common keys above.
-
----
 
 ## Keys specific to amuleweb
 
@@ -165,13 +159,9 @@ Scaling of the statistics graphs. Each pixel in the horizontal axis represents t
 
 - **Default:** `3` (3 seconds per pixel)
 
----
-
 ## Keys specific to Remote GUI
 
 The [`amulegui`](../amule-components/amulegui) currently does not have a stable, documented set of keys in `remote.conf`. It reads and writes several keys that are not formally specified, and some important keys are not saved correctly. This section will be updated once the Remote GUI's configuration handling is stabilised.
-
----
 
 ## Complete example
 

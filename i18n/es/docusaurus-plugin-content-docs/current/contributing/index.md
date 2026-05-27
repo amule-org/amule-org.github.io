@@ -54,8 +54,6 @@ Mejora o amplía este sitio web de documentación. Consulta la guía de [Documen
 - Ejecuta la suite de tests unitarios: `cmake -DBUILD_TESTING=YES -B build && cmake --build build && ctest --test-dir build`.
 - Ayuda a mantener la cobertura de tests añadiendo tests unitarios para el nuevo código.
 
----
-
 ## Revisión de Código
 
 Todas las contribuciones pasan por revisión de código antes de ser fusionadas. Los revisores verifican:
@@ -67,8 +65,6 @@ Todas las contribuciones pasan por revisión de código antes de ser fusionadas.
 - Documentación: ¿están documentadas las nuevas funcionalidades u opciones?
 
 Los comentarios de los revisores deben abordarse en commits de seguimiento en la misma rama.
-
----
 
 ## Comunicación
 

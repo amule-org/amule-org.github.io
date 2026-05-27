@@ -7,8 +7,6 @@ title: Solución de problemas de acceso remoto
 
 Problemas de conexión a aMule de forma remota mediante `amulecmd` o `amuleweb`.
 
----
-
 ## `amulecmd`
 
 ### No me puedo conectar a amuled: no parece estar escuchando. ¿Qué ocurre? {#i-cannot-connect-to-amuled--it-doesnt-seem-to-be-listening-whats-wrong}
@@ -22,8 +20,6 @@ echo -n 'tucontraseña' | md5sum | cut -d ' ' -f 1
 ```
 
 Pega el hash MD5 resultante como valor de `ECPassword` en `~/.aMule/amule.conf`.
-
----
 
 ## `amuleweb`
 

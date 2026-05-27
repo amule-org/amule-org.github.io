@@ -7,8 +7,6 @@ title: Remote Access FAQ
 
 Frequently asked questions about running aMule without a graphical interface and controlling it remotely via `amuled`, `amulecmd`, `amulegui`, and `amuleweb`.
 
----
-
 ## aMule Daemon (amuled)
 
 ### What is amuled?
@@ -25,15 +23,11 @@ See the [amuled documentation](/docs/user-guide/amule-components/amuled) for set
 
 See [Running as a System Service](/docs/user-guide/amule-components/amuled#running-as-a-system-service) in the amuled documentation for init scripts covering systemd, Debian/Ubuntu, Red Hat/Fedora, Gentoo, and SUSE/openSUSE.
 
----
-
 ## `amulecmd`
 
 ### How do I schedule actions or write scripts with amulecmd?
 
 See [Scheduling with Cron](/docs/user-guide/amule-components/amulecmd#scheduling-with-cron) and [Useful Scripts](/docs/user-guide/amule-components/amulecmd#useful-scripts) in the `amulecmd` documentation.
-
----
 
 ## `amulegui`
 
@@ -42,8 +36,6 @@ See [Scheduling with Cron](/docs/user-guide/amule-components/amulecmd#scheduling
 Yes. `amulegui` has been available since aMule 2.0.0-rc7. It provides the same interface as the monolithic `amule` client and connects to `amuled` over the EC protocol.
 
 See the [`amulegui` documentation](/docs/user-guide/amule-components/amulegui) for compilation, setup, and connection instructions.
-
----
 
 ## `amuleweb`
 

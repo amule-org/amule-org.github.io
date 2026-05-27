@@ -5,8 +5,6 @@ title: Eventos
 
 Los eventos son acciones que aMule puede ejecutar automáticamente cuando ocurren ciertos sucesos. Se configuran en la pestaña **Eventos** del cuadro de diálogo [Preferencias](preferences.md), o — al ejecutar `amuled` — en la sección `[UserEvents]` de `amule.conf`.
 
----
-
 ## Tipos de eventos
 
 Se soportan cuatro eventos:
@@ -18,8 +16,6 @@ Se soportan cuatro eventos:
 | **Sin espacio en disco** | aMule se queda sin espacio en disco en la partición usada para archivos temporales. |
 | **Error al completar** | aMule no puede mover un archivo completado del directorio temporal al directorio de descargas (normalmente por falta de espacio en disco). |
 
----
-
 ## Tipos de comando
 
 Para cada evento puedes especificar dos comandos independientes:
@@ -30,8 +26,6 @@ Para cada evento puedes especificar dos comandos independientes:
 | **Comando de interfaz gráfica** | Cualquier versión de aMule con GUI: `amulegui` o `amule` monolítico. |
 
 Al ejecutar `amule` monolítico, ambos comandos se ejecutan si ambos están especificados.
-
----
 
 ## Variables
 
@@ -65,8 +59,6 @@ Cada evento expone un conjunto de variables que se sustituyen en la cadena de co
 |---|---|
 | `%FILE` | Ruta completa y nombre del archivo que no pudo moverse. |
 
----
-
 ## Sintaxis de los comandos
 
 Un comando puede ser un comando de shell simple, compuesto, o la ruta a un script seguida de parámetros opcionales:
@@ -84,8 +76,6 @@ MiScript.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 Dentro de un script de shell, las variables se reciben como parámetros posicionales `$1`, `$2`, `$3`, etc. El script debe estar en `$PATH` o especificarse con su ruta completa.
 
 Si un comando falla por cualquier motivo, el fallo queda registrado en [el archivo de log de aMule](../amule-files/index.md).
-
----
 
 ## Ejemplos
 
@@ -143,8 +133,6 @@ DLtime=$5
 ```
 
 Consulta la [versión en inglés](../../user-guide/configuration/events.md) para ejemplos adicionales con `sendmail`, `ssmtp` y notificaciones de escritorio via NotifyOSD.
-
----
 
 ### Windows — notificación emergente en LAN
 

@@ -9,8 +9,6 @@ Events are actions aMule can take automatically when certain things happen. They
 
 ![Events preferences tab — command configuration](/img/docs/configuration/Events2.png)
 
----
-
 ## Event types
 
 Four events are supported:
@@ -22,8 +20,6 @@ Four events are supported:
 | **Out of space** | aMule runs out of disk space on the partition used for temporary files. |
 | **Error on completion** | aMule cannot move a completed file from the temporary directory to the incoming directory (typically caused by insufficient disk space). |
 
----
-
 ## Command types
 
 For each event you can specify two independent commands:
@@ -34,8 +30,6 @@ For each event you can specify two independent commands:
 | **GUI command** | Any aMule flavour that has a GUI: `amulegui` or the monolithic `amule`. |
 
 When running monolithic `amule`, both commands are executed if both are specified.
-
----
 
 ## Variables
 
@@ -69,8 +63,6 @@ Each event exposes a set of variables that are substituted in the command string
 |---|---|
 | `%FILE` | Full path and filename of the file that could not be moved. |
 
----
-
 ## Command syntax
 
 A command can be a single shell command, a compound shell command, or the path to a shell script followed by optional parameters:
@@ -88,8 +80,6 @@ MyScript.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 Inside a shell script, the variables are received as positional parameters `$1`, `$2`, `$3`, etc. The script must be in `$PATH` or specified with a full pathname.
 
 If a command fails to execute for any reason, the failure is logged in [aMule's log file](../amule-files/index.md).
-
----
 
 ## Examples
 
@@ -415,8 +405,6 @@ soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
      You must free some space to resume." \
     && /usr/bin/play "$soundPath"
 ```
-
----
 
 ### Windows — LAN popup notification
 

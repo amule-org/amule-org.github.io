@@ -44,8 +44,6 @@ To toggle ICH: **Preferences → Files → ICH → ICH active**.
 
 ICH is the predecessor of AICH. When AICH can be applied to a file, ICH is **not used** for that file. AICH provides more precise corruption recovery at sub-chunk granularity.
 
----
-
 ## AICH — Advanced Intelligent Corruption Handler
 
 ### Motivation

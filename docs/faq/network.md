@@ -7,8 +7,6 @@ title: Network & Connectivity FAQ
 
 Frequently asked questions about the eD2k and Kademlia networks, ports, connection quality, protocol overhead, and browser configuration for `ed2k://` links.
 
----
-
 ## eD2k and Kademlia
 
 For a complete overview of both networks and their architecture, see:
@@ -20,8 +18,6 @@ For a complete overview of both networks and their architecture, see:
 ### Why do the same files appear as different files in search results, even with the same name?
 
 Because file identity is determined by the **hash and size, not the name**. Two files with identical names but different content have different hashes and appear as separate files. Two files with different names but identical content and size are treated as the same file. See [eD2k Links — Why the filename is irrelevant](../ed2k/ed2k-links.md#why-the-filename-is-irrelevant-to-identity).
-
----
 
 ## Ports
 
@@ -38,8 +34,6 @@ aMule works even without any ports open, but you will receive a [Low ID](../ed2k
 ### Why does Kademlia still say it is "firewalled"?
 
 See [Kademlia — Resolving Firewalled Status](../ed2k/kademlia.md#resolving-firewalled-status).
-
----
 
 ## Searching and Sources
 
@@ -66,13 +60,9 @@ When you have a [Low ID](../ed2k/high-id-low-id.md):
 - **Sources**: all clients sharing a chunk or file you still need.
 - **Available sources**: only [High ID](../ed2k/high-id-low-id.md) clients you can actually connect to.
 
----
-
 ## Credits, Ratings, and Scoring
 
 For a full explanation of the upload queue priority system, see [eD2k Network — Credits and Scoring](../ed2k/ed2k-network.md#credits-and-scoring) and [Concepts & Glossary — Credits](../ed2k/concepts.md#credits).
-
----
 
 ## Network Speed and Protocol Overhead
 
@@ -123,8 +113,6 @@ Cheap SOHO routers can struggle with the large number of simultaneous TCP connec
 **Link redundancy:** aMule must be restarted when links switch so it binds to the new IP and receives a new eD2k ID — unless the switchover is handled transparently at the NAT router.
 
 **Load balancing:** aMule binds to all interfaces (`0.0.0.0`) but can only advertise one IP as its eD2k ID. Running across two simultaneously active ISP links is unreliable; the only reliable solution is to pin aMule's traffic to one interface.
-
----
 
 ## Browser Configuration for ed2k:// Links
 

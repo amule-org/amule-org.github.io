@@ -17,8 +17,6 @@ Los números de puerto son configurables en **Preferencias → Conexión**. Cons
 Desde aMule 2.2.x, aMule soporta [UPnP](upnp.md) para configurar automáticamente los puertos del router — si tu router soporta UPnP, puede que no necesites reenvío manual de puertos.
 :::
 
----
-
 ## iptables (Linux — genérico)
 
 Este es el cortafuegos por defecto en la mayoría de distribuciones Linux.
@@ -57,8 +55,6 @@ iptables -A OUTPUT -p udp --sport 4665 -j ACCEPT
 iptables -A OUTPUT -p udp --sport 4672 -j ACCEPT
 ```
 
----
-
 ## iptables — gateway NAT (detrás de un router Linux)
 
 Si aMule se ejecuta en una máquina detrás de un gateway NAT Linux, añade estas reglas al script de configuración de iptables del gateway:
@@ -89,8 +85,6 @@ iptables -A FORWARD -i $EXTIF -o $INTIF -p udp --dport $EMULEUDP  -d $EMULEHOST 
 iptables -A FORWARD -i $EXTIF -o $INTIF -p udp --dport $EMULEUDP2 -d $EMULEHOST -j ACCEPT
 ```
 
----
-
 ## Fedora / Red Hat
 
 Con el cortafuegos por defecto de Fedora Core y una instalación RPM estándar de aMule, ejecuta los siguientes comandos **como root**:
@@ -104,8 +98,6 @@ Con el cortafuegos por defecto de Fedora Core y una instalación RPM estándar d
 # Guardar las reglas para que persistan tras un reinicio
 /sbin/service iptables save
 ```
-
----
 
 ## SuSE / OpenSUSE
 
@@ -144,8 +136,6 @@ Asegúrate también de que `FW_ROUTE` (sección 5) esté establecido a `yes`. Gu
 
 Inicia **YaST**, ve a **Seguridad y usuarios → Cortafuegos**, recorre todos los diálogos y finaliza.
 
----
-
 ## OpenBSD — pf
 
 OpenBSD usa el filtro de paquetes `pf`. Añade estas reglas a `/etc/pf.conf`:
@@ -180,8 +170,6 @@ Activa pf automáticamente al arranque:
 ```sh
 echo PF=yes >> /etc/rc.conf.local
 ```
-
----
 
 ## Reenvío de puertos en el router
 
@@ -237,13 +225,9 @@ Ve a **Advanced → Port Forwarding/Port Triggering → Add Custom Service** y a
 1. En **Internet → Advanced Setup → Special Applications**, añade entradas para los puertos UDP 4665 y 4672.
 2. En **Virtual Servers**, añade un servidor TCP para el puerto 4662.
 
----
-
 ## ¿Mi router no está en la lista?
 
 Consulta [portforward.com](http://www.portforward.com/) para instrucciones de reenvío de puertos para cientos de modelos de router.
-
----
 
 ## UPnP a través del cortafuegos {#kademlia-y-upnp}
 

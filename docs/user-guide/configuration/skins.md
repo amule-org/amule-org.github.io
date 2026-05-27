@@ -10,8 +10,6 @@ aMule supports two independent skinning systems:
 1. **aMule bitmap skins** — replace aMule-specific toolbar and client icons with custom images (zip-file based).
 2. **GTK theme skins** — change fonts, colors, shapes, and widget behavior for all GTK applications on the system (Linux/BSD only).
 
----
-
 ## aMule bitmap skins
 
 ### What can be skinned
@@ -121,8 +119,6 @@ The following skins are available for download. To install, copy the zip file to
 | Skin | Version | Download |
 |---|---|---|
 | Crystal Project | 0.2.3 | [skin-crystal-project-0.2.3.zip](/skins/skin-crystal-project-0.2.3.zip) |
-
----
 
 ## GTK theme skins (Linux/BSD)
 

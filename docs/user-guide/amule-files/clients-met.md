@@ -15,8 +15,6 @@ All multi-byte integers in this file are stored in **little-endian** byte order.
 The entire file is discarded if any byte violates the format rules, or if the file's version number does not match the version expected by the running aMule build. Edit this file with care.
 :::
 
----
-
 ## Format
 
 ### File header
@@ -52,8 +50,6 @@ The 8-byte upload and download totals are split across two 4-byte fields for com
 Total uploaded   = Upload_high   × 2³²  +  Upload_low
 Total downloaded = Download_high × 2³²  +  Download_low
 ```
-
----
 
 ## Annotated example
 
@@ -135,8 +131,6 @@ D4 F8 76 A9 E7 C7 D8 9A
 ...
 ```
 →Second client record follows in the same layout.
-
----
 
 ## Notes
 

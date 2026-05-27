@@ -27,8 +27,6 @@ A backup copy is written to `amule.conf.bak` each time the file is saved.
 
 aMule writes this file on exit and reads it on startup. Manual edits take effect on the next startup.
 
----
-
 ## `[eMule]` section
 
 The primary section. Contains the majority of user-facing preferences.
@@ -234,8 +232,6 @@ These keys are managed by aMule. Editing them manually is not recommended.
 | `TableSortingUploads`, `TableWidthsUploads` | Upload list column sorting and widths. |
 | `TableSortingShared`, `TableWidthsShared` | Shared files list column sorting and widths. |
 
----
-
 ## `[Browser]` section
 
 Browser selection for opening web links from within aMule.
@@ -244,8 +240,6 @@ Browser selection for opening web links from within aMule.
 |---|---|---|
 | `OpenPageInTab` | `1` | Open links in a new tab when possible. |
 | `CustomBrowserString` | _(empty)_ | Command for a custom browser. On macOS the default is `/usr/bin/open`. |
-
----
 
 ## `[ExternalConnect]` section
 
@@ -266,8 +260,6 @@ Browser selection for opening web links from within aMule.
 | `ShowProgressBar` | `1` | Show the chunk availability progress bar in the download list. |
 | `TransmitOnlyUploadingClients` | `0` | Only transmit data for clients that are actively uploading to you. |
 
----
-
 ## `[WebServer]` section
 
 [`amuleweb`](../amule-components/amuleweb) built-in web server settings.
@@ -286,8 +278,6 @@ Browser selection for opening web links from within aMule.
 | `WebUPnPTCPPort` | `50001` | Internal UPnP TCP port used for web server UPnP communication. |
 | `Path` | `amuleweb` | Path or name of the `amuleweb` binary. |
 
----
-
 ## `[Proxy]` section
 
 SOCKS4, SOCKS5, or HTTP proxy configuration.
@@ -302,8 +292,6 @@ SOCKS4, SOCKS5, or HTTP proxy configuration.
 | `ProxyUser` | _(empty)_ | Proxy username. |
 | `ProxyPassword` | _(empty)_ | Proxy password (stored in plain text). |
 
----
-
 ## `[Obfuscation]` section
 
 Protocol obfuscation settings. Obfuscation makes aMule traffic harder to detect and throttle by ISPs.
@@ -316,15 +304,11 @@ Protocol obfuscation settings. Obfuscation makes aMule traffic harder to detect 
 | `CryptoPaddingLenght` | `254` | Maximum random padding length (bytes) added to TCP connections for obfuscation. Note: the key name contains a typo ("Lenght") that is preserved for compatibility. |
 | `CryptoKadUDPKey` | _(random)_ | Secret 32-bit key used for Kad UDP verification. Generated randomly on first run; do not edit manually. |
 
----
-
 ## `[PowerManagement]` section
 
 | Key | Default | Description |
 |---|---|---|
 | `PreventSleepWhileDownloading` | `0` | Prevent the operating system from suspending or sleeping while aMule has active downloads. |
-
----
 
 ## `[Razor_Preferences]` section
 
@@ -341,8 +325,6 @@ Source-dropping algorithm settings and main window geometry.
 | `MAIN_X_POS`, `MAIN_Y_POS` | _(varies)_ | Main window position (pixels from screen edge). |
 | `MAIN_X_SIZE`, `MAIN_Y_SIZE` | _(varies)_ | Main window size in pixels. |
 | `SRV_SPLITTER_POS` | _(varies)_ | Splitter position in the Servers window. |
-
----
 
 ## `[UserEvents]` section {#userevents-section}
 
@@ -434,8 +416,6 @@ DLTIME="$5"
 } | mail -s "$NAME" "$EMAIL"
 ```
 
----
-
 ## `[Statistics]` section
 
 Persistent statistics counters updated by aMule. These are informational and are not edited manually.
@@ -446,15 +426,11 @@ Persistent statistics counters updated by aMule. These are informational and are
 | `TotalDownloadedBytes` | `0` | Cumulative bytes downloaded across all sessions. |
 | `TotalUploadedBytes` | `0` | Cumulative bytes uploaded across all sessions. |
 
----
-
 ## `[SkinGUIOptions]` section
 
 | Key | Default | Description |
 |---|---|---|
 | `Skin` | _(empty)_ | Path to the skin `.zip` file used to customise aMule's bitmaps. Empty = no skin (default appearance). |
-
----
 
 ## `[GUI]` and `[GUI/TransferWnd]` sections
 
@@ -466,8 +442,6 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 | `AppImageIntegrationDeclined` | `0` | Set to `1` if the user has declined the AppImage `.desktop` integration prompt. Written automatically; do not edit. |
 | `[GUI/TransferWnd] Splitter` | `114` | Vertical splitter position (pixels) in the Transfers window. |
 | `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Transfers window. |
-
----
 
 ## `[General]` section
 
@@ -487,8 +461,6 @@ Each category is stored as a `[Cat#N]` subsection (N = 1, 2, …):
 | `Color` | Category colour (stored as a decimal integer). |
 | `Priority` | Default priority for downloads in this category. |
 
----
-
 ## `[HTTPDownload]` section
 
 Internal cache written and managed by aMule automatically. **Do not edit manually.**
@@ -507,8 +479,6 @@ Each key stores the last URL that was successfully downloaded for one specific r
 | `URL_6` | GeoIP database (`GeoLite2-Country.mmdb`) | `HTTP_GeoIP` |
 
 Keys are only written after a successful download. A key that was never written (or whose URL has changed) simply causes a full download without the `If-Modified-Since` optimisation.
-
----
 
 ## `[Debug]` section
 
@@ -567,8 +537,6 @@ wxFileConfig (the INI library used by aMule) escapes spaces in key names with a 
 | `Cat_HTTP` | HTTP download requests and responses (`server.met`, `nodes.dat`, IP filter, GeoIP). |
 | `Cat_Asio Sockets` | Boost.Asio networking layer (socket events, async I/O). |
 
-
-
 The following keys existed in older versions of aMule and are automatically migrated or removed when an old `amule.conf` is loaded:
 
 | Old key | Replacement | Notes |
@@ -579,8 +547,6 @@ The following keys existed in older versions of aMule and are automatically migr
 | `[SkinGUIOptions] UseSkinFiles` | `[SkinGUIOptions] Skin` | Key renamed; empty string replaces the boolean disable state. |
 | `GeoIPUpdateUrl` | `GeoLiteCountryUpdateUrl` | Renamed after MaxMind changed their licensing model. |
 | `[FakeCheck] Browser` | `[Browser] OpenPageInTab` | Section renamed from `[FakeCheck]` to `[Browser]`. |
-
----
 
 ## Complete example
 

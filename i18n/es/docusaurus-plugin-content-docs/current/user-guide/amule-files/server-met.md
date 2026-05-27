@@ -20,8 +20,6 @@ All multi-byte integers are stored in **little-endian** byte order.
 | `server.met.download` | Temporary destination for a downloaded server list; renamed to `server.met` on success |
 | `server_auto.met` | Staging area where downloaded lists are held before being merged into `server.met` |
 
----
-
 ## Obtaining server.met online
 
 A current `server.met` can be downloaded from the internet. This is useful on first run, when the local list is empty, or when all known servers are unreachable.
@@ -56,8 +54,6 @@ Ed2kServersUrl=https://upd.emule-security.org/server.met
 `Serverlist=1` enables the automatic download at startup. `Serverlist=0` (the default) disables it. Supported URL schemes are `http://`, `https://`, and `ftp://`.
 
 The `addresses.dat` file in the same directory provides an additional list of URLs that are also checked at startup when auto-update is enabled (one URL per line).
-
----
 
 ## Format
 
@@ -126,8 +122,6 @@ All tags are optional. aMule always writes at least the 12 fixed tags; the optio
 | `0x00000200` | `SRV_UDPFLG_UDPOBFUSCATION` | Supports UDP obfuscation |
 | `0x00000400` | `SRV_UDPFLG_TCPOBFUSCATION` | Supports TCP obfuscation |
 
----
-
 ## Python 3 dump script
 
 The following script reads a `server.met` file and prints a table of all server records. Pass the path to a `server.met` file as the only argument.
@@ -151,7 +145,6 @@ TAGTYPE_STR1    = 0x11
 TAGTYPE_STR16   = 0x20
 
 ST_SERVERNAME = 0x01
-
 
 def read_tag(f):
     (type_byte,) = struct.unpack("B", f.read(1))
@@ -185,7 +178,6 @@ def read_tag(f):
 
     return name, value
 
-
 def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: dump_server_met.py <server.met>")
@@ -216,7 +208,6 @@ def main():
             files       = tags.get("files", "")
 
             print(f"{i:>4}  {ip:<15}  {port:>5}  {str(users):>6}  {str(files):>6}  {server_name}")
-
 
 if __name__ == "__main__":
     main()

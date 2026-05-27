@@ -5,8 +5,6 @@ title: Testing
 
 aMule has two complementary testing mechanisms: an automated **unit test suite** that runs in CI and can be run locally, and a **virtual eD2k test network** for integration testing of network behaviour without connecting to the real eD2k/Kad network.
 
----
-
 ## Unit Tests
 
 ### Running the Test Suite
@@ -156,8 +154,6 @@ Please report to admin@amule.org
 ================================
 ```
 
----
-
 ## Virtual eD2k Test Network
 
 A **testing field** is a virtual eD2k network isolated from the real internet. It consists of one or more eD2k servers and a set of aMule clients that can only communicate with each other, not with real-world peers. This is useful for:
@@ -201,8 +197,6 @@ If aMule refuses to connect to your local server, try disabling **"Always filter
 2. Configure and start all test clients with IPFilter active.
 3. Add the local server to each client's server list and connect.
 4. The clients can now communicate only with each other and the local server.
-
----
 
 ## Continuous Integration
 

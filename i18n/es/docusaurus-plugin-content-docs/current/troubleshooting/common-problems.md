@@ -7,8 +7,6 @@ title: Problemas comunes
 
 Soluciones a los problemas más frecuentes al ejecutar aMule.
 
----
-
 ## ¿Por qué aMule consume tanta CPU al iniciar?
 
 aMule calcula el hash de cada archivo nuevo o modificado que encuentra en los Directorios Compartidos al iniciarse. Este comportamiento es normal para archivos nuevos.
@@ -32,8 +30,6 @@ Si aMule **siempre** consume mucha CPU al iniciar aunque no se hayan añadido ni
   rm ~/.aMule/known.met
   ```
 
----
-
 ## "No valid servers to connect in serverlist found" — ¿qué significa?
 
 Este mensaje aparece cuando la opción **"Conectar automáticamente solo a servidores de la lista estática"** está activada pero la lista estática está vacía.
@@ -42,8 +38,6 @@ Este mensaje aparece cuando la opción **"Conectar automáticamente solo a servi
 
 1. **Desactiva la opción**: Preferencias → Servidores → desmarcar "Conectar automáticamente solo a servidores de la lista estática".
 2. **Añade un servidor a la lista estática**: en la ventana de Servidores, haz clic derecho sobre un servidor y selecciona "Añadir a estáticos". Repítelo para todos los servidores que quieras conservar.
-
----
 
 ## ¿Por qué aMule se queda de repente sin servidores en la lista?
 
@@ -56,8 +50,6 @@ Si tu conexión a internet se interrumpió brevemente, aMule detectó la descone
 
 **Solución**: desactiva **"Eliminar servidor muerto tras X reintentos"**. Es seguro dejar activado "Reconectar al perder la conexión".
 
----
-
 ## aMule se conecta a un servidor pero siempre obtiene una Low ID. ¿Por qué? {#amule-connects-to-a-server-but-always-gets-a-low-id-why}
 
 Tres posibles causas:
@@ -68,8 +60,6 @@ Tres posibles causas:
 
 3. **Tu ISP bloquea el tráfico P2P** en el puerto eD2k estándar 4662. Configura aMule para usar un puerto diferente:
    - Preferencias → Conexión → Puerto TCP estándar del cliente → cambia a un valor no estándar (por ejemplo, el puerto TCP 25600 ha funcionado en algunos ISPs).
-
----
 
 ## aMule fue interrumpido mientras completaba un archivo y ahora nunca lo completa (muestra 100% descargado). ¿Cómo lo soluciono?
 
@@ -82,8 +72,6 @@ Esto ocurre cuando aMule es terminado a mitad de la finalización y el pase de v
    touch ./*
    ```
 4. Reinicia aMule. Detectará la finalización pendiente y terminará el proceso.
-
----
 
 ## Perdí una descarga — ¿puedo recuperarla?
 
@@ -122,13 +110,9 @@ Dos enfoques:
   4. Elimina el nuevo archivo `.part` (por ejemplo, elimina `011.part`).
   5. Reinicia aMule: recogerá el `.part` antiguo con el `.met` restaurado.
 
----
-
 ## ¿Por qué aMule deja de responder a los clics aunque no se haya colgado?
 
 Hay un cuadro de diálogo abierto en algún lugar de tu escritorio, posiblemente oculto detrás de otras ventanas o en un espacio de trabajo diferente. aMule está esperando a que sea cerrado. Comprueba todos los espacios de trabajo en busca de cualquier diálogo de aMule (cuadros de confirmación, diálogos de error, etc.) y haz clic en Aceptar o Cancelar.
-
----
 
 ## ¿Por qué algunos archivos de mis carpetas compartidas no aparecen en la ventana de Archivos Compartidos?
 
@@ -142,8 +126,6 @@ rm ~/.aMule/known.met
 
 En el siguiente inicio, aMule recalculará los hashes de todos los archivos compartidos desde cero.
 
----
-
 ## Siempre obtengo un mensaje sobre addresses.met al iniciar aMule. ¿Qué ocurre?
 
 Esto sucede cuando:
@@ -153,8 +135,6 @@ Esto sucede cuando:
 **Soluciones:**
 - Añade URLs de listas de servidores en **Preferencias → Servidores → "Lista"**.
 - O desactiva **"Actualizar automáticamente la lista de servidores al inicio"** si no necesitas actualizaciones automáticas.
-
----
 
 ## ¿Qué hago si pierdo mi archivo cryptkey.dat?
 
@@ -169,13 +149,9 @@ rm ~/.aMule/preferences.dat
 
 Inicia aMule de nuevo y comienza a reconstruir créditos.
 
----
-
 ## ¿Por qué el límite de Subida/Descarga se restablece a 0 tras cada reinicio?
 
 Esto ocurrió en versiones de aMule **anteriores a 2.0.0-rc4** cuando establecías un Límite de Ancho de Banda superior al valor de Capacidad de Ancho de Banda correspondiente. La corrección se aplicó en 2.0.0-rc4. Si usas una versión actual y sigues viendo esto, verifica que tus límites de Descarga/Subida no superen los valores de Capacidad correspondientes en Preferencias → Conexión.
-
----
 
 ## ¿Por qué aMule ignora el ancho de banda que establecí por slot? {#why-is-amule-ignoring-the-bandwidth-i-set-per-slot}
 
@@ -195,8 +171,6 @@ Además, si tras asignar slots queda ancho de banda antes de alcanzar el Límite
 
 Tras 3 slots (6 KBps usados), queda 1 KBps. aMule abre un 4.º slot y da a los 4 slots `7 / 4 = 1,75 KBps` cada uno.
 
----
-
 ## ¿Por qué aparecen mensajes de "Too many connections" en el terminal?
 
 Has establecido un valor muy alto para **Preferencias → Conexión → Máx. Conexiones** que se acerca o supera el límite de descriptores de archivo por proceso del sistema operativo. Otras aplicaciones del mismo equipo también consumen conexiones, lo que significa que aMule alcanza el límite del SO y no puede abrir nuevas.
@@ -211,23 +185,17 @@ Establécelo como valor de cadena que contenga un número decimal de 32 bits. (E
 
 **En Linux**: comprueba los límites con `ulimit -a` y ajusta con `ulimit -n <valor>`.
 
----
-
 ## Mis barras de progreso han perdido el efecto 3D y tienen un aspecto plano. ¿Puedo restaurarlas?
 
 En la mayoría de versiones de aMule: **Preferencias → Ajustes de la GUI → Estilo de la barra de progreso → mueve el deslizador a la posición más a la derecha** para el mejor efecto 3D.
 
 Excepción — versiones 2.0.0-rc4 a 2.0.0-rc6: en esas versiones específicas, el mejor efecto 3D se consigue con la posición **central**. La posición más a la derecha da un aspecto plano; la más a la izquierda da un aspecto oscuro.
 
----
-
 ## Todas mis descargas se pausaron de repente y no puedo reanudarlas. ¿Qué ocurre?
 
 Comprueba el espacio libre en el sistema de archivos donde se encuentra tu **directorio Temp**. aMule necesita un mínimo de **9,28 MB** de espacio libre para descargar un chunk. Si el espacio libre cae por debajo del umbral establecido en **Preferencias → Archivos → "Espacio mínimo en disco"**, aMule pausa todas las descargas para evitar la corrupción.
 
 Libera espacio en disco y luego reanuda las descargas.
-
----
 
 ## ¿Por qué no puedo previsualizar un archivo?
 
@@ -237,8 +205,6 @@ aMule permite la previsualización solo de **archivos de vídeo**. Deben cumplir
 2. Al menos los **primeros 256 KB** del archivo han sido descargados.
 
 Si aMule se niega a previsualizar un archivo que crees que debería ser previsualizable, navega manualmente a tu directorio Temp y abre el archivo `NNN.part` directamente con un reproductor de vídeo.
-
----
 
 ## ¿Por qué la previsualización de aMule no funciona con MPlayer?
 
@@ -256,8 +222,6 @@ Si MPlayer se cuelga con archivos AVI incompletos, añade `-demuxer lavf`:
 xterm -T "aMule preview" -iconic -e mplayer -demuxer lavf "%PARTFILE"
 ```
 
----
-
 ## Al cerrar MPlayer desde una previsualización, aMule se queda bloqueado
 
 Este error existía en aMule **anterior a 2.0.0-rc4**. La causa: MPlayer mantenía su proceso principal en ejecución en segundo plano tras cerrar la ventana, y aMule esperaba a que el proceso de previsualización terminase.
@@ -266,15 +230,11 @@ Este error existía en aMule **anterior a 2.0.0-rc4**. La causa: MPlayer manten�
 
 **Solución definitiva**: actualiza a una versión actual de aMule.
 
----
-
 ## ¿Por qué Transferred es un número menor que Completed?
 
 Esto parece contraintuitivo pero es correcto. Ver [FAQ General → Transferred vs Completed](/docs/faq/general#what-is-the-difference-between-transferred-and-completed-in-the-transfers-window).
 
 En resumen: "Transferred" son los bytes comprimidos sin procesar recibidos. "Completed" es la cantidad de datos de archivo útiles reales extraídos de esos bytes tras la descompresión y la eliminación de las cabeceras de protocolo. Transferred siempre será menor o igual que Completed.
-
----
 
 ## aMule siempre ralentiza mi ordenador cuando completa una descarga. ¿Es normal?
 
@@ -282,16 +242,12 @@ Sí. Cuando una descarga se completa, aMule realiza una **verificación completa
 
 Esto es intensivo en CPU para archivos grandes y es el comportamiento esperado.
 
----
-
 ## ¿Hay alguna forma de seleccionar recursivamente un directorio completo y su contenido en Preferencias?
 
 Sí:
 
 - **aMule 2.0.0-rc4 o posterior**: haz clic derecho sobre el icono del directorio que quieres seleccionar recursivamente en la lista de Directorios Compartidos.
 - **aMule 1.x y hasta 2.0.0-rc3**: haz clic en el directorio mientras mantienes pulsada la tecla **Ctrl**.
-
----
 
 ## Descargué un archivo que se corrompió tras completarse. ¿Puedo evitar volver a descargarlo todo?
 
@@ -307,8 +263,6 @@ Si aún tienes el enlace `ed2k://`:
    ```
 6. Reinicia aMule. Detectará qué chunks están intactos (coincidiendo con el hash esperado) y cuáles están corruptos, y solo volverá a descargar los chunks corruptos.
 
----
-
 ## ¿Qué debo tener en cuenta al usar montajes NFS con aMule?
 
 Si alguno de tus Directorios Compartidos o directorios Temp/Incoming está en montajes NFS, asegúrate de **desmontar esos montajes NFS de cualquier equipo que se esté apagando** antes de que ocurra el apagado.
@@ -316,8 +270,6 @@ Si alguno de tus Directorios Compartidos o directorios Temp/Incoming está en mo
 Si un montaje NFS deja de estar disponible mientras aMule está en ejecución, aMule se bloqueará indefinidamente esperando a que el montaje vuelva. Síntomas: la ventana de Estadísticas muestra líneas planas no nulas para Descarga/Subida/Conexiones que caen a cero solo después de restaurar los montajes NFS.
 
 Tras desmontar los montajes NFS de cualquier equipo, también haz clic en **Recargar** en la ventana de Archivos Compartidos.
-
----
 
 ## Los archivos descargados no obtienen los permisos que establecí en Preferencias. ¿Por qué?
 
@@ -339,8 +291,6 @@ umask
 
 Para cambiarlo, establece `umask` en tu perfil de shell o sesión antes de iniciar aMule. En sistemas basados en systemd puedes establecer `UMask=` en el archivo de unidad del servicio.
 
----
-
 ## aMule no puede crear archivos / muestra errores de descriptor de archivo. ¿Qué ocurre?
 
 Esto no debería ocurrir en operación normal. Cuando sucede, la causa más probable es que el **límite de descriptores de archivo abiertos** está demasiado bajo para tu cuenta de usuario.
@@ -358,8 +308,6 @@ man ulimit
 ```
 
 En la mayoría de distribuciones Linux, los límites permanentes pueden establecerse en `/etc/security/limits.conf`. Recuerda que los cambios tienen efecto en la siguiente sesión de inicio de sesión (o reinicio del sistema, dependiendo de tu configuración).
-
----
 
 ## aMule se cuelga con bastante frecuencia. ¿Puedo configurarlo para que se reinicie automáticamente?
 

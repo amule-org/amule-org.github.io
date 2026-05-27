@@ -5,8 +5,6 @@ title: High ID and Low ID
 
 In the eD2k network, every client is assigned a numeric **ID** by the server it connects to. This ID determines whether the client can accept incoming connections from other peers. The distinction between **High ID** and **Low ID** is one of the most fundamental concepts in the eD2k network, and it has a direct impact on download performance and which other clients you can exchange data with.
 
----
-
 ## What is a Client ID?
 
 When a client successfully connects to an eD2k server, the server assigns it a **unique numeric ID** for that session. This ID:
@@ -16,8 +14,6 @@ When a client successfully connects to an eD2k server, the server assigns it a *
 - Determines whether the client is reachable by other peers without server assistance.
 
 Two categories of ID exist: **High ID** and **Low ID**.
-
----
 
 ## High ID
 
@@ -47,8 +43,6 @@ Any ID value **at or above 16,777,216** (16 million) is a High ID.
 - **No server restrictions.** Many large eD2k servers refuse connections from Low ID clients to reduce their own relay load; having a High ID avoids this.
 - **Full source availability.** A High ID client sees all sources (both High ID and Low ID) as "available sources" for download.
 
----
-
 ## Low ID
 
 A client receives a **Low ID** when its Standard Client TCP port is blocked by a NAT router or firewall, so that other clients cannot initiate connections to it. Any ID value **below 16,777,216** (16 million) is a Low ID.
@@ -68,8 +62,6 @@ Low IDs are typically small numbers assigned incrementally by the server — the
 ### The 16,777,216 threshold
 
 The threshold `16,777,216 = 256³` is the smallest possible High ID value, corresponding to the IP `1.0.0.0`. Any ID below this value cannot represent a real IP address and is therefore treated as a Low ID.
-
----
 
 ## How to Get a High ID
 
@@ -150,8 +142,6 @@ If your machine is behind a NAT router (the most common scenario for home users)
 > - [portforward.com](http://portforward.com/) provides step-by-step walkthroughs for hundreds of router models.
 > - The aMule [Firewall](../user-guide/configuration/index.md) article contains instructions for specific Linux distributions and router brands.
 
----
-
 ## Kademlia: Open vs Firewalled
 
 The Kademlia (Kad) network uses a similar but independent status system. Instead of High ID / Low ID, it uses **"open"** and **"firewalled"**:
@@ -178,8 +168,6 @@ Some NAT routers perform **port remapping**: they change the source port of outg
 
 The reason this works is that changing the TCP port often also changes how the router handles the associated UDP traffic, preventing remapping.
 
----
-
 ## Testing Your Port Status
 
 aMule provides a web page to test whether your ports are reachable from the internet:
@@ -194,8 +182,6 @@ Enter each port number and run the test. The results mean:
 | **Not accessible** | The port is blocked. You will receive a Low ID (if TCP 4662) or be Kad-firewalled (if UDP 4672). |
 
 If port 4662 TCP shows "accessible" but you still receive a Low ID after connecting, the server you connected to may be overloaded or misconfigured — this is rare but possible. Try connecting to a different server.
-
----
 
 ## Troubleshooting
 
@@ -216,8 +202,6 @@ If port 4662 TCP shows "accessible" but you still receive a Low ID after connect
 
 This is a fundamental eD2k protocol limitation. There is no workaround other than getting at least one of the two clients to High ID status.
 
----
-
 ## Summary
 
 | Aspect | High ID | Low ID |
@@ -230,8 +214,6 @@ This is a fundamental eD2k protocol limitation. There is no workaround other tha
 | Server acceptance | All servers | Many servers reject Low ID |
 | Available download sources | All peers (High + Low ID) | High ID peers only |
 | Kademlia (requires TCP + UDP 4672) | Can be open | Can be firewalled (independent) |
-
----
 
 ## Related Pages
 

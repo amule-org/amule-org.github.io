@@ -124,8 +124,6 @@ systemctl start amuled
 
 Replace `User=amule` with the name of a user that has already run `amule` or `amuled` once to generate a configuration.
 
----
-
 ### Generic Debian/Ubuntu (init.d)
 
 Save the following as `/etc/init.d/amuled` and make it executable (`chmod 755 /etc/init.d/amuled`).
@@ -183,8 +181,6 @@ ln -s /etc/init.d/amuled /etc/rc5.d/S20amuled
 
 **Ubuntu note:** Ubuntu ships `/etc/init.d/amule-daemon` already. Set the user by editing `/etc/default/amule-daemon`; `amuled` will then start automatically as that user.
 
----
-
 ### Red Hat / Fedora / RHEL / CentOS / SME7 (init.d)
 
 Save the following as `/etc/init.d/amuled`, make it executable, then register it with `chkconfig`:
@@ -239,8 +235,6 @@ Register the service:
 chkconfig --add amuled
 ```
 
----
-
 ### Gentoo (OpenRC)
 
 Save the following as `/etc/init.d/amuled`:
@@ -277,8 +271,6 @@ restart() {
     svc_start
 }
 ```
-
----
 
 ### SUSE / openSUSE (init.d with LSB headers)
 

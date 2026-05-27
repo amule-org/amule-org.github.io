@@ -5,8 +5,6 @@ title: Concepts & Glossary
 
 This page defines all technical terms and concepts used in the eD2k and Kademlia networks as implemented in aMule.
 
----
-
 ## Hashing
 
 ### Hash
@@ -48,8 +46,6 @@ See the dedicated [AICH & ICH page](./aich.md) for full documentation of Block H
 The **userhash** is a 128-bit value that uniquely identifies a client within the eD2k network. It is stored in `~/.aMule/preferences.dat` and persists between sessions.
 
 The userhash is used by other clients to track accumulated credits with you. When [Secure User Identification](./secure-user-identification.md) (SUI) is enabled, the userhash is cryptographically linked to your RSA private key, preventing impersonation.
-
----
 
 ## Chunks and Data Integrity
 
@@ -108,8 +104,6 @@ aMule can optionally store a small number of known **sources** for rare files in
 
 aMule stores up to **5 seeds** per file. Enable in **Preferences → Files → Store 5 seeds for rare files**.
 
----
-
 ## File Sharing
 
 ### Shared File
@@ -142,8 +136,6 @@ In P2P terminology, **sharing** means making a file available for others to down
 
 The eD2k and Kademlia networks depend on sharing: the more clients share files, the more resilient and complete the network becomes.
 
----
-
 ## Client IDs and Connectivity
 
 ### ID
@@ -165,8 +157,6 @@ Clients whose Standard Client TCP port (default: 4662) is reachable from the int
 Clients whose TCP port is unreachable receive a **Low ID** (any value < 16,777,216). Low ID clients cannot accept direct incoming connections; two Low ID clients **cannot transfer data to each other**; and many servers reject Low ID clients.
 
 → See **[High ID and Low ID](high-id-low-id.md)** for consequences, troubleshooting, and how to fix a Low ID.
-
----
 
 ## Download Queue
 
@@ -228,8 +218,6 @@ An **upload slot** is a share of your upload bandwidth allocated to one download
 
 No client can allocate fewer than **3 slots**, so the minimum per-slot bandwidth is `upload_limit / 3` KB/s.
 
----
-
 ## Client Behaviour
 
 ### Aggressive Client
@@ -280,8 +268,6 @@ The **blacklist** is a list of clients that are refused connections. Both client
 - **Client blacklist** — bad guys and leechers detected this session.
 - **Server blacklist** — clients that repeatedly request connections or files in a way that overloads the server.
 
----
-
 ## Social Features
 
 ### Friend
@@ -291,8 +277,6 @@ A **friend** is a client that you have added to your friends list, identified th
 - Be easily messaged through the Friends pane in aMule.
 
 Friends are identified by their SUI public key (not just their IP, which can change).
-
----
 
 ## Bootstrapping
 
@@ -305,8 +289,6 @@ Friends are identified by their SUI public key (not just their IP, which can cha
 Once connected to one Kademlia-compatible client, that client shares its routing table, which gives access to more contacts, which gives access to the full network.
 
 See [Kademlia — Bootstrapping](./kademlia.md#bootstrapping) for full details.
-
----
 
 ## Protocol Details
 
@@ -334,8 +316,6 @@ Common signs of a fake:
 - Comments from other users indicate the file is fake.
 - The file size differs significantly from the genuine file.
 
----
-
 ## Webcache
 
 :::warning aMule position
@@ -359,8 +339,6 @@ The scheme was fully described in a post published on eMule's forums. Several eM
 - **Legal uncertainty**: Using ISP HTTP caches for arbitrary P2P data rather than web content is a legally grey area. Legislation differs across jurisdictions, and eD2k clients aim for the broadest legal compatibility possible.
 - **DDoS effect on ISP infrastructure**: At scale, webcache generates a high volume of writes to ISP cache servers from many clients simultaneously. This degrades cache service quality for the ISP's entire subscriber base. ISPs could legitimately terminate the contracts of clients generating this load, and P2P developers supporting webcache could be sued on the grounds of distributing a tool that performs distributed denial-of-service attacks against ISP infrastructure.
 - **Governmental surveillance**: P2P networks are monitored by several governments on suspicion of illegal use. Routing shared content through ISP proxies — infrastructure that governments can easily compel ISPs to monitor — substantially increases exposure.
-
----
 
 ## Quick Reference Table
 

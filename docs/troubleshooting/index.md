@@ -14,8 +14,6 @@ Solutions to the most common problems encountered when running aMule.
 | [Fake Files and Servers](./fake-files-and-servers.md) | Detecting fake content, identifying and avoiding malicious servers, port testing |
 | [Remote Access Troubleshooting](./remote-access.md) | `amulecmd` connection errors, `amuleweb` connection and authentication issues |
 
----
-
 ## Quick diagnostics
 
 **I have a Low ID**

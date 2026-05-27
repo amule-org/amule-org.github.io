@@ -37,8 +37,6 @@ pacman -S \
 
 The `mingw-w64-x86_64-toolchain` group includes GCC, binutils, and all associated tools.
 
----
-
 ## Build
 
 In the MSYS2 MINGW64 terminal, clone the repository and configure with CMake using the **Ninja** generator:
@@ -104,15 +102,11 @@ cmake -B build \
 cmake --build build
 ```
 
----
-
 ## Running the Tests
 
 ```sh
 ctest --test-dir build --output-on-failure --timeout 10
 ```
-
----
 
 ## Running the Built Binaries
 
@@ -128,8 +122,6 @@ To run binaries outside the MSYS2 terminal (e.g. by double-clicking in Windows E
 
 1. Add `C:\msys64\mingw64\bin` to the Windows system `PATH`.
 2. Or copy the required DLLs next to the executable. The packaging scripts in `packaging/windows/build.sh` handle this automatically for release builds.
-
----
 
 ## Packaging (Creating a Windows Installer)
 
@@ -148,8 +140,6 @@ For signing the release binary:
 ```sh
 ./sign.sh
 ```
-
----
 
 ## Common Issues
 
@@ -204,8 +194,6 @@ CMake caches configure results. If a configure fails partway through (e.g. becau
 rm -rf build
 cmake -B build -G Ninja ...
 ```
-
----
 
 ## Notes on the MSYS2 MINGW64 Environment
 

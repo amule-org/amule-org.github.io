@@ -5,15 +5,11 @@ title: Temporary download files (*.part, *.part.met, *.part.met.seeds)
 
 While a file is being downloaded, aMule creates a group of temporary files in the **Temp directory** (`~/.aMule/Temp/` by default). Each in-progress download produces up to five related files.
 
----
-
 ## `*.part`
 
 The actual download data. aMule creates this file with the **full size of the completed file** from the very beginning. Portions that have not yet been downloaded are filled with zero bytes, while received data overwrites the zeros at the correct offsets.
 
 This design means that at any point during a download you can inspect the file — you will see correct data where chunks have been received and zeros elsewhere. It also allows aMule to download chunks from multiple peers simultaneously without having to rearrange data after the fact.
-
----
 
 ## `*.part.met`
 
@@ -65,7 +61,6 @@ The following script reads a `.part.met` file and prints its header fields and t
 import sys
 import struct
 
-
 def read_tag(f):
     (tag_type,) = struct.unpack("B", f.read(1))
     (name_len,) = struct.unpack("<H", f.read(2))
@@ -101,7 +96,6 @@ def read_tag(f):
     else:
         print(f"type=UNKNOWN (0x{tag_type:02X})")
 
-
 def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: parse_part_met.py <file.part.met>")
@@ -132,24 +126,17 @@ def main():
             print(f"  [{i}]:", end=" ")
             read_tag(f)
 
-
 if __name__ == "__main__":
     main()
 ```
-
----
 
 ## `*.part.met.bak`
 
 A periodic backup of the `.part.met` file. aMule creates this backup at regular intervals during a download so that, if the `.part.met` file is lost or corrupted (e.g. after a crash), you can recover the download state by renaming `.part.met.bak` to `.part.met`.
 
----
-
 ## `*.part.met.backup`
 
 A transient write-in-progress file. When aMule needs to update a `.part.met` file, it writes the new data here first and then renames it to `.part.met` once the write is complete. This prevents the `.part.met` file from being left in a half-written state if the process is interrupted. Under normal operation, `.part.met.backup` files are very short-lived and should not appear in the Temp directory.
-
----
 
 ## `*.part.met.seeds`
 

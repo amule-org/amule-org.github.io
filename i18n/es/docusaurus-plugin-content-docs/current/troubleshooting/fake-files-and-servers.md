@@ -7,8 +7,6 @@ title: Archivos y servidores falsos
 
 La red eD2k ofrece escasa protección integrada contra contenido falso y servidores maliciosos. Esta página explica cómo detectar archivos falsos, identificar servidores falsos y mantener una lista de servidores segura.
 
----
-
 ## Archivos falsos
 
 ### ¿Qué es un archivo falso?
@@ -54,8 +52,6 @@ Algunos servicios FakeCheck de la época original de la wiki (como `donkeyfakes.
 - **Comprueba la coherencia de la extensión**: un archivo llamado `movie.avi` que tiene un número mágico `application/exe` en los primeros bytes (visible en un editor hexadecimal sobre el primer chunk descargado) es sospechoso.
 - **Prefiere archivos con muchas fuentes completas**: el número entre corchetes en los resultados de búsqueda (clientes que se sabe que tienen el archivo completo) se correlaciona con la legitimidad, aunque no es concluyente.
 - **Usa AICH**: el sistema AICH (Advanced Intelligent Corruption Handling) verifica la integridad a nivel de sub-chunk mediante un árbol de hashes. Aunque AICH no detecta un fake (un archivo internamente coherente pero que no es lo que buscabas), sí evita aceptar accidentalmente chunks corruptos de una fuente falsa que mezcle datos legítimos y corruptos.
-
----
 
 ## Servidores falsos {#fake-servers}
 
@@ -105,8 +101,6 @@ Deshabilita eD2k en **Preferencias → Conexión** → desmarcar "Conectar a la 
 :::note
 Deshabilitar eD2k y usar solo Kademlia no debería resultar en menos fuentes ni en velocidades de descarga más bajas en condiciones normales. Las búsquedas y la localización de fuentes tardarán algo más porque las consultas de Kademlia se propagan por la red distribuida en lugar de ir a un servidor central, pero los resultados son equivalentes para la mayoría de los archivos.
 :::
-
----
 
 ## Probar tus puertos {#testing-your-ports}
 

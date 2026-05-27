@@ -7,13 +7,9 @@ title: Slow Download Speeds
 
 This page covers two related problems: aMule downloading too slowly, and aMule consuming so much bandwidth that all other applications on your computer slow down.
 
----
-
 ## aMule Is Slow
 
 Slow download speeds in aMule fall into two categories: **your own configuration**, and **factors inherent to the network**.
-
----
 
 ### Configuration Issues
 
@@ -73,8 +69,6 @@ Some ISPs block or rate-limit traffic on the standard eD2k TCP port 4662:
 
 Verify that ports TCP 4662, UDP 4665, and UDP 4672 are open in your local firewall (not just the router). See [eD2k Network → Ports](/docs/ed2k/ed2k-network#ports).
 
----
-
 ### ADSL-Specific: Congested Uplink / Downlink
 
 Many ADSL providers configure their network with large packet buffers, which causes a well-known problem: **a congested uplink can severely reduce downlink speed**, even though they are physically separate channels. This effect is explained in the WonderShaper documentation.
@@ -94,8 +88,6 @@ If aMule is the only significant user of your bandwidth, set its limits slightly
 - **sabishape** — another traffic shaper for similar scenarios.
 
 **Upload slot count**: with a 21 KB/s upload limit, having more than 5–7 upload connections is counterproductive. Each connection gets too little bandwidth to be useful. Set the per-slot bandwidth to at least 3 KB/s.
-
----
 
 ### Network-Related Causes
 
@@ -129,8 +121,6 @@ If your shared folders contain many popular completed files, aMule tends to spen
 #### What actually determines download speed
 
 The single most important factor is **upload bandwidth**. Without good upload speed, no configuration change will significantly improve download speed over the long term. Credits are the mechanism — and credits require uploading.
-
----
 
 ## aMule Makes Everything Else Slow
 
@@ -171,8 +161,6 @@ On wxWidgets versions prior to 2.5.4, enabling verbose log caused the server log
 ### Files with auto-priority causing excessive disk I/O
 
 If **disk I/O** (not network) is the bottleneck — disk activity LED constantly on, application responsiveness suffers — check whether files set to **auto-priority** are causing frequent priority recalculations. Set their priority explicitly (High, Normal, Low) rather than leaving them on auto.
-
----
 
 ### Finding the right values for your connection
 

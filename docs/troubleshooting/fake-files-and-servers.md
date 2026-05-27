@@ -7,8 +7,6 @@ title: Fake Files and Servers
 
 The eD2k network provides little built-in protection against fake content and malicious servers. This page explains how to detect fake files, identify fake servers, and maintain a safe server list.
 
----
-
 ## Fake Files
 
 ### What is a fake file?
@@ -54,8 +52,6 @@ Some FakeCheck services from the original wiki era (e.g., `donkeyfakes.gambri.ne
 - **Check extension consistency**: a file named `movie.avi` that has an `application/exe` magic number in the first bytes (visible in a hex editor on the first downloaded chunk) is suspicious.
 - **Prefer files with many complete sources**: the number in brackets in the search results (clients known to have the complete file) correlates with legitimacy, though it is not conclusive.
 - **Use AICH**: the AICH (Advanced Intelligent Corruption Handling) system verifies sub-chunk integrity using a hash tree. While AICH does not detect a fake (a file that is internally consistent but not what you wanted), it does prevent accidentally accepting corrupted chunks from a fake source that has mixed legitimate and corrupted data.
-
----
 
 ## Fake Servers
 
@@ -105,8 +101,6 @@ Disable eD2k in **Preferences → Connection** → uncheck "Connect to eD2k netw
 :::note
 Disabling eD2k and using only Kademlia should not result in fewer sources or lower download speeds under normal conditions. Searches and source finding will take somewhat longer because Kademlia queries propagate through the distributed network rather than going to a central server, but the results are equivalent for most files.
 :::
-
----
 
 ## Testing Your Ports
 

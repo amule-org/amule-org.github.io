@@ -7,13 +7,9 @@ title: Velocidades de descarga lentas
 
 Esta página aborda dos problemas relacionados: que aMule descargue demasiado despacio y que aMule consuma tanto ancho de banda que todas las demás aplicaciones de tu ordenador se vuelvan lentas.
 
----
-
 ## aMule va lento
 
 Las velocidades de descarga lentas en aMule se dividen en dos categorías: **tu propia configuración** y **factores inherentes a la red**.
-
----
 
 ### Problemas de configuración {#configuration-issues}
 
@@ -73,8 +69,6 @@ Algunos ISPs bloquean o limitan el tráfico en el puerto TCP estándar eD2k 4662
 
 Verifica que los puertos TCP 4662, UDP 4665 y UDP 4672 están abiertos en tu firewall local (no solo en el router). Ver [Red eD2k → Puertos](/docs/ed2k/ed2k-network).
 
----
-
 ### ADSL: enlace de subida o bajada congestionado
 
 Muchos proveedores ADSL configuran su red con grandes búferes de paquetes, lo que provoca un problema conocido: **un enlace de subida congestionado puede reducir severamente la velocidad de bajada**, aunque sean canales físicamente separados. Este efecto se explica en la documentación de WonderShaper.
@@ -94,8 +88,6 @@ Si aMule es el único usuario significativo de tu ancho de banda, establece sus 
 - **sabishape** — otro traffic shaper para escenarios similares.
 
 **Número de slots de subida**: con un límite de subida de 21 KB/s, tener más de 5–7 conexiones de subida es contraproducente. Cada conexión recibe demasiado poco ancho de banda para ser útil. Establece el ancho de banda por slot en al menos 3 KB/s.
-
----
 
 ### Causas relacionadas con la red
 
@@ -129,8 +121,6 @@ Si tus carpetas compartidas contienen muchos archivos completos populares, aMule
 #### Qué determina realmente la velocidad de descarga
 
 El factor más importante es el **ancho de banda de subida**. Sin una buena velocidad de subida, ningún cambio de configuración mejorará significativamente la velocidad de descarga a largo plazo. Los créditos son el mecanismo — y los créditos requieren subir.
-
----
 
 ## aMule ralentiza todo lo demás {#amule-makes-everything-else-slow}
 
@@ -171,8 +161,6 @@ En versiones de wxWidgets anteriores a 2.5.4, activar el registro detallado hac�
 ### Archivos con prioridad automática que causan excesivo I/O de disco
 
 Si el **I/O de disco** (no la red) es el cuello de botella — el LED de actividad del disco siempre encendido, la respuesta de las aplicaciones se resiente — comprueba si los archivos con **prioridad automática** están provocando recálculos frecuentes de prioridad. Establece su prioridad explícitamente (Alta, Normal, Baja) en lugar de dejarlos en automático.
-
----
 
 ### Encontrar los valores correctos para tu conexión
 

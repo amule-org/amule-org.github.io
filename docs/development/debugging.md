@@ -28,8 +28,6 @@ All built binaries can be run directly from `build/` during development:
 ```
 :::
 
----
-
 ## Debugging with GDB
 
 ### Installing GDB
@@ -137,8 +135,6 @@ To enable core file generation, add `ulimit -c unlimited` to `~/.bashrc` (or equ
 | `-fomit-frame-pointer` | Prevents GDB from parsing the stack on x86 | Remove from `CFLAGS`/`CXXFLAGS` |
 | `-fPIE` without `-nopie` | Position-independent executable; GDB needs `-nopie` at link time | Add `-nopie` to `LDFLAGS` |
 | Stripped binary (`install-strip`) | Removes all debug symbols | Do not use `install-strip` or `-Wl,-s` / `-Wl,-S` when debugging |
-
----
 
 ## Debugging with Valgrind
 
@@ -263,8 +259,6 @@ valgrind \
 
 On first runs, use `--gen-suppressions=yes` to build up the suppression file. Once the file is stable, remove `--gen-suppressions=yes` and use `--error-exitcode=1` to detect regressions.
 
----
-
 ## GDB GUI Front Ends
 
 GDB has a command-line interface that is efficient and usable remotely over SSH. If you prefer a graphical view:
@@ -276,8 +270,6 @@ GDB has a command-line interface that is efficient and usable remotely over SSH.
 
 GUI front ends are especially convenient for inspecting multiple variables simultaneously. That said, learning the GDB command line pays off quickly: it works everywhere, including remote terminal sessions.
 
----
-
 ## Fedora: Automatic Bug Reporting Tool (ABRT)
 
 Fedora includes ABRT, which can automatically generate backtraces for system-installed packages. To use it with aMule:
@@ -286,8 +278,6 @@ Fedora includes ABRT, which can automatically generate backtraces for system-ins
 2. In `/etc/abrt/abrt.conf`, set `OpenGPGCheck = no`.
 3. After a crash, open the ABRT notification. Select **"Local GNU Debugger"** as the analyser and **"Logger"** as the output facility to write the backtrace to a file.
 4. Attach the file to the GitHub issue.
-
----
 
 ## Gentoo: Splitdebug Build
 

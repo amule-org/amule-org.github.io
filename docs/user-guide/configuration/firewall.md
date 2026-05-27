@@ -21,8 +21,6 @@ Since aMule 2.2.x, aMule supports [UPnP](upnp.md) to configure router ports auto
 If you have a High ID but Kademlia still shows "firewalled", your router may be remapping the source UDP port on outgoing UDP 4672 packets. See [UPnP and Kademlia](#kademlia-and-upnp) below.
 :::
 
----
-
 ## iptables (Linux — generic)
 
 This is the default firewall on most Linux distributions.
@@ -73,8 +71,6 @@ iptables -A INPUT -p udp --dport 4662:4665 -j ACCEPT
 
 where the range is `TCP_port : (TCP_port + 3)`.
 
----
-
 ## iptables — NAT gateway (behind a Linux router)
 
 If aMule runs on a machine behind a Linux NAT gateway, add these rules to the gateway's iptables configuration script.
@@ -109,8 +105,6 @@ iptables -A FORWARD -i $EXTIF -o $INTIF -p udp --dport $EMULEUDP2 -d $EMULEHOST 
 
 After applying the rules, verify that the ports are open using the [Test Port](https://www.amule.org/testport.php) page.
 
----
-
 ## Fedora / Red Hat
 
 If you have a default Fedora Core firewall and a default aMule RPM installation, run the following commands **as root**:
@@ -126,8 +120,6 @@ If you have a default Fedora Core firewall and a default aMule RPM installation,
 ```
 
 After this, aMule will be able to receive a High ID.
-
----
 
 ## SuSE / OpenSUSE
 
@@ -168,8 +160,6 @@ The format `0/0,<IP>,<proto>,<port>` means: forward incoming connections through
 
 Start **YaST**, go to **Security and Users → Firewall**, step through all dialogs and finish. YaST will restart the firewall with the new rules.
 
----
-
 ## OpenBSD — pf
 
 OpenBSD uses the `pf` packet filter. Add these rules to `/etc/pf.conf`:
@@ -206,8 +196,6 @@ Enable pf automatically at boot:
 ```sh
 echo PF=yes >> /etc/rc.conf.local
 ```
-
----
 
 ## Router port forwarding
 
@@ -369,13 +357,9 @@ If aMule keeps getting a Low ID because DHCP assigns a different IP address, eit
 If the TRENDnet router crashes or stops forwarding traffic after running aMule, reduce **Preferences → Connection → Connection Limits** to 100 (or 50) and **Preferences → Core Tweaks → Max new connections / 5 secs** to 10 (or 5). Restart aMule to apply the changes.
 :::
 
----
-
 ## My router is not listed here?
 
 Check [portforward.com](http://www.portforward.com/) for step-by-step port forwarding instructions for hundreds of router models.
-
----
 
 ## UPnP through the firewall {#kademlia-and-upnp}
 

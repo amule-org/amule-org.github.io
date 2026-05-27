@@ -7,8 +7,6 @@ title: FAQ de Acceso Remoto
 
 Preguntas frecuentes sobre la ejecución de aMule sin interfaz gráfica y su control remoto mediante `amuled`, `amulecmd`, `amulegui` y `amuleweb`.
 
----
-
 ## aMule Daemon (amuled)
 
 ### ¿Qué es amuled?
@@ -25,15 +23,11 @@ Consulta la [documentación de amuled](/docs/user-guide/amule-components/amuled)
 
 Consulta la [documentación de amuled](/docs/user-guide/amule-components/amuled) donde encontrarás scripts de inicio para systemd, Debian/Ubuntu, Red Hat/Fedora, Gentoo y SUSE/openSUSE.
 
----
-
 ## `amulecmd`
 
 ### ¿Cómo programo acciones o escribo scripts con amulecmd?
 
 Consulta la [documentación de `amulecmd`](/docs/user-guide/amule-components/amulecmd) para ver ejemplos de cron y scripts útiles.
-
----
 
 ## `amulegui`
 
@@ -42,8 +36,6 @@ Consulta la [documentación de `amulecmd`](/docs/user-guide/amule-components/amu
 Sí. `amulegui` está disponible desde aMule 2.0.0-rc7. Proporciona la misma interfaz que el cliente monolítico `amule` y se conecta a `amuled` mediante el protocolo EC.
 
 Consulta la [documentación de `amulegui`](/docs/user-guide/amule-components/amulegui) para instrucciones de compilación, configuración y conexión.
-
----
 
 ## `amuleweb`
 

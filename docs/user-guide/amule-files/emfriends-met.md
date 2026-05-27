@@ -13,8 +13,6 @@ When aMule is compiled with Unicode support, username strings are written **twic
 
 The entire file is written in packets of 2 bytes, little-endian.
 
----
-
 ## Format
 
 ### File header
@@ -51,8 +49,6 @@ When compiled with Unicode support, the username is written as two consecutive t
 | 1 | Tag meaning | Always `0x01` (username) |
 | 2 | String length | Number of bytes in the string (little-endian) |
 | N | String | The username bytes |
-
----
 
 ## Annotated example
 
@@ -179,8 +175,6 @@ EA 00
 00 00 00 00
 ```
 → Tag count: 0 (no username stored for this friend)
-
----
 
 ## Notes
 

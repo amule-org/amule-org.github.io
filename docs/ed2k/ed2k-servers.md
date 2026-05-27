@@ -9,8 +9,6 @@ Most eD2k servers are interconnected, which allows **global searches** that span
 
 The [Kademlia network](kademlia.md) works without any servers: every client simultaneously acts as its own server. Running both networks at the same time is the recommended configuration for aMule.
 
----
-
 ## Server software
 
 The main server software used on the eD2k network is the **Lugdunum server** (also referred to as *eserver*). It was created by reverse-engineering the eDonkey protocol and redesigned entirely from scratch. The original MetaMachine server software was abandoned after MetaMachine ceased operations; its source code was revealed to the Lugdunum project in late 2002 but was never used. By 2008, virtually all active eD2k servers ran the Lugdunum software.
@@ -57,8 +55,6 @@ The `Version` tag (`0x91`) in a [`server.met`](../user-guide/amule-files/server-
 aMule is entirely independent of Lugdunum. aMule is an eD2k **client**, not server software, and has no affiliation with the Lugdunum project.
 :::
 
----
-
 ## The server list
 
 The **server list** is the list of eD2k servers your client can connect to. Each entry contains at minimum:
@@ -77,8 +73,6 @@ In aMule, the server list is visible in the **Networks** panel, **eD2k** tab:
 ![eD2k server list in aMule](/img/docs/Serverlist-ed2k.png)
 
 aMule connects to one server at a time. It tries servers in priority order (High → Normal → Low), and within a priority group it connects to the server with the best score (based on ping and failure count).
-
----
 
 ## Server ports
 
@@ -104,8 +98,6 @@ The additional ports a server supports are advertised in the `ST_AUXPORTSLIST` t
 
 aMule has supported auxiliary server ports since version **2.0.0**. See [Connecting via auxiliary ports](#connecting-via-auxiliary-ports) below for instructions.
 
----
-
 ## Connecting via auxiliary ports
 
 If your ISP blocks port 4661, you can connect to servers that advertise auxiliary ports:
@@ -119,8 +111,6 @@ If your ISP blocks port 4661, you can connect to servers that advertise auxiliar
 A client that connects via an auxiliary port must still advertise the **standard port (4661)** to other clients — not the auxiliary port. This is handled automatically by aMule.
 :::
 
----
-
 ## High ID and Low ID
 
 Every client connected to an eD2k server is assigned an ID by the server:
@@ -131,8 +121,6 @@ Every client connected to an eD2k server is assigned an ID by the server:
 A Low ID significantly reduces available download sources (only High ID peers can reach you) and many large servers reject Low ID clients outright. It is strongly recommended to obtain a High ID by forwarding TCP port 4662 on your router.
 
 See **[High ID and Low ID](high-id-low-id.md)** for the ID calculation formula, consequences, and how to configure your router and firewall to obtain a High ID.
-
----
 
 ## Static servers
 
@@ -149,8 +137,6 @@ A **static server** is a server you have marked as essential. Static servers are
 Static servers can be managed through the aMule GUI (right-click a server → Mark as static / Unmark as static) or by editing the [`staticservers.dat`](../user-guide/amule-files/index.md#staticserversdat) file directly.
 
 The `staticservers.dat` file takes precedence over `server.met`: if the same server IP and port appears in both files, the `staticservers.dat` entry overrides the `server.met` data.
-
----
 
 ## Fake servers
 
@@ -181,8 +167,6 @@ If either option is enabled and you connect to a fake server, fake servers flood
 
 1. **Curate your server list** (recommended) — see [Maintaining a safe server list](#maintaining-a-safe-server-list) below.
 2. **Use Kademlia only** — disable eD2k entirely and rely solely on the [Kademlia network](kademlia.md), which has no central servers and therefore no fake-server problem.
-
----
 
 ## Maintaining a safe server list
 
@@ -227,8 +211,6 @@ You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them ch
 ### If your server list becomes empty
 
 Click the play button (▶) next to the URL field in the **Networks → eD2k** tab to re-fetch the list from the configured URL.
-
----
 
 ## Kademlia: no servers required
 

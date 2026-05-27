@@ -16,8 +16,6 @@ Para más información sobre los formatos de archivo, consulta [Archivos de aMul
 
 El `ipfilter.dat` de aMule es 100% compatible con el de eMule.
 
----
-
 ## Activar y configurar el filtro de IP
 
 El filtro de IP se controla en **Preferencias → Seguridad → Filtrado de IP**:
@@ -34,15 +32,11 @@ El filtro de IP se controla en **Preferencias → Seguridad → Filtrado de IP**
 
 En versiones de aMule anteriores a 2.0.0-rc8, las opciones de filtrado de IP se encuentran en **Preferencias → Servidor** en lugar de **Preferencias → Seguridad**.
 
----
-
 ## Usar un ipfilter.dat del sistema
 
 Por defecto aMule carga `~/.aMule/ipfilter.dat`. Si activas **Usar ipfilter.dat del sistema si está disponible** (en **Preferencias → Seguridad**), aMule buscará también `/usr/share/amule/ipfilter.dat` si la carga del archivo local falla. Esto permite que el archivo del sistema sea mantenido por un gestor de paquetes o cron.
 
 Esta opción está desactivada por defecto en la versión estable 2.2.2.
-
----
 
 ## Fuentes de filtros de IP
 
@@ -53,8 +47,6 @@ https://upd.emule-security.org/ipfilter.zip
 ```
 
 Introduce esta URL en **Preferencias → Seguridad → Filtrado de IP → URL**. Para más detalles sobre el formato del archivo y la configuración, consulta [Archivos de aMule → ipfilter.dat](../amule-files/index.md).
-
----
 
 ## Filtro de IP integrado en aMule
 

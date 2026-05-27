@@ -7,8 +7,6 @@ title: Common Problems
 
 Solutions to the most frequently encountered problems when running aMule.
 
----
-
 ## Why is aMule taking so much CPU at startup?
 
 aMule hashes every new or modified file found in the Shared Directories at startup. This is expected behavior for new files.
@@ -36,8 +34,6 @@ If aMule is **always** consuming heavy CPU at startup even when no new files hav
   rm ~/.aMule/known.met
   ```
 
----
-
 ## "No valid servers to connect in serverlist found" — what does this mean?
 
 This message appears when the option **"Auto connect to servers in the static list only"** is enabled but the static server list is empty.
@@ -46,8 +42,6 @@ This message appears when the option **"Auto connect to servers in the static li
 
 1. **Disable the option**: Preferences → Servers → uncheck "Auto connect to servers in the static list only".
 2. **Add a server to the static list**: in the Servers window, right-click a server and select "Add to static". Repeat for all servers you want to keep.
-
----
 
 ## Why does aMule suddenly have no servers in the server list?
 
@@ -60,8 +54,6 @@ If your internet connection was lost briefly, aMule detected the disconnection, 
 
 **Solution**: disable **"Remove dead server after X retries"**. It is safe to leave "Reconnect on loss" enabled.
 
----
-
 ## aMule connects to a server but always gets a Low ID. Why?
 
 Three possible causes:
@@ -72,8 +64,6 @@ Three possible causes:
 
 3. **Your ISP blocks P2P traffic** on the standard eD2k port 4662. Configure aMule to use a different port:
    - Preferences → Connection → Standard client TCP port → change to a non-standard value (e.g., TCP port 25600 has been known to work on some ISPs).
-
----
 
 ## aMule was interrupted while completing a file and now it never completes (it shows 100% downloaded). How do I fix this?
 
@@ -86,8 +76,6 @@ This happens when aMule is killed mid-completion and the final hash-check pass w
    touch ./*
    ```
 4. Restart aMule. It will detect the pending completion and finish the process.
-
----
 
 ## I lost a download — can I recover it?
 
@@ -126,13 +114,9 @@ Two approaches:
   4. Delete the new `.part` file (e.g., delete `011.part`).
   5. Restart aMule — it will pick up the old `.part` file with the restored `.met`.
 
----
-
 ## Why does aMule become unresponsive to mouse clicks even though it hasn't crashed?
 
 A dialog window is open somewhere on your desktop, possibly hidden behind other windows or on a different workspace. aMule is waiting for it to be dismissed. Check all workspaces for any aMule dialog (confirmation boxes, error dialogs, etc.) and click OK or Cancel.
-
----
 
 ## Why are some files in my shared folders not shown in the Shared Files window?
 
@@ -146,8 +130,6 @@ rm ~/.aMule/known.met
 
 On next startup, aMule will rehash all shared files from scratch.
 
----
-
 ## I always get a message about addresses.met when I start aMule. What's wrong?
 
 This happens when:
@@ -157,8 +139,6 @@ This happens when:
 **Solutions:**
 - Add server list URLs in **Preferences → Servers → "List"**.
 - Or disable **"Auto-update serverlist at startup"** if you don't need automatic updates.
-
----
 
 ## What should I do if I lose my cryptkey.dat file?
 
@@ -173,13 +153,9 @@ rm ~/.aMule/preferences.dat
 
 Start aMule fresh and begin rebuilding credits.
 
----
-
 ## Why does the Upload/Download limit reset to 0 after every restart?
 
 This occurred in aMule versions **earlier than 2.0.0-rc4** when you set a Bandwidth Limit higher than the corresponding Bandwidth Capacity value. The fix was applied in 2.0.0-rc4. If you are on a current version and still see this, verify that your Download/Upload limits do not exceed the corresponding Capacity values in Preferences → Connection.
-
----
 
 ## Why is aMule ignoring the bandwidth I set per slot?
 
@@ -199,8 +175,6 @@ Additionally, if after allocating slots there is remaining bandwidth before hitt
 
 After 3 slots (6 KBps used), 1 KBps remains. aMule opens a 4th slot and gives all 4 slots `7 / 4 = 1.75 KBps` each.
 
----
-
 ## Why am I getting "Too many connections" messages in the terminal?
 
 You have set a very high value for **Preferences → Connection → Max Connections** that approaches or exceeds the operating system's per-process file descriptor limit. Other applications on the same machine also consume connections, which means aMule hits the OS limit and fails to open new ones.
@@ -215,23 +189,17 @@ Set it as a String value containing a 32-bit decimal number. (This key usually d
 
 **On Linux**: check limits with `ulimit -a` and adjust with `ulimit -n <value>`.
 
----
-
 ## My progress bars have lost their 3D effect and look flat. Can I restore them?
 
 In most aMule versions: **Preferences → GUI Tweaks → Progress bar style → move slider to the rightmost position** for the best 3D effect.
 
 Exception — versions 2.0.0-rc4 to 2.0.0-rc6: in those specific releases, the best 3D effect is achieved with the **middle** position. The rightmost gives a flat appearance; the leftmost gives a dark appearance.
 
----
-
 ## All my downloads suddenly paused and I can't resume them. What's going on?
 
 Check disk space in the filesystem where your **Temp directory** is located. aMule requires a minimum of **9.28 MB** of free space to download a chunk. If free space drops below the threshold set in **Preferences → Files → "Min disk space"**, aMule pauses all downloads to avoid corruption.
 
 Free up disk space and then resume downloads.
-
----
 
 ## Why can't I preview a file?
 
@@ -241,8 +209,6 @@ aMule allows preview of **video files only**. Two conditions must be met:
 2. At least the **first 256 KB** of the file has been downloaded.
 
 If aMule refuses to preview a file that you believe is previewable, navigate to your Temp directory manually and open the `NNN.part` file with a video player directly.
-
----
 
 ## Why doesn't aMule's preview work with MPlayer?
 
@@ -260,8 +226,6 @@ If MPlayer hangs on incomplete AVI files, add `-demuxer lavf`:
 xterm -T "aMule preview" -iconic -e mplayer -demuxer lavf "%PARTFILE"
 ```
 
----
-
 ## After closing MPlayer from a preview, my aMule stays locked
 
 This bug existed in aMule **prior to 2.0.0-rc4**. The root cause: MPlayer kept its main process running in the background after the window was closed, and aMule was waiting for the preview process to exit.
@@ -270,23 +234,17 @@ This bug existed in aMule **prior to 2.0.0-rc4**. The root cause: MPlayer kept i
 
 **Fix**: upgrade to a current aMule version.
 
----
-
 ## Why is Transferred a smaller number than Completed?
 
 This seems counterintuitive but is correct. See [General FAQ → Transferred vs Completed](/docs/faq/general#what-is-the-difference-between-transferred-and-completed-in-the-transfers-window).
 
 In summary: "Transferred" is raw compressed bytes received. "Completed" is the amount of actual useful file data extracted from those bytes after decompression and protocol header removal. Transferred will always be less than or equal to Completed.
 
----
-
 ## aMule always slows down my computer when it completes a download. Is this normal?
 
 Yes. When a download completes, aMule performs a **full file hash verification**: it hashes all downloaded chunks and verifies them against the expected values. Even though chunk integrity is checked incrementally during downloading, this final pass ensures no chunk was corrupted by the user or an external application after it was written.
 
 This is CPU-intensive for large files and is expected behavior.
-
----
 
 ## Is there a way to recursively select a whole directory and its contents in Preferences?
 
@@ -296,8 +254,6 @@ Yes:
 - **aMule 1.x and up to 2.0.0-rc3**: click the directory while holding the **Ctrl** key.
 
 aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/user-guide/amule-files) for details.
-
----
 
 ## I downloaded a file that got corrupted after completion. Can I avoid re-downloading the whole thing?
 
@@ -313,8 +269,6 @@ If you still have the `ed2k://` link:
    ```
 6. Restart aMule. It will detect which chunks are intact (matching the expected hash) and which are corrupted, and will only re-download the corrupted chunks.
 
----
-
 ## What should I be aware of when using NFS mounts with aMule?
 
 If any of your Shared Directories or Temp/Incoming directories are on NFS mounts, make sure to **unmount those NFS shares from any computer being shut down** before the shutdown happens.
@@ -322,8 +276,6 @@ If any of your Shared Directories or Temp/Incoming directories are on NFS mounts
 If an NFS mount becomes unavailable while aMule is running, aMule will hang indefinitely waiting for the mount to come back. Symptoms: the Statistics window shows flat non-zero lines for Download/Upload/Connections that drop to zero only after the NFS mounts are restored.
 
 After unmounting NFS shares from any machine, also click **Reload** in the Shared Files window.
-
----
 
 ## Downloaded files don't get the permissions I set in Preferences. Why?
 
@@ -345,8 +297,6 @@ umask
 
 To change it, set `umask` in your shell profile or session before launching aMule. On systemd-based systems you can set `UMask=` in the service unit file.
 
----
-
 ## aMule fails to create files / shows file descriptor errors. What's going on?
 
 This should never happen in normal operation. When it does, the most likely cause is that the **open file descriptor limit** is set too low for your user account.
@@ -364,8 +314,6 @@ man ulimit
 ```
 
 On most Linux distributions, permanent limits can be set in `/etc/security/limits.conf`. Remember that changes take effect on the next login session (or system restart, depending on your configuration).
-
----
 
 ## aMule is crashing quite often. Can I set it to restart automatically?
 

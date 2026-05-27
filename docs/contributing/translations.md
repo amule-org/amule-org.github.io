@@ -170,8 +170,6 @@ After adding new uses of these macros, run `./scripts/update-po.sh` to pull the 
 
 When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent.
 
----
-
 ### Format Specifiers Reference
 
 aMule translatable strings sometimes contain **format specifiers** and **escape codes**. These must be preserved **exactly as-is** in translations — only the surrounding natural-language text should change.
@@ -264,8 +262,6 @@ msgstr "Ich bin %s und ich bin %d Jahre alt."
 
 Both `%s` and `%d` are preserved in the same order.
 
----
-
 ### Plural Forms
 
 Plurals are handled differently across languages. English and German use singular/plural; Turkish has no distinction; Polish uses different forms for different numbers.
@@ -332,8 +328,6 @@ Save this as `find_msgid.py` and run:
 ```sh
 python3 find_msgid.py po/de.po 142
 ```
-
----
 
 ## Man Page Translations
 
@@ -470,8 +464,6 @@ Open a pull request with:
 - `docs/man/po/manpages-<lang>.po` — the translation file.
 - `docs/man/po/manpages-<lang>.add` — the addendum (optional but encouraged).
 - The generated `*.LANG.1` man pages (if po4a is installed and they look correct).
-
----
 
 ## Documentation Translations
 

@@ -7,8 +7,6 @@ title: FAQ de Red y Conectividad
 
 Preguntas frecuentes sobre las redes eD2k y Kademlia, puertos, calidad de conexión, overhead de protocolo y configuración del navegador para enlaces `ed2k://`.
 
----
-
 ## eD2k y Kademlia
 
 Para una descripción completa de ambas redes y su arquitectura, consulta:
@@ -20,8 +18,6 @@ Para una descripción completa de ambas redes y su arquitectura, consulta:
 ### ¿Por qué los mismos archivos aparecen como archivos diferentes en los resultados de búsqueda, aunque tengan el mismo nombre?
 
 Porque la identidad del archivo está determinada por el **hash y el tamaño, no por el nombre**. Dos archivos con nombres idénticos pero contenido diferente tienen hashes distintos y aparecen como archivos separados. Dos archivos con nombres diferentes pero contenido y tamaño idénticos se tratan como el mismo archivo. Consulta [Enlaces eD2k — Por qué el nombre del archivo es irrelevante](../ed2k/ed2k-links.md).
-
----
 
 ## Puertos
 
@@ -38,8 +34,6 @@ aMule funciona aunque no haya ningún puerto abierto, pero recibirás una ID baj
 ### ¿Por qué Kademlia sigue mostrando "con firewall"?
 
 Consulta [Red Kademlia — Resolver el estado con firewall](../ed2k/kademlia.md).
-
----
 
 ## Búsqueda y fuentes
 
@@ -66,13 +60,9 @@ Cuando tienes una ID baja:
 - **Fuentes**: todos los clientes que comparten un chunk o archivo que aún necesitas.
 - **Fuentes disponibles**: solo los clientes con ID alta a los que puedes conectarte realmente.
 
----
-
 ## Créditos, valoraciones y puntuaciones
 
 Para una explicación completa del sistema de prioridad de la cola de subida, consulta [Red eD2k — Créditos y Puntuación](../ed2k/ed2k-network.md) y [Conceptos y Glosario](../ed2k/concepts.md).
-
----
 
 ## Velocidad de red y overhead de protocolo
 
@@ -123,8 +113,6 @@ Los routers SOHO baratos pueden tener dificultades con el gran número de conexi
 **Redundancia de enlace:** aMule debe reiniciarse cuando cambian los enlaces para que se asocie a la nueva dirección IP y reciba un nuevo ID eD2k, a menos que el cambio sea gestionado de forma transparente por el router NAT.
 
 **Balanceo de carga:** aMule se asocia a todas las interfaces (`0.0.0.0`) pero solo puede anunciar una IP como su ID eD2k. Ejecutar aMule en dos enlaces ISP activos simultáneamente es poco fiable; la única solución fiable es fijar el tráfico de aMule a una interfaz.
-
----
 
 ## Configuración del navegador para enlaces ed2k://
 

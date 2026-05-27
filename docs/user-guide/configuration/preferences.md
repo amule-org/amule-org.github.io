@@ -11,8 +11,6 @@ Settings are grouped into sections. Click the appropriate section in the list on
 
 ![Preferences section list](/img/docs/configuration/window_prefs32.jpg)
 
----
-
 ## General
 
 Options regarding general aspects of aMule.
@@ -32,8 +30,6 @@ Options regarding general aspects of aMule.
 | **Browser Selection** | Browser to use when aMule opens web sites. |
 | **Custom Browser** | Command to start a custom browser. Active only when *Custom browser* is selected above. Use the Browse button to locate the browser executable. |
 | **Open in new tab if possible** | Open web sites in a new browser tab rather than the current page. |
-
----
 
 ## Connection
 
@@ -84,8 +80,6 @@ These values are only used for Statistics and the speed bar in the SysTray icon 
 | **Reconnect on loss** | Attempt to connect to a server when disconnected. On error it reconnects to the same server; on explicit server disconnect it tries another server. |
 | **Show overhead bandwidth** | Show protocol overhead bandwidth in the Status bar. |
 
----
-
 ## Proxy
 
 Options for connecting through a proxy server. See [Proxy configuration](proxy.md) for a full explanation of how the proxy feature works.
@@ -113,8 +107,6 @@ Options for connecting through a proxy server. See [Proxy configuration](proxy.m
 |---|---|
 | **Automatic server connect without proxy** | This option is currently ignored. |
 
----
-
 ## Message Filter
 
 Options for filtering incoming chat messages.
@@ -128,8 +120,6 @@ Options for filtering incoming chat messages.
 | **Filter messages from people not on your friend list** | Ignore all messages from users not in the friends list. |
 | **Filter messages from unknown clients** | Ignore messages from clients not in any of your upload or download queues. |
 | **Filter messages containing** | Ignore messages containing any of the comma-separated strings listed in the box below. All other characters are treated as part of the filter string. |
-
----
 
 ## Remote Controls
 
@@ -158,8 +148,6 @@ Options for controlling aMule remotely via the web interface or external connect
 | **TCP port** | TCP port where aMule listens for external connections. |
 | **Password** | Password remote applications must supply to connect. |
 
----
-
 ## Online Signature
 
 Options for the [Online Signature](../../user-guide/amule-components/cas-wxcas.md) feature used by CAS and wxCAS.
@@ -171,8 +159,6 @@ Options for the [Online Signature](../../user-guide/amule-components/cas-wxcas.m
 | **Enable Online-Signature** | Enable aMule to write the Online Signature file. |
 | **Update Frequency** | Interval (seconds) between Online Signature updates. |
 | **Online Signature Directory** | Directory where the Online Signature file is written. |
-
----
 
 ## Server
 
@@ -191,8 +177,6 @@ Options for connecting aMule to eD2k servers.
 | **Safe connect** | When enabled, aMule tries to connect to one server at a time. When disabled, it makes two simultaneous attempts. |
 | **Autoconnect to servers in static list only** | aMule attempts to connect only to servers marked as static. |
 | **Set manually added servers to High Priority** | Servers added manually get High priority. The priority can be changed later. |
-
----
 
 ## Files
 
@@ -234,8 +218,6 @@ Options for downloading files.
 
 See [Events](events.md) for a more flexible event system that also covers chat notifications and disk-space alerts.
 
----
-
 ## Sources Dropping
 
 Options for the source-dropping algorithm — what aMule does with sources it no longer needs.
@@ -248,8 +230,6 @@ Options for the source-dropping algorithm — what aMule does with sources it no
 | **Enable auto drop Full Queue Sources** | Ignore sources whose upload queue is full. |
 | **Enable auto drop High Queue Rating Sources** | Ignore sources that have given you a queue rank higher than the value in *High Queue Rating value*. |
 | **Auto Drop Sources Timer** | Time (seconds) a source can be known before being ignored. |
-
----
 
 ## Directories
 
@@ -267,8 +247,6 @@ Options for aMule's file system paths.
 | **Video Player** | Command to execute when previewing an audio or video file. The filename is appended to the command. |
 | **Create Backup to preview** | Copy the file to a temporary location before previewing, to avoid conflicts with the download process. |
 
----
-
 ## Statistics
 
 Options for aMule's statistics display.
@@ -283,8 +261,6 @@ Options for aMule's statistics display.
 | **Select Statistics Colors** | Select colours for each item in the statistics display. Choose the item from the menu, then click **Select**. |
 | **Statistics Tree Update delay** | Refresh interval for the statistics tree. |
 | **Number of Client Versions shown** | Maximum number of client versions displayed for each client application in the statistics tree. |
-
----
 
 ## Security
 
@@ -314,8 +290,6 @@ Options for aMule's security features, including IP filtering.
 | Setting | Description |
 |---|---|
 | **Use Secure Identification** | Use the [Secure User Identification](../../ed2k/secure-user-identification.md) protocol when identifying to other clients. Recommended. |
-
----
 
 ## GUI Tweaks
 
@@ -348,8 +322,6 @@ Advanced options for aMule's graphical interface.
 | **Show transfer rates on title** | Show transfer speeds in the window title bar. |
 | **Vertical toolbar orientation** | Show the toolbar vertically (enabled) or horizontally (disabled). |
 
----
-
 ## Core Tweaks
 
 Advanced options for aMule's core engine.
@@ -363,8 +335,6 @@ Advanced options for aMule's core engine.
 | **Upload Queue Size** | Maximum number of clients that can be queued in the upload queue. |
 | **Server connection refresh interval** | Ping interval to the server (seconds), to avoid being disconnected due to inactivity. |
 
----
-
 ## Debugging
 
 Advanced options for logging and debugging aMule.
@@ -374,8 +344,6 @@ Advanced options for logging and debugging aMule.
 Enable **Enable Verbose Debug-Logging** to write extra debug output to the aMule log. Once enabled, select exactly which categories of debug messages to include in the **Message Categories** list.
 
 This section is intended for developers and advanced troubleshooting only. The options will not be described further here.
-
----
 
 ## Events
 

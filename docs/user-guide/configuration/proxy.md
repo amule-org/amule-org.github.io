@@ -7,8 +7,6 @@ A proxy is an intermediate node in the network through which other nodes route t
 
 A proxy connection requires a specific protocol supported by both the proxy server and the connecting client. The most commonly used proxy protocols are **SOCKS4** and **SOCKS5**. SOCKS5 also supports username/password authentication.
 
----
-
 ## What aMule routes through the proxy
 
 When a proxy is configured, aMule routes the following connections through it:
@@ -20,8 +18,6 @@ When a proxy is configured, aMule routes the following connections through it:
 :::note
 The option **Automatic server connect without proxy** exists in the Preferences dialog but is currently ignored by aMule.
 :::
-
----
 
 ## Configuring the proxy in aMule
 
@@ -47,8 +43,6 @@ Available only for SOCKS5 proxies.
 | **Enable authentication** | Enable username/password login. If disabled, anonymous login is used. |
 | **Username** | Username to log into the proxy. |
 | **Password** | Password to log into the proxy. |
-
----
 
 ## Configuration in amule.conf
 

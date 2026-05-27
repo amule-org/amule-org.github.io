@@ -11,8 +11,6 @@ Two binary formats exist. Format v0 was used up to aMule 2.1.3 and is no longer 
 
 All multi-byte integers are stored in **little-endian** byte order unless noted otherwise.
 
----
-
 ## Obtaining nodes.dat online
 
 A fresh `nodes.dat` can be downloaded from the internet. This is useful on first run, when the local file is missing, or when it has become so stale that aMule cannot bootstrap into the Kad network.
@@ -46,8 +44,6 @@ KadNodesUrl=https://upd.emule-security.org/nodes.dat
 
 The download is triggered from the Kad tab in the interface. Supported URL schemes are `http://`, `https://`, and `ftp://`.
 
----
-
 ## Format v2 (current, aMule 2.2.0+)
 
 Format v2 begins with four null bytes (`00 00 00 00`), followed by the version number `2` (also stored as a 4-byte little-endian integer), then the contact count, then the contact records. Each record is 34 bytes (9 bytes larger than v0) due to the addition of the Kademlia protocol version, the KadUDPKey, and the Verified flag.
@@ -78,8 +74,6 @@ Format v2 begins with four null bytes (`00 00 00 00`), followed by the version n
 - The maximum number of contacts representable in the format (4-byte count field) is ~4.3 billion. aMule, eMule, and all compatible clients impose a **hard limit of 5000 contacts** in practice.
 - **Type 4 contacts** are marked for deletion. If any appear in a file being read, they are silently ignored.
 - The format does not support IPv6 addresses (IP field is only 4 bytes).
-
----
 
 ## Format v0 (deprecated, pre-2.2.0)
 
@@ -132,13 +126,9 @@ Decoded:
 | TCP port | 4662 (`36 12`) |
 | Type | 2 |
 
----
-
 ## Python 3 dump script
 
 The following script reads both v0 and v2 `nodes.dat` files and prints their contents in a human-readable table. Pass the path to a `nodes.dat` file as the only argument.
-
----
 
 ## Python 3 dump script
 

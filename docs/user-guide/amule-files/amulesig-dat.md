@@ -9,8 +9,6 @@ title: amulesig.dat
 
 `amulesig.dat` is the native aMule format and is a superset of eMule's `onlinesig.dat`. It carries considerably more information across 17 lines, while `onlinesig.dat` provides only 2 lines of basic status for compatibility with older eMule utilities.
 
----
-
 ## Format
 
 The file is plain text. Each data field occupies exactly one line. The 17th (last) line **must** be followed by a newline character (`\n`). Line endings are always Unix (`\n`); never DOS (`\r\n`), even on Windows.
@@ -43,8 +41,6 @@ The file is plain text. Each data field occupies exactly one line. The 17th (las
 - **aMule 2.0.0-rc5:** No format changes.
 - **aMule 2.0.0-rc6:** Line 17 (uptime) changed from a human-readable string with unit (e.g., `3 mins`) to an integer number of seconds. When aMule is cleanly closed, line 17 is now `0` (previously it was `00 secs`).
 - **aMule 2.1.0:** Line 6 (Kademlia status) was added. Files written by versions before 2.1.0 do not contain this line.
-
----
 
 ## Complete example
 
@@ -91,8 +87,6 @@ Decoded:
 | 15 | Session downloaded | `143534593` | ~136.9 MiB this session |
 | 16 | Session uploaded | `23387432` | ~22.3 MiB this session |
 | 17 | Uptime | `3865` | 3865 seconds ≈ 64 minutes |
-
----
 
 ## Offline example
 

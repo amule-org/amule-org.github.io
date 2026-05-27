@@ -104,8 +104,6 @@ All-time totals since aMule was installed (or since the last configuration reset
 
 Click the **Reload** button (showing two green arrows) in the toolbar area of the Shared Files window to rescan all shared directories and refresh the list. Use this after external changes such as files being added, moved, renamed, or deleted outside aMule.
 
----
-
 ## Shared Directories
 
 aMule shares the **contents** of any directory you mark as shared. Subdirectories are **not** shared recursively by default.

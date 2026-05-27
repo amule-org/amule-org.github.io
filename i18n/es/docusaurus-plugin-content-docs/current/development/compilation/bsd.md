@@ -45,8 +45,6 @@ cd /usr/pkgsrc/net/amule
 make install clean
 ```
 
----
-
 ## Compilar desde el código fuente
 
 ### FreeBSD
@@ -91,8 +89,6 @@ cmake --build build -j"$(sysctl -n hw.ncpu)"
 sudo cmake --install build
 ```
 
----
-
 ### OpenBSD
 
 #### Instalar Dependencias
@@ -133,8 +129,6 @@ cmake --build build -j"$(sysctl -n hw.ncpu)"
 sudo cmake --install build
 ```
 
----
-
 ### NetBSD
 
 #### Instalar Dependencias (pkgin)
@@ -171,8 +165,6 @@ cmake -B build \
 cmake --build build -j"$(sysctl -n hw.ncpu)"
 sudo cmake --install build
 ```
-
----
 
 ## Notas específicas de BSD
 
@@ -219,8 +211,6 @@ Las cabeceras de desarrollo de `glib-2.0` son exclusivas de Linux en aMule. En L
 
 Los sistemas BSD instalan las cabeceras y librerías de terceros en `/usr/local/include` y `/usr/local/lib`. Estas rutas están en los paths de búsqueda por defecto del compilador y el enlazador. CMake y `pkg-config` encuentran automáticamente los paquetes instalados mediante `pkg`, `pkg_add` o pkgsrc. No se necesitan variables de entorno adicionales como `CPPFLAGS` o `LDFLAGS`.
 
----
-
 ## Post-instalación
 
 Tras un `cmake --install build` correcto, aMule crea su directorio de configuración la primera vez que se ejecuta:
@@ -237,8 +227,6 @@ Para generar el fichero `remote.conf` inicial, necesario para `amuleweb`, `amule
 ```sh
 amuleweb --write-config
 ```
-
----
 
 ## Problemas comunes
 

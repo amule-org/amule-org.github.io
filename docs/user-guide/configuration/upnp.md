@@ -7,8 +7,6 @@ title: UPnP (Universal Plug and Play)
 
 UPnP support was introduced in aMule CVS around December 2006 and is available in all releases from 2.2.x onwards.
 
----
-
 ## Requirements
 
 UPnP in aMule requires the external **libupnp** library.
@@ -31,15 +29,11 @@ UPnP in aMule requires the external **libupnp** library.
 | OpenSUSE 10.2 | Available via the Gerd78 repository |
 | Slackware 12.x | Available at [slacky.eu](http://www.slacky.eu/) |
 
----
-
 ## Enabling UPnP in aMule
 
 UPnP is enabled and configured through **Preferences → Connection**. When libupnp is installed and aMule is compiled with UPnP support, the UPnP option appears in the Connection preferences tab.
 
 If UPnP succeeds, aMule will automatically register port mappings for the TCP and UDP ports on your router. You can verify connectivity with the [Test Port](https://www.amule.org/testport.php) page.
-
----
 
 ## UPnP and personal firewalls
 
@@ -47,8 +41,6 @@ If your computer runs a software firewall (e.g. iptables), UPnP also requires op
 
 - Incoming TCP on the UPnP port (default 50000, configurable)
 - Incoming UDP from your router's port 1900 (SSDP advertisements)
-
----
 
 ## Known issues
 

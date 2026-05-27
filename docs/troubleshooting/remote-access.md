@@ -7,8 +7,6 @@ title: Remote Access Troubleshooting
 
 Problems connecting to aMule remotely via `amulecmd` or `amuleweb`.
 
----
-
 ## `amulecmd`
 
 ### I cannot connect to amuled — it doesn't seem to be listening. What's wrong?
@@ -22,8 +20,6 @@ echo -n 'yourpassword' | md5sum | cut -d ' ' -f 1
 ```
 
 Paste the resulting MD5 hash as the value of `ECPassword` in `~/.aMule/amule.conf`.
-
----
 
 ## `amuleweb`
 

@@ -11,8 +11,6 @@ The protocol is defined in the aMule source under `src/libs/ec/` and `src/Extern
 EC is considered stable. Opcodes, tag names, and tag content formats can still change between releases. If you are implementing an EC client, pin the `EC_TAG_PROTOCOL_VERSION` to the version you have tested against.
 :::
 
----
-
 ## Protocol Overview
 
 EC is a two-layer protocol:
@@ -21,8 +19,6 @@ EC is a two-layer protocol:
 2. **Application layer** — a tree-structured packet format with an opcode and nested tags.
 
 All values in both layers are in **network byte order (big-endian, MSB first)**.
-
----
 
 ## Section 1 — Transmission Layer
 
@@ -56,8 +52,6 @@ The sender always sets bit 5 and clears bit 6. The receiver rejects any packet w
 ```
 
 Flags = `0x00000020` (bit 5 set, no compression, no UTF-8 numbers). Body length = 67 bytes (`0x43`).
-
----
 
 ## Section 1.2 — Application Layer
 
@@ -96,8 +90,6 @@ When `EC_FLAG_LARGE_TAG_COUNT` is in effect and `TAGCOUNT == 0xFFFF`, a `uint32`
 
 **Example:** a tag with `TAGNAME = 0x0E03` on the wire has `has_children = 1` (bit 0 set) and true tag code = `0x0E03 >> 1 = 0x0701` = `EC_TAG_SEARCH_TYPE`.
 
----
-
 ## Section 2 — Data Types
 
 ### Integer Types
@@ -128,8 +120,6 @@ An IPv4 address+port is packed as 6 bytes: 4 bytes for the IP (network order) fo
 ### Floating-Point Numbers
 
 `float` and `double` values are converted to their string representation and sent as strings. The decimal separator is always `.` (dot), regardless of locale.
-
----
 
 ## Section 3 — Authentication
 
@@ -282,8 +272,6 @@ c8 80
 
 UTF-8 decode: `c8 80` → `0x0200`. Bit 0 = 0 (no children). True code = `0x0200 >> 1 = 0x0100` = `EC_TAG_CLIENT_NAME` (0x0100 in `ECCodes.h`).
 
----
-
 ## Section 4 — Common Operations
 
 ### Stats Request
@@ -418,8 +406,6 @@ Wire encoding (plain format, no compression):
       00                            uint8 search type: 0 = EC_SEARCH_LOCAL
 ```
 
----
-
 ## Section 5 — Preferences Tags
 
 ### Connection Preferences (`EC_TAG_PREFS_CONNECTIONS = 0x1300`)
@@ -437,8 +423,6 @@ Wire encoding (plain format, no compression):
 :::note
 `EC_TAG_CONN_MAX_DL`, `EC_TAG_CONN_MAX_UL`, and `EC_TAG_CONN_SLOT_ALLOCATION` were widened from `uint16` to `uint32` to support speeds above 65534 kB/s (~524 Mbps) needed on modern gigabit connections. EC clients reading these tags should use `GetInt()` (which handles any integer width); clients sending them should encode them as 32-bit values.
 :::
-
----
 
 ## Section 6 — Implementing an EC Client
 
@@ -464,8 +448,6 @@ The canonical implementation is in the aMule source:
 - `src/libs/ec/cpp/ECTagTypes.h` — tag type constants
 - `src/libs/ec/cpp/ECTag.cpp` — tag wire encoding/decoding (see `WriteTag`, `ReadFromSocket`)
 - `src/libs/ec/cpp/ECSocket.cpp` — transmission layer (see `WritePacket`, `ReadHeader`)
-
----
 
 ## Section 7 — Historical Notes
 

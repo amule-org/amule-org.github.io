@@ -21,8 +21,6 @@ If Homebrew is not already installed:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
----
-
 ## Install Dependencies
 
 ```sh
@@ -61,8 +59,6 @@ You can add these exports to `~/.zshrc` (or `~/.bash_profile`) to make them perm
 ### Intel Macs
 
 On Intel Macs, Homebrew installs to `/usr/local`, which is already on the default search paths. No extra environment variables are needed.
-
----
 
 ## Build
 
@@ -103,8 +99,6 @@ cmake -B build \
 cmake --build build -j"$(nproc)"
 ```
 
----
-
 ## Install
 
 ```sh
@@ -116,8 +110,6 @@ This installs to `/usr/local` by default. To install to a custom prefix (e.g. to
 ```sh
 cmake --install build --prefix="$HOME/.local"
 ```
-
----
 
 ## Packaging (Creating a macOS App Bundle / DMG)
 
@@ -136,8 +128,6 @@ For signing and notarization (required for distribution outside the App Store):
 ```
 
 Refer to `packaging/macos/README.md` and `packaging/macos/versions.env` for the environment variables and codesigning certificate setup.
-
----
 
 ## Common Issues
 
@@ -190,8 +180,6 @@ cmake -B build ...
 ### Build Fails with `winsock2.h` Warning
 
 This does not apply to macOS. This warning is specific to the Windows build.
-
----
 
 ## Running from the Build Directory
 

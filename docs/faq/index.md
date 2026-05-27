@@ -13,8 +13,6 @@ Frequently asked questions about aMule, organized by topic.
 | [Network & Connectivity FAQ](./network.md) | eD2k protocol, Kademlia, ports, IDs, protocol overhead, browser ed2k:// setup |
 | [Remote Access FAQ](./remote-access.md) | `amuled` overview and service setup, `amulecmd` scripting and scheduling, `amulegui`, `amuleweb` setup |
 
----
-
 ## Quick answers to the most common questions
 
 **Where are my downloaded files?**

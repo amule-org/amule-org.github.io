@@ -66,8 +66,6 @@ if (condition)
 - When using the ternary operator, add brackets to improve readability.
 - Add a space after `//` when writing line comments: `// Comment`, not `//Comment`.
 
----
-
 ## Documentation Comments
 
 **Always document new functions and classes.** aMule uses [Doxygen](https://www.doxygen.nl/) for automatic API documentation generation. Examples of well-documented classes include `CMD4Hash.h`, `BarShader.*`, and `ServerListCtrl.*`.
@@ -132,8 +130,6 @@ uint16 m_iPartCount;
 
 Documentation goes inside **header files**. Implementation files (`.cpp`) use standard C++ comments to explain what happens in specific sections of code.
 
----
-
 ## Naming Conventions
 
 Always use descriptive names. Short names (`i`, `x`, `it`) are acceptable only for loop counters and iterators where the purpose is obvious.
@@ -197,8 +193,6 @@ For files defining a single class, use the class name **without** the `C` prefix
 - `CUpDownClient` → `UpDownClient.h` / `UpDownClient.cpp`
 - `CKnownFile` → `KnownFile.h` / `KnownFile.cpp`
 
----
-
 ## Const Correctness
 
 Mark functions and arguments as `const` wherever possible. This enables safer code and allows the compiler to enforce immutability:
@@ -213,8 +207,6 @@ void SetName(const wxString& name);
 
 **Always use references for large types** such as `wxString` and `CMD4Hash`. Only use non-const references if the function needs to modify the passed variable.
 
----
-
 ## Containers
 
 Do **not** use raw arrays unless absolutely necessary. In all other cases:
@@ -223,8 +215,6 @@ Do **not** use raw arrays unless absolutely necessary. In all other cases:
 2. Use **wxWidgets containers** only when there is a strong reason (e.g. integration with a specific wx API).
 
 STL containers are generally faster, and the STL algorithms library can be used with them.
-
----
 
 ## Memory Management
 
@@ -244,13 +234,9 @@ if (m_client != NULL) {
 
 Prefer `new`/`delete` over `malloc`/`free`. The only legitimate use of `malloc`/`free` is when interfacing with C libraries that require it.
 
----
-
 ## Helper Functions
 
 Utility functions that could be useful across the application should be placed in `otherfunctions.h`. Prefer wxWidgets functions over direct system calls — this reduces platform-specific dependencies that may not be available everywhere.
-
----
 
 ## Code Practices
 
@@ -277,8 +263,6 @@ When using a string literal to construct a `wxString`:
 Failure to use these macros makes aMule fail to compile in Unicode mode.
 
 Debug messages must always be in English and must not be wrapped in `_()`. Messages visible to the user must be wrapped in `_()`.
-
----
 
 ## What Never To Do
 
@@ -309,8 +293,6 @@ Never use `CList` or `CTypedPtrList`. These are MFC-compatible hand-rolled linke
 ### Trigraphs
 
 Never use ANSI C trigraphs (`??=`, `??(`, `??)`, etc.). They cause subtle, hard-to-find bugs. If you do not know what trigraphs are, consider yourself lucky — keep it that way.
-
----
 
 ## Additional Resources
 

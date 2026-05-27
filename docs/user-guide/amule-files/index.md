@@ -16,8 +16,6 @@ aMule stores its configuration, data, and runtime files in a dedicated directory
 
 On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Application Support/aMule/`.
 
----
-
 ## All files at a glance
 
 | File | Type | Purpose | Details |
@@ -65,8 +63,6 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 | `*.part.met.backup` | Binary | Write-in-progress temp (renamed to `.met` on success) | [part.met reference](./part-met.md) |
 | `*.part.met.seeds` | Binary | Up to 10 sources for rare files (in `Temp/`) | [part.met reference](./part-met.md) |
 
----
-
 ## Configuration files
 
 ### `amule.conf`
@@ -78,8 +74,6 @@ This is aMule's main configuration file. It stores virtually all user preference
 `amule.conf.bak` is an automatic backup created each time `amule.conf` is written.
 
 See the [amule.conf reference](./amule-conf.md) for the complete key reference and a full example file.
-
----
 
 ### `preferences.dat`
 
@@ -110,8 +104,6 @@ Decoded:
 - **Version:** `0x14` = 20
 - **Userhash:** `2C1662179C0ECE024555A85A566C6F49`
 
----
-
 ### `preferencesKad.dat`
 
 **Location:** `~/.aMule/preferencesKad.dat`
@@ -141,8 +133,6 @@ Decoded:
 - **ClientID:** `1452F1B4809A17188A2957446F2B3AB9`
 - **End-of-tags:** `0x00`
 
----
-
 ### `cryptkey.dat`
 
 **Location:** `~/.aMule/cryptkey.dat`
@@ -165,8 +155,6 @@ AhhzraOSxQyHu72P1xq2jX1wv9eAa7QyH3kCGQC7jgzTqW+wGGP/Bll2YXu8bRYphVTVZgo=
 This file contains your private key. Never share it. If it is compromised, anyone can impersonate your client on the eD2k network.
 :::
 
----
-
 ## Network data files
 
 ### `server.met`
@@ -176,8 +164,6 @@ This file contains your private key. Never share it. If it is compromised, anyon
 Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here.
 
 See the [server.met reference](./server-met.md) for the complete binary format, tag reference, and a list of online sources where a current `server.met` can be downloaded.
-
----
 
 ### `staticservers.dat`
 
@@ -213,8 +199,6 @@ Lines beginning with `/` or `#` are treated as comments and ignored. Any line th
 20.19.18.17:9666,2,Backup server
 ```
 
----
-
 ### `addresses.dat`
 
 **Location:** `~/.aMule/addresses.dat`
@@ -233,8 +217,6 @@ http://another.file/my_preferred.met
 ftp://localhost/fastservers.met
 ```
 
----
-
 ### `known.met`
 
 **Location:** `~/.aMule/known.met`
@@ -243,15 +225,11 @@ Binary file that caches the hashes, names, sizes, modification dates, priorities
 
 The file uses a variable-length binary block format: one block per file, whose length depends on the number of metadata tags stored. Updated whenever a file is hashed and when aMule shuts down.
 
----
-
 ### `known2_64.met`
 
 **Location:** `~/.aMule/known2_64.met`
 
 Binary file that stores the verified [AICH](../../ed2k/aich.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
-
----
 
 ### `canceled.met`
 
@@ -266,8 +244,6 @@ Binary file storing the MD4 hashes of all downloads the user has cancelled. When
 | 0 | 1 byte | Magic | Always `0x21` — identifies a valid `canceled.met` |
 | 1 | 4 bytes | Count | Number of hashes stored (32-bit unsigned, little-endian) |
 | 5 | 16 × Count | Hashes | MD4 hash of each cancelled file, 16 bytes each |
-
----
 
 ## Shared files
 
@@ -308,8 +284,6 @@ All three files use the same format: one absolute directory path per line, UTF-8
 /mnt/downloads/series
 /mnt/downloads/series/season1
 ```
-
----
 
 ## IP filter files
 
@@ -373,8 +347,6 @@ When aMule creates this file for the first time, it includes the following heade
 # 000.000.000.000 - 000.255.255.255 , 000 , invalid ip
 ```
 
----
-
 ## Status and interface files
 
 ### `ED2KLinks`
@@ -398,8 +370,6 @@ ed2k://|file|debian-30r1-i386-binary-2.iso|676495360|557B59750976519476DA071BDF7
 ```
 
 This mechanism is used by browser plugins and the [`ed2k`](../amule-components/ed2k-cli.md) command-line tool to pass links to a running aMule session.
-
----
 
 ### `onlinesig.dat` {#onlinesigdat}
 
@@ -439,8 +409,6 @@ Offline:
 0.0|0.0|0
 ```
 
----
-
 ### `muleLock`
 
 **Location:** `~/.aMule/muleLock`
@@ -464,8 +432,6 @@ A single integer (the PID), followed by a newline.
 ```
 
 This file replaces the old `muleconn` socket file used in versions before 2.1.0.
-
----
 
 ### `GeoLite2-Country.mmdb` {#geolite2-countrymmmdb}
 
@@ -496,8 +462,6 @@ aMule will download and unpack the archive automatically. Leave the key empty to
 #### Transient files
 
 During an auto-update, aMule writes `GeoLite2-Country.mmdb.download` first, then renames it to `GeoLite2-Country.mmdb` on success. The `.download` file is temporary and can be deleted if it is left behind after a failed update.
-
----
 
 ## Log files
 
@@ -548,8 +512,6 @@ Multi-line messages receive a timestamp only on the first line.
 2005-12-11 06:58:09: New clientid is 675249139
 ```
 
----
-
 ## Version tracking files
 
 ### `lastversion`
@@ -581,8 +543,6 @@ CVS
 1.1.1
 ```
 
----
-
 ### `last_version_check`
 
 **Location:** `~/.aMule/last_version_check`
@@ -599,8 +559,6 @@ A single version string consisting only of digits and dots (e.g., `2.3.3`). The 
 2.0.3
 ```
 
----
-
 ## Kademlia index files
 
 ### `key_index.dat` and `load_index.dat`
@@ -613,8 +571,6 @@ Binary files that store Kademlia network index data:
 - **`load_index.dat`** — stores keyIDs of known Kademlia clients along with the date when each was last seen. Used to calculate load distribution across the Kad network.
 
 Both files are internal to the Kad implementation and are not intended for manual editing.
-
----
 
 ## Deprecated files
 
@@ -629,8 +585,6 @@ These files are no longer created by current aMule versions but may be present i
 | `~/.aMule/server_met.old` | (backup of `server.met`, no longer written) | — |
 | `~/.aMule/src_index.dat` | `~/.aMule/key_index.dat` (renamed in later versions) | — |
 | `~/.aMule/GeoIP.dat` | `~/.aMule/GeoLite2-Country.mmdb` (MaxMind DB format; libGeoIP v1 discontinued in 2019) | — |
-
----
 
 ## Directories
 

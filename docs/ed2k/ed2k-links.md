@@ -15,8 +15,6 @@ ed2k://|TYPE|FIELDS|/
 
 The pipe character (`|`) acts as a field delimiter. Always wrap an eD2k URL in double quotes on the command line to prevent the shell from interpreting `|` and `&` as special characters.
 
----
-
 ## File Links
 
 A file link adds a file to your download queue.
@@ -72,8 +70,6 @@ ed2k://|file|example.zip|2407949|CC8C3B104AD58678F69858F1F9B736E9|/|sources,192.
 
 On the eD2k network, a file is identified **solely by its MD4 hash and its size**. Two files with the same name but different content have different hashes and are treated as completely different files. Two files with different names but identical content and size will be treated as the same file.
 
----
-
 ## Server Links
 
 A server link adds a single server to your server list.
@@ -94,8 +90,6 @@ ed2k://|server|IP|PORT|/
 ed2k://|server|195.245.244.243|4661|/
 ```
 
----
-
 ## Serverlist Links
 
 A serverlist link imports a complete server list from a remote URL.
@@ -110,8 +104,6 @@ ed2k://|serverlist|ADDRESS|/
 | `ADDRESS` | Full URL to the server list file (including filename) |
 
 If you already have a server list, the remote servers are merged into it. If you have no existing server list, the imported list replaces it.
-
----
 
 ## The `ed2k` Command
 
@@ -140,8 +132,6 @@ which ed2k
 ```
 
 On Debian/Ubuntu you must install the **`amule-utils`** package (and also **`amule-ed2k`** on Debian) to get the `ed2k` utility.
-
----
 
 ## Browser Configuration
 

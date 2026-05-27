@@ -7,8 +7,6 @@ Un proxy es un nodo intermedio en la red a través del cual otros nodos enrutan 
 
 Una conexión proxy requiere un protocolo específico compatible tanto con el servidor proxy como con el cliente que se conecta. Los protocolos proxy más habituales son **SOCKS4** y **SOCKS5**. SOCKS5 admite además autenticación mediante usuario y contraseña.
 
----
-
 ## Qué conexiones enruta aMule a través del proxy
 
 Cuando hay un proxy configurado, aMule enruta las siguientes conexiones a través de él:
@@ -20,8 +18,6 @@ Cuando hay un proxy configurado, aMule enruta las siguientes conexiones a travé
 :::note
 La opción **Conectar al servidor automáticamente sin proxy** existe en el cuadro de diálogo de Preferencias pero actualmente aMule la ignora.
 :::
-
----
 
 ## Configurar el proxy en aMule
 
@@ -47,8 +43,6 @@ Solo disponible para proxies SOCKS5.
 | **Activar autenticación** | Usar usuario y contraseña para iniciar sesión en el proxy. Si está desactivado, se usa inicio de sesión anónimo. |
 | **Usuario** | Nombre de usuario para el proxy. |
 | **Contraseña** | Contraseña para el proxy. |
-
----
 
 ## Configuración en amule.conf
 

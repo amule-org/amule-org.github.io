@@ -14,8 +14,6 @@ Soluciones a los problemas más comunes al ejecutar aMule.
 | [Archivos y servidores falsos](./fake-files-and-servers.md) | Detección de contenido falso, identificación y evitación de servidores maliciosos, prueba de puertos |
 | [Solución de problemas de acceso remoto](./remote-access.md) | Errores de conexión de `amulecmd`, problemas de conexión y autenticación de `amuleweb` |
 
----
-
 ## Diagnóstico rápido
 
 **Tengo una Low ID**

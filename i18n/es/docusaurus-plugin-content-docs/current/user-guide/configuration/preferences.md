@@ -7,8 +7,6 @@ El cuadro de diálogo **Preferencias** controla todos los aspectos del funcionam
 
 Las opciones están agrupadas en secciones. Haz clic en la sección correspondiente en la lista de la izquierda para ver sus opciones.
 
----
-
 ## General
 
 Opciones generales de aMule: nombre de usuario, idioma, comportamiento al inicio e icono de bandeja.

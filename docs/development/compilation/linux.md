@@ -73,8 +73,6 @@ sudo make install
 sudo ldconfig
 ```
 
----
-
 ## Fedora and RHEL / Rocky Linux
 
 ### Install Dependencies
@@ -131,8 +129,6 @@ cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
 
----
-
 ## Arch Linux and Manjaro
 
 ### Install Dependencies
@@ -177,8 +173,6 @@ cmake -B build \
 cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
-
----
 
 ## Gentoo
 
@@ -240,8 +234,6 @@ cmake --build build -j"$(nproc)"
 
 For debugging on Gentoo with split-debug symbols, see [Debugging](../debugging.md#gentoo-splitdebug-build).
 
----
-
 ## FreeBSD
 
 ### Install Dependencies via Ports
@@ -287,8 +279,6 @@ cmake -B build \
 cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
-
----
 
 ## Common Issues
 

@@ -54,8 +54,6 @@ Improve or expand this documentation website. See the [Documentation](documentat
 - Run the unit test suite: `cmake -DBUILD_TESTING=YES -B build && cmake --build build && ctest --test-dir build`.
 - Help maintain the test coverage by adding unit tests for new code.
 
----
-
 ## Code Review
 
 All contributions go through code review before being merged. Reviewers check for:
@@ -67,8 +65,6 @@ All contributions go through code review before being merged. Reviewers check fo
 - Documentation: are new features or options documented?
 
 Feedback from reviewers should be addressed in follow-up commits on the same branch.
-
----
 
 ## Communication
 
