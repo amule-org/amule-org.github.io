@@ -50,6 +50,14 @@
   padding: 0;
 }
 
+/* Footer link icons */
+.footer__link-item svg {
+  vertical-align: middle;
+  margin-right: 0.35em;
+  margin-top: -2px;
+}
+
+
 /* Copyright / legal disclaimer — muted */
 .footer__copyright {
   font-size: 1rem;

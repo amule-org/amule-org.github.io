@@ -5,6 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const url = process.env.DOCUSAURUS_URL ?? 'https://amule-org.github.io';
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? '/';
 
+
 const config: Config = {
   title: 'aMule',
   tagline: 'All-platform eMule-compatible eD2k/Kad client',
@@ -43,7 +44,8 @@ const config: Config = {
           blogTitle: 'Blog',
           blogSidebarTitle: 'Recent posts',
           blogSidebarCount: 'ALL',
-          postsPerPage: 10,
+          postsPerPage: 5,
+          onUntruncatedBlogPosts: 'ignore',
           feedOptions: {
             type: 'all',
             copyright: 'aMule developers',
@@ -56,6 +58,26 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'changelog',
+        path: './changelog',
+        routeBasePath: '/changelog',
+        blogTitle: 'Changelog',
+        blogSidebarTitle: 'Versions',
+        blogSidebarCount: 'ALL',
+        postsPerPage: 5,
+        onUntruncatedBlogPosts: 'ignore',
+        feedOptions: {
+          type: 'all',
+          copyright: 'aMule developers',
+        },
+      },
+    ],
+  ],
+
   themes: [
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
@@ -63,6 +85,7 @@ const config: Config = {
         hashed: true,
         language: ['en', 'es'],
         indexDocs: true,
+        indexBlog: false,
         indexPages: false,
         docsRouteBasePath: '/docs',
       },
@@ -87,8 +110,9 @@ const config: Config = {
           label: 'Documentation',
           position: 'left',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {to: '/download', label: 'Download', position: 'left'},
+        {to: '/changelog', label: 'Changelog', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/amule-org/amule',
           label: 'GitHub',
@@ -110,8 +134,8 @@ const config: Config = {
       links: [
         {items: [{label: 'Source code', href: 'https://github.com/amule-org/amule'}]},
         {items: [{label: 'Releases', href: 'https://github.com/amule-org/amule/releases'}]},
-        {items: [{label: 'Changelog', href: 'https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md'}]},
-        {items: [{label: 'RSS Feed', href: 'pathname:///blog/atom.xml'}]},
+        {items: [{label: 'Changelog RSS', href: 'pathname:///changelog/atom.xml'}]},
+        {items: [{label: 'Blog RSS', href: 'pathname:///blog/atom.xml'}]},
       ],
       copyright:
         'aMule is free software released under the GNU GPL v2. The aMule developers have no control over what other peers transfer through eD2k/Kad and cannot be held liable for non-personal copyright infringement or other illegal activity by third parties. Share responsibly.',

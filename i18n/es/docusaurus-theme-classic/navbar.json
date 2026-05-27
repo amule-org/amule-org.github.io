@@ -7,17 +7,21 @@
     "message": "Logo de aMule",
     "description": "The alt text of navbar logo"
   },
+  "item.label.Documentation": {
+    "message": "Documentación",
+    "description": "Navbar item with label Documentation"
+  },
   "item.label.Download": {
     "message": "Descargar",
     "description": "Navbar item with label Download"
   },
+  "item.label.Changelog": {
+    "message": "Changelog",
+    "description": "Navbar item with label Changelog"
+  },
   "item.label.Blog": {
     "message": "Blog",
     "description": "Navbar item with label Blog"
-  },
-  "item.label.Documentation": {
-    "message": "Documentación",
-    "description": "Navbar item with label Documentation"
   },
   "item.label.Discussions": {
     "message": "Debates",

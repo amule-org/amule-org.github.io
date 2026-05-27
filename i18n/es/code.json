@@ -68,7 +68,7 @@
     "message": "Capturas de pantalla"
   },
   "homepage.screenshots.lead": {
-    "message": "GUI de aMule 3.0.0: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> y <kbd>→</kbd> para navegar y <kbd>Esc</kbd> para cerrar."
+    "message": "GUI de aMule: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> y <kbd>→</kbd> para navegar y <kbd>Esc</kbd> para cerrar."
   },
   "homepage.screenshots.networks.alt": {
     "message": "Pestaña Redes — lista de servidores y estado de Kademlia",

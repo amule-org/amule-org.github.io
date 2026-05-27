@@ -38,6 +38,13 @@
   opacity: 1;
 }
 
+.intro {
+  font-size: 0.92rem;
+  color: #8b949e;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
 .strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

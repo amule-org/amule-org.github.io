@@ -165,7 +165,6 @@ const sidebars: SidebarsConfig = {
         'faq/remote-access',
       ],
     },
-    {type: 'doc', id: 'changelogs/index', label: 'Changelogs'},
   ],
 };
 

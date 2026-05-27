@@ -67,7 +67,7 @@ export default function DownloadPage(): React.JSX.Element {
               id="homepage.download.version"
               values={{
                 link: (
-                  <Link to="/blog/amule-3-0-0">
+                  <Link to="/changelog/3.0.0">
                     <Translate id="homepage.download.version.link">3.0.0</Translate>
                   </Link>
                 ),

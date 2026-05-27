@@ -58,15 +58,6 @@ export default function Home(): React.JSX.Element {
               }),
             }}
           />
-          <p
-            dangerouslySetInnerHTML={{
-              __html: translate({
-                id: 'homepage.whatisamule.p2',
-                message:
-                  'After years of quiet, the project is back under active maintenance. The 3.0.0 release brings a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.',
-              }),
-            }}
-          />
         </section>
         <div className={styles.screenshotWrapper}>
           <img
