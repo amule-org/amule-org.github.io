@@ -336,6 +336,32 @@ Common signs of a fake:
 
 ---
 
+## Webcache
+
+:::warning aMule position
+Webcache has appeared multiple times as a feature request in aMule's forums. The team's position is unambiguous: **neither aMule nor eMule will officially support webcache in any future release.** This decision is final and the topic is not open for further discussion.
+:::
+
+**Webcache** (also written as "web cache") is a proposed extension to the eD2k/eMule transfer model in which clients upload shared file data to an ISP's HTTP proxy cache and other clients download it from the proxy instead of from the originating peer. Because ISP proxy servers have significantly more bandwidth and lower latency than residential peers, downloads could in theory be much faster.
+
+The scheme was fully described in a post published on eMule's forums. Several eMule mods implemented it experimentally.
+
+**History:** The idea was first posted on 13 April 2003 by user **sufcrusher** on eMule's forums. The public discussion there tracks the evolution of the concept through to the first eMule mods that implemented it.
+
+**Pros:**
+
+- **Bandwidth**: ISP proxy servers have far greater bandwidth than residential peers, so download speeds from the cache are substantially higher.
+- **Reduced peer-to-peer traffic at the ISP level**: Once data is cached at the ISP proxy, subsequent requests are served locally, reducing the volume of long-haul P2P traffic that ISPs carry.
+
+**Cons** — the aMule team identified the following fundamental problems:
+
+- **Privacy**: All shared data passes through the ISP's proxy, making it visible to the ISP. Traffic encryption (e.g. protocol obfuscation) is incompatible with webcache, since encrypted content cannot be cached by standard HTTP proxies.
+- **Legal uncertainty**: Using ISP HTTP caches for arbitrary P2P data rather than web content is a legally grey area. Legislation differs across jurisdictions, and eD2k clients aim for the broadest legal compatibility possible.
+- **DDoS effect on ISP infrastructure**: At scale, webcache generates a high volume of writes to ISP cache servers from many clients simultaneously. This degrades cache service quality for the ISP's entire subscriber base. ISPs could legitimately terminate the contracts of clients generating this load, and P2P developers supporting webcache could be sued on the grounds of distributing a tool that performs distributed denial-of-service attacks against ISP infrastructure.
+- **Governmental surveillance**: P2P networks are monitored by several governments on suspicion of illegal use. Routing shared content through ISP proxies — infrastructure that governments can easily compel ISPs to monitor — substantially increases exposure.
+
+---
+
 ## Quick Reference Table
 
 | Term | Short definition |
@@ -369,3 +395,4 @@ Common signs of a fake:
 | Temp file / Temp dir | Incomplete download file and its storage directory |
 | Userhash | 128-bit client identity stored in preferences.dat |
 | Verifying Hash | Intermediate node in the AICH hash tree |
+| Webcache | Proposed (never implemented) scheme to cache P2P data on ISP HTTP proxies |
