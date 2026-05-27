@@ -234,14 +234,15 @@ aMuleWeb PHP is similar to PHP 5 in syntax but has significant differences and l
 
 | Function | Description |
 |---|---|
-| `var_dump($var)` | Dump variable to output |
-| `strlen($string)` | String length |
-| `count($array)` | Array element count |
-| `isset($var)` | Test if variable is set |
-| `usort($var)` | Sort array with user-defined comparator |
-| `split($pattern, $string, $limit)` | Split string by pattern |
-| `_($message)`, `gettext($message)` | Gettext translation (if NLS compiled in) |
-| `ngettext($msgid1, $msgid2, $n)` | Plural-form gettext |
+| `var_dump($var)` | Dump variable type and value to output |
+| `strlen($string)` | Return string length in bytes |
+| `count($array)` | Return number of elements in an array |
+| `isset($var)` | Return `true` if variable is set and not `NULL` |
+| `usort($array, $func_name)` | Sort array in-place using a named comparison function; keys are reset |
+| `split($pattern, $string, $limit)` | Split `$string` by POSIX extended regex `$pattern`; `$limit` parameter is required but currently unused |
+| `_($message)`, `gettext($message)` | Return translated string (requires NLS compiled in; returns original string otherwise) |
+| `gettext_noop($message)` | Return `$message` unchanged; marks the string for gettext extraction without translating (NLS only) |
+| `ngettext($msgid1, $msgid2, $n)` | Return singular or plural translation based on `$n` (NLS only) |
 
 ### Predefined Variables
 
@@ -291,7 +292,11 @@ Queries aMule data structures. The `$command` parameter selects which data to re
 
 **Status values for downloads:** `0` = ready/downloading, `4` = error, `5` = insufficient disk space, `7` = stopped or paused, `8` = completing, `9` = complete, `10` = allocating disk space.
 
+**Upload entry keys:** `name`, `short_name`, `user_name`, `xfer_up`, `xfer_down`, `xfer_speed`.
+
 **Shared file entry keys:** `name`, `short_name`, `hash`, `size`, `link`, `xfer`, `xfer_all`, `req`, `req_all`, `accept`, `accept_all`, `prio`, `prio_auto`.
+
+**Search result entry keys:** `name`, `short_name`, `hash`, `size`, `sources`, `present`.
 
 **Server entry keys:** `name`, `desc`, `addr`, `users`, `ip`, `port`, `maxusers`, `files`.
 
@@ -299,21 +304,20 @@ Queries aMule data structures. The `$command` parameter selects which data to re
 
 | Function | Description |
 |---|---|
-| `amule_get_version()` | Returns aMule version string |
-| `amule_get_categories()` | Returns array of download category names |
-| `amule_get_options()` | Returns all configurable options as a nested hash |
-| `amule_set_options($hash)` | Sets options (use the hash returned by `amule_get_options`) |
-| `amule_do_download_cmd($hash, $cmd, $prio)` | Control a download: `"pause"`, `"resume"`, `"cancel"`, `"prio"`, `"prioup"`, `"priodown"` |
-| `amule_do_shared_cmd($hash, $cmd, $prio)` | Control a shared file priority |
+| `amule_get_version()` | Returns the aMule version string (e.g. `"aMule 2.3.3"`) |
+| `amule_get_categories()` | Returns an indexed array of download category name strings |
+| `amule_get_options()` | Returns all configurable options as a nested associative array |
+| `amule_set_options($hash)` | Applies options; pass the array returned by `amule_get_options` with modified values |
+| `amule_do_download_cmd($hash, $cmd, $prio)` | Control a download by hash: `$cmd` is `"pause"`, `"resume"`, `"cancel"`, `"prio"`, `"prioup"`, or `"priodown"`; `$prio` is used with `"prio"` |
+| `amule_do_shared_cmd($hash, $cmd, $prio)` | Set shared file priority by hash: `$cmd` is `"prio"` or `"prio_auto"`; `$prio` sets the priority value |
 | `amule_do_reload_shared_cmd()` | Reload shared files from disk |
-| `amule_do_add_server_cmd($addr, $port, $name)` | Add a server to the server list |
-| `amule_do_server_cmd($ip, $port, $cmd)` | Server command: `"connect"`, `"disconnect"`, `"remove"` |
-| `amule_kad_connect($ip, $port)` | Bootstrap into the Kademlia network |
-| `amule_do_ed2k_download_cmd($link, $cat)` | Queue an ed2k link for download |
-| `amule_do_search_start_cmd(...)` | Start a search |
-| `amule_do_search_download_cmd($hash, $cat)` | Download a search result |
-| `amule_get_log($reset)` | Retrieve log contents (`"0"`) or reset the log |
-| `amule_get_serverinfo($reset)` | Retrieve server info log |
+| `amule_do_add_server_cmd($addr, $port, $name)` | Add an eD2k server to the server list |
+| `amule_do_server_cmd($ip, $port, $cmd)` | Send a command to a server: `"connect"`, `"disconnect"`, or `"remove"` |
+| `amule_do_ed2k_download_cmd($link, $cat)` | Queue an ed2k link for download in category `$cat` (integer index) |
+| `amule_do_search_start_cmd($term, $ext, $type, $search_type, $avail, $min_size, $max_size)` | Start a search: `$search_type` is `0`=local, `1`=global, `2`=Kad; `$avail` is minimum source count; `$min_size`/`$max_size` are byte limits (`0` = no limit) |
+| `amule_do_search_download_cmd($hash, $cat)` | Queue a search result for download in category `$cat` |
+| `amule_get_log($reset)` | Return log contents as a string; pass `1` to clear the log before reading, `0` to read without clearing |
+| `amule_get_serverinfo($reset)` | Return server info log as a string; pass `1` to clear before reading, `0` to read without clearing |
 
 ### Authentication
 
