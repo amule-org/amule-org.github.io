@@ -24,7 +24,7 @@ const WHATS_NEW: WhatsNew[] = [
     labelId: 'homepage.highlights.hl4.label',
     labelDefault: 'Binaries for every desktop',
     detailId: 'homepage.highlights.hl4.detail',
-    detailDefault: 'AppImage, Flatpak, macOS Universal2 .dmg, Windows portable .zip — x86_64 and ARM64 where supported.',
+    detailDefault: 'Windows portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.',
   },
   {
     tag: 'HTTPS',

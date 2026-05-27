@@ -7,7 +7,7 @@ Esta guía cubre todo lo necesario para usar aMule: instalación, configuración
 
 ## Instalación
 
-Cómo instalar aMule en Linux, macOS, Windows y sistemas BSD.
+Cómo instalar aMule en Windows, macOS, Linux y sistemas BSD.
 
 - [Instalación](installation/index.md)
 

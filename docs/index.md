@@ -4,7 +4,7 @@ title: aMule Documentation
 slug: /
 ---
 
-aMule is a free, open-source, multi-platform peer-to-peer file-sharing client for the **eD2k (eDonkey2000)** and **Kademlia (Kad)** networks. It is written in C++ using wxWidgets and runs on Linux, FreeBSD, OpenBSD, macOS, and Windows.
+aMule is a free, open-source, multi-platform peer-to-peer file-sharing client for the **eD2k (eDonkey2000)** and **Kademlia (Kad)** networks. It is written in C++ using wxWidgets and runs on Windows, macOS, Linux, FreeBSD, and OpenBSD.
 
 ## History
 
@@ -47,7 +47,7 @@ aMule implements most features of the original eMule client:
 
 In addition to the *Mule baseline, aMule adds:
 
-- **Multiplatform** — Linux, macOS, Windows, BSD, and many more.
+- **Multiplatform** — Windows, macOS, Linux, BSD, and many more.
 - **Proxy support**.
 - **Improved checks against aggressive clients**.
 - **Complete External Connections (EC) protocol** — built from scratch; allows full remote control.
@@ -85,4 +85,4 @@ In addition to the *Mule baseline, aMule adds:
 
 ## Supported Platforms
 
-Linux, FreeBSD, OpenBSD, macOS, and Windows (x86\_64 and ARM64).
+Windows, macOS, Linux, FreeBSD, and OpenBSD (x86\_64 and ARM64).

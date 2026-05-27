@@ -3,7 +3,7 @@ id: index
 title: Compilation
 ---
 
-aMule uses **CMake** (minimum version 3.10) as its build system. This page covers the complete build, install, and uninstall workflow. Platform-specific dependency installation commands are in the sub-pages for [Linux](linux.md), [macOS](macos.md), [Windows](windows.md), and [BSD](bsd.md).
+aMule uses **CMake** (minimum version 3.10) as its build system. This page covers the complete build, install, and uninstall workflow. Platform-specific dependency installation commands are in the sub-pages for [Windows](windows.md), [macOS](macos.md), [Linux](linux.md), and [BSD](bsd.md).
 
 ## Dependencies
 

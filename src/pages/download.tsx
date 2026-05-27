@@ -23,10 +23,10 @@ interface DownloadPlatform {
 
 const DOWNLOAD_PLATFORMS: DownloadPlatform[] = [
   {
-    svg: LINUX_SVG,
-    osId: 'homepage.download.linux.os', osDefault: 'Linux',
-    fmtId: 'homepage.download.linux.fmt', fmtDefault: 'AppImage · Flatpak',
-    archId: 'homepage.download.linux.arch', archDefault: 'x86_64 · aarch64',
+    svg: WINDOWS_SVG,
+    osId: 'homepage.download.windows.os', osDefault: 'Windows',
+    fmtId: 'homepage.download.windows.fmt', fmtDefault: 'portable .zip',
+    archId: 'homepage.download.windows.arch', archDefault: 'x64 · ARM64',
   },
   {
     svg: MACOS_SVG,
@@ -35,10 +35,10 @@ const DOWNLOAD_PLATFORMS: DownloadPlatform[] = [
     archId: 'homepage.download.macos.arch', archDefault: 'Apple Silicon · Intel',
   },
   {
-    svg: WINDOWS_SVG,
-    osId: 'homepage.download.windows.os', osDefault: 'Windows',
-    fmtId: 'homepage.download.windows.fmt', fmtDefault: 'portable .zip',
-    archId: 'homepage.download.windows.arch', archDefault: 'x64 · ARM64',
+    svg: LINUX_SVG,
+    osId: 'homepage.download.linux.os', osDefault: 'Linux',
+    fmtId: 'homepage.download.linux.fmt', fmtDefault: 'AppImage · Flatpak',
+    archId: 'homepage.download.linux.arch', archDefault: 'x86_64 · aarch64',
   },
   {
     svg: SOURCE_SVG,
@@ -54,7 +54,7 @@ export default function DownloadPage(): React.JSX.Element {
       title={translate({id: 'homepage.download.title', message: 'Download'})}
       description={translate({
         id: 'homepage.download.pageDescription',
-        message: 'Download aMule for Linux, macOS, Windows or build from source.',
+        message: 'Download aMule for Windows, macOS, Linux or build from source.',
       })}
     >
       <main>
@@ -115,6 +115,20 @@ export default function DownloadPage(): React.JSX.Element {
               }}
             >
               {'All artifacts on the {link}.'}
+            </Translate>
+          </p>
+          <p className={styles.dlFoot}>
+            <Translate
+              id="homepage.download.install"
+              values={{
+                link: (
+                  <Link to="/docs/quickstart-guide">
+                    <Translate id="homepage.download.install.link">Quick Start guide</Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {'New to aMule? The {link} walks you through setup and your first download.'}
             </Translate>
           </p>
         </section>

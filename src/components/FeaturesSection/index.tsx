@@ -114,7 +114,7 @@ const FEATURES: FeatureCard[] = [
     titleId: 'homepage.features.card15.title',
     titleDefault: 'Native Packages',
     descId: 'homepage.features.card15.desc',
-    descDefault: 'AppImage and Flatpak on Linux, Universal2 .dmg for macOS, portable .zip for Windows. Available for both x86_64 and ARM64.',
+    descDefault: 'Portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x86_64 and ARM64.',
   },
   {
     icon: '🛠️',

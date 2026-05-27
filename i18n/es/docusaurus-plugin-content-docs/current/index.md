@@ -4,7 +4,7 @@ title: Documentación de aMule
 slug: /
 ---
 
-aMule es un cliente peer-to-peer (P2P) libre, de código abierto y multiplataforma para compartir archivos en las redes **eD2k (eDonkey2000)** y **Kademlia (Kad)**. Está escrito en C++ con wxWidgets y funciona en Linux, FreeBSD, OpenBSD, macOS y Windows.
+aMule es un cliente peer-to-peer (P2P) libre, de código abierto y multiplataforma para compartir archivos en las redes **eD2k (eDonkey2000)** y **Kademlia (Kad)**. Está escrito en C++ con wxWidgets y funciona en Windows, macOS, Linux, FreeBSD y OpenBSD.
 
 Originalmente un fork de xMule (a su vez fork de lMule y eMule), aMule se mantiene activamente desde 2003.
 

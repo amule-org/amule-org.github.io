@@ -126,9 +126,9 @@ const sidebars: SidebarsConfig = {
           label: 'Compilation',
           link: {type: 'doc', id: 'development/compilation/index'},
           items: [
-            'development/compilation/linux',
-            'development/compilation/macos',
             'development/compilation/windows',
+            'development/compilation/macos',
+            'development/compilation/linux',
             'development/compilation/bsd',
           ],
         },

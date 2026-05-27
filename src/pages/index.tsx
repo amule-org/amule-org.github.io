@@ -18,7 +18,7 @@ export default function Home(): React.JSX.Element {
       title={siteConfig.title}
       description={translate({
         id: 'homepage.description',
-        message: 'aMule is a free, all-platform eMule-compatible eD2k/Kad client for Linux, macOS, and Windows.',
+        message: 'aMule is a free, all-platform eMule-compatible eD2k/Kad client for Windows, macOS, and Linux.',
       })}
     >
       <header className={styles.hero}>
@@ -54,7 +54,7 @@ export default function Home(): React.JSX.Element {
               __html: translate({
                 id: 'homepage.whatisamule.p1',
                 message:
-                  "aMule is a free, GPL-licensed peer-to-peer file-sharing client for the <strong>eD2k</strong> and <strong>Kademlia</strong> networks. It's compatible with eMule and runs natively on Linux, macOS, and Windows. The same on-disk state, the same protocol, one binary per major desktop.",
+                  "aMule is a free, GPL-licensed peer-to-peer file-sharing client for the <strong>eD2k</strong> and <strong>Kademlia</strong> networks. It's compatible with eMule and runs natively on Windows, macOS, and Linux. The same on-disk state, the same protocol, one binary per major desktop.",
               }),
             }}
           />

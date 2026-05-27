@@ -81,7 +81,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
           __html: translate({
             id: 'homepage.screenshots.lead',
             message:
-              'aMule 3.0.0 GUI — same look on Linux, macOS, and Windows. Click any screenshot to enlarge; use <kbd>←</kbd> <kbd>→</kbd> to navigate, <kbd>Esc</kbd> to close.',
+              'aMule 3.0.0 GUI — same look on Windows, macOS, and Linux. Click any screenshot to enlarge; use <kbd>←</kbd> <kbd>→</kbd> to navigate, <kbd>Esc</kbd> to close.',
           }),
         }}
       />

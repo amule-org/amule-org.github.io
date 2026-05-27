@@ -3,7 +3,7 @@
     "message": "Cliente eD2k/Kad multiplataforma compatible con eMule"
   },
   "homepage.description": {
-    "message": "aMule es un cliente eD2k/Kad libre, multiplataforma y compatible con eMule para Linux, macOS y Windows."
+    "message": "aMule es un cliente eD2k/Kad libre, multiplataforma y compatible con eMule para Windows, macOS y Linux."
   },
   "homepage.hero.logo.alt": {
     "message": "Logo de aMule"
@@ -21,7 +21,7 @@
     "message": "¿Qué es aMule?"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes <strong>eD2k</strong> y <strong>Kademlia</strong>. Es compatible con eMule y se ejecuta de forma nativa en Linux, macOS y Windows. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
+    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes <strong>eD2k</strong> y <strong>Kademlia</strong>. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
   },
   "homepage.whatisamule.p2": {
     "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
@@ -42,7 +42,7 @@
     "description": "Highlight 4 label"
   },
   "homepage.highlights.hl4.detail": {
-    "message": "AppImage, Flatpak, .dmg Universal2 para macOS y .zip portable para Windows; x86_64 y ARM64 donde la plataforma lo admita.",
+    "message": ".zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita.",
     "description": "Highlight 4 detail"
   },
   "homepage.highlights.hl5.label": {
@@ -68,7 +68,7 @@
     "message": "Capturas de pantalla"
   },
   "homepage.screenshots.lead": {
-    "message": "GUI de aMule 3.0.0: mismo aspecto en Linux, macOS y Windows. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> y <kbd>→</kbd> para navegar y <kbd>Esc</kbd> para cerrar."
+    "message": "GUI de aMule 3.0.0: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> y <kbd>→</kbd> para navegar y <kbd>Esc</kbd> para cerrar."
   },
   "homepage.screenshots.networks.alt": {
     "message": "Pestaña Redes — lista de servidores y estado de Kademlia",
@@ -231,7 +231,7 @@
     "description": "Feature card 15 title"
   },
   "homepage.features.card15.desc": {
-    "message": "AppImage y Flatpak en Linux, Universal2 .dmg para macOS, .zip portable para Windows. Disponible para x86_64 y ARM64.",
+    "message": ".zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64.",
     "description": "Feature card 15 description"
   },
   "homepage.features.card16.title": {
@@ -657,7 +657,7 @@
     "description": "The title of the tag list page"
   },
   "homepage.download.pageDescription": {
-    "message": "Descarga aMule para Linux, macOS y Windows o compílalo desde el código fuente."
+    "message": "Descarga aMule para Windows, macOS y Linux o compílalo desde el código fuente."
   },
   "homepage.download.title": {
     "message": "Descargas"
@@ -712,5 +712,11 @@
   },
   "homepage.download.foot.link": {
     "message": "página de la release más reciente"
+  },
+  "homepage.download.install": {
+    "message": "¿Eres nuevo en aMule? La {link} te guía a través de la configuración y tu primera descarga."
+  },
+  "homepage.download.install.link": {
+    "message": "guía de primeros pasos"
   }
 }

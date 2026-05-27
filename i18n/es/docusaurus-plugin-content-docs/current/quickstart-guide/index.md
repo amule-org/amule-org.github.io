@@ -7,6 +7,10 @@ title: Primeros pasos
 
 aMule es un cliente peer-to-peer (P2P) para la red [eD2k](https://es.wikipedia.org/wiki/EDonkey), conocida comúnmente como red eDonkey o red eD2k (eDonkey2000). Esta guía no requiere que conozcas estas redes en detalle, pero sí que tengas aMule instalado en tu equipo. Si todavía no lo has instalado, consulta la guía de instalación de tu plataforma.
 
+## Instalación
+
+Si aún no has instalado aMule, consulta la [guía de instalación](../user-guide/installation/index.md) para instrucciones específicas de cada plataforma.
+
 ## Ejecutar aMule por primera vez
 
 Inicia aMule ejecutando el comando `amule` en una terminal, o utilizando el acceso directo que proporcione tu entorno de escritorio.
@@ -217,10 +221,10 @@ Durante la descarga, aMule almacena los archivos parciales en un directorio temp
 
 | Plataforma | Directorio temporal | Archivos completados |
 |---|---|---|
-| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
-| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
 | Windows XP | `C:\Documents and Settings\<usuario>\Application Data\aMule` | misma raíz |
 | Windows Vista+ | `C:\Users\<usuario>\AppData\Roaming\aMule` | misma raíz |
+| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
+| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
 
 > **Nota:** En Linux, `.aMule` es un directorio oculto. Activa *Mostrar archivos ocultos* en tu gestor de archivos para verlo.
 

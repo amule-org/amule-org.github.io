@@ -57,6 +57,7 @@
 
 - **Project name**: Always write as "aMule" (not "Amule", "AMule", or "amule").
 - **Module names**: Always lowercase, always in code format: `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, `cas`, `xas`.
+- **Platform order**: When listing supported platforms in any enumeration, list, or table, always use the order **Windows, macOS, Linux, BSD** — ordered by popularity.
 
 ## Important Notes
 

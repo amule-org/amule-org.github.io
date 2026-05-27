@@ -55,13 +55,13 @@ aMule is protocol-compatible with eMule and can exchange files with eMule client
 
 ### aMule (2003–present)
 
-**[aMule](../user-guide/amule-components/amule.md)** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Linux, macOS, FreeBSD, and other Unix-like systems. It was originally forked from xMule and shares protocol compatibility with eMule.
+**[aMule](../user-guide/amule-components/amule.md)** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Windows, macOS, Linux, FreeBSD, and other Unix-like systems. It was originally forked from xMule and shares protocol compatibility with eMule.
 
 Key features that distinguish aMule (see the [full feature list](../index.md#features)):
 - Full eD2k + Kademlia dual-network support.
 - Daemon mode ([`amuled`](../user-guide/amule-components/amuled.md)) for headless/server operation.
 - Web interface ([`amuleweb`](../user-guide/amule-components/amuleweb.md)), remote GUI ([`amulegui`](../user-guide/amule-components/amulegui.md)), and command-line interface ([`amulecmd`](../user-guide/amule-components/amulecmd.md)).
-- Cross-platform: Linux, macOS, FreeBSD, Windows (via MinGW).
+- Cross-platform: Windows (via MinGW), macOS, Linux, FreeBSD.
 
 ### JMule (~2007)
 

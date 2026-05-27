@@ -19,9 +19,9 @@ eMule stores its configuration under its `config/` directory. aMule stores its c
 
 | Platform | Path |
 |---|---|
-| Linux / BSD | `~/.aMule/` |
-| macOS | `~/Library/Application Support/aMule/` |
 | Windows | `C:\Documents and Settings\<username>\Application Data\aMule\` |
+| macOS | `~/Library/Application Support/aMule/` |
+| Linux / BSD | `~/.aMule/` |
 
 The first step is to copy the relevant files from eMule's configuration directory into aMule's configuration directory.
 

@@ -11,7 +11,7 @@ Frequently asked questions about aMule in general: user interface, file manageme
 
 ## What is aMule?
 
-aMule is a multi-platform client for the ED2K file sharing network, based on the Windows client eMule. aMule started in August 2003 as a fork of xMule, which is itself a fork of lMule. aMule supports Linux, FreeBSD, OpenBSD, Windows, macOS and Xbox on both 32-bit and 64-bit computers.
+aMule is a multi-platform client for the ED2K file sharing network, based on the Windows client eMule. aMule started in August 2003 as a fork of xMule, which is itself a fork of lMule. aMule supports Windows, macOS, Linux, FreeBSD, OpenBSD, and Xbox on both 32-bit and 64-bit computers.
 
 aMule is designed to be as user-friendly and feature-rich as eMule, and to remain faithful to the look and feel of eMule so that users familiar with either client can switch between the two easily. Since aMule is based on the eMule codebase, new features in eMule tend to find their way into aMule shortly after their inclusion in eMule.
 
@@ -404,4 +404,4 @@ Yes. Since aMule 2.2.1, UPnP is supported on Linux and macOS. UPnP is **not** su
 
 ## Which distribution or OS is recommended for running aMule?
 
-aMule runs on Linux, FreeBSD, OpenBSD, macOS, and Windows. Any modern Linux distribution with up-to-date packages works well. The best choice is whichever OS you are already comfortable maintaining.
+aMule runs on Windows, macOS, Linux, FreeBSD, and OpenBSD. Any modern Linux distribution with up-to-date packages works well. The best choice is whichever OS you are already comfortable maintaining.

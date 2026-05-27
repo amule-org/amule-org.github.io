@@ -3,7 +3,7 @@ id: index
 title: Compilación
 ---
 
-aMule usa **CMake** (versión mínima 3.10) como sistema de compilación. Esta página cubre el flujo completo de compilación, instalación y desinstalación. Los comandos de instalación de dependencias específicos de cada plataforma están en las subpáginas de [Linux](linux.md), [macOS](macos.md) y [Windows](windows.md).
+aMule usa **CMake** (versión mínima 3.10) como sistema de compilación. Esta página cubre el flujo completo de compilación, instalación y desinstalación. Los comandos de instalación de dependencias específicos de cada plataforma están en las subpáginas de [Windows](windows.md), [macOS](macos.md), [Linux](linux.md) y [BSD](bsd.md).
 
 ## Dependencias
 

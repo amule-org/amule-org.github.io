@@ -7,6 +7,10 @@ title: Getting Started
 
 aMule is a peer-to-peer (P2P) client for the [eD2k](https://en.wikipedia.org/wiki/EDonkey_network) network, commonly known as the eDonkey network or eD2k network (eDonkey2000). This guide does not require you to be familiar with these networks, but it does require that you have aMule installed on your computer. If you haven't installed aMule yet, please refer to the installation guide for your platform.
 
+## Installation
+
+If you haven't installed aMule yet, see the [Installation guide](../user-guide/installation/index.md) for platform-specific instructions.
+
 ## Running aMule for the first time
 
 Launch aMule by running the command `amule` in a terminal, or by using whatever shortcut your desktop environment provides.
@@ -217,10 +221,10 @@ While downloading, aMule stores partial files in a temporary directory:
 
 | Platform | Temp directory | Completed files |
 |---|---|---|
-| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
-| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
 | Windows XP | `C:\Documents and Settings\<user>\Application Data\aMule` | same root |
 | Windows Vista+ | `C:\Users\<user>\AppData\Roaming\aMule` | same root |
+| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
+| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
 
 > **Note:** On Linux, `.aMule` is a hidden directory. Enable *Show hidden files* in your file manager to see it.
 

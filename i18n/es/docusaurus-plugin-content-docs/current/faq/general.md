@@ -11,7 +11,7 @@ Preguntas frecuentes sobre aMule en general: interfaz de usuario, gestión de ar
 
 ## ¿Qué es aMule?
 
-aMule es un cliente multiplataforma para la red de compartición de archivos ED2K, basado en el cliente de Windows eMule. aMule empezó en agosto de 2003 como un fork de xMule, que a su vez es un fork de lMule. aMule es compatible con Linux, FreeBSD, OpenBSD, Windows, macOS y Xbox, tanto en ordenadores de 32 bits como de 64 bits.
+aMule es un cliente multiplataforma para la red de compartición de archivos ED2K, basado en el cliente de Windows eMule. aMule empezó en agosto de 2003 como un fork de xMule, que a su vez es un fork de lMule. aMule es compatible con Windows, macOS, Linux, FreeBSD, OpenBSD y Xbox, tanto en ordenadores de 32 bits como de 64 bits.
 
 aMule está diseñado para ser tan fácil de usar y con tantas funciones como eMule, y para mantenerse fiel al aspecto y la sensación de eMule, de modo que los usuarios familiarizados con cualquiera de los dos clientes puedan cambiar entre ellos fácilmente. Dado que aMule está basado en el código de eMule, las nuevas funciones de eMule suelen aparecer en aMule poco después de su inclusión en eMule.
 
@@ -406,7 +406,7 @@ Ah, sí, todo empezó... ejem... bueno... quiero decir... sigue al conejo blanco
 
 ## ¿Qué distribución o SO se recomienda para ejecutar aMule?
 
-aMule funciona en Linux, FreeBSD, OpenBSD, macOS y Windows. Cualquier distribución Linux moderna con paquetes actualizados funciona bien. La mejor elección es el SO que ya dominas.
+aMule funciona en Windows, macOS, Linux, FreeBSD y OpenBSD. Cualquier distribución Linux moderna con paquetes actualizados funciona bien. La mejor elección es el SO que ya dominas.
 
 ---
 

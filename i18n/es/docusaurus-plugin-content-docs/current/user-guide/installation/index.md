@@ -5,17 +5,17 @@ title: Instalación
 
 Esta sección explica cómo instalar aMule en cada plataforma compatible.
 
-## Linux
+## Windows
 
-<!-- TODO: instrucciones por gestor de paquetes (apt, dnf, pacman, etc.) y compilación desde el código fuente -->
+<!-- TODO: descarga del instalador y pasos de configuración -->
 
 ## macOS
 
 <!-- TODO: instrucciones con Homebrew, MacPorts y compilación manual -->
 
-## Windows
+## Linux
 
-<!-- TODO: descarga del instalador y pasos de configuración -->
+<!-- TODO: instrucciones por gestor de paquetes (apt, dnf, pacman, etc.) y compilación desde el código fuente -->
 
 ## FreeBSD / OpenBSD
 

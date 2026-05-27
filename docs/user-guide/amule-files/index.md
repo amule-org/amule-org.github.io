@@ -9,9 +9,10 @@ aMule stores its configuration, data, and runtime files in a dedicated directory
 
 | Platform | Directory |
 |---|---|
-| Linux / Unix | `~/.aMule/` |
-| macOS | `~/Library/Application Support/aMule/` |
 | Windows | `%APPDATA%\aMule\` |
+| macOS | `~/Library/Application Support/aMule/` |
+| Linux / Unix | `~/.aMule/` |
+| FreeBSD / OpenBSD / NetBSD | `~/.aMule/` |
 
 On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Application Support/aMule/`.
 
