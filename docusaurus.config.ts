@@ -1,3 +1,4 @@
+import path from 'path';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -16,6 +17,34 @@ const config: Config = {
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
+  markdown: {
+    hooks: {
+      // When a relative link in a translated page points to a page that hasn't
+      // been translated yet, redirect to the English version instead of failing
+      // the build. This also handles English fallback docs processed during a
+      // non-English build. Links in the English build still throw as normal.
+      onBrokenMarkdownLinks: ({sourceFilePath, url}) => {
+        const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'en';
+        if (currentLocale === 'en') {
+          throw new Error(`Broken markdown link: "${url}" in ${sourceFilePath}`);
+        }
+        const normalized = sourceFilePath.replace(/\\/g, '/');
+        const i18nMatch = normalized.match(
+          /i18n\/[^/]+\/docusaurus-plugin-content-docs\/[^/]+\/(.*)/
+        );
+        const docsMatch = normalized.match(/(?:^|\/)docs\/(.*)/);
+        const relativeDocPath = i18nMatch?.[1] ?? docsMatch?.[1];
+        if (!relativeDocPath) {
+          throw new Error(`Broken markdown link: "${url}" in ${sourceFilePath}`);
+        }
+        const [urlWithoutHash, hash] = url.split('#');
+        const cleanUrl = urlWithoutHash.replace(/\.mdx?$/, '');
+        const sourceDir = path.posix.dirname(relativeDocPath);
+        const targetPath = path.posix.normalize(path.posix.join(sourceDir, cleanUrl));
+        return `pathname:///docs/${targetPath}${hash ? `#${hash}` : ''}`;
+      },
+    },
+  },
   favicon: 'img/favicon.ico',
   headTags: [
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: `${baseUrl}img/favicon-16x16.png`}},
