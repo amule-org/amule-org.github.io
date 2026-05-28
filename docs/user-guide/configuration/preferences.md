@@ -131,11 +131,11 @@ Options for controlling aMule remotely via the web interface or external connect
 
 | Setting | Description |
 |---|---|
-| **Webserver port** | Port where AMuleWeb listens for incoming connections. |
-| **Page Refresh Time** | Time between page refreshes in AMuleWeb (seconds). |
-| **Enable Gzip compression** | Compress packets transferred between aMule and AMuleWeb. |
-| **Enable Low rights User** | Enable a low-privilege account for AMuleWeb with view-only access. |
-| **Full rights password** | Password for administration access to AMuleWeb. |
+| **Webserver port** | Port where `amuleweb` listens for incoming connections. |
+| **Page Refresh Time** | Time between page refreshes in `amuleweb` (seconds). |
+| **Enable Gzip compression** | Compress packets transferred between aMule and `amuleweb`. |
+| **Enable Low rights User** | Enable a low-privilege account for `amuleweb` with view-only access. |
+| **Full rights password** | Password for administration access to `amuleweb`. |
 | **Low rights password** | Password for the view-only account. |
 | **Web template** | Template (skin) to use for the web interface. |
 
@@ -143,7 +143,7 @@ Options for controlling aMule remotely via the web interface or external connect
 
 | Setting | Description |
 |---|---|
-| **Accept external connections** | Allow aMule to accept External Connection requests from remote applications (AMuleWeb, AMuleGUI, AMuleCMD). |
+| **Accept external connections** | Allow aMule to accept External Connection requests from remote applications (`amuleweb`, `amulegui`, `amulecmd`). |
 | **IP of the listening interface** | IP address of the host running aMule. Optional. |
 | **TCP port** | TCP port where aMule listens for external connections. |
 | **Password** | Password remote applications must supply to connect. |

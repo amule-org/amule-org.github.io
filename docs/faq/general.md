@@ -124,7 +124,7 @@ When you download a file, aMule finds a list of clients sharing it. Some of thos
 - **Transferred**: the total amount of raw data received for the file. Data arrives in compressed form.
 - **Completed**: the amount of useful, decompressed file data extracted from the received data — i.e., actual file content excluding protocol headers and compression overhead.
 
-It is normal and expected for Transferred to be **smaller** than Completed (see [AMule problems: Why is Transferred a smaller number than Completed?](/docs/troubleshooting/common-problems)).
+It is normal and expected for Transferred to be **smaller** than Completed (see [aMule problems: Why is Transferred a smaller number than Completed?](/docs/troubleshooting/common-problems)).
 
 ## What is the difference between pausing and stopping a transfer?
 
