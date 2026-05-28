@@ -16,7 +16,7 @@ Frequently asked questions about aMule, organized by topic.
 ## Quick answers to the most common questions
 
 **Where are my downloaded files?**
-By default in `~/.aMule/Incoming`. On macOS: `~/Library/Application Support/aMule/Incoming`.
+→ See [Download Folders](../user-guide/configuration/download-folders.md) for the default paths on each platform.
 
 **Why do I have a Low ID?**
 → TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../ed2k/high-id-low-id.md) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).

@@ -139,16 +139,7 @@ Most of them are identical to eMule's. Detailed information about each file — 
 
 ## Where are my downloaded files?
 
-By default, aMule stores completed downloads in `~/.aMule/Incoming`. Since `~/.aMule` is a hidden directory, your file manager may not show it — enable the "Show hidden files" option.
-
-Files currently being downloaded are stored in `~/.aMule/Temp`.
-
-- **macOS**: `~/Library/Application Support/aMule/Incoming`
-- **Windows** (aMule 2.0.0 and later): `%USERPROFILE%\Documents\aMule Downloads\`
-- **Windows** (before aMule 2.1.0): `%USERPROFILE%\aMule Downloads\`
-- **Windows** (fallback if the Documents folder cannot be determined): `<app_dir>\Incoming\`
-
-For a full reference of all aMule directories and files on each platform, see the [aMule Files Reference](/docs/user-guide/amule-files).
+See [Download Folders](../user-guide/configuration/download-folders.md) for the default paths on each platform.
 
 ## Can I use eMule's files and settings, and vice versa?
 
@@ -159,7 +150,7 @@ Most files can be shared between the two clients. The only files you **cannot** 
 
 All ED2K network-related files can be successfully shared by copying them between the two applications' directories. However, some files in `~/.aMule` are aMule-specific (such as `amulesig.dat` or `aMule.tmpl`), so it is best to only move files that exist in both the aMule and eMule directories.
 
-**Moving half-downloaded files** is straightforward: copy them from eMule's Temp directory (usually `C:\Program Files\eMule\Temp` on Windows) into `~/.aMule/Temp` (or whichever Temp directory is set in your aMule configuration), and vice versa.
+**Moving half-downloaded files** is straightforward: copy them from eMule's Temp directory (usually `C:\Program Files\eMule\Temp` on Windows) into aMule's Temp directory (see [Download Folders](../user-guide/configuration/download-folders.md) for the path on your platform), and vice versa.
 
 ## What is all that stuff in amulesig.dat and onlinesig.dat?
 

@@ -8,6 +8,7 @@ Configuration reference for aMule: the Preferences dialog and guides for specifi
 | Page | Description |
 |---|---|
 | [Preferences](preferences.md) | Full reference for every option in the Preferences dialog |
+| [Download Folders](download-folders.md) | Incoming directory, temporary directory, and shared directories |
 | [Getting a High ID](get-high-id.md) | How to configure your ports to obtain a High ID |
 | [Firewall and Router Configuration](firewall.md) | How to open the required ports in your firewall and router |
 | [UPnP](upnp.md) | Automatic port forwarding via UPnP |

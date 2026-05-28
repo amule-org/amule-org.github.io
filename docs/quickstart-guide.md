@@ -217,20 +217,11 @@ Downloads can be assigned to named categories, each with a unique colour and a s
 
 ### Where Are The Files?
 
-While downloading, aMule stores partial files in a temporary directory:
+aMule uses a **Temporary directory** for in-progress downloads and an **Incoming directory** for completed files. Both can be changed in **Preferences → Directories**. See [Download Folders](user-guide/configuration/download-folders.md) for the default paths on each platform.
 
-| Platform | Temp directory | Completed files |
-|---|---|---|
-| Windows XP | `C:\Documents and Settings\<user>\Application Data\aMule` | same root |
-| Windows Vista+ | `C:\Users\<user>\AppData\Roaming\aMule` | same root |
-| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
-| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
+If a directory named `config` exists next to the aMule executable, configuration files are stored there instead — useful for running aMule from a USB drive.
 
-> **Note:** On Linux, `.aMule` is a hidden directory. Enable *Show hidden files* in your file manager to see it.
-
-You can change both paths in **Preferences → Directories**. If a directory named `config` exists next to the aMule executable, configuration files are stored there instead — useful for running aMule from a USB drive.
-
-If you have incomplete downloads from eMule, you can copy their temp files into aMule's `Temp` directory and aMule will resume them.
+If you have incomplete downloads from eMule, copy their temp files into aMule's Temp directory and aMule will resume them.
 
 ### Sharing Files
 
@@ -240,7 +231,7 @@ There are two ways to share files:
 
 **1. Place files in the Incoming directory**
 
-Copy files to `~/.aMule/Incoming` (Linux) or the equivalent path on your platform. Then either restart aMule or press the **Reload** button on the Shared Files page:
+Copy files to your Incoming directory (see [Download Folders](user-guide/configuration/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the Shared Files page:
 
 ![Reload shared files button](/img/docs/reload_button.png)
 

@@ -26,7 +26,7 @@ Solutions to the most common problems encountered when running aMule.
 → Your upload limit or connection count is too high. See [aMule Makes Everything Else Slow](./slow-speeds.md#amule-makes-everything-else-slow).
 
 **I can't find my downloaded files**
-→ Check `~/.aMule/Incoming` (or `~/Library/Application Support/aMule/Incoming` on macOS). Enable "Show hidden files" in your file manager.
+→ See [Download Folders](../user-guide/configuration/download-folders.md) for the default Incoming path on your platform.
 
 **Kademlia says "firewalled" even though I have a High ID**
 → Your router is remapping UDP port 4672. See [High ID and Low ID — Kademlia: Open vs Firewalled](../ed2k/high-id-low-id.md#kademlia-open-vs-firewalled) and [Network FAQ → Kademlia firewalled](../faq/network.md#why-does-kademlia-still-say-it-is-firewalled).
