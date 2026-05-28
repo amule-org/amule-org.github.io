@@ -21,7 +21,7 @@ Once started, aMule will display a notification telling you that you are running
 
 ### Configuring aMule
 
-Before you begin file sharing, you will need to properly configure aMule. This includes connection speeds and limits, directories, proxies, port settings and other options. Access preferences by clicking the **Preferences** icon at the top of the aMule window. On macOS, click the **Tools** icon in the toolbar.
+Before you begin file sharing, you will need to properly configure aMule. This includes connection speeds and limits, directories, proxies, port settings and other options. Access [Preferences](user-guide/configuration/preferences.md) by clicking the **Preferences** icon at the top of the aMule window. On macOS, click the **Tools** icon in the toolbar.
 
 #### Connection Speed
 
@@ -30,7 +30,7 @@ The eDonkey network enforces upload. In order to download, you must share files 
 - Your download speed depends on how fast you upload. If your upload speed is set below 10 kB/s, your maximum download speed will be roughly 3–4× your upload speed. Limiting upload to 5 kB/s means you can only download at ~20 kB/s.
 - Partially downloaded files are shared automatically once you have received at least one chunk (a chunk is a 9.28 MB piece of a file).
 
-When you first open the Preferences dialog, the **General** page is shown. To configure bandwidth, click the **Connection** tab:
+When you first open the [Preferences](user-guide/configuration/preferences.md) dialog, the **General** page is shown. To configure bandwidth, click the **Connection** tab:
 
 ![Bandwidth limits dialog](/img/docs/bandwidth_limits.png)
 
@@ -52,11 +52,11 @@ aMule can connect to two networks simultaneously:
 - **ED2K** — the classic server-based eDonkey network.
 - **Kademlia (Kad)** — a serverless distributed network. This allows aMule and other eDonkey clients to function without relying on centralised servers.
 
-Both networks are enabled by default. You can disable either from the lower part of the **Connection** preferences page. Users with slow upload speeds should consider enabling only one network to reduce overhead.
+Both networks are enabled by default. You can disable either from the lower part of the **Connection** [preferences](user-guide/configuration/preferences.md#connection) page. Users with slow upload speeds should consider enabling only one network to reduce overhead.
 
 ### Connecting to a Server
 
-After opening aMule you should see the servers dialog:
+After opening aMule you should see the [Networks](user-guide/usage/networks.md) window:
 
 ![Empty server list](/img/docs/serverlist_empty.png)
 
@@ -70,7 +70,7 @@ Once you have a list of servers, click the large **Connect** button near the top
 
 To connect to the Kademlia network (when it is enabled in preferences), press the **Connect** button on the top toolbar. Note that manually connecting to a specific ED2K server by double-clicking it does **not** connect you to Kademlia.
 
-Alternatively, go to the **Kad** sub-page of the **Networks** page and press **Bootstrap from known clients**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
+Alternatively, go to the **Kad** sub-page of the [Networks](user-guide/usage/networks.md) window and press **Bootstrap from known clients**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
 
 ![Kademlia network page](/img/docs/serverlist_kad.png)
 
@@ -87,7 +87,7 @@ Check the globe icon in the bottom-right corner of the window:
 
 ### Searching and Downloading
 
-To search for a file, make sure you are connected to a server or the Kademlia network, then click the **Searches** button:
+To search for a file, make sure you are connected to a server or the Kademlia network, then click the **Searches** button to open the [Searches](user-guide/usage/searches.md) window:
 
 ![Search dialog](/img/docs/search_dialog.png)
 
@@ -105,9 +105,10 @@ Click **Sources** twice to sort by popularity. Double-click a result (or select 
 
 Result colours:
 
-- **Blue** — number of sources; darker blue means more sources.
-- **Red** — file you are currently downloading.
+- **Blue** — file is not yet downloaded. The brighter/more vivid the blue, the more sources it has; files with few sources appear dark navy or black.
+- **Red** — file is already in your download queue.
 - **Green** — file you have already downloaded or shared.
+- **Magenta** — file was queued for download but was cancelled.
 
 #### Advanced Searches
 
@@ -139,7 +140,7 @@ Examples:
 
 ### The Download Queue
 
-Click the **Transfers** button to see your queued downloads:
+Click the **Transfers** button to open the [Transfers](user-guide/usage/transfers.md) window and see your queued downloads:
 
 ![Transfer queue](/img/docs/transfers_queue.png)
 
@@ -154,7 +155,7 @@ Double-click any file to inspect the sources found for it.
 | **Filename** | Name of the file. |
 | **Size** | File size. The eD2k network supports files up to 4 GB. |
 | **Transferred** | Total bytes received so far. |
-| **Completed** | How much of the file is actually complete. May differ from *Transferred* due to compression or corruption. |
+| **Completed** | How much of the file is actually complete. May be less than *Transferred* if corrupted data was received and discarded. |
 | **Progress** | Visual progress bar. Blue = sources available (darker = more sources); Red = no source has this part; Black = already downloaded; Yellow = currently downloading. The thin green bar on top shows overall completion. |
 | **Sources** | Format: `<Asked>[/All] [+A4AF] [(Transferring)]`. *Asked* = sources that have been queried; *All* = all known sources; *A4AF* = sources asked for another file; *Transferring* = sources uploading to you right now. |
 | **Priority** | Download priority. Auto-priority (default) lets aMule manage allocation automatically. Higher-priority files attract more sources. |
@@ -231,13 +232,13 @@ There are two ways to share files:
 
 **1. Place files in the Incoming directory**
 
-Copy files to your Incoming directory (see [Download Folders](user-guide/configuration/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the Shared Files page:
+Copy files to your Incoming directory (see [Download Folders](user-guide/configuration/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the [Shared Files](user-guide/usage/shared-files.md) page:
 
 ![Reload shared files button](/img/docs/reload_button.png)
 
 **2. Add shared directories in Preferences**
 
-Click **Preferences → Directories**:
+Click [**Preferences → Directories**](user-guide/configuration/preferences.md#directories):
 
 ![Preferences — Directories page](/img/docs/prefs_directories.png)
 

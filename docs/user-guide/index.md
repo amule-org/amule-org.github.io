@@ -3,34 +3,23 @@ id: index
 title: User Guide
 ---
 
-This guide covers everything you need to use aMule: installation, configuration, daily usage, and the aMule component ecosystem.
+This guide covers everything you need to use aMule: installation, configuration, daily usage, and reference documentation for components and files.
 
-## Installation
+## New to aMule?
 
-How to install aMule on Windows, macOS, Linux, and BSD systems.
+Follow these steps to get up and running:
 
-- [Installation](installation/index.md)
+1. **[Install aMule](installation/index.md)** — get aMule on your system (Windows, macOS, Linux, or BSD).
+2. **[Configure aMule](configuration/index.md)** — set up your ports, bandwidth limits, and download folders.
+3. **[Start using aMule](usage/index.md)** — search for files, manage downloads, and share content.
 
-## Configuration
+## All Sections
 
-How to configure aMule's connection, bandwidth limits, directories, and advanced options.
-
-- [Configuration](configuration/index.md)
-
-## Usage
-
-Searching, downloading, uploading, and managing shared files.
-
-- [Usage](usage/index.md)
-
-## aMule Components
-
-aMule ships several binaries beyond the main GUI client. Each component serves a distinct role.
-
-- [aMule Components](amule-components/index.md)
-
-## aMule Files
-
-Reference for the configuration, data, temporary, and log files that aMule reads and writes.
-
-- [aMule Files](amule-files/index.md)
+| Section | Description |
+|---|---|
+| [Installation](installation/index.md) | Installing aMule on Windows, macOS, Linux, and BSD |
+| [Configuration](configuration/index.md) | Preferences, ports, firewall, IP filter, and advanced options |
+| [Usage](usage/index.md) | Searching, downloading, uploading, and managing shared files |
+| [aMule Components](amule-components/index.md) | `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, and utilities |
+| [aMule Files](amule-files/index.md) | Configuration, data, and log files that aMule reads and writes |
+| [Migration](migration/index.md) | Migrating to aMule from eMule, eDonkey2000, or other eD2k clients |

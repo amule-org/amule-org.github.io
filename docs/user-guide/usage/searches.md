@@ -101,8 +101,9 @@ Files in the results list are colour-coded:
 | ![Red](/img/docs/usage/window_search43.jpg) Red | Already in the download queue |
 | Dark blue / black | Not downloaded and not in queue; fewer sources |
 | ![Light blue](/img/docs/usage/window_search44.jpg) Light blue | Not downloaded and not in queue; more sources |
+| Magenta | Previously queued for download but cancelled |
 
-The lighter the blue, the more sources the file has. Some search results may also display an **average rating** (when the server provides it). Comments are never shown in search results, only average ratings.
+The brighter/more vivid the blue, the more sources the file has. Some search results may also display an **average rating** (when the server provides it). Comments are never shown in search results, only average ratings.
 
 ## Tabs
 
@@ -219,7 +220,7 @@ Click the **Filtering** checkbox to reveal post-search filtering controls. Filte
 
 #### Filter
 
-Type a string in the **Filter** box and click **Filter results**. Only files whose name contains that exact string will be displayed:
+Type a [wxRegEx](https://docs.wxwidgets.org/stable/overview_resyntax.html) expression in the **Filter** box and click **Filter results**. Files whose name matches the expression are displayed; all others are hidden. The match is case-insensitive. A plain word (e.g. `linux`) matches any filename containing that word:
 
 ![Filter input and button](/img/docs/usage/window_search26.jpg)
 

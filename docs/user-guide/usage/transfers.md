@@ -43,7 +43,7 @@ The progress bar shows the chunk composition of a file at a glance. Each file is
 | Colour | Meaning |
 |---|---|
 | Black / dark grey | Chunk already downloaded and verified. |
-| Blue (varying shades) | Chunk not yet downloaded; available from sources. Darker blue = fewer sources have it; lighter blue = more sources. |
+| Blue (varying shades) | Chunk not yet downloaded; available from sources. Lighter blue/cyan = fewer sources have it; darker/pure blue = more sources. |
 | Yellow | Chunk currently being requested and downloaded. |
 | Red | Chunk not available from any known source. Downloads stall on red segments — avoid files with many red chunks. |
 | Green (thin bar on top) | Overall completion percentage. |
