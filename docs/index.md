@@ -68,7 +68,7 @@ In addition to the *Mule baseline, aMule adds:
 
 ## Quick Start
 
-- [Getting Started](quickstart-guide/index.md) — first run, configuration, searching and downloading
+- [Getting Started](quickstart-guide.md) — first run, configuration, searching and downloading
 
 ## Modules
 

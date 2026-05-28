@@ -29,7 +29,7 @@
   },
   "sidebar.docsSidebar.doc.Quick Start": {
     "message": "Inicio rápido",
-    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide/index"
+    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
   },
   "sidebar.docsSidebar.doc.Troubleshooting": {
     "message": "Solución de problemas",

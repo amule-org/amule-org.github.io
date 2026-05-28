@@ -67,7 +67,7 @@ Note: not all clients report which parts they have completed, so some may show n
 
 ## What are all these icons?
 
-See the "Icons and what they signify" section in the [Getting Started guide](../quickstart-guide/index.md).
+See the "Icons and what they signify" section in the [Getting Started guide](../quickstart-guide.md).
 
 ## What do those numbers in brackets in the sources column of the search window mean?
 

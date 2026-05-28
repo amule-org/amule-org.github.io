@@ -1,5 +1,5 @@
 ---
-id: index
+id: quickstart-guide
 title: Getting Started
 ---
 
@@ -9,7 +9,7 @@ aMule is a peer-to-peer (P2P) client for the [eD2k](https://en.wikipedia.org/wik
 
 ## Installation
 
-If you haven't installed aMule yet, see the [Installation guide](../user-guide/installation/index.md) for platform-specific instructions.
+If you haven't installed aMule yet, see the [Installation guide](user-guide/installation/index.md) for platform-specific instructions.
 
 ## Running aMule for the first time
 
@@ -80,8 +80,8 @@ Because P2P networks require clients to connect directly to each other, being be
 
 Check the globe icon in the bottom-right corner of the window:
 
-- **Green arrows** — you have a **[High ID](../ed2k/high-id-low-id.md)** and full connectivity. Proceed normally.
-- **Yellow arrows** — you have a **[Low ID](../ed2k/high-id-low-id.md)**. A Low ID greatly reduces P2P performance. You will need to open and forward ports 4662 (TCP), 4665 (UDP), and 4672 (UDP) in your router or firewall. See [High ID and Low ID](../ed2k/high-id-low-id.md) for step-by-step instructions.
+- **Green arrows** — you have a **[High ID](ed2k/high-id-low-id.md)** and full connectivity. Proceed normally.
+- **Yellow arrows** — you have a **[Low ID](ed2k/high-id-low-id.md)**. A Low ID greatly reduces P2P performance. You will need to open and forward ports 4662 (TCP), 4665 (UDP), and 4672 (UDP) in your router or firewall. See [High ID and Low ID](ed2k/high-id-low-id.md) for step-by-step instructions.
 
 ## Basic Usage
 

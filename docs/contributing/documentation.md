@@ -11,7 +11,7 @@ The aMule documentation is maintained as Markdown files in the [amule-org.github
 amule-org.github.io/
 ├── docs/                        # English documentation (source of truth)
 │   ├── index.md                 # Docs landing page
-│   ├── quickstart-guide/
+│   ├── quickstart-guide.md
 │   ├── user-guide/
 │   ├── ed2k/
 │   ├── development/
