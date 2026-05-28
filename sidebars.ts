@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
           link: {type: 'doc', id: 'user-guide/configuration/index'},
           items: [
             'user-guide/configuration/preferences',
+            'user-guide/configuration/download-folders',
             'user-guide/configuration/get-high-id',
             'user-guide/configuration/firewall',
             'user-guide/configuration/upnp',

@@ -207,19 +207,8 @@ Each category can have its own incoming directory. Completed files are saved to 
 
 ## Where Are the Files?
 
-While downloading, aMule stores incomplete data in a temporary directory. Completed files are moved to the incoming directory.
+While downloading, aMule stores incomplete data in a **Temporary directory**. Completed files are moved to the **Incoming directory**. Both paths depend on your platform and can be changed in **Preferences → Directories**. Per-category incoming folders override the default incoming directory for files assigned to that category.
 
-| Platform | Temp directory | Incoming directory |
-|---|---|---|
-| Windows XP | `C:\Documents and Settings\<user>\Application Data\aMule\Temp` | `…\aMule\Incoming` |
-| Windows Vista+ | `C:\Users\<user>\AppData\Roaming\aMule\Temp` | `…\aMule\Incoming` |
-| macOS | `~/Library/Application Support/aMule/Temp` | `~/Library/Application Support/aMule/Incoming` |
-| Linux | `~/.aMule/Temp` | `~/.aMule/Incoming` |
+See [Download Folders](../configuration/download-folders.md) for the default paths on each platform.
 
-:::note
-On Linux, `.aMule` is a hidden directory. Enable *Show hidden files* in your file manager to see it.
-:::
-
-Both paths can be changed in **Preferences → Directories**. Per-category incoming folders override the default incoming directory for files assigned to that category.
-
-If you have incomplete downloads from eMule, copy their `.part` and `.part.met` files into aMule's `Temp` directory — aMule will resume them automatically on the next start.
+If you have incomplete downloads from eMule, copy their `.part` and `.part.met` files into aMule's Temp directory — aMule will resume them automatically on the next start.
