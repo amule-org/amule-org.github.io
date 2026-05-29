@@ -98,7 +98,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'eD2k & Kademlia',
+      label: 'P2P Networks (eD2k & Kademlia)',
       link: {type: 'doc', id: 'ed2k/index'},
       items: [
         'ed2k/ed2k-network',

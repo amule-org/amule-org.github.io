@@ -30,6 +30,21 @@
 - `i18n/es/` — Spanish translations (`code.json` for UI strings, mirrored `docs/` for content)
 - `static/img/` — images (`amule-logo.png`, `social-card.png`, `screenshots/`, `docs/`)
 
+## Documentation
+
+`docs/` is split into **three top-level sidebar categories** by audience (one `docsSidebar`, see `sidebars.ts`). Keep them separate — never mix audiences.
+
+- **User Manual** (`docs/manual/`) — install, configure, use, troubleshoot; for basic and expert users. Layered to handle shared GUI/config:
+  - **aMule Core** (`core/`) — engine shared by `amule`/`amuled`: connecting, IDs, network config (firewall, UPnP, proxy, ipfilter, folders, events) and **editable text config files** (`amule.conf`, `remote.conf`, etc.).
+  - **Interfaces** (`interfaces/`) — how the core is driven: GUI (`amule` + `amulegui`, with Usage + Preferences + Skins), `amuleweb`, `amulecmd`, `amuled`.
+  - **Utilities** (`utilities/`) — standalone helpers: `alc`/`alcc`, `ed2k`, `cas`/`wxcas`.
+  - Plus Migration, Troubleshooting, FAQ.
+- **Developer Guide** (`docs/development/`) — for aMule developers and advanced integrators: architecture, compilation, code style, debugging, testing, **EC protocol**, **binary file-format reference** (`development/file-formats/`: `server.met`, `nodes.dat`, `clients.met`, `part.met`, `preferences.dat`…), and Contributing.
+- **P2P Networks** (`docs/ed2k/`) — general eD2k & Kademlia **protocol** description and historical reference. **Do not mix protocol with aMule's concrete implementation** — implementation details belong in the User Manual / Developer Guide and are linked, not embedded.
+
+Rules:
+- **Split config files by audience**: user-editable text configs → User Manual; binary format specs (byte layouts) → Developer Guide.
+
 ## Homepage Components
 
 | Component | Section |

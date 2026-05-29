@@ -11,9 +11,9 @@
     "message": "Componentes de aMule",
     "description": "The label for category 'aMule Modules' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.eD2k & Kademlia": {
-    "message": "eD2k y Kademlia",
-    "description": "The label for category 'eD2k & Kademlia' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.P2P Networks (eD2k & Kademlia)": {
+    "message": "Redes P2P (eD2k y Kademlia)",
+    "description": "The label for category 'P2P Networks (eD2k & Kademlia)' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Development": {
     "message": "Desarrollo",
