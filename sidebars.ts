@@ -85,11 +85,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-guide/amule-files/amule-conf',
             'user-guide/amule-files/remote-conf',
-            'user-guide/amule-files/nodes-dat',
-            'user-guide/amule-files/server-met',
-            'user-guide/amule-files/clients-met',
-            'user-guide/amule-files/emfriends-met',
-            'user-guide/amule-files/part-met',
             'user-guide/amule-files/amulesig-dat',
             'user-guide/amule-files/cas',
           ],
@@ -115,7 +110,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Development',
+      label: 'Developer Guide',
       link: {type: 'doc', id: 'development/index'},
       items: [
         'development/code-style',
@@ -133,16 +128,28 @@ const sidebars: SidebarsConfig = {
             'development/compilation/bsd',
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Contributing',
-      link: {type: 'doc', id: 'contributing/index'},
-      items: [
-        'contributing/bug-reports',
-        'contributing/translations',
-        'contributing/documentation',
+        {
+          type: 'category',
+          label: 'Binary File Formats',
+          link: {type: 'generated-index'},
+          items: [
+            'development/file-formats/server-met',
+            'development/file-formats/nodes-dat',
+            'development/file-formats/clients-met',
+            'development/file-formats/emfriends-met',
+            'development/file-formats/part-met',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Contributing',
+          link: {type: 'doc', id: 'development/contributing/index'},
+          items: [
+            'development/contributing/bug-reports',
+            'development/contributing/translations',
+            'development/contributing/documentation',
+          ],
+        },
       ],
     },
     {

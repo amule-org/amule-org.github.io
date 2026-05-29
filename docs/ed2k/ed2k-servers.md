@@ -35,7 +35,7 @@ aMule's changelog tracks coordination with lugdunummaster across multiple releas
 
 ### Version tag in server.met
 
-The `Version` tag (`0x91`) in a [`server.met`](../user-guide/amule-files/server-met.md) record stores the version and name of the software the server is running. In practice the value looks like `17.6` or `17.7 (lugdunum)`. The following is an actual message from an aMule log:
+The `Version` tag (`0x91`) in a [`server.met`](../development/file-formats/server-met.md) record stores the version and name of the software the server is running. In practice the value looks like `17.6` or `17.7 (lugdunum)`. The following is an actual message from an aMule log:
 
 ```
 2005-12-11 06:58:09: ServerMessage: server version 17.7 (lugdunum)
@@ -66,7 +66,7 @@ The **server list** is the list of eD2k servers your client can connect to. Each
 | Port | TCP port (typically 4661, but can differ — see [auxiliary ports](#connecting-via-auxiliary-ports)) |
 | Priority | Normal (default), High, or Low — controls connection order |
 
-The server list is stored in the binary [`server.met`](../user-guide/amule-files/server-met.md) file at `~/.aMule/server.met`. Additional per-server statistics (ping time, failure count, user count, file count, UDP capability flags) are also recorded there.
+The server list is stored in the binary [`server.met`](../development/file-formats/server-met.md) file at `~/.aMule/server.met`. Additional per-server statistics (ping time, failure count, user count, file count, UDP capability flags) are also recorded there.
 
 In aMule, the server list is visible in the **Networks** panel, **eD2k** tab:
 

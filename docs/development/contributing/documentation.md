@@ -181,7 +181,7 @@ All images must have meaningful `alt` text for accessibility. Prefer PNG for scr
 **Internal links** — use relative paths to other `.md` files:
 
 ```markdown
-[Compilation guide](../development/compilation/index.md)
+[Compilation guide](../compilation/index.md)
 ```
 
 **External links** — use full URLs:
@@ -209,7 +209,7 @@ Use consistent terminology throughout the documentation:
 | `amulecmd` | `AMuleCMD`, `amule cmd` |
 | eD2k | ed2k (in prose) |
 | Kademlia | kad (in prose) |
-| HighID / LowID | [High ID, Low ID](../ed2k/high-id-low-id.md) |
+| HighID / LowID | [High ID, Low ID](../../ed2k/high-id-low-id.md) |
 
 ## Translations
 

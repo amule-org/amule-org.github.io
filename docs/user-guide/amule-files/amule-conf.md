@@ -94,7 +94,7 @@ The primary section. Contains the majority of user-facing preferences.
 | `AutoConnectStaticOnly` | `0` | Auto-connect only to servers marked as static. |
 | `ManualHighPrio` | `0` | Assign High Priority to servers you add manually. |
 | `ServerKeepAliveTimeout` | `0` | Interval in **minutes** for pinging the connected eD2k server to prevent disconnection. `0` disables keep-alive pings. |
-| `Ed2kServersUrl` | `https://upd.emule-security.org/server.met` | URL to download [`server.met`](server-met.md) updates from. Used when auto-update is enabled. Supports `http://`, `https://`, and `ftp://`. |
+| `Ed2kServersUrl` | `https://upd.emule-security.org/server.met` | URL to download [`server.met`](../../development/file-formats/server-met.md) updates from. Used when auto-update is enabled. Supports `http://`, `https://`, and `ftp://`. |
 
 ### Files
 
@@ -134,7 +134,7 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 
 | Key | Default | Description |
 |---|---|---|
-| `KadNodesUrl` | `https://upd.emule-security.org/nodes.dat` | URL to download a fresh [`nodes.dat`](nodes-dat.md) for Kademlia bootstrap. Supports `http://`, `https://`, and `ftp://`. |
+| `KadNodesUrl` | `https://upd.emule-security.org/nodes.dat` | URL to download a fresh [`nodes.dat`](../../development/file-formats/nodes-dat.md) for Kademlia bootstrap. Supports `http://`, `https://`, and `ftp://`. |
 
 ### Online Signature
 
@@ -472,10 +472,10 @@ Each key stores the last URL that was successfully downloaded for one specific r
 | Key | Resource type | Enum value |
 |---|---|---|
 | `URL_1` | IP filter (`ipfilter.dat` / `ipfilter.zip`) | `HTTP_IPFilter` |
-| `URL_2` | Server list ([`server.met`](server-met.md)) — manual download | `HTTP_ServerMet` |
-| `URL_3` | Server list ([`server.met`](server-met.md)) — auto-update from `addresses.dat` | `HTTP_ServerMetAuto` |
+| `URL_2` | Server list ([`server.met`](../../development/file-formats/server-met.md)) — manual download | `HTTP_ServerMet` |
+| `URL_3` | Server list ([`server.met`](../../development/file-formats/server-met.md)) — auto-update from `addresses.dat` | `HTTP_ServerMetAuto` |
 | `URL_4` | Version check file (`last_version_check`) | `HTTP_VersionCheck` |
-| `URL_5` | Kademlia nodes list ([`nodes.dat`](nodes-dat.md)) | `HTTP_NodesDat` |
+| `URL_5` | Kademlia nodes list ([`nodes.dat`](../../development/file-formats/nodes-dat.md)) | `HTTP_NodesDat` |
 | `URL_6` | GeoIP database (`GeoLite2-Country.mmdb`) | `HTTP_GeoIP` |
 
 Keys are only written after a successful download. A key that was never written (or whose URL has changed) simply causes a full download without the `If-Modified-Since` optimisation.

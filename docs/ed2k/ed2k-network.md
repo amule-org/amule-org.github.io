@@ -43,7 +43,7 @@ Most servers are interconnected, allowing **global searches** that query all con
 
 The **server list** (`server.met`) is a file containing the IP address, port, and name of each known server your client can connect to. aMule maintains a priority order and attempts to connect to servers in that order.
 
-See [Server List file](../user-guide/amule-files/server-met.md) for the file format details.
+See [Server List file](../development/file-formats/server-met.md) for the file format details.
 
 ### Static Servers
 
@@ -153,6 +153,6 @@ modifier = min(
 )
 ```
 
-where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../user-guide/amule-files/clients-met.md).
+where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../development/file-formats/clients-met.md).
 
 See [Concepts & Glossary](concepts.md) for detailed definitions of queue, queue rank, and slots.

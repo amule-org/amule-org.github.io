@@ -35,7 +35,7 @@ Both clients exchange:
 - Their **public key** (derived from their private RSA key).
 - A **random number** (a nonce chosen for this session).
 
-If either client's public key is unknown, it is stored in [`~/.aMule/clients.met`](../user-guide/amule-files/clients-met.md) (only the public key, not the nonce) so it can be used for identification in future sessions.
+If either client's public key is unknown, it is stored in [`~/.aMule/clients.met`](../development/file-formats/clients-met.md) (only the public key, not the nonce) so it can be used for identification in future sessions.
 
 ### 2. Creating the digital signature
 
@@ -63,7 +63,7 @@ If identification fails, the detecting client **bans** the other client.
 
 ## Userhash and Credits
 
-The userhash is the key that other clients use to track your upload/download history with them. Credits earned through uploading are stored in [`~/.aMule/clients.met`](../user-guide/amule-files/clients-met.md), keyed by the remote client's userhash (and, when SUI is active, verified by their public key).
+The userhash is the key that other clients use to track your upload/download history with them. Credits earned through uploading are stored in [`~/.aMule/clients.met`](../development/file-formats/clients-met.md), keyed by the remote client's userhash (and, when SUI is active, verified by their public key).
 
 Without SUI, nothing stops a malicious client from claiming your userhash and receiving credit for your uploads. With SUI enabled:
 - Your identity is cryptographically proven.

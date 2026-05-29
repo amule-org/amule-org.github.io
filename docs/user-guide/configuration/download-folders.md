@@ -47,7 +47,7 @@ Open **Preferences → Directories** and change the path in the **Temporary Dire
 
 ### Temporary Files
 
-Each in-progress download is represented by a group of files in the Temp directory. For full details on the file format, see [Temporary download files (*.part, *.part.met)](../amule-files/part-met.md).
+Each in-progress download is represented by a group of files in the Temp directory. For full details on the file format, see [Temporary download files (*.part, *.part.met)](../../development/file-formats/part-met.md).
 
 | File | Purpose |
 |---|---|

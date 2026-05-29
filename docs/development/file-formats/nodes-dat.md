@@ -35,7 +35,7 @@ Once connected to Kad, aMule keeps `nodes.dat` up to date automatically while ru
 
 ### Automatic download via `amule.conf`
 
-The `KadNodesUrl` key in the `[eMule]` section of [`amule.conf`](./amule-conf.md#network-urls) configures the URL aMule uses for this download:
+The `KadNodesUrl` key in the `[eMule]` section of [`amule.conf`](../../user-guide/amule-files/amule-conf.md#network-urls) configures the URL aMule uses for this download:
 
 ```ini
 [eMule]
