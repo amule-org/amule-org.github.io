@@ -46,7 +46,7 @@ Rules:
 
 ## ED2K Link Format
 
-For the full link format reference (file links, server links, serverlist links, optional fields), see [eD2k Links](../../ed2k/ed2k-links.md).
+For the full link format reference (file links, server links, serverlist links, optional fields), see [eD2k Links](../../p2p-networks/ed2k/ed2k-links.md).
 
 ## Browser Configuration — Local Handling
 

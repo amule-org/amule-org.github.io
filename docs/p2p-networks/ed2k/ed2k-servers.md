@@ -7,7 +7,7 @@ On the [eD2k network](ed2k-network.md), a **server** is a central machine that m
 
 Most eD2k servers are interconnected, which allows **global searches** that span all known servers simultaneously.
 
-The [Kademlia network](kademlia.md) works without any servers: every client simultaneously acts as its own server. Running both networks at the same time is the recommended configuration for aMule.
+The [Kademlia network](../kademlia.md) works without any servers: every client simultaneously acts as its own server. Running both networks at the same time is the recommended configuration for aMule.
 
 ## Server software
 
@@ -35,7 +35,7 @@ aMule's changelog tracks coordination with lugdunummaster across multiple releas
 
 ### Version tag in server.met
 
-The `Version` tag (`0x91`) in a [`server.met`](../developer/file-formats/server-met.md) record stores the version and name of the software the server is running. In practice the value looks like `17.6` or `17.7 (lugdunum)`. The following is an actual message from an aMule log:
+The `Version` tag (`0x91`) in a [`server.met`](../../developer/file-formats/server-met.md) record stores the version and name of the software the server is running. In practice the value looks like `17.6` or `17.7 (lugdunum)`. The following is an actual message from an aMule log:
 
 ```
 2005-12-11 06:58:09: ServerMessage: server version 17.7 (lugdunum)
@@ -66,7 +66,7 @@ The **server list** is the list of eD2k servers your client can connect to. Each
 | Port | TCP port (typically 4661, but can differ — see [auxiliary ports](#connecting-via-auxiliary-ports)) |
 | Priority | Normal (default), High, or Low — controls connection order |
 
-The server list is stored in the binary [`server.met`](../developer/file-formats/server-met.md) file at `~/.aMule/server.met`. Additional per-server statistics (ping time, failure count, user count, file count, UDP capability flags) are also recorded there.
+The server list is stored in the binary [`server.met`](../../developer/file-formats/server-met.md) file at `~/.aMule/server.met`. Additional per-server statistics (ping time, failure count, user count, file count, UDP capability flags) are also recorded there.
 
 In aMule, the server list is visible in the **Networks** panel, **eD2k** tab:
 
@@ -120,7 +120,7 @@ Every client connected to an eD2k server is assigned an ID by the server:
 
 A Low ID significantly reduces available download sources (only High ID peers can reach you) and many large servers reject Low ID clients outright. It is strongly recommended to obtain a High ID by forwarding TCP port 4662 on your router.
 
-See **[High ID and Low ID](high-id-low-id.md)** for the ID calculation formula, consequences, and how to configure your router and firewall to obtain a High ID.
+See **[High ID and Low ID](../high-id-low-id.md)** for the ID calculation formula, consequences, and how to configure your router and firewall to obtain a High ID.
 
 ## Static servers
 
@@ -134,7 +134,7 @@ A **static server** is a server you have marked as essential. Static servers are
 
 ### Configuration
 
-Static servers can be managed through the aMule GUI (right-click a server → Mark as static / Unmark as static) or by editing the [`staticservers.dat`](../manual/core/files/index.md#staticserversdat) file directly.
+Static servers can be managed through the aMule GUI (right-click a server → Mark as static / Unmark as static) or by editing the [`staticservers.dat`](../../manual/core/files/index.md#staticserversdat) file directly.
 
 The `staticservers.dat` file takes precedence over `server.met`: if the same server IP and port appears in both files, the `staticservers.dat` entry overrides the `server.met` data.
 
@@ -166,7 +166,7 @@ If either option is enabled and you connect to a fake server, fake servers flood
 ### Mitigation options
 
 1. **Curate your server list** (recommended) — see [Maintaining a safe server list](#maintaining-a-safe-server-list) below.
-2. **Use Kademlia only** — disable eD2k entirely and rely solely on the [Kademlia network](kademlia.md), which has no central servers and therefore no fake-server problem.
+2. **Use Kademlia only** — disable eD2k entirely and rely solely on the [Kademlia network](../kademlia.md), which has no central servers and therefore no fake-server problem.
 
 ## Maintaining a safe server list
 
@@ -206,7 +206,7 @@ These are third-party services unaffiliated with the aMule project. Their availa
 
 In **Preferences → Server**, enable *Autoupdate serverlist at startup*, then set the URL to one of the trusted sources above. aMule will refresh the list each time it starts.
 
-You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them checked at startup when auto-update is enabled — see the [`addresses.dat`](../manual/core/files/index.md#addressesdat) reference.
+You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them checked at startup when auto-update is enabled — see the [`addresses.dat`](../../manual/core/files/index.md#addressesdat) reference.
 
 ### If your server list becomes empty
 
@@ -214,10 +214,10 @@ Click the play button (▶) next to the URL field in the **Networks → eD2k** t
 
 ## Kademlia: no servers required
 
-On the [Kademlia network](kademlia.md), there are no dedicated server machines. Every client is simultaneously its own server: it stores a portion of the distributed index and answers queries from other clients. The network is fully decentralised and requires no central points to function.
+On the [Kademlia network](../kademlia.md), there are no dedicated server machines. Every client is simultaneously its own server: it stores a portion of the distributed index and answers queries from other clients. The network is fully decentralised and requires no central points to function.
 
 Because Kademlia has no servers, it is immune to the fake-server problem described above. It is also unaffected by server seizures or operator shutdowns.
 
 aMule can run both eD2k and Kademlia at the same time. Sources found on either network are used together for the same downloads, since both networks share the same MD4-based file identification and 9.28 MB chunk system.
 
-See [Kademlia Network](kademlia.md) for a full description of the algorithm, bootstrapping, contact types, and firewalled status.
+See [Kademlia Network](../kademlia.md) for a full description of the algorithm, bootstrapping, contact types, and firewalled status.

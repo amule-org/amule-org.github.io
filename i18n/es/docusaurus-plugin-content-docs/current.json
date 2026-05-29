@@ -39,6 +39,10 @@
     "message": "Redes P2P (eD2k y Kademlia)",
     "description": "The label for category 'P2P Networks (eD2k & Kademlia)' in sidebar 'docsSidebar'"
   },
+  "sidebar.docsSidebar.category.eD2k Protocol": {
+    "message": "Protocolo eD2k",
+    "description": "The label for category 'eD2k Protocol' in sidebar 'docsSidebar'"
+  },
   "sidebar.docsSidebar.category.Developer Guide": {
     "message": "Guía de Desarrollador",
     "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"

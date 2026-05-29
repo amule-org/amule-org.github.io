@@ -55,7 +55,7 @@ Having a Low ID significantly limits download speed because:
 - Two Low ID clients cannot connect to each other directly.
 - Some servers refuse Low ID clients.
 
-Ensure TCP port 4662 (or your configured TCP port) is open in your firewall and forwarded in your router. See [High ID and Low ID](../../ed2k/high-id-low-id.md).
+Ensure TCP port 4662 (or your configured TCP port) is open in your firewall and forwarded in your router. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md).
 
 #### ISP blocking or throttling eD2k ports
 
@@ -67,7 +67,7 @@ Some ISPs block or rate-limit traffic on the standard eD2k TCP port 4662:
 
 #### Firewall blocking aMule ports
 
-Verify that ports TCP 4662, UDP 4665, and UDP 4672 are open in your local firewall (not just the router). See [eD2k Network → Ports](/docs/ed2k/ed2k-network#ports).
+Verify that ports TCP 4662, UDP 4665, and UDP 4672 are open in your local firewall (not just the router). See [eD2k Network → Ports](/docs/p2p-networks/ed2k/ed2k-network#ports).
 
 ### ADSL-Specific: Congested Uplink / Downlink
 

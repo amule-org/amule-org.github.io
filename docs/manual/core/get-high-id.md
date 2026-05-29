@@ -13,4 +13,4 @@ To get a High ID you need to forward three ports to your machine:
 | Extended client UDP port | UDP | 4672 |
 | Extended server requests UDP port | UDP | 4665 (always TCP + 3) |
 
-For a full explanation of the ID system, step-by-step port forwarding instructions, firewall configuration, and Kademlia connectivity requirements, see **[High ID and Low ID](../../ed2k/high-id-low-id.md)**.
+For a full explanation of the ID system, step-by-step port forwarding instructions, firewall configuration, and Kademlia connectivity requirements, see **[High ID and Low ID](../../p2p-networks/high-id-low-id.md)**.

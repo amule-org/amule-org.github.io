@@ -3,7 +3,7 @@ id: index
 title: eD2k & Kademlia Networks
 ---
 
-aMule connects simultaneously to two peer-to-peer networks: the classic **[eD2k](ed2k-network.md)** (eDonkey2000) network and the serverless **[Kademlia (Kad)](kademlia.md)** network. Both networks share the same file identification system and can be used together to maximise download sources.
+aMule connects simultaneously to two peer-to-peer networks: the classic **[eD2k](ed2k/ed2k-network.md)** (eDonkey2000) network and the serverless **[Kademlia (Kad)](kademlia.md)** network. Both networks share the same file identification system and can be used together to maximise download sources.
 
 ## History
 
@@ -11,7 +11,7 @@ The eD2k protocol was created by the **eDonkey2000** application, a proprietary 
 
 The eDonkey2000 website was shut down in 2006 following a RIAA lawsuit and the software is no longer maintained. aMule is a completely independent project and is not affiliated with the original eDonkey2000 in any way.
 
-Kademlia was introduced into the \*Mule ecosystem in response to the architectural limitations of the server-based [eD2k network](ed2k-network.md). It is based on the Kademlia algorithm by Petar Maymounkov and David Mazières (New York University, 2002). aMule has supported [Kademlia](kademlia.md) since version **2.1.0**.
+Kademlia was introduced into the \*Mule ecosystem in response to the architectural limitations of the server-based [eD2k network](ed2k/ed2k-network.md). It is based on the Kademlia algorithm by Petar Maymounkov and David Mazières (New York University, 2002). aMule has supported [Kademlia](kademlia.md) since version **2.1.0**.
 
 ## How the Networks Differ
 
@@ -32,13 +32,13 @@ Both networks use the same **MD4-based file hashes** and **9.28 MB chunk** syste
 
 | Page | Description |
 |---|---|
-| [eD2k Network](ed2k-network.md) | Architecture, servers, ports, network limitations |
-| [eD2k Servers](ed2k-servers.md) | Server software, server list management, static servers, fake servers |
-| [eD2k Clients](ed2k-clients.md) | Compatible client applications |
-| [eD2k Links](ed2k-links.md) | Link format specification and browser configuration |
+| [eD2k Network](ed2k/ed2k-network.md) | Architecture, servers, ports, network limitations |
+| [eD2k Servers](ed2k/ed2k-servers.md) | Server software, server list management, static servers, fake servers |
+| [eD2k Clients](ed2k/ed2k-clients.md) | Compatible client applications |
+| [eD2k Links](ed2k/ed2k-links.md) | Link format specification and browser configuration |
 | [Kademlia Network](kademlia.md) | DHT algorithm, bootstrapping, contact types, firewalled status |
 | [High ID and Low ID](high-id-low-id.md) | Client ID system, getting a High ID, port forwarding, Kademlia open/firewalled |
-| [AICH & ICH](aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |
-| [Secure User Identification](secure-user-identification.md) | RSA-based identity and credit system |
+| [AICH & ICH](ed2k/aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |
+| [Secure User Identification](ed2k/secure-user-identification.md) | RSA-based identity and credit system |
 | [Concepts & Glossary](concepts.md) | Definitions for all technical terms used in the networks |
 | [Other P2P Networks](other-networks.md) | Overview of P2P protocols alternative to eD2k and Kademlia |

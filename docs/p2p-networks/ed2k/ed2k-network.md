@@ -10,7 +10,7 @@ The **eD2k** (eDonkey2000) network is a client-server peer-to-peer network. Clie
 The eD2k network is built around a **client-server model**:
 
 - A **server** is a central machine that maintains indexes of which clients share which files. Servers are interconnected so that global searches spanning all known servers are possible.
-- A **client** (such as [aMule](../manual/interfaces/gui/amule.md)) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
+- A **client** (such as [aMule](../../manual/interfaces/gui/amule.md)) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
 - **File transfers** happen directly between clients (peer-to-peer). The server is only involved in providing the initial source list. However, if one of the peers has a Low ID, the server may relay the connection.
 
 ### Chunks
@@ -43,7 +43,7 @@ Most servers are interconnected, allowing **global searches** that query all con
 
 The **server list** (`server.met`) is a file containing the IP address, port, and name of each known server your client can connect to. aMule maintains a priority order and attempts to connect to servers in that order.
 
-See [Server List file](../developer/file-formats/server-met.md) for the file format details.
+See [Server List file](../../developer/file-formats/server-met.md) for the file format details.
 
 ### Static Servers
 
@@ -59,7 +59,7 @@ Some servers in the wild are operated by organisations that log user activity or
 
 Every client on the eD2k network is assigned a unique **ID** by the server it connects to. Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** and can accept direct incoming connections from any peer. Clients with a blocked TCP port receive a **Low ID** (any value below 16,777,216); two Low ID clients cannot transfer data to each other, and many servers reject Low ID clients entirely.
 
-For the full explanation of the ID system, how to calculate your High ID, how to configure your firewall and router to get a High ID, and how the Kademlia "open/firewalled" status relates to this, see **[High ID and Low ID](high-id-low-id.md)**.
+For the full explanation of the ID system, how to calculate your High ID, how to configure your firewall and router to get a High ID, and how the Kademlia "open/firewalled" status relates to this, see **[High ID and Low ID](../high-id-low-id.md)**.
 
 ## Ports
 
@@ -71,10 +71,10 @@ aMule uses three configurable ports (all in **Preferences → Connection**) and 
 | **4662** | TCP | Incoming + Outgoing | **Primary data port** — client-to-client transfers. Must be open for High ID. |
 | 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia. Always TCP port + 3. |
 | 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad "open" status. |
-| 4711 | TCP | Incoming | [`amuleweb`](../manual/interfaces/amuleweb.md) listening port |
-| 4712 | TCP | Incoming | [External Connections (EC)](../developer/ec-protocol.md) port — for [`amulecmd`](../manual/interfaces/amulecmd.md), [`amulegui`](../manual/interfaces/gui/amulegui.md) |
+| 4711 | TCP | Incoming | [`amuleweb`](../../manual/interfaces/amuleweb.md) listening port |
+| 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) port — for [`amulecmd`](../../manual/interfaces/amulecmd.md), [`amulegui`](../../manual/interfaces/gui/amulegui.md) |
 
-For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](high-id-low-id.md#ports-used-by-amule)**.
+For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](../high-id-low-id.md#ports-used-by-amule)**.
 
 ### Auxiliary Server Ports
 
@@ -153,6 +153,6 @@ modifier = min(
 )
 ```
 
-where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../developer/file-formats/clients-met.md).
+where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../../developer/file-formats/clients-met.md).
 
-See [Concepts & Glossary](concepts.md) for detailed definitions of queue, queue rank, and slots.
+See [Concepts & Glossary](../concepts.md) for detailed definitions of queue, queue rank, and slots.

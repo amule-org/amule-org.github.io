@@ -3,7 +3,7 @@ id: nodes-dat
 title: nodes.dat
 ---
 
-`nodes.dat` stores a list of known [Kademlia](../../ed2k/kademlia) contacts (Kad nodes). aMule reads this file at startup to bootstrap its connection to the Kad network, establishing initial contact with known nodes before building its own routing table.
+`nodes.dat` stores a list of known [Kademlia](../../p2p-networks/kademlia) contacts (Kad nodes). aMule reads this file at startup to bootstrap its connection to the Kad network, establishing initial contact with known nodes before building its own routing table.
 
 **Location:** `~/.aMule/nodes.dat`
 

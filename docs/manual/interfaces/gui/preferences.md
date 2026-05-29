@@ -58,8 +58,8 @@ These values are only used for Statistics and the speed bar in the SysTray icon 
 
 | Setting | Description |
 |---|---|
-| **Standard client TCP Port** | The [standard eD2k client TCP port](../../../ed2k/ed2k-network.md). Default: 4662. |
-| **Extended client UDP Port** | The [extended client UDP port](../../../ed2k/ed2k-network.md). Default: 4672. |
+| **Standard client TCP Port** | The [standard eD2k client TCP port](../../../p2p-networks/ed2k/ed2k-network.md). Default: 4662. |
+| **Extended client UDP Port** | The [extended client UDP port](../../../p2p-networks/ed2k/ed2k-network.md). Default: 4672. |
 | **disable** | Disable the Extended client UDP port. This reduces aMule's performance but frees a UDP port. |
 | **UDP port for extended server requests** | Read-only display. This port is always TCP port + 3 (default 4665). |
 
@@ -186,7 +186,7 @@ Options for downloading files.
 
 | Setting | Description |
 |---|---|
-| **I.C.H. active** | Enable [Intelligent Corruption Handling](../../../ed2k/aich.md). |
+| **I.C.H. active** | Enable [Intelligent Corruption Handling](../../../p2p-networks/ed2k/aich.md). |
 | **AICH trusts every hash** | When unchecked (recommended), aMule applies sanity checks to received AICH hashes instead of blindly trusting them. |
 
 ### Download Behaviour
@@ -289,7 +289,7 @@ Options for aMule's security features, including IP filtering.
 
 | Setting | Description |
 |---|---|
-| **Use Secure Identification** | Use the [Secure User Identification](../../../ed2k/secure-user-identification.md) protocol when identifying to other clients. Recommended. |
+| **Use Secure Identification** | Use the [Secure User Identification](../../../p2p-networks/ed2k/secure-user-identification.md) protocol when identifying to other clients. Recommended. |
 
 ## GUI Tweaks
 

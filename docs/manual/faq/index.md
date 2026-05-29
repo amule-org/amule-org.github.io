@@ -19,13 +19,13 @@ Frequently asked questions about aMule, organized by topic.
 → See [Download Folders](../core/download-folders.md) for the default paths on each platform.
 
 **Why do I have a Low ID?**
-→ TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../../ed2k/high-id-low-id.md) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
+→ TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
 
 **Downloads are very slow**
 → Work through the [Slow Download Speeds checklist](../troubleshooting/slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.
 
 **Which ports does aMule use?**
-TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queue rating), TCP 4711 (`amuleweb`), TCP 4712 (External Connections). See [eD2k Network → Ports](../../ed2k/ed2k-network.md#ports).
+TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queue rating), TCP 4711 (`amuleweb`), TCP 4712 (External Connections). See [eD2k Network → Ports](../../p2p-networks/ed2k/ed2k-network.md#ports).
 
 **How do I run aMule without a GUI?**
 Use `amuled` (the daemon) and control it with `amulecmd`, `amuleweb`, or `amulegui`. See [Remote Access FAQ](./remote-access.md).

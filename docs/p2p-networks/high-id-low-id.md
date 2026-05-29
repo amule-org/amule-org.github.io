@@ -217,7 +217,7 @@ This is a fundamental eD2k protocol limitation. There is no workaround other tha
 
 ## Related Pages
 
-- [eD2k Network](ed2k-network.md) — network architecture, servers, file limits
+- [eD2k Network](ed2k/ed2k-network.md) — network architecture, servers, file limits
 - [Kademlia Network](kademlia.md) — the serverless counterpart to eD2k
 - [Firewall configuration](../manual/core/index.md) — opening ports for aMule
 - [Concepts & Glossary](concepts.md) — all eD2k/Kademlia technical terms defined

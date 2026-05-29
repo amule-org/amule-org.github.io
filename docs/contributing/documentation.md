@@ -13,7 +13,7 @@ amule-org.github.io/
 │   ├── index.md                 # Docs landing page
 │   ├── quickstart-guide.md
 │   ├── user-guide/
-│   ├── ed2k/
+│   ├── p2p-networks/
 │   ├── developer/
 │   ├── contributing/
 │   ├── troubleshooting/
@@ -209,7 +209,7 @@ Use consistent terminology throughout the documentation:
 | `amulecmd` | `AMuleCMD`, `amule cmd` |
 | eD2k | ed2k (in prose) |
 | Kademlia | kad (in prose) |
-| HighID / LowID | [High ID, Low ID](../ed2k/high-id-low-id.md) |
+| HighID / LowID | [High ID, Low ID](../p2p-networks/high-id-low-id.md) |
 
 ## Translations
 

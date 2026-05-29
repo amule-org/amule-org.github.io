@@ -3,7 +3,7 @@ id: networks
 title: Networks
 ---
 
-The Networks window manages your connections to the [eD2k](../../../ed2k/ed2k-network.md) and [Kademlia](../../../ed2k/kademlia.md) networks. It is the first thing you see when aMule starts.
+The Networks window manages your connections to the [eD2k](../../../p2p-networks/ed2k/ed2k-network.md) and [Kademlia](../../../p2p-networks/kademlia.md) networks. It is the first thing you see when aMule starts.
 
 ## Overview
 

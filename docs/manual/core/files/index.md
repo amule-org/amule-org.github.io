@@ -81,7 +81,7 @@ See the [amule.conf reference](./amule-conf.md) for the complete key reference a
 
 In early eMule versions this file stored all user configuration. In current aMule it stores only two fields: the **configuration file version** and the **userhash**.
 
-The [userhash](../../../ed2k/concepts.md) is a 128-bit value that uniquely identifies your client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
+The [userhash](../../../p2p-networks/concepts.md) is a 128-bit value that uniquely identifies your client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
 
 #### Format
 
@@ -137,7 +137,7 @@ Decoded:
 
 **Location:** `~/.aMule/cryptkey.dat`
 
-Contains the client's **384-bit RSA private key**, used for [Secure User Identification](../../../ed2k/secure-user-identification.md). This key is unique to each client and is generated automatically the first time aMule runs.
+Contains the client's **384-bit RSA private key**, used for [Secure User Identification](../../../p2p-networks/ed2k/secure-user-identification.md). This key is unique to each client and is generated automatically the first time aMule runs.
 
 The key is stored in a PEM-like format: 5 lines of 72 characters each, with the last line followed by a newline character.
 
@@ -229,7 +229,7 @@ The file uses a variable-length binary block format: one block per file, whose l
 
 **Location:** `~/.aMule/known2_64.met`
 
-Binary file that stores the verified [AICH](../../../ed2k/aich.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
+Binary file that stores the verified [AICH](../../../p2p-networks/ed2k/aich.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
 
 ### `canceled.met`
 
