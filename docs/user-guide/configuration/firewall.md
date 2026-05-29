@@ -343,7 +343,7 @@ Log in to the router (typically `http://192.168.0.1` or `http://192.168.1.1`, us
 **Step 2 — Virtual Servers**
 
 1. Go to **Virtual Servers**.
-2. Add a new server named `AmuleTCP`:
+2. Add a new server named `aMuleTCP`:
    - IP Address: select your PC from the dropdown
    - Protocol: TCP
    - Port: 4662 (both fields)

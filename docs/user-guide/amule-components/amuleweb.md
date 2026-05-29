@@ -163,7 +163,7 @@ if [ -f /etc/default/amule ]; then
 fi
 
 if [ "$RUNAMULE" != "yes" ]; then
-    echo "Amule not to be started. Edit /etc/default/amule first."
+    echo "aMule not to be started. Edit /etc/default/amule first."
     exit 1
 fi
 
