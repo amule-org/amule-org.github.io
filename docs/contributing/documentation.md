@@ -14,7 +14,7 @@ amule-org.github.io/
 │   ├── quickstart-guide.md
 │   ├── user-guide/
 │   ├── ed2k/
-│   ├── development/
+│   ├── developer/
 │   ├── contributing/
 │   ├── troubleshooting/
 │   ├── faq/
@@ -83,12 +83,12 @@ The local dev server does not include the full-text search index. Search only wo
 3. Register the page in `sidebars.ts` so it appears in the sidebar. Find the relevant category and add the doc ID:
 
    ```ts
-   // Example: adding 'development/my-page' to the Development category
+   // Example: adding 'developer/my-page' to the Development category
    {
      type: 'category',
      label: 'Development',
      items: [
-       'development/my-page',   // ← add this line
+       'developer/my-page',   // ← add this line
        ...
      ],
    }
@@ -100,7 +100,7 @@ The local dev server does not include the full-text search index. Search only wo
 
 To add a new subcategory with its own landing page:
 
-1. Create a new folder under `docs/` (e.g. `docs/development/new-section/`).
+1. Create a new folder under `docs/` (e.g. `docs/developer/new-section/`).
 
 2. Create an `index.md` inside it with the category title.
 
@@ -110,10 +110,10 @@ To add a new subcategory with its own landing page:
    {
      type: 'category',
      label: 'New Section',
-     link: { type: 'doc', id: 'development/new-section/index' },
+     link: { type: 'doc', id: 'developer/new-section/index' },
      items: [
-       'development/new-section/page-one',
-       'development/new-section/page-two',
+       'developer/new-section/page-one',
+       'developer/new-section/page-two',
      ],
    }
    ```

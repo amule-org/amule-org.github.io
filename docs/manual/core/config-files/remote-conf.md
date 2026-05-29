@@ -55,7 +55,7 @@ Hostname or IP address of the machine running `aMule` or `amuled`.
 
 ### `/EC/Port`
 
-Port number where the core listens for [External Connections](../../../development/ec-protocol) (EC protocol).
+Port number where the core listens for [External Connections](../../../developer/ec-protocol) (EC protocol).
 
 - **Default:** `4712`
 - **CLI override:** `-p` / `--port`

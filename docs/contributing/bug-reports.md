@@ -174,7 +174,7 @@ Select **"Local GNU Debugger"** as the analyser and **"Logger"** as the facility
 
 ## Using Valgrind for Memory Errors
 
-Valgrind helps find memory leaks, invalid reads/writes, and use-after-free errors. See [Debugging with GDB and Valgrind](../development/debugging.md) for the full workflow.
+Valgrind helps find memory leaks, invalid reads/writes, and use-after-free errors. See [Debugging with GDB and Valgrind](../developer/debugging.md) for the full workflow.
 
 For a quick memory check:
 

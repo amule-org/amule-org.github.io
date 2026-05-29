@@ -33,7 +33,7 @@ cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
 
-For dependency installation and all available CMake options see [Compilation](../../../development/compilation/index.md).
+For dependency installation and all available CMake options see [Compilation](../../../developer/compilation/index.md).
 
 ## Connecting to amuled
 

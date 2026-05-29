@@ -199,7 +199,7 @@ export default function DownloadPage(): React.JSX.Element {
               id="homepage.download.compile"
               values={{
                 link: (
-                  <Link to="/docs/development/compilation">
+                  <Link to="/docs/developer/compilation">
                     <Translate id="homepage.download.compile.link">Compilation guide</Translate>
                   </Link>
                 ),

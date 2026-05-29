@@ -42,7 +42,7 @@ cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
 
-`BUILD_MONOLITHIC` is the default and builds the all-in-one `amule` binary. For dependency installation and all available CMake options see [Compilation](../../../development/compilation/index.md).
+`BUILD_MONOLITHIC` is the default and builds the all-in-one `amule` binary. For dependency installation and all available CMake options see [Compilation](../../../developer/compilation/index.md).
 
 ## Configuration
 

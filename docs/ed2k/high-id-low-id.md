@@ -83,7 +83,7 @@ Additionally:
 |---|---|---|---|
 | 4661 | TCP | Outgoing only | eD2k server listening port (server-defined, not client-configurable). |
 | 4711 | TCP | Incoming | [`amuleweb`](../manual/interfaces/amuleweb.md) web interface. |
-| 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) — used by `amulecmd`, `amulegui`. |
+| 4712 | TCP | Incoming | [External Connections (EC)](../developer/ec-protocol.md) — used by `amulecmd`, `amulegui`. |
 
 #### Minimum port requirements by network
 

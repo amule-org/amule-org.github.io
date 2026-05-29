@@ -320,7 +320,7 @@ make install clean
 
 ## Building from Source
 
-If no pre-built binary is available for your platform, or you want to compile a specific version or custom configuration, see the [Compilation](../../development/compilation/index.md) documentation for full instructions, dependency lists, and build options for Linux, macOS, Windows, and BSD.
+If no pre-built binary is available for your platform, or you want to compile a specific version or custom configuration, see the [Compilation](../../developer/compilation/index.md) documentation for full instructions, dependency lists, and build options for Linux, macOS, Windows, and BSD.
 
 ## After Installation
 

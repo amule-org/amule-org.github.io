@@ -47,7 +47,7 @@ To join the Kademlia network you must first know the IP address and port of at l
 
 ### Automatic Bootstrapping (nodes.dat)
 
-aMule stores previously seen Kademlia contacts in [`nodes.dat`](../development/file-formats/nodes-dat.md) (`~/.aMule/nodes.dat`). On each startup, aMule reads this file and attempts to reconnect to known contacts. If at least some of those contacts are still online, Kademlia bootstraps automatically.
+aMule stores previously seen Kademlia contacts in [`nodes.dat`](../developer/file-formats/nodes-dat.md) (`~/.aMule/nodes.dat`). On each startup, aMule reads this file and attempts to reconnect to known contacts. If at least some of those contacts are still online, Kademlia bootstraps automatically.
 
 ### Manual Bootstrapping
 
@@ -58,7 +58,7 @@ If `nodes.dat` is empty, outdated, or missing, you can bootstrap manually:
 - Click **Bootstrap from known clients** in the toolbar **Network** menu.
 
 **Option 2 — Download a fresh nodes.dat:**
-- Download a current [`nodes.dat`](../development/file-formats/nodes-dat.md) file from a trusted source and place it in `~/.aMule/`.
+- Download a current [`nodes.dat`](../developer/file-formats/nodes-dat.md) file from a trusted source and place it in `~/.aMule/`.
 
 **Option 3 — Connect via eD2k first:**
 - Connect to an eD2k server and start a (test) download.
@@ -81,7 +81,7 @@ Kademlia assigns a **type** (0–4) to each contact to express confidence in tha
 | Type 3 | Initial type — newly discovered contact, not yet verified |
 | Type 4 | Worst — contact should be **deleted** (unreachable) |
 
-Contact types are persisted between sessions in [`nodes.dat`](../development/file-formats/nodes-dat.md), so that aMule starts each session with a list that includes the most reliably connected contacts from previous sessions.
+Contact types are persisted between sessions in [`nodes.dat`](../developer/file-formats/nodes-dat.md), so that aMule starts each session with a list that includes the most reliably connected contacts from previous sessions.
 
 Periodically, aMule pings contacts to check if they are still alive. Based on the response (or lack thereof), contacts are promoted (Type 3 → 2 → 1 → 0) or marked for deletion (Type 4).
 

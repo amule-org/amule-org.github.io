@@ -43,7 +43,7 @@ Most servers are interconnected, allowing **global searches** that query all con
 
 The **server list** (`server.met`) is a file containing the IP address, port, and name of each known server your client can connect to. aMule maintains a priority order and attempts to connect to servers in that order.
 
-See [Server List file](../development/file-formats/server-met.md) for the file format details.
+See [Server List file](../developer/file-formats/server-met.md) for the file format details.
 
 ### Static Servers
 
@@ -72,7 +72,7 @@ aMule uses three configurable ports (all in **Preferences → Connection**) and 
 | 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia. Always TCP port + 3. |
 | 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad "open" status. |
 | 4711 | TCP | Incoming | [`amuleweb`](../manual/interfaces/amuleweb.md) listening port |
-| 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) port — for [`amulecmd`](../manual/interfaces/amulecmd.md), [`amulegui`](../manual/interfaces/gui/amulegui.md) |
+| 4712 | TCP | Incoming | [External Connections (EC)](../developer/ec-protocol.md) port — for [`amulecmd`](../manual/interfaces/amulecmd.md), [`amulegui`](../manual/interfaces/gui/amulegui.md) |
 
 For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](high-id-low-id.md#ports-used-by-amule)**.
 
@@ -153,6 +153,6 @@ modifier = min(
 )
 ```
 
-where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../development/file-formats/clients-met.md).
+where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../developer/file-formats/clients-met.md).
 
 See [Concepts & Glossary](concepts.md) for detailed definitions of queue, queue rank, and slots.

@@ -49,7 +49,7 @@ cmake --build build -j"$(nproc)"
 sudo cmake --install build
 ```
 
-Both options can be combined with any other aMule CMake options. For dependency installation and the full options reference see [Compilation](../../development/compilation/index.md).
+Both options can be combined with any other aMule CMake options. For dependency installation and the full options reference see [Compilation](../../developer/compilation/index.md).
 
 ### RPM Packaging Note
 

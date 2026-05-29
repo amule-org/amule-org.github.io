@@ -18,7 +18,7 @@ aMule ships several binaries, each serving a distinct role. They can be used ind
 
 ## External Connections (EC) Protocol
 
-The remote-control components (`amulegui`, `amuleweb`, `amulecmd`) all communicate with a running `amuled` (or `amule`) instance through the **[External Connections (EC) protocol](../../development/ec-protocol.md)**. EC is a TCP-based binary protocol that carries authentication, commands, and status updates between the core and any remote interface.
+The remote-control components (`amulegui`, `amuleweb`, `amulecmd`) all communicate with a running `amuled` (or `amule`) instance through the **[External Connections (EC) protocol](../../developer/ec-protocol.md)**. EC is a TCP-based binary protocol that carries authentication, commands, and status updates between the core and any remote interface.
 
 To use any remote interface:
 

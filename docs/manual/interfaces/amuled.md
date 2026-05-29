@@ -38,7 +38,7 @@ sudo cmake --install build
 
 This installs `amuled`, `amulecmd`, and `amuleweb` to `/usr/local/bin/`. To also build `amulegui` add `-DBUILD_REMOTEGUI=YES`.
 
-For dependency installation, available CMake options, custom install prefixes, and platform-specific notes see [Compilation](../../development/compilation/index.md).
+For dependency installation, available CMake options, custom install prefixes, and platform-specific notes see [Compilation](../../developer/compilation/index.md).
 
 ## Configuration
 

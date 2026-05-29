@@ -26,16 +26,16 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 | `preferences.dat` | Binary | Stores the userhash and config file version | [details](#preferencesdat) |
 | `preferencesKad.dat` | Binary | Stores the client IP and Kademlia ClientID | [details](#preferenceskaddat) |
 | `cryptkey.dat` | Binary (PEM) | 384-bit RSA private key for Secure User Identification | [details](#cryptkeydat) |
-| `server.met` | Binary | eD2k server list (IP, port, name, statistics) | [server.met reference](../../../development/file-formats/server-met.md) |
-| `server.met.bak` | Binary | Automatic backup of `server.met` | [server.met reference](../../../development/file-formats/server-met.md) |
+| `server.met` | Binary | eD2k server list (IP, port, name, statistics) | [server.met reference](../../../developer/file-formats/server-met.md) |
+| `server.met.bak` | Binary | Automatic backup of `server.met` | [server.met reference](../../../developer/file-formats/server-met.md) |
 | `staticservers.dat` | Text | Static eD2k servers that override `server.met` entries | [details](#staticserversdat) |
 | `addresses.dat` | Text | URLs to download `server.met` updates from | [details](#addressesdat) |
-| `nodes.dat` | Binary | Known Kademlia contacts for network bootstrap | [nodes.dat reference](../../../development/file-formats/nodes-dat.md) |
+| `nodes.dat` | Binary | Known Kademlia contacts for network bootstrap | [nodes.dat reference](../../../developer/file-formats/nodes-dat.md) |
 | `known.met` | Binary | Hash cache for shared files (avoids rehashing) | [details](#knownmet) |
 | `known2_64.met` | Binary | Verified AICH hashes for shared files (large file support) | [details](#known2_64met) |
-| `clients.met` | Binary | Credit ledger: bytes uploaded/downloaded per peer | [clients.met reference](../../../development/file-formats/clients-met.md) |
-| `clients.met.bak` | Binary | Automatic backup of `clients.met` | [details](../../../development/file-formats/clients-met.md) |
-| `emfriends.met` | Binary | Friends list with last known IP, port, and timestamps | [emfriends.met reference](../../../development/file-formats/emfriends-met.md) |
+| `clients.met` | Binary | Credit ledger: bytes uploaded/downloaded per peer | [clients.met reference](../../../developer/file-formats/clients-met.md) |
+| `clients.met.bak` | Binary | Automatic backup of `clients.met` | [details](../../../developer/file-formats/clients-met.md) |
+| `emfriends.met` | Binary | Friends list with last known IP, port, and timestamps | [emfriends.met reference](../../../developer/file-formats/emfriends-met.md) |
 | `canceled.met` | Binary | Hashes of cancelled downloads (highlights them in search results) | [details](#canceledmet) |
 | `shareddir.dat` | Text | Union of all shared directories (regenerated automatically; see below) | [details](#shareddirdat) |
 | `shareddir-explicit.dat` | Text | Non-recursive shared directory roots (user-added) | [details](#shareddirdat) |
@@ -57,11 +57,11 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 | `casrc` | Text | CAS image/HTML generation configuration | [CAS files](../../utilities/cas.md) |
 | `aMule-online-sign.html` | HTML | CAS-generated HTML status page | [CAS files](../../utilities/cas.md) |
 | `aMule-online-sign.png` | Image | CAS-generated PNG status image | [CAS files](../../utilities/cas.md) |
-| `*.part` | Binary | In-progress download data (in `Temp/`) | [part.met reference](../../../development/file-formats/part-met.md) |
-| `*.part.met` | Binary | Download metadata: hashes, verified chunks, tags (in `Temp/`) | [part.met reference](../../../development/file-formats/part-met.md) |
-| `*.part.met.bak` | Binary | Periodic backup of `*.part.met` | [part.met reference](../../../development/file-formats/part-met.md) |
-| `*.part.met.backup` | Binary | Write-in-progress temp (renamed to `.met` on success) | [part.met reference](../../../development/file-formats/part-met.md) |
-| `*.part.met.seeds` | Binary | Up to 10 sources for rare files (in `Temp/`) | [part.met reference](../../../development/file-formats/part-met.md) |
+| `*.part` | Binary | In-progress download data (in `Temp/`) | [part.met reference](../../../developer/file-formats/part-met.md) |
+| `*.part.met` | Binary | Download metadata: hashes, verified chunks, tags (in `Temp/`) | [part.met reference](../../../developer/file-formats/part-met.md) |
+| `*.part.met.bak` | Binary | Periodic backup of `*.part.met` | [part.met reference](../../../developer/file-formats/part-met.md) |
+| `*.part.met.backup` | Binary | Write-in-progress temp (renamed to `.met` on success) | [part.met reference](../../../developer/file-formats/part-met.md) |
+| `*.part.met.seeds` | Binary | Up to 10 sources for rare files (in `Temp/`) | [part.met reference](../../../developer/file-formats/part-met.md) |
 
 ## Configuration files
 
@@ -163,7 +163,7 @@ This file contains your private key. Never share it. If it is compromised, anyon
 
 Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here.
 
-See the [server.met reference](../../../development/file-formats/server-met.md) for the complete binary format, tag reference, and a list of online sources where a current `server.met` can be downloaded.
+See the [server.met reference](../../../developer/file-formats/server-met.md) for the complete binary format, tag reference, and a list of online sources where a current `server.met` can be downloaded.
 
 ### `staticservers.dat`
 
