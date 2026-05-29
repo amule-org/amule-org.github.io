@@ -51,12 +51,12 @@ Además de la base *Mule, aMule añade:
 - **Soporte de proxy**.
 - **Mejores controles contra clientes agresivos**.
 - **Protocolo External Connections (EC) completo** — desarrollado desde cero; permite el control remoto total.
-- **aMule Daemon ([`amuled`](user-guide/amule-components/amuled.md))** — ejecuta aMule como proceso sin interfaz gráfica con un uso muy bajo de CPU y memoria. Ideal para servidores y dispositivos NAS.
-- **aMuleGUI ([`amulegui`](user-guide/amule-components/amulegui.md))** — GUI remota con la misma interfaz que el cliente local.
-- **aMuleWeb ([`amuleweb`](user-guide/amule-components/amuleweb.md))** — interfaz basada en navegador; funciona de forma local y remota desde cualquier dispositivo.
-- **aMuleCMD ([`amulecmd`](user-guide/amule-components/amulecmd.md))** — control remoto por línea de comandos; scriptable mediante shell y cron.
-- **Herramientas de estadísticas** — [`cas` y `wxcas`](user-guide/amule-components/cas-wxcas.md) leen `amulesig.dat` para generar imágenes de estado y páginas HTML.
-- **ALinkCreator ([`alc` / `alcc`](user-guide/amule-components/alc-alcc.md))** — genera enlaces ed2k para archivos locales sin necesidad de ejecutar aMule.
+- **aMule Daemon ([`amuled`](manual/interfaces/amuled.md))** — ejecuta aMule como proceso sin interfaz gráfica con un uso muy bajo de CPU y memoria. Ideal para servidores y dispositivos NAS.
+- **aMuleGUI ([`amulegui`](manual/interfaces/gui/amulegui.md))** — GUI remota con la misma interfaz que el cliente local.
+- **aMuleWeb ([`amuleweb`](manual/interfaces/amuleweb.md))** — interfaz basada en navegador; funciona de forma local y remota desde cualquier dispositivo.
+- **aMuleCMD ([`amulecmd`](manual/interfaces/amulecmd.md))** — control remoto por línea de comandos; scriptable mediante shell y cron.
+- **Herramientas de estadísticas** — [`cas` y `wxcas`](manual/utilities/cas-wxcas.md) leen `amulesig.dat` para generar imágenes de estado y páginas HTML.
+- **ALinkCreator ([`alc` / `alcc`](manual/utilities/alc-alcc.md))** — genera enlaces ed2k para archivos locales sin necesidad de ejecutar aMule.
 - **Gestor rápido de enlaces ed2k** — integrado en la parte inferior de cada página (puede desactivarse en Preferencias).
 - **Ejecutar un comando al completar un archivo**.
 - **Guardar hasta 20 fuentes en archivos poco comunes** (≤20 fuentes) — mejora la reconexión tras reinicios.
@@ -74,14 +74,14 @@ Además de la base *Mule, aMule añade:
 
 | Binario | Descripción |
 |---|---|
-| [`amule`](user-guide/amule-components/amule.md) | Cliente GUI todo en uno |
-| [`amuled`](user-guide/amule-components/amuled.md) | Daemon sin interfaz gráfica |
-| [`amulegui`](user-guide/amule-components/amulegui.md) | GUI remota; se conecta a `amuled` mediante el protocolo EC |
-| [`amuleweb`](user-guide/amule-components/amuleweb.md) | Interfaz web HTTP para un `amuled` en ejecución |
-| [`amulecmd`](user-guide/amule-components/amulecmd.md) | Interfaz interactiva de línea de comandos para un `amuled` en ejecución |
-| [`ed2k`](user-guide/amule-components/ed2k-cli.md) | Herramienta de línea de comandos para añadir enlaces eD2k a una instancia de aMule en ejecución |
-| [`alc` / `alcc`](user-guide/amule-components/alc-alcc.md) | Herramientas GUI y de línea de comandos para generar enlaces ed2k de archivos locales |
-| [`wxcas` / `cas`](user-guide/amule-components/cas-wxcas.md) | Herramientas de estadísticas que muestran el estado de aMule desde `amulesig.dat` |
+| [`amule`](manual/interfaces/gui/amule.md) | Cliente GUI todo en uno |
+| [`amuled`](manual/interfaces/amuled.md) | Daemon sin interfaz gráfica |
+| [`amulegui`](manual/interfaces/gui/amulegui.md) | GUI remota; se conecta a `amuled` mediante el protocolo EC |
+| [`amuleweb`](manual/interfaces/amuleweb.md) | Interfaz web HTTP para un `amuled` en ejecución |
+| [`amulecmd`](manual/interfaces/amulecmd.md) | Interfaz interactiva de línea de comandos para un `amuled` en ejecución |
+| [`ed2k`](manual/utilities/ed2k.md) | Herramienta de línea de comandos para añadir enlaces eD2k a una instancia de aMule en ejecución |
+| [`alc` / `alcc`](manual/utilities/alc-alcc.md) | Herramientas GUI y de línea de comandos para generar enlaces ed2k de archivos locales |
+| [`wxcas` / `cas`](manual/utilities/cas-wxcas.md) | Herramientas de estadísticas que muestran el estado de aMule desde `amulesig.dat` |
 
 ## Plataformas compatibles
 

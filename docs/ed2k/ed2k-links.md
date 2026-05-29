@@ -107,7 +107,7 @@ If you already have a server list, the remote servers are merged into it. If you
 
 ## The `ed2k` Command
 
-aMule installs a small utility called **`ed2k`** that allows you to add downloads from the command line or from a web browser. It communicates with aMule by writing to the **ED2KLinks file** (`~/.aMule/ED2KLinks`) — **not** through the External Connections interface. For full details on the command and the ED2KLinks file format, see [ed2k — ED2K Link Handler](../user-guide/amule-components/ed2k-cli.md).
+aMule installs a small utility called **`ed2k`** that allows you to add downloads from the command line or from a web browser. It communicates with aMule by writing to the **ED2KLinks file** (`~/.aMule/ED2KLinks`) — **not** through the External Connections interface. For full details on the command and the ED2KLinks file format, see [ed2k — ED2K Link Handler](../manual/utilities/ed2k.md).
 
 ### Usage
 
@@ -135,4 +135,4 @@ On Debian/Ubuntu you must install the **`amule-utils`** package (and also **`amu
 
 ## Browser Configuration
 
-For instructions on configuring Firefox, Opera, Konqueror, Windows, macOS, and remote handling via `amulecmd`, see [ed2k — ED2K Link Handler](../user-guide/amule-components/ed2k-cli.md).
+For instructions on configuring Firefox, Opera, Konqueror, Windows, macOS, and remote handling via `amulecmd`, see [ed2k — ED2K Link Handler](../manual/utilities/ed2k.md).

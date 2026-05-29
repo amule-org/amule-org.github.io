@@ -77,7 +77,7 @@ The GUI is built with **wxWidgets** (minimum version 3.2.0). It is completely se
 
 ### File Transfer
 
-- Files in progress are stored as `<hash>.part` + `<hash>.part.met` in the Temp directory (see [Download Folders](../user-guide/configuration/download-folders.md)).
+- Files in progress are stored as `<hash>.part` + `<hash>.part.met` in the Temp directory (see [Download Folders](../manual/core/download-folders.md)).
 - Completed files are moved to the Incoming directory.
 - File integrity is verified using **AICH** (Advanced Intelligent Corruption Handling) — a Merkle-tree-like hash structure that allows per-chunk verification and selective re-download of corrupted parts.
 

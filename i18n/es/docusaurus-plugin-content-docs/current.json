@@ -1,15 +1,43 @@
 {
-  "sidebar.docsSidebar.category.User Guide": {
-    "message": "Guía de usuario",
-    "description": "The label for category 'User Guide' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Manual de usuario",
+    "description": "The label for category 'User Manual' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.aMule Core": {
+    "message": "Núcleo de aMule",
+    "description": "The label for category 'aMule Core' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Configuration files": {
+    "message": "Ficheros de configuración",
+    "description": "The label for category 'Configuration files' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Interfaces",
+    "description": "The label for category 'Interfaces' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.GUI": {
+    "message": "GUI",
+    "description": "The label for category 'GUI' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Usage": {
+    "message": "Uso",
+    "description": "The label for category 'Usage' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Utilities": {
+    "message": "Utilidades",
+    "description": "The label for category 'Utilities' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Migration": {
     "message": "Migración",
     "description": "The label for category 'Migration' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.aMule Modules": {
-    "message": "Componentes de aMule",
-    "description": "The label for category 'aMule Modules' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Solución de problemas",
+    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.FAQ": {
+    "message": "FAQ",
+    "description": "The label for category 'FAQ' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.P2P Networks (eD2k & Kademlia)": {
     "message": "Redes P2P (eD2k y Kademlia)",
@@ -18,6 +46,10 @@
   "sidebar.docsSidebar.category.Developer Guide": {
     "message": "Guía de Desarrollador",
     "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Compilación",
+    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Binary File Formats": {
     "message": "Formatos de ficheros binarios",
@@ -35,44 +67,8 @@
     "message": "Inicio rápido",
     "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
   },
-  "sidebar.docsSidebar.doc.Troubleshooting": {
-    "message": "Solución de problemas",
-    "description": "The label for the doc item 'Troubleshooting' in sidebar 'docsSidebar', linking to the doc troubleshooting/index"
-  },
-  "sidebar.docsSidebar.category.Troubleshooting": {
-    "message": "Solución de problemas",
-    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.doc.FAQ": {
-    "message": "FAQ",
-    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc faq/index"
-  },
-  "sidebar.docsSidebar.category.FAQ": {
-    "message": "FAQ",
-    "description": "The label for category 'FAQ' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.doc.Changelogs": {
-    "message": "Historial de cambios",
-    "description": "The label for the doc item 'Changelogs' in sidebar 'docsSidebar', linking to the doc changelogs/index"
-  },
   "version.label": {
     "message": "Actual",
     "description": "The label for version current"
-  },
-  "sidebar.docsSidebar.category.Configuration": {
-    "message": "Configuración",
-    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Usage": {
-    "message": "Uso",
-    "description": "The label for category 'Usage' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.aMule Files": {
-    "message": "Archivos de aMule",
-    "description": "The label for category 'aMule Files' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Compilation": {
-    "message": "Compilación",
-    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
   }
 }

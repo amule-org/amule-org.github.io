@@ -84,12 +84,12 @@ The lMule project is no longer maintained or supported.
 
 ### aMule (2003–present)
 
-**[aMule](../user-guide/amule-components/amule.md)** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Windows, macOS, Linux, FreeBSD, and other Unix-like systems. It was originally forked from xMule on August 18, 2003, and shares protocol compatibility with eMule.
+**[aMule](../manual/interfaces/gui/amule.md)** (*all-platform Mule*) is the cross-platform, open-source eD2k and Kademlia client, available for Windows, macOS, Linux, FreeBSD, and other Unix-like systems. It was originally forked from xMule on August 18, 2003, and shares protocol compatibility with eMule.
 
 Key features that distinguish aMule (see the [full feature list](../index.md#features)):
 - Full eD2k + Kademlia dual-network support.
-- Daemon mode ([`amuled`](../user-guide/amule-components/amuled.md)) for headless/server operation.
-- Web interface ([`amuleweb`](../user-guide/amule-components/amuleweb.md)), remote GUI ([`amulegui`](../user-guide/amule-components/amulegui.md)), and command-line interface ([`amulecmd`](../user-guide/amule-components/amulecmd.md)).
+- Daemon mode ([`amuled`](../manual/interfaces/amuled.md)) for headless/server operation.
+- Web interface ([`amuleweb`](../manual/interfaces/amuleweb.md)), remote GUI ([`amulegui`](../manual/interfaces/gui/amulegui.md)), and command-line interface ([`amulecmd`](../manual/interfaces/amulecmd.md)).
 - Cross-platform: Windows (via MinGW), macOS, Linux, FreeBSD.
 
 ### Lphant (~2005–2009)
@@ -140,6 +140,6 @@ This means sources from aMule and eMule clients appear together in search result
 | [JMule](https://en.wikipedia.org/wiki/JMule) | Linux, macOS, Windows | Yes (GPL) | eD2k, Kademlia | Abandoned (2011) |
 | lMule | Linux | Yes (GPL) | eD2k | Discontinued (2003) |
 | [xMule](https://en.wikipedia.org/wiki/XMule) | Linux | Yes (GPL) | eD2k | Discontinued (2006) |
-| [aMule](../user-guide/amule-components/amule.md) | Windows, macOS, Linux, BSD | Yes (GPL) | eD2k, Kademlia | Active |
+| [aMule](../manual/interfaces/gui/amule.md) | Windows, macOS, Linux, BSD | Yes (GPL) | eD2k, Kademlia | Active |
 | [Lphant](https://en.wikipedia.org/wiki/Lphant) | Windows | Closed (adware) | eD2k | Discontinued (2009) |
 | [Shareaza](https://en.wikipedia.org/wiki/Shareaza) | Windows | Yes (GPL) | eD2k, Gnutella, BitTorrent, G2 | Abandoned (2017) |

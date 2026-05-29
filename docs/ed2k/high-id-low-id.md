@@ -82,7 +82,7 @@ Additionally:
 | Port | Protocol | Direction | Purpose |
 |---|---|---|---|
 | 4661 | TCP | Outgoing only | eD2k server listening port (server-defined, not client-configurable). |
-| 4711 | TCP | Incoming | [`amuleweb`](../user-guide/amule-components/amuleweb.md) web interface. |
+| 4711 | TCP | Incoming | [`amuleweb`](../manual/interfaces/amuleweb.md) web interface. |
 | 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) — used by `amulecmd`, `amulegui`. |
 
 #### Minimum port requirements by network
@@ -115,7 +115,7 @@ If a firewall is running on your machine (for example, `iptables` on Linux, `pf`
 
 If you do not administer your own firewall (e.g. corporate or university network), contact your network administrator.
 
-For detailed per-distribution firewall instructions, see the [Firewall configuration](../user-guide/configuration/index.md) page.
+For detailed per-distribution firewall instructions, see the [Firewall configuration](../manual/core/index.md) page.
 
 ### Step 3 — Forward the ports on your router (NAT)
 
@@ -140,7 +140,7 @@ If your machine is behind a NAT router (the most common scenario for home users)
 
 > **Resources:**
 > - [portforward.com](http://portforward.com/) provides step-by-step walkthroughs for hundreds of router models.
-> - The aMule [Firewall](../user-guide/configuration/index.md) article contains instructions for specific Linux distributions and router brands.
+> - The aMule [Firewall](../manual/core/index.md) article contains instructions for specific Linux distributions and router brands.
 
 ## Kademlia: Open vs Firewalled
 
@@ -219,6 +219,6 @@ This is a fundamental eD2k protocol limitation. There is no workaround other tha
 
 - [eD2k Network](ed2k-network.md) — network architecture, servers, file limits
 - [Kademlia Network](kademlia.md) — the serverless counterpart to eD2k
-- [Firewall configuration](../user-guide/configuration/index.md) — opening ports for aMule
+- [Firewall configuration](../manual/core/index.md) — opening ports for aMule
 - [Concepts & Glossary](concepts.md) — all eD2k/Kademlia technical terms defined
-- [FAQ: Network & Connectivity](../faq/network.md) — common questions about networks, ports and IDs
+- [FAQ: Network & Connectivity](../manual/faq/network.md) — common questions about networks, ports and IDs

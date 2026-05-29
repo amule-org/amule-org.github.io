@@ -10,7 +10,7 @@ The **eD2k** (eDonkey2000) network is a client-server peer-to-peer network. Clie
 The eD2k network is built around a **client-server model**:
 
 - A **server** is a central machine that maintains indexes of which clients share which files. Servers are interconnected so that global searches spanning all known servers are possible.
-- A **client** (such as [aMule](../user-guide/amule-components/amule.md)) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
+- A **client** (such as [aMule](../manual/interfaces/gui/amule.md)) connects to one server at a time. Once connected, it can search for files, receive source lists, and begin downloading.
 - **File transfers** happen directly between clients (peer-to-peer). The server is only involved in providing the initial source list. However, if one of the peers has a Low ID, the server may relay the connection.
 
 ### Chunks
@@ -71,8 +71,8 @@ aMule uses three configurable ports (all in **Preferences → Connection**) and 
 | **4662** | TCP | Incoming + Outgoing | **Primary data port** — client-to-client transfers. Must be open for High ID. |
 | 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia. Always TCP port + 3. |
 | 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad "open" status. |
-| 4711 | TCP | Incoming | [`amuleweb`](../user-guide/amule-components/amuleweb.md) listening port |
-| 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) port — for [`amulecmd`](../user-guide/amule-components/amulecmd.md), [`amulegui`](../user-guide/amule-components/amulegui.md) |
+| 4711 | TCP | Incoming | [`amuleweb`](../manual/interfaces/amuleweb.md) listening port |
+| 4712 | TCP | Incoming | [External Connections (EC)](../development/ec-protocol.md) port — for [`amulecmd`](../manual/interfaces/amulecmd.md), [`amulegui`](../manual/interfaces/gui/amulegui.md) |
 
 For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](high-id-low-id.md#ports-used-by-amule)**.
 
