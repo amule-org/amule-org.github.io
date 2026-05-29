@@ -12,7 +12,7 @@ The filter is read from two files in `~/.aMule/`:
 | `ipfilter.dat` | Main filter list. Downloaded from external sources or maintained manually. |
 | `ipfilter_static.dat` | Static filter list. Always applied regardless of the dynamic list. Entries here cannot be overridden. |
 
-For the file formats, see [aMule Files](./config-files/index.md).
+For the file formats, see [aMule Files](./files/index.md).
 
 aMule's `ipfilter.dat` is 100% compatible with eMule's.
 
@@ -46,7 +46,7 @@ The only currently maintained source is the eMule Security project list. aMule d
 https://upd.emule-security.org/ipfilter.zip
 ```
 
-Insert this URL in **Preferences → Security → IP filtering → URL**. For file format details and configuration reference, see [aMule Files → ipfilter.dat](./config-files/index.md#ipfilterdat).
+Insert this URL in **Preferences → Security → IP filtering → URL**. For file format details and configuration reference, see [aMule Files → ipfilter.dat](./files/index.md#ipfilterdat).
 
 ## Hard-coded IP filter
 

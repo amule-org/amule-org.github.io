@@ -7,9 +7,9 @@
     "message": "Núcleo de aMule",
     "description": "The label for category 'aMule Core' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Configuration files": {
-    "message": "Ficheros de configuración",
-    "description": "The label for category 'Configuration files' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Files & directories": {
+    "message": "Ficheros y directorios",
+    "description": "The label for category 'Files & directories' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Interfaces": {
     "message": "Interfaces",
@@ -47,9 +47,9 @@
     "message": "Compilación",
     "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Binary File Formats": {
-    "message": "Formatos de ficheros binarios",
-    "description": "The label for category 'Binary File Formats' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Formatos de ficheros",
+    "description": "The label for category 'File Formats' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Contributing": {
     "message": "Contribuir",

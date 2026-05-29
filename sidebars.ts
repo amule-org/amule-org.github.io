@@ -24,11 +24,11 @@ const sidebars: SidebarsConfig = {
             'manual/core/events',
             {
               type: 'category',
-              label: 'Configuration files',
-              link: {type: 'doc', id: 'manual/core/config-files/index'},
+              label: 'Files & directories',
+              link: {type: 'doc', id: 'manual/core/files/index'},
               items: [
-                'manual/core/config-files/amule-conf',
-                'manual/core/config-files/remote-conf',
+                'manual/core/files/amule-conf',
+                'manual/core/files/remote-conf',
               ],
             },
           ],
@@ -154,7 +154,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Binary File Formats',
+          label: 'File Formats',
           link: {type: 'generated-index'},
           items: [
             'developer/file-formats/server-met',

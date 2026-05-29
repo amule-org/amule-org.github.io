@@ -253,7 +253,7 @@ Yes:
 - **aMule 2.0.0-rc4 or later**: right-click the directory icon you want to select recursively in the Shared Directories list.
 - **aMule 1.x and up to 2.0.0-rc3**: click the directory while holding the **Ctrl** key.
 
-aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/core/config-files) for details.
+aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/core/files) for details.
 
 ## I downloaded a file that got corrupted after completion. Can I avoid re-downloading the whole thing?
 
