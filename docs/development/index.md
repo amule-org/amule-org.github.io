@@ -171,4 +171,4 @@ See [Debugging with GDB and Valgrind](debugging.md) for instructions on:
 - [Debugging](debugging.md) — GDB backtraces and valgrind usage
 - [Testing](testing.md) — unit tests and virtual test network
 - [Coding Style](./code-style.md) — formatting, naming, and forbidden patterns
-- [Translations](./contributing/translations.md) — gettext workflow and po4a for man pages
+- [Translations](../contributing/translations.md) — gettext workflow and po4a for man pages

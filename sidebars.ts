@@ -170,16 +170,16 @@ const sidebars: SidebarsConfig = {
             'development/file-formats/part-met',
           ],
         },
-        {
-          type: 'category',
-          label: 'Contributing',
-          link: {type: 'doc', id: 'development/contributing/index'},
-          items: [
-            'development/contributing/bug-reports',
-            'development/contributing/translations',
-            'development/contributing/documentation',
-          ],
-        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Contributing',
+      link: {type: 'doc', id: 'contributing/index'},
+      items: [
+        'contributing/bug-reports',
+        'contributing/translations',
+        'contributing/documentation',
       ],
     },
   ],
