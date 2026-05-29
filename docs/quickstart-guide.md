@@ -56,7 +56,7 @@ Both networks are enabled by default. You can disable either from the lower part
 
 ### Connecting to a Server
 
-After opening aMule you should see the [Networks](./manual/interfaces/gui/usage/networks.md) window:
+After opening aMule you should see the [Networks](./manual/interfaces/gui/networks.md) window:
 
 ![Empty server list](/img/docs/serverlist_empty.png)
 
@@ -70,7 +70,7 @@ Once you have a list of servers, click the large **Connect** button near the top
 
 To connect to the Kademlia network (when it is enabled in preferences), press the **Connect** button on the top toolbar. Note that manually connecting to a specific ED2K server by double-clicking it does **not** connect you to Kademlia.
 
-Alternatively, go to the **Kad** sub-page of the [Networks](./manual/interfaces/gui/usage/networks.md) window and press **Bootstrap from known clients**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
+Alternatively, go to the **Kad** sub-page of the [Networks](./manual/interfaces/gui/networks.md) window and press **Bootstrap from known clients**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
 
 ![Kademlia network page](/img/docs/serverlist_kad.png)
 
@@ -87,7 +87,7 @@ Check the globe icon in the bottom-right corner of the window:
 
 ### Searching and Downloading
 
-To search for a file, make sure you are connected to a server or the Kademlia network, then click the **Searches** button to open the [Searches](./manual/interfaces/gui/usage/searches.md) window:
+To search for a file, make sure you are connected to a server or the Kademlia network, then click the **Searches** button to open the [Searches](./manual/interfaces/gui/searches.md) window:
 
 ![Search dialog](/img/docs/search_dialog.png)
 
@@ -140,7 +140,7 @@ Examples:
 
 ### The Download Queue
 
-Click the **Transfers** button to open the [Transfers](./manual/interfaces/gui/usage/transfers.md) window and see your queued downloads:
+Click the **Transfers** button to open the [Transfers](./manual/interfaces/gui/transfers.md) window and see your queued downloads:
 
 ![Transfer queue](/img/docs/transfers_queue.png)
 
@@ -232,7 +232,7 @@ There are two ways to share files:
 
 **1. Place files in the Incoming directory**
 
-Copy files to your Incoming directory (see [Download Folders](./manual/core/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the [Shared Files](./manual/interfaces/gui/usage/shared-files.md) page:
+Copy files to your Incoming directory (see [Download Folders](./manual/core/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the [Shared Files](./manual/interfaces/gui/shared-files.md) page:
 
 ![Reload shared files button](/img/docs/reload_button.png)
 

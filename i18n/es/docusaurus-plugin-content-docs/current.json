@@ -19,10 +19,6 @@
     "message": "GUI",
     "description": "The label for category 'GUI' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Usage": {
-    "message": "Uso",
-    "description": "The label for category 'Usage' in sidebar 'docsSidebar'"
-  },
   "sidebar.docsSidebar.category.Utilities": {
     "message": "Utilidades",
     "description": "The label for category 'Utilities' in sidebar 'docsSidebar'"

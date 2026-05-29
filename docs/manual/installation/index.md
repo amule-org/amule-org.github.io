@@ -151,7 +151,7 @@ To integrate the AppImage into your application menu, you can use [AppImageLaunc
 
 :::caution Known issues in the AppImage
 
-**System tray icon is transparent.** The [system tray icon](../interfaces/gui/usage/tray-icon.md) appears without a logo on the first launch. Accept the popup that aMule shows on startup to fix it.
+**System tray icon is transparent.** The [system tray icon](../interfaces/gui/tray-icon.md) appears without a logo on the first launch. Accept the popup that aMule shows on startup to fix it.
 
 **GTK theme is not applied.** The AppImage bundles its own GTK libraries and does not use the GTK theme installed on the system. The application is functional but may not match the desktop theme.
 :::

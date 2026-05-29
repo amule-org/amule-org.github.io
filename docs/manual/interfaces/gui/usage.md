@@ -1,5 +1,5 @@
 ---
-id: index
+id: usage
 title: Usage
 ---
 

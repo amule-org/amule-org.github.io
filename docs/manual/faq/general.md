@@ -317,7 +317,7 @@ Credits are stored in specific files. Copy the following from eMule's config dir
 
 Start aMule and it will read those files. Your credits are preserved.
 
-Also see the [Migrate from eMule to aMule](../interfaces/gui/usage/index.md) guide for a complete walkthrough.
+Also see the [Migrate from eMule to aMule](../interfaces/gui/usage.md) guide for a complete walkthrough.
 
 ## Does aMule support Universal Plug and Play (UPnP)?
 

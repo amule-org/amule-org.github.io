@@ -62,7 +62,7 @@ If you have in-progress downloads from eMule, copy their `.part` and `.part.met`
 
 ## Per-Category Incoming Folders
 
-Each [download category](../interfaces/gui/usage/transfers.md#categories) can have its own incoming directory. When a completed file belongs to a category that has a folder configured, it is saved there instead of the default Incoming directory.
+Each [download category](../interfaces/gui/transfers.md#categories) can have its own incoming directory. When a completed file belongs to a category that has a folder configured, it is saved there instead of the default Incoming directory.
 
 To set a category folder, right-click a category tab in the Transfers window and select **Edit category**, or create a new one with **Add category**.
 
@@ -93,7 +93,7 @@ Be careful which directories you share. Sharing your home directory, documents f
 
 ### Managing Shared Files
 
-The [Shared Files](../interfaces/gui/usage/shared-files.md) window shows all files currently being shared, including per-file upload statistics, upload priority settings, and options to copy eD2k links. Use the **Reload** button after adding, moving, or deleting files outside aMule to refresh the list.
+The [Shared Files](../interfaces/gui/shared-files.md) window shows all files currently being shared, including per-file upload statistics, upload priority settings, and options to copy eD2k links. Use the **Reload** button after adding, moving, or deleting files outside aMule to refresh the list.
 
 ### Configuring via shareddir.dat
 

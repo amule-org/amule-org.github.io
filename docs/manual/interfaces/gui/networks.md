@@ -3,7 +3,7 @@ id: networks
 title: Networks
 ---
 
-The Networks window manages your connections to the [eD2k](../../../../ed2k/ed2k-network.md) and [Kademlia](../../../../ed2k/kademlia.md) networks. It is the first thing you see when aMule starts.
+The Networks window manages your connections to the [eD2k](../../../ed2k/ed2k-network.md) and [Kademlia](../../../ed2k/kademlia.md) networks. It is the first thing you see when aMule starts.
 
 ## Overview
 
@@ -32,7 +32,7 @@ To connect to a specific server instead, double-click its row in the server list
 
 ### Updating the Server List from a URL
 
-The URL field at the top of the ED2K tab contains the address of a remote [`server.met`](../../../../developer/file-formats/server-met.md) file. Click **Update** (or press **Enter** while the URL field is focused) to download a fresh list of servers from that address.
+The URL field at the top of the ED2K tab contains the address of a remote [`server.met`](../../../developer/file-formats/server-met.md) file. Click **Update** (or press **Enter** while the URL field is focused) to download a fresh list of servers from that address.
 
 The URL is also configurable in **Preferences → Server**. aMule pre-populates it with a known working URL on first run.
 
@@ -104,7 +104,7 @@ Alternatively, clicking the toolbar **Connect** button connects to both ED2K and
 
 ### Updating the Nodes List from a URL
 
-The URL field contains the address of a remote [`nodes.dat`](../../../../developer/file-formats/nodes-dat.md) file. Click **Update** (or press **Enter** in the URL field) to download a fresh list.
+The URL field contains the address of a remote [`nodes.dat`](../../../developer/file-formats/nodes-dat.md) file. Click **Update** (or press **Enter** in the URL field) to download a fresh list.
 
 :::warning
 Updating the nodes list removes your current nodes and restarts the Kademlia connection. A confirmation dialog will appear before any changes are made.
@@ -155,7 +155,7 @@ Live eD2k connection details:
 | **ID** | Your numeric eD2k user ID |
 | *(blank label)* | `HighID` or `LowID` |
 
-A **HighID** means your ports are reachable from the internet and you have full connectivity. A **LowID** means you are behind a firewall or NAT and other clients cannot connect to you directly, which significantly reduces transfer performance. See [High ID and Low ID](../../../core/get-high-id.md) for how to fix this.
+A **HighID** means your ports are reachable from the internet and you have full connectivity. A **LowID** means you are behind a firewall or NAT and other clients cannot connect to you directly, which significantly reduces transfer performance. See [High ID and Low ID](../../core/get-high-id.md) for how to fix this.
 
 ### Kad Info
 

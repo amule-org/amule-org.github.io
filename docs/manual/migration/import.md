@@ -7,7 +7,7 @@ The Import tool integrates eDonkey2000 part files into aMule so you can continue
 
 ![Import window](/img/docs/usage/window_import1.jpg)
 
-Open the Import tool by clicking the **Import** button in the [toolbar](../interfaces/gui/usage/toolbar.md).
+Open the Import tool by clicking the **Import** button in the [toolbar](../interfaces/gui/toolbar.md).
 
 :::note
 If you are migrating from **eMule**, the temporary file format is directly compatible — no import needed. See [Migrate from eMule](./migrate-from-emule.md) for the full migration guide.
