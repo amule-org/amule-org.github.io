@@ -20,9 +20,11 @@ This page explains how to install aMule on each supported platform. Pre-built bi
 
 The latest release is available on the [Downloads](/download) page, which links directly to the [GitHub releases page](https://github.com/amule-org/amule/releases/latest). Each release provides the following artifacts:
 
+- `aMule-<version>-Setup-x64.exe` — Windows installer for x86\_64
+- `aMule-<version>-Setup-arm64.exe` — Windows installer for ARM64
 - `aMule-<version>-Windows-x64.zip` — portable build for Windows x86\_64
 - `aMule-<version>-Windows-arm64.zip` — portable build for Windows ARM64
-- `aMule-<version>-macOS.dmg` — Universal2 disk image for macOS (Apple Silicon + Intel)
+- `aMule-<version>-macOS-universal2.dmg` — Universal2 disk image for macOS (Apple Silicon + Intel)
 - `aMule-<version>-x86_64.AppImage` — portable Linux binary for x86\_64
 - `aMule-<version>-aarch64.AppImage` — portable Linux binary for aarch64
 - `aMule-<version>-x86_64.flatpak` — Flatpak bundle for x86\_64
@@ -36,20 +38,33 @@ The latest release is available on the [Downloads](/download) page, which links 
 - Windows 10 or 11
 - x64 or ARM64 processor
 
-### Installation
+aMule is distributed for Windows in two formats: an **installer** (`.exe`) that sets up Start menu shortcuts and an Add or Remove Programs entry, and a **portable** build (`.zip`) that runs from any folder without installation. Both contain the same binaries (`amule`, `amuled`, `amulegui`, `amulecmd`, `ed2k`) and bundled runtime libraries. Choose whichever fits your workflow.
 
-1. Go to the [Downloads](/download) page and click the **Windows** card, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
+### Installer
+
+1. Go to the [Downloads](/download) page and click the **Windows** section, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
+2. Download the installer that matches your architecture:
+   - `aMule-<version>-Setup-x64.exe` for most PCs (Intel/AMD)
+   - `aMule-<version>-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
+3. Run the downloaded `.exe` and follow the on-screen steps.
+4. Optionally enable **Start aMule when I sign in** during setup to launch aMule automatically on login.
+
+The installer creates Start menu shortcuts and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`); uninstalling does not delete this folder, so your settings and downloads are preserved.
+
+### Portable
+
+1. Go to the [Downloads](/download) page and click the **Windows** section, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
 2. Download the `.zip` file that matches your architecture:
    - `aMule-<version>-Windows-x64.zip` for most PCs (Intel/AMD)
    - `aMule-<version>-Windows-arm64.zip` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
 3. Extract the `.zip` file to a folder of your choice (e.g. `C:\Users\<you>\aMule`).
 4. Open the extracted folder and run `amule.exe`.
 
-The build is fully **portable** — no installer is required. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`) and can be moved or deleted by simply moving or deleting the extracted folder.
+The portable build requires **no installer**. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`) and can be moved or deleted by simply moving or deleting the extracted folder.
 
 ### SmartScreen Warning
 
-Windows Defender SmartScreen may show a warning because the aMule binary is not code-signed. This is expected for open-source software distributed outside the Microsoft Store. To proceed:
+Windows Defender SmartScreen may show a warning when you run the installer or `amule.exe`, because the aMule binaries are not code-signed. This is expected for open-source software distributed outside the Microsoft Store. To proceed:
 
 1. Click **More info** in the SmartScreen dialog.
 2. Click **Run anyway**.
@@ -63,10 +78,10 @@ Windows Defender SmartScreen may show a warning because the aMule binary is not 
 
 ### Installation
 
-1. Go to the [Downloads](/download) page and click the **macOS** card, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
-2. Download `aMule-<version>-macOS.dmg`.
-3. Open the `.dmg` file. A window appears with the aMule application icon and a shortcut to the `/Applications` folder.
-4. Drag `aMule.app` into the `/Applications` folder.
+1. Go to the [Downloads](/download) page and click the **macOS** section, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
+2. Download `aMule-<version>-macOS-universal2.dmg`.
+3. Open the `.dmg` file. A window appears with two applications — `aMule.app` (the all-in-one client) and `aMuleGUI.app` (the remote GUI that connects to a running `amuled`) — and a shortcut to the `/Applications` folder.
+4. Drag `aMule.app` (and `aMuleGUI.app`, if you want the remote GUI) into the `/Applications` folder.
 5. Eject the disk image.
 6. Open `aMule.app` from `/Applications` or Launchpad.
 

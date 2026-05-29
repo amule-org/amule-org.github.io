@@ -4,75 +4,182 @@
   padding: 3rem 2rem;
 }
 
+/* ---- Latest version header ---- */
+
+.versionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius, 8px);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+}
+
+.versionRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.versionLabel {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.versionNumber {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ifm-color-primary);
+}
+
+.versionMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.versionDate {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.changelogLink {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .dlLead {
   margin-bottom: 1.5rem;
 }
 
-.dlGrid {
+/* ---- Per-OS sections ---- */
+
+.osList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 768px) {
-  .dlGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .dlGrid {
+  .osList {
     grid-template-columns: 1fr;
   }
 }
 
-.dlCard {
+.osPanel {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1.5rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--ifm-card-border-radius, 8px);
-  color: var(--ifm-font-color-base);
-  text-decoration: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
   background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  overflow: hidden;
 }
 
-.dlCard:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 2px 12px rgba(0 0 0 / 0.1);
-  text-decoration: none;
-  color: var(--ifm-font-color-base);
+.osHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.dlIcon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.75rem;
+.osIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   color: var(--ifm-color-primary);
 }
 
-.dlOs {
+.osHeaderText {
+  display: flex;
+  flex-direction: column;
+}
+
+.osName {
   font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.1rem;
 }
 
-.dlFmt {
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-700);
-  margin-bottom: 0.1rem;
-}
-
-.dlArch {
+.osPlatform {
   font-size: 0.8rem;
   color: var(--ifm-color-emphasis-600);
+}
+
+.formatList {
+  display: flex;
+  flex-direction: column;
+}
+
+.formatRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.formatRow:first-child {
+  border-top: none;
+}
+
+.formatRow:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.formatLabel {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.formatArch {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  text-align: right;
 }
 
 .dlFoot {
   font-size: 0.9rem;
   color: var(--ifm-color-emphasis-700);
+}
+
+/* ---- Previous releases ---- */
+
+.prevReleases {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.prevList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.prevList li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+}
+
+.prevVersion {
+  font-weight: 600;
+}
+
+.prevDate {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
 }

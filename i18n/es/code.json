@@ -662,61 +662,109 @@
   "homepage.download.title": {
     "message": "Descargas"
   },
-  "homepage.download.version": {
-    "message": "La última versión de aMule es {link}."
+  "homepage.download.version.label": {
+    "message": "Última versión"
   },
-  "homepage.download.version.link": {
-    "message": "3.0.0"
+  "homepage.download.version.date": {
+    "message": "Publicado el {date}"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Changelog"
   },
   "homepage.download.lead": {
     "message": "aMule está disponible para las principales plataformas de escritorio."
   },
-  "homepage.download.linux.os": {
-    "message": "Linux"
+  "homepage.download.windows.os": {
+    "message": "Windows"
   },
-  "homepage.download.linux.fmt": {
-    "message": "AppImage · Flatpak"
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
   },
-  "homepage.download.linux.arch": {
-    "message": "x86_64 · aarch64"
+  "homepage.download.windows.installer.label": {
+    "message": "Instalador (.exe)"
+  },
+  "homepage.download.windows.installer.arch": {
+    "message": "x64 · ARM64"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Portable (.zip)"
+  },
+  "homepage.download.windows.portable.arch": {
+    "message": "x64 · ARM64"
   },
   "homepage.download.macos.os": {
     "message": "macOS"
   },
-  "homepage.download.macos.fmt": {
-    "message": "Universal2 .dmg"
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
   },
-  "homepage.download.macos.arch": {
-    "message": "Apple Silicon · Intel"
+  "homepage.download.macos.dmg.label": {
+    "message": "Imagen de disco (.dmg)"
   },
-  "homepage.download.windows.os": {
-    "message": "Windows"
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
   },
-  "homepage.download.windows.fmt": {
-    "message": ".zip portable"
+  "homepage.download.linux.os": {
+    "message": "Linux"
   },
-  "homepage.download.windows.arch": {
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.appimage.arch": {
+    "message": "x64 · ARM64"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.linux.flatpak.arch": {
     "message": "x64 · ARM64"
   },
   "homepage.download.source.os": {
     "message": "Código fuente"
   },
-  "homepage.download.source.fmt": {
-    "message": "tar.gz"
+  "homepage.download.source.platform": {
+    "message": "Compílalo tú mismo"
   },
-  "homepage.download.source.arch": {
-    "message": "compílalo tú mismo"
+  "homepage.download.source.tarball.label": {
+    "message": "Código fuente (.tar.gz)"
+  },
+  "homepage.download.source.tarball.arch": {
+    "message": "todas las plataformas"
   },
   "homepage.download.foot": {
-    "message": "Todos los artefactos están disponibles en la {link}."
+    "message": "Todos los artefactos están disponibles en la {release}. aMule también está disponible en los repositorios de las {distros}, aunque puede que los paquetes estén desactualizados."
   },
   "homepage.download.foot.link": {
     "message": "página de la release más reciente"
   },
+  "homepage.download.distros.link": {
+    "message": "principales distribuciones de Linux"
+  },
   "homepage.download.install": {
-    "message": "¿Eres nuevo en aMule? La {link} te guía a través de la configuración y tu primera descarga."
+    "message": "La {install} cubre todas las plataformas, y la {quickstart} te guía a través de la configuración y tu primera descarga."
+  },
+  "homepage.download.install.guide.link": {
+    "message": "guía de instalación"
   },
   "homepage.download.install.link": {
     "message": "guía de inicio rápido"
+  },
+  "homepage.download.compile": {
+    "message": "En la {link} encontrarás las instrucciones para construir aMule desde el código fuente."
+  },
+  "homepage.download.compile.link": {
+    "message": "guía de compilación"
+  },
+  "homepage.download.previous.title": {
+    "message": "Versiones anteriores"
+  },
+  "homepage.download.previous.body": {
+    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {link}."
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
   }
 }
