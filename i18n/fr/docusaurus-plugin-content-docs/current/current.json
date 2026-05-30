@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Suivant",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.User Guide": {
+    "message": "Guide d'utilisateur",
+    "description": "The label for category 'User Guide' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.aMule Modules": {
+    "message": "Modules d'aMule",
+    "description": "The label for category 'aMule Modules' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.eD2k & Kademlia": {
+    "message": "eD2k et Kademlia",
+    "description": "The label for category 'eD2k & Kademlia' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Development": {
+    "message": "Développement",
+    "description": "The label for category 'Development' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Contribuer",
+    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Vue d'ensemble",
+    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Prise en main rapide",
+    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide/index"
+  },
+  "sidebar.docsSidebar.doc.Troubleshooting": {
+    "message": "Dépannage",
+    "description": "The label for the doc item 'Troubleshooting' in sidebar 'docsSidebar', linking to the doc troubleshooting/index"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "FAQ",
+    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc faq/index"
+  },
+  "sidebar.docsSidebar.doc.Changelogs": {
+    "message": "Journaux des modifications",
+    "description": "The label for the doc item 'Changelogs' in sidebar 'docsSidebar', linking to the doc changelogs/index"
+  }
+}
