@@ -53,6 +53,18 @@
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .versionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .versionMeta {
+    margin-left: 0;
+  }
+}
+
 .dlLead {
   margin-bottom: 1.5rem;
 }

@@ -23,6 +23,26 @@
   --ifm-color-primary-lightest: #b7d9f6;
 }
 
+/* Navbar: at tablet widths (between the mobile hamburger breakpoint and full
+   desktop) the items are cramped, which truncates the title to "a..." and wraps
+   the external-link icons. Hide the title (the logo still identifies the brand)
+   and tighten item spacing so everything fits on one line. */
+@media (min-width: 997px) and (max-width: 1199px) {
+  .navbar__title {
+    display: none;
+  }
+
+  .navbar__item,
+  .navbar__link {
+    white-space: nowrap;
+  }
+
+  .navbar .navbar__item {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
 /* Footer: centered wrapping row */
 .footer__links.row {
   display: flex !important;

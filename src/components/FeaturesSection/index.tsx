@@ -140,7 +140,7 @@ const FEATURES: FeatureCard[] = [
     title: <Translate id="homepage.features.card15.title">Native Packages</Translate>,
     desc: (
       <Translate id="homepage.features.card15.desc">
-        Portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x86_64 and ARM64.
+        Installer and portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x86_64 and ARM64.
       </Translate>
     ),
   },

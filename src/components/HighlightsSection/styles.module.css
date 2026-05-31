@@ -20,22 +20,20 @@
 
 .title {
   margin: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: #5da8e8;
 }
 
 .changelogLink {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: #5da8e8;
   white-space: nowrap;
-  opacity: 0.8;
 }
 
 .changelogLink:hover {
-  opacity: 1;
+  text-decoration: underline;
 }
 
 .intro {

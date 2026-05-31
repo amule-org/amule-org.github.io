@@ -33,10 +33,26 @@ export default function Home(): React.JSX.Element {
               className={`button button--lg ${styles.buttonDownload}`}
               to="/download"
             >
+              <svg
+                className={styles.downloadIcon}
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12" />
+                <path d="m7 11 5 5 5-5" />
+                <path d="M5 21h14" />
+              </svg>
               <Translate id="homepage.hero.cta.download">Download</Translate>
             </Link>
             <Link
-              className="button button--secondary button--lg"
+              className={`button button--lg ${styles.buttonQuickstart}`}
               to="/docs/quickstart-guide"
             >
               <Translate id="homepage.hero.cta.quickstart">Quick Start</Translate>

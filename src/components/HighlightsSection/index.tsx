@@ -11,11 +11,11 @@ interface WhatsNew {
 
 const WHATS_NEW: WhatsNew[] = [
   {
-    tag: 'CMake',
-    label: <Translate id="homepage.highlights.hl3.label">Modern build system</Translate>,
+    tag: 'Performance',
+    label: <Translate id="homepage.highlights.hl1.label">Dramatically faster transfers</Translate>,
     detail: (
-      <Translate id="homepage.highlights.hl3.detail">
-        Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.
+      <Translate id="homepage.highlights.hl1.detail">
+        Disk I/O moved off the main thread and the network layer overhauled. Peer-to-peer downloads see ~100–380× speedups over 2.3.3 across macOS, Linux, and Windows.
       </Translate>
     ),
   },
@@ -24,16 +24,7 @@ const WHATS_NEW: WhatsNew[] = [
     label: <Translate id="homepage.highlights.hl4.label">Binaries for every desktop</Translate>,
     detail: (
       <Translate id="homepage.highlights.hl4.detail">
-        Windows portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.
-      </Translate>
-    ),
-  },
-  {
-    tag: 'HTTPS',
-    label: <Translate id="homepage.highlights.hl5.label">Server lists & version checks</Translate>,
-    detail: (
-      <Translate id="homepage.highlights.hl5.detail" values={{code: <code>wxWebRequest</code>}}>
-        {'Hand-rolled TLS replaced with {code}. Server-met downloads from modern HTTPS endpoints work again.'}
+        Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.
       </Translate>
     ),
   },
@@ -43,6 +34,15 @@ const WHATS_NEW: WhatsNew[] = [
     detail: (
       <Translate id="homepage.highlights.hl6.detail" values={{code: <code>MaxUpload=0</code>}}>
         {'Upload and download throttlers rewritten as proper token-bucket limiters. {code} means literal unlimited.'}
+      </Translate>
+    ),
+  },
+  {
+    tag: 'CMake',
+    label: <Translate id="homepage.highlights.hl3.label">Modern build system</Translate>,
+    detail: (
+      <Translate id="homepage.highlights.hl3.detail">
+        Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.
       </Translate>
     ),
   },
@@ -65,7 +65,7 @@ export default function HighlightsSection(): React.JSX.Element {
         </div>
         <p className={styles.intro}>
           <Translate id="homepage.whatisamule.p2">
-            After years of quiet, the project is back under active maintenance. The 3.0.0 release brings a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.
+            After years of quiet, the project is back under active maintenance. The 3.0.0 release brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.
           </Translate>
         </p>
         <div className={styles.strip}>

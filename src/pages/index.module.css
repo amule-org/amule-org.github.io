@@ -48,14 +48,38 @@
 }
 
 .buttonDownload {
-  background: #0e1938;
-  border: 1px solid rgba(255 255 255 / 0.18);
-  color: #e6edf3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #3d7ebe;
+  border: 1px solid transparent;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .buttonDownload:hover {
-  background: #162245;
-  border-color: rgba(255 255 255 / 0.28);
+  background: #4b8dce;
+  color: #fff;
+}
+
+.downloadIcon {
+  flex-shrink: 0;
+}
+
+.buttonQuickstart {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255 255 255 / 0.22);
+  color: #e6edf3;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.buttonQuickstart:hover {
+  background: rgba(255 255 255 / 0.06);
+  border-color: rgba(255 255 255 / 0.4);
   color: #fff;
 }
 

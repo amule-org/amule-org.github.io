@@ -24,10 +24,16 @@
     "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes {ed2k} y {kad}. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
   },
   "homepage.whatisamule.p2": {
-    "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
+    "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora mejoras dramáticas de rendimiento, un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
   },
   "homepage.highlights.title": {
     "message": "Novedades de 3.0.0"
+  },
+  "homepage.highlights.hl1.label": {
+    "message": "Transferencias mucho más rápidas"
+  },
+  "homepage.highlights.hl1.detail": {
+    "message": "La E/S de disco se trasladó fuera del hilo principal y se reescribió la capa de red. Las descargas peer-to-peer alcanzan aceleraciones de ~100–380× respecto a 2.3.3 en macOS, Linux y Windows."
   },
   "homepage.highlights.hl3.label": {
     "message": "Sistema de compilación moderno"
@@ -39,13 +45,7 @@
     "message": "Binarios para cada plataforma de escritorio"
   },
   "homepage.highlights.hl4.detail": {
-    "message": ".zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita."
-  },
-  "homepage.highlights.hl5.label": {
-    "message": "Listas de servidores y comprobación de versiones"
-  },
-  "homepage.highlights.hl5.detail": {
-    "message": "El TLS implementado manualmente se sustituyó por {code}. Las descargas de server.met desde endpoints HTTPS modernos vuelven a funcionar."
+    "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita."
   },
   "homepage.highlights.hl6.label": {
     "message": "Limitación de ancho de banda funcional"
@@ -186,7 +186,7 @@
     "message": "Paquetes nativos"
   },
   "homepage.features.card15.desc": {
-    "message": ".zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64."
+    "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64."
   },
   "homepage.features.card16.title": {
     "message": "Corrección de corrupción"
