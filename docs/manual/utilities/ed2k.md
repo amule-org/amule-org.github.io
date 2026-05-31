@@ -7,7 +7,9 @@ title: ed2k — ED2K Link Handler
 
 ## Overview
 
-Unlike [`amulecmd`](../interfaces/amulecmd.md), [`amuleweb`](../interfaces/amuleweb.md), and [`amulegui`](../interfaces/gui/amulegui.md), the `ed2k` command does **not** use the External Connections (EC) protocol. Instead, it communicates with aMule through the **ED2KLinks file** (`~/.aMule/ED2KLinks`): a plain text file that aMule monitors. When aMule detects the file, it reads the links inside, queues them for download, and deletes the file.
+Unlike [`amulecmd`](../interfaces/amulecmd.md), [`amuleweb`](../interfaces/amuleweb.md), and [`amulegui`](../interfaces/gui/amulegui.md), the `ed2k` command does **not** use the External Connections (EC) protocol. Instead, it communicates with aMule through the [**`ED2KLinks` file**](../configuration/config-files/index.md#ed2klinks): a plain text file that aMule checks roughly once per second. When aMule detects the file, it reads the links inside, queues them for download, and deletes the file.
+
+The `ED2KLinks` file lives in aMule's configuration directory; its location depends on the platform (see [Configuration Files → Platform paths](../configuration/config-files/index.md#platform-paths)). If aMule uses a non-default configuration directory, the file lives inside that directory instead (see the `-c` option below).
 
 This interface is:
 - **Mono-directional** — commands go from `ed2k` into aMule; there is no response.
@@ -17,20 +19,67 @@ This interface is:
 ## Usage
 
 ```bash
+ed2k [-c <path>] [-t <num>] [-e] [-l] <link>
+ed2k -h
+ed2k -v
+```
+
+The simplest invocation queues a file link for download:
+
+```bash
 ed2k "ed2k://|file|NAME|SIZE|MD4HASH|/"
 ```
 
-The double quotes are required so that the shell does not interpret the pipe characters (`|`) and ampersands (`&`) inside the link as shell operators.
+The double quotes are required so that the shell does not interpret the pipe characters (`|`) — and the ampersands (`&`) that appear in magnet links — as shell operators.
 
-To raise aMule's window if it is minimized, pass the special keyword:
+### Accepted link types
+
+`ed2k` accepts more than just file links:
+
+- **File link** (`ed2k://|file|...`) — queued for download.
+- **Server link** (`ed2k://|server|...`) — added to the server list.
+- **Serverlist link** (`ed2k://|serverlist|...`) — makes aMule update its server list.
+- **Magnet URI** (`magnet:?...`) — converted to an eD2k link, then queued.
+- **eMule collection file** (`.emulecollection`) — see the `-e` / `-l` options.
+
+For the detailed syntax of each eD2k link type, see [eD2k Links](../../p2p-networks/ed2k/links.md).
+
+:::note Magnet links must be eD2k-compatible
+aMule converts a magnet URI to an eD2k link before queuing it, so the magnet **must** carry the eD2k file information: an `xt=urn:ed2k:<hash>` (or `xt=urn:ed2khash:<hash>`) parameter with the file's MD4 hash **and** an `xl=<size>` parameter with the exact file size in bytes. Magnets that only contain a BitTorrent hash (`xt=urn:btih:...`) or that omit the size cannot be imported.
+:::
+
+### Options
+
+| Option | Description |
+|---|---|
+| `-h`, `--help` | Print a short usage description. |
+| `-v`, `--version` | Display the version (`aMule ED2k link parser v1.5.1`). |
+| `-c`, `--config-dir <path>` | Use `<path>` as aMule's configuration directory instead of the default. Also written as `-c<path>` or `--config-dir=<path>`. |
+| `-t`, `--category <num>` | Add the following link(s) to category number `<num>`. |
+| `-e`, `--emulecollection <file>` | Load every link found in the given `.emulecollection` file. |
+| `-l`, `--list <file>` | Print every link found in the given `.emulecollection` file, without adding them. |
+
+> **Option order is important.** Options apply to the links that follow them, and you can pass several links — each with its own options — in a single call. For example, `ed2k <link1> -t 2 <link2>` queues `<link1>` in the default category and `<link2>` in category 2.
+
+Examples:
 
 ```bash
-ed2k "RAISE_DIALOG"
+# Queue a file link into category 2
+ed2k -t 2 "ed2k://|file|NAME|SIZE|MD4HASH|/"
+
+# Add a magnet link
+ed2k "magnet:?xt=urn:ed2k:MD4HASH&xl=SIZE&dn=NAME"
+
+# List the links inside an eMule collection without adding them
+ed2k -l mycollection.emulecollection
+
+# Load all links from an eMule collection
+ed2k -e mycollection.emulecollection
 ```
 
 ## ED2KLinks File
 
-The `ED2KLinks` file is located at `~/.aMule/ED2KLinks`. You can write to it directly without using the `ed2k` command:
+You can write to the [`ED2KLinks` file](../configuration/config-files/index.md#ed2klinks) directly without using the `ed2k` command:
 
 ```
 ed2k://|file|Mandrake%20Linux%2010.0-Official-Powerpack-Cd1%20i586.iso|722343936|13048F2EC3B917E33BB9593D956E81AC|/
@@ -42,188 +91,19 @@ Rules:
 - One ed2k link per line.
 - The file must end with a newline after the last link.
 - aMule deletes the file after reading it; do not rely on it persisting.
-- Any line containing only `RAISE_DIALOG` causes aMule to raise its window.
-
-## ED2K Link Format
-
-For the full link format reference (file links, server links, serverlist links, optional fields), see [eD2k Links](../../p2p-networks/ed2k/links.md).
+- Any line containing only `RAISE_DIALOG` causes aMule to raise its window. This is an internal marker that a second aMule instance writes to the file when it is started while one is already running — it is **not** a valid argument for the `ed2k` command (passing it on the command line is rejected as a bad parameter).
 
 ## Browser Configuration — Local Handling
 
-These configurations make the browser launch the local `ed2k` tool when you click an eD2k link. Replace `/path/to/ed2k` with your actual binary path (find it with `which ed2k`).
+When you click an `ed2k://` link in a browser, the browser does not run `ed2k` itself. Instead, it hands the link to the **handler that the operating system has registered for the `ed2k://` scheme** — and aMule (or the `ed2k` tool) is that handler. You therefore register the handler **once at the OS level**, and every browser (Firefox, Chrome, Edge, Safari) delegates to it, usually showing a one-time confirmation dialog ("Open aMule?").
 
-| Installation method | Typical path |
-|---|---|
-| Self-compiled aMule | `/usr/local/bin/ed2k` |
-| Package-installed (most distros) | `/usr/bin/ed2k` |
-| SuSE packages | `/usr/local/bin/ed2k` |
-| Windows | `C:\Program Files\aMule\ed2k.exe` |
-
-On Debian/Ubuntu you must install the **`amule-utils`** package (and also **`amule-ed2k`** on Debian) to get the `ed2k` utility.
-
-### GNU/Linux
-
-#### Firefox 2, 3, and later
-
-**Per-user configuration:**
-
-1. Type `about:config` in the address bar.
-2. Right-click → **New → Boolean** → name: `network.protocol-handler.external.ed2k` → value: `true`
-3. Right-click → **New → String** → name: `network.protocol-handler.app.ed2k` → value: `/usr/bin/ed2k`
-4. *Firefox 3+ only:* Right-click → **New → Boolean** → name: `network.protocol-handler.expose.ed2k` → value: `false`
-
-After saving, click an eD2k link. Firefox will ask which application to use — choose the `ed2k` binary.
-
-> **Ubuntu Lucid users:** Set the value to `ed2k` (without path) instead of `/usr/bin/ed2k`.
-
-![Firefox about:config ed2k settings](/img/docs/firefox_ed2k_about_config.png)
-
-**System-wide configuration (requires root):**
-
-Open `/usr/share/firefox/greprefs/all.js` (or `/usr/local/share/firefox/greprefs/all.js`) in a text editor and append:
-
-```javascript
-// ED2K link handling
-pref("network.protocol-handler.external.ed2k", true);
-pref("network.protocol-handler.app.ed2k", "/path/to/ed2k");
-```
-
-For Firefox 3+, also add:
-```javascript
-pref("network.protocol-handler.expose.ed2k", false);
-```
-
-After saving, restart the browser.
-
-**Adding multiple downloads at once:**
-
-Set up Firefox as above, then install the **FireMule** extension for Firefox.
-
-#### Iceweasel
-
-Follow the Firefox per-user configuration above, then also add:
-
-- Right-click → **New → Boolean** → name: `network.protocol-handler.warn-external.ed2k` → value: `true`
-
-This forces Iceweasel to ask you which application to use (required for Iceweasel's behaviour).
-
-#### Opera
-
-Go to **Tools → Preferences → Programs → Add...**
-
-- **Protocol:** `ed2k`
-- **Open with another application:** `/path/to/ed2k`
-
-![Opera preferences — Programs tab](/img/docs/opera_preferences_programs.png)
-
-![Opera protocols — ed2k entry](/img/docs/opera_protocols_ed2k.png)
-
-#### Konqueror
-
-Find the KDE protocol directory:
-```bash
-find /usr -name "*.protocol"
-# or
-find /opt -name "*.protocol"
-```
-
-Create a file named `ed2k.protocol` in that directory:
-
-```ini
-[Protocol]
-exec=/path/to/ed2k "%u"
-protocol=ed2k
-input=none
-output=none
-helper=true
-listing=false
-reading=false
-writing=false
-makedir=false
-deleting=false
-```
-
-Restart Konqueror. A security warning may appear — this is normal; click OK. If the link is not processed after confirming, right-click the link and choose to open it in a new window/tab.
-
-#### Galeon
-
-Run these three commands to create the required GConf keys:
-
-```bash
-gconftool-2 -t string -s /desktop/gnome/url-handlers/ed2k/command "/usr/bin/ed2k \"%s\""
-gconftool-2 -t bool   -s /desktop/gnome/url-handlers/ed2k/enabled true
-gconftool-2 -t bool   -s /desktop/gnome/url-handlers/ed2k/needs_terminal false
-```
-
-Replace `/usr/bin/ed2k` with your actual path.
-
-To uninstall:
-```bash
-gconftool-2 -u /desktop/gnome/url-handlers/ed2k --recursive-unset
-```
-
-#### Links / ELinks
-
-Patch `url.c` — add the `ed2k` entry alongside `telnet` and `tn3270`:
-
-```c
-{"ed2k", 0, NULL, ed2k_func, 0, 0, 0},
-```
-
-In `links.h`, declare the function:
-```c
-void ed2k_func(struct session *, unsigned char *);
-```
-
-In `mailto.c`, implement it:
-```c
-void ed2k_func(struct session *ses, unsigned char *url) {
-    tn_func(ses, url, options_get("network_program_ed2k"),
-            TEXT(T_ED2K), TEXT(T_BAD_ED2K_URL));
-}
-```
-
-In `options_register.c`, register the option:
-```c
-register_option_char("network_program_ed2k", TEXT(T_ED2K_PROG), NULL, 2);
-```
-
-In `intl/*.lng`, add after `T_TN3270_PROG`:
-```
-T_ED2K_PROG, "ed2k program",
-```
-
-After `T_TN3270`:
-```
-T_ED2K, "ed2k",
-```
-
-And after `T_BAD_TN3270_URL`:
-```
-T_BAD_ED2K_URL, "Bad ed2k url",
-```
-
-Because Links slightly malforms URLs, create a wrapper script at `/usr/bin/ed2k4links.sh`:
-
-```bash
-#!/bin/bash
-ed2k $(echo "ed2k://$1" | sed s/_/\|/g)
-```
-
-```bash
-chmod a+x /usr/bin/ed2k4links.sh
-```
-
-In Links go to **Options → Network Options → Mail and Telnet Programs** and set the ed2k handler to:
-```
-ed2k4links.sh %
-```
-
-The `%` character is required.
+:::note Only the `ed2k://` scheme is handled automatically
+aMule registers itself as a handler for the `ed2k://` URI scheme only (on Linux, via `x-scheme-handler/ed2k` in its `.desktop` file). It does **not** register as a `magnet:` handler, so clicking a magnet link in a browser will not reach aMule by default. To open magnets from the browser you must register the `magnet` scheme manually so that it calls the `ed2k` tool (which accepts `magnet:?...` as an argument), the same way the `ed2k://` scheme is configured below.
+:::
 
 ### Windows
 
-To make Windows recognise the `ed2k://` protocol, add entries to the registry. Create a file named `ed2k.reg` with the following content:
+To make Windows recognise the `ed2k://` scheme, register a handler in the registry. Create a file named `ed2k.reg` with the following content:
 
 ```reg
 REGEDIT4
@@ -244,7 +124,7 @@ REGEDIT4
 @="\"C:\\Program Files\\aMule\\ed2k\" \"%1\""
 ```
 
-Double-click the `.reg` file to import it. Internet Explorer will then recognise ed2k links without further configuration.
+Double-click the `.reg` file to import it. From then on every browser — Microsoft Edge, Chrome, Firefox, and the rest — recognises `ed2k://` links through this handler. The first time you click a link the browser asks for confirmation ("Open aMule?"); tick **Always allow** / **Remember my choice** so it stops asking.
 
 If your aMule configuration directory is in a non-default location (e.g. `D:\amule\config`), pass it with the `-c` flag:
 
@@ -255,53 +135,61 @@ If your aMule configuration directory is in a non-default location (e.g. `D:\amu
 
 ### macOS
 
-1. Run aMule at least once to register it with the OS.
-2. Open Safari (even if you normally use another browser).
-3. Navigate to a page containing an eD2k link.
-4. **Drag the link** to Safari's address bar.
-5. The OS will display a dialog asking whether to allow the helper program — allow it.
+macOS routes `ed2k://` links through **LaunchServices**:
 
-**Safari:** You must drag the link to the address bar each time. Safari does not process non-Apple protocol links when clicked.
+1. Run aMule at least once so the OS registers it as the handler for the `ed2k://` scheme.
+2. Click an `ed2k://` link in your browser. The OS shows a dialog asking whether to allow aMule to open the link — allow it (and tick the option to remember the choice if offered).
 
-**Firefox on macOS:** After the initial OS dialog, clicking links will work automatically.
+**Safari:** Safari does not always process non-Apple scheme links on a plain click. If a click does nothing, **drag the link to the address bar** instead — this forces the handoff to aMule.
+
+### GNU/Linux
+
+On Linux the `ed2k://` scheme follows the freedesktop.org standard: a `.desktop` file declares `MimeType=x-scheme-handler/ed2k`, and browsers ask the desktop environment which application handles it. **aMule ships this registration**, so in most cases clicking an `ed2k://` link already prompts to open aMule and there is nothing to configure.
+
+If links are not picked up, set aMule as the default handler explicitly:
+
+```bash
+# Point the ed2k:// scheme at aMule's .desktop file
+xdg-mime default amule.desktop x-scheme-handler/ed2k
+
+# Refresh the desktop database
+update-desktop-database ~/.local/share/applications
+```
+
+Check which application is currently registered:
+
+```bash
+xdg-mime query default x-scheme-handler/ed2k
+```
+
+When you then click a link, the browser (Firefox, Chrome, Chromium, Brave, …) shows a confirmation dialog offering to open it with aMule; choose to remember the choice to avoid being asked again.
+
+To also handle **magnet** links, register the `magnet` scheme the same way (`x-scheme-handler/magnet`) pointing at a launcher that calls `ed2k`, since aMule does not claim that scheme itself.
+
+:::warning Firefox and `ed2k://` (Firefox 122+)
+Since Firefox 122, changes to how Firefox parses non-standard URIs can mangle `ed2k://` links before they reach the OS handler. A previous workaround was to set `network.url.useDefaultURI` to `false` in `about:config`, but it stopped working in later releases. If clicking an `ed2k://` link in Firefox fails, copy the link and pass it to the `ed2k` tool from a terminal, or use another browser, until the issue is resolved upstream.
+:::
 
 ## Browser Configuration — Remote Handling
 
-Remote handling allows you to click an eD2k link in a browser anywhere in the world and have it added to aMule running on your home machine. This works via **`amulecmd`** instead of the local `ed2k` command. aMule must be running with External Connections enabled (see [amulecmd](../interfaces/amulecmd.md)).
+Remote handling lets you click an `ed2k://` link in a browser anywhere and have it added to an aMule instance running on another machine (for example, at home). It uses **`amulecmd`** instead of the local `ed2k` command, so aMule must be running with External Connections enabled (see [amulecmd](../interfaces/amulecmd.md)).
 
-### Linux
+The principle is the same as local handling — register the `ed2k://` scheme at the OS level — but the handler runs `amulecmd` with an `Add` command pointed at the remote host.
 
-Instead of calling `ed2k`, use `amulecmd`:
+### Windows
 
-```bash
-/path/to/amulecmd -h SERVER_IP -P PASSWORD -c "Add %u"
-```
-
-Replace `SERVER_IP` with your home machine's IP (or DNS name) and `PASSWORD` with the External Connections password set in **Preferences → Remote Controls**.
-
-**Firefox note:** Firefox cannot launch a command with arguments directly. Create a shell script:
-
-```bash
-#!/bin/bash
-/path/to/amulecmd -h SERVER_IP -P PASSWORD -c "Add $1"
-```
-
-Make it executable (`chmod +x`) and point Firefox's ed2k handler to this script.
-
-### Windows — 32-bit
-
-Create `C:\Program Files\aMule\ed2k_remote.bat`:
+Create a small batch wrapper that forwards the link to `amulecmd`. Use the aMule install path for your build: `C:\Program Files\aMule\` on 64-bit aMule, or `C:\Program Files (x86)\aMule\` on a 32-bit build. Save it as `ed2k_remote.bat` in that folder:
 
 ```bat
 @echo off
 set link=%1
 for /f "useback tokens=*" %%a in ('%link%') do set link=%%~a
-"c:\Program Files\aMule\amulecmd.exe" /h SERVER /P PASSWORD /c "add %link%"
+"C:\Program Files\aMule\amulecmd.exe" /h SERVER /P PASSWORD /c "add %link%"
 ```
 
-Replace `SERVER` and `PASSWORD` with your data.
+Replace `SERVER` with your home machine's IP or DNS name and `PASSWORD` with the External Connections password set in **Preferences → Remote Controls**. On a 32-bit build, change the path to `C:\Program Files (x86)\aMule\amulecmd.exe`.
 
-Create `ed2k_remote.reg`:
+Then register the scheme to call the batch file. Create `ed2k_remote.reg` (adjust the path on 32-bit builds):
 
 ```reg
 REGEDIT4
@@ -322,48 +210,15 @@ REGEDIT4
 @="\"C:\\Program Files\\aMule\\ed2k_remote.bat\" \"%1\""
 ```
 
-### Windows — 64-bit
+Import the `.reg` file. As with local handling, every browser uses this handler and asks for confirmation the first time — tick **Remember** / **Always allow**.
 
-Create `C:\Program Files (x86)\aMule\ed2k_remote.bat`:
+### GNU/Linux
 
-```bat
-@echo off
-set link=%1
-for /f "useback tokens=*" %%a in ('%link%') do set link=%%~a
-"c:\Program Files (x86)\aMule\amulecmd.exe" /h SERVER /P PASSWORD /c "add %link%"
+Register the `ed2k://` scheme (as in local handling) but point the handler at a script that calls `amulecmd` instead of `ed2k`. Create an executable wrapper:
+
+```bash
+#!/bin/bash
+/path/to/amulecmd -h SERVER_IP -P PASSWORD -c "Add $1"
 ```
 
-Create `ed2k_remote_64.reg`:
-
-```reg
-REGEDIT4
-
-[HKEY_CLASSES_ROOT\ed2k]
-@="URL: ed2k Protocol"
-"URL Protocol"=""
-
-[HKEY_CLASSES_ROOT\ed2k\DefaultIcon]
-@="C:\\Program Files (x86)\\aMule\\amulegui.exe"
-
-[HKEY_CLASSES_ROOT\ed2k\shell]
-@="open"
-
-[HKEY_CLASSES_ROOT\ed2k\shell\open]
-
-[HKEY_CLASSES_ROOT\ed2k\shell\open\command]
-@="\"C:\\Program Files (x86)\\aMule\\ed2k_remote.bat\" \"%1\""
-```
-
-### Windows — Browser-specific notes
-
-| Browser | Action required |
-|---|---|
-| **Internet Explorer** | Registry changes above are sufficient |
-| **Safari** | Uses registry settings like IE |
-| **Chrome** | Uses registry settings; asks for confirmation once — tick "Don't ask again" |
-| **Firefox** | After registry + batch file, clicking an ed2k link asks to confirm — tick "Remember" |
-| **Opera** | Go to **Preferences → Programs → Add...** and enter the `ed2k` protocol pointing to the `.bat` file |
-
-![Firefox ed2k confirmation dialog](/img/docs/firefox_ed2k_link.png)
-
-![Firefox with ed2k link handling — Firefox 3 example](/img/docs/ed2k_ff3.png)
+Replace `SERVER_IP` with your home machine's IP or DNS name and `PASSWORD` with the External Connections password (**Preferences → Remote Controls**). Make it executable with `chmod +x`, then set it as the `x-scheme-handler/ed2k` handler via a `.desktop` file (`Exec=/path/to/script %u`) and `xdg-mime default`, exactly as shown for local handling.
