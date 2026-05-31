@@ -235,21 +235,30 @@ All three files use the same format: one absolute directory path per line, UTF-8
 Text files containing the IP ranges that aMule blocks or allows. `ipfilter.dat` is the main list
 (auto-updatable); `ipfilter_static.dat` holds custom overrides that aMule never modifies. For how
 to enable and configure IP filtering, and where to download `ipfilter.dat`, see the
-[IP Filter](../../manual/configuration/ipfilter.md) configuration guide and the
-[aMule Files Reference](../../manual/configuration/config-files/index.md#ipfilterdat).
+[aMule Files Reference](../../manual/configuration/config-files/index.md#ip-filter-files) and
+[Preferences → Security → IP-Filtering](../../manual/interfaces/gui/preferences.md#ip-filtering).
 
 ### Format
 
-One range per line:
+One range per line. aMule accepts two line formats:
+
+**PeerGuardian format** (the common one, compatible with eMule):
 
 ```
 RangeStart - RangeEnd , AccessLevel , Description
 ```
 
-- Access level `< 127` → blocked
-- Access level `> 127` → allowed
+**AntiP2P format** (the description precedes the range; the access level is implicitly `0`):
 
-Lines beginning with `/` or `#` are comments.
+```
+Description : RangeStart - RangeEnd
+```
+
+A range is blocked when its `AccessLevel` is **less than** the configured *Filtering Level*
+(`FilterLevel`, default 127); equal or higher levels are allowed. Because AntiP2P entries default to
+access level `0`, they are always blocked at any filtering level above 0.
+
+Lines beginning with `#` are comments. Malformed lines are skipped and logged.
 
 `ipfilter_static.dat` uses the exact same format, with two differences:
 

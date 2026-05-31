@@ -169,10 +169,10 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | `PermissionsDirs` | `488` | Unix permissions assigned to newly created directories (octal 0750). |
 | `IPFilterAutoLoad` | `1` | Download and apply the IP filter from `IPFilterURL` at startup. |
 | `IPFilterURL` | _(empty)_ | URL to download the IP filter from. Supports `http://`, `https://`, and `ftp://`. |
-| `FilterLevel` | `127` | IP filter level. Ranges with access level ≤ this value are blocked. |
-| `FilterLanIPs` | `1` | Always block LAN IP addresses. |
-| `ParanoidFiltering` | `1` | Enable paranoid IP filtering: apply the filter to all connections, not just incoming ones. |
-| `IPFilterSystem` | `0` | Use the system-level IP filter instead of aMule's built-in filter. |
+| `FilterLevel` | `127` | IP filter level (0–255). Ranges whose access level is **less than** this value are blocked. |
+| `FilterLanIPs` | `1` | Always block LAN IP addresses (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`). |
+| `ParanoidFiltering` | `1` | Paranoid handling of non-matching IPs: reject a packet if the client IP differs from the IP it was received from. |
+| `IPFilterSystem` | `0` | Fall back to the system-wide `ipfilter.dat` if the local file cannot be loaded. |
 
 ### GeoIP
 

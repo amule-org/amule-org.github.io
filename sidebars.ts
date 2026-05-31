@@ -29,7 +29,6 @@ const sidebars: SidebarsConfig = {
             'manual/configuration/firewall',
             'manual/configuration/upnp',
             'manual/configuration/proxy',
-            'manual/configuration/ipfilter',
             'manual/configuration/events',
           ],
         },

@@ -276,14 +276,25 @@ Options for aMule's security features, including IP filtering.
 
 ### IP-Filtering
 
+The IP filter blocks all traffic to and from a configurable list of IP addresses and ranges, read from
+[`ipfilter.dat` and `ipfilter_static.dat`](../../configuration/config-files/index.md#ip-filter-files).
+Each option below maps to a key in [`amule.conf`](../../configuration/config-files/amule-conf.md).
+
 | Setting | Description |
 |---|---|
-| **Enable IP-Filtering** | Enable filtering of IPs known to be bad. |
-| **Reload List** | Reload the filtered IP list and verify all connections are filtered correctly. |
-| **Auto-update ipfilter at startup** | Download the IP filter list from the URL in the **URL** box at startup. |
-| **Update now** | Immediately update the IP filter from the URL in the **URL** box. |
-| **Filtering Level** | Select the filtering level. See [IPFilter](../../configuration/ipfilter.md) for details. |
-| **Always filter LAN IPs** | Always filter IPs that claim to be on your local LAN. |
+| **Filter clients** | Apply the IP filter to client connections (`IpFilterClients`). |
+| **Filter servers** | Apply the IP filter to server connections (`IpFilterServers`). |
+| **Reload List** | Reload `ipfilter.dat` and `ipfilter_static.dat` from disk and re-check all active connections. |
+| **URL** | URL of the `ipfilter.dat` file to download (`IPFilterURL`). |
+| **Update now** | Download the filter from the **URL** immediately. |
+| **Auto-update ipfilter at startup** | Download an updated filter from the **URL** every time aMule starts (`IPFilterAutoLoad`). |
+| **Filtering Level** | Filter level, 0–255 (default 127). A range is blocked when its access level is **strictly less than** this value, so a higher level blocks more ranges and a lower level blocks fewer (`FilterLevel`). |
+| **Always filter LAN IPs** | Always block IPs that claim to be in a local LAN range (`FilterLanIPs`). See [always-filtered ranges](../../configuration/config-files/index.md#always-filtered-ranges-hard-coded). |
+| **Paranoid handling of non-matching IPs** | Reject a packet if the client IP differs from the IP it was received from. Use with caution (`ParanoidFiltering`). |
+| **Use system-wide ipfilter.dat if available** | If the local `ipfilter.dat` cannot be loaded, fall back to the [system-wide file](../../configuration/config-files/index.md#ip-filter-files) (`IPFilterSystem`). |
+
+aMule always blocks the reserved RFC 3330 IP ranges regardless of these settings; see
+[always-filtered ranges](../../configuration/config-files/index.md#always-filtered-ranges-hard-coded).
 
 ### Identification
 

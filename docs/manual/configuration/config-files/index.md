@@ -253,11 +253,15 @@ For the shared file format, see the [shared directory files reference](../../../
 
 ## IP filter files
 
+The IP filter blocks all traffic to and from a configurable list of IP addresses and ranges: blocked IPs cannot upload to you or download from you. The list is read from the two files below. aMule's `ipfilter.dat` is 100% compatible with eMule's. To enable and tune the filter, see [Preferences → Security → IP-Filtering](../../interfaces/gui/preferences.md#ip-filtering).
+
 ### `ipfilter.dat`
 
 **Location:** `~/.aMule/ipfilter.dat`
 
-Text file containing IP ranges that aMule should block or allow. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success. The downloaded file may be a ZIP archive; aMule decompresses it automatically and accepts any of the entries named `ipfilter.dat`, `guardian.p2p`, or `guarding.p2p` (the PeerGuardian list filenames). For how the filter works and how to enable it, see the [IP Filter](../ipfilter.md) configuration guide; for the line format, see the [ipfilter format reference](../../../developer/file-formats/index.md#ipfilterdat).
+Text file containing IP ranges that aMule should block or allow. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success. The downloaded file may be a ZIP archive; aMule decompresses it automatically and accepts any of the entries named `ipfilter.dat`, `guardian.p2p`, or `guarding.p2p` (the PeerGuardian list filenames). For how to enable and tune the filter, see [Preferences → Security → IP-Filtering](../../interfaces/gui/preferences.md#ip-filtering); for the line format, see the [ipfilter format reference](../../../developer/file-formats/index.md#ipfilterdat).
+
+If the local file cannot be loaded and **Use system-wide ipfilter.dat if available** (`IPFilterSystem`) is enabled, aMule falls back to a system-wide `ipfilter.dat` (on Linux, typically `/usr/share/amule/ipfilter.dat`). This lets a package manager or cron job maintain a shared file, so aMule does not have to re-download a large list at every startup.
 
 #### Obtaining ipfilter.dat online
 
@@ -283,6 +287,38 @@ IPFilterURL=https://upd.emule-security.org/ipfilter.zip
 Same purpose as `ipfilter.dat`, but with two important differences: its entries override conflicting entries in `ipfilter.dat`, and aMule never modifies it. Use it for custom IP ranges that must survive auto-updates.
 
 For its format (identical to `ipfilter.dat`) and the default comment block aMule writes, see the [ipfilter format reference](../../../developer/file-formats/index.md#ipfilterdat).
+
+### Always-filtered ranges (hard-coded)
+
+In addition to the ranges loaded from the files above, aMule **always** blocks the reserved IP ranges
+defined by [RFC 3330](https://www.rfc-editor.org/rfc/rfc3330). These are reserved, special-use, or
+non-routable addresses that should never appear as eD2k peers. This list is compiled into aMule and
+**cannot be disabled** by any preference:
+
+```
+0.0.0.0/8         "This" Network                     [RFC1700]
+39.0.0.0/8        Reserved but subject to allocation [RFC1797]
+127.0.0.0/8       Loopback                           [RFC1700]
+128.0.0.0/16      Reserved but subject to allocation
+169.254.0.0/16    Link Local
+191.255.0.0/16    Reserved but subject to allocation
+192.0.0.0/24      Reserved but subject to allocation
+192.0.2.0/24      Test-Net
+192.88.99.0/24    6to4 Relay Anycast                 [RFC3068]
+198.18.0.0/15     Network Interconnect Benchmarking  [RFC2544]
+223.255.255.0/24  Reserved but subject to allocation
+224.0.0.0/4       Multicast                          [RFC3171]
+240.0.0.0/4       Reserved for Future Use            [RFC1700]
+```
+
+Separately, the private LAN ranges below are blocked **only** when **Always filter LAN IPs**
+(`FilterLanIPs`, in [`amule.conf`](./amule-conf.md)) is enabled, which is the default:
+
+```
+10.0.0.0/8        Private-Use Networks               [RFC1918]
+172.16.0.0/12     Private-Use Networks               [RFC1918]
+192.168.0.0/16    Private-Use Networks               [RFC1918]
+```
 
 ## Status and interface files
 
