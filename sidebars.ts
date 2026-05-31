@@ -18,12 +18,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'GUI',
-              link: {type: 'generated-index'},
+              link: {type: 'doc', id: 'manual/interfaces/gui/index'},
               items: [
                 'manual/interfaces/gui/amule',
                 'manual/interfaces/gui/amulegui',
-                'manual/interfaces/gui/preferences',
-                'manual/interfaces/gui/usage',
                 'manual/interfaces/gui/toolbar',
                 'manual/interfaces/gui/statusbar',
                 'manual/interfaces/gui/networks',
@@ -32,6 +30,7 @@ const sidebars: SidebarsConfig = {
                 'manual/interfaces/gui/shared-files',
                 'manual/interfaces/gui/messages',
                 'manual/interfaces/gui/statistics',
+                'manual/interfaces/gui/preferences',
                 'manual/interfaces/gui/file-details',
                 'manual/interfaces/gui/client-details',
                 'manual/interfaces/gui/comments',

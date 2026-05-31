@@ -71,7 +71,7 @@ Common command-line flags:
 ## Interface
 
 The aMule interface is divided into several panels accessible via tabs or the toolbar.
-Full documentation for each panel is in the [Usage](./usage.md) guides.
+Full documentation for each panel is in the [GUI](./index.md) guides.
 
 ![aMule downloads screenshot](/img/screenshots/downloads.png)
 
