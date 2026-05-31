@@ -45,7 +45,7 @@
     "message": "Binarios para cada plataforma de escritorio"
   },
   "homepage.highlights.hl4.detail": {
-    "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita."
+    "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x64 y ARM64 donde la plataforma lo admita."
   },
   "homepage.highlights.hl6.label": {
     "message": "Limitación de ancho de banda funcional"
@@ -186,7 +186,7 @@
     "message": "Paquetes nativos"
   },
   "homepage.features.card15.desc": {
-    "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64."
+    "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x64 y ARM64."
   },
   "homepage.features.card16.title": {
     "message": "Corrección de corrupción"

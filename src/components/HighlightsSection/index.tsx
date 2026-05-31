@@ -24,7 +24,7 @@ const WHATS_NEW: WhatsNew[] = [
     label: <Translate id="homepage.highlights.hl4.label">Binaries for every desktop</Translate>,
     detail: (
       <Translate id="homepage.highlights.hl4.detail">
-        Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.
+        Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x64 and ARM64 where supported.
       </Translate>
     ),
   },

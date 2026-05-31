@@ -11,7 +11,7 @@ This page explains how to install aMule on each supported platform. Pre-built bi
 |---|---|---|---|
 | Windows | 10 / 11 | x64, ARM64 | Portable `.zip` |
 | macOS | 11.0 (Big Sur) | Apple Silicon, Intel (Universal2) | `.dmg` disk image |
-| Linux | glibc ≥ 2.35 | x86\_64, aarch64 | AppImage, Flatpak |
+| Linux | glibc ≥ 2.35 | x64, ARM64 | AppImage, Flatpak |
 | FreeBSD | — | x86\_64, aarch64 | `pkg` / Ports Collection |
 | OpenBSD | — | x86\_64 | `pkg_add` |
 | NetBSD | — | x86\_64 | pkgin / pkgsrc |
@@ -20,15 +20,15 @@ This page explains how to install aMule on each supported platform. Pre-built bi
 
 The latest release is available on the [Downloads](/download) page, which links directly to the [GitHub releases page](https://github.com/amule-org/amule/releases/latest). Each release provides the following artifacts:
 
-- `aMule-<version>-Setup-x64.exe` — Windows installer for x86\_64
-- `aMule-<version>-Setup-arm64.exe` — Windows installer for ARM64
+- `aMule-<version>-Windows-Setup-x64.exe` — Windows installer for x86\_64
+- `aMule-<version>-Windows-Setup-arm64.exe` — Windows installer for ARM64
 - `aMule-<version>-Windows-x64.zip` — portable build for Windows x86\_64
 - `aMule-<version>-Windows-arm64.zip` — portable build for Windows ARM64
 - `aMule-<version>-macOS-universal2.dmg` — Universal2 disk image for macOS (Apple Silicon + Intel)
-- `aMule-<version>-x86_64.AppImage` — portable Linux binary for x86\_64
-- `aMule-<version>-aarch64.AppImage` — portable Linux binary for aarch64
-- `aMule-<version>-x86_64.flatpak` — Flatpak bundle for x86\_64
-- `aMule-<version>-aarch64.flatpak` — Flatpak bundle for aarch64
+- `aMule-<version>-Linux-x64.AppImage` — portable Linux binary for x86\_64
+- `aMule-<version>-Linux-arm64.AppImage` — portable Linux binary for aarch64
+- `aMule-<version>-Linux-x64.flatpak` — Flatpak bundle for x86\_64
+- `aMule-<version>-Linux-arm64.flatpak` — Flatpak bundle for aarch64
 - `aMule-<version>.tar.gz` — source tarball
 
 ## Windows
@@ -44,8 +44,8 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
 
 1. Go to the [Downloads](/download) page and click the **Windows** section, or go directly to the [latest release](https://github.com/amule-org/amule/releases/latest).
 2. Download the installer that matches your architecture:
-   - `aMule-<version>-Setup-x64.exe` for most PCs (Intel/AMD)
-   - `aMule-<version>-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
+   - `aMule-<version>-Windows-Setup-x64.exe` for most PCs (Intel/AMD)
+   - `aMule-<version>-Windows-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
 3. Run the downloaded `.exe` and follow the on-screen steps.
 4. Optionally enable **Start aMule when I sign in** during setup to launch aMule automatically on login.
 
@@ -134,13 +134,13 @@ The AppImage is the simplest installation method — no package manager or root 
 
 1. Go to the [Downloads](/download) page or the [latest release](https://github.com/amule-org/amule/releases/latest).
 2. Download the AppImage for your architecture:
-   - `aMule-<version>-x86_64.AppImage` for standard PCs
-   - `aMule-<version>-aarch64.AppImage` for ARM64 boards and devices
+   - `aMule-<version>-Linux-x64.AppImage` for standard PCs
+   - `aMule-<version>-Linux-arm64.AppImage` for ARM64 boards and devices
 3. Make the file executable and run it:
 
 ```sh
-chmod +x aMule-<version>-x86_64.AppImage
-./aMule-<version>-x86_64.AppImage
+chmod +x aMule-<version>-Linux-x64.AppImage
+./aMule-<version>-Linux-x64.AppImage
 ```
 
 The AppImage is fully self-contained — it bundles wxWidgets and all required shared libraries. No system libraries need to be installed. To uninstall, delete the `.AppImage` file.
@@ -163,16 +163,16 @@ The AppImage bundles all [aMule components](../interfaces/index.md) — `amule`,
 Create one symlink per component you want to use. The `.AppImage` suffix is stripped automatically, so you can name the symlinks after the binaries:
 
 ```sh
-ln -s aMule-<version>-x86_64.AppImage amule
-ln -s aMule-<version>-x86_64.AppImage amuled
-ln -s aMule-<version>-x86_64.AppImage amulegui
-ln -s aMule-<version>-x86_64.AppImage amuleweb
-ln -s aMule-<version>-x86_64.AppImage amulecmd
-ln -s aMule-<version>-x86_64.AppImage ed2k
-ln -s aMule-<version>-x86_64.AppImage alc
-ln -s aMule-<version>-x86_64.AppImage alcc
-ln -s aMule-<version>-x86_64.AppImage wxcas
-ln -s aMule-<version>-x86_64.AppImage cas
+ln -s aMule-<version>-Linux-x64.AppImage amule
+ln -s aMule-<version>-Linux-x64.AppImage amuled
+ln -s aMule-<version>-Linux-x64.AppImage amulegui
+ln -s aMule-<version>-Linux-x64.AppImage amuleweb
+ln -s aMule-<version>-Linux-x64.AppImage amulecmd
+ln -s aMule-<version>-Linux-x64.AppImage ed2k
+ln -s aMule-<version>-Linux-x64.AppImage alc
+ln -s aMule-<version>-Linux-x64.AppImage alcc
+ln -s aMule-<version>-Linux-x64.AppImage wxcas
+ln -s aMule-<version>-Linux-x64.AppImage cas
 ```
 
 Then invoke each symlink directly:
@@ -193,7 +193,7 @@ The Flatpak bundle runs in a sandboxed environment and is suitable for distribut
 **Installation:**
 
 ```sh
-flatpak install ./aMule-<version>-x86_64.flatpak
+flatpak install ./aMule-<version>-Linux-x64.flatpak
 ```
 
 After installation, run aMule with:
