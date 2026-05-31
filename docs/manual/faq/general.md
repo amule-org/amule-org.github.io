@@ -164,7 +164,6 @@ These files contain the current **online signature** — the current aMule statu
 1. Open aMule and click the **Preferences** button.
 2. In the **General** tab: set a nickname and your preferred language.
 3. In the **Connection** tab:
-   - Set your **Line Capacities** (the actual maximum speed of your internet connection).
    - Set **Bandwidth Limits** to the maximum bandwidth you want aMule to use.
 4. In the **Directories** tab:
    - Set a directory for **temporary files** (files in progress).
@@ -291,11 +290,11 @@ A **friend slot** is a dedicated upload slot permanently reserved for a client i
 
 While the friend is not downloading, the reserved slot reverts to the client with the highest score in your regular upload queue.
 
-## What is the real point on setting up Line Capacities in Preferences?
+## What is the real point of the download and upload graph scales in Preferences?
 
-aMule only uses **Bandwidth Limits** to control actual network usage. **Line Capacities** exist purely to give the **Statistics graphs** a meaningful scale.
+aMule only uses **Bandwidth Limits** (in the **Connection** tab) to control actual network usage. The **Download graph scale** and **Upload graph scale** (in the **Statistics** tab, formerly called **Line Capacities**) exist purely to give the **Statistics graphs** a meaningful scale.
 
-Example: if you have a 100 KBps connection but your downloads never exceed 5 KBps (rare Indonesian free music), setting Line Capacities to 100 KBps makes the graph show an almost flat line with no visual information. Setting it to 5–10 KBps makes the graph readable and useful.
+Example: if you have a 100 KBps connection but your downloads never exceed 5 KBps (rare Indonesian free music), setting the graph scale to 100 KBps makes the graph show an almost flat line with no visual information. Setting it to 5–10 KBps makes the graph readable and useful.
 
 ## Can I have aMule receive data from standard input (for GDB or Valgrind)?
 

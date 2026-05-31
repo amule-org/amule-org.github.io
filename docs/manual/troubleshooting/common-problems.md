@@ -191,7 +191,7 @@ Set it as a String value containing a 32-bit decimal number. (This key usually d
 
 ## My progress bars have lost their 3D effect and look flat. Can I restore them?
 
-In most aMule versions: **Preferences → GUI Tweaks → Progress bar style → move slider to the rightmost position** for the best 3D effect.
+In most aMule versions: **Preferences → Interface → Download Queue Files → Progress bar style → move the slider to the rightmost position (Round)** for the best 3D effect.
 
 Exception — versions 2.0.0-rc4 to 2.0.0-rc6: in those specific releases, the best 3D effect is achieved with the **middle** position. The rightmost gives a flat appearance; the leftmost gives a dark appearance.
 

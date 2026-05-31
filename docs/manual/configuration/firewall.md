@@ -354,7 +354,7 @@ If aMule keeps getting a Low ID because DHCP assigns a different IP address, eit
 - Assign a static IP address to the aMule machine (requires knowing your ISP's DNS servers).
 
 :::tip TRENDnet router stability
-If the TRENDnet router crashes or stops forwarding traffic after running aMule, reduce **Preferences → Connection → Connection Limits** to 100 (or 50) and **Preferences → Core Tweaks → Max new connections / 5 secs** to 10 (or 5). Restart aMule to apply the changes.
+If the TRENDnet router crashes or stops forwarding traffic after running aMule, reduce **Preferences → Connection → Max simultaneous connections** to 100 (or 50) and **Preferences → Advanced → Max new connections / 5 secs** to 10 (or 5). Restart aMule to apply the changes.
 :::
 
 ## My router is not listed here?

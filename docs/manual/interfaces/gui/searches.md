@@ -270,7 +270,7 @@ Right-clicking on a result row opens this menu:
 
 ## Miscellaneous
 
-The **Fast ED2K links handler** bar at the bottom of the search window is always visible in the Searches panel, regardless of whether it is enabled in **Preferences → GUI tweaks → Show fast ED2K links handler**. To hide it in the search window as well, click the **Search** button in the toolbar twice:
+The **Fast ED2K links handler** bar at the bottom of the search window is always visible in the Searches panel, regardless of whether it is enabled in **Preferences → Interface → Show "Fast eD2k Links Handler" in every window**. To hide it in the search window as well, click the **Search** button in the toolbar twice:
 
 ![Toolbar Search button](/img/docs/usage/window_toolbar4.jpg)
 

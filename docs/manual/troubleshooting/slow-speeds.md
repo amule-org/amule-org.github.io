@@ -43,7 +43,7 @@ If Max Connections is set very high, aMule's connection overhead consumes signif
 
 #### Max New Connections per 5 seconds too low
 
-**Preferences → Core Tweaks → Max New Connections**: if too low, aMule takes a very long time to acquire sources for a new download. Increase it.
+**Preferences → Advanced → Max new connections / 5 secs**: if too low, aMule takes a very long time to acquire sources for a new download. Increase it.
 
 #### Max New Connections per 5 seconds too high
 
@@ -148,13 +148,13 @@ Each open connection consumes bandwidth (at minimum, keepalive and ACK traffic).
 
 ### Max New Connections per 5 seconds too high
 
-**Preferences → Core Tweaks → Max New Connections / 5 secs**
+**Preferences → Advanced → Max new connections / 5 secs**
 
 Some routers (especially cheap SOHO devices) cannot handle a large number of new connections being opened in a short period. They may slow down, freeze, or reboot. Reduce this setting if your router shows symptoms under P2P load.
 
 ### Verbose log on old wxWidgets (< 2.5.4)
 
-**Preferences → Core Tweaks → Verbose log**
+**Preferences → Debugging → Enable Verbose Debug-Logging** (only present in debug builds)
 
 On wxWidgets versions prior to 2.5.4, enabling verbose log caused the server log window to fill rapidly, which caused high CPU usage. Disable verbose log if you are running an old wxWidgets version.
 

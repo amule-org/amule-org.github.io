@@ -193,7 +193,7 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | `StatsServerURL` | `https://ed2k.shortypower.org/?hash=` | URL prefix for the external stats server. The file hash is appended. |
 | `StatColor0`–`StatColor14` | _(various)_ | RGB colour values for the 15 statistics graph elements. |
 
-### GUI Tweaks
+### Interface
 
 | Key | Default | Description |
 |---|---|---|
@@ -204,7 +204,7 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | `VerticalToolbar` | `0` | Show the toolbar vertically instead of horizontally. |
 | `3DDepth` | `10` | 3D depth effect for statistics graphs. `0` = flat. |
 
-### Core Tweaks
+### Advanced
 
 | Key | Default | Description |
 |---|---|---|

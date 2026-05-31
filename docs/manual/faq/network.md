@@ -89,7 +89,7 @@ Your ISP quotes speeds in decimal units. This alone accounts for a ~5% differenc
 
 Every piece of control data aMule sends — source requests, search queries, queue negotiations — is **overhead**: data transmitted but not directly part of your downloads. aMule's reported overhead only counts data sent to the OS network stack; the OS adds TCP/IP headers on top.
 
-For IPv4 TCP/IP: each packet carries a minimum of 20 bytes IPv4 header + 20 bytes TCP header. TCP connection establishment (SYN / SYN+ACK / ACK) requires at least 3 packets per connection. aMule opens approximately 100 new TCP connections every 5 seconds (configurable in Preferences → Core Tweaks → Max New Connections).
+For IPv4 TCP/IP: each packet carries a minimum of 20 bytes IPv4 header + 20 bytes TCP header. TCP connection establishment (SYN / SYN+ACK / ACK) requires at least 3 packets per connection. aMule opens approximately 100 new TCP connections every 5 seconds (configurable in Preferences → Advanced → Max new connections / 5 secs).
 
 ### ACK bottleneck
 
