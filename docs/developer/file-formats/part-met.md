@@ -29,13 +29,23 @@ The file is binary. Fields are stored in little-endian byte order.
 
 | Offset | Size | Field | Description |
 |---|---|---|---|
-| 0 | 1 byte | Header | Magic byte identifying the file type |
+| 0 | 1 byte | Version | Format version / magic byte (see below) |
 | 1 | 4 bytes | Date | Unix timestamp of when the download was started |
 | 5 | 16 bytes | MD4 hash | The file's full MD4 hash (used as the eD2k file ID) |
 | 21 | 2 bytes | Partial hash count | Number of per-chunk hashes that follow |
 | 23 | 16 × N | Partial hashes | MD4 hash for each 9.28 MiB chunk |
 | 23 + 16N | 4 bytes | Tag count | Number of metadata tags |
 | variable | variable | Tags | Key-value pairs (see tag format below) |
+
+#### Version byte
+
+The first byte identifies the `.part.met` format. aMule recognizes three values:
+
+| Value | Name | Meaning |
+|---|---|---|
+| `0xE0` | `PARTFILE_VERSION` | Standard part file |
+| `0xE1` | `PARTFILE_SPLITTEDVERSION` | "Splitted" layout, used when importing eDonkey part files |
+| `0xE2` | `PARTFILE_VERSION_LARGEFILE` | Large files (size ≥ 4 GiB) |
 
 ### Tag format
 
