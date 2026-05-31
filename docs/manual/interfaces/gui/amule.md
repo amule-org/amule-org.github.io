@@ -15,34 +15,7 @@ aMule officially supports more than 60 different hardware and OS configurations.
 
 ## Installation
 
-Most distributions ship `amule` in their repositories:
-
-```bash
-# Debian/Ubuntu:
-sudo apt install amule
-
-# Fedora/RHEL:
-sudo dnf install amule
-
-# Arch:
-sudo pacman -S amule
-```
-
-## Compilation
-
-To build `amule` from source:
-
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-
-cmake -B build -DBUILD_MONOLITHIC=YES
-
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-`BUILD_MONOLITHIC` is the default and builds the all-in-one `amule` binary. For dependency installation and all available CMake options see [Compilation](../../../developer/compilation/index.md).
+See [Installation](../../installation/index.md) for pre-built packages, or [Compilation](../../../developer/compilation/index.md) to build `amule` from source.
 
 ## Configuration
 

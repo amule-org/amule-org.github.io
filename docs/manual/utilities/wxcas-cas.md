@@ -103,7 +103,7 @@ Note that `-c DIR` only changes where `amulesig.dat` is **read** from; `casrc` a
 
 ### Image Generation
 
-When run with the `-o` flag, `cas` generates a PNG image (`~/.aMule/aMule-online-sign.png`) by writing statistics text onto a configurable background image. This option is only available if `cas` was compiled with **libgd** support.
+When run with the `-o` flag, `cas` generates a PNG image (`~/.aMule/aMule-online-sign.png`) by writing statistics text onto a configurable background image. This option is only available if `cas` was compiled with **libgd** support (see [Compilation](../../developer/compilation/index.md)).
 
 The image is produced by:
 

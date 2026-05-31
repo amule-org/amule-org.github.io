@@ -12,53 +12,6 @@ ALinkCreator is a tool that generates ed2k links for files on your local filesys
 
 Both variants compute the full ed2k hash of a file — including part hashes — and output the complete ed2k link. They work independently of a running aMule instance and are compatible with `--disable-monolithic` builds.
 
-## Installation
-
-Most distributions include ALinkCreator in their aMule packages:
-
-```bash
-# Debian/Ubuntu:
-apt install amule-utils
-
-# Fedora/RHEL:
-dnf install amule
-
-# Arch:
-pacman -S amule
-```
-
-`alcc` is typically in the `amule-utils` package on Debian-based systems.
-
-## Compilation
-
-ALinkCreator is built as part of the main aMule build using CMake options:
-
-**GUI version (`alc`):**
-
-```sh
-cmake -B build -DBUILD_ALC=YES
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-**Console version (`alcc`):**
-
-```sh
-cmake -B build -DBUILD_ALCC=YES
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-Both options can be combined with any other aMule CMake options. For dependency installation and the full options reference see [Compilation](../../developer/compilation/index.md).
-
-### RPM Packaging Note
-
-If you build an RPM using the aMule spec file, you must add the following line to the `%files` section; otherwise `rpmbuild` aborts with the error `/usr/bin/alcc installed but not packaged`:
-
-```spec
-%{_bindir}/alcc
-```
-
 ## Using alc (GUI)
 
 Launch with:

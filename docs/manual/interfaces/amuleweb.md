@@ -46,24 +46,11 @@ Or write it to the configuration file first (see [Step-by-Step Setup](#step-by-s
 
 ## Step-by-Step Setup
 
-This guide assumes you need to compile aMule. If you installed from a package, skip to the configuration step.
+This guide walks through setting up `amuleweb` from scratch.
 
-### 1. Compile (if needed)
+### 1. Install aMule with the web interface
 
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-
-cmake -B build \
-    -DBUILD_WEBSERVER=YES \
-    -DBUILD_DAEMON=YES \
-    -DBUILD_AMULECMD=YES
-
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-For dependency installation and all available CMake options see [Compilation](../../developer/compilation/index.md).
+See [Installation](../installation/index.md) for pre-built packages, or [Compilation](../../developer/compilation/index.md) to build aMule with the web interface from source.
 
 ### 2. Run amuled once to create the configuration
 
