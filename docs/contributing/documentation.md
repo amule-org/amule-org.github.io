@@ -12,13 +12,12 @@ amule-org.github.io/
 ├── docs/                        # English documentation (source of truth)
 │   ├── index.md                 # Docs landing page
 │   ├── quickstart-guide.md
-│   ├── user-guide/
-│   ├── p2p-networks/
-│   ├── developer/
-│   ├── contributing/
-│   ├── troubleshooting/
-│   ├── faq/
-│   └── changelogs/
+│   ├── manual/                  # User Manual (install, configure, use, troubleshoot, FAQ)
+│   ├── developer/               # Developer Guide
+│   ├── p2p-networks/            # eD2k & Kademlia protocol reference
+│   └── contributing/
+├── blog/                        # Blog posts
+├── changelog/                   # Changelog (per-version release notes)
 ├── i18n/
 │   └── es/                      # Spanish translations
 │       ├── code.json            # UI strings (navbar, sidebar labels, etc.)
@@ -28,7 +27,7 @@ amule-org.github.io/
 │   └── img/
 │       └── docs/                # Images used in documentation pages
 ├── src/
-│   ├── pages/index.tsx          # Homepage
+│   ├── pages/                   # Homepage (index.tsx) and Download page (download.tsx)
 │   └── components/              # Homepage section components
 ├── sidebars.ts                  # Sidebar navigation structure
 └── docusaurus.config.ts         # Site configuration
@@ -83,10 +82,10 @@ The local dev server does not include the full-text search index. Search only wo
 3. Register the page in `sidebars.ts` so it appears in the sidebar. Find the relevant category and add the doc ID:
 
    ```ts
-   // Example: adding 'developer/my-page' to the Development category
+   // Example: adding 'developer/my-page' to the Developer Guide category
    {
      type: 'category',
-     label: 'Development',
+     label: 'Developer Guide',
      items: [
        'developer/my-page',   // ← add this line
        ...
