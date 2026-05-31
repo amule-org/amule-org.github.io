@@ -18,7 +18,7 @@ Open it by right-clicking a file in the Transfers window and selecting **File De
 | Field | Description |
 |---|---|
 | **Full Name** | The name the file will have when it completes (or its current name if already complete) |
-| **met-File** | Path to the file's [`part.met`](../../../developer/file-formats/part-met.md) metadata file; for completed files this equals the Full Name path |
+| **met-File** | Path to the file's [`part.met`](../../configuration/config-files/index.md#temporary-download-files) metadata file; for completed files this equals the Full Name path |
 | **Hash** | The file's eD2k hash |
 | **Filesize** | The file's total size when complete (or current size if complete) |
 | **Partfilestatus** | The file's current status (see table below) |

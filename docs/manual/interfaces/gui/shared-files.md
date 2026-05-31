@@ -120,7 +120,7 @@ Be careful which directories you share. Sharing your home directory, documents f
 
 ### Configuring via shareddir.dat
 
-You can also edit the `shareddir.dat` file directly. The file is located in the aMule configuration directory (`~/.aMule/`). Each line contains the full path to one shared directory.
+You can also edit the [`shareddir.dat`](../../configuration/config-files/index.md#shareddirdat) file directly. The file is located in the aMule configuration directory (`~/.aMule/`). Each line contains the full path to one shared directory.
 
 :::warning
 Stop aMule before editing `shareddir.dat`. Any changes made while aMule is running will be overwritten when aMule exits.

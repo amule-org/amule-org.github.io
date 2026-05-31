@@ -31,4 +31,4 @@ TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queu
 Use `amuled` (the daemon) and control it with `amulecmd`, `amuleweb`, or `amulegui`. See [Remote Access FAQ](./remote-access.md).
 
 **How do I switch from eMule without losing credits?**
-Copy `cryptkey.dat`, `clients.met`, `preferences.dat`, `preferencesKad.dat`, `key_index.dat`, `load_index.dat`, and `src_index.dat` from eMule's config directory into `~/.aMule`. See [General FAQ → Switching from eMule](./general.md#how-can-i-switch-from-emule-to-amule-without-losing-my-credits).
+Copy [`cryptkey.dat`](../configuration/config-files/index.md#cryptkeydat), [`clients.met`](../configuration/config-files/index.md#clientsmet), [`preferences.dat`](../configuration/config-files/index.md#preferencesdat), [`preferencesKad.dat`](../configuration/config-files/index.md#preferenceskaddat), `key_index.dat`, `load_index.dat`, and `src_index.dat` from eMule's config directory into `~/.aMule`. See [General FAQ → Switching from eMule](./general.md#how-can-i-switch-from-emule-to-amule-without-losing-my-credits).

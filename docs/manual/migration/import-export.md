@@ -3,7 +3,7 @@ id: import-export
 title: Import/Export Files
 ---
 
-If you are switching to aMule from another eD2k client and the two clients use incompatible temporary file formats, you cannot simply copy the `.part` files from one client's temp directory to the other. This guide describes a universal method to transfer in-progress downloads between any two eD2k clients using a local connection.
+If you are switching to aMule from another eD2k client and the two clients use incompatible temporary file formats, you cannot simply copy the [`.part`](../configuration/config-files/index.md#temporary-download-files) files from one client's temp directory to the other. This guide describes a universal method to transfer in-progress downloads between any two eD2k clients using a local connection.
 
 :::note
 This issue primarily affects migrations from **mlDonkey**, **eDonkey2000**, and certain **xMule** versions. eMule's format is directly compatible with aMule; see [Migrate from eMule](./migrate-from-emule.md) instead.

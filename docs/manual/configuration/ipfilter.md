@@ -9,8 +9,8 @@ The filter is read from two files in `~/.aMule/`:
 
 | File | Description |
 |---|---|
-| `ipfilter.dat` | Main filter list. Downloaded from external sources or maintained manually. |
-| `ipfilter_static.dat` | Static filter list. Always applied regardless of the dynamic list. Entries here cannot be overridden. |
+| [`ipfilter.dat`](./config-files/index.md#ipfilterdat) | Main filter list. Downloaded from external sources or maintained manually. |
+| [`ipfilter_static.dat`](./config-files/index.md#ipfilter_staticdat) | Static filter list. Always applied regardless of the dynamic list. Entries here cannot be overridden. |
 
 For the file formats, see [aMule Files](./config-files/index.md).
 

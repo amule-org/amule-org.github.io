@@ -70,7 +70,7 @@ Fake servers are malicious eD2k servers that serve one or more of these purposes
 ### How do I identify a fake server?
 
 - **Unusual search results**: if searches consistently return many small files with high source counts and suspicious "catch phrase" names, you are likely connected to a fake server.
-- **Verify against known good lists**: check the server's IP against the verified lists referenced in the [server.met](../../developer/file-formats/server-met.md) page.
+- **Verify against known good lists**: check the server's IP against the verified lists referenced in the [`server.met`](../configuration/config-files/index.md#servermet) page.
 - **Check server statistics**: cross-reference the server's claimed statistics against independent sources.
 
 ### How do I protect myself from fake servers?
@@ -88,9 +88,9 @@ In **aMule versions prior to 2.2.0**, aMule automatically adds servers received 
 
 #### Use a curated server list
 
-Maintain a server list from a trusted source and update it manually. See the [server.met](../../developer/file-formats/server-met.md) page for current sources.
+Maintain a server list from a trusted source and update it manually. See the [`server.met`](../configuration/config-files/index.md#servermet) page for current sources.
 
-Use the **Addresses.dat** file (`~/.aMule/addresses.dat`) to configure URLs from which aMule automatically downloads updated server lists. Add only trusted URLs.
+Use the **Addresses.dat** file ([`~/.aMule/addresses.dat`](../configuration/config-files/index.md#addressesdat)) to configure URLs from which aMule automatically downloads updated server lists. Add only trusted URLs.
 
 #### Use Kademlia instead of eD2k servers
 

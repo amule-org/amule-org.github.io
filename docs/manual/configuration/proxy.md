@@ -46,7 +46,7 @@ Available only for SOCKS5 proxies.
 
 ## Configuration in amule.conf
 
-When running `amuled` or editing the configuration file directly, proxy settings are stored in the `[Proxy]` section of `amule.conf`:
+When running `amuled` or editing the configuration file directly, proxy settings are stored in the `[Proxy]` section of [`amule.conf`](./config-files/amule-conf.md):
 
 | Key | Default | Description |
 |---|---|---|

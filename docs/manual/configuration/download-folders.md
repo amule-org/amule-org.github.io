@@ -7,6 +7,10 @@ aMule uses two separate directories to manage downloads: a **Temporary directory
 
 All three are configured in **Preferences → Directories**.
 
+:::note
+This page explains the directories related to **downloading files**. aMule's own configuration lives in a separate directory, described in [Configuration Files](./config-files/index.md).
+:::
+
 ## Incoming Directory
 
 Completed files are moved here when the download finishes and all chunks have been hash-verified. This is the folder you open to find your downloaded files.
@@ -47,7 +51,7 @@ Open **Preferences → Directories** and change the path in the **Temporary Dire
 
 ### Temporary Files
 
-Each in-progress download is represented by a group of files in the Temp directory. For full details on the file format, see [Temporary download files (*.part, *.part.met)](../../developer/file-formats/part-met.md).
+Each in-progress download is represented by a group of files in the Temp directory. For full details on these files, see [Temporary download files (*.part, *.part.met)](./config-files/index.md#temporary-download-files).
 
 | File | Purpose |
 |---|---|
@@ -97,7 +101,7 @@ The [Shared Files](../interfaces/gui/shared-files.md) window shows all files cur
 
 ### Configuring via shareddir.dat
 
-Shared directories can also be configured by editing `shareddir.dat` directly — one full directory path per line. The file is located in the aMule configuration directory (`~/.aMule/`).
+Shared directories can also be configured by editing [`shareddir.dat`](./config-files/index.md#shareddirdat) directly — one full directory path per line. The file is located in the aMule configuration directory (`~/.aMule/`).
 
 :::warning
 Stop aMule before editing `shareddir.dat`. Any changes made while aMule is running will be overwritten when aMule exits.

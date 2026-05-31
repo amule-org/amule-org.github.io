@@ -32,7 +32,7 @@ To connect to a specific server instead, double-click its row in the server list
 
 ### Updating the Server List from a URL
 
-The URL field at the top of the ED2K tab contains the address of a remote [`server.met`](../../../developer/file-formats/server-met.md) file. Click **Update** (or press **Enter** while the URL field is focused) to download a fresh list of servers from that address.
+The URL field at the top of the ED2K tab contains the address of a remote [`server.met`](../../configuration/config-files/index.md#servermet) file. Click **Update** (or press **Enter** while the URL field is focused) to download a fresh list of servers from that address.
 
 The URL is also configurable in **Preferences → Server**. aMule pre-populates it with a known working URL on first run.
 
@@ -98,13 +98,13 @@ The Kad tab manages your connection to the Kademlia distributed network. Unlike 
 
 ### Connecting
 
-Click **Bootstrap from known clients** to connect to the Kademlia network using the node list already stored on disk (`nodes.dat`). This is the standard way to start Kad.
+Click **Bootstrap from known clients** to connect to the Kademlia network using the node list already stored on disk ([`nodes.dat`](../../configuration/config-files/index.md#nodesdat)). This is the standard way to start Kad.
 
 Alternatively, clicking the toolbar **Connect** button connects to both ED2K and Kad simultaneously (if both are enabled in Preferences).
 
 ### Updating the Nodes List from a URL
 
-The URL field contains the address of a remote [`nodes.dat`](../../../developer/file-formats/nodes-dat.md) file. Click **Update** (or press **Enter** in the URL field) to download a fresh list.
+The URL field contains the address of a remote [`nodes.dat`](../../configuration/config-files/index.md#nodesdat) file. Click **Update** (or press **Enter** in the URL field) to download a fresh list.
 
 :::warning
 Updating the nodes list removes your current nodes and restarts the Kademlia connection. A confirmation dialog will appear before any changes are made.

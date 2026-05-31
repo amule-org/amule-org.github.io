@@ -211,4 +211,4 @@ While downloading, aMule stores incomplete data in a **Temporary directory**. Co
 
 See [Download Folders](../../configuration/download-folders.md) for the default paths on each platform.
 
-If you have incomplete downloads from eMule, copy their `.part` and `.part.met` files into aMule's Temp directory — aMule will resume them automatically on the next start.
+If you have incomplete downloads from eMule, copy their [`.part` and `.part.met`](../../configuration/config-files/index.md#temporary-download-files) files into aMule's Temp directory — aMule will resume them automatically on the next start.

@@ -11,7 +11,7 @@ Problems connecting to aMule remotely via `amulecmd` or `amuleweb`.
 
 ### I cannot connect to amuled — it doesn't seem to be listening. What's wrong?
 
-You have probably not enabled **External Connections** in `~/.aMule/amule.conf`. Open aMule (or `amulegui`) and go to **Preferences → Remote Controls**, enable External Connections, and set a password.
+You have probably not enabled **External Connections** in [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md). Open aMule (or `amulegui`) and go to **Preferences → Remote Controls**, enable External Connections, and set a password.
 
 You can also generate the `ECPassword` hash manually:
 
@@ -33,7 +33,7 @@ This is a common misconfiguration when upgrading from 2.1.x:
 
 1. Configure the web interface password in the **monolithic `amule` or `amulegui`** UI (Preferences → Remote Controls), not manually in config files.
 2. Do **not** run `amuleweb --write-config` unless you know exactly what you are doing.
-3. After saving preferences, check `~/.aMule/remote.conf` and verify that `Password` and `AdminPassword` contain **MD5-hashed** values (32-character hex strings), not plaintext passwords.
+3. After saving preferences, check [`~/.aMule/remote.conf`](../configuration/config-files/remote-conf.md) and verify that `Password` and `AdminPassword` contain **MD5-hashed** values (32-character hex strings), not plaintext passwords.
 
 ### Why does the web interface keep going back to the login page?
 

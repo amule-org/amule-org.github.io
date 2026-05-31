@@ -111,7 +111,7 @@ Detailed status messages appear above the progress bar:
 | **Completed** | File has been successfully converted and added to the queue |
 | **In progress** | File is currently being converted |
 | **Error: Out of diskspace** | Not enough free disk space to complete the conversion |
-| **Error: Partmet not found** | No `.part.met` metadata file was found for this file |
+| **Error: Partmet not found** | No [`.part.met`](../configuration/config-files/index.md#temporary-download-files) metadata file was found for this file |
 | **Error: IO error!** | Read or write error during conversion (possible permissions issue) |
 | **Error: Failed!** | General conversion error |
 | **Queued** | File is waiting to be converted |

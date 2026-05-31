@@ -31,23 +31,23 @@ The following eMule files are read and correctly imported by aMule without any m
 
 | File | Contents |
 |---|---|
-| `clients.met` | Other clients' credit information |
-| `known.met` | Details about downloaded files (shown in green when searched again) |
+| [`clients.met`](../configuration/config-files/index.md#clientsmet) | Other clients' credit information |
+| [`known.met`](../configuration/config-files/index.md#knownmet) | Details about downloaded files (shown in green when searched again) |
 | `known2.met` | AICH hashes of shared files |
-| `server.met` | Saved server list |
-| `staticservers.dat` | Static servers |
-| `ipfilter.dat` | IP filter rules |
-| `ipfilter_static.dat` | Static IP filter rules |
-| `emfriends.met` | Friends list |
-| `addresses.dat` | URLs for downloading `server.met` updates |
-| `cryptkey.dat` | Client identity key (preserves credits with other clients) |
-| `preferences.dat` | Client identity data (preserves credits with other clients) |
-| `key_index.dat` | Kademlia key index |
+| [`server.met`](../configuration/config-files/index.md#servermet) | Saved server list |
+| [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) | Static servers |
+| [`ipfilter.dat`](../configuration/config-files/index.md#ipfilterdat) | IP filter rules |
+| [`ipfilter_static.dat`](../configuration/config-files/index.md#ipfilter_staticdat) | Static IP filter rules |
+| [`emfriends.met`](../configuration/config-files/index.md#emfriendsmet) | Friends list |
+| [`addresses.dat`](../configuration/config-files/index.md#addressesdat) | URLs for downloading `server.met` updates |
+| [`cryptkey.dat`](../configuration/config-files/index.md#cryptkeydat) | Client identity key (preserves credits with other clients) |
+| [`preferences.dat`](../configuration/config-files/index.md#preferencesdat) | Client identity data (preserves credits with other clients) |
+| [`key_index.dat`](../configuration/config-files/index.md#kad-index-files) | Kademlia key index |
 | `load_index.dat` | Kademlia load index |
-| `nodes.dat` | Kademlia bootstrap nodes |
-| `preferencesKad.dat` | Kademlia configuration |
+| [`nodes.dat`](../configuration/config-files/index.md#nodesdat) | Kademlia bootstrap nodes |
+| [`preferencesKad.dat`](../configuration/config-files/index.md#preferenceskaddat) | Kademlia configuration |
 | `src_index.dat` | Kademlia source index |
-| `shareddir.dat` | Shared directory paths (compatible only when running aMule on Windows) |
+| [`shareddir.dat`](../configuration/config-files/index.md#shareddirdat) | Shared directory paths (compatible only when running aMule on Windows) |
 
 ### Files NOT Automatically Imported
 
@@ -55,7 +55,7 @@ The following files require manual handling:
 
 | eMule file | aMule equivalent | Issue |
 |---|---|---|
-| `preferences.ini` | `amule.conf` | Different format; must be reconfigured manually or by carefully copying specific keys |
+| `preferences.ini` | [`amule.conf`](../configuration/config-files/amule-conf.md) | Different format; must be reconfigured manually or by carefully copying specific keys |
 | `Category.ini` | `amule.conf` (`[Cat\#N]` sections) | Categories use a different format; see [Importing Categories](#importing-categories) |
 | `shareddir.dat` | `~/.aMule/shareddir.dat` | Path format is incompatible on non-Windows systems; aMule regenerates this when you set shared directories via Preferences |
 

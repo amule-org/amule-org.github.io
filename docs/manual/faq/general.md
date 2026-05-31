@@ -307,12 +307,12 @@ Users on versions prior to 2.0.0-rc4 can use the `phoenix's aMule stdin patch`.
 
 Credits are stored in specific files. Copy the following from eMule's config directory (typically `C:\Program Files\eMule\config\` on Windows) into `~/.aMule`:
 
-- `cryptkey.dat`
-- `clients.met`
-- `preferences.dat`
-- `preferencesKad.dat`
-- `key_index.dat`
-- `load_index.dat`
+- [`cryptkey.dat`](../configuration/config-files/index.md#cryptkeydat)
+- [`clients.met`](../configuration/config-files/index.md#clientsmet)
+- [`preferences.dat`](../configuration/config-files/index.md#preferencesdat)
+- [`preferencesKad.dat`](../configuration/config-files/index.md#preferenceskaddat)
+- [`key_index.dat`](../configuration/config-files/index.md#kad-index-files)
+- [`load_index.dat`](../configuration/config-files/index.md#kad-index-files)
 - `src_index.dat`
 
 Start aMule and it will read those files. Your credits are preserved.
