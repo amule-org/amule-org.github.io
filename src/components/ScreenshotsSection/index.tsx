@@ -5,32 +5,30 @@ import styles from './styles.module.css';
 
 interface Screenshot {
   src: string;
-  altId: string;
-  altDefault: string;
-  captionId: string;
-  captionDefault: string;
+  alt: string;
+  caption: React.ReactNode;
 }
 
 const SCREENSHOTS: Screenshot[] = [
   {
     src: 'screenshots/networks.png',
-    altId: 'homepage.screenshots.networks.alt', altDefault: 'Networks tab — server list and Kademlia status',
-    captionId: 'homepage.screenshots.networks.caption', captionDefault: 'Networks — eD2k servers and Kad status',
+    alt: translate({id: 'homepage.screenshots.networks.alt', message: 'Networks tab — server list and Kademlia status'}),
+    caption: <Translate id="homepage.screenshots.networks.caption">Networks — eD2k servers and Kad status</Translate>,
   },
   {
     src: 'screenshots/search.png',
-    altId: 'homepage.screenshots.search.alt', altDefault: 'Search tab with results',
-    captionId: 'homepage.screenshots.search.caption', captionDefault: 'Search — eD2k + Kad search results',
+    alt: translate({id: 'homepage.screenshots.search.alt', message: 'Search tab with results'}),
+    caption: <Translate id="homepage.screenshots.search.caption">Search — eD2k + Kad search results</Translate>,
   },
   {
     src: 'screenshots/downloads.png',
-    altId: 'homepage.screenshots.downloads.alt', altDefault: 'Transfers tab with active downloads',
-    captionId: 'homepage.screenshots.downloads.caption', captionDefault: 'Transfers — per-file progress with availability bars',
+    alt: translate({id: 'homepage.screenshots.downloads.alt', message: 'Transfers tab with active downloads'}),
+    caption: <Translate id="homepage.screenshots.downloads.caption">Transfers — per-file progress with availability bars</Translate>,
   },
   {
     src: 'screenshots/shared.png',
-    altId: 'homepage.screenshots.shared.alt', altDefault: 'Shared files tab',
-    captionId: 'homepage.screenshots.shared.caption', captionDefault: 'Shared files',
+    alt: translate({id: 'homepage.screenshots.shared.alt', message: 'Shared files tab'}),
+    caption: <Translate id="homepage.screenshots.shared.caption">Shared files</Translate>,
   },
 ];
 
@@ -75,16 +73,18 @@ export default function ScreenshotsSection(): React.JSX.Element {
       <h2>
         <Translate id="homepage.screenshots.title">Screenshots</Translate>
       </h2>
-      <p
-        className={styles.ssLead}
-        dangerouslySetInnerHTML={{
-          __html: translate({
-            id: 'homepage.screenshots.lead',
-            message:
-              'aMule GUI — same look on Windows, macOS, and Linux. Click any screenshot to enlarge; use <kbd>←</kbd> <kbd>→</kbd> to navigate, <kbd>Esc</kbd> to close.',
-          }),
-        }}
-      />
+      <p className={styles.ssLead}>
+        <Translate
+          id="homepage.screenshots.lead"
+          values={{
+            left: <kbd>←</kbd>,
+            right: <kbd>→</kbd>,
+            esc: <kbd>Esc</kbd>,
+          }}
+        >
+          {'aMule GUI — same look on Windows, macOS, and Linux. Click any screenshot to enlarge; use {left} {right} to navigate, {esc} to close.'}
+        </Translate>
+      </p>
       <div className={styles.ssGrid}>
         {SCREENSHOTS.map((s, i) => (
           <figure
@@ -94,13 +94,11 @@ export default function ScreenshotsSection(): React.JSX.Element {
           >
             <img
               src={imgBase + s.src}
-              alt={translate({id: s.altId, message: s.altDefault})}
+              alt={s.alt}
               loading="lazy"
               className={styles.ssImg}
             />
-            <figcaption className={styles.ssCaption}>
-              <Translate id={s.captionId}>{s.captionDefault}</Translate>
-            </figcaption>
+            <figcaption className={styles.ssCaption}>{s.caption}</figcaption>
           </figure>
         ))}
       </div>
@@ -145,12 +143,10 @@ export default function ScreenshotsSection(): React.JSX.Element {
           >
             <img
               src={imgBase + current.src}
-              alt={translate({id: current.altId, message: current.altDefault})}
+              alt={current.alt}
               className={styles.modalImg}
             />
-            <figcaption className={styles.modalCaption}>
-              <Translate id={current.captionId}>{current.captionDefault}</Translate>
-            </figcaption>
+            <figcaption className={styles.modalCaption}>{current.caption}</figcaption>
           </figure>
           <div className={styles.modalCounter}>
             {lightbox.index + 1} / {SCREENSHOTS.length}

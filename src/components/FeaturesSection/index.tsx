@@ -4,152 +4,190 @@ import styles from './styles.module.css';
 
 interface FeatureCard {
   icon: string;
-  titleId: string;
-  titleDefault: string;
-  descId: string;
-  descDefault: string;
+  title: React.ReactNode;
+  desc: React.ReactNode;
 }
 
 const FEATURES: FeatureCard[] = [
   {
     icon: '🌐',
-    titleId: 'homepage.features.card1.title',
-    titleDefault: 'eD2k + Kademlia',
-    descId: 'homepage.features.card1.desc',
-    descDefault: 'Connect to both the traditional eD2k server network and the serverless Kademlia DHT simultaneously, maximizing your reach and file availability.',
+    title: <Translate id="homepage.features.card1.title">eD2k + Kademlia</Translate>,
+    desc: (
+      <Translate id="homepage.features.card1.desc">
+        Connect to both the traditional eD2k server network and the serverless Kademlia DHT simultaneously, maximizing your reach and file availability.
+      </Translate>
+    ),
   },
   {
     icon: '🔗',
-    titleId: 'homepage.features.card2.title',
-    titleDefault: 'eMule Compatible',
-    descId: 'homepage.features.card2.desc',
-    descDefault: 'Fully wire-compatible with eMule and all *Mule clients. Share files with the same sources, connect to the same servers, and open standard ed2k:// links.',
+    title: <Translate id="homepage.features.card2.title">eMule Compatible</Translate>,
+    desc: (
+      <Translate id="homepage.features.card2.desc">
+        Fully wire-compatible with eMule and all *Mule clients. Share files with the same sources, connect to the same servers, and open standard ed2k:// links.
+      </Translate>
+    ),
   },
   {
     icon: '🔍',
-    titleId: 'homepage.features.card3.title',
-    titleDefault: 'Powerful Search',
-    descId: 'homepage.features.card3.desc',
-    descDefault: 'Search across eD2k servers (local and global) and Kademlia nodes. Filter by type, size, and availability. Boolean operators (AND, OR, NOT) supported.',
+    title: <Translate id="homepage.features.card3.title">Powerful Search</Translate>,
+    desc: (
+      <Translate id="homepage.features.card3.desc">
+        Search across eD2k servers (local and global) and Kademlia nodes. Filter by type, size, and availability. Boolean operators (AND, OR, NOT) supported.
+      </Translate>
+    ),
   },
   {
     icon: '🔄',
-    titleId: 'homepage.features.card4.title',
-    titleDefault: 'Source Exchange',
-    descId: 'homepage.features.card4.desc',
-    descDefault: 'Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly.',
+    title: <Translate id="homepage.features.card4.title">Source Exchange</Translate>,
+    desc: (
+      <Translate id="homepage.features.card4.desc">
+        Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly.
+      </Translate>
+    ),
   },
   {
     icon: '⭐',
-    titleId: 'homepage.features.card5.title',
-    titleDefault: 'Credit System',
-    descId: 'homepage.features.card5.desc',
-    descDefault: 'A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads.',
+    title: <Translate id="homepage.features.card5.title">Credit System</Translate>,
+    desc: (
+      <Translate id="homepage.features.card5.desc">
+        A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads.
+      </Translate>
+    ),
   },
   {
     icon: '🛡️',
-    titleId: 'homepage.features.card6.title',
-    titleDefault: 'IP Filtering',
-    descId: 'homepage.features.card6.desc',
-    descDefault: 'Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client.',
+    title: <Translate id="homepage.features.card6.title">IP Filtering</Translate>,
+    desc: (
+      <Translate id="homepage.features.card6.desc">
+        Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client.
+      </Translate>
+    ),
   },
   {
     icon: '▶️',
-    titleId: 'homepage.features.card7.title',
-    titleDefault: 'Preview Before Complete',
-    descId: 'homepage.features.card7.desc',
-    descDefault: 'Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players.',
+    title: <Translate id="homepage.features.card7.title">Preview Before Complete</Translate>,
+    desc: (
+      <Translate id="homepage.features.card7.desc">
+        Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players.
+      </Translate>
+    ),
   },
   {
     icon: '📂',
-    titleId: 'homepage.features.card8.title',
-    titleDefault: 'Download Categories',
-    descId: 'homepage.features.card8.desc',
-    descDefault: 'Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically.',
+    title: <Translate id="homepage.features.card8.title">Download Categories</Translate>,
+    desc: (
+      <Translate id="homepage.features.card8.desc">
+        Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically.
+      </Translate>
+    ),
   },
   {
     icon: '⚙️',
-    titleId: 'homepage.features.card9.title',
-    titleDefault: 'aMule Daemon',
-    descId: 'homepage.features.card9.desc',
-    descDefault: 'Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required.',
+    title: <Translate id="homepage.features.card9.title">aMule Daemon</Translate>,
+    desc: (
+      <Translate id="homepage.features.card9.desc">
+        Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required.
+      </Translate>
+    ),
   },
   {
     icon: '🖥️',
-    titleId: 'homepage.features.card10.title',
-    titleDefault: 'Remote Interfaces',
-    descId: 'homepage.features.card10.desc',
-    descDefault: 'Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).',
+    title: <Translate id="homepage.features.card10.title">Remote Interfaces</Translate>,
+    desc: (
+      <Translate id="homepage.features.card10.desc">
+        Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).
+      </Translate>
+    ),
   },
   {
     icon: '🔐',
-    titleId: 'homepage.features.card11.title',
-    titleDefault: 'Secure Identification',
-    descId: 'homepage.features.card11.desc',
-    descDefault: 'Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network.',
+    title: <Translate id="homepage.features.card11.title">Secure Identification</Translate>,
+    desc: (
+      <Translate id="homepage.features.card11.desc">
+        Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network.
+      </Translate>
+    ),
   },
   {
     icon: '🔀',
-    titleId: 'homepage.features.card12.title',
-    titleDefault: 'Proxy Support',
-    descId: 'homepage.features.card12.desc',
-    descDefault: 'Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions.',
+    title: <Translate id="homepage.features.card12.title">Proxy Support</Translate>,
+    desc: (
+      <Translate id="homepage.features.card12.desc">
+        Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions.
+      </Translate>
+    ),
   },
   {
     icon: '💬',
-    titleId: 'homepage.features.card13.title',
-    titleDefault: 'Messaging & Friends',
-    descId: 'homepage.features.card13.desc',
-    descDefault: 'Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners.',
+    title: <Translate id="homepage.features.card13.title">Messaging & Friends</Translate>,
+    desc: (
+      <Translate id="homepage.features.card13.desc">
+        Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners.
+      </Translate>
+    ),
   },
   {
     icon: '📖',
-    titleId: 'homepage.features.card14.title',
-    titleDefault: 'Free & Open Source',
-    descId: 'homepage.features.card14.desc',
-    descDefault: 'GPL-2.0 licensed with no telemetry, no advertisements, and no vendor lock-in. Your data is yours — inspect and contribute to the source code.',
+    title: <Translate id="homepage.features.card14.title">Free & Open Source</Translate>,
+    desc: (
+      <Translate id="homepage.features.card14.desc">
+        GPL-2.0 licensed with no telemetry, no advertisements, and no vendor lock-in. Your data is yours — inspect and contribute to the source code.
+      </Translate>
+    ),
   },
   {
     icon: '📦',
-    titleId: 'homepage.features.card15.title',
-    titleDefault: 'Native Packages',
-    descId: 'homepage.features.card15.desc',
-    descDefault: 'Portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x86_64 and ARM64.',
+    title: <Translate id="homepage.features.card15.title">Native Packages</Translate>,
+    desc: (
+      <Translate id="homepage.features.card15.desc">
+        Portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x86_64 and ARM64.
+      </Translate>
+    ),
   },
   {
     icon: '🛠️',
-    titleId: 'homepage.features.card16.title',
-    titleDefault: 'Corruption Handling',
-    descId: 'homepage.features.card16.desc',
-    descDefault: 'The Intelligent Corruption Handler (ICH) and AICH automatically detect and repair corrupted download chunks, ensuring complete, intact files without restarting.',
+    title: <Translate id="homepage.features.card16.title">Corruption Handling</Translate>,
+    desc: (
+      <Translate id="homepage.features.card16.desc">
+        The Intelligent Corruption Handler (ICH) and AICH automatically detect and repair corrupted download chunks, ensuring complete, intact files without restarting.
+      </Translate>
+    ),
   },
   {
     icon: '🗣️',
-    titleId: 'homepage.features.card17.title',
-    titleDefault: '28 Interface Languages',
-    descId: 'homepage.features.card17.desc',
-    descDefault: 'The full aMule interface is translated into 28 languages. Download and share files in your native language — the UI adapts automatically to your locale.',
+    title: <Translate id="homepage.features.card17.title">28 Interface Languages</Translate>,
+    desc: (
+      <Translate id="homepage.features.card17.desc">
+        The full aMule interface is translated into 28 languages. Download and share files in your native language — the UI adapts automatically to your locale.
+      </Translate>
+    ),
   },
   {
     icon: '⚡',
-    titleId: 'homepage.features.card18.title',
-    titleDefault: 'Compressed Transfers',
-    descId: 'homepage.features.card18.desc',
-    descDefault: 'File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers.',
+    title: <Translate id="homepage.features.card18.title">Compressed Transfers</Translate>,
+    desc: (
+      <Translate id="homepage.features.card18.desc">
+        File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers.
+      </Translate>
+    ),
   },
   {
     icon: '🖱️',
-    titleId: 'homepage.features.card19.title',
-    titleDefault: 'ed2k:// Link Integration',
-    descId: 'homepage.features.card19.desc',
-    descDefault: 'Click ed2k:// links in your browser to start downloads instantly in aMule. The link handler integrates with your desktop for a seamless one-click experience.',
+    title: <Translate id="homepage.features.card19.title">ed2k:// Link Integration</Translate>,
+    desc: (
+      <Translate id="homepage.features.card19.desc">
+        Click ed2k:// links in your browser to start downloads instantly in aMule. The link handler integrates with your desktop for a seamless one-click experience.
+      </Translate>
+    ),
   },
   {
     icon: '🎛️',
-    titleId: 'homepage.features.card20.title',
-    titleDefault: 'Slot Allocation',
-    descId: 'homepage.features.card20.desc',
-    descDefault: 'Control exactly how many clients you upload to at once and set per-slot bandwidth targets, giving you fine-grained control over your upload capacity.',
+    title: <Translate id="homepage.features.card20.title">Slot Allocation</Translate>,
+    desc: (
+      <Translate id="homepage.features.card20.desc">
+        Control exactly how many clients you upload to at once and set per-slot bandwidth targets, giving you fine-grained control over your upload capacity.
+      </Translate>
+    ),
   },
 ];
 
@@ -161,18 +199,14 @@ export default function FeaturesSection(): React.JSX.Element {
           <Translate id="homepage.features.title">Features</Translate>
         </h2>
         <div className={styles.grid}>
-          {FEATURES.map((f) => (
-            <div key={f.titleId} className={styles.item}>
+          {FEATURES.map((f, i) => (
+            <div key={i} className={styles.item}>
               <div className={styles.iconWrap} aria-hidden="true">
                 {f.icon}
               </div>
               <div className={styles.itemBody}>
-                <h3 className={styles.itemTitle}>
-                  <Translate id={f.titleId}>{f.titleDefault}</Translate>
-                </h3>
-                <p className={styles.itemDesc}>
-                  <Translate id={f.descId}>{f.descDefault}</Translate>
-                </p>
+                <h3 className={styles.itemTitle}>{f.title}</h3>
+                <p className={styles.itemDesc}>{f.desc}</p>
               </div>
             </div>
           ))}

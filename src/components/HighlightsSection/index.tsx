@@ -1,44 +1,50 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 interface WhatsNew {
   tag: string;
-  labelId: string;
-  labelDefault: string;
-  detailId: string;
-  detailDefault: string;
+  label: React.ReactNode;
+  detail: React.ReactNode;
 }
 
 const WHATS_NEW: WhatsNew[] = [
   {
     tag: 'CMake',
-    labelId: 'homepage.highlights.hl3.label',
-    labelDefault: 'Modern build system',
-    detailId: 'homepage.highlights.hl3.detail',
-    detailDefault: 'Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.',
+    label: <Translate id="homepage.highlights.hl3.label">Modern build system</Translate>,
+    detail: (
+      <Translate id="homepage.highlights.hl3.detail">
+        Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.
+      </Translate>
+    ),
   },
   {
     tag: 'Packages',
-    labelId: 'homepage.highlights.hl4.label',
-    labelDefault: 'Binaries for every desktop',
-    detailId: 'homepage.highlights.hl4.detail',
-    detailDefault: 'Windows portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.',
+    label: <Translate id="homepage.highlights.hl4.label">Binaries for every desktop</Translate>,
+    detail: (
+      <Translate id="homepage.highlights.hl4.detail">
+        Windows portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x86_64 and ARM64 where supported.
+      </Translate>
+    ),
   },
   {
     tag: 'HTTPS',
-    labelId: 'homepage.highlights.hl5.label',
-    labelDefault: 'Server lists & version checks',
-    detailId: 'homepage.highlights.hl5.detail',
-    detailDefault: 'Hand-rolled TLS replaced with <code>wxWebRequest</code>. Server-met downloads from modern HTTPS endpoints work again.',
+    label: <Translate id="homepage.highlights.hl5.label">Server lists & version checks</Translate>,
+    detail: (
+      <Translate id="homepage.highlights.hl5.detail" values={{code: <code>wxWebRequest</code>}}>
+        {'Hand-rolled TLS replaced with {code}. Server-met downloads from modern HTTPS endpoints work again.'}
+      </Translate>
+    ),
   },
   {
     tag: 'Bandwidth',
-    labelId: 'homepage.highlights.hl6.label',
-    labelDefault: 'Bandwidth limiting that works',
-    detailId: 'homepage.highlights.hl6.detail',
-    detailDefault: 'Upload and download throttlers rewritten as proper token-bucket limiters. <code>MaxUpload=0</code> means literal unlimited.',
+    label: <Translate id="homepage.highlights.hl6.label">Bandwidth limiting that works</Translate>,
+    detail: (
+      <Translate id="homepage.highlights.hl6.detail" values={{code: <code>MaxUpload=0</code>}}>
+        {'Upload and download throttlers rewritten as proper token-bucket limiters. {code} means literal unlimited.'}
+      </Translate>
+    ),
   },
 ];
 
@@ -57,29 +63,17 @@ export default function HighlightsSection(): React.JSX.Element {
             <Translate id="homepage.highlights.changelog">Full changelog →</Translate>
           </Link>
         </div>
-        <p
-          className={styles.intro}
-          dangerouslySetInnerHTML={{
-            __html: translate({
-              id: 'homepage.whatisamule.p2',
-              message:
-                'After years of quiet, the project is back under active maintenance. The 3.0.0 release brings a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.',
-            }),
-          }}
-        />
+        <p className={styles.intro}>
+          <Translate id="homepage.whatisamule.p2">
+            After years of quiet, the project is back under active maintenance. The 3.0.0 release brings a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.
+          </Translate>
+        </p>
         <div className={styles.strip}>
-          {WHATS_NEW.map((item) => (
-            <div key={item.labelDefault} className={styles.item}>
+          {WHATS_NEW.map((item, i) => (
+            <div key={i} className={styles.item}>
               <span className={styles.tag}>{item.tag}</span>
-              <div className={styles.itemLabel}>
-                <Translate id={item.labelId}>{item.labelDefault}</Translate>
-              </div>
-              <div
-                className={styles.itemDetail}
-                dangerouslySetInnerHTML={{
-                  __html: translate({id: item.detailId, message: item.detailDefault}),
-                }}
-              />
+              <div className={styles.itemLabel}>{item.label}</div>
+              <div className={styles.itemDetail}>{item.detail}</div>
             </div>
           ))}
         </div>

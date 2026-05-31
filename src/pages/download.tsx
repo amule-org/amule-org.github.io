@@ -21,77 +21,69 @@ const RELEASES_URL = 'https://github.com/amule-org/amule/releases/latest';
 
 interface DownloadFormat {
   // Binary type, e.g. "Installer (.exe)"
-  labelId: string;
-  labelDefault: string;
+  label: React.ReactNode;
   // Supported architectures, e.g. "x64 · ARM64"
-  archId: string;
-  archDefault: string;
+  arch: React.ReactNode;
 }
 
 interface DownloadOs {
   svg: string;
-  osId: string;
-  osDefault: string;
+  name: React.ReactNode;
   // Supported platforms / minimum version line
-  platformId: string;
-  platformDefault: string;
+  platform: React.ReactNode;
   formats: DownloadFormat[];
 }
 
 const DOWNLOAD_OSES: DownloadOs[] = [
   {
     svg: WINDOWS_SVG,
-    osId: 'homepage.download.windows.os', osDefault: 'Windows',
-    platformId: 'homepage.download.windows.platform',
-    platformDefault: 'Windows 10 / 11 · x64 · ARM64',
+    name: <Translate id="homepage.download.windows.os">Windows</Translate>,
+    platform: <Translate id="homepage.download.windows.platform">Windows 10 / 11 · x64 · ARM64</Translate>,
     formats: [
       {
-        labelId: 'homepage.download.windows.installer.label', labelDefault: 'Installer (.exe)',
-        archId: 'homepage.download.windows.installer.arch', archDefault: 'x64 · ARM64',
+        label: <Translate id="homepage.download.windows.installer.label">Installer (.exe)</Translate>,
+        arch: <Translate id="homepage.download.windows.installer.arch">x64 · ARM64</Translate>,
       },
       {
-        labelId: 'homepage.download.windows.portable.label', labelDefault: 'Portable (.zip)',
-        archId: 'homepage.download.windows.portable.arch', archDefault: 'x64 · ARM64',
+        label: <Translate id="homepage.download.windows.portable.label">Portable (.zip)</Translate>,
+        arch: <Translate id="homepage.download.windows.portable.arch">x64 · ARM64</Translate>,
       },
     ],
   },
   {
     svg: MACOS_SVG,
-    osId: 'homepage.download.macos.os', osDefault: 'macOS',
-    platformId: 'homepage.download.macos.platform',
-    platformDefault: 'macOS 11.0+ · Apple Silicon · Intel',
+    name: <Translate id="homepage.download.macos.os">macOS</Translate>,
+    platform: <Translate id="homepage.download.macos.platform">macOS 11.0+ · Apple Silicon · Intel</Translate>,
     formats: [
       {
-        labelId: 'homepage.download.macos.dmg.label', labelDefault: 'Disk image (.dmg)',
-        archId: 'homepage.download.macos.dmg.arch', archDefault: 'Universal2',
+        label: <Translate id="homepage.download.macos.dmg.label">Disk image (.dmg)</Translate>,
+        arch: <Translate id="homepage.download.macos.dmg.arch">Universal2</Translate>,
       },
     ],
   },
   {
     svg: LINUX_SVG,
-    osId: 'homepage.download.linux.os', osDefault: 'Linux',
-    platformId: 'homepage.download.linux.platform',
-    platformDefault: 'glibc ≥ 2.35 · x64 · ARM64',
+    name: <Translate id="homepage.download.linux.os">Linux</Translate>,
+    platform: <Translate id="homepage.download.linux.platform">glibc ≥ 2.35 · x64 · ARM64</Translate>,
     formats: [
       {
-        labelId: 'homepage.download.linux.appimage.label', labelDefault: 'AppImage',
-        archId: 'homepage.download.linux.appimage.arch', archDefault: 'x64 · ARM64',
+        label: <Translate id="homepage.download.linux.appimage.label">AppImage</Translate>,
+        arch: <Translate id="homepage.download.linux.appimage.arch">x64 · ARM64</Translate>,
       },
       {
-        labelId: 'homepage.download.linux.flatpak.label', labelDefault: 'Flatpak',
-        archId: 'homepage.download.linux.flatpak.arch', archDefault: 'x64 · ARM64',
+        label: <Translate id="homepage.download.linux.flatpak.label">Flatpak</Translate>,
+        arch: <Translate id="homepage.download.linux.flatpak.arch">x64 · ARM64</Translate>,
       },
     ],
   },
   {
     svg: SOURCE_SVG,
-    osId: 'homepage.download.source.os', osDefault: 'Source',
-    platformId: 'homepage.download.source.platform',
-    platformDefault: 'Build it yourself',
+    name: <Translate id="homepage.download.source.os">Source</Translate>,
+    platform: <Translate id="homepage.download.source.platform">Build it yourself</Translate>,
     formats: [
       {
-        labelId: 'homepage.download.source.tarball.label', labelDefault: 'Source tarball (.tar.gz)',
-        archId: 'homepage.download.source.tarball.arch', archDefault: 'all platforms',
+        label: <Translate id="homepage.download.source.tarball.label">Source tarball (.tar.gz)</Translate>,
+        arch: <Translate id="homepage.download.source.tarball.arch">all platforms</Translate>,
       },
     ],
   },
@@ -141,30 +133,22 @@ export default function DownloadPage(): React.JSX.Element {
           </p>
 
           <div className={styles.osList}>
-            {DOWNLOAD_OSES.map((os) => (
-              <div key={os.osDefault} className={styles.osPanel}>
+            {DOWNLOAD_OSES.map((os, i) => (
+              <div key={i} className={styles.osPanel}>
                 <div className={styles.osHeader}>
                   <svg className={styles.osIcon} viewBox="0 0 24 24" aria-hidden="true">
                     <path fill="currentColor" d={os.svg} />
                   </svg>
                   <div className={styles.osHeaderText}>
-                    <div className={styles.osName}>
-                      <Translate id={os.osId}>{os.osDefault}</Translate>
-                    </div>
-                    <div className={styles.osPlatform}>
-                      <Translate id={os.platformId}>{os.platformDefault}</Translate>
-                    </div>
+                    <div className={styles.osName}>{os.name}</div>
+                    <div className={styles.osPlatform}>{os.platform}</div>
                   </div>
                 </div>
                 <div className={styles.formatList}>
-                  {os.formats.map((fmt) => (
-                    <Link key={fmt.labelDefault} className={styles.formatRow} to={RELEASES_URL}>
-                      <span className={styles.formatLabel}>
-                        <Translate id={fmt.labelId}>{fmt.labelDefault}</Translate>
-                      </span>
-                      <span className={styles.formatArch}>
-                        <Translate id={fmt.archId}>{fmt.archDefault}</Translate>
-                      </span>
+                  {os.formats.map((fmt, j) => (
+                    <Link key={j} className={styles.formatRow} to={RELEASES_URL}>
+                      <span className={styles.formatLabel}>{fmt.label}</span>
+                      <span className={styles.formatArch}>{fmt.arch}</span>
                     </Link>
                   ))}
                 </div>

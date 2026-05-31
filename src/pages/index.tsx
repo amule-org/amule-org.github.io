@@ -49,15 +49,14 @@ export default function Home(): React.JSX.Element {
           <h2>
             <Translate id="homepage.whatisamule.title">What is aMule?</Translate>
           </h2>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: translate({
-                id: 'homepage.whatisamule.p1',
-                message:
-                  "aMule is a free, GPL-licensed peer-to-peer file-sharing client for the <strong>eD2k</strong> and <strong>Kademlia</strong> networks. It's compatible with eMule and runs natively on Windows, macOS, and Linux. The same on-disk state, the same protocol, one binary per major desktop.",
-              }),
-            }}
-          />
+          <p>
+            <Translate
+              id="homepage.whatisamule.p1"
+              values={{ed2k: <strong>eD2k</strong>, kad: <strong>Kademlia</strong>}}
+            >
+              {"aMule is a free, GPL-licensed peer-to-peer file-sharing client for the {ed2k} and {kad} networks. It's compatible with eMule and runs natively on Windows, macOS, and Linux. The same on-disk state, the same protocol, one binary per major desktop."}
+            </Translate>
+          </p>
         </section>
         <div className={styles.screenshotWrapper}>
           <img

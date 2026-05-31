@@ -21,7 +21,7 @@
     "message": "¿Qué es aMule?"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes <strong>eD2k</strong> y <strong>Kademlia</strong>. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
+    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes {ed2k} y {kad}. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
   },
   "homepage.whatisamule.p2": {
     "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
@@ -30,36 +30,28 @@
     "message": "Novedades de 3.0.0"
   },
   "homepage.highlights.hl3.label": {
-    "message": "Sistema de compilación moderno",
-    "description": "Highlight 3 label"
+    "message": "Sistema de compilación moderno"
   },
   "homepage.highlights.hl3.detail": {
-    "message": "Autotools se ha eliminado por completo. Compilación unificada con CMake; CMake 3.10 como mínimo y wxWidgets 3.2.0 como mínimo.",
-    "description": "Highlight 3 detail"
+    "message": "Autotools se ha eliminado por completo. Compilación unificada con CMake; CMake 3.10 como mínimo y wxWidgets 3.2.0 como mínimo."
   },
   "homepage.highlights.hl4.label": {
-    "message": "Binarios para cada plataforma de escritorio",
-    "description": "Highlight 4 label"
+    "message": "Binarios para cada plataforma de escritorio"
   },
   "homepage.highlights.hl4.detail": {
-    "message": ".zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita.",
-    "description": "Highlight 4 detail"
+    "message": ".zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x86_64 y ARM64 donde la plataforma lo admita."
   },
   "homepage.highlights.hl5.label": {
-    "message": "Listas de servidores y comprobación de versiones",
-    "description": "Highlight 5 label"
+    "message": "Listas de servidores y comprobación de versiones"
   },
   "homepage.highlights.hl5.detail": {
-    "message": "El TLS implementado manualmente se sustituyó por <code>wxWebRequest</code>. Las descargas de <code>server.met</code> desde endpoints HTTPS modernos vuelven a funcionar.",
-    "description": "Highlight 5 detail"
+    "message": "El TLS implementado manualmente se sustituyó por {code}. Las descargas de server.met desde endpoints HTTPS modernos vuelven a funcionar."
   },
   "homepage.highlights.hl6.label": {
-    "message": "Limitación de ancho de banda funcional",
-    "description": "Highlight 6 label"
+    "message": "Limitación de ancho de banda funcional"
   },
   "homepage.highlights.hl6.detail": {
-    "message": "Los limitadores de subida y descarga se reescribieron como limitadores token bucket reales. <code>MaxUpload=0</code> pasa a significar literalmente sin límite.",
-    "description": "Highlight 6 detail"
+    "message": "Los limitadores de subida y descarga se reescribieron como limitadores token bucket reales. {code} pasa a significar literalmente sin límite."
   },
   "homepage.highlights.changelog": {
     "message": "Changelog completo →"
@@ -68,39 +60,31 @@
     "message": "Capturas de pantalla"
   },
   "homepage.screenshots.lead": {
-    "message": "GUI de aMule: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> y <kbd>→</kbd> para navegar y <kbd>Esc</kbd> para cerrar."
+    "message": "GUI de aMule: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa {left} y {right} para navegar y {esc} para cerrar."
   },
   "homepage.screenshots.networks.alt": {
-    "message": "Pestaña Redes — lista de servidores y estado de Kademlia",
-    "description": "Networks screenshot alt"
+    "message": "Pestaña Redes — lista de servidores y estado de Kademlia"
   },
   "homepage.screenshots.networks.caption": {
-    "message": "Redes — servidores eD2k y estado de Kad",
-    "description": "Networks screenshot caption"
+    "message": "Redes — servidores eD2k y estado de Kad"
   },
   "homepage.screenshots.search.alt": {
-    "message": "Pestaña Búsqueda con resultados",
-    "description": "Search screenshot alt"
+    "message": "Pestaña Búsqueda con resultados"
   },
   "homepage.screenshots.search.caption": {
-    "message": "Búsqueda — resultados eD2k + Kad",
-    "description": "Search screenshot caption"
+    "message": "Búsqueda — resultados eD2k + Kad"
   },
   "homepage.screenshots.downloads.alt": {
-    "message": "Pestaña Transferencias con descargas activas",
-    "description": "Downloads screenshot alt"
+    "message": "Pestaña Transferencias con descargas activas"
   },
   "homepage.screenshots.downloads.caption": {
-    "message": "Transferencias — progreso por archivo con disponibilidad",
-    "description": "Downloads screenshot caption"
+    "message": "Transferencias — progreso por archivo con disponibilidad"
   },
   "homepage.screenshots.shared.alt": {
-    "message": "Pestaña Archivos compartidos",
-    "description": "Shared screenshot alt"
+    "message": "Pestaña Archivos compartidos"
   },
   "homepage.screenshots.shared.caption": {
-    "message": "Archivos compartidos",
-    "description": "Shared screenshot caption"
+    "message": "Archivos compartidos"
   },
   "homepage.screenshots.lightbox.close": {
     "message": "Cerrar (Esc)"
@@ -115,164 +99,124 @@
     "message": "Características"
   },
   "homepage.features.card1.title": {
-    "message": "eD2k + Kademlia",
-    "description": "Feature card 1 title"
+    "message": "eD2k + Kademlia"
   },
   "homepage.features.card1.desc": {
-    "message": "Conéctate simultáneamente a la red eD2k basada en servidores y a la red DHT Kademlia sin servidores para maximizar el alcance y la disponibilidad de archivos.",
-    "description": "Feature card 1 description"
+    "message": "Conéctate simultáneamente a la red eD2k basada en servidores y a la red DHT Kademlia sin servidores para maximizar el alcance y la disponibilidad de archivos."
   },
   "homepage.features.card2.title": {
-    "message": "Compatible con eMule",
-    "description": "Feature card 2 title"
+    "message": "Compatible con eMule"
   },
   "homepage.features.card2.desc": {
-    "message": "Totalmente compatible a nivel de protocolo con eMule y con todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar.",
-    "description": "Feature card 2 description"
+    "message": "Totalmente compatible a nivel de protocolo con eMule y con todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar."
   },
   "homepage.features.card3.title": {
-    "message": "Búsqueda potente",
-    "description": "Feature card 3 title"
+    "message": "Búsqueda potente"
   },
   "homepage.features.card3.desc": {
-    "message": "Busca en servidores eD2k (local y global) y en nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Compatible con operadores booleanos (AND, OR, NOT).",
-    "description": "Feature card 3 description"
+    "message": "Busca en servidores eD2k (local y global) y en nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Compatible con operadores booleanos (AND, OR, NOT)."
   },
   "homepage.features.card4.title": {
-    "message": "Intercambio de fuentes",
-    "description": "Feature card 4 title"
+    "message": "Intercambio de fuentes"
   },
   "homepage.features.card4.desc": {
-    "message": "Intercambia automáticamente listas de fuentes con pares conectados para descubrir más fuentes para tus descargas sin tener que consultar al servidor de forma repetida.",
-    "description": "Feature card 4 description"
+    "message": "Intercambia automáticamente listas de fuentes con pares conectados para descubrir más fuentes para tus descargas sin tener que consultar al servidor de forma repetida."
   },
   "homepage.features.card5.title": {
-    "message": "Sistema de créditos",
-    "description": "Feature card 5 title"
+    "message": "Sistema de créditos"
   },
   "homepage.features.card5.desc": {
-    "message": "El sistema integrado de créditos y puntuación recompensa a los usuarios que suben datos activamente. Cuanto más compartes, mayor es tu puntuación y más rápidas son tus descargas.",
-    "description": "Feature card 5 description"
+    "message": "El sistema integrado de créditos y puntuación recompensa a los usuarios que suben datos activamente. Cuanto más compartes, mayor es tu puntuación y más rápidas son tus descargas."
   },
   "homepage.features.card6.title": {
-    "message": "Filtrado de IPs",
-    "description": "Feature card 6 title"
+    "message": "Filtrado de IPs"
   },
   "homepage.features.card6.desc": {
-    "message": "Bloquea direcciones IP no deseadas mediante listas estándar de filtrado. Mantén alejados de tu cliente a pares agresivos, maliciosos o espía.",
-    "description": "Feature card 6 description"
+    "message": "Bloquea direcciones IP no deseadas mediante listas estándar de filtrado. Mantén alejados de tu cliente a pares agresivos, maliciosos o espía."
   },
   "homepage.features.card7.title": {
-    "message": "Vista previa antes de completar",
-    "description": "Feature card 7 title"
+    "message": "Vista previa antes de completar"
   },
   "homepage.features.card7.desc": {
-    "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia.",
-    "description": "Feature card 7 description"
+    "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia."
   },
   "homepage.features.card8.title": {
-    "message": "Categorías de descarga",
-    "description": "Feature card 8 title"
+    "message": "Categorías de descarga"
   },
   "homepage.features.card8.desc": {
-    "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente.",
-    "description": "Feature card 8 description"
+    "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente."
   },
   "homepage.features.card9.title": {
-    "message": "aMule Daemon",
-    "description": "Feature card 9 title"
+    "message": "aMule Daemon"
   },
   "homepage.features.card9.desc": {
-    "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla.",
-    "description": "Feature card 9 description"
+    "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla."
   },
   "homepage.features.card10.title": {
-    "message": "Interfaces remotas",
-    "description": "Feature card 10 title"
+    "message": "Interfaces remotas"
   },
   "homepage.features.card10.desc": {
-    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd).",
-    "description": "Feature card 10 description"
+    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd)."
   },
   "homepage.features.card11.title": {
-    "message": "Identificación segura",
-    "description": "Feature card 11 title"
+    "message": "Identificación segura"
   },
   "homepage.features.card11.desc": {
-    "message": "La identificación criptográfica segura del usuario evita que otros pares roben o suplanten el hash de tu cliente en la red.",
-    "description": "Feature card 11 description"
+    "message": "La identificación criptográfica segura del usuario evita que otros pares roben o suplanten el hash de tu cliente en la red."
   },
   "homepage.features.card12.title": {
-    "message": "Soporte para proxy",
-    "description": "Feature card 12 title"
+    "message": "Soporte para proxy"
   },
   "homepage.features.card12.desc": {
-    "message": "Encamina las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mejorar la privacidad o sortear restricciones de red.",
-    "description": "Feature card 12 description"
+    "message": "Encamina las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mejorar la privacidad o sortear restricciones de red."
   },
   "homepage.features.card13.title": {
-    "message": "Mensajería y amigos",
-    "description": "Feature card 13 title"
+    "message": "Mensajería y amigos"
   },
   "homepage.features.card13.desc": {
-    "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para seguir conectado con tus compañeros habituales de intercambio.",
-    "description": "Feature card 13 description"
+    "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para seguir conectado con tus compañeros habituales de intercambio."
   },
   "homepage.features.card14.title": {
-    "message": "Libre y de código abierto",
-    "description": "Feature card 14 title"
+    "message": "Libre y de código abierto"
   },
   "homepage.features.card14.desc": {
-    "message": "Licencia GPL-2.0, sin telemetría, sin publicidad y sin dependencia de un proveedor. Tus datos son tuyos: inspecciona el código fuente y contribuye.",
-    "description": "Feature card 14 description"
+    "message": "Licencia GPL-2.0, sin telemetría, sin publicidad y sin dependencia de un proveedor. Tus datos son tuyos: inspecciona el código fuente y contribuye."
   },
   "homepage.features.card15.title": {
-    "message": "Paquetes nativos",
-    "description": "Feature card 15 title"
+    "message": "Paquetes nativos"
   },
   "homepage.features.card15.desc": {
-    "message": ".zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64.",
-    "description": "Feature card 15 description"
+    "message": ".zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x86_64 y ARM64."
   },
   "homepage.features.card16.title": {
-    "message": "Corrección de corrupción",
-    "description": "Feature card 16 title"
+    "message": "Corrección de corrupción"
   },
   "homepage.features.card16.desc": {
-    "message": "Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los chunks corruptos de una descarga, lo que garantiza archivos completos e íntegros sin necesidad de reiniciar.",
-    "description": "Feature card 16 description"
+    "message": "Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los chunks corruptos de una descarga, lo que garantiza archivos completos e íntegros sin necesidad de reiniciar."
   },
   "homepage.features.card17.title": {
-    "message": "Interfaz en 28 idiomas",
-    "description": "Feature card 17 title"
+    "message": "Interfaz en 28 idiomas"
   },
   "homepage.features.card17.desc": {
-    "message": "La interfaz completa de aMule está traducida a 28 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional.",
-    "description": "Feature card 17 description"
+    "message": "La interfaz completa de aMule está traducida a 28 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional."
   },
   "homepage.features.card18.title": {
-    "message": "Transferencias comprimidas",
-    "description": "Feature card 18 title"
+    "message": "Transferencias comprimidas"
   },
   "homepage.features.card18.desc": {
-    "message": "Los datos de archivos y la comunicación con los servidores se comprimen con zlib, lo que reduce el uso de ancho de banda con archivos compresibles y disminuye la carga sobre los servidores eD2k.",
-    "description": "Feature card 18 description"
+    "message": "Los datos de archivos y la comunicación con los servidores se comprimen con zlib, lo que reduce el uso de ancho de banda con archivos compresibles y disminuye la carga sobre los servidores eD2k."
   },
   "homepage.features.card19.title": {
-    "message": "Integración de enlaces ed2k://",
-    "description": "Feature card 19 title"
+    "message": "Integración de enlaces ed2k://"
   },
   "homepage.features.card19.desc": {
-    "message": "Haz clic en enlaces ed2k:// desde el navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con el escritorio para ofrecer una experiencia fluida con un solo clic.",
-    "description": "Feature card 19 description"
+    "message": "Haz clic en enlaces ed2k:// desde el navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con el escritorio para ofrecer una experiencia fluida con un solo clic."
   },
   "homepage.features.card20.title": {
-    "message": "Asignación de slots",
-    "description": "Feature card 20 title"
+    "message": "Asignación de slots"
   },
   "homepage.features.card20.desc": {
-    "message": "Controla exactamente a cuántos clientes subes de forma simultánea y fija objetivos de ancho de banda por slot para ajustar con precisión tu capacidad de subida.",
-    "description": "Feature card 20 description"
+    "message": "Controla exactamente a cuántos clientes subes de forma simultánea y fija objetivos de ancho de banda por slot para ajustar con precisión tu capacidad de subida."
   },
   "theme.navbar.item.label.Download": {
     "message": "Descargar",
