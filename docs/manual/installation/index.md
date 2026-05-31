@@ -9,7 +9,7 @@ This page explains how to install aMule on each supported platform. Pre-built bi
 
 | Platform | Minimum version | Architectures | Distribution format |
 |---|---|---|---|
-| Windows | 10 / 11 | x64, ARM64 | Portable `.zip` |
+| Windows | 10 / 11 | x64, ARM64 | Installer `.exe`, portable `.zip` |
 | macOS | 11.0 (Big Sur) | Apple Silicon, Intel (Universal2) | `.dmg` disk image |
 | Linux | glibc ≥ 2.35 | x64, ARM64 | AppImage, Flatpak |
 | FreeBSD | — | x86\_64, aarch64 | `pkg` / Ports Collection |
