@@ -76,8 +76,6 @@ const sidebars: SidebarsConfig = {
             'manual/utilities/alc-alcc',
             'manual/utilities/ed2k',
             'manual/utilities/cas-wxcas',
-            'manual/utilities/amulesig-dat',
-            'manual/utilities/cas',
           ],
         },
         {

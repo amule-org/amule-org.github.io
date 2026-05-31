@@ -140,7 +140,7 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 
 | Key | Default | Description |
 |---|---|---|
-| `OnlineSignature` | `0` | Enable writing of [`amulesig.dat`](../../utilities/amulesig-dat.md) and `onlinesig.dat`. |
+| `OnlineSignature` | `0` | Enable writing of [`amulesig.dat`](./index.md#amulesigdat) and [`onlinesig.dat`](./index.md#onlinesigdat). |
 | `OnlineSignatureUpdate` | `5` | Interval in seconds between signature file updates. |
 | `OSDirectory` | `~/.aMule/` | Directory where the signature files are written. |
 

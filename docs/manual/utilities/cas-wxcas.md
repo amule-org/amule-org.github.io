@@ -20,7 +20,7 @@ Both tools read `~/.aMule/amulesig.dat`, which aMule only generates when **Onlin
 
 `amulesig.dat` is updated periodically while aMule runs. The file must exist for `cas` or `wxcas` to produce any output.
 
-For the full format specification of `amulesig.dat`, see [amulesig.dat](./amulesig-dat.md).
+For the full format specification of `amulesig.dat`, see the [amulesig.dat reference](../configuration/config-files/index.md#amulesigdat) in the Configuration Files reference.
 
 ## CAS — C aMule Statistics
 
@@ -57,13 +57,40 @@ Both `-o` and `-p` accept an optional path argument to override the default outp
 
 ### Image Generation
 
-When run with the `-o` flag, `cas` generates a PNG image ([`~/.aMule/aMule-online-sign.png`](./cas.md)) by writing statistics text onto a configurable background image. This option is only available if `cas` was compiled with **libgd** support.
+When run with the `-o` flag, `cas` generates a PNG image (`~/.aMule/aMule-online-sign.png`) by writing statistics text onto a configurable background image. This option is only available if `cas` was compiled with **libgd** support.
 
-Configuration is stored in [`~/.aMule/casrc`](./cas.md).
+The image is produced by:
 
-### [`casrc`](./cas.md) Configuration File
+1. Loading the background image from `source_image`.
+2. Drawing up to seven lines of status text at the positions defined by the placement lines in `casrc`, using the configured font and size. The status lines are taken directly from the corresponding lines of [`amulesig.dat`](../configuration/config-files/index.md#amulesigdat).
+3. Saving the result as PNG or JPG (controlled by `img_type` in `casrc`) to `~/.aMule/aMule-online-sign.png`.
 
-`casrc` uses a key-value format. Example with all recognized options:
+Configuration is stored in `~/.aMule/casrc` (see below).
+
+### `casrc` Configuration File {#casrc-configuration-file}
+
+**Location:** `~/.aMule/casrc`. This file is created the first time `cas` is run with the `-o` or `-p` switch, and can be edited manually.
+
+`casrc` uses a key-value format. Each non-empty, non-comment line is either a **parameter** or a **line placement definition**; lines beginning with `#` are comments.
+
+| Parameter | Value | Description |
+|---|---|---|
+| `font` | Path to a `.ttf` file | Font used to draw text in the generated image |
+| `font_size` | Floating-point number | Size of the font (e.g., `10.5`) |
+| `source_image` | Path to an image file | Background image on which the text is rendered |
+| `template` | Path to an `.html` file | HTML template used to generate the HTML status page |
+| `img_type` | `0` or other integer | Output image format: `0` = PNG, any other value = JPG |
+
+After the parameters come the **line placement definitions** that say where each piece of status text is drawn. The first seven placement lines encountered are used (one per status line displayed); any additional lines are ignored. Each has the form `<identifier>  <x>,<y>,<enable>`:
+
+| Field | Description |
+|---|---|
+| `identifier` | Any text label (`cas` ignores it; it is for human readability only) |
+| `x` | Pixels from the **left** edge of the image to the start of the text |
+| `y` | Pixels from the **top** edge of the image to the baseline of the text |
+| `enable` | `1` to draw this line; `0` to skip it |
+
+Example with all recognized options:
 
 ```
 # cas config file
@@ -103,7 +130,17 @@ img_type 0
 
 ### HTML Statistics Page
 
-Run `cas` with the `-p`/`--html` flag to generate [`~/.aMule/aMule-online-sign.html`](./cas.md), a full statistics page.
+Run `cas` with the `-p`/`--html` flag to generate `~/.aMule/aMule-online-sign.html`, a full statistics page. It is produced from the HTML template referenced by the `template` parameter in `casrc`, with status values filled in from [`amulesig.dat`](../configuration/config-files/index.md#amulesigdat).
+
+### Generated output files
+
+`cas` creates the following files in `~/.aMule/`, only after it has been run:
+
+| File | Created when | Description |
+|---|---|---|
+| `casrc` | First run with `-o` or `-p` | CAS configuration (font, background image, HTML template, line placement) |
+| `aMule-online-sign.png` | Run with `-o` and `casrc` configured | PNG (or JPG) status image |
+| `aMule-online-sign.html` | Run with `-p` | HTML status page |
 
 ### Known Issues
 

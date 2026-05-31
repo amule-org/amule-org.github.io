@@ -156,8 +156,8 @@ All ED2K network-related files can be successfully shared by copying them betwee
 
 These files contain the current **online signature** — the current aMule status, if the signature feature is enabled. They are used by external statistics tools (CAS, wxCAS) to display your aMule activity.
 
-- [`amulesig.dat`](/docs/manual/utilities/amulesig-dat) — aMule's own signature format.
-- `onlinesig.dat` — compatibility with eMule's signature format.
+- [`amulesig.dat`](/docs/manual/configuration/config-files/#amulesigdat) — aMule's own signature format.
+- [`onlinesig.dat`](/docs/manual/configuration/config-files/#onlinesigdat) — compatibility with eMule's signature format.
 
 ## I just installed aMule for the first time. How do I set it up?
 

@@ -334,13 +334,13 @@ For its format, see the [`ED2KLinks` format reference](../../../developer/file-f
 
 **Location:** `~/.aMule/amulesig.dat`
 
-aMule's native status signature file: a 17-line text file that external applications (such as the [CAS](../../utilities/cas.md) tool) read to display the client's current status. See the [amulesig.dat reference](../../utilities/amulesig-dat.md) for details.
+aMule's native status signature file: a 17-line text file that external applications (such as the [`cas`](../../utilities/cas-wxcas.md) tool) read to display the client's current status. See the [amulesig.dat reference](../../../developer/file-formats/index.md#amulesigdat) for details.
 
 ### `onlinesig.dat` {#onlinesigdat}
 
 **Location:** `~/.aMule/onlinesig.dat`
 
-eMule-compatible 2-line status file. aMule generates it for compatibility with eMule utilities. The native aMule status file is [`amulesig.dat`](../../utilities/amulesig-dat.md), which carries far more information.
+eMule-compatible 2-line status file. aMule generates it for compatibility with eMule utilities. The native aMule status file is [`amulesig.dat`](#amulesigdat), which carries far more information.
 
 For its format, see the [`onlinesig.dat` format reference](../../../developer/file-formats/index.md#onlinesigdat).
 
@@ -447,7 +447,7 @@ For more detail, see the [Kad index files format reference](../../../developer/f
 
 ### `casrc`, `aMule-online-sign.html`, `aMule-online-sign.png` {#cas-files}
 
-Files used by the [CAS](../../utilities/cas.md) status-image tool: `casrc` is its configuration, and `aMule-online-sign.html` / `aMule-online-sign.png` are the HTML and PNG status outputs it generates. See the [CAS files](../../utilities/cas.md) documentation for details.
+Files used by the [`cas`](../../utilities/cas-wxcas.md) status-image tool: `casrc` is its configuration, and `aMule-online-sign.html` / `aMule-online-sign.png` are the HTML and PNG status outputs it generates. See the [`cas` / `wxcas` documentation](../../utilities/cas-wxcas.md) for details.
 
 ## Temporary download files
 
