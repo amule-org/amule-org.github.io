@@ -138,6 +138,8 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 
 ### Online Signature
 
+These keys control the signature files read by the [`cas` / `wxcas`](../../utilities/cas-wxcas.md) statistics tools.
+
 | Key | Default | Description |
 |---|---|---|
 | `OnlineSignature` | `0` | Enable writing of [`amulesig.dat`](./index.md#amulesigdat) and [`onlinesig.dat`](./index.md#onlinesigdat). |
