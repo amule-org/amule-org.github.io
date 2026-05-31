@@ -366,27 +366,38 @@ This file replaces the old `muleconn` socket file used in versions before 2.1.0.
 
 Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address. aMule uses this to display country flags next to clients and servers in the user interface.
 
-The feature requires the `libmaxminddb` library at compile time (`ENABLE_IP2COUNTRY` CMake option). It replaces the legacy `GeoIP.dat` (libGeoIP v1 / `.dat` format), which MaxMind discontinued in 2019.
+The feature requires the `libmaxminddb` library at compile time (`ENABLE_IP2COUNTRY` CMake option).
+
+:::note
+Since aMule 3.0.0 the legacy GeoIP system (libGeoIP v1 / `GeoIP.dat`) is **no longer used**; it has been replaced by MaxMindDB. MaxMind discontinued the legacy `.dat` databases in 2019.
+:::
 
 The configuration key `GeoIPEnabled` (in `[eMule]`) controls whether the feature is active. Country flag display can be disabled without deleting the file.
 
 #### Obtaining the database
 
-MaxMind requires a free account to download GeoLite2 databases:
+aMule does **not** ship the database. MaxMind requires a free account to download GeoLite2 databases:
 
 1. Register at [maxmind.com](https://www.maxmind.com/) and obtain a free license key.
-2. Download the **GeoLite2-Country** database in `.mmdb` format.
-3. Place the file at `~/.aMule/GeoLite2-Country.mmdb`.
+2. Download the **GeoLite2-Country** database in the binary `.mmdb` format (the *GZIP* download, not the CSV variant).
+3. Decompress it: `gunzip GeoLite2-Country*.mmdb.gz`.
+4. Place the resulting file at `~/.aMule/GeoLite2-Country.mmdb`.
 
-If you have a direct download URL (e.g. built with your MaxMind license key, or from a trusted mirror), configure it with the `GeoLiteCountryUpdateUrl` key in `[eMule]`:
+Some community mirrors redistribute the same database; use them at your own risk and verify checksums when possible. Replacing the file requires an aMule restart.
+
+#### Auto-update
+
+aMule can refresh the database itself if you set a direct download URL in the `GeoLiteCountryUpdateUrl` key under `[eMule]`. **There is no field for this in the GUI** — edit `amule.conf` directly while aMule is not running:
 
 ```ini
-GeoLiteCountryUpdateUrl=https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=YOUR_KEY&suffix=tar.gz
+GeoLiteCountryUpdateUrl=https://example.org/path/GeoLite2-Country.mmdb.gz
 ```
 
-aMule will download and unpack the archive automatically. Leave the key empty to manage the file manually.
+During an auto-update, aMule writes `GeoLite2-Country.mmdb.download` first, then renames it to `GeoLite2-Country.mmdb` on success. The `.download` file is temporary and can be deleted if it is left behind after a failed update. Leave the key empty (the default) to manage the file manually.
 
-During an auto-update, aMule writes `GeoLite2-Country.mmdb.download` first, then renames it to `GeoLite2-Country.mmdb` on success. The `.download` file is temporary and can be deleted if it is left behind after a failed update.
+:::caution
+aMule's auto-updater only understands `.mmdb` or `.mmdb.gz` files. MaxMind's official download URL (`…&suffix=tar.gz`) delivers a `.tar.gz` with a date-stamped subdirectory and **does not work** end-to-end — use a mirror that serves a plain `.mmdb.gz`, or download manually. This is why `GeoLiteCountryUpdateUrl` is empty by default; when the file is missing aMule logs a message asking for a manual download.
+:::
 
 The on-disk layout is the standard MaxMind DB format and is not aMule-specific; see the [GeoLite2 note](../../../developer/file-formats/index.md#geolite2-countrymmmdb) in the File Formats reference.
 
@@ -457,4 +468,4 @@ These files are no longer created by current aMule versions but may be present i
 | `~/.aMule/known2.met` | `~/.aMule/known2_64.met` (large-file support) | — |
 | `~/.aMule/muleconn` | `~/.aMule/muleLock` | aMule 2.1.0 |
 | `~/.aMule/server_met.old` | (backup of `server.met`, no longer written) | — |
-| `~/.aMule/GeoIP.dat` | `~/.aMule/GeoLite2-Country.mmdb` (MaxMind DB format; libGeoIP v1 discontinued in 2019) | — |
+| `~/.aMule/GeoIP.dat` | `~/.aMule/GeoLite2-Country.mmdb` (MaxMind DB format) | aMule 3.0.0 |

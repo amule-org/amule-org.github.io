@@ -118,10 +118,6 @@ const sidebars: SidebarsConfig = {
       label: 'Developer Guide',
       link: {type: 'doc', id: 'developer/index'},
       items: [
-        'developer/code-style',
-        'developer/ec-protocol',
-        'developer/debugging',
-        'developer/testing',
         {
           type: 'category',
           label: 'Compilation',
@@ -145,6 +141,10 @@ const sidebars: SidebarsConfig = {
             'developer/file-formats/part-met',
           ],
         },
+        'developer/ec-protocol',
+        'developer/debugging',
+        'developer/testing',
+        'developer/code-style'
       ],
     },
     {

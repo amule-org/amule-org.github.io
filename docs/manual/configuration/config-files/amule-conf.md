@@ -179,7 +179,7 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | Key | Default | Description |
 |---|---|---|
 | `GeoIPEnabled` | `1` | Show country flags next to clients and servers (requires `GeoLite2-Country.mmdb`). |
-| `GeoLiteCountryUpdateUrl` | _(empty)_ | URL to download the `GeoLite2-Country.mmdb` database from. Leave empty to manage the file manually (a free MaxMind account is required to generate a download URL). |
+| `GeoLiteCountryUpdateUrl` | _(empty)_ | Direct URL to a `.mmdb` or `.mmdb.gz` database (the auto-updater does not handle `.tar.gz`, so MaxMind's official download URL is unsupported). No GUI field — edit this file directly. Leave empty to manage the database manually (a free MaxMind account is required to download it). |
 
 ### Statistics
 
