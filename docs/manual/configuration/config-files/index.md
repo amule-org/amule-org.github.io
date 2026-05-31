@@ -26,13 +26,15 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 | File | Description |
 |---|---|
 | [`amule.conf`](#amuleconf) | Main configuration — stores all user preferences |
-| [`amule.conf.bak`](#amuleconf) | Automatic backup of `amule.conf` |
+| [`amule.conf.bak`](#amuleconf) | Automatic backup of `amule.conf` (written on shutdown) |
+| [`amule.conf.backup`](#amuleconf) | Backup of `amule.conf`, written only when started with `--reset-config` |
 | [`remote.conf`](#remoteconf) | Configuration for remote tools (`amulecmd`, `amuleweb`, `amulegui`) |
 | [`preferences.dat`](#preferencesdat) | Stores the userhash and config file version |
 | [`preferencesKad.dat`](#preferenceskaddat) | Stores the client IP and Kademlia ClientID |
 | [`cryptkey.dat`](#cryptkeydat) | 384-bit RSA private key for Secure User Identification |
 | [`server.met`](#servermet) | eD2k server list (IP, port, name, statistics) |
 | [`server.met.bak`](#servermet) | Automatic backup of `server.met` |
+| [`server_auto.met`](#servermet) | Temporary file holding a server list during auto-update (deleted after merge) |
 | [`staticservers.dat`](#staticserversdat) | Static eD2k servers that override `server.met` entries |
 | [`addresses.dat`](#addressesdat) | URLs to download `server.met` updates from |
 | [`nodes.dat`](#nodesdat) | Known Kademlia contacts for network bootstrap |
@@ -41,6 +43,7 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 | [`clients.met`](#clientsmet) | Credit ledger: bytes uploaded/downloaded per peer |
 | [`clients.met.bak`](#clientsmet) | Automatic backup of `clients.met` |
 | [`emfriends.met`](#emfriendsmet) | Friends list with last known IP, port, and timestamps |
+| [`statistics.dat`](#statisticsdat) | Lifetime traffic totals (cumulative bytes uploaded/downloaded) |
 | [`canceled.met`](#canceledmet) | Hashes of cancelled downloads (highlights them in search results) |
 | [`shareddir.dat`](#shareddirdat) | Union of all shared directories (regenerated automatically) |
 | [`shareddir-explicit.dat`](#shareddirdat) | Non-recursive shared directory roots (user-added) |
@@ -51,14 +54,17 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 | [`amulesig.dat`](#amulesigdat) | aMule status signature for external apps (17-line format) |
 | [`onlinesig.dat`](#onlinesigdat) | eMule-compatible 2-line status signature |
 | [`muleLock`](#mulelock) | PID file that prevents two simultaneous aMule instances |
+| [`muleLockRGUI`](#mulelock) | PID file for the Remote GUI (`amulegui`) instance |
 | [`GeoLite2-Country.mmdb`](#geolite2-countrymmmdb) | MaxMind GeoLite2 database for IP-to-country lookups |
 | [`logfile`](#logfile) | Log of the current aMule session |
 | [`logfile.bak`](#logfile) | Log of the previous aMule session |
 | [`remotelogfile`](#logfile) | Log written by `amulegui` (Remote GUI) for its own session |
 | [`lastversion`](#lastversion) | History of the 10 most recently launched aMule versions |
-| [`last_version_check`](#last_version_check) | Latest official aMule release version (fetched from the internet) |
-| [`key_index.dat`](#key_indexdat-and-load_indexdat) | Kademlia keyword data this client publishes to the network |
-| [`load_index.dat`](#key_indexdat-and-load_indexdat) | Kademlia client keyIDs and last-seen timestamps |
+| [`last_version_check`](#last_version_check) | Latest release info fetched from GitHub (Releases API JSON) |
+| [`last_version`](#last_version_check) | Rename destination of a successful version-check download |
+| [`key_index.dat`](#kad-index-files) | Kademlia keyword data this client publishes to the network |
+| [`src_index.dat`](#kad-index-files) | Kademlia source data this client publishes to the network |
+| [`load_index.dat`](#kad-index-files) | Kademlia client keyIDs and last-seen timestamps |
 | [`casrc`](#cas-files) | CAS image/HTML generation configuration |
 | [`aMule-online-sign.html`](#cas-files) | CAS-generated HTML status page |
 | [`aMule-online-sign.png`](#cas-files) | CAS-generated PNG status image |
@@ -76,7 +82,9 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 
 This is aMule's main configuration file. It stores virtually all user preferences set through the Preferences dialog — connection limits, directories, interface settings, and more. The format is a standard Windows-style INI file. It is read on startup and written on exit.
 
-`amule.conf.bak` is an automatic backup created each time `amule.conf` is written.
+`amule.conf.bak` is an automatic backup: on a clean shutdown aMule copies the current `amule.conf` to `amule.conf.bak`, so the previous session's configuration is always available.
+
+A separate `amule.conf.backup` is written only when aMule is started with the `--reset-config` option: the existing configuration is renamed to `amule.conf.backup` before being reset to default values.
 
 See the [amule.conf reference](./amule-conf.md) for the complete key reference and a full example file.
 
@@ -122,7 +130,7 @@ For its storage format, see the [`cryptkey.dat` format reference](../../../devel
 
 **Location:** `~/.aMule/server.met`
 
-Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here. `server.met.bak` is an automatic backup.
+Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here. `server.met.bak` is an automatic backup. During an automatic server-list update, the downloaded list is written to `server_auto.met` first, then merged into `server.met` and deleted on success.
 
 #### Obtaining server.met online
 
@@ -219,6 +227,14 @@ Binary file storing the MD4 hashes of all downloads the user has cancelled. When
 
 For its format, see the [`canceled.met` format reference](../../../developer/file-formats/index.md#canceledmet).
 
+### `statistics.dat`
+
+**Location:** `~/.aMule/statistics.dat`
+
+Small binary file storing aMule's **lifetime traffic totals** — the cumulative number of bytes ever uploaded and downloaded across all sessions. These totals were previously kept in the `[Statistics]` section of `amule.conf`; current aMule migrates them into this file on first load.
+
+For its format, see the [`statistics.dat` format reference](../../../developer/file-formats/index.md#statisticsdat).
+
 ## Shared files
 
 ### `shareddir.dat`, `shareddir-explicit.dat`, `shareddir-recursive.dat` {#shareddirdat}
@@ -241,7 +257,7 @@ For the shared file format, see the [shared directory files reference](../../../
 
 **Location:** `~/.aMule/ipfilter.dat`
 
-Text file containing IP ranges that aMule should block or allow. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success. For how the filter works and how to enable it, see the [IP Filter](../ipfilter.md) configuration guide; for the line format, see the [ipfilter format reference](../../../developer/file-formats/index.md#ipfilterdat).
+Text file containing IP ranges that aMule should block or allow. aMule can auto-update this file by downloading a new one from a configurable URL. During the download, the new data is written to `ipfilter.download` first, then renamed to `ipfilter.dat` on success. The downloaded file may be a ZIP archive; aMule decompresses it automatically and accepts any of the entries named `ipfilter.dat`, `guardian.p2p`, or `guarding.p2p` (the PeerGuardian list filenames). For how the filter works and how to enable it, see the [IP Filter](../ipfilter.md) configuration guide; for the line format, see the [ipfilter format reference](../../../developer/file-formats/index.md#ipfilterdat).
 
 #### Obtaining ipfilter.dat online
 
@@ -304,6 +320,8 @@ On startup, aMule checks whether `muleLock` exists. If it does, aMule reads the 
 aMule does not verify that the running process is actually another aMule. Any process with the stored PID will block startup. If `muleLock` is left behind after a crash, delete it manually before restarting aMule.
 :::
 
+The Remote GUI (`amulegui`) uses its own lock file, `muleLockRGUI`, with the same mechanism, so a local aMule instance and the Remote GUI do not block each other.
+
 This file replaces the old `muleconn` socket file used in versions before 2.1.0.
 
 ### `GeoLite2-Country.mmdb` {#geolite2-countrymmmdb}
@@ -358,15 +376,23 @@ Plain-text file recording the last 10 aMule versions launched on this machine, i
 
 **Location:** `~/.aMule/last_version_check`
 
-Single-line plain-text file containing the version number of the latest official aMule release. aMule downloads this from `http://amule.sourceforge.net/lastversion` and compares it with the running version to notify the user of updates.
+File holding the response of aMule's update check. aMule queries the GitHub Releases API (`https://api.github.com/repos/amule-org/amule/releases/latest`) and stores the returned JSON here; it then extracts the `tag_name` field and compares it with the running version to notify the user of updates. On a successful download the file is renamed to `last_version`.
+
+This replaces the legacy single-line `lastversion` text file that was fetched from SourceForge, which has been unmaintained since the project moved to GitHub.
 
 ## Kademlia index files
 
-### `key_index.dat` and `load_index.dat`
+### `key_index.dat`, `src_index.dat` and `load_index.dat` {#kad-index-files}
 
-**Location:** `~/.aMule/key_index.dat`, `~/.aMule/load_index.dat`
+**Location:** `~/.aMule/key_index.dat`, `~/.aMule/src_index.dat`, `~/.aMule/load_index.dat`
 
-Binary files that store Kademlia network index data: `key_index.dat` holds the keyword and source information this client publishes to the Kad network, and `load_index.dat` holds keyIDs of known Kademlia clients with their last-seen dates. Both are internal to the Kad implementation and are not intended for manual editing.
+Binary files that store the Kademlia network index data this client maintains as a node of the Kad network:
+
+- `key_index.dat` — keyword index: the keywords this client publishes so other clients can search for files through it.
+- `src_index.dat` — source index: the sources (which clients hold which files) this client publishes.
+- `load_index.dat` — keyIDs of known Kademlia clients with their last-seen dates, used to gauge network load.
+
+All three are internal to the Kad implementation and are not intended for manual editing.
 
 For more detail, see the [Kad index files format reference](../../../developer/file-formats/index.md#key_indexdat-and-load_indexdat).
 
@@ -395,5 +421,4 @@ These files are no longer created by current aMule versions but may be present i
 | `~/.aMule/known2.met` | `~/.aMule/known2_64.met` (large-file support) | — |
 | `~/.aMule/muleconn` | `~/.aMule/muleLock` | aMule 2.1.0 |
 | `~/.aMule/server_met.old` | (backup of `server.met`, no longer written) | — |
-| `~/.aMule/src_index.dat` | `~/.aMule/key_index.dat` (renamed in later versions) | — |
 | `~/.aMule/GeoIP.dat` | `~/.aMule/GeoLite2-Country.mmdb` (MaxMind DB format; libGeoIP v1 discontinued in 2019) | — |

@@ -346,13 +346,30 @@ The on-disk layout is the standard MaxMind DB format and is not aMule-specific. 
 and configure the database, see the
 [aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-countrymmmdb).
 
-## `key_index.dat` and `load_index.dat` {#key_indexdat-and-load_indexdat}
+## `key_index.dat`, `src_index.dat` and `load_index.dat` {#key_indexdat-and-load_indexdat}
 
-Binary files that store Kademlia network index data:
+Binary files that store the Kademlia network index data this client maintains as a Kad node:
 
-- **`key_index.dat`** — stores keyword and source information that this client is currently
-  publishing to the Kad network (i.e., what other clients can look up from this node).
+- **`key_index.dat`** — keyword index: the keywords this client publishes to the Kad network, so
+  other clients can search for files through it.
+- **`src_index.dat`** — source index: the sources (which clients hold which files) this client
+  publishes to the Kad network.
 - **`load_index.dat`** — stores keyIDs of known Kademlia clients along with the date when each was
   last seen. Used to calculate load distribution across the Kad network.
 
-Both files are internal to the Kad implementation and are not intended for manual editing.
+All three files are internal to the Kad implementation and are not intended for manual editing.
+
+## `statistics.dat` {#statisticsdat}
+
+Small binary file storing aMule's lifetime traffic totals: the cumulative number of bytes
+ever uploaded and downloaded across all sessions. These totals were previously kept in the
+`[Statistics]` section of `amule.conf` (`TotalUploadedBytes` / `TotalDownloadedBytes`); aMule now
+migrates those keys into this file on first load and deletes them from the config.
+
+### Format
+
+| Offset | Size | Field | Description |
+|---|---|---|---|
+| 0 | 1 byte | Version | Always `0x00` — identifies the current `statistics.dat` layout |
+| 1 | 8 bytes | Total uploaded | Cumulative bytes sent (64-bit unsigned, little-endian) |
+| 9 | 8 bytes | Total downloaded | Cumulative bytes received (64-bit unsigned, little-endian) |

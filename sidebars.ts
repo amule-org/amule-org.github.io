@@ -12,6 +12,29 @@ const sidebars: SidebarsConfig = {
         {type: 'doc', id: 'manual/installation/index', label: 'Installation'},
         {
           type: 'category',
+          label: 'Configuration',
+          link: {type: 'doc', id: 'manual/configuration/index'},
+          items: [
+            {
+              type: 'category',
+              label: 'Configuration Files',
+              link: {type: 'doc', id: 'manual/configuration/config-files/index'},
+              items: [
+                'manual/configuration/config-files/amule-conf',
+                'manual/configuration/config-files/remote-conf',
+              ],
+            },
+            'manual/configuration/download-folders',
+            'manual/configuration/get-high-id',
+            'manual/configuration/firewall',
+            'manual/configuration/upnp',
+            'manual/configuration/proxy',
+            'manual/configuration/ipfilter',
+            'manual/configuration/events',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Interfaces',
           link: {type: 'doc', id: 'manual/interfaces/index'},
           items: [
@@ -44,29 +67,6 @@ const sidebars: SidebarsConfig = {
             'manual/interfaces/amuled',
             'manual/interfaces/amuleweb',
             'manual/interfaces/amulecmd',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Configuration',
-          link: {type: 'doc', id: 'manual/configuration/index'},
-          items: [
-            {
-              type: 'category',
-              label: 'Configuration Files',
-              link: {type: 'doc', id: 'manual/configuration/config-files/index'},
-              items: [
-                'manual/configuration/config-files/amule-conf',
-                'manual/configuration/config-files/remote-conf',
-              ],
-            },
-            'manual/configuration/download-folders',
-            'manual/configuration/get-high-id',
-            'manual/configuration/firewall',
-            'manual/configuration/upnp',
-            'manual/configuration/proxy',
-            'manual/configuration/ipfilter',
-            'manual/configuration/events',
           ],
         },
         {
