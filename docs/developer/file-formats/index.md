@@ -461,12 +461,12 @@ Offline:
 0.0|0.0|0
 ```
 
-## `GeoLite2-Country.mmdb` {#geolite2-countrymmmdb}
+## `GeoLite2-Country.mmdb` {#geolite2-country-mmdb}
 
 Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address.
 The on-disk layout is the standard MaxMind DB format and is not aMule-specific. For how to obtain
 and configure the database, see the
-[aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-countrymmmdb).
+[aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-country-mmdb).
 
 ## `key_index.dat`, `src_index.dat` and `load_index.dat` {#key_indexdat-and-load_indexdat}
 

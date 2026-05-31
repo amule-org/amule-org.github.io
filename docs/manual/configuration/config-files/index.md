@@ -55,7 +55,7 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 | [`onlinesig.dat`](#onlinesigdat) | eMule-compatible 2-line status signature |
 | [`muleLock`](#mulelock) | PID file that prevents two simultaneous aMule instances |
 | [`muleLockRGUI`](#mulelock) | PID file for the Remote GUI (`amulegui`) instance |
-| [`GeoLite2-Country.mmdb`](#geolite2-countrymmmdb) | MaxMind GeoLite2 database for IP-to-country lookups |
+| [`GeoLite2-Country.mmdb`](#geolite2-country-mmdb) | MaxMind GeoLite2 database for IP-to-country lookups |
 | [`logfile`](#logfile) | Log of the current aMule session |
 | [`logfile.bak`](#logfile) | Log of the previous aMule session |
 | [`remotelogfile`](#logfile) | Log written by `amulegui` (Remote GUI) for its own session |
@@ -360,7 +360,7 @@ The Remote GUI (`amulegui`) uses its own lock file, `muleLockRGUI`, with the sam
 
 This file replaces the old `muleconn` socket file used in versions before 2.1.0.
 
-### `GeoLite2-Country.mmdb` {#geolite2-countrymmmdb}
+### `GeoLite2-Country.mmdb` {#geolite2-country-mmdb}
 
 **Location:** `~/.aMule/GeoLite2-Country.mmdb`
 
@@ -379,9 +379,9 @@ The configuration key `GeoIPEnabled` (in `[eMule]`) controls whether the feature
 aMule does **not** ship the database. MaxMind requires a free account to download GeoLite2 databases:
 
 1. Register at [maxmind.com](https://www.maxmind.com/) and obtain a free license key.
-2. Download the **GeoLite2-Country** database in the binary `.mmdb` format (the *GZIP* download, not the CSV variant).
-3. Decompress it: `gunzip GeoLite2-Country*.mmdb.gz`.
-4. Place the resulting file at `~/.aMule/GeoLite2-Country.mmdb`.
+2. Download the **GeoLite2-Country** database in the binary `.mmdb` format (the *GZIP* download, not the CSV variant). MaxMind delivers it as `GeoLite2-Country_YYYYMMDD.tar.gz` — an archive containing a date-stamped subdirectory.
+3. Extract it: `tar -xzvf GeoLite2-Country_*.tar.gz`.
+4. Move the extracted database into place: `mv GeoLite2-Country_*/GeoLite2-Country.mmdb ~/.aMule/GeoLite2-Country.mmdb`.
 
 Some community mirrors redistribute the same database; use them at your own risk and verify checksums when possible. Replacing the file requires an aMule restart.
 
@@ -399,7 +399,7 @@ During an auto-update, aMule writes `GeoLite2-Country.mmdb.download` first, then
 aMule's auto-updater only understands `.mmdb` or `.mmdb.gz` files. MaxMind's official download URL (`…&suffix=tar.gz`) delivers a `.tar.gz` with a date-stamped subdirectory and **does not work** end-to-end — use a mirror that serves a plain `.mmdb.gz`, or download manually. This is why `GeoLiteCountryUpdateUrl` is empty by default; when the file is missing aMule logs a message asking for a manual download.
 :::
 
-The on-disk layout is the standard MaxMind DB format and is not aMule-specific; see the [GeoLite2 note](../../../developer/file-formats/index.md#geolite2-countrymmmdb) in the File Formats reference.
+The on-disk layout is the standard MaxMind DB format and is not aMule-specific; see the [GeoLite2 note](../../../developer/file-formats/index.md#geolite2-country-mmdb) in the File Formats reference.
 
 ## Log files
 
