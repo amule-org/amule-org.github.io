@@ -71,7 +71,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Utilities',
-          link: {type: 'generated-index'},
+          link: {type: 'doc', id: 'manual/utilities/index'},
           items: [
             'manual/utilities/ed2k',
             'manual/utilities/alc-alcc',
