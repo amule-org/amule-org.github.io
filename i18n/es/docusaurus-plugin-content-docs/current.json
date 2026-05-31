@@ -3,9 +3,9 @@
     "message": "Manual de usuario",
     "description": "The label for category 'User Manual' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.aMule Core": {
-    "message": "Núcleo de aMule",
-    "description": "The label for category 'aMule Core' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Configuración",
+    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Files & directories": {
     "message": "Ficheros y directorios",

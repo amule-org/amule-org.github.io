@@ -135,11 +135,11 @@ It is normal and expected for Transferred to be **smaller** than Completed (see 
 
 ## What are all those files aMule creates the first time it is run?
 
-Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../core/files/index.md).
+Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../configuration/files/index.md).
 
 ## Where are my downloaded files?
 
-See [Download Folders](../core/download-folders.md) for the default paths on each platform.
+See [Download Folders](../configuration/download-folders.md) for the default paths on each platform.
 
 ## Can I use eMule's files and settings, and vice versa?
 
@@ -150,7 +150,7 @@ Most files can be shared between the two clients. The only files you **cannot** 
 
 All ED2K network-related files can be successfully shared by copying them between the two applications' directories. However, some files in `~/.aMule` are aMule-specific (such as `amulesig.dat` or `aMule.tmpl`), so it is best to only move files that exist in both the aMule and eMule directories.
 
-**Moving half-downloaded files** is straightforward: copy them from eMule's Temp directory (usually `C:\Program Files\eMule\Temp` on Windows) into aMule's Temp directory (see [Download Folders](../core/download-folders.md) for the path on your platform), and vice versa.
+**Moving half-downloaded files** is straightforward: copy them from eMule's Temp directory (usually `C:\Program Files\eMule\Temp` on Windows) into aMule's Temp directory (see [Download Folders](../configuration/download-folders.md) for the path on your platform), and vice versa.
 
 ## What is all that stuff in amulesig.dat and onlinesig.dat?
 
@@ -206,7 +206,7 @@ The practical rule: set your upload limit to at least **10 KBps** if your ISP al
 
 Yes. Create a plain text file with one `ed2k://` link per line, name it `ED2KLinks`, and place it in `~/.aMule`. aMule will automatically detect it, add all links to the download queue, and delete the file.
 
-See [ED2KLinks file](../core/files/index.md) for more information.
+See [ED2KLinks file](../configuration/files/index.md) for more information.
 
 ## Can I manage aMule remotely through telnet the same way I do with eDonkey?
 

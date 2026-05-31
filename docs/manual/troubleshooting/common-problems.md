@@ -70,7 +70,7 @@ Three possible causes:
 This happens when aMule is killed mid-completion and the final hash-check pass was not finished. Fix:
 
 1. Close aMule.
-2. Go to your Temp directory (see [Download Folders](../core/download-folders.md) for the path on your platform).
+2. Go to your Temp directory (see [Download Folders](../configuration/download-folders.md) for the path on your platform).
 3. Run:
    ```bash
    touch ./*
@@ -253,7 +253,7 @@ Yes:
 - **aMule 2.0.0-rc4 or later**: right-click the directory icon you want to select recursively in the Shared Directories list.
 - **aMule 1.x and up to 2.0.0-rc3**: click the directory while holding the **Ctrl** key.
 
-aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/core/files) for details.
+aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/configuration/files) for details.
 
 ## I downloaded a file that got corrupted after completion. Can I avoid re-downloading the whole thing?
 

@@ -82,7 +82,7 @@ These values are only used for Statistics and the speed bar in the SysTray icon 
 
 ## Proxy
 
-Options for connecting through a proxy server. See [Proxy configuration](../../core/proxy.md) for a full explanation of how the proxy feature works.
+Options for connecting through a proxy server. See [Proxy configuration](../../configuration/proxy.md) for a full explanation of how the proxy feature works.
 
 ![Proxy preferences tab](/img/docs/configuration/window_prefs4.jpg)
 
@@ -216,7 +216,7 @@ Options for downloading files.
 | **Enable command execution** | Execute a command each time a file completes downloading. |
 | **Command** | Command to execute on completion. The following substitutions are available: `%FILE` (full path), `%NAME` (filename only), `%SIZE` (size in bytes), `%HASH` (file hash). |
 
-See [Events](../../core/events.md) for a more flexible event system that also covers chat notifications and disk-space alerts.
+See [Events](../../configuration/events.md) for a more flexible event system that also covers chat notifications and disk-space alerts.
 
 ## Sources Dropping
 
@@ -282,7 +282,7 @@ Options for aMule's security features, including IP filtering.
 | **Reload List** | Reload the filtered IP list and verify all connections are filtered correctly. |
 | **Auto-update ipfilter at startup** | Download the IP filter list from the URL in the **URL** box at startup. |
 | **Update now** | Immediately update the IP filter from the URL in the **URL** box. |
-| **Filtering Level** | Select the filtering level. See [IPFilter](../../core/ipfilter.md) for details. |
+| **Filtering Level** | Select the filtering level. See [IPFilter](../../configuration/ipfilter.md) for details. |
 | **Always filter LAN IPs** | Always filter IPs that claim to be on your local LAN. |
 
 ### Identification
@@ -349,4 +349,4 @@ This section is intended for developers and advanced troubleshooting only. The o
 
 Configure actions aMule takes when specific events occur, such as sending an email notification when a download completes or when disk space runs out.
 
-See the dedicated [Events](../../core/events.md) page for a full description of event types, variables, and example scripts.
+See the dedicated [Events](../../configuration/events.md) page for a full description of event types, variables, and example scripts.
