@@ -73,9 +73,9 @@ const sidebars: SidebarsConfig = {
           label: 'Utilities',
           link: {type: 'generated-index'},
           items: [
-            'manual/utilities/alc-alcc',
             'manual/utilities/ed2k',
-            'manual/utilities/cas-wxcas',
+            'manual/utilities/alc-alcc',
+            'manual/utilities/wxcas-cas',
           ],
         },
         {

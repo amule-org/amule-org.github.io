@@ -258,7 +258,7 @@ amule &
 
 ## How can I get those nice aMule statistics some people post on IRC channels?
 
-Use **CAS** (`cas`) or its graphical counterpart **wxCAS** (`wxcas`). Run `cas` in a terminal to get a text summary of your aMule status, or launch `wxcas` for a graphical display. See [cas / wxcas](/docs/manual/utilities/cas-wxcas) for details.
+Use **CAS** (`cas`) or its graphical counterpart **wxCAS** (`wxcas`). Run `cas` in a terminal to get a text summary of your aMule status, or launch `wxcas` for a graphical display. See [cas / wxcas](/docs/manual/utilities/wxcas-cas) for details.
 
 ## What is slot allocation?
 

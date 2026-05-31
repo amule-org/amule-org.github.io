@@ -306,7 +306,7 @@ Options for controlling aMule remotely via the web interface or external connect
 
 ## Online Signature
 
-Options for the [Online Signature](../../utilities/cas-wxcas.md) feature used by `cas` and `wxcas`.
+Options for the [Online Signature](../../utilities/wxcas-cas.md) feature used by `cas` and `wxcas`.
 
 ![Online Signature preferences tab](/img/docs/gui/preferences_online_signature.png)
 

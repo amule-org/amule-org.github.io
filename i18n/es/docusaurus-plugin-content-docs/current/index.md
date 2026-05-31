@@ -55,7 +55,7 @@ Además de la base *Mule, aMule añade:
 - **aMuleGUI ([`amulegui`](manual/interfaces/gui/amulegui.md))** — GUI remota con la misma interfaz que el cliente local.
 - **aMuleWeb ([`amuleweb`](manual/interfaces/amuleweb.md))** — interfaz basada en navegador; funciona de forma local y remota desde cualquier dispositivo.
 - **aMuleCMD ([`amulecmd`](manual/interfaces/amulecmd.md))** — control remoto por línea de comandos; scriptable mediante shell y cron.
-- **Herramientas de estadísticas** — [`cas` y `wxcas`](manual/utilities/cas-wxcas.md) leen `amulesig.dat` para generar imágenes de estado y páginas HTML.
+- **Herramientas de estadísticas** — [`cas` y `wxcas`](manual/utilities/wxcas-cas.md) leen `amulesig.dat` para generar imágenes de estado y páginas HTML.
 - **ALinkCreator ([`alc` / `alcc`](manual/utilities/alc-alcc.md))** — genera enlaces ed2k para archivos locales sin necesidad de ejecutar aMule.
 - **Gestor rápido de enlaces ed2k** — integrado en la parte inferior de cada página (puede desactivarse en Preferencias).
 - **Ejecutar un comando al completar un archivo**.
@@ -81,7 +81,7 @@ Además de la base *Mule, aMule añade:
 | [`amulecmd`](manual/interfaces/amulecmd.md) | Interfaz interactiva de línea de comandos para un `amuled` en ejecución |
 | [`ed2k`](manual/utilities/ed2k.md) | Herramienta de línea de comandos para añadir enlaces eD2k a una instancia de aMule en ejecución |
 | [`alc` / `alcc`](manual/utilities/alc-alcc.md) | Herramientas GUI y de línea de comandos para generar enlaces ed2k de archivos locales |
-| [`wxcas` / `cas`](manual/utilities/cas-wxcas.md) | Herramientas de estadísticas que muestran el estado de aMule desde `amulesig.dat` |
+| [`wxcas` / `cas`](manual/utilities/wxcas-cas.md) | Herramientas de estadísticas que muestran el estado de aMule desde `amulesig.dat` |
 
 ## Plataformas compatibles
 

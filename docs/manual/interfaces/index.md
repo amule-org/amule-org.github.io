@@ -14,7 +14,7 @@ aMule ships several binaries, each serving a distinct role. They can be used ind
 | [`amulecmd`](./amulecmd.md) | Interactive command-line interface for a running `amuled` instance |
 | [`ed2k`](../utilities/ed2k.md) | Command-line tool for adding eD2k links to a running aMule instance |
 | [`alc` / `alcc`](../utilities/alc-alcc.md) | GUI and command-line tools for generating ed2k links for local files |
-| [`wxcas` / `cas`](../utilities/cas-wxcas.md) | Statistics tools that display aMule status from `amulesig.dat` |
+| [`wxcas` / `cas`](../utilities/wxcas-cas.md) | Statistics tools that display aMule status from `amulesig.dat` |
 
 ## External Connections (EC) Protocol
 

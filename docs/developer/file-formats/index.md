@@ -312,7 +312,7 @@ command-line tool to pass links to a running aMule session.
 
 ## `amulesig.dat` {#amulesigdat}
 
-aMule's status signature file. It is written periodically by aMule to inform external applications — such as [`cas`, `wxcas`](../../manual/utilities/cas-wxcas.md), and IRC bots — of the current state of the running aMule instance. **Location:** `~/.aMule/amulesig.dat`.
+aMule's status signature file. It is written periodically by aMule to inform external applications — such as [`cas`, `wxcas`](../../manual/utilities/wxcas-cas.md), and IRC bots — of the current state of the running aMule instance. **Location:** `~/.aMule/amulesig.dat`.
 
 `amulesig.dat` is the native aMule format and is a superset of eMule's [`onlinesig.dat`](#onlinesigdat). It carries considerably more information across 17 lines, while `onlinesig.dat` provides only 2 lines of basic status for compatibility with older eMule utilities.
 

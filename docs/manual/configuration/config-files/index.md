@@ -334,7 +334,7 @@ For its format, see the [`ED2KLinks` format reference](../../../developer/file-f
 
 **Location:** `~/.aMule/amulesig.dat`
 
-aMule's native status signature file: a 17-line text file that external applications (such as the [`cas`](../../utilities/cas-wxcas.md) tool) read to display the client's current status. See the [amulesig.dat reference](../../../developer/file-formats/index.md#amulesigdat) for details.
+aMule's native status signature file: a 17-line text file that external applications (such as the [`cas`](../../utilities/wxcas-cas.md) tool) read to display the client's current status. See the [amulesig.dat reference](../../../developer/file-formats/index.md#amulesigdat) for details.
 
 ### `onlinesig.dat` {#onlinesigdat}
 
@@ -447,7 +447,7 @@ For more detail, see the [Kad index files format reference](../../../developer/f
 
 ### `casrc`, `aMule-online-sign.html`, `aMule-online-sign.png` {#cas-files}
 
-Files used by the [`cas`](../../utilities/cas-wxcas.md) status-image tool: `casrc` is its configuration, and `aMule-online-sign.html` / `aMule-online-sign.png` are the HTML and PNG status outputs it generates. See the [`cas` / `wxcas` documentation](../../utilities/cas-wxcas.md) for details.
+Files used by the [`cas`](../../utilities/wxcas-cas.md) status-image tool: `casrc` is its configuration, and `aMule-online-sign.html` / `aMule-online-sign.png` are the HTML and PNG status outputs it generates. See the [`cas` / `wxcas` documentation](../../utilities/wxcas-cas.md) for details.
 
 ## Temporary download files
 

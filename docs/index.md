@@ -55,7 +55,7 @@ In addition to the *Mule baseline, aMule adds:
 - **aMuleGUI ([`amulegui`](./manual/interfaces/gui/amulegui.md))** — remote GUI with the same interface as the local client.
 - **aMuleWeb ([`amuleweb`](./manual/interfaces/amuleweb.md))** — browser-based interface; works locally and remotely from any device.
 - **aMuleCMD ([`amulecmd`](./manual/interfaces/amulecmd.md))** — command-line remote control; scriptable via shell and cron.
-- **Statistics tools** — [`cas` and `wxcas`](./manual/utilities/cas-wxcas.md) read `amulesig.dat` to generate status images and HTML pages.
+- **Statistics tools** — [`cas` and `wxcas`](./manual/utilities/wxcas-cas.md) read `amulesig.dat` to generate status images and HTML pages.
 - **ALinkCreator ([`alc` / `alcc`](./manual/utilities/alc-alcc.md))** — generate ed2k links for local files without running aMule.
 - **Fast ed2k link handler** — embedded at the bottom of every page (can be disabled in Preferences).
 - **Run a command when a file completes**.
@@ -81,7 +81,7 @@ In addition to the *Mule baseline, aMule adds:
 | [`amulecmd`](./manual/interfaces/amulecmd.md) | Interactive command-line interface for a running `amuled` |
 | [`ed2k`](./manual/utilities/ed2k.md) | Command-line tool for adding eD2k links to a running aMule instance |
 | [`alc` / `alcc`](./manual/utilities/alc-alcc.md) | GUI and command-line tools for generating ed2k links for local files |
-| [`wxcas` / `cas`](./manual/utilities/cas-wxcas.md) | Statistics tools that display aMule status from `amulesig.dat` |
+| [`wxcas` / `cas`](./manual/utilities/wxcas-cas.md) | Statistics tools that display aMule status from `amulesig.dat` |
 
 ## Supported Platforms
 

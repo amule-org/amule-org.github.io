@@ -1,14 +1,14 @@
 ---
-id: cas-wxcas
-title: cas / wxcas — Statistics Tools
+id: wxcas-cas
+title: wxcas / cas — Statistics Tools
 ---
 
 wxCAS and CAS are external statistics tools that read aMule's online signature file (`~/.aMule/amulesig.dat`) and produce status output in various formats. They are shipped with aMule and serve users who want to embed aMule statistics in a website, forum signature, or terminal dashboard.
 
 | Binary | Interface | Output |
 |---|---|---|
-| `cas` | Command-line | Console text, PNG image, HTML page |
 | `wxcas` | Graphical (wxWidgets) | Graphical display of the same data |
+| `cas` | Command-line | Console text, PNG image, HTML page |
 
 ## Prerequisites
 
@@ -20,9 +20,51 @@ Both tools read `~/.aMule/amulesig.dat`, which aMule only generates when **Onlin
 
 The same options can be set directly in [`amule.conf`](../configuration/config-files/amule-conf.md#online-signature) via the `OnlineSignature`, `OnlineSignatureUpdate` and `OSDirectory` keys.
 
-`amulesig.dat` is updated periodically while aMule runs. The file must exist for `cas` or `wxcas` to produce any output. If you change the signature directory (the **Save online signature file in** preference, or the `OSDirectory` key), point `cas -c DIR` and the wxcas **amulesig.dat directory** setting at the same location.
+`amulesig.dat` is updated periodically while aMule runs. The file must exist for `wxcas` or `cas` to produce any output. If you change the signature directory (the **Save online signature file in** preference, or the `OSDirectory` key), point the wxcas **amulesig.dat directory** setting and `cas -c DIR` at the same location.
 
 For the full format specification of `amulesig.dat`, see the [amulesig.dat reference](../configuration/config-files/index.md#amulesigdat) in the Configuration Files reference.
+
+## WxCAS — Graphical Statistics
+
+`wxcas` provides a graphical window displaying the same statistics as `cas`. It is aimed at desktop users who want to monitor aMule status without a terminal.
+
+Launch with:
+
+```bash
+wxcas
+```
+
+`wxcas` does not accept command-line arguments; all configuration is done through its Preferences dialog.
+
+`wxcas` polls `amulesig.dat` periodically and refreshes the display automatically. The main window shows:
+
+- **aMule panel**: the seven status lines (version/uptime, server connection, totals, session totals, current rates, shared files/queue, local time).
+- **Download records panel**: peak download rate for the current session and the all-time record across all previous sessions.
+- **System panel** (Linux only): system load averages (1, 5, 15 minutes) and system uptime.
+
+### Image Generation
+
+`wxcas` can generate a statistics image automatically at every refresh cycle. Supported formats: PNG, JPG, BMP. The output directory is configurable.
+
+**Default output path:** `~/aMule-online-sign.{png,jpg,bmp}` (depending on the configured format). This is distinct from the `cas` default of `~/.aMule/aMule-online-sign.png`.
+
+### FTP Upload
+
+When auto image generation is enabled, `wxcas` can upload the image to an FTP server at a configurable interval. Configure the FTP URL, path, username and password from **Preferences**.
+
+### Preferences
+
+Key settings available in the Preferences dialog:
+
+| Setting | Description | Default |
+|---|---|---|
+| amulesig.dat directory | Directory where aMule writes `amulesig.dat` | `~/.aMule` |
+| Refresh rate | How often to re-read `amulesig.dat`, in seconds (1–3600) | `5` |
+| Generate stat image | Automatically save a statistics image on each refresh | disabled |
+| Image format | PNG, JPG, or BMP | PNG |
+| Image directory | Where to save the auto-generated image | `~/` |
+| FTP upload | Periodically upload the image to an FTP server | disabled |
+| FTP update rate | Upload interval in minutes (1–1440) | `10` |
 
 ## CAS — C aMule Statistics
 
@@ -147,48 +189,6 @@ Run `cas` with the `-p`/`--html` flag to generate `~/.aMule/aMule-online-sign.ht
 | `casrc` | First run with `-o` or `-p` | CAS configuration (font, background image, HTML template, line placement) |
 | `aMule-online-sign.png` | Run with `-o` and `casrc` configured | PNG (or JPG) status image |
 | `aMule-online-sign.html` | Run with `-p` | HTML status page |
-
-## WxCAS — Graphical Statistics
-
-`wxcas` provides a graphical window displaying the same statistics as `cas`. It is aimed at desktop users who want to monitor aMule status without a terminal.
-
-Launch with:
-
-```bash
-wxcas
-```
-
-`wxcas` does not accept command-line arguments; all configuration is done through its Preferences dialog.
-
-`wxcas` polls `amulesig.dat` periodically and refreshes the display automatically. The main window shows:
-
-- **aMule panel**: the same seven status lines as `cas` (version/uptime, server connection, totals, session totals, current rates, shared files/queue, local time).
-- **Download records panel**: peak download rate for the current session and the all-time record across all previous sessions.
-- **System panel** (Linux only): system load averages (1, 5, 15 minutes) and system uptime.
-
-### Image Generation
-
-`wxcas` can generate a statistics image automatically at every refresh cycle. Supported formats: PNG, JPG, BMP. The output directory is configurable.
-
-**Default output path:** `~/aMule-online-sign.{png,jpg,bmp}` (depending on the configured format). This is distinct from the `cas` default of `~/.aMule/aMule-online-sign.png`.
-
-### FTP Upload
-
-When auto image generation is enabled, `wxcas` can upload the image to an FTP server at a configurable interval. Configure the FTP URL, path, username and password from **Preferences**.
-
-### Preferences
-
-Key settings available in the Preferences dialog:
-
-| Setting | Description | Default |
-|---|---|---|
-| amulesig.dat directory | Directory where aMule writes `amulesig.dat` | `~/.aMule` |
-| Refresh rate | How often to re-read `amulesig.dat`, in seconds (1–3600) | `5` |
-| Generate stat image | Automatically save a statistics image on each refresh | disabled |
-| Image format | PNG, JPG, or BMP | PNG |
-| Image directory | Where to save the auto-generated image | `~/` |
-| FTP upload | Periodically upload the image to an FTP server | disabled |
-| FTP update rate | Upload interval in minutes (1–1440) | `10` |
 
 ## Troubleshooting
 
