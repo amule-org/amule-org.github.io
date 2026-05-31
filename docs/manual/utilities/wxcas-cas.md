@@ -34,6 +34,8 @@ Launch with:
 wxcas
 ```
 
+![wxcas main window](/img/docs/utilities/wxcas_gui.png)
+
 `wxcas` does not accept command-line arguments; all configuration is done through its Preferences dialog.
 
 `wxcas` polls `amulesig.dat` periodically and refreshes the display automatically. The main window shows:
@@ -54,7 +56,9 @@ When auto image generation is enabled, `wxcas` can upload the image to an FTP se
 
 ### Preferences
 
-Key settings available in the Preferences dialog:
+Key settings available in the Preferences dialog.
+
+![wxcas Preferences dialog](/img/docs/utilities/wxcas_preferences.png)
 
 | Setting | Description | Default |
 |---|---|---|
@@ -110,6 +114,8 @@ The image is produced by:
 1. Loading the background image from `source_image`.
 2. Drawing up to seven lines of status text at the positions defined by the placement lines in `casrc`, using the configured font and size. The status lines are taken directly from the corresponding lines of [`amulesig.dat`](../configuration/config-files/index.md#amulesigdat).
 3. Saving the result to `~/.aMule/`, as `aMule-online-sign.png` when `img_type` is `0` or `aMule-online-sign.jpg` otherwise (the format and extension follow `img_type` in `casrc`).
+
+![Generated aMule online signature image](/img/docs/utilities/aMule-online-sign.png)
 
 Configuration is stored in `~/.aMule/casrc` (see below).
 
