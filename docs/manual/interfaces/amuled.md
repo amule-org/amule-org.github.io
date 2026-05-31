@@ -19,26 +19,9 @@ All remote interfaces communicate with `amuled` through the **External Connectio
 Do not set `MaxConnections` above **1024** in [`amule.conf`](../configuration/config-files/amule-conf.md). The wxBase library that `amuled` uses cannot handle more simultaneous connections than that.
 :::
 
-## Compilation
+## Installation
 
-aMule uses CMake as its build system. To build `amuled` together with the most common remote interfaces:
-
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-
-cmake -B build \
-    -DBUILD_DAEMON=YES \
-    -DBUILD_AMULECMD=YES \
-    -DBUILD_WEBSERVER=YES
-
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-This installs `amuled`, `amulecmd`, and `amuleweb` to `/usr/local/bin/`. To also build `amulegui` add `-DBUILD_REMOTEGUI=YES`.
-
-For dependency installation, available CMake options, custom install prefixes, and platform-specific notes see [Compilation](../../developer/compilation/index.md).
+See [Installation](../installation/index.md) for pre-built packages, or [Compilation](../../developer/compilation/index.md) to build `amuled` from source.
 
 ## Configuration
 

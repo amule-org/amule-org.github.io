@@ -20,34 +20,7 @@ title: amulecmd — Command-Line Interface
 
 ## Installation
 
-Most distributions include `amulecmd` in their aMule packages. Install via your package manager:
-
-```bash
-# Debian/Ubuntu:
-apt install amule-utils
-
-# Fedora/RHEL:
-dnf install amule
-
-# Arch:
-pacman -S amule
-```
-
-## Compilation
-
-If you are building aMule from source, enable `amulecmd` with the `BUILD_AMULECMD` CMake option:
-
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-
-cmake -B build -DBUILD_AMULECMD=YES
-
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-For dependency installation and all available CMake options see [Compilation](../../developer/compilation/index.md).
+See [Installation](../installation/index.md) for pre-built packages, or [Compilation](../../developer/compilation/index.md) to build `amulecmd` from source.
 
 ## Configuration
 

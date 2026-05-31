@@ -17,23 +17,9 @@ If your connection to the `amuled` host is slow or unreliable, consider using [`
 - Occasional crashes when used remotely (reported in 2.0.3 and 2.1.0).
 - Feature parity with the local `amule` GUI is the design goal but may lag behind in practice.
 
-## Compilation
+## Installation
 
-To build `amulegui` together with `amuled`:
-
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-
-cmake -B build \
-    -DBUILD_REMOTEGUI=YES \
-    -DBUILD_DAEMON=YES
-
-cmake --build build -j"$(nproc)"
-sudo cmake --install build
-```
-
-For dependency installation and all available CMake options see [Compilation](../../../developer/compilation/index.md).
+See [Installation](../../installation/index.md) for pre-built packages, or [Compilation](../../../developer/compilation/index.md) to build `amulegui` from source.
 
 ## Connecting to amuled
 
