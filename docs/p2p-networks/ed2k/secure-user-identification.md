@@ -9,7 +9,7 @@ SUI is implemented in aMule and eMule. It can be enabled in **Preferences → Co
 
 ## Overview
 
-Every aMule client has a permanent **userhash** — a 128-bit value stored in [`~/.aMule/preferences.dat`](../../manual/configuration/files/index.md#preferencesdat). The userhash is the primary identity of a client within the eD2k network and is used by other clients to track accumulated [credits](../concepts.md).
+Every aMule client has a permanent **userhash** — a 128-bit value stored in [`~/.aMule/preferences.dat`](../../manual/configuration/config-files/index.md#preferencesdat). The userhash is the primary identity of a client within the eD2k network and is used by other clients to track accumulated [credits](../concepts.md).
 
 Without SUI, any client could claim to have your userhash, steal your credits with other clients, or manipulate the credit system. SUI prevents this by associating the userhash with a unique cryptographic private key that only you possess.
 
@@ -21,7 +21,7 @@ The first time aMule starts, it generates a **384-bit RSA private key** and stor
 ~/.aMule/cryptkey.dat
 ```
 
-> **Warning:** [`cryptkey.dat`](../../manual/configuration/files/index.md#cryptkeydat) should be backed up and kept safe. Losing this file means losing your entire accumulated credit history with all other clients, because they cannot verify your identity without the matching public key.
+> **Warning:** [`cryptkey.dat`](../../manual/configuration/config-files/index.md#cryptkeydat) should be backed up and kept safe. Losing this file means losing your entire accumulated credit history with all other clients, because they cannot verify your identity without the matching public key.
 
 The corresponding **public key** is derived from the private key and shared with other clients during the identification process. Your public key is also associated with your userhash.
 
@@ -90,7 +90,7 @@ This proves that the sender possesses the private key matching their declared pu
 
 | Step | Action |
 |---|---|
-| First start | aMule generates a 384-bit RSA key pair; private key saved to [`cryptkey.dat`](../../manual/configuration/files/index.md#cryptkeydat) |
+| First start | aMule generates a 384-bit RSA key pair; private key saved to [`cryptkey.dat`](../../manual/configuration/config-files/index.md#cryptkeydat) |
 | First meeting | Both clients exchange public keys and random nonces |
 | Identification | Each client signs (private key + other's public key + received nonce) |
 | Validation | Each client verifies the signature against the known public key and sent nonce |

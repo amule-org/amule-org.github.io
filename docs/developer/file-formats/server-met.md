@@ -45,7 +45,7 @@ The **Networks → eD2k** tab contains a URL input field next to the server list
 
 ### Automatic download via `amule.conf`
 
-The `Ed2kServersUrl` key in the `[eMule]` section of [`amule.conf`](../../manual/configuration/files/amule-conf.md) sets the URL used for automatic updates at startup:
+The `Ed2kServersUrl` key in the `[eMule]` section of [`amule.conf`](../../manual/configuration/config-files/amule-conf.md) sets the URL used for automatic updates at startup:
 
 ```ini
 [eMule]

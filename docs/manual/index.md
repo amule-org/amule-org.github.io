@@ -21,5 +21,5 @@ Follow these steps to get up and running:
 | [Configuration](./configuration/index.md) | Preferences, ports, firewall, IP filter, and advanced options |
 | [Usage](./interfaces/gui/index.md) | Searching, downloading, uploading, and managing shared files |
 | [aMule Components](./interfaces/index.md) | `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, and utilities |
-| [aMule Files](./configuration/files/index.md) | Configuration, data, and log files that aMule reads and writes |
+| [aMule Files](./configuration/config-files/index.md) | Configuration, data, and log files that aMule reads and writes |
 | [Migration](./migration/index.md) | Migrating to aMule from eMule, eDonkey2000, or other eD2k clients |

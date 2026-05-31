@@ -53,14 +53,14 @@ For dependency installation and all available CMake options see [Compilation](..
 
 ### Enabling External Connections in aMule
 
-Before using `amulecmd`, you must enable EC in aMule's Preferences (or in [`amule.conf`](../configuration/files/amule-conf.md)):
+Before using `amulecmd`, you must enable EC in aMule's Preferences (or in [`amule.conf`](../configuration/config-files/amule-conf.md)):
 
 1. Open **Preferences → Remote Controls**.
 2. Check **Accept External Connections**.
 3. Enter a password in the **EC Password** field.
 4. Optionally change the default EC port (4712); restart aMule for port changes to take effect.
 
-Alternatively, edit [`~/.aMule/amule.conf`](../configuration/files/amule-conf.md) directly:
+Alternatively, edit [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md) directly:
 
 ```ini
 [ExternalConnect]
@@ -75,15 +75,15 @@ Generate the MD5 hash for `ECPassword`:
 echo -n yourpassword | md5sum | cut -d ' ' -f 1
 ```
 
-### Generating [`remote.conf`](../configuration/files/remote-conf.md)
+### Generating [`remote.conf`](../configuration/config-files/remote-conf.md)
 
-`amulecmd` stores its connection settings in [`~/.aMule/remote.conf`](../configuration/files/remote-conf.md). Generate it from the running aMule configuration:
+`amulecmd` stores its connection settings in [`~/.aMule/remote.conf`](../configuration/config-files/remote-conf.md). Generate it from the running aMule configuration:
 
 ```bash
 amulecmd --create-config-from=/home/username/.aMule/amule.conf
 ```
 
-This reads `ECPassword` and `ECPort` from [`amule.conf`](../configuration/files/amule-conf.md) and writes them to [`remote.conf`](../configuration/files/remote-conf.md).
+This reads `ECPassword` and `ECPort` from [`amule.conf`](../configuration/config-files/amule-conf.md) and writes them to [`remote.conf`](../configuration/config-files/remote-conf.md).
 
 **For a remote system** (where you cannot access `amule.conf` directly):
 
@@ -93,7 +93,7 @@ amulecmd -h hostname -p 4712 -P yourpassword -w
 
 The `-w` flag writes the connection details to `remote.conf` without starting an interactive session.
 
-You can also copy [`remote.conf`](../configuration/files/remote-conf.md) from the host machine and change the `Host=` line accordingly.
+You can also copy [`remote.conf`](../configuration/config-files/remote-conf.md) from the host machine and change the `Host=` line accordingly.
 
 ## Interactive Usage
 

@@ -46,7 +46,7 @@ sudo cmake --install build
 
 ## Configuration
 
-All settings are stored in [`~/.aMule/amule.conf`](../../configuration/files/amule-conf.md). The file is created automatically on first run. The most common settings to edit manually are in the `[ExternalConnect]` section (EC password and port, needed if you want to connect remote interfaces to `amule`).
+All settings are stored in [`~/.aMule/amule.conf`](../../configuration/config-files/amule-conf.md). The file is created automatically on first run. The most common settings to edit manually are in the `[ExternalConnect]` section (EC password and port, needed if you want to connect remote interfaces to `amule`).
 
 ## Starting amule
 

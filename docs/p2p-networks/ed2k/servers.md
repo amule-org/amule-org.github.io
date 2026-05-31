@@ -134,7 +134,7 @@ A **static server** is a server you have marked as essential. Static servers are
 
 ### Configuration
 
-Static servers can be managed through the aMule GUI (right-click a server → Mark as static / Unmark as static) or by editing the [`staticservers.dat`](../../manual/configuration/files/index.md#staticserversdat) file directly.
+Static servers can be managed through the aMule GUI (right-click a server → Mark as static / Unmark as static) or by editing the [`staticservers.dat`](../../manual/configuration/config-files/index.md#staticserversdat) file directly.
 
 The `staticservers.dat` file takes precedence over `server.met`: if the same server IP and port appears in both files, the `staticservers.dat` entry overrides the `server.met` data.
 
@@ -206,7 +206,7 @@ These are third-party services unaffiliated with the aMule project. Their availa
 
 In **Preferences → Server**, enable *Autoupdate serverlist at startup*, then set the URL to one of the trusted sources above. aMule will refresh the list each time it starts.
 
-You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them checked at startup when auto-update is enabled — see the [`addresses.dat`](../../manual/configuration/files/index.md#addressesdat) reference.
+You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them checked at startup when auto-update is enabled — see the [`addresses.dat`](../../manual/configuration/config-files/index.md#addressesdat) reference.
 
 ### If your server list becomes empty
 

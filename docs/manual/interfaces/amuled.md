@@ -16,7 +16,7 @@ title: amuled — Headless Daemon
 All remote interfaces communicate with `amuled` through the **External Connections (EC)** protocol on TCP port 4712 (configurable).
 
 :::note
-Do not set `MaxConnections` above **1024** in [`amule.conf`](../configuration/files/amule-conf.md). The wxBase library that `amuled` uses cannot handle more simultaneous connections than that.
+Do not set `MaxConnections` above **1024** in [`amule.conf`](../configuration/config-files/amule-conf.md). The wxBase library that `amuled` uses cannot handle more simultaneous connections than that.
 :::
 
 ## Compilation
@@ -50,9 +50,9 @@ Start `amuled` once with the `--ec-config` flag to configure External Connection
 amuled --ec-config
 ```
 
-Alternatively, run `amuled` once normally — it will create [`~/.aMule/amule.conf`](../configuration/files/amule-conf.md) with defaults — then quit and edit the file manually.
+Alternatively, run `amuled` once normally — it will create [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md) with defaults — then quit and edit the file manually.
 
-### Key [`amule.conf`](../configuration/files/amule-conf.md) Settings
+### Key [`amule.conf`](../configuration/config-files/amule-conf.md) Settings
 
 The relevant section is `[ExternalConnect]`:
 

@@ -135,7 +135,7 @@ It is normal and expected for Transferred to be **smaller** than Completed (see 
 
 ## What are all those files aMule creates the first time it is run?
 
-Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../configuration/files/index.md).
+Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../configuration/config-files/index.md).
 
 ## Where are my downloaded files?
 
@@ -206,7 +206,7 @@ The practical rule: set your upload limit to at least **10 KBps** if your ISP al
 
 Yes. Create a plain text file with one `ed2k://` link per line, name it `ED2KLinks`, and place it in `~/.aMule`. aMule will automatically detect it, add all links to the download queue, and delete the file.
 
-See [ED2KLinks file](../configuration/files/index.md) for more information.
+See [ED2KLinks file](../configuration/config-files/index.md) for more information.
 
 ## Can I manage aMule remotely through telnet the same way I do with eDonkey?
 

@@ -51,22 +51,22 @@ const sidebars: SidebarsConfig = {
           label: 'Configuration',
           link: {type: 'doc', id: 'manual/configuration/index'},
           items: [
-            'manual/configuration/get-high-id',
+            {
+              type: 'category',
+              label: 'Configuration Files',
+              link: {type: 'doc', id: 'manual/configuration/config-files/index'},
+              items: [
+                'manual/configuration/config-files/amule-conf',
+                'manual/configuration/config-files/remote-conf',
+              ],
+            },
             'manual/configuration/download-folders',
+            'manual/configuration/get-high-id',
             'manual/configuration/firewall',
             'manual/configuration/upnp',
             'manual/configuration/proxy',
             'manual/configuration/ipfilter',
             'manual/configuration/events',
-            {
-              type: 'category',
-              label: 'Files & directories',
-              link: {type: 'doc', id: 'manual/configuration/files/index'},
-              items: [
-                'manual/configuration/files/amule-conf',
-                'manual/configuration/files/remote-conf',
-              ],
-            },
           ],
         },
         {
@@ -137,7 +137,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'File Formats',
-          link: {type: 'generated-index'},
+          link: {type: 'doc', id: 'developer/file-formats/index'},
           items: [
             'developer/file-formats/server-met',
             'developer/file-formats/nodes-dat',

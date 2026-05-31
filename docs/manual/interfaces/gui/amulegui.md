@@ -41,7 +41,7 @@ Before `amulegui` can connect, `amuled` must have External Connections enabled a
 
 ### Configuring amuled for EC
 
-1. In [`~/.aMule/amule.conf`](../../configuration/files/amule-conf.md), set:
+1. In [`~/.aMule/amule.conf`](../../configuration/config-files/amule-conf.md), set:
 
    ```ini
    [ExternalConnect]

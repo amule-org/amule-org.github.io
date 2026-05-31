@@ -7,9 +7,9 @@
     "message": "Configuración",
     "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.Files & directories": {
-    "message": "Ficheros y directorios",
-    "description": "The label for category 'Files & directories' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.Config Files": {
+    "message": "Ficheros de configuración",
+    "description": "The label for category 'Config Files' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Interfaces": {
     "message": "Interfaces",

@@ -79,7 +79,7 @@ MyScript.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 
 Inside a shell script, the variables are received as positional parameters `$1`, `$2`, `$3`, etc. The script must be in `$PATH` or specified with a full pathname.
 
-If a command fails to execute for any reason, the failure is logged in [aMule's log file](./files/index.md).
+If a command fails to execute for any reason, the failure is logged in [aMule's log file](./config-files/index.md).
 
 ## Examples
 

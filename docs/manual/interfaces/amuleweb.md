@@ -71,9 +71,9 @@ For dependency installation and all available CMake options see [Compilation](..
 amuled
 ```
 
-Wait a moment for [`~/.aMule/amule.conf`](../configuration/files/amule-conf.md) to be created, then stop amuled (Ctrl+C or `killall amuled`).
+Wait a moment for [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md) to be created, then stop amuled (Ctrl+C or `killall amuled`).
 
-### 3. Edit [`~/.aMule/amule.conf`](../configuration/files/amule-conf.md)
+### 3. Edit [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md)
 
 Find and set these lines in the `[ExternalConnect]` section:
 
@@ -125,7 +125,7 @@ Open `http://localhost:4711` (replace `localhost` with the server's hostname or 
 1. `$HOME/.aMule/webserver/<skin-name>/`
 2. The installation prefix: `/usr/local/share/amule/webserver/` (compiled) or `/usr/share/amule/webserver/` (package-installed).
 
-The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/files/amule-conf.md) (`[WebServer]` section) or the `/Webserver/Template` key in [`remote.conf`](../configuration/files/remote-conf.md).
+The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/config-files/amule-conf.md) (`[WebServer]` section) or the `/Webserver/Template` key in [`remote.conf`](../configuration/config-files/remote-conf.md).
 
 If `amuleweb` fails to start because it cannot load the template, create the directory manually and copy the template files:
 
