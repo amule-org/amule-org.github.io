@@ -328,7 +328,7 @@ Source-dropping algorithm settings and main window geometry.
 
 ## `[UserEvents]` section {#userevents-section}
 
-Shell commands executed when specific events occur. Commands can use substitution variables (see below).
+Shell commands executed when specific events occur. Commands can use substitution variables (see below). For the full description of each event, usage examples and ready-made scripts, see the [Events](../events.md) page.
 
 :::note
 aMule writes an empty `[UserEvents]` section header in the file before the event subsections. This is a wxFileConfig artifact (parent group written before child groups) and carries no configuration of its own.
@@ -362,11 +362,11 @@ Each event is stored as a subsection of `[UserEvents]`. For example, the "Downlo
 | `%SIZE` | File size in bytes |
 | `%DLACTIVETIME` | Total time the download was active (human-readable string) |
 | `%SENDER` | Username of the person starting a chat session |
-| `%PARTITION` | Filesystem partition that ran out of space |
+| `%PARTITION` | Always the fixed text `Temporary partition`, not the real partition name or device |
 
 ### Syntax notes
 
-Commands can be a single command, a compound shell expression, or a script. If the filename might contain spaces, quote the variable:
+aMule does not run the command through a shell, so pipes, redirections and operators are not interpreted; a command is a single program with arguments, or a script. If the filename might contain spaces, quote the variable:
 
 ```
 CoreCommand=notify-send "Download complete" "%NAME"

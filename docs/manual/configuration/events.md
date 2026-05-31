@@ -3,11 +3,11 @@ id: events
 title: Events
 ---
 
-Events are actions aMule can take automatically when certain things happen. They are configured on the **Events** tab of the [Preferences](../interfaces/gui/preferences.md) dialog, or — when running `amuled` — in the `[UserEvents]` section of `amule.conf`.
+Events are actions aMule can take automatically when certain things happen. They are configured on the **Events** tab of the [Preferences](../interfaces/gui/preferences.md) dialog, or — when running `amuled` — in the per-event `[UserEvents/<Event>]` sections of [`amule.conf`](./config-files/amule-conf.md#userevents-section).
 
-![Events preferences tab — event list](/img/docs/configuration/Events1.png)
+![Events preferences tab — Download completed event selected](/img/docs/gui/events_download_completed.png)
 
-![Events preferences tab — command configuration](/img/docs/configuration/Events2.png)
+![Events preferences tab — Error on completion event selected](/img/docs/gui/events_error_on_completion.png)
 
 ## Event types
 
@@ -16,7 +16,7 @@ Four events are supported:
 | Event | Trigger |
 |---|---|
 | **Download completed** | A file finishes downloading. |
-| **New chat session** | Another user initiates a chat session with you. |
+| **New chat session started** | Another user initiates a chat session with you. |
 | **Out of space** | aMule runs out of disk space on the partition used for temporary files. |
 | **Error on completion** | aMule cannot move a completed file from the temporary directory to the incoming directory (typically caused by insufficient disk space). |
 
@@ -43,9 +43,9 @@ Each event exposes a set of variables that are substituted in the command string
 | `%NAME` | Filename only (without path). |
 | `%HASH` | eD2k hash of the downloaded file. |
 | `%SIZE` | Size in bytes. |
-| `%DLACTIVETIME` | Total time the download was active. |
+| `%DLACTIVETIME` | Cumulative time the download was active, formatted as hours and minutes. |
 
-### New chat session
+### New chat session started
 
 | Variable | Value |
 |---|---|
@@ -55,7 +55,7 @@ Each event exposes a set of variables that are substituted in the command string
 
 | Variable | Value |
 |---|---|
-| `%PARTITION` | Partition that is full. |
+| `%PARTITION` | Always substituted with the fixed text `Temporary partition` (the partition used for temporary files), not the real partition name or device. |
 
 ### Error on completion
 
@@ -65,7 +65,9 @@ Each event exposes a set of variables that are substituted in the command string
 
 ## Command syntax
 
-A command can be a single shell command, a compound shell command, or the path to a shell script followed by optional parameters:
+aMule does **not** run the command through a shell. The command string is split into an executable plus its arguments and executed directly, so shell features such as pipes (`|`), redirections (`>`) and operators (`&&`, `;`) are **not** interpreted. To use any of those, put them inside a shell script and call the script instead.
+
+A command is therefore either a single program with optional parameters, or the path to a script followed by optional parameters:
 
 ```sh
 MyScript.sh %NAME %FILE %HASH %SIZE "%DLACTIVETIME"
@@ -83,17 +85,35 @@ If a command fails to execute for any reason, the failure is logged in [aMule's 
 
 ## Examples
 
-### Linux — simple email on disk full
+The scripts below are minimal, self-contained starting points. Make each one executable (`chmod +x script.sh`) and place it somewhere in your `$PATH` (or call it with a full pathname).
 
-A minimal one-liner that sends an email when a partition runs out of space:
+### Linux — email on disk full
+
+Sending an email needs a pipe, which aMule cannot run directly (see [Command syntax](#command-syntax) above). Put it in a small script and set the *Out of space* command to:
 
 ```sh
-echo "aMule error: %PARTITION is full." | mail -s Warning mymail@domain.tld
+diskFull.sh "%PARTITION"
 ```
 
-### Linux — email notification on download completed (using `mail`)
+```bash
+#!/bin/bash
+#
+# diskFull.sh - sends an email when aMule runs out of disk space
+# Call like this: diskFull.sh "%PARTITION"
 
-Script by **Ezeltje** from the aMule Forum. Enter your email address and save the script somewhere in `$PATH`, then set the Core command for *Download completed* to:
+echo "aMule error: $1 is full." | mail -s "aMule: out of disk space" mymail@domain.tld
+```
+
+:::note Sending mail
+`mail` (from `mailutils` or `bsd-mailx`) delivers through the local mail system. To send through an
+external SMTP server (Gmail, your provider, etc.) install **`msmtp`** and **`msmtp-mta`** and
+configure it as the system `sendmail` backend in `~/.msmtprc`. `msmtp` is the maintained replacement
+for the older `ssmtp`, which is unmaintained and has been removed from current distributions.
+:::
+
+### Linux — email notification on download completed
+
+Set the Core command for *Download completed* to:
 
 ```sh
 doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
@@ -102,218 +122,39 @@ doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 ```bash
 #!/bin/bash
 #
-# doneDL.sh - sends an email upon completion of an aMule download
-# Used in conjunction with aMule's Event feature
-#
+# doneDL.sh - sends an email when an aMule download completes
 # Call like this: doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 #
 # Enter your email address here:
-eMail=
-
-NameShort=$1
-NameLong=$2
-Hash=$3
-Size=$4
-DLtime=$5
-
-{
-    echo aMule completed this download:
-    echo ------------------------------
-    echo
-    echo File: "$NameLong"
-    echo Hash: $Hash
-    echo -n "Time: "
-    date | awk '{print $4 " " $5}'
-    echo -n Size: $Size bytes
-    if [ $Size -gt 102400 ]; then
-        echo " ("$(($(($Size / 1024)) / 1024)) "Mb)"
-    fi
-    if [ ! -z "$DLtime" ]; then
-        echo "Active download time: $DLtime"
-    fi
-    echo
-    echo --------------------------------------------------------------------
-    echo -n "Resident memory: "
-    echo $(ps u -C amule --no-headers | awk '{print $6}') kB
-    echo -n "Virtual memory: "
-    echo $(ps u -C amule --no-headers | awk '{print $5}') kB
-    echo --------------------------------------------------------------------
-} | mail -s "$NameShort" $eMail
-```
-
-### Linux — HTML email via sendmail
-
-Script by **raffe**, based on Ezeltje's script. Sends an HTML email with extended system information using `sendmail`. Set the Core command to:
-
-```sh
-aMuleMail.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-```
-
-```bash
-#!/bin/bash
-#
-# aMuleMail.sh - sends an email upon completion of an aMule download
-# Used in conjunction with aMule's Event feature
-#
-# Original script by Ezeltje; extended by raffe
-# Version 1.1
-#
-# Call like this: aMuleMail.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-
-# Wait 1 second before proceeding
-sleep 1
-
-NameShort=$1
-NameLong=$2
-Hash=$3
-Size=$4
-DLtime=$5
-
-{
-    # If you need a From address, uncomment:
-    # echo From: aMule@myurl.com
-
-    # ====> Enter your email address here: ====>
-    echo To: youremail@address.com
-    echo Subject: "$NameShort"
-    echo " "
-    echo "MIME-Version: 1.0"
-    echo "Content-Type: text/html"
-    echo "Content-Disposition: inline"
-    echo "<html><body>"
-    echo "<pre style='font: monospace'>"
-
-    echo aMule completed this download:
-    echo ------------------------------
-    echo " "
-    echo File: "$NameShort"
-    echo Location: "$NameLong"
-    echo Hash: $Hash
-    echo -n "Date & time: "; date
-    echo -n Size: $Size bytes
-    if [ $Size -gt 102400 ]; then
-        echo " ("$(($(($Size / 1024)) / 1024)) "Mb)"
-    fi
-    if [ ! -z "$DLtime" ]; then
-        echo "Active download time: $DLtime"
-    fi
-    echo " "
-    echo "=== Uptime:"; uptime
-    echo " "
-    echo "=== User status:"; who -a
-    echo " "
-    echo "=== Disk usage:"; df -h
-    echo " "
-    echo "=== aMule processes:"; ps | grep 'PID\|aMule'
-    echo " "
-    echo "=== Top processes:"; top -n 1 -b
-    echo " "
-    echo "=== Memory:"; free
-    echo " "
-    echo "=== Route:"; route
-    echo " "
-    echo "=== IP numbers"
-    echo "$(ifconfig | grep inet | sed -r 's/^.{10}//')"
-    echo " "
-    echo "=== Default gateways"; route | grep default
-    echo " "
-    echo "=== DNS servers"; cat /etc/resolv.conf
-    echo " "
-    echo "=== Iptables:"; iptables -S
-    echo " "
-    echo --------------------------------------------------------------------
-
-    echo "</pre></body></html>"
-} | sendmail -t
-```
-
-### Linux — HTML email via ssmtp
-
-Similar to the above but uses `ssmtp`. Set the Core command to:
-
-```sh
-doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-```
-
-```bash
-#!/bin/bash
-#
-# doneDL.sh - sends an email upon completion of an aMule download
-# Uses ssmtp for delivery
-#
-# Call like this: doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-
-# Enter your email log file and address here:
-EMAILFILE="/media/data/log/aMule-mail.log"
 EMAIL="youremail@address.com"
 
-NameShort=$1
-NameLong=$2
-Hash=$3
-Size=$4
-DLtime=$5
+name=$1
+path=$2
+hash=$3
+size=$4
+dlTime=$5
 
-echo To: $EMAIL > $EMAILFILE
-echo Subject: "$NameShort" >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "MIME-Version: 1.0" >> $EMAILFILE
-echo "Content-Type: text/html" >> $EMAILFILE
-echo "Content-Disposition: inline" >> $EMAILFILE
-echo "<html><body>" >> $EMAILFILE
-echo "<pre style='font: monospace'>" >> $EMAILFILE
-
-echo aMule completed this download: >> $EMAILFILE
-echo ------------------------------ >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo File: "$NameShort" >> $EMAILFILE
-echo Location: "$NameLong" >> $EMAILFILE
-echo Hash: $Hash >> $EMAILFILE
-echo -n "Date & time: " >> $EMAILFILE; date >> $EMAILFILE
-echo -n Size: $Size bytes >> $EMAILFILE
-if [ $Size -gt 102400 ]; then
-    echo " ("$(($(($Size / 1024)) / 1024)) "Mb)" >> $EMAILFILE
-fi
-if [ ! -z "$DLtime" ]; then
-    echo "Active download time: $DLtime" >> $EMAILFILE
-fi
-echo " " >> $EMAILFILE
-echo "=== Uptime:" >> $EMAILFILE; uptime >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== All users:" >> $EMAILFILE; who -a >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Disk usage:" >> $EMAILFILE; df -h >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Memory:" >> $EMAILFILE; free >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Route:" >> $EMAILFILE; route >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== IP numbers" >> $EMAILFILE; ifconfig >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Default gateways" >> $EMAILFILE; route | grep default >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== DNS servers" >> $EMAILFILE; cat /etc/resolv.conf >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Iptables:" >> $EMAILFILE; iptables -S >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo "=== Top processes:" >> $EMAILFILE; top -n 1 -b >> $EMAILFILE
-echo " " >> $EMAILFILE
-echo --------------------------------------------------------------------  >> $EMAILFILE
-
-echo "</pre></body></html>" >> $EMAILFILE
-
-# Send the email
-cat $EMAILFILE | ssmtp -vvv $EMAIL
+{
+    echo "aMule completed this download:"
+    echo
+    echo "File:  $name"
+    echo "Path:  $path"
+    echo "Hash:  $hash"
+    echo "Size:  $size bytes ($(( size / 1024 / 1024 )) MiB)"
+    echo "Time:  $dlTime"
+} | mail -s "aMule: $name" "$EMAIL"
 ```
 
-### Linux — desktop notification via NotifyOSD + sound
+### Linux — desktop notification with sound
 
-Four scripts by **Shuttle**, based on Ezeltje's script. They use `libnotify-bin` for desktop notifications and `sox` for audio alerts. Install both packages first:
+Show a desktop notification (and optionally play a sound) on the machine running aMule. These use
+`notify-send` (package `libnotify-bin`) and `play` (package `sox`). Install them first:
 
 ```sh
 apt-get install libnotify-bin sox
 ```
 
-Set the Core commands for each event to:
+Set the Core command for each event to its matching script:
 
 ```sh
 # Download completed:
@@ -329,7 +170,7 @@ noDiskSpace.sh "%PARTITION"
 errorDL.sh "%FILE"
 ```
 
-**`doneDL.sh`** — called when aMule finishes a download:
+**`doneDL.sh`** — download completed:
 
 ```bash
 #!/bin/bash
@@ -337,27 +178,18 @@ errorDL.sh "%FILE"
 # doneDL.sh — desktop notification on download complete
 # Call like this: doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
 #
-# Enter your sound path here:
-soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
+# Sound file (the freedesktop sound theme is installed on most desktops):
+soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
-nameShort=$1
-nameLong=$2
-hash=$3
-size=$4
-dlTime=$5
-
-/usr/bin/notify-send -i amule "Download completed!" \
-    "The download of the file \"$nameShort\" has been completed.
-     Complete path: $nameLong
-     Size: $size bytes
-     Hash: $hash
-     Active download time: $dlTime
-     Resident memory: $(ps u -C amule --no-headers | awk '{print $6}') kB
-     Virtual memory: $(ps u -C amule --no-headers | awk '{print $5}') kB." \
-    && /usr/bin/play "$soundPath"
+notify-send -i amule "Download completed" \
+    "File: $1
+     Path: $2
+     Size: $4 bytes
+     Active download time: $5" \
+    && play -q "$soundPath"
 ```
 
-**`errorDL.sh`** — called when aMule fails to complete a download:
+**`errorDL.sh`** — error on completion:
 
 ```bash
 #!/bin/bash
@@ -365,15 +197,14 @@ dlTime=$5
 # errorDL.sh — desktop notification on download error
 # Call like this: errorDL.sh "%FILE"
 #
-# Enter your sound path here:
-soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
+soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
-/usr/bin/notify-send -i amule "Ooops…" \
-    "We were unable to complete the download of the file $1." \
-    && /usr/bin/play "$soundPath"
+notify-send -i amule "aMule error" \
+    "Could not complete the download of: $1" \
+    && play -q "$soundPath"
 ```
 
-**`newMsg.sh`** — called when a user sends you a message:
+**`newMsg.sh`** — new chat session:
 
 ```bash
 #!/bin/bash
@@ -381,15 +212,14 @@ soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
 # newMsg.sh — desktop notification on new chat message
 # Call like this: newMsg.sh "%SENDER"
 #
-# Enter your sound path here:
-soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
+soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
-/usr/bin/notify-send -i amule "New message!" \
+notify-send -i amule "New message" \
     "The user $1 sent you a message." \
-    && /usr/bin/play "$soundPath"
+    && play -q "$soundPath"
 ```
 
-**`noDiskSpace.sh`** — called when a download stops due to no disk space:
+**`noDiskSpace.sh`** — out of space:
 
 ```bash
 #!/bin/bash
@@ -397,34 +227,43 @@ soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
 # noDiskSpace.sh — desktop notification on disk full
 # Call like this: noDiskSpace.sh "%PARTITION"
 #
-# Enter your sound path here:
-soundPath="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
+soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
-/usr/bin/notify-send -i amule "No disk space available!" \
+notify-send -i amule "No disk space available" \
     "The partition $1 does not have enough space to continue downloading.
-     You must free some space to resume." \
-    && /usr/bin/play "$soundPath"
+     Free some space to resume." \
+    && play -q "$soundPath"
 ```
 
-### Windows — LAN popup notification
+:::tip
+If you don't have `sox`, drop the `&& play …` part, or use `paplay` (PulseAudio/PipeWire) or
+`canberra-gtk-play -i complete` instead.
+:::
 
-On a Windows LAN, use the built-in Windows Messenger service to send a popup to any computer on the network.
+### Windows — toast notification
 
-In **Preferences → Events → Download completed**, enable **Enable command execution on GUI** and set the command to:
+Show a native Windows 10/11 toast notification when a download completes. The easiest way is the
+[BurntToast](https://github.com/Windos/BurntToast) PowerShell module. Install it once (in an
+elevated PowerShell):
+
+```powershell
+Install-Module BurntToast -Scope CurrentUser
+```
+
+Save this script as e.g. `C:\Scripts\notify.ps1`:
+
+```powershell
+param([string]$Name)
+New-BurntToastNotification -Text "aMule", "Download completed: $Name"
+```
+
+In **Preferences → Events → Download completed**, enable command execution and set the command to:
 
 ```
-net send ComputerName %NAME has finished downloading.
+powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\notify.ps1 "%NAME"
 ```
 
-Replace `ComputerName` with the name of the computer you want to receive the message (it can be the same computer running aMule).
-
-**Enable the Windows Messenger service on each computer** that should receive messages:
-
-1. Open **Control Panel → Administrative Tools → Services**.
-2. Find **Alerter** and set it to **Automatic**, then click **Start**.
-3. Find **Messenger** and set it to **Automatic**, then click **Start**.
-4. Repeat on every computer in the LAN that should receive messages.
-
-When a download completes, a popup will appear with the filename and an OK button.
-
-**Optional — voice announcement:** Install a screen reader such as [Thunder](http://www.screenreader.net/) (free). When the popup appears, the screen reader will read it aloud using the installed voice (e.g. Microsoft Sam, or NeoSpeech Kate/Paul).
+:::note
+The old `net send` / Windows *Messenger* service approach no longer works: that service was removed
+from Windows starting with Windows Vista. Use toast notifications (as above) on modern Windows.
+:::
