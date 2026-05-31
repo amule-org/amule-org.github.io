@@ -1,5 +1,5 @@
 ---
-id: ed2k-links
+id: links
 title: eD2k Links
 ---
 

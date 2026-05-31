@@ -11,17 +11,17 @@ Frequently asked questions about the eD2k and Kademlia networks, ports, connecti
 
 For a complete overview of both networks and their architecture, see:
 
-- [eD2k Network](../../p2p-networks/ed2k/ed2k-network.md) — architecture, High ID / Low ID, ports, limitations, credits and scoring
+- [eD2k Network](../../p2p-networks/ed2k/index.md) — architecture, High ID / Low ID, ports, limitations, credits and scoring
 - [Kademlia Network](../../p2p-networks/kademlia.md) — serverless DHT, bootstrapping, firewalled status
 - [Concepts & Glossary](../../p2p-networks/concepts.md) — definitions of all technical terms (chunk, hash, credits, slots, queue…)
 
 ### Why do the same files appear as different files in search results, even with the same name?
 
-Because file identity is determined by the **hash and size, not the name**. Two files with identical names but different content have different hashes and appear as separate files. Two files with different names but identical content and size are treated as the same file. See [eD2k Links — Why the filename is irrelevant](../../p2p-networks/ed2k/ed2k-links.md#why-the-filename-is-irrelevant-to-identity).
+Because file identity is determined by the **hash and size, not the name**. Two files with identical names but different content have different hashes and appear as separate files. Two files with different names but identical content and size are treated as the same file. See [eD2k Links — Why the filename is irrelevant](../../p2p-networks/ed2k/links.md#why-the-filename-is-irrelevant-to-identity).
 
 ## Ports
 
-For a complete description of all ports used by aMule, see [eD2k Network — Ports](../../p2p-networks/ed2k/ed2k-network.md#ports).
+For a complete description of all ports used by aMule, see [eD2k Network — Ports](../../p2p-networks/ed2k/index.md#ports).
 
 aMule works even without any ports open, but you will receive a [Low ID](../../p2p-networks/high-id-low-id.md). For optimal operation ([High ID](../../p2p-networks/high-id-low-id.md)), open the following ports for **incoming** connections:
 
@@ -62,7 +62,7 @@ When you have a [Low ID](../../p2p-networks/high-id-low-id.md):
 
 ## Credits, Ratings, and Scoring
 
-For a full explanation of the upload queue priority system, see [eD2k Network — Credits and Scoring](../../p2p-networks/ed2k/ed2k-network.md#credits-and-scoring) and [Concepts & Glossary — Credits](../../p2p-networks/concepts.md#credits).
+For a full explanation of the upload queue priority system, see [eD2k Network — Credits and Scoring](../../p2p-networks/ed2k/index.md#credits-and-scoring) and [Concepts & Glossary — Credits](../../p2p-networks/concepts.md#credits).
 
 ## Network Speed and Protocol Overhead
 
@@ -116,4 +116,4 @@ Cheap SOHO routers can struggle with the large number of simultaneous TCP connec
 
 ## Browser Configuration for ed2k:// Links
 
-See [eD2k Links — Browser Configuration](../../p2p-networks/ed2k/ed2k-links.md#browser-configuration) for instructions on configuring Firefox, Opera, Konqueror, and other browsers to handle `ed2k://` URIs.
+See [eD2k Links — Browser Configuration](../../p2p-networks/ed2k/links.md#browser-configuration) for instructions on configuring Firefox, Opera, Konqueror, and other browsers to handle `ed2k://` URIs.

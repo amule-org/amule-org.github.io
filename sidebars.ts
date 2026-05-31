@@ -150,18 +150,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'P2P Networks (eD2k & Kademlia)',
+      label: 'P2P Networks',
       link: {type: 'doc', id: 'p2p-networks/index'},
       items: [
         {
           type: 'category',
-          label: 'eD2k Protocol',
-          link: {type: 'generated-index'},
+          label: 'eD2k Network',
+          link: {type: 'doc', id: 'p2p-networks/ed2k/index'},
           items: [
-            'p2p-networks/ed2k/ed2k-network',
-            'p2p-networks/ed2k/ed2k-servers',
-            'p2p-networks/ed2k/ed2k-clients',
-            'p2p-networks/ed2k/ed2k-links',
+            'p2p-networks/ed2k/servers',
+            'p2p-networks/ed2k/clients',
+            'p2p-networks/ed2k/links',
             'p2p-networks/ed2k/aich',
             'p2p-networks/ed2k/secure-user-identification',
           ],

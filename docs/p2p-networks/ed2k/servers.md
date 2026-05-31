@@ -1,9 +1,9 @@
 ---
-id: ed2k-servers
+id: servers
 title: eD2k Servers
 ---
 
-On the [eD2k network](ed2k-network.md), a **server** is a central machine that maintains an index of which clients share which files. When you connect to a server, it provides search results, source lists for downloads, and — if your client has a [Low ID](#high-id-and-low-id) — relays connections on your behalf.
+On the [eD2k network](index.md), a **server** is a central machine that maintains an index of which clients share which files. When you connect to a server, it provides search results, source lists for downloads, and — if your client has a [Low ID](#high-id-and-low-id) — relays connections on your behalf.
 
 Most eD2k servers are interconnected, which allows **global searches** that span all known servers simultaneously.
 
@@ -88,7 +88,7 @@ The **extended server requests UDP port** is the port through which all non-core
 - Extended file descriptions (encoding, audio duration, video resolution, etc.)
 - Global source queries
 
-This port is historically defined as `Standard Server TCP Port + 4` = `4661 + 4` = **4665**. It is also the port used for Kademlia communication between nodes. See [Ports](ed2k-network.md#ports) in the eD2k Network reference for the full port table.
+This port is historically defined as `Standard Server TCP Port + 4` = `4661 + 4` = **4665**. It is also the port used for Kademlia communication between nodes. See [Ports](index.md#ports) in the eD2k Network reference for the full port table.
 
 ### Auxiliary server ports
 

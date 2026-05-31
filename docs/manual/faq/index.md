@@ -25,7 +25,7 @@ Frequently asked questions about aMule, organized by topic.
 → Work through the [Slow Download Speeds checklist](../troubleshooting/slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.
 
 **Which ports does aMule use?**
-TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queue rating), TCP 4711 (`amuleweb`), TCP 4712 (External Connections). See [eD2k Network → Ports](../../p2p-networks/ed2k/ed2k-network.md#ports).
+TCP 4662 (file transfers), UDP 4665 (global searches), UDP 4672 (Kademlia / queue rating), TCP 4711 (`amuleweb`), TCP 4712 (External Connections). See [eD2k Network → Ports](../../p2p-networks/ed2k/index.md#ports).
 
 **How do I run aMule without a GUI?**
 Use `amuled` (the daemon) and control it with `amulecmd`, `amuleweb`, or `amulegui`. See [Remote Access FAQ](./remote-access.md).

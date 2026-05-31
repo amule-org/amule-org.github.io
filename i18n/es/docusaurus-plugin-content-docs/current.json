@@ -35,13 +35,9 @@
     "message": "FAQ",
     "description": "The label for category 'FAQ' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.P2P Networks (eD2k & Kademlia)": {
-    "message": "Redes P2P (eD2k y Kademlia)",
-    "description": "The label for category 'P2P Networks (eD2k & Kademlia)' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.eD2k Protocol": {
-    "message": "Protocolo eD2k",
-    "description": "The label for category 'eD2k Protocol' in sidebar 'docsSidebar'"
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "Redes P2P",
+    "description": "The label for category 'P2P Networks' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Developer Guide": {
     "message": "Guía de Desarrollador",
@@ -70,5 +66,13 @@
   "version.label": {
     "message": "Actual",
     "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "Red eD2k",
+    "description": "The label for category 'eD2k Network' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Instalación",
+    "description": "The label for the doc item 'Installation' in sidebar 'docsSidebar', linking to the doc manual/installation/index"
   }
 }

@@ -1,5 +1,5 @@
 ---
-id: ed2k-clients
+id: clients
 title: eD2k Clients
 ---
 

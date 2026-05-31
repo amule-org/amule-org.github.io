@@ -67,7 +67,7 @@ Some ISPs block or rate-limit traffic on the standard eD2k TCP port 4662:
 
 #### Firewall blocking aMule ports
 
-Verify that ports TCP 4662, UDP 4665, and UDP 4672 are open in your local firewall (not just the router). See [eD2k Network → Ports](/docs/p2p-networks/ed2k/ed2k-network#ports).
+Verify that ports TCP 4662, UDP 4665, and UDP 4672 are open in your local firewall (not just the router). See [eD2k Network → Ports](/docs/p2p-networks/ed2k/#ports).
 
 ### ADSL-Specific: Congested Uplink / Downlink
 

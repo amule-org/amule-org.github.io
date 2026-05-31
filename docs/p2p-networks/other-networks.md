@@ -3,7 +3,7 @@ id: other-networks
 title: Other P2P Networks
 ---
 
-aMule exclusively supports two peer-to-peer networks: **[eD2k](ed2k/ed2k-network.md)** and **[Kademlia](kademlia.md)**. This page describes other P2P protocols and networks that coexisted with the eD2k ecosystem, most of which are either defunct or only supported by third-party multi-network clients.
+aMule exclusively supports two peer-to-peer networks: **[eD2k](ed2k/index.md)** and **[Kademlia](kademlia.md)**. This page describes other P2P protocols and networks that coexisted with the eD2k ecosystem, most of which are either defunct or only supported by third-party multi-network clients.
 
 ## Peer-to-Peer Networking
 
