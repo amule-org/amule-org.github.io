@@ -1,6 +1,6 @@
 ---
 id: debugging
-title: Debugging with GDB and Valgrind
+title: Debugging
 ---
 
 GDB and Valgrind are the two main tools for diagnosing crashes and memory errors in aMule. This page explains how to build aMule with debug symbols and how to use both tools effectively.

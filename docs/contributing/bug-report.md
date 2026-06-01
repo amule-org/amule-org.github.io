@@ -1,5 +1,5 @@
 ---
-id: bug-reports
+id: bug-report
 title: Bug Reports
 ---
 

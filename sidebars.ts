@@ -127,6 +127,11 @@ const sidebars: SidebarsConfig = {
             'developer/compilation/bsd',
           ],
         },
+        'developer/debugging',
+        'developer/testing',
+        'developer/translations',
+        'developer/documentation',
+        'developer/code-style',
         {
           type: 'category',
           label: 'File Formats',
@@ -139,10 +144,7 @@ const sidebars: SidebarsConfig = {
             'developer/file-formats/part-met',
           ],
         },
-        'developer/ec-protocol',
-        'developer/debugging',
-        'developer/testing',
-        'developer/code-style'
+        'developer/ec-protocol'
       ],
     },
     {
@@ -173,9 +175,7 @@ const sidebars: SidebarsConfig = {
       label: 'Contributing',
       link: {type: 'doc', id: 'contributing/index'},
       items: [
-        'contributing/bug-reports',
-        'contributing/translations',
-        'contributing/documentation',
+        'contributing/bug-report',
       ],
     },
   ],

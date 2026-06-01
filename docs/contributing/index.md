@@ -31,13 +31,13 @@ When filing a bug report, always include:
 - Any relevant log output from `~/.aMule/logfile`
 - A GDB backtrace if the issue involves a crash
 
-For detailed instructions on generating a useful backtrace, see the [Bug Reports](bug-reports.md) page.
+For detailed instructions on generating a useful backtrace, see the [Bug Reports](bug-report.md) page.
 
 ### Translations
 
 aMule uses GNU gettext for internationalization. Translations are `.po` files in `po/` and man page translations in `docs/man/po/`.
 
-See the full [Translations](translations.md) guide for:
+See the full [Translations](../developer/translations.md) guide for:
 
 - Updating an existing translation
 - Adding a new language
@@ -46,7 +46,7 @@ See the full [Translations](translations.md) guide for:
 
 ### Documentation
 
-Improve or expand this documentation website. See the [Documentation](documentation.md) guide for the repository structure, writing guidelines, and the PR workflow.
+Improve or expand this documentation website. See the [Documentation](../developer/documentation.md) guide for the repository structure, writing guidelines, and the PR workflow.
 
 ### Testing
 
