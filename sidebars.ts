@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
                 'manual/interfaces/gui/statusbar',
                 'manual/interfaces/gui/networks',
                 'manual/interfaces/gui/searches',
-                'manual/interfaces/gui/transfers',
+                'manual/interfaces/gui/downloads',
                 'manual/interfaces/gui/shared-files',
                 'manual/interfaces/gui/messages',
                 'manual/interfaces/gui/statistics',

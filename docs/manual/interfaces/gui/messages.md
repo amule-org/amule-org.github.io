@@ -13,7 +13,7 @@ The friends list is on the left side of the Messages window:
 
 ![Friends list panel](/img/docs/usage/window_messages2.jpg)
 
-Friends remain in the list permanently unless you explicitly remove them. This allows you to keep track of clients even when they are offline — unlike the Transfers window, where clients appear only when they are actively connected.
+Friends remain in the list permanently unless you explicitly remove them. This allows you to keep track of clients even when they are offline — unlike the Downloads window, where clients appear only when they are actively connected.
 
 Each entry represents one friend client:
 

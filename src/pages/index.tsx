@@ -77,7 +77,7 @@ export default function Home(): React.JSX.Element {
         <div className={styles.screenshotWrapper}>
           <img
             src={screenshotSrc}
-            alt={translate({id: 'homepage.hero.screenshot.alt', message: 'aMule transfers tab'})}
+            alt={translate({id: 'homepage.hero.screenshot.alt', message: 'aMule downloads tab'})}
             className={styles.screenshot}
           />
         </div>

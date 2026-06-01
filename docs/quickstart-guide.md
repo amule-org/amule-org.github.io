@@ -140,7 +140,7 @@ Examples:
 
 ### The Download Queue
 
-Click the **Transfers** button to open the [Transfers](./manual/interfaces/gui/transfers.md) window and see your queued downloads:
+Click the **Downloads** button to open the [Downloads](./manual/interfaces/gui/downloads.md) window and see your queued downloads:
 
 ![Transfer queue](/img/docs/transfers_queue.png)
 

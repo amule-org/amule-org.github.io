@@ -56,7 +56,7 @@ A skin file is a standard **zip archive** containing PNG images. The file names 
 | `Toolbar_Disconnect.png` | Disconnect button |
 | `Toolbar_Connecting.png` | Connecting (in-progress) button |
 | `Toolbar_Network.png` | Networks window button |
-| `Toolbar_Transfers.png` | Transfers window button |
+| `Toolbar_Transfers.png` | Downloads window button |
 | `Toolbar_Search.png` | Searches window button |
 | `Toolbar_Shared.png` | Shared Files window button |
 | `Toolbar_Messages.png` | Messages window button |

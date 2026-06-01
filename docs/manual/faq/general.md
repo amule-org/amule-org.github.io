@@ -73,7 +73,7 @@ See the "Icons and what they signify" section in the [Getting Started guide](../
 
 Those are the clients known to have the **complete file**. Even if the number in brackets is 0, it does not mean that no one has the complete file — it only means that no client has marked the shared file as "completed" (many clients do not do so). It is a rough indicator, not a definitive count.
 
-## What do all those numbers in the sources column in the Transfers window mean?
+## What do all those numbers in the sources column in the Downloads window mean?
 
 The format is `XX/YY + ZZ (WW)` where:
 
@@ -119,7 +119,7 @@ When you download a file, aMule finds a list of clients sharing it. Some of thos
 
 **QR** stands for **Queue Rank** — your current position in that source's upload queue. A lower value is better. If a source is an eMule client and there is no QR number, its queue is likely full and cannot accept more clients.
 
-## What is the difference between Transferred and Completed in the Transfers window?
+## What is the difference between Transferred and Completed in the Downloads window?
 
 - **Transferred**: the total amount of raw data received for the file. Data arrives in compressed form.
 - **Completed**: the amount of useful, decompressed file data extracted from the received data — i.e., actual file content excluding protocol headers and compression overhead.

@@ -27,11 +27,11 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 | [Networks](./networks.md) | eD2k and Kademlia network status and controls |
 | [Searches](./searches.md) | Search types, extended parameters, result filtering, tabs, and quick reference |
 
-## Transfers & files
+## Downloads & files
 
 | Page | Description |
 |---|---|
-| [Transfers](./transfers.md) | Download queue, upload queue, and transfer management |
+| [Downloads](./downloads.md) | Download queue, upload queue, and transfer management |
 | [Shared Files](./shared-files.md) | Shared files panel, per-file controls, statistics, and how to configure shared directories |
 | [File Details](./file-details.md) | File properties window: status, sources, ICH stats, rename, and comments |
 | [Client Details](./client-details.md) | Client details window: identity, transfer history, and queue scores |

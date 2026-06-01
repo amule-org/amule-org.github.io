@@ -66,9 +66,9 @@ If you have in-progress downloads from eMule, copy their `.part` and `.part.met`
 
 ## Per-Category Incoming Folders
 
-Each [download category](../interfaces/gui/transfers.md#categories) can have its own incoming directory. When a completed file belongs to a category that has a folder configured, it is saved there instead of the default Incoming directory.
+Each [download category](../interfaces/gui/downloads.md#categories) can have its own incoming directory. When a completed file belongs to a category that has a folder configured, it is saved there instead of the default Incoming directory.
 
-To set a category folder, right-click a category tab in the Transfers window and select **Edit category**, or create a new one with **Add category**.
+To set a category folder, right-click a category tab in the Downloads window and select **Edit category**, or create a new one with **Add category**.
 
 ## Shared Directories
 

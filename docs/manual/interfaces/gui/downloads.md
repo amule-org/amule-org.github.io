@@ -1,9 +1,9 @@
 ---
-id: transfers
-title: Transfers
+id: downloads
+title: Downloads
 ---
 
-The Transfers window is the central place to manage your downloads and uploads. It shows every file in your download queue, its progress and sources, and the clients uploading to and from you.
+The Downloads window is the central place to manage your downloads and uploads. It shows every file in your download queue, its progress and sources, and the clients uploading to and from you.
 
 ## Overview
 

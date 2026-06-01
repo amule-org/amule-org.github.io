@@ -236,7 +236,7 @@ This bug existed in aMule **prior to 2.0.0-rc4**. The root cause: MPlayer kept i
 
 ## Why is Transferred a smaller number than Completed?
 
-This seems counterintuitive but is correct. See [General FAQ → Transferred vs Completed](/docs/manual/faq/general#what-is-the-difference-between-transferred-and-completed-in-the-transfers-window).
+This seems counterintuitive but is correct. See [General FAQ → Transferred vs Completed](/docs/manual/faq/general#what-is-the-difference-between-transferred-and-completed-in-the-downloads-window).
 
 In summary: "Transferred" is raw compressed bytes received. "Completed" is the amount of actual useful file data extracted from those bytes after decompression and protocol header removal. Transferred will always be less than or equal to Completed.
 

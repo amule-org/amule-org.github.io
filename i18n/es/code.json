@@ -9,7 +9,7 @@
     "message": "Logo de aMule"
   },
   "homepage.hero.screenshot.alt": {
-    "message": "Pestaña de transferencias de aMule"
+    "message": "Pestaña de descargas de aMule"
   },
   "homepage.hero.cta.download": {
     "message": "Descargar"
@@ -75,10 +75,10 @@
     "message": "Búsqueda — resultados eD2k + Kad"
   },
   "homepage.screenshots.downloads.alt": {
-    "message": "Pestaña Transferencias con descargas activas"
+    "message": "Pestaña Descargas con descargas activas"
   },
   "homepage.screenshots.downloads.caption": {
-    "message": "Transferencias — progreso por archivo con disponibilidad"
+    "message": "Descargas — progreso por archivo con disponibilidad"
   },
   "homepage.screenshots.shared.alt": {
     "message": "Pestaña Archivos compartidos"

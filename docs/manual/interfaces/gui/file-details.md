@@ -7,7 +7,7 @@ The File Details window provides a comprehensive view of a file's current state,
 
 ![File Details window](/img/docs/usage/window_file1.jpg)
 
-Open it by right-clicking a file in the Transfers window and selecting **File Details** (or via the [shortcut](./shortcuts.md)).
+Open it by right-clicking a file in the Downloads window and selecting **File Details** (or via the [shortcut](./shortcuts.md)).
 
 ## View Details
 
@@ -49,9 +49,9 @@ The Transfer section shows statistics and progress details for the download:
 | **Transferring Sources** | Number of sources currently uploading to you |
 | **Filepart-Count** | Total number of chunks the file is divided into; in brackets, the number of chunk hashes known |
 | **Available** | Number of chunks known to be available from sources, and in brackets the percentage of total chunks |
-| **Datarate** | Current download speed for this file (more precise than the Transfers window; shows up to two decimal places) |
+| **Datarate** | Current download speed for this file (more precise than the Downloads window; shows up to two decimal places) |
 | **Transferred** | Total data received for this file (includes any corrupted data that was later discarded) |
-| **Completed** | Amount of verified data completed; in brackets, the percentage of the total file size (more accurate than the percentage shown in the Transfers window) |
+| **Completed** | Amount of verified data completed; in brackets, the percentage of the total file size (more accurate than the percentage shown in the Downloads window) |
 
 :::note
 When a file is complete, some Transfer values may reset to zero.
@@ -135,7 +135,7 @@ Click **Show all comments** to open the [Comments](./comments.md) window for thi
 
 ![Show all comments button](/img/docs/usage/window_file9.jpg)
 
-This is especially useful on macOS with a single-button mouse, where the Transfers window right-click menu is not accessible.
+This is especially useful on macOS with a single-button mouse, where the Downloads window right-click menu is not accessible.
 
 Click **Close** to close the window. Any unapplied rename changes are discarded:
 

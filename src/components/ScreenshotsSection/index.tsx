@@ -22,8 +22,8 @@ const SCREENSHOTS: Screenshot[] = [
   },
   {
     src: 'screenshots/downloads.png',
-    alt: translate({id: 'homepage.screenshots.downloads.alt', message: 'Transfers tab with active downloads'}),
-    caption: <Translate id="homepage.screenshots.downloads.caption">Transfers — per-file progress with availability bars</Translate>,
+    alt: translate({id: 'homepage.screenshots.downloads.alt', message: 'Downloads tab with active downloads'}),
+    caption: <Translate id="homepage.screenshots.downloads.caption">Downloads — per-file progress with availability bars</Translate>,
   },
   {
     src: 'screenshots/shared.png',

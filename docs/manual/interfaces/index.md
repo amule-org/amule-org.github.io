@@ -14,7 +14,7 @@ The [GUI](./gui/index.md) is shared by two clients that present the exact same p
 | [`amule`](./gui/amule.md) | All-in-one GUI client that bundles the core and the interface in a single process |
 | [`amulegui`](./gui/amulegui.md) | Remote GUI that connects to a running `amuled` instance via the EC protocol |
 
-See the [GUI section](./gui/index.md) for day-to-day usage of the interface: toolbar, networks, searching, transfers, shared files, messaging, statistics, preferences, and appearance.
+See the [GUI section](./gui/index.md) for day-to-day usage of the interface: toolbar, networks, searching, downloads, shared files, messaging, statistics, preferences, and appearance.
 
 ## Headless daemon and remote interfaces
 
