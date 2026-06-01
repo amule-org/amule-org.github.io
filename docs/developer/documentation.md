@@ -37,7 +37,7 @@ amule-org.github.io/
 
 ### Prerequisites
 
-Node.js ≥ 24 is required. Install dependencies once after cloning:
+[Node.js](https://nodejs.org/) ≥ 24 is required. Install dependencies once after cloning:
 
 ```sh
 git clone https://github.com/amule-org/amule-org.github.io.git
@@ -130,12 +130,12 @@ To add a new subcategory with its own landing page:
 
 Use fenced code blocks with a language identifier for syntax highlighting:
 
-```markdown
-    ```sh
-    cmake -B build -DBUILD_DAEMON=YES
-    cmake --build build -j"$(nproc)"
-    ```
+````markdown
+```sh
+cmake -B build -DBUILD_DAEMON=YES
+cmake --build build -j"$(nproc)"
 ```
+````
 
 Use `sh` for shell commands, `cpp` for C++, `py` for Python, `ini` for configuration files, and so on.
 
@@ -201,14 +201,15 @@ Use consistent terminology throughout the documentation:
 
 | Preferred | Avoid |
 |---|---|
-| `amule` | `aMule` in code contexts |
+| aMule (project name) | `Amule`, `AMule`, `amule` (when naming the project) |
+| `amule` (binary / module) | `aMule`, `AMule` (in code or command contexts) |
 | `amuled` | `AMuled`, `amule daemon` |
 | `amulegui` | `AMuleGUI` |
 | `amuleweb` | `AMuleWeb`, `amule web` |
 | `amulecmd` | `AMuleCMD`, `amule cmd` |
 | eD2k | ed2k (in prose) |
 | Kademlia | kad (in prose) |
-| HighID / LowID | [High ID, Low ID](../p2p-networks/high-id-low-id.md) |
+| [High ID / Low ID](../p2p-networks/high-id-low-id.md) | HighID, LowID, highid |
 
 ## Translations
 
