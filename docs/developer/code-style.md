@@ -3,7 +3,7 @@ id: code-style
 title: Coding Style
 ---
 
-This document defines the coding style that must be followed when contributing changes to the aMule codebase. Adhering to a consistent style makes the code easier to read, review, and maintain. Reading it carefully before submitting a patch or pull request is strongly recommended.
+This document defines the coding style that must be followed when contributing changes to the aMule codebase. Adhering to a consistent style makes the code easier to read, review, and maintain. Reading it carefully before submitting a [patch or pull request](../contributing/index.md) is strongly recommended.
 
 ## Formatting
 
@@ -61,6 +61,8 @@ if (condition)
     doSomething();
 ```
 
+This rule applies to **new code**. Legacy code contains many bracket-less single statements (e.g. `if (...) return;`); there is no obligation to reformat them just because you touch the surrounding lines.
+
 ### Miscellaneous
 
 - When using the ternary operator, add brackets to improve readability.
@@ -68,7 +70,7 @@ if (condition)
 
 ## Documentation Comments
 
-**Always document new functions and classes.** aMule uses [Doxygen](https://www.doxygen.nl/) for automatic API documentation generation. Examples of well-documented classes include `CMD4Hash.h`, `BarShader.*`, and `ServerListCtrl.*`.
+**Always document new functions and classes.** aMule uses [Doxygen](https://www.doxygen.nl/) for automatic API documentation generation — see [Development → Code Documentation](index.md#code-documentation) for how to generate it locally. Examples of well-documented classes include `MD4Hash.h`, `BarShader.*`, and `ServerListCtrl.*`.
 
 ### Functions, classes, and structs
 
@@ -165,6 +167,8 @@ static int s_instanceCount;
 int m_sourceCount;
 ```
 
+Older code additionally carries Hungarian-style **type** prefixes after the scope prefix (`m_n` for integers, `m_b` for booleans, `m_dw` for 32-bit words, `m_by` for bytes, `m_f` for flags, e.g. `m_nUserPort`, `m_bEmuleProtocol`). These are a legacy convention — match them when editing the surrounding code, but new code only needs the scope prefix above.
+
 ### Classes
 
 Prefix class names with `C`. Use `AllWordsAreUppercase`:
@@ -190,8 +194,10 @@ const int MAX_SOURCES = 512;
 
 For files defining a single class, use the class name **without** the `C` prefix:
 
-- `CUpDownClient` → `UpDownClient.h` / `UpDownClient.cpp`
 - `CKnownFile` → `KnownFile.h` / `KnownFile.cpp`
+- `CMD4Hash` → `MD4Hash.h` / `MD4Hash.cpp`
+
+Some legacy files still use old casing (e.g. `CUpDownClient` lives in `updownclient.h`); follow the convention above for new files.
 
 ## Const Correctness
 
@@ -236,7 +242,7 @@ Prefer `new`/`delete` over `malloc`/`free`. The only legitimate use of `malloc`/
 
 ## Helper Functions
 
-Utility functions that could be useful across the application should be placed in `otherfunctions.h`. Prefer wxWidgets functions over direct system calls — this reduces platform-specific dependencies that may not be available everywhere.
+Utility functions that could be useful across the application should be placed in `OtherFunctions.h`. Prefer wxWidgets functions over direct system calls — this reduces platform-specific dependencies that may not be available everywhere.
 
 ## Code Practices
 
@@ -262,7 +268,7 @@ When using a string literal to construct a `wxString`:
 
 Failure to use these macros makes aMule fail to compile in Unicode mode.
 
-Debug messages must always be in English and must not be wrapped in `_()`. Messages visible to the user must be wrapped in `_()`.
+Debug messages must always be in English and must not be wrapped in `_()`. Messages visible to the user must be wrapped in `_()`. See [Translations → Marking Strings for Translation in C++ Source](translations.md#marking-strings-for-translation-in-c-source) for the full rules on translatable strings.
 
 ## What Never To Do
 
@@ -276,11 +282,11 @@ Never use `wxString::c_str()` or `wxString::GetData()` unless the string is know
 
 ### File I/O
 
-Never use `wxFile` or `wxFFile` — use `CFile` instead. `CFile` contains bug fixes over `wxFile` and correctly handles UTF-8 filenames on all platforms.
+Never use `wxFile` or `wxFFile` — use `CFile` (in `CFile.*`) instead. `CFile` contains bug fixes over `wxFile` and correctly handles UTF-8 filenames on all platforms.
 
-Never use `wxFindFirstFile` / `wxFindNextFile` — use `CDirIterator` (found in `CFile.*`). Same reason: proper Unicode filename handling.
+Never use `wxFindFirstFile` / `wxFindNextFile` — use `CDirIterator` (found in `libs/common/FileFunctions.*`). Same reason: proper Unicode filename handling.
 
-Never use `wxStat` or `wxDirExists` — use the static `CFile::Stat()` and `CheckDirExists`. Same reason.
+Never use `wxStat` or `wxDirExists` — use the `CPath` class (in `libs/common/Path.*`), which provides `CPath::FileExists()` and `CPath::DirExists()` (both an instance form and a `static` overload taking a `wxString`), plus related helpers such as `CPath::GetFileSize()` and `CPath::GetModificationTime()`. Same reason.
 
 ### Date/time formatting
 
@@ -294,9 +300,12 @@ Never use `CList` or `CTypedPtrList`. These are MFC-compatible hand-rolled linke
 
 Never use ANSI C trigraphs (`??=`, `??(`, `??)`, etc.). They cause subtle, hard-to-find bugs. If you do not know what trigraphs are, consider yourself lucky — keep it that way.
 
-## Additional Resources
+## Static Analysis & Tooling
 
-- [Basic Introduction to Unicode](http://www.joelonsoftware.com/articles/Unicode.html)
-- [GCC libstdc++ STL documentation](https://gcc.gnu.org/onlinedocs/libstdc++/)
-- [How Not to Write FORTRAN in Any Language](http://www.maartenvdw.com/fortran/)
-- [Doxygen documentation](https://www.doxygen.nl/manual/)
+The repository ships a baseline [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) configuration to catch real bugs, but **does not enforce formatting automatically** — the formatting and naming rules above are followed by hand.
+
+- **`.clang-tidy` (repository root)** enables a curated set of high-signal checks (`clang-analyzer-core.*`, `clang-analyzer-deadcode.*`, `clang-analyzer-unix.*`, selected `bugprone-*`, and a couple of low-priority `performance-*` checks). Noisy groups that fire constantly on long-standing idioms are deliberately suppressed (`cppcoreguidelines-*`, `bugprone-reserved-identifier`, `performance-enum-size`, …). It sets `WarningsAsErrors: ''` (warnings never break the build) and `FormatStyle: none`. The file's header comment explains exactly what is suppressed and why — read it before adding or re-enabling checks.
+- **Per-directory `.clang-tidy` files** disable analysis on vendored and generated code: `src/extern/.clang-tidy` (the vendored wxWidgets copy) and `src/webserver/src/.clang-tidy` (the mostly-generated PHP interpreter). A few flex/bison-generated files (`Scanner.cpp`, `Parser.cpp`, `IPFilterScanner.cpp`) live alongside hand-written source and emit the usual generated-code warnings — ignore those when triaging output.
+- **No `.clang-format` or `.editorconfig`** exists. Indentation (tabs), bracket placement, and the rest of the formatting rules are not auto-applied; apply them manually.
+- **CI does not run clang-tidy.** The C/C++ workflow (`.github/workflows/ccpp.yml`) only compiles the project across Linux, macOS, and Windows in Debug and Release. Run clang-tidy against your [local build](compilation/index.md) if you want its feedback before submitting a patch.
+
