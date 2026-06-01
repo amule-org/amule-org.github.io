@@ -3,21 +3,21 @@ id: translations
 title: Translations
 ---
 
-aMule has three areas that can be translated: the application interface strings, the man pages, and the website documentation.
+aMule has three areas that can be translated: the [application interface strings](#code-translations), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
 
 ## Code Translations
 
-aMule's interface strings are managed with [GNU gettext](https://www.gnu.org/software/gettext/). Translations are stored as `.po` files in `po/` and compiled to binary `.mo` catalogs at build time. This document explains how to contribute a new or updated translation.
+aMule's interface strings are managed with [GNU gettext](https://www.gnu.org/software/gettext/). Translations are stored as `.po` files in `po/` and compiled to binary `.mo` catalogs at build time. The interface is currently maintained in several dozen languages — `po/LINGUAS` is the canonical list of the codes that get compiled. This document explains how to contribute a new or updated translation.
 
 ### Overview
 
-| File | Location | Purpose |
-|---|---|---|
-| `amule.pot` | `po/amule.pot` | Template with all translatable strings extracted from source. Empty translations. Committed to git. |
-| `xx.po` | `po/xx.po` | One file per language. Contains the actual translations. Committed to git. |
-| `xx.gmo` | `build/po/` | Compiled binary catalog, generated at build time. Not committed. |
+| File | Purpose |
+|---|---|
+| `po/amule.pot` | Template with all translatable strings extracted from source. Empty translations. Committed to git. |
+| `po/xx.po` | One file per language. Contains the actual translations. Committed to git. |
+| `build/po/xx.gmo` | Compiled binary catalog, generated at build time. Not committed. |
 
-At runtime, the program loads the installed `amule.mo` catalog for the user's locale from `share/locale/xx/LC_MESSAGES/`.
+At runtime, the program loads the installed `amule.mo` catalog for the user's locale. The catalog is always named `amule.mo`, but its install location depends on the platform: Windows uses `bin/locale/xx/LC_MESSAGES/`, macOS bundles it inside the app at `Contents/Resources/locale/xx/LC_MESSAGES/`, and Linux/BSD use `share/locale/xx/LC_MESSAGES/`.
 
 ```
 po/
@@ -129,7 +129,7 @@ To verify a translation at runtime, set `LANG` before launching aMule. Use `LANG
 LANG=pt_BR.UTF-8 amule
 ```
 
-The program must be installed first so the `.mo` catalog is discoverable. During development, install locally without `sudo`:
+The program must be installed first so the `.mo` catalog is discoverable. See the [Compilation](./compilation/index.md) guide for the full build and install workflow. During development, install locally without `sudo`:
 
 ```sh
 cmake --install build --prefix=$HOME/.local
@@ -144,7 +144,7 @@ xargs rm -f < build/install_manifest.txt
 
 ### Build Integration
 
-The CMake build compiles every enabled `.po` into a `.gmo` binary catalog via `msgfmt`. Translation support requires `-DENABLE_NLS=YES` (the default):
+The CMake build compiles every enabled `.po` into a `.gmo` binary catalog via `msgfmt`. The [Compilation](./compilation/index.md) guide documents the full set of build options; translation support requires `-DENABLE_NLS=YES` (the default):
 
 ```sh
 cmake -B build -DENABLE_NLS=YES
@@ -168,7 +168,7 @@ Use the standard gettext macros:
 
 After adding new uses of these macros, run `./scripts/update-po.sh` to pull the new strings into the `.pot` and all `.po` files.
 
-When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent.
+When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent. New source changes should also follow the project [Coding Style](./code-style.md).
 
 ### Format Specifiers Reference
 
@@ -331,7 +331,7 @@ python3 find_msgid.py po/de.po 142
 
 ## Man Page Translations
 
-aMule's man pages can also be translated using [po4a](https://po4a.org/). The translation files live in `docs/man/po/`.
+aMule's man pages can also be translated using [po4a](https://po4a.org/). The translation files live in `docs/man/po/`. The man pages are currently translated into a smaller set of languages than the interface — the `[po4a_langs]` line in `docs/man/po4a.config` is the canonical list.
 
 ### File Layout
 
@@ -343,16 +343,22 @@ docs/man/
 ├── amulegui.1
 ├── amuleweb.1
 ├── ed2k.1
+├── po4a.config       # po4a configuration
 ├── amule.de.1        # Generated translated man pages
 ├── amule.es.1
 └── po/
-    ├── po4a.config       # po4a configuration
     ├── manpages.pot      # master template
     ├── manpages-de.po    # German translation
     ├── manpages-es.po    # Spanish translation
     ├── manpages-de.add   # German addendum (translator credit)
     └── ...
 ```
+
+The same `po4a.config` and `manpages-<lang>.po` files also drive the man pages of the
+standalone utilities, whose masters live next to their code: `alc` and `alcc`
+(`src/utils/aLinkCreator/docs/`), `cas` (`src/utils/cas/docs/`), and `wxcas`
+(`src/utils/wxCas/docs/`). Their translated pages (`alc.<lang>.1`, …) are generated in those
+same directories. There is **one** set of `.po` files for all man pages — utilities included.
 
 ### Prerequisites
 
@@ -380,17 +386,18 @@ sudo dnf install po4a
 
 ```sh
 cd docs/man
-# Add your language code to the [po4a_langs] line in po4a.config (alphabetically)
-# Example: change "de es eu fr hu" to "de es eu fr hu pt_BR"
+# Add your language code to the [po4a_langs] line in po4a.config (alphabetically).
+# Current line: "de es fr hu it pt_BR ro ru tr zh_TW"
+# Example: to add Dutch, change it to "de es fr hu it nl pt_BR ro ru tr zh_TW"
 po4a po4a.config
-# Your new .po file is now in po/manpages-pt_BR.po
+# Your new .po file is now in po/manpages-nl.po
 ```
 
 **If po4a is not installed:**
 
 ```sh
 cd docs/man/po
-cp manpages.pot manpages-pt_BR.po
+cp manpages.pot manpages-nl.po
 # Start translating. Mention in the PR that you didn't use po4a.
 ```
 
