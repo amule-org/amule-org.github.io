@@ -16,8 +16,8 @@ aMule provides a set of built-in keyboard and mouse shortcuts for navigating and
 | *Any character* | All | In a list: jump to the item whose first-column value starts with the typed string |
 | `Enter` | Networks / eD2k | Connect to the selected server |
 | `Enter` | Searches | Start a search or begin downloading the selected result |
-| `Enter` | Transfers | Expand or collapse the source list for the selected file |
-| `F2` | Transfers | Rename the selected download (not available for completed files) |
+| `Enter` | Downloads | Expand or collapse the source list for the selected file |
+| `F2` | Downloads | Rename the selected download (not available for completed files) |
 | `F2` | Shared Files | Rename the selected shared file |
 | `Enter` | Messages | Open a chat with the selected user |
 
@@ -28,7 +28,7 @@ aMule provides a set of built-in keyboard and mouse shortcuts for navigating and
 | `Ctrl+Alt+Middle click` | Main window (all panels) | Show the wxWidgets version information |
 | Double-click | Networks / eD2k | Connect to the selected server |
 | Double-click | Searches | Start downloading the selected file |
-| Middle-click | Transfers | Show details for the selected file or client |
-| Double-click | Transfers | Expand the source list for the selected file |
+| Middle-click | Downloads | Show details for the selected file or client |
+| Double-click | Downloads | Expand the source list for the selected file |
 | Double-click | Messages | Open a chat with the selected user |
 | Double-click | Statistics | Expand or collapse the selected statistics node |

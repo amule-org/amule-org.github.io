@@ -29,7 +29,7 @@ The Comments window shows all comments and ratings that have been reported by ot
 ### Opening the Comments Window
 
 You can open the Comments window from several places:
-- Right-click a file in the **Transfers** window and choose **Show comments**.
+- Right-click a file in the **Downloads** window and choose **Show comments**.
 - In the **File Details** window, click the **Show all comments** button.
 
 ### Reading Comments

@@ -16,7 +16,7 @@ Download priority controls how aggressively aMule seeks sources and processes in
 | **Low** | The file is less urgent. It receives fewer resources than Normal and High priority files. |
 | **Auto** | aMule automatically adjusts the priority based on the number of available sources. Files with fewer sources receive higher priority, maximising the chance of completing rare files before they become unavailable. |
 
-Set download priority by right-clicking a file in the **Transfers** window and choosing **Priority**.
+Set download priority by right-clicking a file in the **Downloads** window and choosing **Priority**.
 
 ## Upload Priority
 
@@ -32,7 +32,7 @@ Upload priority controls how willingly aMule serves a given shared file to clien
 | **Very Low** | No urgency at all; the lowest precedence. |
 | **Auto** | aMule automatically adjusts the priority based on how many clients are requesting the file. Files requested more often receive higher priority. |
 
-Set upload priority by right-clicking a file in the **Shared Files** window and choosing **Priority**, or from the **Transfers** window upload queue.
+Set upload priority by right-clicking a file in the **Shared Files** window and choosing **Priority**, or from the **Downloads** window upload queue.
 
 ## Release Priority
 
