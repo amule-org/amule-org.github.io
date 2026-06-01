@@ -282,12 +282,12 @@ Browser selection for opening web links from within aMule.
 
 ## `[Proxy]` section
 
-SOCKS4, SOCKS5, or HTTP proxy configuration.
+SOCKS5, SOCKS4, SOCKS4a, or HTTP proxy configuration. See [Proxy](../proxy.md) for a full explanation of how the proxy feature works.
 
 | Key | Default | Description |
 |---|---|---|
 | `ProxyEnableProxy` | `0` | Enable proxy use. |
-| `ProxyType` | `0` | Proxy protocol: `0` = SOCKS4, `1` = SOCKS5, `2` = HTTP. |
+| `ProxyType` | `0` | Proxy protocol: `0` = SOCKS5, `1` = SOCKS4, `2` = HTTP, `3` = SOCKS4a. |
 | `ProxyName` | _(empty)_ | Proxy hostname or IP address. |
 | `ProxyPort` | `1080` | Proxy port. |
 | `ProxyEnablePassword` | `0` | Enable proxy authentication. |
