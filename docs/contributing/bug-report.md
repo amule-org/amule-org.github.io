@@ -3,13 +3,17 @@ id: bug-report
 title: Bug Reports
 ---
 
-Bug reports are a vital contribution to aMule. A problem cannot be fixed if it is not reported, and the faster and more accurately a bug is described, the sooner it can be resolved. This page explains what information to include in a report and how to provide a useful backtrace when aMule crashes.
+Bug reports are a vital contribution to aMule. A problem cannot be fixed if it is not reported, and the faster and more accurately a bug is described, the sooner it can be resolved. This page explains, in plain terms, what to include in a report and how to find the information the developers need — **no programming or debugging experience required.**
 
 ## Where to File a Bug Report
 
 Open an issue on the [aMule GitHub issue tracker](https://github.com/amule-org/amule/issues). You will need a GitHub account.
 
-Before opening a new issue, search existing issues to avoid duplicates. Include a clear, descriptive title.
+Before opening a new issue, search the existing issues to avoid duplicates, and give your report a clear, descriptive title.
+
+:::tip aMule asks you to report crashes
+When aMule crashes, it prints a message that already points you here and to the issue tracker, followed by a **backtrace**. That backtrace is one of the most valuable things you can include — see [If aMule Crashes](#if-amule-crashes-copy-the-automatic-backtrace) below.
+:::
 
 ## What to Include in Every Report
 
@@ -17,112 +21,60 @@ A useful bug report contains at minimum:
 
 | Field | How to obtain |
 |---|---|
-| **aMule version** | `amule --version` or `amuled --version` |
-| **Operating system and version** | e.g. Ubuntu 24.04, Fedora 40, macOS 14.5, Windows 11 |
+| **aMule version** | Run `amule --version` in a terminal. It prints something like `aMule 3.0.0 (OS: Linux)`. |
+| **Operating system and version** | e.g. Windows 11, macOS 14.5, Ubuntu 24.04, Fedora 40 |
 | **Steps to reproduce** | The exact sequence of actions that triggers the bug |
 | **Expected behaviour** | What you expected to happen |
 | **Actual behaviour** | What actually happened |
-| **Log output** | Relevant lines from the aMule log (`~/.aMule/logfile`) |
-| **Crash backtrace** | For crashes and freezes — see below |
+| **Log file** | Relevant lines from the aMule log — see [Finding the Log File](#finding-the-log-file) |
+| **Crash backtrace** | For crashes and freezes — see [If aMule Crashes](#if-amule-crashes-copy-the-automatic-backtrace) |
 
 Be as specific as possible. "aMule crashed" is not a useful report. "aMule crashed reproducibly when clicking the search button while connected to Kad, after approximately 20 seconds of searching, on Ubuntu 24.04 with aMule 3.0.0" is.
 
-## Generating a Backtrace
+## Finding the Log File
 
-When aMule crashes, the built-in crash reporter only provides a minimal trace. A **full GDB backtrace** gives the aMule team the exact call stack at the moment of the crash, which is essential to diagnose the problem.
+aMule writes diagnostic output to a file named `logfile` inside its [configuration folder](../manual/configuration/config-files/index.md#platform-paths). Its location depends on your operating system:
 
-### Step 1 — Install GDB
+| Platform | Log file path |
+|---|---|
+| **Windows** | `%APPDATA%\aMule\logfile` (typically `C:\Users\<you>\AppData\Roaming\aMule\logfile`) |
+| **macOS** | `~/Library/Application Support/aMule/logfile` |
+| **Linux / Unix / BSD** | `~/.aMule/logfile` |
 
-Verify that GDB is installed:
+A few useful notes:
 
-```sh
-which gdb
-```
+- The remote GUI ([`amulegui`](../manual/interfaces/gui/amulegui.md)) uses a separate file named `remotelogfile` in the same folder.
+- Each time aMule starts, it renames the previous log to `logfile.bak`, so the log from the session that crashed may be in the `.bak` file.
+- When reviewing the log, the lines that matter most are those containing `ERROR`, `FATAL`, or `ASSERT`, especially the ones immediately before the problem occurred. Copy those lines (with a bit of surrounding context) into your report.
 
-If the command returns nothing, install GDB:
+## If aMule Crashes: Copy the Automatic Backtrace
 
-```sh
-# Debian / Ubuntu
-sudo apt install gdb
+When aMule crashes, it **automatically writes a backtrace** — a snapshot of what the program was doing at the moment it failed — to the [log file](#finding-the-log-file), and to the terminal if you launched aMule from one. You do **not** need any special tools to obtain it; you just need to copy it.
 
-# Fedora / RHEL
-sudo dnf install gdb
-
-# Arch / Manjaro
-sudo pacman -S gdb
-
-# macOS (Homebrew)
-brew install gdb
-```
-
-### Step 2 — Build aMule with Debug Symbols
-
-A debug build retains symbol information that makes backtraces readable. Without it, gdb can only show memory addresses.
-
-```sh
-git clone https://github.com/amule-org/amule.git
-cd amule
-cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_MONOLITHIC=YES
-cmake --build build -j"$(nproc)"
-```
-
-If you cannot or do not want to recompile, proceed anyway with your installed binary, but be aware that the backtrace will contain fewer details.
-
-:::note Gentoo-specific
-On Gentoo, edit `/etc/portage/make.conf` and add `-ggdb` to `CFLAGS` and `FEATURES="splitdebug"`. Then emerge aMule with `USE="debug" emerge amule`. After the build, remove those flags from `make.conf`.
-:::
-
-### Step 3 — Configure GDB Signal Handling
-
-Create (or append to) `~/.gdbinit` in your home directory:
+The backtrace is wrapped in an easily recognizable block:
 
 ```
-handle SIGPIPE nostop noprint pass
-handle SIG32  nostop noprint pass
-handle SIG33  nostop noprint pass
-handle SIG34  nostop noprint pass
+--------------------------------------------------------------------------------
+A fatal error has occurred and aMule has crashed.
+Please assist us in fixing this problem by reporting the backtrace below as a
+GitHub issue, including as much information as possible regarding the
+circumstances of this crash. Issue tracker:
+    https://github.com/amule-org/amule/issues
+----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
+Current version is: aMule 3.0.0
+Running on: Linux ...
+
+[the backtrace lines]
+--------------------------------------------------------------------------------
 ```
 
-These lines prevent GDB from stopping on signals that aMule uses internally (broken pipes, threading signals), which would otherwise interrupt normal execution.
+**What to do:** open the log file, find this block, and copy **everything** from `A fatal error has occurred` down to the closing line of dashes. Paste it into your issue inside a code block (wrap it in triple backticks ` ``` ` so it stays readable).
 
-### Step 4 — Run aMule Under GDB
+### How Good Is Your Backtrace?
 
-```sh
-gdb build/amule
-(gdb) run
-```
+The usefulness of a backtrace depends on how aMule was built. If you installed aMule from your distribution's package manager, it usually contains enough information to show function names. Here is what each quality level looks like, from best to worst:
 
-Use aMule normally until it crashes. Once it crashes, at the `(gdb)` prompt run:
-
-```sh
-(gdb) bt
-(gdb) bt full
-(gdb) thread apply all bt
-```
-
-Copy the complete output of all three commands and paste it into the issue.
-
-### What to Look For in a Backtrace
-
-The quality of a backtrace depends on whether the binary contains debug symbols. Here are examples of each quality level:
-
-**Unusable — no debug symbols (stripped binary):**
-
-```
-#0  0x000000000057b790 in ?? ()
-#1  0x000000000051e66b in ?? ()
-#2  0x000000000051edb6 in ?? ()
-```
-
-**Partial — symbols present but no line numbers:**
-
-```
-#0  0x1003f604 in CUpDownClient::ClearDownloadBlockRequests ()
-#1  0x10044978 in CUpDownClient::Disconnected ()
-#2  0x1004d958 in CClientList::ProcessDirectCallbackList ()
-```
-
-**Full — symbols + line numbers + local variables (the ideal):**
+**Full — function names, file names, and line numbers (ideal):**
 
 ```
 #0  0x000000000046fcab in CUpDownClient::ClearDownloadBlockRequests (this=0x45bf9e0)
@@ -134,57 +86,28 @@ The quality of a backtrace depends on whether the binary contains debug symbols.
     at BaseClient.cpp:1239
 ```
 
-Always aim for the full form by building with `-DCMAKE_BUILD_TYPE=Debug`.
+**Partial — function names but no line numbers:**
 
-## Generating a Backtrace from a Core File
-
-If aMule was **not** running under GDB when it crashed but your system is configured to generate core files, you can still obtain a backtrace.
-
-First, ensure core files are enabled in your shell by adding this to `~/.bashrc` (or equivalent):
-
-```sh
-ulimit -c unlimited
+```
+#0  0x1003f604 in CUpDownClient::ClearDownloadBlockRequests ()
+#1  0x10044978 in CUpDownClient::Disconnected ()
+#2  0x1004d958 in CClientList::ProcessDirectCallbackList ()
 ```
 
-After a crash, a file named `core` or `core.<pid>` will appear in the working directory. Load it into GDB:
+**Least useful — only memory addresses:**
 
-```sh
-gdb /path/to/amule /path/to/core.<pid>
+```
+#0  0x000000000057b790 in ?? ()
+#1  0x000000000051e66b in ?? ()
+#2  0x000000000051edb6 in ?? ()
 ```
 
-Then issue `bt` and `bt full` as usual.
+Copy whatever you get — even a partial backtrace helps. If you only see addresses and question marks (`?? ()`), mention that in the issue: the developers may ask you to generate a more detailed one, or to install a version with debug information.
 
-### Common Pitfalls
+## Advanced: Generating a Full Backtrace Yourself
 
-**`-fomit-frame-pointer`**: On x86, this compiler flag frees an extra register but often prevents GDB from parsing the executable correctly. Check your `CFLAGS`/`CXXFLAGS` and remove it.
+If you are comfortable using a terminal and want to give the developers the most detailed information possible — running aMule under a debugger (GDB or LLDB), analyzing a core dump with `coredumpctl`, or checking for memory errors with Valgrind — see the developer guide:
 
-**`-fPIE`**: If compiling with `-fPIE`, add `-nopie` to `LDFLAGS` for the link step.
+➡️ **[Debugging with GDB and Valgrind](../developer/debugging.md)**
 
-**Stripped binaries**: Stripping removes all debug info. Do not use the `install-strip` make target or the `-Wl,-s` / `-Wl,-S` linker flags when producing a binary intended for debugging.
-
-## Using ABRT on Fedora
-
-Fedora includes the Automatic Bug Reporting Tool (ABRT), which can generate backtraces automatically. To use it with aMule:
-
-- Fedora 14 or newer is required.
-- aMule must be installed from RPMFusion, or compiled with debug information using Fedora's wxGTK libraries.
-- In `/etc/abrt/abrt.conf`, set `OpenGPGCheck = no`.
-
-Select **"Local GNU Debugger"** as the analyser and **"Logger"** as the facility to write the backtrace report to a file you can attach to the issue.
-
-## Using Valgrind for Memory Errors
-
-Valgrind helps find memory leaks, invalid reads/writes, and use-after-free errors. See [Debugging with GDB and Valgrind](../developer/debugging.md) for the full workflow.
-
-For a quick memory check:
-
-```sh
-valgrind --tool=memcheck --leak-check=full --num-callers=20 \
-    build/amule
-```
-
-Valgrind output is very verbose. If aMule links against libraries that report known false positives, a suppression file can filter them. See the debugging page for details.
-
-## Reading the Log File
-
-aMule writes diagnostic output to `~/.aMule/logfile`. Check this file for error messages and warnings immediately before the crash. Lines containing `ERROR`, `FATAL`, or `ASSERT` are especially relevant.
+This is entirely optional. For most reports, the automatic backtrace and the log file are enough.
