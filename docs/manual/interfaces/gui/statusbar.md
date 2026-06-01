@@ -5,35 +5,42 @@ title: Status Bar
 
 The status bar is located at the bottom of the main aMule window. It gives a continuous at-a-glance summary of the current session: the latest log line, network user and file counts, transfer speeds, and connection status.
 
-![aMule status bar](/img/docs/usage/window_statusbar1.jpg)
+![aMule status bar](/img/docs/gui/statusbar.png)
 
-## Sections
-
-### Log
+## Log
 
 The leftmost section displays the last line printed to the aMule log:
 
-![Status bar log section](/img/docs/usage/window_statusbar2.jpg)
+![Status bar log section](/img/docs/gui/statusbar_logs.png)
 
-If the line is longer than the available space it is truncated. Click the **info button** next to the text to open a popup showing the complete line:
+If the line is longer than the available space it is truncated. The **info button** next to the text to shows a tooltip with the complete line when you hover the mouse.
 
-![Info button next to the log text](/img/docs/usage/window_statusbar3.jpg)
+## Users & Files
 
-![Popup with full log line](/img/docs/usage/window_statusbar13.jpg)
+The second section shows aMule's estimate of the number of users connected to, and files available on, each network it is participating in. When both networks are enabled, the field reads:
 
-### Users
+![Status bar users & files section](/img/docs/gui/statusbar_users_files.png)
 
-aMule estimates the number of users currently connected to each network it is participating in.
+```
+Users: E: <eD2k> K: <Kad> | Files: E: <eD2k> K: <Kad>
+```
 
-- The **first number** is the estimated number of users on the eD2k network:
+where **E:** is the eD2k count and **K:** is the Kademlia count.
 
-  ![eD2k user count](/img/docs/usage/window_statusbar4.jpg)
+- The **eD2k user count** is the estimated number of users on the eD2k network.
+- The **Kademlia user count** is the estimated number of users on the Kademlia network.
+- The **eD2k file count** is the estimated number of files on the eD2k network.
+- The **Kademlia file count** is the estimated number of files on the Kademlia network.
 
-- The **second number** is the estimated number of users on the Kademlia network:
+When only one network is enabled, the `E:`/`K:` prefixes are dropped and the field shows a single value for each:
 
-  ![Kademlia user count](/img/docs/usage/window_statusbar5.jpg)
+```
+Users: <count> | Files: <count>
+```
 
-Both numbers use SI suffixes:
+If no network is enabled, the field reads **No networks selected**.
+
+All counts use SI suffixes:
 
 | Letter | Multiplier |
 |---|---|
@@ -42,84 +49,57 @@ Both numbers use SI suffixes:
 | G | 1,000,000,000 |
 | T | 1,000,000,000,000 |
 
-### Files
+## Speed
 
-aMule also estimates the number of files available on each network.
+The speed section shows current upload and download bandwidth usage:
 
-- The **first number** is the estimated number of files on the eD2k network:
+![Status bar speed section](/img/docs/gui/statusbar_speed.png)
 
-  ![eD2k file count](/img/docs/usage/window_statusbar6.jpg)
-
-- The **second number** is the estimated number of files on the Kademlia network:
-
-  ![Kademlia file count](/img/docs/usage/window_statusbar7.jpg)
-
-The same SI suffixes apply as for the Users field.
-
-### Speed
-
-The speed section shows current upload and download bandwidth usage.
-
-A small **connection-status icon** (two arrows surrounding a globe) appears first:
-
-![Speed icon variants](/img/docs/usage/window_statusbar33.jpg)
+A small **transfer-direction icon** (an upward and a downward arrow) appears first. It indicates current transfer activity and is distinct from the connection-state globe described in the [Globe Icon](#globe-icon) section.
 
 The downward arrow is green when aMule is downloading and red when it is not. The upward arrow is green when aMule is uploading and red when it is not:
 
 | Icon | Meaning |
 |---|---|
-| ![Not transferring](/img/docs/usage/window_statusbar29.jpg) | Not downloading or uploading |
-| ![Downloading only](/img/docs/usage/window_statusbar30.jpg) | Downloading but not uploading |
-| ![Uploading only](/img/docs/usage/window_statusbar31.jpg) | Uploading but not downloading |
-| ![Both](/img/docs/usage/window_statusbar32.jpg) | Both downloading and uploading |
+| ![Not transferring](/img/docs/gui/statusbar_icon_transfer_none.png) | Not downloading or uploading |
+| ![Downloading only](/img/docs/gui/statusbar_icon_transfer_download.png) | Downloading but not uploading |
+| ![Uploading only](/img/docs/gui/statusbar_icon_transfer_upload.png) | Uploading but not downloading |
+| ![Both](/img/docs/gui/statusbar_icon_transfer_both.png) | Both downloading and uploading |
 
 To the right of the icon:
 
-- **Up** — current upload speed:
+- **Up** — current upload speed.
+- **Down** — current download speed.
 
-  ![Upload speed](/img/docs/usage/window_statusbar8.jpg)
+If **"Show overhead bandwidth"** is enabled in [Preferences → Interface](preferences.md#interface), a bracketed number appears alongside each speed value showing the bandwidth consumed by overhead traffic (connection management, pings, protocol control packets):
 
-- **Down** — current download speed:
+![Overhead bandwidth display](/img/docs/gui/statusbar_speed_overhead.png)
 
-  ![Download speed](/img/docs/usage/window_statusbar9.jpg)
+## Networks
 
-If **"Show overhead bandwidth"** is enabled in Preferences, a bracketed number appears alongside each speed value showing the bandwidth consumed by overhead traffic (connection management, pings, protocol control packets):
+The rightmost section shows connection status for both networks. Each status is prefixed with its network name (`eD2k:` and `Kad:`) and the two are joined by a `|` separator:
 
-![Overhead bandwidth display](/img/docs/usage/window_statusbar28.jpg)
+![Status bar spnetwork section](/img/docs/gui/statusbar_networks.png)
 
-### Networks
+For the **eD2k network**, the name (or IP address) of the currently connected server is displayed after the `eD2k:` label.
 
-The rightmost section shows connection status for both networks.
+When not connected, the text reads **eD2k: Disconnected**, or **eD2k: Connecting** while a connection attempt is in progress.
 
-For the **eD2k network**, the name (or IP address) of the currently connected server is displayed:
-
-![Connected server name](/img/docs/usage/window_statusbar11.jpg)
-
-When not connected to eD2k, the text reads **Not connected**, or **Connecting** while a connection attempt is in progress.
-
-For the **Kademlia network**, the status appears after the **Kad** label:
-
-![Kademlia status](/img/docs/usage/window_statusbar12.jpg)
+For the **Kademlia network**, the status appears after the `Kad:` label.
 
 | Text | Meaning |
 |---|---|
-| `ok` | Connected |
-| `firewalled` | Connected but firewalled |
-| `off` | Not connected |
+| `Kad: Connected` | Connected |
+| `Kad: Firewalled` | Connected but firewalled |
+| `Kad: Connecting` | Connection attempt in progress |
+| `Kad: Off` | Not connected |
 
-## Globe Icon
+### Globe Icon
 
 The large earth icon in the status bar gives a combined graphical view of the connection state for both networks:
 
-![Globe icon](/img/docs/usage/window_statusbar10.jpg)
-
-- The **lower-left arrow** represents the eD2k network:
-
-  ![eD2k arrow indicator](/img/docs/usage/window_statusbar23.jpg)
-
-- The **upper-right arrow** represents the Kademlia network:
-
-  ![Kademlia arrow indicator](/img/docs/usage/window_statusbar24.jpg)
+- The **lower-left arrow** represents the eD2k network.
+- The **upper-right arrow** represents the Kademlia network.
 
 Arrow colour meanings:
 
@@ -134,39 +114,18 @@ All possible globe icons and their combined meanings:
 
 | Icon | eD2k | Kademlia |
 |---|---|---|
-| ![](/img/docs/usage/window_statusbar16.jpg) | Offline | Offline |
-| ![](/img/docs/usage/window_statusbar17.jpg) | Offline | Connected (firewalled) |
-| ![](/img/docs/usage/window_statusbar15.jpg) | Offline | Connected |
-| ![](/img/docs/usage/window_statusbar19.jpg) | Connecting | Offline |
-| ![](/img/docs/usage/window_statusbar18.jpg) | Connecting | Connected (firewalled) |
-| ![](/img/docs/usage/window_statusbar14.jpg) | Connecting | Connected |
-| ![](/img/docs/usage/window_statusbar26.jpg) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Offline |
-| ![](/img/docs/usage/window_statusbar25.jpg) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Connected (firewalled) |
-| ![](/img/docs/usage/window_statusbar21.jpg) | Connected | Offline |
-| ![](/img/docs/usage/window_statusbar20.jpg) | Connected | Connected (firewalled) |
-| ![](/img/docs/usage/window_statusbar22.jpg) | Connected | Connected |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_offline.png) | Offline | Offline |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_firewalled.png) | Offline | Connected (firewalled) |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_connected.png) | Offline | Connected |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_offline.png) | Connecting | Offline |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_firewalled.png) | Connecting | Connected (firewalled) |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_connected.png) | Connecting | Connected |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_lowid_kad_offline.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Offline |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_lowid_kad_firewalled.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Connected (firewalled) |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_offline.png) | Connected | Offline |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_firewalled.png) | Connected | Connected (firewalled) |
+| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_connected.png) | Connected | Connected |
 
 :::note
 The combination of a yellow eD2k arrow and a green Kademlia arrow does not occur in practice and is not listed above.
 :::
-
-## Quick Reference
-
-![Status bar quick reference diagram](/img/docs/usage/window_statusbar27.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Button to pop up the complete last log line |
-| 2 | Last log line (truncated to available width) |
-| 3 | Estimated number of online eD2k users |
-| 4 | Estimated number of online Kademlia users |
-| 5 | Estimated number of available eD2k files |
-| 6 | Estimated number of available Kademlia files |
-| 7 | Current upload speed |
-| 8 | Upload overhead speed (if enabled in Preferences) |
-| 9 | Current download speed |
-| 10 | Download overhead speed (if enabled in Preferences) |
-| 11 | Combined eD2k and Kademlia connection status icon |
-| 12 | Name of connected eD2k server, or eD2k connection status |
-| 13 | Kademlia connection status |
-| 14 | Transfer direction indicator (up/down arrows) |
