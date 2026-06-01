@@ -3,7 +3,7 @@ id: toolbar
 title: Toolbar
 ---
 
-The toolbar provides one-click access to all major aMule windows and to the connect/disconnect action. It is normally positioned at the top of the main window but can be moved to the left side through **Preferences → General → Toolbar orientation**.
+The toolbar provides one-click access to all major aMule windows and to the connect/disconnect action. It is normally positioned at the top of the main window but can be moved to the left side by enabling **[Preferences → Interface → Vertical toolbar orientation](./preferences.md#interface)**.
 
 ![Toolbar at the top of the aMule window](/img/docs/usage/window_toolbar1.jpg)
 
@@ -15,13 +15,13 @@ When positioned on the left side:
 
 ### Connect / Disconnect
 
-The leftmost button connects and disconnects aMule from all enabled networks. The networks that aMule is allowed to connect to are configured in **Preferences → Connections**.
+The leftmost button connects and disconnects aMule from all enabled networks. The networks that aMule is allowed to connect to are configured in **[Preferences → Connection → Networks](./preferences.md#networks)**.
 
 **Disconnected** — when aMule is not connected to any network the button shows a connect icon:
 
 ![Connect button](/img/docs/usage/window_toolbar9.jpg)
 
-Clicking it starts a connection attempt to all allowed networks. If no network is explicitly allowed, aMule defaults to the eD2k network. While connecting, the button changes to a **Cancel** button:
+Clicking it starts a connection attempt to all allowed networks. If neither the eD2k nor the Kad network is enabled in [Preferences](./preferences.md#networks), the button is disabled. While connecting, the button changes to a **Cancel** button:
 
 ![Cancel connection button](/img/docs/usage/window_toolbar10.jpg)
 
@@ -41,7 +41,7 @@ The following buttons switch the main aMule window to the corresponding panel:
 |---|---|
 | ![Networks](/img/docs/usage/window_toolbar3.jpg) | **[Networks](./networks.md)** — eD2k server list and Kademlia status |
 | ![Searches](/img/docs/usage/window_toolbar4.jpg) | **[Searches](./searches.md)** — search for files on the eD2k and Kad networks |
-| ![Transfers](/img/docs/usage/window_toolbar5.jpg) | **[Transfers](./transfers.md)** — active downloads and uploads |
+| ![Downloads](/img/docs/usage/window_toolbar5.jpg) | **[Downloads](./transfers.md)** — active downloads and uploads |
 | ![Shared Files](/img/docs/usage/window_toolbar6.jpg) | **[Shared Files](./shared-files.md)** — files you are currently sharing |
 | ![Messages](/img/docs/usage/window_toolbar7.jpg) | **[Messages](./messages.md)** — chat and friends list |
 | ![Statistics](/img/docs/usage/window_toolbar8.jpg) | **[Statistics](./statistics.md)** — speed graphs and detailed statistics |
@@ -69,7 +69,7 @@ The About window:
 | 1 | Connect / Disconnect from all networks |
 | 2 | Switch to Networks window |
 | 3 | Switch to Searches window |
-| 4 | Switch to Transfers window |
+| 4 | Switch to Downloads window |
 | 5 | Switch to Shared Files window |
 | 6 | Switch to Messages window |
 | 7 | Switch to Statistics window |
