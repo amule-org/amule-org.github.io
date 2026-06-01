@@ -23,7 +23,7 @@ The option **Automatic server connect without proxy** exists in the Preferences 
 
 Open **Preferences → Proxy**.
 
-![Proxy preferences tab](/img/docs/gui/preferences_proxy.png)
+![Proxy preferences tab](/img/docs/gui_preferences/preferences_proxy.png)
 
 ### General
 

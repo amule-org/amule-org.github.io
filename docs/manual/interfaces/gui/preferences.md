@@ -11,7 +11,7 @@ Settings are grouped into sections. Click the appropriate section in the list on
 
 Options regarding general aspects of aMule.
 
-![General preferences tab](/img/docs/gui/preferences_general.png)
+![General preferences tab](/img/docs/gui_preferences/preferences_general.png)
 
 | Setting | Description |
 |---|---|
@@ -34,7 +34,7 @@ Options regarding general aspects of aMule.
 
 Options regarding aMule's network connections.
 
-![Connection preferences tab](/img/docs/gui/preferences_connection.png)
+![Connection preferences tab](/img/docs/gui_preferences/preferences_connection.png)
 
 ### Bandwidth limits
 
@@ -75,7 +75,7 @@ Options regarding aMule's network connections.
 
 Options for aMule's file system paths.
 
-![Directories preferences tab](/img/docs/gui/preferences_directories.png)
+![Directories preferences tab](/img/docs/gui_preferences/preferences_directories.png)
 
 | Setting | Description |
 |---|---|
@@ -90,7 +90,7 @@ Options for aMule's file system paths.
 
 Options for connecting aMule to eD2k servers.
 
-![Servers preferences tab](/img/docs/gui/preferences_servers.png)
+![Servers preferences tab](/img/docs/gui_preferences/preferences_servers.png)
 
 | Setting | Description |
 |---|---|
@@ -108,7 +108,7 @@ Options for connecting aMule to eD2k servers.
 
 Options for downloading and sharing files.
 
-![Files preferences tab](/img/docs/gui/preferences_files.png)
+![Files preferences tab](/img/docs/gui_preferences/preferences_files.png)
 
 ### Intelligent Corruption Handling (I.C.H.)
 
@@ -143,7 +143,7 @@ See [Events](../../configuration/events.md) for a flexible event system that can
 
 Options for aMule's security features, including protocol obfuscation and IP filtering.
 
-![Security preferences tab](/img/docs/gui/preferences_security.png)
+![Security preferences tab](/img/docs/gui_preferences/preferences_security.png)
 
 | Setting | Description |
 |---|---|
@@ -187,7 +187,7 @@ aMule always blocks the reserved RFC 3330 IP ranges regardless of these settings
 
 Options for aMule's graphical interface.
 
-![Interface preferences tab](/img/docs/gui/preferences_interface.png)
+![Interface preferences tab](/img/docs/gui_preferences/preferences_interface.png)
 
 | Setting | Description |
 |---|---|
@@ -213,7 +213,7 @@ Options for aMule's graphical interface.
 
 Options for aMule's statistics display.
 
-![Statistics preferences tab](/img/docs/gui/preferences_statistics.png)
+![Statistics preferences tab](/img/docs/gui_preferences/preferences_statistics.png)
 
 ### Graphs
 
@@ -237,7 +237,7 @@ Options for aMule's statistics display.
 
 Options for connecting through a proxy server. See [Proxy configuration](../../configuration/proxy.md) for a full explanation of how the proxy feature works.
 
-![Proxy preferences tab](/img/docs/gui/preferences_proxy.png)
+![Proxy preferences tab](/img/docs/gui_preferences/preferences_proxy.png)
 
 | Setting | Description |
 |---|---|
@@ -254,7 +254,7 @@ Options for connecting through a proxy server. See [Proxy configuration](../../c
 
 Options for filtering incoming chat messages and file comments.
 
-![Filters preferences tab](/img/docs/gui/preferences_filters.png)
+![Filters preferences tab](/img/docs/gui_preferences/preferences_filters.png)
 
 ### Messages
 
@@ -277,7 +277,7 @@ Options for filtering incoming chat messages and file comments.
 
 Options for controlling aMule remotely via the web interface or external connections.
 
-![Remote Controls preferences tab](/img/docs/gui/preferences_remote_controls.png)
+![Remote Controls preferences tab](/img/docs/gui_preferences/preferences_remote_controls.png)
 
 ### External Connection Parameters
 
@@ -308,7 +308,7 @@ Options for controlling aMule remotely via the web interface or external connect
 
 Options for the [Online Signature](../../utilities/wxcas-cas.md) feature used by `cas` and `wxcas`.
 
-![Online Signature preferences tab](/img/docs/gui/preferences_online_signature.png)
+![Online Signature preferences tab](/img/docs/gui_preferences/preferences_online_signature.png)
 
 | Setting | Description |
 |---|---|
@@ -320,7 +320,7 @@ Options for the [Online Signature](../../utilities/wxcas-cas.md) feature used by
 
 Advanced options for aMule's core engine. A **!!! WARNING !!!** banner reminds you that wrong values here can harm aMule's performance — change them only if you understand their effect.
 
-![Advanced preferences tab](/img/docs/gui/preferences_advanced.png)
+![Advanced preferences tab](/img/docs/gui_preferences/preferences_advanced.png)
 
 | Setting | Description |
 |---|---|
@@ -334,7 +334,7 @@ Advanced options for aMule's core engine. A **!!! WARNING !!!** banner reminds y
 
 Configure actions aMule takes when specific events occur, such as sending an email notification when a download completes or when disk space runs out.
 
-![Events preferences tab](/img/docs/gui/preferences_events.png)
+![Events preferences tab](/img/docs/gui_preferences/preferences_events.png)
 
 This section lists the available event types. See the dedicated [Events](../../configuration/events.md) page for a full description of event types, variables, and example scripts.
 

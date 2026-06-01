@@ -5,13 +5,13 @@ title: Status Bar
 
 The status bar is located at the bottom of the main aMule window. It gives a continuous at-a-glance summary of the current session: the latest log line, network user and file counts, transfer speeds, and connection status.
 
-![aMule status bar](/img/docs/gui/statusbar.png)
+![aMule status bar](/img/docs/gui_statusbar/statusbar.png)
 
 ## Log
 
 The leftmost section displays the last line printed to the aMule log:
 
-![Status bar log section](/img/docs/gui/statusbar_logs.png)
+![Status bar log section](/img/docs/gui_statusbar/statusbar_logs.png)
 
 If the line is longer than the available space it is truncated. The **info button** next to the text to shows a tooltip with the complete line when you hover the mouse.
 
@@ -19,7 +19,7 @@ If the line is longer than the available space it is truncated. The **info butto
 
 The second section shows aMule's estimate of the number of users connected to, and files available on, each network it is participating in. When both networks are enabled, the field reads:
 
-![Status bar users & files section](/img/docs/gui/statusbar_users_files.png)
+![Status bar users & files section](/img/docs/gui_statusbar/statusbar_users_files.png)
 
 ```
 Users: E: <eD2k> K: <Kad> | Files: E: <eD2k> K: <Kad>
@@ -53,7 +53,7 @@ All counts use SI suffixes:
 
 The speed section shows current upload and download bandwidth usage:
 
-![Status bar speed section](/img/docs/gui/statusbar_speed.png)
+![Status bar speed section](/img/docs/gui_statusbar/statusbar_speed.png)
 
 A small **transfer-direction icon** (an upward and a downward arrow) appears first. It indicates current transfer activity and is distinct from the connection-state globe described in the [Globe Icon](#globe-icon) section.
 
@@ -61,10 +61,10 @@ The downward arrow is green when aMule is downloading and red when it is not. Th
 
 | Icon | Meaning |
 |---|---|
-| ![Not transferring](/img/docs/gui/statusbar_icon_transfer_none.png) | Not downloading or uploading |
-| ![Downloading only](/img/docs/gui/statusbar_icon_transfer_download.png) | Downloading but not uploading |
-| ![Uploading only](/img/docs/gui/statusbar_icon_transfer_upload.png) | Uploading but not downloading |
-| ![Both](/img/docs/gui/statusbar_icon_transfer_both.png) | Both downloading and uploading |
+| ![Not transferring](/img/docs/gui_statusbar/statusbar_icon_transfer_none.png) | Not downloading or uploading |
+| ![Downloading only](/img/docs/gui_statusbar/statusbar_icon_transfer_download.png) | Downloading but not uploading |
+| ![Uploading only](/img/docs/gui_statusbar/statusbar_icon_transfer_upload.png) | Uploading but not downloading |
+| ![Both](/img/docs/gui_statusbar/statusbar_icon_transfer_both.png) | Both downloading and uploading |
 
 To the right of the icon:
 
@@ -73,13 +73,13 @@ To the right of the icon:
 
 If **"Show overhead bandwidth"** is enabled in [Preferences → Interface](preferences.md#interface), a bracketed number appears alongside each speed value showing the bandwidth consumed by overhead traffic (connection management, pings, protocol control packets):
 
-![Overhead bandwidth display](/img/docs/gui/statusbar_speed_overhead.png)
+![Overhead bandwidth display](/img/docs/gui_statusbar/statusbar_speed_overhead.png)
 
 ## Networks
 
 The rightmost section shows connection status for both networks. Each status is prefixed with its network name (`eD2k:` and `Kad:`) and the two are joined by a `|` separator:
 
-![Status bar spnetwork section](/img/docs/gui/statusbar_networks.png)
+![Status bar spnetwork section](/img/docs/gui_statusbar/statusbar_networks.png)
 
 For the **eD2k network**, the name (or IP address) of the currently connected server is displayed after the `eD2k:` label.
 
@@ -114,17 +114,17 @@ All possible globe icons and their combined meanings:
 
 | Icon | eD2k | Kademlia |
 |---|---|---|
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_offline.png) | Offline | Offline |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_firewalled.png) | Offline | Connected (firewalled) |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_offline_kad_connected.png) | Offline | Connected |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_offline.png) | Connecting | Offline |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_firewalled.png) | Connecting | Connected (firewalled) |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connecting_kad_connected.png) | Connecting | Connected |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_lowid_kad_offline.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Offline |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_lowid_kad_firewalled.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Connected (firewalled) |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_offline.png) | Connected | Offline |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_firewalled.png) | Connected | Connected (firewalled) |
-| ![](/img/docs/gui/statusbar_icon_globe_ed2k_connected_kad_connected.png) | Connected | Connected |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_offline_kad_offline.png) | Offline | Offline |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_offline_kad_firewalled.png) | Offline | Connected (firewalled) |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_offline_kad_connected.png) | Offline | Connected |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_offline.png) | Connecting | Offline |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_firewalled.png) | Connecting | Connected (firewalled) |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_connected.png) | Connecting | Connected |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_offline.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Offline |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_firewalled.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Connected (firewalled) |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_offline.png) | Connected | Offline |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_firewalled.png) | Connected | Connected (firewalled) |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_connected.png) | Connected | Connected |
 
 :::note
 The combination of a yellow eD2k arrow and a green Kademlia arrow does not occur in practice and is not listed above.

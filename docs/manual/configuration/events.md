@@ -5,9 +5,9 @@ title: Events
 
 Events are actions aMule can take automatically when certain things happen. They are configured on the **Events** tab of the [Preferences](../interfaces/gui/preferences.md) dialog, or — when running `amuled` — in the per-event `[UserEvents/<Event>]` sections of [`amule.conf`](./config-files/amule-conf.md#userevents-section).
 
-![Events preferences tab — Download completed event selected](/img/docs/gui/events_download_completed.png)
+![Events preferences tab — Download completed event selected](/img/docs/gui_events/events_download_completed.png)
 
-![Events preferences tab — Error on completion event selected](/img/docs/gui/events_error_on_completion.png)
+![Events preferences tab — Error on completion event selected](/img/docs/gui_events/events_error_on_completion.png)
 
 ## Event types
 

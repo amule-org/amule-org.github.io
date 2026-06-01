@@ -5,7 +5,7 @@ title: Toolbar
 
 The toolbar provides one-click access to all major aMule windows and to the connect/disconnect action. It is normally positioned at the top of the main window but can be moved to the left side by enabling **[Preferences → Interface → Vertical toolbar orientation](./preferences.md#interface)**.
 
-![aMule toolbar](/img/docs/gui/toolbar.png)
+![aMule toolbar](/img/docs/gui_toolbar/toolbar.png)
 
 ## Connect / Disconnect
 
@@ -13,9 +13,9 @@ The leftmost button connects and disconnects aMule from all enabled networks. Th
 
 | Icon | State | Description |
 |---|---|---|
-| ![Connect](/img/docs/gui/toolbar_connect.png) | **Disconnected** | aMule is not connected to any network. Clicking the button starts a connection attempt to all allowed networks. If neither the eD2k nor the Kad network is enabled in [Preferences](./preferences.md#networks), the button is disabled. |
-| ![Cancel](/img/docs/gui/toolbar_cancel.png) | **Connecting** | A connection attempt is in progress. Clicking **Cancel** aborts the attempt and returns aMule to the disconnected state. |
-| ![Disconnect](/img/docs/gui/toolbar_disconnect.png) | **Connected** | aMule is connected to at least one network. Clicking **Disconnect** disconnects aMule from all networks immediately. |
+| ![Connect](/img/docs/gui_toolbar/toolbar_connect.png) | **Disconnected** | aMule is not connected to any network. Clicking the button starts a connection attempt to all allowed networks. If neither the eD2k nor the Kad network is enabled in [Preferences](./preferences.md#networks), the button is disabled. |
+| ![Cancel](/img/docs/gui_toolbar/toolbar_cancel.png) | **Connecting** | A connection attempt is in progress. Clicking **Cancel** aborts the attempt and returns aMule to the disconnected state. |
+| ![Disconnect](/img/docs/gui_toolbar/toolbar_disconnect.png) | **Connected** | aMule is connected to at least one network. Clicking **Disconnect** disconnects aMule from all networks immediately. |
 
 ## Window Buttons
 
