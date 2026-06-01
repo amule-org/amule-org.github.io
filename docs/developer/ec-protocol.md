@@ -3,7 +3,7 @@ id: ec-protocol
 title: EC Protocol
 ---
 
-The **External Connections (EC) protocol** is the binary protocol that `amuled`, `amulegui`, `amuleweb`, and `amulecmd` use to communicate. It was introduced in aMule 2.0.0-rc8 as a complete redesign of the previous string-based interface — the redesign (ECv2) was triggered by a security vulnerability and the need for a more structured, efficient, and extensible protocol.
+The **External Connections (EC) protocol** is the binary protocol that [`amuled`](../manual/interfaces/amuled.md), [`amulegui`](../manual/interfaces/gui/amulegui.md), [`amuleweb`](../manual/interfaces/amuleweb.md), and [`amulecmd`](../manual/interfaces/amulecmd.md) use to communicate. It is a structured, efficient, and extensible binary protocol.
 
 The protocol is defined in the aMule source under `src/libs/ec/` and `src/ExternalConn.cpp`. The canonical specification is in `docs/EC_Protocol.md` in the repository.
 
@@ -39,8 +39,8 @@ The transmission layer header is always exactly **8 bytes**: a 4-byte flags word
 | `1` | `EC_FLAG_UTF8_NUMBERS` | When set, all integers in the application layer are encoded as UTF-8 wide characters (avoids zero bytes in small packets). |
 | `3` | Reserved | Must be 0. |
 | `4` | `EC_FLAG_LARGE_TAG_COUNT` | When set, `TAGCOUNT` fields use the sentinel-extended encoding (see [Section 1.2](#section-12--application-layer)). Both sides must have advertised `EC_TAG_CAN_LARGE_TAG_COUNT` in their authentication packet. |
-| `5` | Always 1 | Distinguishes from pre-rc8 clients. |
-| `6` | Always 0 | Distinguishes from pre-rc8 clients. |
+| `5` | Always 1 | Fixed protocol marker; acts as a sanity check. |
+| `6` | Always 0 | Fixed protocol marker; acts as a sanity check. |
 | `8–14`, `16–22`, `24–31` | Reserved | Must be 0. |
 
 The sender always sets bit 5 and clears bit 6. The receiver rejects any packet where `(flags & 0x60) != 0x20`.
@@ -96,6 +96,8 @@ When `EC_FLAG_LARGE_TAG_COUNT` is in effect and `TAGCOUNT == 0xFFFF`, a `uint32`
 
 All integer types (`uint8`, `uint16`, `uint32`, `uint64`) are in network byte order (big-endian) in the application layer.
 
+aMule encodes each integer with the **narrowest type that fits its value**: `CECTag::InitInt` (`ECTag.cpp`) picks `UINT8` for values `≤ 0xFF`, `UINT16` for `≤ 0xFFFF`, `UINT32` for `≤ 0xFFFFFFFF`, otherwise `UINT64` — regardless of the C++ width the sender used. So a field documented as `uint32` may arrive on the wire as `UINT8`, `UINT16`, or `UINT32` depending on the value. Clients **must** read integers with a width-agnostic reader (e.g. `GetInt()`) and never assume the declared width. This is why the `EC_TAG_PROTOCOL_VERSION` example below is `UINT16` even though the sender passes it as a 64-bit value.
+
 When `EC_FLAG_UTF8_NUMBERS` is set, integers are encoded as UTF-8 wide characters to avoid zero bytes. Consumers can pass them through a UTF-8 decoder to obtain the original value.
 
 ### Strings
@@ -132,14 +134,17 @@ EC_OP_AUTH_REQ (0x02)
     +-- EC_TAG_CLIENT_NAME         (optional) — name of the EC client application
     +-- EC_TAG_CLIENT_VERSION      (optional) — version of the EC client application
     +-- EC_TAG_PROTOCOL_VERSION    (required) — EC protocol version (currently 0x0204)
-    +-- EC_TAG_VERSION_ID          (dev builds only, must NOT appear in releases) — MD4 hash of ECCodes.h
+    +-- EC_TAG_VERSION_ID          (dev builds only, must NOT appear in releases) — MD5 hash of `ECCodes.h`
     +-- EC_TAG_CAN_ZLIB            (optional) — advertises zlib compression support
     +-- EC_TAG_CAN_UTF8_NUMBERS    (optional) — advertises UTF-8 number encoding support
     +-- EC_TAG_CAN_NOTIFY          (optional) — advertises notification support
     +-- EC_TAG_CAN_LARGE_TAG_COUNT (always)   — advertises sentinel-extended tag count support
+    +-- EC_TAG_CAN_PARTIAL_UPDATE  (always)   — advertises partial INC_UPDATE support
 ```
 
 Each `EC_TAG_CAN_*` is an empty tag (type `CUSTOM`, zero-length data) advertising a capability. `EC_TAG_PASSWD_HASH` does **not** appear in this packet.
+
+`EC_TAG_VERSION_ID` is the **MD5** digest of `ECCodes.h` (with comments and whitespace normalised, so only real code changes alter it). It is transported in a 16-byte `HASH16` container, but the algorithm is MD5, not MD4. It is compiled in only on development builds (gated by the `EC_VERSION_ID` macro in `src/ExternalConn.cpp`) and must never appear in release builds.
 
 ### Step 2 — Salt (server → client)
 
@@ -158,6 +163,8 @@ salt_hash  = MD5(salt_hex)                           // hex-encoded MD5 of the h
 final_hash = MD5(lower(MD5(password)) + salt_hash)   // MD5 of concatenated hex strings
 ```
 
+`salt_hex` is produced with a `"%lX"` format (`ExternalConn.cpp`): **uppercase** hex, **no leading-zero padding**, and **no `0x` prefix**. The salt is a full random `uint64`, so it is usually 16 hex digits, but a value whose high nibble is zero yields fewer digits — do not zero-pad to 16. `MD5(password)` is the password already stored as a lowercase MD5 hex string in aMule's preferences.
+
 Then sends:
 
 ```
@@ -173,6 +180,7 @@ On success:
 EC_OP_AUTH_OK (0x04)
     +-- EC_TAG_SERVER_VERSION      (optional) — aMule version string
     +-- EC_TAG_CAN_LARGE_TAG_COUNT (optional) — echoed if the server accepts the feature
+    +-- EC_TAG_CAN_PARTIAL_UPDATE  (optional) — echoed if partial INC_UPDATE mode is active
 ```
 
 The server echoes only the capabilities it will honour. The client must not use a capability unless the server echoed it.
@@ -186,13 +194,13 @@ EC_OP_AUTH_FAIL (0x03)
 
 ### Wire-Level Example
 
-**Step 1 — Auth request** (7 tags, no compression):
+**Step 1 — Auth request** (8 tags, no compression):
 
 ```
 00 00 00 20                         FLAGS: bit 5 set, no compression
-00 00 00 43                         Body length: 67 bytes
+00 00 00 4a                         Body length: 74 bytes
 02                                  EC_OP_AUTH_REQ
-  00 07                             Tag count: 7
+  00 08                             Tag count: 8
     02 00                           EC_TAG_CLIENT_NAME (0x0100, no children)
       06                            EC_TAGTYPE_STRING
       00 00 00 09                   TagLen: 9
@@ -215,6 +223,9 @@ EC_OP_AUTH_FAIL (0x03)
       01                            EC_TAGTYPE_CUSTOM
       00 00 00 00                   TagLen: 0
     00 22                           EC_TAG_CAN_LARGE_TAG_COUNT (0x0011, no children)
+      01                            EC_TAGTYPE_CUSTOM
+      00 00 00 00                   TagLen: 0
+    00 24                           EC_TAG_CAN_PARTIAL_UPDATE (0x0012, no children)
       01                            EC_TAGTYPE_CUSTOM
       00 00 00 00                   TagLen: 0
 ```
@@ -271,6 +282,12 @@ c8 80
 ```
 
 UTF-8 decode: `c8 80` → `0x0200`. Bit 0 = 0 (no children). True code = `0x0200 >> 1 = 0x0100` = `EC_TAG_CLIENT_NAME` (0x0100 in `ECCodes.h`).
+
+### Partial Updates (INC_UPDATE)
+
+A client that advertises `EC_TAG_CAN_PARTIAL_UPDATE` (0x0012) in its auth request tells the server it understands the **partial incremental-update** protocol. When the server activates this mode it echoes `EC_TAG_CAN_PARTIAL_UPDATE` in `EC_OP_AUTH_OK`.
+
+In a partial `EC_DETAIL_INC_UPDATE` response (e.g. the download or shared-file list), the server may then **omit files that have not changed** and signal removals explicitly with an `EC_TAG_FILE_REMOVED` (0x0013) tag, instead of the legacy "absence implies deletion" convention. The feature is backward-compatible: a server talking to a client that did **not** advertise the capability (or an old server that does not implement it) falls back to emitting an alive marker for every unchanged file, so the client's bulk "missing == deleted" logic still works.
 
 ## Section 4 — Common Operations
 
@@ -428,10 +445,10 @@ Wire encoding (plain format, no compression):
 
 EC can be used to build custom clients for aMule in any language. A minimal client needs to:
 
-1. Open a TCP connection to `amuled` (default port 4712).
+1. Open a TCP connection to [`amuled`](../manual/interfaces/amuled.md) (default port 4712 — the port, password, and whether EC is enabled at all are set in the [`[ExternalConnect]`](../manual/configuration/config-files/amule-conf.md#externalconnect-section) section of `amule.conf`).
 2. Send the 8-byte transmission header followed by `EC_OP_AUTH_REQ` with `EC_TAG_PROTOCOL_VERSION` and capability tags.
 3. Receive `EC_OP_AUTH_SALT` and extract the `EC_TAG_PASSWD_SALT` value (uint64).
-4. Compute `final_hash = MD5(lower(MD5(password)) + MD5(upper_hex(salt)))`.
+4. Compute `final_hash = MD5(lower(MD5(password)) + MD5(upper_hex(salt)))`, where `upper_hex(salt)` is the salt formatted as **uppercase** hex with no leading-zero padding and no `0x` prefix.
 5. Send `EC_OP_AUTH_PASSWD` with `EC_TAG_PASSWD_HASH` = the computed hash.
 6. Receive the reply. If `EC_OP_AUTH_OK`, proceed; if `EC_OP_AUTH_FAIL`, the password was wrong or another error occurred.
 7. Send request packets and receive reply packets in a request/response loop.
@@ -449,13 +466,12 @@ The canonical implementation is in the aMule source:
 - `src/libs/ec/cpp/ECTag.cpp` — tag wire encoding/decoding (see `WriteTag`, `ReadFromSocket`)
 - `src/libs/ec/cpp/ECSocket.cpp` — transmission layer (see `WritePacket`, `ReadHeader`)
 
-## Section 7 — Historical Notes
+## Section 7 — Design Notes
 
-The EC protocol (ECv2) was a complete rewrite introduced in aMule 2.0.0-rc8. The previous interface was string-based and contained a security vulnerability. ECv2 was designed by GonoszTopi with contributions from phoenix and lfroen. It is incompatible with any pre-rc8 version. Key design goals:
+Key design goals of the protocol:
 
-- **Binary protocol** — replaces the string-based predecessor.
 - **Security** — salted MD5 password hashing; extensible capability negotiation.
 - **Efficiency** — zlib compression for large responses; UTF-8 integer encoding for small packets.
 - **Flexibility** — nested tag structure allows adding new fields without breaking existing clients.
 
-ECv2 can be modelled as binary XML, or equivalently as a tree: one root (the packet), with any number of branches (tags) and leaves (tags with no children).
+The protocol can be modelled as binary XML, or equivalently as a tree: one root (the packet), with any number of branches (tags) and leaves (tags with no children).
