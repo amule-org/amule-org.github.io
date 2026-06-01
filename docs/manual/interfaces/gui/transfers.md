@@ -123,13 +123,13 @@ Each source row shows a small icon indicating the client software and connection
 | Icon | Client |
 |---|---|
 | aMule icon | `amule` |
-| eMule icon | eMule |
-| eDonkey2000 icon | Original eDonkey2000 client |
+| eMule icon | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) |
+| eDonkey2000 icon | Original [eDonkey2000](../../../p2p-networks/ed2k/clients.md#edonkey2000-20002005) client |
+| lphant icon | [lphant](../../../p2p-networks/ed2k/clients.md#lphant-20052009) |
+| mlDonkey icon | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) |
+| Shareaza icon | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) |
+| xMule icon | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) |
 | Friend icon | A client you have marked as a friend |
-| lphant icon | lphant |
-| mlDonkey icon | mlDonkey |
-| Shareaza icon | Shareaza |
-| xMule icon | xMule |
 | Unknown icon | Unrecognised client |
 
 Overlay badges on the base icon indicate additional attributes:

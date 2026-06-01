@@ -15,7 +15,7 @@ aMule exclusively supports two peer-to-peer networks: **[eD2k](ed2k/index.md)** 
 
 However, Overnet was a **closed protocol** — its specifications were unknown and its designers were not willing to publish them.
 
-In 2004, MetaMachine announced they would stop Overnet development to focus on eDonkey2000. The Overnet service was shut down on **September 28, 2005**, following a cease-and-desist notice from the RIAA. There have been no further updates and Overnet is no longer in use.
+In 2004, MetaMachine announced they would stop Overnet development to focus on eDonkey2000, merging the Overnet protocol into the eDonkey client. The eDonkey2000 client itself was discontinued on **September 28, 2005**, following a cease-and-desist notice from the RIAA, and the Overnet network was taken down in **late 2006** after MetaMachine settled with the RIAA (September 2006). There have been no further updates and Overnet is no longer in use.
 
 ### Overnet vs. Kademlia
 
@@ -115,17 +115,19 @@ The official client history has two generations:
 
 ## Network Overview
 
-The following table summarises the P2P networks described on this page:
+The following table summarises the P2P networks described on this page, with aMule's own eD2k and Kademlia networks listed first for comparison:
 
 | Network | Architecture | Protocol | Status |
 |---|---|---|---|
-| [Overnet](https://en.wikipedia.org/wiki/Overnet) | Serverless DHT (XOR metric) | Closed | Defunct (2005) |
+| **[eD2k](ed2k/index.md)** | Client-server (direct P2P transfers) | Open | Active |
+| **[Kademlia](kademlia.md)** | Serverless DHT (XOR metric) | Open | Active |
+| [Overnet](https://en.wikipedia.org/wiki/Overnet) | Serverless DHT (XOR metric) | 🔴 Closed | 🔴 Defunct (2006) |
 | [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) | Tracker-based / DHT hybrid | Open | Active |
-| [FastTrack](https://en.wikipedia.org/wiki/FastTrack_(protocol)) | Hybrid (super-peers) | Closed | Defunct (~2012) |
+| [FastTrack](https://en.wikipedia.org/wiki/FastTrack_(protocol)) | Hybrid (super-peers) | 🔴 Closed | 🔴 Defunct (~2012) |
 | [Gnutella](https://en.wikipedia.org/wiki/Gnutella) | Fully decentralised | Open | Diminished, active |
 | [Gnutella2 (G2)](https://en.wikipedia.org/wiki/Gnutella2) | Hybrid decentralised | Open | Active |
 | [DirectConnect](https://en.wikipedia.org/wiki/Direct_Connect_(protocol)) | Centralised (hub-based) | Closed (NMDC) / Open (ADC) | Active (DC++) |
-| [Napster](https://en.wikipedia.org/wiki/Napster) | Centralised (server index) | Closed | Defunct (2001→2026) |
-| [OpenNap](https://en.wikipedia.org/wiki/OpenNap) | Centralised (open server) | Open | Inactive |
-| [AudioGalaxy](https://en.wikipedia.org/wiki/Audiogalaxy) | Centralised | Closed | Defunct (2013) |
-| [SoulSeek](https://en.wikipedia.org/wiki/Soulseek) | Centralised | Closed | Active (cross-platform) |
+| [Napster](https://en.wikipedia.org/wiki/Napster) | Centralised (server index) | 🔴 Closed | 🔴 Defunct (2001) |
+| [OpenNap](https://en.wikipedia.org/wiki/OpenNap) | Centralised (open server) | Open | 🔴 Inactive |
+| [AudioGalaxy](https://en.wikipedia.org/wiki/Audiogalaxy) | Centralised | 🔴 Closed | 🔴 Defunct (2013) |
+| [SoulSeek](https://en.wikipedia.org/wiki/Soulseek) | Centralised | 🔴 Closed | Active (cross-platform) |

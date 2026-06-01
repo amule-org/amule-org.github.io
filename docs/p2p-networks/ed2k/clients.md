@@ -9,7 +9,7 @@ The **eD2k network** has been supported by several client applications over the 
 
 ### eDonkey2000 (2000–2005)
 
-[**eDonkey2000**](https://en.wikipedia.org/wiki/EDonkey2000) was the pioneering application that created and defined the eD2k protocol. Released on September 6, 2000 by MetaMachine, Inc., it was proprietary software that displayed advertisements to users; disabling ads required purchasing a license.
+[**eDonkey2000**](https://en.wikipedia.org/wiki/EDonkey2000) was the pioneering application that created and defined the eD2k protocol. Released on September 6, 2000 by MetaMachine, Inc., it was available for **Windows** and **Linux**. It was proprietary software that displayed advertisements to users; disabling ads required purchasing a license.
 
 In September 2005, MetaMachine received a cease-and-desist letter from the RIAA, prompted by the June 2005 US Supreme Court ruling in *MGM Studios, Inc. v. Grokster, Ltd.*, which established that software makers who facilitate copyright infringement can be held liable. The eDonkey2000 website was shut down that same month. On September 12, 2006, MetaMachine settled with the RIAA for **$30 million** and agreed not to distribute the software again. The software received no further updates and is no longer in use. The eD2k protocol it defined, however, lives on in the open-source clients described below.
 
@@ -25,12 +25,12 @@ Unlike the \*Mule clients, mlDonkey was designed as a server/client system from 
 
 mlDonkey is written in OCaml and supports multiple P2P protocols simultaneously:
 
-- Overnet and Kad
-- BitTorrent (with Mainline DHT)
-- DirectConnect
-- FastTrack
+- [Overnet](../other-networks.md#overnet) and [Kad](../kademlia.md)
+- [BitTorrent](../other-networks.md#bittorrent) (with Mainline DHT)
+- [DirectConnect](../other-networks.md#directconnect)
+- [FastTrack](../other-networks.md#fasttrack)
 - HTTP, FTP, and SSH via FileTP
-- Gnutella and Gnutella2 *(unmaintained; no longer compiled by default since v2.9.0)*
+- [Gnutella](../other-networks.md#gnutella) and [Gnutella2](../other-networks.md#gnutella2-g2) *(unmaintained; no longer compiled by default since v2.9.0)*
 
 As with any multi-protocol application, the quality of support varies significantly across these networks, from good to poor.
 
@@ -74,7 +74,7 @@ The lMule project is no longer maintained or supported.
 
 *lMule main interface*
 
-### xMule (2003–2006)
+### xMule (2003–2009)
 
 [**xMule**](https://en.wikipedia.org/wiki/XMule) was a Linux-native fork of lMule, created in June 2003 following internal conflicts in the lMule project. aMule was subsequently forked from xMule on August 18, 2003. The last release was **1.13.7 RC1** (September 11, 2006). The xMule project was officially discontinued on January 18, 2009, after aMule had long become the established cross-platform alternative. Its source code remains archived on [SourceForge](https://sourceforge.net/projects/xmule/).
 
@@ -94,7 +94,7 @@ Key features that distinguish aMule (see the [full feature list](../../index.md#
 
 ### Lphant (~2005–2009)
 
-[**Lphant**](https://en.wikipedia.org/wiki/Lphant) was an eD2k client written in C# using the .NET framework. Its original design separated the protocol kernel from the user interface: the kernel was implemented as a standalone .NET DLL object, allowing the interface and core to be developed independently. This architecture was intended to enable remote control, running as a service, custom user interfaces, and third-party integration — allowing any developer to build an eD2k client using any .NET-supported language without re-implementing the protocol.
+[**Lphant**](https://en.wikipedia.org/wiki/Lphant) was an eD2k and [BitTorrent](../other-networks.md#bittorrent) client written in C# using the .NET framework, supporting downloads over both networks. Its original design separated the protocol kernel from the user interface: the kernel was implemented as a standalone .NET DLL object, allowing the interface and core to be developed independently. This architecture was intended to enable remote control, running as a service, custom user interfaces, and third-party integration — allowing any developer to build an eD2k client using any .NET-supported language without re-implementing the protocol.
 
 The last legitimate release was **version 3.51** on March 3, 2009. Just days later, on March 9, 2009, Discordia Ltd (affiliated with iMesh) acquired the lphant.com domain. The application then prompted users to "upgrade" to a replacement that removed all networking capabilities and bundled **adware and spyware**. The project was discontinued in 2009. Notably, Discordia Ltd is the same company that hijacked the shareaza.com domain.
 
@@ -106,7 +106,7 @@ The last legitimate release was **version 3.51** on March 3, 2009. Just days lat
 
 ### Shareaza (2002–2017)
 
-[**Shareaza**](https://en.wikipedia.org/wiki/Shareaza) is a multi-protocol peer-to-peer file sharing application for Windows, founded in mid-2002 by Michael Stokes. It supports up to four simultaneous P2P networks: eDonkey2000, Gnutella, BitTorrent, and Gnutella2 (G2), the last of which is Shareaza's native network. The source code was released under the GNU GPL on June 1, 2004.
+[**Shareaza**](https://en.wikipedia.org/wiki/Shareaza) is a multi-protocol peer-to-peer file sharing application for Windows, founded in mid-2002 by Michael Stokes. It supports up to four simultaneous P2P networks: eDonkey2000, [Gnutella](../other-networks.md#gnutella), [BitTorrent](../other-networks.md#bittorrent), and [Gnutella2 (G2)](../other-networks.md#gnutella2-g2), the last of which is Shareaza's native network. The source code was released under the GNU GPL on June 1, 2004.
 
 As with any multi-protocol client, none of the supported networks are handled as well as a dedicated single-protocol client. In particular, Shareaza's eD2k support is notably poor.
 
@@ -134,12 +134,12 @@ This means sources from aMule and eMule clients appear together in search result
 
 | Client | Platform | Open Source | Networks | Status |
 |---|---|---|---|---|
-| [eDonkey2000](https://en.wikipedia.org/wiki/EDonkey2000) | Windows | No | eD2k | Discontinued (2005) |
-| [mlDonkey](https://en.wikipedia.org/wiki/MLDonkey) | Linux, macOS, Windows | Yes (GPL) | eD2k, Kademlia, BitTorrent, + | Active |
+| [eDonkey2000](https://en.wikipedia.org/wiki/EDonkey2000) | Windows, Linux | 🔴 No | eD2k | 🔴 Discontinued (2005) |
+| [mlDonkey](https://en.wikipedia.org/wiki/MLDonkey) | Windows, macOS, Linux | Yes (GPL) | eD2k, Kademlia, BitTorrent, + | Active |
 | [eMule](https://en.wikipedia.org/wiki/EMule) | Windows | Yes (GPL) | eD2k, Kademlia | Community-maintained |
-| [JMule](https://en.wikipedia.org/wiki/JMule) | Linux, macOS, Windows | Yes (GPL) | eD2k, Kademlia | Abandoned (2011) |
-| lMule | Linux | Yes (GPL) | eD2k | Discontinued (2003) |
-| [xMule](https://en.wikipedia.org/wiki/XMule) | Linux | Yes (GPL) | eD2k | Discontinued (2006) |
-| [aMule](../../manual/interfaces/gui/amule.md) | Windows, macOS, Linux, BSD | Yes (GPL) | eD2k, Kademlia | Active |
-| [Lphant](https://en.wikipedia.org/wiki/Lphant) | Windows | Closed (adware) | eD2k | Discontinued (2009) |
-| [Shareaza](https://en.wikipedia.org/wiki/Shareaza) | Windows | Yes (GPL) | eD2k, Gnutella, BitTorrent, G2 | Abandoned (2017) |
+| [JMule](https://en.wikipedia.org/wiki/JMule) | Windows, macOS, Linux | Yes (GPL) | eD2k | 🔴 Abandoned (2011) |
+| lMule | Linux | Yes (GPL) | eD2k | 🔴 Discontinued (2003) |
+| [xMule](https://en.wikipedia.org/wiki/XMule) | Linux | Yes (GPL) | eD2k | 🔴 Discontinued (2009) |
+| **[aMule](../../manual/interfaces/gui/amule.md)** | Windows, macOS, Linux, BSD | Yes (GPL) | eD2k, Kademlia | Active |
+| [Lphant](https://en.wikipedia.org/wiki/Lphant) | Windows | 🔴 Closed (adware) | eD2k, BitTorrent | 🔴 Discontinued (2009) |
+| [Shareaza](https://en.wikipedia.org/wiki/Shareaza) | Windows | Yes (GPL) | eD2k, Gnutella, BitTorrent, G2 | 🔴 Abandoned (2017) |

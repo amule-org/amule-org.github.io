@@ -189,13 +189,13 @@ The Transfers page uses small icons to indicate the state of each source connect
 | Client | Description |
 |---|---|
 | aMule | aMule client |
-| eDonkey2000 | Original eDonkey client |
-| eMule | eMule client |
+| [eDonkey2000](./p2p-networks/ed2k/clients.md#edonkey2000-20002005) | Original eDonkey client |
+| [eMule](./p2p-networks/ed2k/clients.md#emule-2002present) | eMule client |
+| [lphant](./p2p-networks/ed2k/clients.md#lphant-20052009) | lphant client |
+| [mlDonkey](./p2p-networks/ed2k/clients.md#mldonkey-2001present) | mlDonkey client |
+| [Shareaza](./p2p-networks/ed2k/clients.md#shareaza-20022017) | Shareaza client |
+| [xMule](./p2p-networks/ed2k/clients.md#xmule-20032009) | xMule client |
 | Friend | Client marked as a Friend |
-| lphant | lphant client |
-| mlDonkey | mlDonkey client |
-| Shareaza | Shareaza client |
-| xMule | xMule client |
 | Unknown | Unrecognised client |
 
 **Modifier overlays**

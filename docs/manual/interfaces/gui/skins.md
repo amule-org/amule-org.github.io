@@ -77,8 +77,8 @@ A skin file is a standard **zip archive** containing PNG images. The file names 
 | `Client_Connecting.png` | Connecting client |
 | `Client_CreditsGrey.png` | Client with credits (grey) |
 | `Client_CreditsYellow.png` | Client with credits (yellow) |
-| `Client_eDonkeyHybrid.png` | eDonkey Hybrid client |
-| `Client_eMule.png` | eMule client |
+| `Client_eDonkeyHybrid.png` | [eDonkey Hybrid](../../../p2p-networks/ed2k/clients.md#edonkey2000-20002005) client |
+| `Client_eMule.png` | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) client |
 | `Client_Encrypted.png` | Encrypted connection |
 | `Client_ExcellentRatingOnFile.png` | Client with excellent file rating |
 | `Client_ExtendedProtocol.png` | Client using extended protocol |
@@ -86,17 +86,17 @@ A skin file is a standard **zip archive** containing PNG images. The file names 
 | `Client_Friend.png` | Friend |
 | `Client_GoodRatingOnFile.png` | Client with good file rating |
 | `Client_InvalidRatingOnFile.png` | Client with invalid file rating |
-| `Client_lphant.png` | lphant client |
-| `Client_mlDonkey.png` | mlDonkey client |
+| `Client_lphant.png` | [lphant](../../../p2p-networks/ed2k/clients.md#lphant-20052009) client |
+| `Client_mlDonkey.png` | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) client |
 | `Client_OnQueue.png` | Client on queue |
 | `Client_PoorRatingOnFile.png` | Client with poor file rating |
 | `Client_SecIdent.png` | Secure identification active |
-| `Client_Shareaza.png` | Shareaza client |
+| `Client_Shareaza.png` | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) client |
 | `Client_StatusUnknown.png` | Unknown client status |
 | `Client_Transfer.png` | Transferring client |
 | `Client_Unknown.png` | Unknown client |
 | `Client_Upload.png` | Uploading client |
-| `Client_xMule.png` | xMule client |
+| `Client_xMule.png` | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) client |
 
 ### Bundled skins
 
