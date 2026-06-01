@@ -3,22 +3,7 @@ id: windows
 title: Building on Windows
 ---
 
-aMule is built on Windows using **MSYS2** with the **MINGW64** toolchain and **Ninja** as the build generator. The general [Compilation](index.md) page documents the full CMake workflow, all build options, and the complete list of buildable components. For other platforms, see [macOS](macos.md), [Linux](linux.md), and [BSD](bsd.md).
-
-If you also want to produce a redistributable portable `.zip` or an installer, see [Packaging](#packaging-portable-zip-and-installer) at the end of this page.
-
-### Minimum versions
-
-The Windows build requires:
-
-| Dependency | Minimum version |
-|---|---|
-| CMake | 3.10 |
-| wxWidgets | 3.2.0 |
-| Boost | 1.70 |
-| crypto++ | 5.6 |
-
-The MSYS2 packages below already satisfy these.
+This page is a self-contained guide to building aMule from source on Windows using **MSYS2** with the **MINGW64** toolchain and **Ninja** as the build generator. The general [Compilation](index.md) page documents the full CMake workflow and the complete list of [build options](index.md#build-options). For other platforms, see [macOS](macos.md), [Linux](linux.md), and [BSD](bsd.md).
 
 ## Prerequisites
 
@@ -28,7 +13,9 @@ Download and install MSYS2 from [https://www.msys2.org/](https://www.msys2.org/)
 
 After the base installation, open the **MSYS2 MINGW64** terminal (not MSYS2 MSYS or UCRT64) for all subsequent steps.
 
-### Install Dependencies
+The Windows build requires CMake ≥ 3.10, wxWidgets ≥ 3.2.0, Boost ≥ 1.70, and crypto++ ≥ 5.6 — the MSYS2 packages below already satisfy these.
+
+## Install Dependencies
 
 In the MSYS2 MINGW64 terminal:
 
@@ -74,13 +61,13 @@ cmake -B build \
 cmake --build build
 ```
 
-The `-G Ninja` flag selects the Ninja build generator, which is faster than the default `make`-based generator for incremental builds.
-
-To use all available CPU cores:
+The `-G Ninja` flag selects the Ninja build generator, which is faster than the default `make`-based generator for incremental builds. To use all available CPU cores:
 
 ```sh
 cmake --build build -- -j$(nproc)
 ```
+
+This enables a common set of components. See [Build Options](index.md#build-options) for the full list. To build every component, add the remaining `BUILD_*`/`ENABLE_*` flags (e.g. `-DBUILD_REMOTEGUI=YES -DBUILD_ALC=YES -DBUILD_ALCC=YES -DBUILD_WXCAS=YES -DENABLE_NLS=YES`) or use `-DBUILD_EVERYTHING=YES`.
 
 ### Debug Build
 
@@ -95,29 +82,6 @@ cmake --build build
 ```
 
 The `Debug` build type retains full symbol information. See [Debugging](../debugging.md) for how to use it.
-
-### Full Build (All Components)
-
-```sh
-cmake -B build \
-    -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_MONOLITHIC=YES \
-    -DBUILD_DAEMON=YES \
-    -DBUILD_REMOTEGUI=YES \
-    -DBUILD_WEBSERVER=YES \
-    -DBUILD_AMULECMD=YES \
-    -DBUILD_ED2K=YES \
-    -DBUILD_ALC=YES \
-    -DBUILD_ALCC=YES \
-    -DBUILD_WXCAS=YES \
-    -DBUILD_TESTING=YES \
-    -DENABLE_NLS=YES \
-    -DENABLE_UPNP=YES \
-    -DENABLE_IP2COUNTRY=YES
-
-cmake --build build
-```
 
 ## Running the Tests
 
@@ -139,12 +103,20 @@ The compiled `.exe` files are placed in `build/`. Run them directly from the MSY
 ./build/amulecmd.exe
 ```
 
-Which executables are produced depends on the `BUILD_*` options you enabled: [`amule`](../../manual/interfaces/gui/amule.md) (GUI), [`amuled`](../../manual/interfaces/amuled.md) (daemon), [`amulegui`](../../manual/interfaces/gui/amulegui.md) (remote GUI), [`amulecmd`](../../manual/interfaces/amulecmd.md) (CLI), [`amuleweb`](../../manual/interfaces/amuleweb.md) (web interface), and the [`ed2k`](../../manual/utilities/ed2k.md) link handler. See the [Compilation](index.md) page for the full list of components and their corresponding options.
+Which executables are produced depends on the `BUILD_*` options you enabled: [`amule`](../../manual/interfaces/gui/amule.md) (GUI), [`amuled`](../../manual/interfaces/amuled.md) (daemon), [`amulegui`](../../manual/interfaces/gui/amulegui.md) (remote GUI), [`amulecmd`](../../manual/interfaces/amulecmd.md) (CLI), [`amuleweb`](../../manual/interfaces/amuleweb.md) (web interface), and the [`ed2k`](../../manual/utilities/ed2k.md) link handler.
 
 To run binaries outside the MSYS2 terminal (e.g. by double-clicking in Windows Explorer), the MINGW64 DLLs must be available. Either:
 
 1. Add `C:\msys64\mingw64\bin` to the Windows system `PATH`.
 2. Or copy the required DLLs next to the executable. The packaging scripts in `packaging/windows/build.sh` handle this automatically for release builds.
+
+## Notes on the MSYS2 MINGW64 Environment
+
+All commands must be run inside the **MSYS2 MINGW64** shell. Do not use:
+
+- **MSYS2 MSYS** — uses a different runtime and does not find MINGW64 packages.
+- **MSYS2 UCRT64** — uses the Windows Universal CRT instead of MSVCRT; package names differ (`mingw-w64-ucrt-x86_64-*`).
+- **Command Prompt** or **PowerShell** — these do not have access to the MSYS2 build tools.
 
 ## Packaging (Portable .zip and Installer)
 
@@ -197,7 +169,7 @@ packaging/windows/build.sh sign
 
 See `packaging/windows/versions.env` for the full list of signing variables.
 
-## Common Issues
+## Troubleshooting
 
 ### `winsock2.h` Warnings During Build
 
@@ -207,7 +179,7 @@ You may see warnings like:
 winsock2.h:15: #warning Please include winsock2.h before windows.h
 ```
 
-This is a known interaction between the MSYS2 MINGW64 `winsock2.h` header and wxWidgets 3.2's `wrapwin.h`. CMake defines `WIN32_LEAN_AND_MEAN` to suppress it (this is done automatically in `CMakeLists.txt`). If you still see the warning, verify that `WIN32_LEAN_AND_MEAN` is being applied. The warning is harmless and does not indicate a build problem.
+This is a known interaction between the MSYS2 MINGW64 `winsock2.h` header and wxWidgets 3.2's `wrapwin.h`. CMake defines `WIN32_LEAN_AND_MEAN` to suppress it (done automatically in `CMakeLists.txt`). The warning is harmless and does not indicate a build problem.
 
 ### `crypto++` not found
 
@@ -219,15 +191,10 @@ pacman -Q mingw-w64-x86_64-crypto++
 
 ### CMake Cannot Find Ninja
 
-Install the Ninja package:
+Install the Ninja package and verify:
 
 ```sh
 pacman -S mingw-w64-x86_64-ninja
-```
-
-Verify:
-
-```sh
 which ninja
 ninja --version
 ```
@@ -250,11 +217,3 @@ CMake caches configure results. If a configure fails partway through (e.g. becau
 rm -rf build
 cmake -B build -G Ninja ...
 ```
-
-## Notes on the MSYS2 MINGW64 Environment
-
-All commands must be run inside the **MSYS2 MINGW64** shell. Do not use:
-
-- **MSYS2 MSYS** — uses a different runtime and does not find MINGW64 packages.
-- **MSYS2 UCRT64** — uses the Windows Universal CRT instead of MSVCRT; package names differ (`mingw-w64-ucrt-x86_64-*`).
-- **Command Prompt** or **PowerShell** — these do not have access to the MSYS2 build tools.

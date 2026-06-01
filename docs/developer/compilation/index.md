@@ -27,8 +27,8 @@ wxWidgets must be built with Unicode support (the default since wx 3.0). aMule i
 | `libupnp` ≥ 1.6.6 | UPnP port forwarding |
 | `libmaxminddb` ≥ 1.0 | Country flags and IP→country mapping |
 | `gettext` ≥ 0.11.5 | Native-language support (NLS) |
-| `libayatana-appindicator3` | **Linux only.** StatusNotifierItem (SNI) tray-icon backend. Without it, the tray falls back to the legacy `GtkStatusIcon` API, which GNOME Shell removed in 3.26 and wlroots compositors never implemented (tray icon silently invisible on vanilla GNOME / Fedora / Sway). |
-| `glib-2.0` dev headers | **wxGTK builds (Linux / BSD).** Required for the Wayland `wl_app_id` / X11 `WM_CLASS` binding (`g_set_prgname()`). Mandatory when building `amule`, `amuled`, or `amulegui` against wxGTK. No-op on macOS. |
+| `libayatana-appindicator3` | **Linux only.** StatusNotifierItem (SNI) tray-icon backend; see [Building on Linux](linux.md#sni-tray-icon). |
+| `glib-2.0` dev headers | **wxGTK builds (Linux / BSD).** Required for the `g_set_prgname()` desktop-entry binding when building `amule`, `amuled`, or `amulegui`. No-op on macOS. |
 | `readline` | Line editing in `amulecmd` and `amuleweb` |
 | `binutils-dev` / `libbfd` | BFD-based crash handler |
 | `libpng` | PNG support in `amuleweb` |
@@ -160,6 +160,8 @@ cmake --install build --prefix=$HOME/.local
 
 Binaries land in `~/.local/bin/` (make sure it is in your `$PATH`).
 
+On Linux, after a raw `cmake --install` you may need to refresh the icon cache and ensure the SNI tray-icon backend is present — see [Desktop Integration](linux.md#desktop-integration).
+
 ## Uninstalling
 
 CMake records every installed file in `build/install_manifest.txt`. Use it to remove them:
@@ -170,46 +172,6 @@ sudo xargs rm -f < build/install_manifest.txt
 
 # Local install (no sudo needed)
 xargs rm -f < build/install_manifest.txt
-```
-
-## Linux-Only: Icon Cache
-
-`cmake --install` places `org.amule.aMule.png` in `<prefix>/share/icons/hicolor/128x128/apps/`. Distribution packages (`.deb`, `.rpm`) refresh the GTK icon-theme cache via post-install scripts. A raw `cmake --install` does not. If the launcher or dock shows a generic placeholder icon instead of the aMule mule, refresh the cache manually:
-
-```sh
-gtk-update-icon-cache -f -t <prefix>/share/icons/hicolor/
-```
-
-GNOME Shell's inotify watcher picks up new icons on its own within a few seconds, so the manual command is usually not necessary.
-
-## Linux-Only: SNI Tray Icon
-
-The `libayatana-appindicator3` library provides the **StatusNotifierItem (SNI)** D-Bus backend for the [system tray icon](../../manual/interfaces/gui/tray-icon.md). Without it:
-
-- The tray icon falls back to the legacy `GtkStatusIcon` API.
-- `GtkStatusIcon` was removed from GNOME Shell in 3.26 and is not implemented by wlroots compositors (Sway, Hyprland, etc.).
-- The tray icon will be **silently invisible** on vanilla GNOME, Fedora GNOME, and wlroots desktops.
-
-Install the development package before building:
-
-```sh
-# Debian / Ubuntu
-sudo apt install libayatana-appindicator3-dev
-
-# Fedora / RHEL
-sudo dnf install libayatana-appindicator-gtk3-devel
-```
-
-When `cmake` finds the library, it logs:
-
-```
--- AppIndicator3 found: ... — tray icon uses SNI backend
-```
-
-If it is not found:
-
-```
--- AppIndicator3 not found (looked for ayatana-appindicator3-0.1 and appindicator3-0.1) — tray icon falls back to legacy GtkStatusIcon, invisible on modern GNOME/wlroots
 ```
 
 ## Refreshing Translated Man Pages

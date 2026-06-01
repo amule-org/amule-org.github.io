@@ -7,6 +7,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'User Manual',
+      collapsed: false,
       link: {type: 'doc', id: 'manual/index'},
       items: [
         {type: 'doc', id: 'manual/installation/index', label: 'Installation'},
