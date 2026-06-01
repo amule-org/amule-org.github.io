@@ -3,32 +3,36 @@ id: shortcuts
 title: Keyboard and Mouse Shortcuts
 ---
 
-aMule provides a set of built-in keyboard and mouse shortcuts for navigating and controlling the application. User-defined hot keys are supported by GTK 1 but are ignored by the wxWidgets toolkit (GTK 2+), so they cannot be saved between sessions and have no effect in current aMule builds.
+aMule provides a set of built-in keyboard and mouse shortcuts for navigating and controlling the application. These shortcuts are hard-coded and cannot be customized or reassigned.
 
 ## Keyboard Shortcuts
 
 | Shortcut | Window | Action |
 |---|---|---|
-| `Ctrl+Q` | All | Exit aMule |
-| `F1` | All | Show help |
+| `Enter` | [Networks](./networks.md) / eD2k | Connect to the selected server |
+| `Enter` | [Searches](./searches.md) | Start a search (search box) or download/expand the selected result |
+| `Enter` | [Downloads](./downloads.md) | Preview the selected file (only if it is completed or a preview is available) |
+| `Enter` | [Messages](./messages.md) | Open a chat with the selected user |
+| `Del` | [Downloads](./downloads.md) / [Networks](./networks.md) / [Messages](./messages.md) | Remove the selected item: cancel the download, remove the server, or remove the friend |
+| *Any character* | All | In a list: jump to the item whose first-column value starts with the typed string (resets after 1.5 s; pressing the same letter repeatedly cycles through matches) |
 | `Ctrl+A` | All | Select all items in the current list |
-| `Del` | All | Remove the selected item from the list (where applicable) |
-| *Any character* | All | In a list: jump to the item whose first-column value starts with the typed string |
-| `Enter` | Networks / eD2k | Connect to the selected server |
-| `Enter` | Searches | Start a search or begin downloading the selected result |
-| `Enter` | Downloads | Expand or collapse the source list for the selected file |
-| `F2` | Downloads | Rename the selected download (not available for completed files) |
-| `F2` | Shared Files | Rename the selected shared file |
-| `Enter` | Messages | Open a chat with the selected user |
+| `Ctrl+Q` | All | Exit aMule |
+| `F1` | All | Open the online help wiki in your browser (only when no modifier key is held) |
+| `F2` | [Downloads](./downloads.md) | Rename the selected download (part files only, not completed files) |
+| `F2` | [Shared Files](./shared-files.md) | Rename the selected shared file |
 
 ## Mouse Shortcuts
 
 | Shortcut | Window | Action |
 |---|---|---|
-| `Ctrl+Alt+Middle click` | Main window (all panels) | Show the wxWidgets version information |
-| Double-click | Networks / eD2k | Connect to the selected server |
-| Double-click | Searches | Start downloading the selected file |
-| Middle-click | Downloads | Show details for the selected file or client |
-| Double-click | Downloads | Expand the source list for the selected file |
-| Double-click | Messages | Open a chat with the selected user |
-| Double-click | Statistics | Expand or collapse the selected statistics node |
+| Double-click | [Networks](./networks.md) / eD2k | Connect to the selected server |
+| Double-click | [Searches](./searches.md) | Download the selected result (or expand/collapse it if it has children) |
+| Double-click | [Downloads](./downloads.md) | Preview the selected file (only if it is completed or a preview is available) |
+| Middle-click | [Downloads](./downloads.md) | Show the [file details](./file-details.md) for the selected file |
+| Double-click | [Messages](./messages.md) | Open a chat with the selected user |
+| Double-click | [Statistics](./statistics.md) | Expand or collapse the selected statistics node |
+| Click on a column header | All | Sort the list by that column (toggles ascending/descending) |
+| Right-click on a column header | All | Show a menu to toggle which columns are visible |
+| Right-click on an item | All | Open the item's context menu |
+| Middle-click or right-click on a tab | All | Close the tab or open the tab menu |
+| Click or double-click | [System tray icon](./tray-icon.md) | Show or hide the main window |
