@@ -3,7 +3,7 @@ id: linux
 title: Building on Linux
 ---
 
-This page provides Linux-specific instructions for installing the build dependencies and compiling aMule from source. The general [Compilation](index.md) page documents the full CMake workflow and all build options.
+This page provides Linux-specific instructions for installing the build dependencies and compiling aMule from source. The general [Compilation](index.md) page documents the full CMake workflow and all [build options](index.md#build-options). For other platforms, see [Windows](windows.md), [macOS](macos.md), and [BSD](bsd.md).
 
 ## Debian and Ubuntu
 
@@ -25,7 +25,8 @@ sudo apt install \
     libupnp-dev \
     libwxgtk3.2-dev \
     pkg-config \
-    wx3.2-headers
+    wx3.2-headers \
+    zlib1g-dev
 ```
 
 For the SNI tray-icon backend (recommended on GNOME and wlroots desktops):
@@ -47,6 +48,8 @@ cmake -B build \
     -DBUILD_WEBSERVER=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
+    -DBUILD_CAS=YES \
+    -DBUILD_WXCAS=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
@@ -91,7 +94,8 @@ sudo dnf install \
     make \
     pkgconfig \
     readline-devel \
-    wxGTK-devel
+    wxGTK-devel \
+    zlib-devel
 ```
 
 For the SNI tray-icon backend:
@@ -121,6 +125,8 @@ cmake -B build \
     -DBUILD_WEBSERVER=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
+    -DBUILD_CAS=YES \
+    -DBUILD_WXCAS=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
@@ -147,7 +153,8 @@ sudo pacman -S \
     libupnp \
     pkg-config \
     readline \
-    wxwidgets-gtk3
+    wxwidgets-gtk3 \
+    zlib
 ```
 
 For the SNI tray-icon backend:
@@ -165,7 +172,12 @@ cd amule
 cmake -B build \
     -DBUILD_MONOLITHIC=YES \
     -DBUILD_DAEMON=YES \
+    -DBUILD_REMOTEGUI=YES \
+    -DBUILD_WEBSERVER=YES \
     -DBUILD_AMULECMD=YES \
+    -DBUILD_ED2K=YES \
+    -DBUILD_CAS=YES \
+    -DBUILD_WXCAS=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
@@ -187,15 +199,15 @@ To control which components are built, use USE flags. Common flags:
 
 | USE flag | Component |
 |---|---|
-| `daemon` | Build `amuled` |
-| `remote` | Build `amulegui` |
-| `webserver` | Build `amuleweb` |
-| `amulecmd` | Build `amulecmd` |
-| `ed2k` | Build `ed2k` link handler |
-| `nls` | Native-language support |
-| `upnp` | UPnP port forwarding |
+| `daemon` | Build [`amuled`](../../manual/interfaces/amuled.md) |
+| `remote` | Build [`amulegui`](../../manual/interfaces/gui/amulegui.md) |
+| `webserver` | Build [`amuleweb`](../../manual/interfaces/amuleweb.md) |
+| `amulecmd` | Build [`amulecmd`](../../manual/interfaces/amulecmd.md) |
+| `ed2k` | Build [`ed2k`](../../manual/utilities/ed2k.md) link handler |
+| `nls` | [Native-language support](../translations.md) |
+| `upnp` | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `geoip` | IP→country mapping |
-| `debug` | Debug symbols |
+| `debug` | Debug symbols ([Debugging](../debugging.md)) |
 
 Example:
 
@@ -217,6 +229,7 @@ emerge -av \
     dev-libs/libupnp \
     media-libs/libgd \
     sys-libs/readline \
+    sys-libs/zlib \
     x11-libs/wxGTK
 
 git clone https://github.com/amule-org/amule.git
@@ -225,6 +238,12 @@ cd amule
 cmake -B build \
     -DBUILD_MONOLITHIC=YES \
     -DBUILD_DAEMON=YES \
+    -DBUILD_REMOTEGUI=YES \
+    -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULECMD=YES \
+    -DBUILD_ED2K=YES \
+    -DBUILD_CAS=YES \
+    -DBUILD_WXCAS=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
@@ -271,7 +290,12 @@ cd amule
 cmake -B build \
     -DBUILD_MONOLITHIC=YES \
     -DBUILD_DAEMON=YES \
+    -DBUILD_REMOTEGUI=YES \
+    -DBUILD_WEBSERVER=YES \
     -DBUILD_AMULECMD=YES \
+    -DBUILD_ED2K=YES \
+    -DBUILD_CAS=YES \
+    -DBUILD_WXCAS=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
@@ -298,10 +322,10 @@ cmake -B build ...
 ### wxWidgets version too old
 
 ```
-CMake Error: wxWidgets 3.2.0 or newer is required
+CMake Error: Could NOT find wxWidgets (Required is at least version "3.2.0")
 ```
 
-Your distribution ships wxWidgets 3.0. Options:
+aMule requires wxWidgets ≥ 3.2.0 (`find_package(wxWidgets 3.2.0 REQUIRED ...)`). Your distribution ships wxWidgets 3.0. Options:
 - Use the wxWidgets 3.2 PPA (Ubuntu).
 - Enable a third-party repository (RPMFusion on Fedora).
 - Build wxWidgets 3.2 from source (see the Debian/Ubuntu section above).
@@ -309,13 +333,38 @@ Your distribution ships wxWidgets 3.0. Options:
 ### SNI tray icon not found
 
 ```
--- AppIndicator3 not found — tray icon falls back to legacy GtkStatusIcon
+-- AppIndicator3 not found (looked for ayatana-appindicator3-0.1 and appindicator3-0.1) — tray icon falls back to legacy GtkStatusIcon, invisible on modern GNOME/wlroots
 ```
 
-This is a warning, not an error. aMule will still build and run. The tray icon will be invisible on GNOME 3.26+ and wlroots compositors. Install `libayatana-appindicator3-dev` and rebuild to fix it.
+This is a warning, not an error. aMule will still build and run. The [tray icon](../../manual/interfaces/gui/tray-icon.md) will be invisible on GNOME 3.26+ and wlroots compositors. Install `libayatana-appindicator3-dev` and rebuild to fix it.
 
 ### `crypto++` version too old
+
+```
+CMake Error: crypto++ version <X.Y> is too old
+```
 
 CMake requires Crypto++ ≥ 5.6. Some older distributions (Ubuntu 18.04 LTS, RHEL 7) ship an older version. Options:
 - Build Crypto++ from source: [https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
 - Upgrade to a supported distribution release.
+
+### `libupnp` not found
+
+```
+CMake Error: ENABLE_UPNP=YES but libupnp was not found.
+```
+
+You enabled `-DENABLE_UPNP=YES` (the default) but the libupnp headers and library are missing. Options:
+- Install libupnp: `libupnp-dev` (Debian/Ubuntu) or `libupnp-devel` (Fedora).
+- Pass `-DENABLE_UPNP=NO` to disable [UPnP port forwarding](../../manual/configuration/upnp.md).
+- Pass `-DDOWNLOAD_AND_BUILD_DEPS=YES` to have CMake download and build libupnp from source (requires Git).
+
+### `libmaxminddb` not found
+
+```
+CMake Error: ENABLE_IP2COUNTRY=YES but maxminddb.h was not found.
+```
+
+You enabled `-DENABLE_IP2COUNTRY=YES` but the libmaxminddb headers (or shared library) are missing. Options:
+- Install libmaxminddb: `libmaxminddb-dev` (Debian/Ubuntu) or `libmaxminddb-devel` (Fedora).
+- Pass `-DENABLE_IP2COUNTRY=NO` to disable IP→country mapping.

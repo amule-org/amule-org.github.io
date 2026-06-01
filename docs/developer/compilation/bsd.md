@@ -3,47 +3,9 @@ id: bsd
 title: Building on BSD
 ---
 
-This page provides BSD-specific instructions for installing build dependencies and compiling aMule from source. The general [Compilation](index.md) page documents the full CMake workflow and all build options.
+This page provides BSD-specific instructions for installing build dependencies and compiling aMule from source. The general [Compilation](index.md) page documents the full CMake workflow and all [build options](index.md#build-options). To install a pre-built package from the system repository instead of compiling, see the [Installation](../../manual/installation/index.md) page.
 
 FreeBSD and OpenBSD are the most commonly used BSD platforms with aMule. NetBSD and DragonFlyBSD follow similar patterns using their respective package managers. The instructions below use FreeBSD as the primary reference, with notes for OpenBSD and NetBSD where package names or procedures differ.
-
-## Binary Installation
-
-The fastest way to get aMule on BSD is to install the pre-built binary package from the official repositories.
-
-### FreeBSD
-
-```sh
-pkg install amule
-```
-
-Alternatively, build and install from the Ports Collection:
-
-```sh
-cd /usr/ports/net-p2p/amule
-make install clean
-```
-
-The Ports build integrates with the `OPTIONS` framework. Run `make config` before `make install clean` to select which components to build (daemon, web server, command-line client, etc.) and which optional features to enable.
-
-### OpenBSD
-
-```sh
-pkg_add amule
-```
-
-### NetBSD
-
-```sh
-pkgin install amule
-```
-
-Or from pkgsrc:
-
-```sh
-cd /usr/pkgsrc/net/amule
-make install clean
-```
 
 ## Building from Source
 
@@ -60,8 +22,10 @@ pkg install \
     gettext-runtime \
     gettext-tools \
     git \
+    glib \
     libmaxminddb \
     libupnp \
+    pkgconf \
     readline \
     wx32-gtk3
 ```
@@ -101,13 +65,15 @@ pkg_add \
     gd \
     gettext \
     git \
+    glib2 \
     libmaxminddb \
+    pkgconf \
     readline \
     wxWidgets
 ```
 
 :::note UPnP on OpenBSD
-`libupnp` may not be available in the OpenBSD package set. If UPnP support is not needed, pass `-DENABLE_UPNP=NO`. Alternatively, pass `-DDOWNLOAD_AND_BUILD_DEPS=YES` to have CMake download and build `libupnp` from source automatically.
+`libupnp` may not be available in the OpenBSD package set. If [UPnP](../../manual/configuration/upnp.md) support is not needed, pass `-DENABLE_UPNP=NO`. Alternatively, pass `-DDOWNLOAD_AND_BUILD_DEPS=YES` to have CMake download and build `libupnp` from source automatically.
 :::
 
 #### Clone and Build
@@ -141,10 +107,12 @@ pkgin install \
     gd \
     gettext-tools \
     git \
+    glib2 \
     libmaxminddb \
     libupnp \
+    pkgconf \
     readline \
-    wx32-gtk3
+    wxGTK32
 ```
 
 #### Clone and Build
@@ -178,7 +146,7 @@ cmake --build build -j"$(sysctl -n hw.ncpu)"
 
 ### NLS and `libintl` on BSD
 
-On BSD systems, `libintl` is **not** part of the base C library — unlike GNU/Linux (glibc), where `gettext` is integrated into `libc`. aMule links `libintl` directly from `Parser.cpp` and the web server code. When `ENABLE_NLS=YES`, CMake locates `libintl` through `find_package(Intl)`. If `libintl` is missing, the build fails:
+On BSD systems, `libintl` is **not** part of the base C library — unlike GNU/Linux (glibc), where `gettext` is integrated into `libc`. aMule links `libintl` directly from `Parser.cpp` and the web server code to provide [native-language support](../translations.md). When `ENABLE_NLS=YES`, CMake locates `libintl` through `find_package(Intl)`. If `libintl` is missing, the build fails:
 
 ```
 CMake Error: ENABLE_NLS=YES but the libintl headers/library were not found.
@@ -203,30 +171,22 @@ If translated messages are not needed, disable NLS entirely:
 cmake -B build -DENABLE_NLS=NO ...
 ```
 
-### `glib-2.0` is not required on BSD
+### `glib-2.0` is required with wxGTK
 
-The `glib-2.0` development headers are Linux-only in aMule. On Linux, `g_set_prgname()` is called to bind the Wayland `wl_app_id` to the `.desktop` entry. This code path is conditionally compiled only on Linux (`CMAKE_SYSTEM_NAME STREQUAL "Linux"`). No glib package is needed on any BSD.
+aMule calls `g_set_prgname()` to bind the Wayland `wl_app_id` / X11 `WM_CLASS` to its `.desktop` entry. This code path is **not** gated by operating system — it is compiled whenever the wxWidgets toolkit is wxGTK and the platform is not macOS (`#if defined(__WXGTK__) && !defined(__APPLE__)`).
+
+The BSD wxWidgets ports (`wx32-gtk3` on FreeBSD/NetBSD, `wxWidgets` on OpenBSD) are all wxGTK builds, so `glib-2.0` **is** needed on BSD when building any of the [`amule`](../../manual/interfaces/gui/amule.md) (monolithic), [`amuled`](../../manual/interfaces/amuled.md), or [`amulegui`](../../manual/interfaces/gui/amulegui.md) targets. CMake aborts at configure time if it is missing:
+
+```
+CMake Error: glib-2.0 development headers not found, but they are required to build
+amule (monolithic), amuled, or amulegui against wxGTK …
+```
+
+Install it with `pkg install glib` (FreeBSD), `pkg_add glib2` (OpenBSD), or `pkgin install glib2` (NetBSD). Only macOS (Cocoa toolkit) is exempt.
 
 ### Headers and libraries in `/usr/local`
 
 BSD systems install third-party headers and libraries under `/usr/local/include` and `/usr/local/lib`. These paths are on the default compiler and linker search paths. CMake and `pkg-config` discover packages installed via `pkg`, `pkg_add`, or pkgsrc automatically. No extra `CPPFLAGS`, `LDFLAGS`, or `CMAKE_PREFIX_PATH` are needed.
-
-## Post-Installation
-
-After a successful `cmake --install build`, aMule creates its configuration directory the first time it runs:
-
-```
-~/.aMule/
-```
-
-- As root: `/root/.aMule/`
-- As a regular user: `/home/<username>/.aMule/` (or `/usr/home/<username>/.aMule/` on FreeBSD)
-
-To generate the initial `remote.conf` required by `amuleweb`, `amulecmd`, and `amulegui`:
-
-```sh
-amuleweb --write-config
-```
 
 ## Common Issues
 
@@ -260,11 +220,7 @@ pkg install gettext-tools   # FreeBSD
 
 ### wxWidgets version too old
 
-aMule requires wxWidgets ≥ 3.2.0:
-
-```
-CMake Error: wxWidgets 3.2.0 or newer is required
-```
+aMule requires wxWidgets ≥ 3.2.0. CMake calls `find_package(wxWidgets 3.2.0 REQUIRED ...)`, so an older install fails configuration with the standard CMake version-mismatch error (reporting the version found versus the 3.2.0 required).
 
 Verify the installed version:
 
@@ -311,6 +267,25 @@ cmake -B build -DENABLE_UPNP=NO ...
 # Or build libupnp from source automatically
 cmake -B build -DDOWNLOAD_AND_BUILD_DEPS=YES ...
 ```
+
+### `glib-2.0` development headers not found
+
+When building a wxGTK target (`amule`, `amuled`, or `amulegui`) without the glib development headers:
+
+```
+CMake Error: glib-2.0 development headers not found, but they are required to build
+amule (monolithic), amuled, or amulegui against wxGTK …
+```
+
+Install glib and re-configure. `pkg_check_modules` only runs at configure time, so delete the build directory before re-running cmake:
+
+```sh
+pkg install glib       # FreeBSD  (pkg_add glib2 on OpenBSD, pkgin install glib2 on NetBSD)
+rm -rf build
+cmake -B build ...
+```
+
+`pkg-config` (`pkgconf`) must also be installed, since cmake locates glib through it.
 
 ### Crypto++ version too old
 

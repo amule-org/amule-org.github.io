@@ -7,6 +7,8 @@ This page provides macOS-specific instructions for installing build dependencies
 
 ## Prerequisites
 
+aMule targets **macOS ≥ 11.0 (Big Sur)** — the first release that runs natively on Apple Silicon.
+
 ### Install Xcode Command Line Tools
 
 ```sh
@@ -48,7 +50,7 @@ export LIBRARY_PATH="$BREW_PREFIX/lib"
 export PKG_CONFIG_PATH="$BREW_PREFIX/lib/pkgconfig:$(brew --prefix gd)/lib/pkgconfig:$(brew --prefix libupnp)/lib/pkgconfig:$(brew --prefix gettext)/lib/pkgconfig"
 ```
 
-`gettext` is **keg-only** on macOS (not linked into `/opt/homebrew/bin` by default) because it conflicts with the BSD gettext tools included with Xcode. Add it to `PATH` explicitly so cmake can find `msgfmt` for the NLS probe:
+`gettext` is **keg-only** on macOS (not linked into `/opt/homebrew/bin` by default) because it conflicts with the BSD gettext tools included with Xcode. CMake's NLS module already searches the keg automatically (`/opt/homebrew/opt/gettext/bin` and `/usr/local/opt/gettext/bin`), so this normally needs no action. If you installed `gettext` somewhere else, add it to `PATH` explicitly so cmake can find `msgfmt`/`msgmerge`:
 
 ```sh
 export PATH="$(brew --prefix gettext)/bin:$PATH"
@@ -76,18 +78,24 @@ cmake -B build \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
 
-cmake --build build -j"$(nproc)"
+cmake --build build -j"$(sysctl -n hw.ncpu)"
 ```
+
+This enables a common subset of components. aMule has more build targets (`BUILD_CAS`, `BUILD_WXCAS`, `BUILD_ALC`, `BUILD_ALCC`, and others) — see [Build Options](index.md#build-options) on the Compilation page for the complete list of options and their defaults.
 
 ### NLS (Translations) on macOS
 
-`ENABLE_NLS` is `YES` by default. However, `argz.h` is a glibc-only header not provided by macOS or Homebrew. CMake detects this and automatically disables NLS on macOS — no action needed. The English strings will always be displayed.
+`ENABLE_NLS` is `YES` by default, and NLS **works on macOS** — translation is delegated to `wxLocale`, which links `libintl` through wxWidgets. As long as the `gettext` formula is installed (it is in the dependency list above), the build produces localized binaries. CMake finds the keg-only `gettext` tools automatically, so no manual `PATH` export is normally required.
 
-If you explicitly want NLS disabled:
+> CMake probes glibc-only headers such as `argz.h` for completeness, but does **not** gate NLS on them — aMule does not include those headers. Localization depends only on `gettext`/`libintl` being available.
+
+If `ENABLE_NLS=YES` but `msgfmt`/`msgmerge` or `libintl` cannot be found, the configure step **fails with a fatal error** rather than silently disabling translations. Either install `gettext`, or explicitly disable NLS:
 
 ```sh
 cmake -B build -DENABLE_NLS=NO ...
 ```
+
+See the [Translations](../translations.md) guide for how aMule's localization catalogs are maintained.
 
 ### Debug Build
 
@@ -96,8 +104,10 @@ cmake -B build \
     -DCMAKE_BUILD_TYPE=Debug \
     -DBUILD_MONOLITHIC=YES
 
-cmake --build build -j"$(nproc)"
+cmake --build build -j"$(sysctl -n hw.ncpu)"
 ```
+
+See the [Debug Build](index.md#debug-build) notes on the Compilation page and the [Debugging](../debugging.md) guide for working with debug binaries.
 
 ## Install
 
@@ -111,23 +121,33 @@ This installs to `/usr/local` by default. To install to a custom prefix (e.g. to
 cmake --install build --prefix="$HOME/.local"
 ```
 
+See [Installing](index.md#installing) on the Compilation page for the full workflow, including a [developer install without sudo](index.md#developer-install-no-sudo) and how to [uninstall](index.md#uninstalling).
+
 ## Packaging (Creating a macOS App Bundle / DMG)
 
-The `packaging/macos/` directory contains build scripts for creating distributable `.app` bundles and `.dmg` disk images. These scripts are used by the CI release pipeline.
+The `packaging/macos/` directory contains the script used by the CI release pipeline to build a distributable Universal2 (`x86_64;arm64`) `.app` bundle and package it into a `.dmg`. Run it **from the repository root**:
 
 ```sh
-# Example: build a release DMG
-cd packaging/macos
-./build.sh
+# from the repo root, on macOS — result: ./dist/aMule-<version>-macOS.dmg
+packaging/macos/build.sh
 ```
 
-For signing and notarization (required for distribution outside the App Store):
+The script needs `dylibbundler` in addition to the build dependencies (`brew install dylibbundler`); it bundles all non-system dylibs into the `.app` so it runs on a clean macOS box without Homebrew.
+
+By default the `.dmg` ships **unsigned**. To sign and notarize (required for distribution outside the App Store), export the codesigning/notary environment variables and run the `sign` subcommand:
 
 ```sh
-./sign-and-notarize.sh
+export APPLE_DEVELOPER_ID="Developer ID Application: Name (TEAMID)"
+export APPLE_TEAM_ID=ABCDE12345
+export APPLE_NOTARY_USER=apple-id@example.com
+export APPLE_NOTARY_PASS=xxxx-xxxx-xxxx-xxxx
+export APPLE_CERT_P12_BASE64=$(base64 -i path/to/cert.p12)
+export APPLE_CERT_PASSWORD=cert-password
+
+packaging/macos/build.sh sign
 ```
 
-Refer to `packaging/macos/README.md` and `packaging/macos/versions.env` for the environment variables and codesigning certificate setup.
+If any of those variables is unset, the sign step exits silently and the unsigned `.dmg` is left in place. Refer to `packaging/macos/README.md` for the full recipe and `packaging/macos/versions.env` for the deployment target and architecture pins.
 
 ## Common Issues
 
@@ -168,14 +188,16 @@ On Apple Silicon, add the formula-specific `lib/pkgconfig` paths:
 export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$(brew --prefix libupnp)/lib/pkgconfig:$(brew --prefix gd)/lib/pkgconfig"
 ```
 
-### CMake cannot find `msgfmt` (NLS probe fails)
+### CMake cannot find `msgfmt`/`msgmerge` (NLS)
 
-`gettext` is keg-only and not on `$PATH` by default:
+CMake searches the keg-only `gettext` automatically, so this is rare. It can still happen if `gettext` is installed in a non-standard location or not installed at all. Either install it (`brew install gettext`) or add it to `$PATH` explicitly so cmake can find the tools:
 
 ```sh
 export PATH="$(brew --prefix gettext)/bin:$PATH"
 cmake -B build ...
 ```
+
+If you don't need translations, configure with `-DENABLE_NLS=NO` instead.
 
 ### Build Fails with `winsock2.h` Warning
 
@@ -183,10 +205,12 @@ This does not apply to macOS. This warning is specific to the Windows build.
 
 ## Running from the Build Directory
 
-All binaries are placed in `build/` and can be run directly without installing:
+All binaries are placed in `build/` and can be run directly without installing (see also [Running Without Installing](index.md#running-without-installing) on the Compilation page):
 
 ```sh
 ./build/amule
 ./build/amuled
 ./build/amulecmd
 ```
+
+For how to use each binary, see the User Manual: [amuled](../../manual/interfaces/amuled.md) (daemon), [amulecmd](../../manual/interfaces/amulecmd.md) (command-line client), and [amuleweb](../../manual/interfaces/amuleweb.md) (web interface).
