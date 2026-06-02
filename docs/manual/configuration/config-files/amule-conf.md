@@ -48,12 +48,8 @@ The primary section. Contains the majority of user-facing preferences.
 | `Address` | _(empty)_ | Hostname or IP address of this machine (optional; used if aMule cannot detect it). |
 | `YourHostname` | _(empty)_ | Hostname used when building eD2k source links for this client. |
 | `DateTimeFormat` | `%A, %x, %X` | `strftime`-style format string for dates and times in the UI. |
-| `MaxMessageSessions` | `50` | Maximum number of simultaneous chat sessions. |
-| `IndicateRatings` | `1` | Show file rating indicators in the download list. |
 | `AllcatType` | `0` | Category display mode for the "All" category tab. |
 | `ShowAllNotCats` | `0` | Show uncategorised files when a category tab is selected. |
-| `DisableKnownClientList` | `0` | Disable the known clients list in the Downloads window. |
-| `DisableQueueList` | `0` | Disable the upload queue list in the Downloads window. |
 | `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Downloads window. |
 
 ### Connection
@@ -63,8 +59,6 @@ The primary section. Contains the majority of user-facing preferences.
 | `MaxDownload` | `0` | Maximum download speed in KiB/s. `0` = unlimited. |
 | `MaxUpload` | `0` | Maximum upload speed in KiB/s. `0` = unlimited. |
 | `SlotAllocation` | `2` | Target speed per upload slot in KiB/s. |
-| `DownloadCapacity` | `300` | Your line's total download capacity in KiB/s. Used for statistics and the tray speed bar only. |
-| `UploadCapacity` | `100` | Your line's total upload capacity in KiB/s. Used for statistics and the tray speed bar only. |
 | `Port` | `4662` | Standard eD2k client TCP port. |
 | `UDPPort` | `4672` | Extended client UDP port (used for extended server requests and Kademlia). |
 | `UDPEnable` | `1` | Enable the UDP port. Setting to `0` reduces performance but frees the UDP port. |
@@ -106,7 +100,6 @@ The primary section. Contains the majority of user-facing preferences.
 | `DAPPref` | `1` | Set the priority of new downloads to Auto (Dynamic Auto-Priority). |
 | `PreviewPrio` | `0` | Always download the first and last chunks of a file first (useful for previewing video). |
 | `UAPPref` | `1` | Set the share priority of newly completed or newly shared files to Auto (Upload Auto-Priority). |
-| `FullChunkTransfers` | `1` | Hold an upload slot open until the receiving client has a complete 9.28 MiB chunk (recommended). |
 | `StartNextFile` | `0` | Automatically resume the highest-priority paused file when a download completes. |
 | `StartNextFileSameCat` | `0` | When `StartNextFile=1`, resume from the same category first. |
 | `StartNextFileAlpha` | `0` | When `StartNextFile=1`, resume the next file in alphabetical order instead of by priority. |
@@ -127,8 +120,8 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | `TempDir` | `~/.aMule/Temp` | Directory for in-progress downloads (`*.part` files). |
 | `ShareHiddenFiles` | `0` | Include hidden files when sharing the contents of shared directories. |
 | `AutoRescanSharedDirs` | `1` | Automatically rescan shared directories for new or removed files using a filesystem watcher. When disabled, you must click "Reload shared files" manually. |
+| `FollowSymlinksInShares` | `1` | Follow symbolic links (to files or directories) when scanning shared folders. When disabled, symlinked entries are skipped. |
 | `VideoPlayer` | _(empty)_ | Command used to preview audio/video files. The filename is appended at the end. |
-| `VideoPreviewBackupped` | `1` | Copy the file to a temp location before previewing (avoids corruption of the in-progress download). |
 
 ### Network URLs
 
@@ -167,8 +160,6 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 | Key | Default | Description |
 |---|---|---|
 | `SeeShare` | `2` | Who can see your shared files list. `0` = everyone, `1` = friends only, `2` = nobody. |
-| `PermissionsFiles` | `416` | Unix permissions assigned to newly created files (octal 0640). |
-| `PermissionsDirs` | `488` | Unix permissions assigned to newly created directories (octal 0750). |
 | `IPFilterAutoLoad` | `1` | Download and apply the IP filter from `IPFilterURL` at startup. |
 | `IPFilterURL` | _(empty)_ | URL to download the IP filter from. Supports `http://`, `https://`, and `ftp://`. |
 | `FilterLevel` | `127` | IP filter level (0–255). Ranges whose access level is **less than** this value are blocked. |
@@ -189,7 +180,9 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 |---|---|---|
 | `StatGraphsInterval` | `3` | Graph update interval in seconds. |
 | `StatsAverageMinutes` | `5` | Time window (minutes) used to calculate running average in graphs. |
-| `VariousStatisticsMaxValue` | `100` | Maximum connections value shown in the connections graph. |
+| `VariousStatisticsMaxValue` | `100` | Maximum connections value shown in the connections graph (the **Connections Graph Scale**). |
+| `DownloadCapacity` | `300` | Maximum download speed (KiB/s) the download graph represents (the **Download graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
+| `UploadCapacity` | `100` | Maximum upload speed (KiB/s) the upload graph represents (the **Upload graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
 | `statsInterval` | `30` | Statistics tree update interval in seconds. |
 | `StatsServerName` | `Shorty's ED2K stats` | Display name of the external ED2K stats server used for file lookups. |
 | `StatsServerURL` | `https://ed2k.shortypower.org/?hash=` | URL prefix for the external stats server. The file hash is appended. |
@@ -204,7 +197,7 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 | `ShowRatesOnTitle` | `0` | Show transfer speeds in the window title. `0` = off, `1` = after app name, `2` = before app name. |
 | `ShowVersionOnTitle` | `0` | Show the aMule version in the window title (release builds only). |
 | `VerticalToolbar` | `0` | Show the toolbar vertically instead of horizontally. |
-| `3DDepth` | `10` | 3D depth effect for statistics graphs. `0` = flat. |
+| `3DDepth` | `10` | 3D rounding depth of the progress/chunk bars in the download, sources and shared-files lists (the **Progress bar style** slider, Flat↔Round). `0` = flat. |
 
 ### Advanced
 
@@ -229,10 +222,7 @@ These keys are managed by aMule. Editing them manually is not recommended.
 | Key | Description |
 |---|---|
 | `SmartIdState` | Cached result of the Smart ID check (internal state). |
-| `TableSortingServer`, `TableWidthsServer` | Server list column sorting and widths. |
-| `TableSortingDownload`, `TableWidthsDownload` | Download list column sorting and widths. |
-| `TableSortingUploads`, `TableWidthsUploads` | Upload list column sorting and widths. |
-| `TableSortingShared`, `TableWidthsShared` | Shared files list column sorting and widths. |
+| `TableOrdering<Name>`, `TableWidths<Name>` | Column sort order and widths for each list. `<Name>` is the list name: `Server`, `Download`, `Shared`, `Search`, `Sources`, `Peers`. |
 
 ## `[Browser]` section
 
@@ -278,6 +268,7 @@ Browser selection for opening web links from within aMule.
 | `Template` | _(empty)_ | Web template (skin) name. Empty = default template. |
 | `UPnPWebServerEnabled` | `0` | Enable UPnP to automatically open the web server port (`Port`) on your router. |
 | `WebUPnPTCPPort` | `50001` | Internal UPnP TCP port used for web server UPnP communication. |
+| `UPnPTCPPort` | `50001` | Internal UPnP TCP port used by `amuleweb` when it runs as a standalone process (the web server embedded in aMule uses `WebUPnPTCPPort`). |
 | `Path` | `amuleweb` | Path or name of the `amuleweb` binary. |
 
 ## `[Proxy]` section
@@ -314,18 +305,14 @@ Protocol obfuscation settings. Obfuscation makes aMule traffic harder to detect 
 
 ## `[Razor_Preferences]` section
 
-Source-dropping algorithm settings and main window geometry.
+Fast eD2k links panel toggle and main window geometry.
 
 | Key | Default | Description |
 |---|---|---|
 | `FastED2KLinksHandler` | `1` | Show the Fast eD2k Links Handler panel in all windows, not only the Search window. |
-| `NoNeededSourcesHandling` | `2` | What to do with sources that have no file parts you need. `0` = keep, `1` = drop after a delay, `2` = drop immediately. |
-| `FullQueueSources` | `0` | Drop sources whose upload queue is full. |
-| `HighQueueRankingSources` | `0` | Drop sources that assign you a queue rank higher than `HighQueueRanking`. |
-| `HighQueueRanking` | `1200` | Queue rank threshold for `HighQueueRankingSources`. |
-| `AutoDropTimer` | `240` | Seconds a source can be known before it is dropped (used with `NoNeededSourcesHandling`). |
 | `MAIN_X_POS`, `MAIN_Y_POS` | _(varies)_ | Main window position (pixels from screen edge). |
 | `MAIN_X_SIZE`, `MAIN_Y_SIZE` | _(varies)_ | Main window size in pixels. |
+| `Maximized` | `1` | Whether the main window is maximised. Written automatically. |
 | `SRV_SPLITTER_POS` | _(varies)_ | Splitter position in the Servers window. |
 
 ## `[UserEvents]` section {#userevents-section}
@@ -442,7 +429,7 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 |---|---|---|
 | `HideOnClose` | `0` | Hide the main window to the tray instead of quitting when the window is closed. Requires `EnableTrayIcon=1`. |
 | `AppImageIntegrationDeclined` | `0` | Set to `1` if the user has declined the AppImage `.desktop` integration prompt. Written automatically; do not edit. |
-| `[GUI/TransferWnd] Splitter` | `114` | Vertical splitter position (pixels) in the Downloads window. |
+| `[GUI/TransferWnd] Splitter` | `463` | Vertical splitter position (pixels) in the Downloads window. |
 | `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Downloads window. |
 
 ## `[General]` section
@@ -600,7 +587,6 @@ AddNewFilesPaused=0
 DAPPref=1
 PreviewPrio=0
 UAPPref=1
-FullChunkTransfers=1
 StartNextFile=0
 StartNextFileSameCat=0
 StartNextFileAlpha=0
@@ -612,8 +598,8 @@ IncomingDir=/home/user/.aMule/Incoming
 TempDir=/home/user/.aMule/Temp
 ShareHiddenFiles=0
 AutoRescanSharedDirs=1
+FollowSymlinksInShares=1
 VideoPlayer=
-VideoPreviewBackupped=1
 KadNodesUrl=https://upd.emule-security.org/nodes.dat
 StatGraphsInterval=3
 StatsAverageMinutes=5
@@ -658,14 +644,8 @@ Language=
 SplitterbarPosition=75
 YourHostname=
 DateTimeFormat=%A, %x, %X
-IndicateRatings=1
 AllcatType=0
 ShowAllNotCats=0
-DisableKnownClientList=0
-DisableQueueList=0
-MaxMessageSessions=50
-PermissionsFiles=416
-PermissionsDirs=488
 Address=
 StatsServerName=Shorty's ED2K stats
 StatsServerURL=https://ed2k.shortypower.org/?hash=
@@ -684,13 +664,13 @@ StatColor11=0
 StatColor12=8454016
 StatColor13=53760
 StatColor14=32768
-TableSortingServer=0
+TableOrderingServer=0
 TableWidthsServer=150,140,25,150,25,40,45,60,40,40,80
-TableSortingDownload=0
+TableOrderingDownload=0
 TableWidthsDownload=260,60,65,65,65,170,50,55,70,110,220,220
-TableSortingUploads=0
-TableWidthsUploads=150,275,100,60,65,60,60,110,100,100,100
-TableSortingShared=0
+TableOrderingSources=0
+TableWidthsSources=150,275,100,60,65,60,60,110,100,100,100
+TableOrderingShared=0
 TableWidthsShared=250,100,50,70,220,100,100,120,120,120,220
 
 [Browser]
@@ -722,6 +702,7 @@ PasswordLow=
 Template=
 UPnPWebServerEnabled=0
 WebUPnPTCPPort=50001
+UPnPTCPPort=50001
 Path=amuleweb
 
 [Proxy]
@@ -745,15 +726,11 @@ PreventSleepWhileDownloading=0
 
 [Razor_Preferences]
 FastED2KLinksHandler=1
-NoNeededSourcesHandling=2
-FullQueueSources=0
-HighQueueRankingSources=0
-HighQueueRanking=1200
-AutoDropTimer=240
 MAIN_X_POS=217
 MAIN_Y_POS=100
 MAIN_X_SIZE=800
 MAIN_Y_SIZE=600
+Maximized=1
 SRV_SPLITTER_POS=463
 
 [UserEvents]
@@ -804,7 +781,7 @@ HideOnClose=0
 AppImageIntegrationDeclined=0
 
 [GUI/TransferWnd]
-Splitter=114
+Splitter=463
 ShowClientList=1
 
 # [Debug] section — only present and active in debug builds (__DEBUG__).

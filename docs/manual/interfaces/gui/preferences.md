@@ -85,6 +85,7 @@ Options for aMule's file system paths.
 | | **Normal font** — directory is not shared. **Bold font** — directory is shared. **Yellow folder** — no subdirectories marked as shared. **Red folder** — subdirectories are marked as shared. |
 | **Share hidden files** | Include hidden files from shared directories. |
 | **Automatically rescan shared folders for changes** | Periodically rescan the shared folders so files added or removed outside aMule are picked up automatically. |
+| **Follow symbolic links in shared folders** | Follow symbolic links (to files or directories) when scanning shared folders. Enabled by default; disable it to skip symlinked entries. |
 
 ## Servers
 
@@ -206,7 +207,7 @@ Options for aMule's graphical interface.
 |---|---|
 | **Show progress percentage** | Display the completed percentage for each file in the download queue, above the progress bar. |
 | **Show progress bar** | Show a progress bar indicating chunk availability for each file in the download queue. |
-| **Progress bar style** | Select the progress bar style — **Flat** or **Round** — when **Show progress bar** is enabled. |
+| **Progress bar style** | Slider that sets the progress bar's 3D depth, from **Flat** to **Round**. Active only when **Show progress bar** is enabled. |
 | **Auto-sort files (high CPU)** | Resort the download list more frequently. Not recommended — high CPU usage. |
 
 ## Statistics
@@ -248,7 +249,6 @@ Options for connecting through a proxy server. See [Proxy configuration](../../c
 | **Enable authentication** | Use a username and password to log into the proxy. If disabled, anonymous login is performed. |
 | **Username** | Username to log into the proxy. |
 | **Password** | Password to log into the proxy. |
-| **Automatic server connect without proxy** | Connect to eD2k servers directly, bypassing the proxy. |
 
 ## Filters
 
