@@ -19,7 +19,7 @@ Frequently asked questions about aMule, organized by topic.
 → See [Download Folders](../configuration/download-folders.md) for the default paths on each platform.
 
 **Why do I have a Low ID?**
-→ TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md) and [Test Your Ports](../troubleshooting/fake-files-and-servers.md#testing-your-ports).
+→ TCP port 4662 is not reachable from the internet. See [Network Connectivity](../configuration/network-connectivity.md) and [Test Your Ports](../configuration/network-connectivity.md#testing-your-port-status).
 
 **Downloads are very slow**
 → Work through the [Slow Download Speeds checklist](../troubleshooting/slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.

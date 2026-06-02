@@ -55,7 +55,7 @@ Having a Low ID significantly limits download speed because:
 - Two Low ID clients cannot connect to each other directly.
 - Some servers refuse Low ID clients.
 
-Ensure TCP port 4662 (or your configured TCP port) is open in your firewall and forwarded in your router. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md).
+Ensure TCP port 4662 (or your configured TCP port) is open in your firewall and forwarded in your router. See [Network Connectivity](../configuration/network-connectivity.md).
 
 #### ISP blocking or throttling eD2k ports
 

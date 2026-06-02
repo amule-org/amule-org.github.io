@@ -3,7 +3,7 @@ id: firewall
 title: Firewall and Router Configuration
 ---
 
-By default, firewalls and routers block incoming connections. To achieve a [High ID](./get-high-id.md) and the best possible transfer performance with aMule, the following three ports must be reachable from the internet:
+By default, firewalls and routers block incoming connections. To achieve a [High ID](../../p2p-networks/ed2k/high-id.md) and the best possible transfer performance with aMule, the following three ports must be reachable from the internet:
 
 | Port | Protocol | Default | Purpose |
 |---|---|---|---|
@@ -11,7 +11,7 @@ By default, firewalls and routers block incoming connections. To achieve a [High
 | Extended client UDP port | UDP | 4672 | Required for Kademlia; recommended for eD2k |
 | Extended server requests UDP port | UDP | TCP+3 (4665) | Recommended for eD2k server statistics |
 
-The port numbers are configurable in **Preferences → Connection**. See also [Getting a High ID](./get-high-id.md).
+The port numbers are configurable in **Preferences → Connection**. See also [Network Connectivity](./network-connectivity.md).
 
 :::note UPnP
 Since aMule 2.2.x, aMule supports [UPnP](./upnp.md) to configure router ports automatically — if your router supports UPnP, you may not need manual port forwarding.
@@ -103,7 +103,7 @@ iptables -A FORWARD -i $EXTIF -o $INTIF -p udp --dport $EMULEUDP  -d $EMULEHOST 
 iptables -A FORWARD -i $EXTIF -o $INTIF -p udp --dport $EMULEUDP2 -d $EMULEHOST -j ACCEPT
 ```
 
-After applying the rules, verify that the ports are open using the [Test Port](https://www.amule.org/testport.php) page.
+After applying the rules, verify that the ports are open by [testing your port status](./network-connectivity.md#testing-your-port-status).
 
 ## Fedora / Red Hat
 
@@ -232,7 +232,7 @@ For each entry: set start and end to the same port, select the correct protocol,
 | IP Address | Internal LAN IP of the aMule machine |
 | Enable | checked |
 
-Use separate entries per port for the cleanest configuration. After adding rules, save settings and [test your ports](https://www.amule.org/testport.php).
+Use separate entries per port for the cleanest configuration. After adding rules, save settings and [test your port status](./network-connectivity.md#testing-your-port-status).
 
 ### DLink router
 
@@ -298,7 +298,7 @@ Log in at `http://192.168.2.1`. Create two entries (one TCP, one UDP) via **Fire
 | Private IP | your LAN IP | your LAN IP |
 | Private port | 4662 | 4672 |
 
-Click **Apply**. In aMule, disconnect and reconnect. Kademlia should no longer show "firewalled". Verify with the [Test Port](https://www.amule.org/testport.php) page.
+Click **Apply**. In aMule, disconnect and reconnect. Kademlia should no longer show "firewalled". Verify by [testing your port status](./network-connectivity.md#testing-your-port-status).
 
 :::note
 The private IP is dynamically assigned by default and may change. If Low ID reappears after a network reconnect, check whether the IP changed and update the router rule.

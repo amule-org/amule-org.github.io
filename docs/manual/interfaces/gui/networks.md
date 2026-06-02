@@ -157,7 +157,7 @@ Live eD2k connection details:
 | **ID** | Your numeric eD2k user ID |
 | *(blank label)* | `HighID` or `LowID` |
 
-A **HighID** means your ports are reachable from the internet and you have full connectivity. A **LowID** means you are behind a firewall or NAT and other clients cannot connect to you directly, which significantly reduces transfer performance. See [High ID and Low ID](../../configuration/get-high-id.md) for how to fix this.
+A **HighID** means your ports are reachable from the internet and you have full connectivity. A **LowID** means you are behind a firewall or NAT and other clients cannot connect to you directly, which significantly reduces transfer performance. See [Network Connectivity](../../configuration/network-connectivity.md) for how to fix this.
 
 ### Kad Info
 

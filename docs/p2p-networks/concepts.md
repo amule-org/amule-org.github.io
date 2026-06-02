@@ -144,19 +144,19 @@ In the eD2k context, an **ID** is a number that uniquely identifies a client to 
 
 Two categories of ID exist: **High ID** and **Low ID**. It is always strongly recommended to achieve a High ID when possible.
 
-For a full explanation of the ID system, the High ID formula, why Low ID restricts transfers, and how to get a High ID, see the dedicated **[High ID and Low ID](high-id-low-id.md)** page.
+For a full explanation of the ID system, the High ID formula, why Low ID restricts transfers, and how to get a High ID, see the dedicated **[High ID and Low ID](ed2k/high-id.md)** page.
 
 ### High ID
 
 Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** (any value ≥ 16,777,216). High ID clients can accept incoming connections from any peer and are not subject to server-side restrictions.
 
-→ See **[High ID and Low ID](high-id-low-id.md)** for the full explanation including the ID formula, benefits, and configuration steps.
+→ See **[High ID and Low ID](ed2k/high-id.md)** for the full explanation including the ID formula, benefits, and configuration steps.
 
 ### Low ID
 
 Clients whose TCP port is unreachable receive a **Low ID** (any value < 16,777,216). Low ID clients cannot accept direct incoming connections; two Low ID clients **cannot transfer data to each other**; and many servers reject Low ID clients.
 
-→ See **[High ID and Low ID](high-id-low-id.md)** for consequences, troubleshooting, and how to fix a Low ID.
+→ See **[High ID and Low ID](ed2k/high-id.md)** for consequences, troubleshooting, and how to fix a Low ID.
 
 ## Download Queue
 

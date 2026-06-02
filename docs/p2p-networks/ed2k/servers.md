@@ -120,7 +120,7 @@ Every client connected to an eD2k server is assigned an ID by the server:
 
 A Low ID significantly reduces available download sources (only High ID peers can reach you) and many large servers reject Low ID clients outright. It is strongly recommended to obtain a High ID by forwarding TCP port 4662 on your router.
 
-See **[High ID and Low ID](../high-id-low-id.md)** for the ID calculation formula, consequences, and how to configure your router and firewall to obtain a High ID.
+See **[High ID and Low ID](high-id.md)** for the ID calculation formula and consequences, and **[Network Connectivity](../../manual/configuration/network-connectivity.md)** for how to configure your router and firewall to obtain a High ID.
 
 ## Static servers
 

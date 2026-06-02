@@ -17,7 +17,7 @@ Solutions to the most common problems encountered when running aMule.
 ## Quick diagnostics
 
 **I have a Low ID**
-→ TCP port 4662 is not reachable from the internet. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md) and [Test Your Ports](./fake-files-and-servers.md#testing-your-ports).
+→ TCP port 4662 is not reachable from the internet. See [Network Connectivity](../configuration/network-connectivity.md) and [Test Your Ports](../configuration/network-connectivity.md#testing-your-port-status).
 
 **Downloads are very slow**
 → Work through the [Slow Download Speeds checklist](./slow-speeds.md#configuration-issues). The most common cause is an upload limit below 10 KBps.
@@ -29,7 +29,7 @@ Solutions to the most common problems encountered when running aMule.
 → See [Download Folders](../configuration/download-folders.md) for the default Incoming path on your platform.
 
 **Kademlia says "firewalled" even though I have a High ID**
-→ Your router is remapping UDP port 4672. See [High ID and Low ID — Kademlia: Open vs Firewalled](../../p2p-networks/high-id-low-id.md#kademlia-open-vs-firewalled) and [Network FAQ → Kademlia firewalled](../faq/network.md#why-does-kademlia-still-say-it-is-firewalled).
+→ Your router is remapping UDP port 4672. See [Network Connectivity — Kademlia connectivity](../configuration/network-connectivity.md#kademlia-connectivity-open-vs-firewalled) and [Network FAQ → Kademlia firewalled](../faq/network.md#why-does-kademlia-still-say-it-is-firewalled).
 
 **Search results contain many suspicious files**
 → You may be connected to a fake server. See [Fake Servers](./fake-files-and-servers.md#fake-servers).

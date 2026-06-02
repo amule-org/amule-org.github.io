@@ -33,7 +33,7 @@ UPnP in aMule requires the external **libupnp** library.
 
 UPnP is enabled and configured through **Preferences → Connection**. When libupnp is installed and aMule is compiled with UPnP support, the UPnP option appears in the Connection preferences tab.
 
-If UPnP succeeds, aMule will automatically register port mappings for the TCP and UDP ports on your router. You can verify connectivity with the [Test Port](https://www.amule.org/testport.php) page.
+If UPnP succeeds, aMule will automatically register port mappings for the TCP and UDP ports on your router. You can verify connectivity by [testing your port status](./network-connectivity.md#testing-your-port-status).
 
 ## UPnP and personal firewalls
 

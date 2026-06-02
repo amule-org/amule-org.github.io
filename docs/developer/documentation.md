@@ -209,7 +209,7 @@ Use consistent terminology throughout the documentation:
 | `amulecmd` | `AMuleCMD`, `amule cmd` |
 | eD2k | ed2k (in prose) |
 | Kademlia | kad (in prose) |
-| [High ID / Low ID](../p2p-networks/high-id-low-id.md) | HighID, LowID, highid |
+| [High ID / Low ID](../p2p-networks/ed2k/high-id.md) | HighID, LowID, highid |
 
 ## Translations
 

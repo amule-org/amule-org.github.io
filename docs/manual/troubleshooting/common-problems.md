@@ -58,7 +58,7 @@ If your internet connection was lost briefly, aMule detected the disconnection, 
 
 Three possible causes:
 
-1. **Port 4662 TCP is not open** in your firewall or not forwarded in your router. See [High ID and Low ID](../../p2p-networks/high-id-low-id.md) and [Test Your Ports](./fake-files-and-servers.md#testing-your-ports).
+1. **Port 4662 TCP is not open** in your firewall or not forwarded in your router. See [Network Connectivity](../configuration/network-connectivity.md) and [Test Your Ports](../configuration/network-connectivity.md#testing-your-port-status).
 
 2. **The server is overloaded or misconfigured** and is issuing LowIDs even to clients with open ports. Try a different server.
 

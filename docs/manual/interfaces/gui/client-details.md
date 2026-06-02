@@ -49,7 +49,7 @@ The **IP address** field shows the client's IP address and its standard client T
 
 ### User ID
 
-The **User ID** field shows the client's numeric ID on the server it is connected to, with the ID type ([High ID or Low ID](../../../p2p-networks/high-id-low-id.md)) shown in brackets. If the client has not yet been identified or is connected only through Kademlia, the ID is 0:
+The **User ID** field shows the client's numeric ID on the server it is connected to, with the ID type ([High ID or Low ID](../../../p2p-networks/ed2k/high-id.md)) shown in brackets. If the client has not yet been identified or is connected only through Kademlia, the ID is 0:
 
 ![User ID field](/img/docs/usage/window_client8.jpg)
 

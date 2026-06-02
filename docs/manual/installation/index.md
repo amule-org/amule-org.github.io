@@ -333,4 +333,4 @@ See the [aMule Files Reference](../configuration/config-files/index.md) for a co
 
 aMule ships with reasonable defaults and can be used as-is. To connect to the eD2k network and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the initial bandwidth configuration, server/Kademlia connection, and your first search.
 
-To receive a [High ID](../configuration/get-high-id.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.
+To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.

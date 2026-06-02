@@ -109,26 +109,20 @@ Unlike eD2k where a search goes to a centralised server, Kademlia distributes se
 
 ## Open vs. Firewalled Status
 
-Kademlia uses the terms **Open** and **Firewalled** (analogous to eD2k's [High ID / Low ID](high-id-low-id.md)):
+Kademlia uses the terms **Open** and **Firewalled** (analogous to eD2k's [High ID / Low ID](ed2k/high-id.md)). Unlike eD2k — where a single ID summarises your reachability — Kad checks two ports **independently** and reports a state for each:
 
-- **Open** — your Kademlia UDP port (4672) is reachable from the internet. You can participate fully as both a query target and a source.
-- **Firewalled** — your UDP port is blocked or remapped by NAT. You can still download but your participation in the DHT is limited.
+- **TCP reachability** of the standard port (4662), verified by other Kad nodes attempting a connection back to you.
+- **UDP reachability** of the Kademlia port (4672), verified by a dedicated UDP firewall test.
 
-### Resolving Firewalled Status
+A fully **Open** node has both ports reachable and participates as a query target and a direct source. If either port is blocked or remapped by NAT, that side is reported **Firewalled**. The aMule GUI shows the two states separately — *Connection State* (TCP) and *UDP Connection State* (UDP) — in the **[Kad Info panel](../manual/interfaces/gui/networks.md#kad-info)**.
 
-If your eD2k status is [High ID](high-id-low-id.md) but Kademlia shows Firewalled, the most common cause is **NAT UDP port remapping**:
+### Firewalled nodes and buddies
 
-Your router rewrites the source port of outgoing UDP packets (e.g. changes 4672 to some ephemeral port). Other Kademlia nodes then try to contact you on the port they saw (the remapped one), which fails.
+Being firewalled does **not** remove you from the network. You stay connected, you can keep searching and downloading, and you can still be found as a source — your participation is simply less efficient because other nodes cannot reach you directly.
 
-**Solution:** Configure your router to use **port 4672 for UDP** without remapping, or use a different port that your ISP does not block:
+To remain reachable, a firewalled node finds a **buddy**: an *open* Kad node that agrees to relay incoming connection requests (callbacks) on its behalf. When the firewalled node publishes itself as a source, it advertises its buddy's address; an interested peer then contacts the buddy, which forwards the request so the firewalled node can call back and open the transfer. This callback mechanism is what lets a firewalled node serve files at all, and it is the Kad equivalent of the eD2k server-assisted callback used for Low ID clients. The buddy connection status is also visible in the **[Kad Info panel](../manual/interfaces/gui/networks.md#kad-info)**.
 
-1. Choose a new port number `n` in the range 80 < n < 65530 (avoid 4662 and 4665).
-2. In **Preferences → Connection**, set the Standard Client TCP Port to `n`.
-3. Forward on your router: TCP `n`, UDP `n+3`, UDP 4672.
-4. In **Networks → Kad**, update the node list and wait ~5 minutes.
-5. If still firewalled, try a different value of `n`.
-
-Known working ports include: **4811, 9870**.
+A common case is being [High ID](ed2k/high-id.md) on eD2k yet Firewalled on Kademlia, usually caused by the router remapping the source port of outgoing UDP packets. For the practical steps to reach **open** status — including the NAT-remapping workaround — see **[Network Connectivity](../manual/configuration/network-connectivity.md)** in the User Manual.
 
 ## Is Kademlia the Same as Overnet?
 

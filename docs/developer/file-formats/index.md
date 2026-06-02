@@ -331,7 +331,7 @@ parsers should split on `\n` and strip a trailing `\r`.
 | 2 | Server name | Server name string, or `0` | `0` when offline, connecting, or cleanly closed |
 | 3 | Server IP | Server IP address string, or `0` | `0` when offline, connecting, or cleanly closed |
 | 4 | Server port | Server port number, or `0` | `0` when offline, connecting, or cleanly closed |
-| 5 | Client ID type | `H` ([High ID](../../p2p-networks/high-id-low-id.md)), `L` ([Low ID](../../p2p-networks/high-id-low-id.md)), or `0` | `0` when disconnected, connecting, or cleanly closed |
+| 5 | Client ID type | `H` ([High ID](../../p2p-networks/ed2k/high-id.md)), `L` ([Low ID](../../p2p-networks/ed2k/high-id.md)), or `0` | `0` when disconnected, connecting, or cleanly closed |
 | 6 | Kademlia status | `0` = disconnected, `1` = connected (firewalled), `2` = connected (ok) | Introduced in aMule 2.1.0 |
 | 7 | Download speed | Decimal number with exactly one decimal place (e.g., `157.2`) | `0.0` when cleanly closed (since rc4) |
 | 8 | Upload speed | Decimal number with exactly one decimal place (e.g., `21.5`) | `0.0` when cleanly closed (since rc4) |
@@ -384,7 +384,7 @@ Decoded:
 | 2 | Server name | `eD2k Server` | |
 | 3 | Server IP | `23.48.235.15` | |
 | 4 | Server port | `4661` | |
-| 5 | ID type | `H` | [High ID](../../p2p-networks/high-id-low-id.md) |
+| 5 | ID type | `H` | [High ID](../../p2p-networks/ed2k/high-id.md) |
 | 6 | Kad status | `2` | Kad connected (OK, not firewalled) |
 | 7 | Download speed | `157.2` | 157.2 KiB/s |
 | 8 | Upload speed | `21.5` | 21.5 KiB/s |

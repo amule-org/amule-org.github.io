@@ -1,6 +1,6 @@
 ---
 id: bug-report
-title: Bug Reports
+title: Bug Report
 ---
 
 Bug reports are a vital contribution to aMule. A problem cannot be fixed if it is not reported, and the faster and more accurately a bug is described, the sooner it can be resolved. This page explains, in plain terms, what to include in a report and how to find the information the developers need — **no programming or debugging experience required.**

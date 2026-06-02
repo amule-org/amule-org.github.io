@@ -59,7 +59,7 @@ Some servers in the wild are operated by organisations that log user activity or
 
 Every client on the eD2k network is assigned a unique **ID** by the server it connects to. Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** and can accept direct incoming connections from any peer. Clients with a blocked TCP port receive a **Low ID** (any value below 16,777,216); two Low ID clients cannot transfer data to each other, and many servers reject Low ID clients entirely.
 
-For the full explanation of the ID system, how to calculate your High ID, how to configure your firewall and router to get a High ID, and how the Kademlia "open/firewalled" status relates to this, see **[High ID and Low ID](../high-id-low-id.md)**.
+For the full explanation of the ID system and how to calculate your High ID, see **[High ID and Low ID](high-id.md)**. For how to configure your firewall and router to get a High ID (and how the Kademlia "open/firewalled" status relates to this), see **[Network Connectivity](../../manual/configuration/network-connectivity.md)**.
 
 ## Ports
 
@@ -74,7 +74,7 @@ aMule uses three configurable ports (all in **Preferences → Connection**) and 
 | 4711 | TCP | Incoming | [`amuleweb`](../../manual/interfaces/amuleweb.md) listening port |
 | 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) port — for [`amulecmd`](../../manual/interfaces/amulecmd.md), [`amulegui`](../../manual/interfaces/gui/amulegui.md) |
 
-For details on each port, per-network requirements, and how to forward ports on your router, see **[High ID and Low ID → Ports used by aMule](../high-id-low-id.md#ports-used-by-amule)**.
+For details on each port, per-network requirements, and how to forward ports on your router, see **[Network Connectivity → Ports used by aMule](../../manual/configuration/network-connectivity.md#ports-used-by-amule)**.
 
 ### Auxiliary Server Ports
 

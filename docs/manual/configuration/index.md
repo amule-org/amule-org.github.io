@@ -14,7 +14,7 @@ The pages below complement them with focused, task-oriented guides — port setu
 |---|---|
 | [Configuration Files](./config-files/index.md) | Files aMule stores on disk, including the hand-editable `amule.conf` and `remote.conf` |
 | [Download Folders](./download-folders.md) | Incoming directory, temporary directory, and shared directories |
-| [Getting a High ID](./get-high-id.md) | How to configure your ports to obtain a High ID |
+| [Network Connectivity](./network-connectivity.md) | How to configure your ports to obtain a High ID (eD2k) and open status (Kademlia) |
 | [Firewall and Router Configuration](./firewall.md) | How to open the required ports in your firewall and router |
 | [UPnP](./upnp.md) | Automatic port forwarding via UPnP |
 | [Proxy](./proxy.md) | Routing aMule connections through a proxy server |

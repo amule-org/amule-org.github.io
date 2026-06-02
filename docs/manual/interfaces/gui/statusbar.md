@@ -107,8 +107,8 @@ Arrow colour meanings:
 |---|---|
 | Red | Offline / not connected |
 | Orange | Connecting |
-| Yellow | Connected but firewalled ([Low ID](../../../p2p-networks/high-id-low-id.md) for eD2k) |
-| Green | Connected with [High ID](../../../p2p-networks/high-id-low-id.md) |
+| Yellow | Connected but firewalled — [Low ID](../../../p2p-networks/ed2k/high-id.md) on eD2k, [firewalled](../../../p2p-networks/kademlia.md#open-vs-firewalled-status) on Kademlia |
+| Green | Connected — [High ID](../../../p2p-networks/ed2k/high-id.md) on eD2k, [open](../../../p2p-networks/kademlia.md#open-vs-firewalled-status) on Kademlia |
 
 All possible globe icons and their combined meanings:
 
@@ -120,8 +120,8 @@ All possible globe icons and their combined meanings:
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_offline.png) | Connecting | Offline |
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_firewalled.png) | Connecting | Connected (firewalled) |
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connecting_kad_connected.png) | Connecting | Connected |
-| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_offline.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Offline |
-| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_firewalled.png) | Connected ([Low ID](../../../p2p-networks/high-id-low-id.md) / firewalled) | Connected (firewalled) |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_offline.png) | Connected ([Low ID](../../../p2p-networks/ed2k/high-id.md) / firewalled) | Offline |
+| ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_lowid_kad_firewalled.png) | Connected ([Low ID](../../../p2p-networks/ed2k/high-id.md) / firewalled) | Connected (firewalled) |
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_offline.png) | Connected | Offline |
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_firewalled.png) | Connected | Connected (firewalled) |
 | ![](/img/docs/gui_statusbar/statusbar_icon_globe_ed2k_connected_kad_connected.png) | Connected | Connected |

@@ -65,8 +65,8 @@ The mule head in the icon indicates the overall connection status:
 | Icon | Meaning |
 |---|---|
 | ![Not connected](/img/docs/usage/window_systray4.jpg) | Not connected to any network |
-| ![Low ID](/img/docs/usage/window_systray5.jpg) | Connected to one or more networks, but all connections have [Low ID](../../../p2p-networks/high-id-low-id.md) |
-| ![High ID](/img/docs/usage/window_systray6.jpg) | Connected to one or more networks with at least one [High ID](../../../p2p-networks/high-id-low-id.md) connection |
+| ![Low ID](/img/docs/usage/window_systray5.jpg) | Connected to one or more networks, but all connections have [Low ID](../../../p2p-networks/ed2k/high-id.md) |
+| ![High ID](/img/docs/usage/window_systray6.jpg) | Connected to one or more networks with at least one [High ID](../../../p2p-networks/ed2k/high-id.md) connection |
 
 ## Tooltip
 

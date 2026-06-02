@@ -23,7 +23,7 @@ Because file identity is determined by the **hash and size, not the name**. Two 
 
 For a complete description of all ports used by aMule, see [eD2k Network — Ports](../../p2p-networks/ed2k/index.md#ports).
 
-aMule works even without any ports open, but you will receive a [Low ID](../../p2p-networks/high-id-low-id.md). For optimal operation ([High ID](../../p2p-networks/high-id-low-id.md)), open the following ports for **incoming** connections:
+aMule works even without any ports open, but you will receive a [Low ID](../../p2p-networks/ed2k/high-id.md). For optimal operation ([High ID](../../p2p-networks/ed2k/high-id.md)), open the following ports for **incoming** connections:
 
 | Port | Protocol | Purpose |
 |---|---|---|
@@ -33,7 +33,7 @@ aMule works even without any ports open, but you will receive a [Low ID](../../p
 
 ### Why does Kademlia still say it is "firewalled"?
 
-See [Kademlia — Resolving Firewalled Status](../../p2p-networks/kademlia.md#resolving-firewalled-status).
+See [Network Connectivity — Kademlia connectivity](../configuration/network-connectivity.md#kademlia-connectivity-open-vs-firewalled).
 
 ## Searching and Sources
 
@@ -56,9 +56,9 @@ Note: a file named `Birthday.zip` will appear under Archive, not Video — regar
 
 A **source** is a client sharing a chunk of a file you have in your download queue that you have not yet completed. The more sources, the more download opportunities exist.
 
-When you have a [Low ID](../../p2p-networks/high-id-low-id.md):
+When you have a [Low ID](../../p2p-networks/ed2k/high-id.md):
 - **Sources**: all clients sharing a chunk or file you still need.
-- **Available sources**: only [High ID](../../p2p-networks/high-id-low-id.md) clients you can actually connect to.
+- **Available sources**: only [High ID](../../p2p-networks/ed2k/high-id.md) clients you can actually connect to.
 
 ## Credits, Ratings, and Scoring
 

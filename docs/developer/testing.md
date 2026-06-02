@@ -191,7 +191,7 @@ A **testing field** is a virtual eD2k network isolated from the real internet. I
 
 - Testing download/upload behaviour without affecting the live network.
 - Reproducing network-related bugs in a controlled environment.
-- Verifying [firewall](../manual/configuration/firewall.md) and [High ID / Low ID](../p2p-networks/high-id-low-id.md) assignment logic.
+- Verifying [firewall](../manual/configuration/firewall.md) and [High ID / Low ID](../p2p-networks/ed2k/high-id.md) assignment logic.
 
 ### Setting Up a Test Server
 
