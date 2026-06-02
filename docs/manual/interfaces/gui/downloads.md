@@ -209,6 +209,6 @@ Each category can have its own incoming directory. Completed files are saved to 
 
 While downloading, aMule stores incomplete data in a **Temporary directory**. Completed files are moved to the **Incoming directory**. Both paths depend on your platform and can be changed in **Preferences → Directories**. Per-category incoming folders override the default incoming directory for files assigned to that category.
 
-See [Download Folders](../../configuration/download-folders.md) for the default paths on each platform.
+See [Directories](../../configuration/directories.md) for the default paths on each platform.
 
 If you have incomplete downloads from eMule, copy their [`.part` and `.part.met`](../../configuration/config-files/index.md#temporary-download-files) files into aMule's Temp directory — aMule will resume them automatically on the next start.

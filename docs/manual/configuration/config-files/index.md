@@ -18,7 +18,7 @@ This page is a **catalogue**: what each file is, what it is for, and where to fi
 On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Application Support/aMule/`.
 
 :::note
-These are aMule's **configuration** paths. For the **download** directories (Incoming, Temporary, and shared folders), see [Download Folders](../download-folders.md).
+These are aMule's **configuration** paths. For the **download** directories (Incoming, Temporary, and shared folders), see [Directories](../directories.md).
 :::
 
 ## All files at a glance
@@ -239,7 +239,7 @@ For its format, see the [`statistics.dat` format reference](../../../developer/f
 
 ### `shareddir.dat`, `shareddir-explicit.dat`, `shareddir-recursive.dat` {#shareddirdat}
 
-aMule uses three related files to track shared directories:
+aMule uses three related files to track shared directories. For how to configure shared directories from the GUI, see [Directories](../directories.md#shared-directories).
 
 | File | Purpose |
 |---|---|

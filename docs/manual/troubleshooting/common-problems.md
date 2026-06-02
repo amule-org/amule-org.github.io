@@ -70,7 +70,7 @@ Three possible causes:
 This happens when aMule is killed mid-completion and the final hash-check pass was not finished. Fix:
 
 1. Close aMule.
-2. Go to your Temp directory (see [Download Folders](../configuration/download-folders.md) for the path on your platform).
+2. Go to your Temp directory (see [Directories](../configuration/directories.md#temporary-directory) for the path on your platform).
 3. Run:
    ```bash
    touch ./*

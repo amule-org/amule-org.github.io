@@ -1,9 +1,9 @@
 ---
 id: index
-title: User Guide
+title: User Manual
 ---
 
-This guide covers everything you need to use aMule: installation, configuration, daily usage, and reference documentation for components and files.
+This manual covers everything you need to use aMule: installation, configuration, the interfaces and utilities it ships with, migration, and troubleshooting.
 
 ## New to aMule?
 
@@ -18,8 +18,9 @@ Follow these steps to get up and running:
 | Section | Description |
 |---|---|
 | [Installation](./installation/index.md) | Installing aMule on Windows, macOS, Linux, and BSD |
-| [Configuration](./configuration/index.md) | Preferences, ports, firewall, IP filter, and advanced options |
-| [Usage](./interfaces/gui/index.md) | Searching, downloading, uploading, and managing shared files |
-| [aMule Components](./interfaces/index.md) | `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, and utilities |
-| [aMule Files](./configuration/config-files/index.md) | Configuration, data, and log files that aMule reads and writes |
+| [Configuration](./configuration/index.md) | Ports, firewall, UPnP, proxy, directories, events, and the on-disk config files |
+| [Interfaces](./interfaces/index.md) | `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd` and their GUI and remote usage |
+| [Utilities](./utilities/index.md) | Standalone helpers: `ed2k`, `alc`/`alcc`, `wxcas`/`cas` |
 | [Migration](./migration/index.md) | Migrating to aMule from eMule, eDonkey2000, or other eD2k clients |
+| [Troubleshooting](./troubleshooting/index.md) | Solutions to common problems: slow speeds, fake files and servers, remote access |
+| [FAQ](./faq/index.md) | Frequently asked questions about aMule, organized by topic |

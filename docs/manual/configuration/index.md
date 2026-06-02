@@ -12,9 +12,9 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | Page | Description |
 |---|---|
 | [Configuration Files](./config-files/index.md) | Files aMule stores on disk, including the hand-editable `amule.conf` and `remote.conf` |
-| [Download Folders](./download-folders.md) | Incoming directory, temporary directory, and shared directories |
+| [Directories](./directories.md) | Incoming directory, temporary directory, and shared directories |
 | [Network Connectivity](./network-connectivity.md) | How to configure your ports to obtain a High ID (eD2k) and open status (Kademlia) |
-| [Firewall and Router Configuration](./firewall.md) | How to open the required ports in your firewall and router |
-| [UPnP](./upnp.md) | Automatic port forwarding via UPnP |
+| [Firewall](./firewall.md) | How to open the required ports in your firewall |
+| [UPnP (Universal Plug and Play)](./upnp.md) | Automatic port forwarding via UPnP |
 | [Proxy](./proxy.md) | Routing aMule connections through a proxy server |
 | [Events](./events.md) | Automating actions on download completion, disk-full alerts, and more |

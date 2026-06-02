@@ -73,7 +73,7 @@ Options regarding aMule's network connections.
 
 ## Directories
 
-Options for aMule's file system paths.
+Options for aMule's file system paths. For full details — default locations on each platform, per-category incoming folders, and how shared directories work — see [Directories](../../configuration/directories.md).
 
 ![Directories preferences tab](/img/docs/gui_preferences/preferences_directories.png)
 
@@ -129,7 +129,7 @@ Options for downloading and sharing files.
 | **From the same category** | When the above option is enabled, resume the highest-priority paused file in the same category (if one exists). |
 | **In alphabetic order** | When resuming the next paused file, pick it in alphabetic order instead of by priority. |
 | **Preallocate disk space for new files** | Reserve the full file size on disk when a download starts, reducing fragmentation. |
-| **Stop downloads when free disk space reaches _n_ MB** | Pause downloads when free disk space would fall below the given minimum (in MB). |
+| **Stop downloads when free disk space reaches _n_ MB** | Pause downloads when free disk space would fall below the given minimum (in MB). See [Disk Space Protection](../../configuration/directories.md#disk-space-protection). |
 | **Save 10 sources on rare files (< 20 sources)** | On shutdown, save 10 sources for files with few sources so they can be reused on next startup. |
 
 ### Uploads

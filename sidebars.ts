@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
                 'manual/configuration/config-files/remote-conf',
               ],
             },
-            'manual/configuration/download-folders',
+            'manual/configuration/directories',
             'manual/configuration/network-connectivity',
             'manual/configuration/firewall',
             'manual/configuration/upnp',

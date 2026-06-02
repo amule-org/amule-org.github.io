@@ -106,7 +106,7 @@ Click the **Reload** button (showing two green arrows) in the toolbar area of th
 
 ## Shared Directories
 
-aMule shares the **contents** of any directory you mark as shared. Subdirectories are **not** shared recursively by default.
+aMule shares the **contents** of any directory you mark as shared. Subdirectories are **not** shared recursively by default. For full configuration details, see [Directories](../../configuration/directories.md#shared-directories).
 
 ### Configuring via Preferences
 

@@ -16,7 +16,7 @@ Frequently asked questions about aMule, organized by topic.
 ## Quick answers to the most common questions
 
 **Where are my downloaded files?**
-→ See [Download Folders](../configuration/download-folders.md) for the default paths on each platform.
+→ See [Directories](../configuration/directories.md#incoming-directory) for the default paths on each platform.
 
 **Why do I have a Low ID?**
 → TCP port 4662 is not reachable from the internet. See [Network Connectivity](../configuration/network-connectivity.md) and [Test Your Ports](../configuration/network-connectivity.md#testing-your-port-status).

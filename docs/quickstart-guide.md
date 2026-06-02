@@ -218,7 +218,7 @@ Downloads can be assigned to named categories, each with a unique colour and a s
 
 ### Where Are The Files?
 
-aMule uses a **Temporary directory** for in-progress downloads and an **Incoming directory** for completed files. Both can be changed in **Preferences → Directories**. See [Download Folders](./manual/configuration/download-folders.md) for the default paths on each platform.
+aMule uses a **Temporary directory** for in-progress downloads and an **Incoming directory** for completed files. Both can be changed in **Preferences → Directories**. See [Directories](./manual/configuration/directories.md) for the default paths on each platform.
 
 If a directory named `config` exists next to the aMule executable, configuration files are stored there instead — useful for running aMule from a USB drive.
 
@@ -232,7 +232,7 @@ There are two ways to share files:
 
 **1. Place files in the Incoming directory**
 
-Copy files to your Incoming directory (see [Download Folders](./manual/configuration/download-folders.md) for the path on your platform). Then either restart aMule or press the **Reload** button on the [Shared Files](./manual/interfaces/gui/shared-files.md) page:
+Copy files to your Incoming directory (see [Directories](./manual/configuration/directories.md#incoming-directory) for the path on your platform). Then either restart aMule or press the **Reload** button on the [Shared Files](./manual/interfaces/gui/shared-files.md) page:
 
 ![Reload shared files button](/img/docs/reload_button.png)
 

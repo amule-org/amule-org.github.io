@@ -80,7 +80,7 @@ The GUI is built with **wxWidgets** (minimum version 3.2.0). It is completely se
 
 ### File Transfer
 
-- Files in progress are stored as [`<NNN>.part` + `<NNN>.part.met`](file-formats/part-met.md) — sequentially numbered (e.g. `001.part`) — in the Temp directory (see [Download Folders](../manual/configuration/download-folders.md)).
+- Files in progress are stored as [`<NNN>.part` + `<NNN>.part.met`](file-formats/part-met.md) — sequentially numbered (e.g. `001.part`) — in the Temp directory (see [Directories](../manual/configuration/directories.md#temporary-directory)).
 - Completed files are moved to the Incoming directory.
 - File integrity is verified using [**AICH**](../p2p-networks/ed2k/aich.md) (Advanced Intelligent Corruption Handling) — a Merkle-tree-like hash structure that allows per-chunk verification and selective re-download of corrupted parts.
 
