@@ -29,10 +29,6 @@ The following are **not** routed through the proxy and remain direct:
 - Any **UDP** traffic when the proxy is not SOCKS5 (SOCKS4, SOCKS4a, and HTTP cannot tunnel UDP).
 - Auxiliary HTTP downloads when the proxy is not an HTTP proxy.
 
-:::note
-The option **Automatic server connect without proxy** exists in the Preferences dialog but is currently ignored by aMule.
-:::
-
 ## Configuring the proxy in aMule
 
 Open [**Preferences → Proxy**](../interfaces/gui/preferences.md#proxy).

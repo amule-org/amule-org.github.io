@@ -317,7 +317,7 @@ Fast eD2k links panel toggle and main window geometry.
 
 ## `[UserEvents]` section {#userevents-section}
 
-Shell commands executed when specific events occur. Commands can use substitution variables (see below). For the full description of each event, usage examples and ready-made scripts, see the [Events](../events.md) page.
+Shell commands executed when specific events occur. This page documents only the file structure and keys; for the full description of each event, the available substitution variables, command syntax and ready-made example scripts, see the [Events](../events.md) page.
 
 :::note
 aMule writes an empty `[UserEvents]` section header in the file before the event subsections. This is a wxFileConfig artifact (parent group written before child groups) and carries no configuration of its own.
@@ -332,78 +332,16 @@ Each event is stored as a subsection of `[UserEvents]`. For example, the "Downlo
 | `GUIEnabled` | `0` | Execute the GUI command when this event fires. |
 | `GUICommand` | _(empty)_ | Shell command run by the GUI component. |
 
-### Events and their variables
+### Events and their sections
 
-| Section | Event | Available variables |
-|---|---|---|
-| `[UserEvents/DownloadCompleted]` | Download completed | `%FILE`, `%NAME`, `%HASH`, `%SIZE`, `%DLACTIVETIME` |
-| `[UserEvents/NewChatSession]` | New chat session started | `%SENDER` |
-| `[UserEvents/OutOfDiskSpace]` | Out of disk space | `%PARTITION` |
-| `[UserEvents/ErrorOnCompletion]` | Error on completion | `%FILE` |
-
-### Variable reference
-
-| Variable | Description |
+| Section | Event |
 |---|---|
-| `%FILE` | Full path to the file (including filename) |
-| `%NAME` | Filename without path |
-| `%HASH` | eD2k (MD4) hash of the file |
-| `%SIZE` | File size in bytes |
-| `%DLACTIVETIME` | Total time the download was active (human-readable string) |
-| `%SENDER` | Username of the person starting a chat session |
-| `%PARTITION` | Always the fixed text `Temporary partition`, not the real partition name or device |
+| `[UserEvents/DownloadCompleted]` | Download completed |
+| `[UserEvents/NewChatSession]` | New chat session started |
+| `[UserEvents/OutOfDiskSpace]` | Out of disk space |
+| `[UserEvents/ErrorOnCompletion]` | Error on completion |
 
-### Syntax notes
-
-aMule does not run the command through a shell, so pipes, redirections and operators are not interpreted; a command is a single program with arguments, or a script. If the filename might contain spaces, quote the variable:
-
-```
-CoreCommand=notify-send "Download complete" "%NAME"
-```
-
-Or call a script:
-
-```
-CoreCommand=/usr/local/bin/doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-```
-
-If you specify both a core command and a GUI command, the monolithic [`amule`](../../interfaces/gui/amule.md) binary will execute both.
-
-### Example: email notification on download complete (bash)
-
-```bash
-#!/bin/bash
-# doneDL.sh — sends an email when aMule completes a download
-# Add to amule.conf under [UserEvents/DownloadCompleted]:
-#   CoreEnabled=1
-#   CoreCommand=doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
-#
-# Set your email address:
-EMAIL=you@example.com
-
-NAME="$1"
-FILE="$2"
-HASH="$3"
-SIZE="$4"
-DLTIME="$5"
-
-{
-  echo "aMule completed this download:"
-  echo "------------------------------"
-  echo ""
-  echo "File:   $FILE"
-  echo "Hash:   $HASH"
-  echo -n "Size:   $SIZE bytes"
-  if [ "$SIZE" -gt 102400 ]; then
-    echo " ($(( SIZE / 1024 / 1024 )) MiB)"
-  else
-    echo ""
-  fi
-  if [ -n "$DLTIME" ]; then
-    echo "Active download time: $DLTIME"
-  fi
-} | mail -s "$NAME" "$EMAIL"
-```
+See the [Events](../events.md) page for the substitution variables available to each event, the command syntax (aMule does not run commands through a shell) and ready-made example scripts.
 
 ## `[Statistics]` section
 
