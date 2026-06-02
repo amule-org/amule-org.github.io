@@ -55,7 +55,7 @@ You can verify whether a port is reachable from outside your network using an on
 
 ## Step 2 — Open the ports in your firewall
 
-If a firewall is running on your machine (for example, `iptables` on Linux, `pf` on BSD, or the Windows Firewall), you need to add rules that allow incoming connections on the three aMule ports.
+If a firewall is running on your machine (for example, `nftables` on Linux, `pf` on BSD, or the Windows Firewall), you need to add rules that allow incoming connections on the three aMule ports.
 
 If you do not administer your own firewall (e.g. corporate or university network), contact your network administrator.
 
@@ -63,28 +63,25 @@ For detailed per-distribution firewall instructions, see the [Firewall and Route
 
 ## Step 3 — Forward the ports on your router (NAT)
 
-If your machine is behind a NAT router (the most common scenario for home users), the router must be configured to **forward** the aMule ports to your machine's local IP address.
+If your machine is behind a NAT router (the most common scenario for home users), the router must be configured to **forward** the three aMule ports to your machine's local IP address.
 
-**General procedure:**
+1. **Try UPnP first.** Enable [UPnP](./upnp.md) in aMule. If your router supports it, the ports are forwarded automatically and no manual configuration is needed.
+2. **Otherwise, forward the ports manually.** Open your router's web interface (usually at its LAN gateway address, e.g. `http://192.168.1.1` or `http://192.168.0.1`) and log in. Look for a section named **Port Forwarding**, **Virtual Servers**, **NAT**, or **LAN Configuration**, and create three rules pointing to the LAN IP of the machine running aMule:
 
-1. **Assign a fixed local IP address to your machine.** By default most routers assign IPs via DHCP, which can change. Either:
-   - Configure a DHCP reservation in your router (assign a fixed IP to your machine's MAC address), or
-   - Configure a static IP in your operating system's network settings (edit `/etc/network/interfaces` on Debian/Ubuntu or the equivalent for your OS).
+   | Protocol | Port | Forward to |
+   |---|---|---|
+   | TCP | 4662 | LAN IP of the aMule machine |
+   | UDP | 4672 | LAN IP of the aMule machine (required for Kademlia) |
+   | UDP | 4665 | LAN IP of the aMule machine (recommended) |
 
-2. **Access your router's configuration interface.** Most home routers are reachable at `http://192.168.1.1` or `http://192.168.0.1` in your browser. Your ISP's helpdesk can confirm the address if you are unsure.
+3. **Use a fixed LAN IP.** Assign a static IP to the aMule machine, or reserve its address via DHCP, so the forwarding rules don't break when the IP changes. If a Low ID reappears after a reconnect, check whether the LAN IP changed.
+4. **Save and apply.** You may need to restart the router.
 
-3. **Find the port forwarding section.** Depending on your router model it may be labelled "Port Forwarding", "NAT", "Virtual Servers", "LAN Configuration", or "Firewall/Security".
-
-4. **Add forwarding rules** for:
-   - TCP port 4662 → your machine's local IP
-   - UDP port 4665 → your machine's local IP (recommended)
-   - UDP port 4672 → your machine's local IP (required for Kademlia)
-
-5. **Save and apply.** You may need to restart the router.
+After configuring, verify the ports are reachable using [Testing your port status](#testing-your-port-status) below.
 
 > **Resources:**
-> - The [Firewall and Router Configuration](./firewall.md) page contains step-by-step instructions for specific Linux distributions, BSD, and consumer router brands.
-> - [portforward.com](http://portforward.com/) provides walkthroughs for hundreds of router models.
+> - If your machine sits behind a **Linux or BSD gateway** that performs NAT, see [Firewall and Router Configuration](./firewall.md) for `nftables` (Linux) and `pf` (OpenBSD) forwarding rules.
+> - [portforward.com](https://portforward.com/) provides walkthroughs for hundreds of consumer router models.
 > - aMule supports [UPnP](./upnp.md), which can configure the router ports automatically if your router supports it.
 
 ## Kademlia connectivity (open vs firewalled)
