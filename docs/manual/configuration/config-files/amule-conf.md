@@ -63,7 +63,7 @@ The primary section. Contains the majority of user-facing preferences.
 | `UDPPort` | `4672` | Extended client UDP port (used for extended server requests and Kademlia). |
 | `UDPEnable` | `1` | Enable the UDP port. Setting to `0` reduces performance but frees the UDP port. |
 | `MaxSourcesPerFile` | `300` | Maximum number of sources remembered per file. |
-| `MaxConnections` | `500` | Maximum number of simultaneous connections. |
+| `MaxConnections` | `500` | Maximum number of simultaneous connections. The default is derived from the operating system's connection (file-descriptor) limit; `500` is used when that limit is high or cannot be determined, otherwise a lower value is chosen. |
 | `MaxConnectionsPerFiveSeconds` | `20` | Maximum number of new connections to establish per 5-second window. |
 | `ConnectToED2K` | `1` | Enable the eD2k network. |
 | `ConnectToKad` | `1` | Enable the Kademlia network. |
@@ -345,13 +345,9 @@ See the [Events](../events.md) page for the substitution variables available to 
 
 ## `[Statistics]` section
 
-Persistent statistics counters updated by aMule. These are informational and are not edited manually.
-
 | Key | Default | Description |
 |---|---|---|
 | `MaxClientVersions` | `0` | Maximum number of client version entries to show in the statistics tree (`0` = unlimited). |
-| `TotalDownloadedBytes` | `0` | Cumulative bytes downloaded across all sessions. |
-| `TotalUploadedBytes` | `0` | Cumulative bytes uploaded across all sessions. |
 
 ## `[SkinGUIOptions]` section
 
@@ -359,7 +355,7 @@ Persistent statistics counters updated by aMule. These are informational and are
 |---|---|---|
 | `Skin` | _(empty)_ | Path to the skin `.zip` file used to customise aMule's bitmaps. Empty = no skin (default appearance). |
 
-## `[GUI]` and `[GUI/TransferWnd]` sections
+## `[GUI]`, `[GUI/TransferWnd]` and `[GUI/SharedWnd]` sections
 
 Window and panel layout settings. Written and read by aMule automatically; not intended for manual editing.
 
@@ -369,6 +365,9 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 | `AppImageIntegrationDeclined` | `0` | Set to `1` if the user has declined the AppImage `.desktop` integration prompt. Written automatically; do not edit. |
 | `[GUI/TransferWnd] Splitter` | `463` | Vertical splitter position (pixels) in the Downloads window. |
 | `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Downloads window. |
+| `[GUI/SharedWnd] Splitter` | `463` | Vertical splitter position (pixels) in the Shared Files window. |
+| `[GUI/SharedWnd] ShowClientList` | `1` | Show the client list panel in the Shared Files window. |
+| `[GUI/SharedWnd] ClientShowMode` | `1` | Which clients the Shared Files client list shows. `0` = clients of all shared files, `1` = clients of the selected file only. |
 
 ## `[General]` section
 
@@ -705,8 +704,6 @@ URL_1=https://upd.emule-security.org/ipfilter.zip
 
 [Statistics]
 MaxClientVersions=0
-TotalDownloadedBytes=0
-TotalUploadedBytes=0
 
 [SkinGUIOptions]
 Skin=

@@ -354,11 +354,7 @@ docs/man/
     └── ...
 ```
 
-The same `po4a.config` and `manpages-<lang>.po` files also drive the man pages of the
-standalone utilities, whose masters live next to their code: `alc` and `alcc`
-(`src/utils/aLinkCreator/docs/`), `cas` (`src/utils/cas/docs/`), and `wxcas`
-(`src/utils/wxCas/docs/`). Their translated pages (`alc.<lang>.1`, …) are generated in those
-same directories. There is **one** set of `.po` files for all man pages — utilities included.
+The same `po4a.config` and `manpages-<lang>.po` files also drive the man pages of the standalone utilities, whose masters live next to their code: `alc` and `alcc` (`src/utils/aLinkCreator/docs/`), `cas` (`src/utils/cas/docs/`), and `wxcas` (`src/utils/wxCas/docs/`). Their translated pages (`alc.<lang>.1`, …) are generated in those same directories. There is **one** set of `.po` files for all man pages — utilities included.
 
 ### Prerequisites
 

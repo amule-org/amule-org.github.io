@@ -110,9 +110,7 @@ TEST(StackTest, EmptyStackIsEmpty)
 
 #### Adding to CMakeLists
 
-Add your test file to `unittests/tests/CMakeLists.txt`. Each test is a standalone
-executable, so the `add_executable` must also list the production source files from
-`src/` that the test exercises (and any include directories they need):
+Add your test file to `unittests/tests/CMakeLists.txt`. Each test is a standalone executable, so the `add_executable` must also list the production source files from `src/` that the test exercises (and any include directories they need):
 
 ```cmake
 add_executable (MyTest
@@ -135,8 +133,7 @@ target_link_libraries (MyTest
 )
 ```
 
-Look at the existing entries in `unittests/tests/CMakeLists.txt` for the exact set of
-sources and include directories each kind of test needs.
+Look at the existing entries in `unittests/tests/CMakeLists.txt` for the exact set of sources and include directories each kind of test needs.
 
 ### Available Assertion Macros
 
@@ -156,9 +153,7 @@ See `unittests/muleunit/test.h` for the full list.
 
 ### Example Test Output
 
-Each test file builds a separate executable, and `ctest` runs them one by one. When run
-directly, a MuleUnit executable prints the test collection it contains and each test it
-runs:
+Each test file builds a separate executable, and `ctest` runs them one by one. When run directly, a MuleUnit executable prints the test collection it contains and each test it runs:
 
 ```
 Running test-collection "CUInt128Test" with 12 test-cases:
@@ -167,8 +162,7 @@ Running test-collection "CUInt128Test" with 12 test-cases:
 	...
 ```
 
-When an assertion fails, MuleUnit prints `Failure running:` followed by a context
-backtrace pointing at the failing line, and the executable exits with a non-zero status:
+When an assertion fails, MuleUnit prints `Failure running:` followed by a context backtrace pointing at the failing line, and the executable exits with a non-zero status:
 
 ```
 Running test-collection "CUInt128Test" with 12 test-cases:
@@ -178,8 +172,7 @@ Running test-collection "CUInt128Test" with 12 test-cases:
 		Expected '0x00' but got '0x01'  (CUInt128Test.cpp:47)
 ```
 
-`ctest` reports the per-executable pass/fail summary. With `--output-on-failure`, the full
-output above is shown only for executables that fail:
+`ctest` reports the per-executable pass/fail summary. With `--output-on-failure`, the full output above is shown only for executables that fail:
 
 ```
 100% tests passed, 0 tests failed out of 10

@@ -79,13 +79,17 @@ Each record consists of a fixed 10-byte prefix followed by a variable number of 
 
 ### Tag format
 
-Each tag begins with a 1-byte type field. If the `0x80` bit of the type byte is set, the tag name is a single numeric byte (short ID form). Otherwise the name is a length-prefixed UTF-8 string (2-byte length followed by the string bytes). The value encoding is determined by the lower 7 bits of the type byte.
+Each tag begins with a 1-byte type field. The value encoding is determined by the lower 7 bits of the type byte. The tag name comes next and can take three forms:
 
-String tags (`0x02`) write a 2-byte length followed by UTF-8 bytes. For compatibility with eMule, string tags with a BOM (UTF-8 byte order mark `0xEF 0xBB 0xBF` prepended to the value) may appear alongside their BOM-free duplicate; readers should discard the BOM.
+- **Short ID form** — if the `0x80` bit of the type byte is set, the name is a single numeric byte that follows immediately. eMule may emit tags this way.
+- **Length-1 numeric ID** — the form aMule actually writes: the `0x80` bit is *clear*, and the name is encoded as a 2-byte length equal to `1` followed by a single byte. A name length of exactly `1` is interpreted as a **numeric tag ID**, not as a one-character string. This is how the `ST_*` IDs below appear in files written by aMule.
+- **String name** — the `0x80` bit is clear and the 2-byte length is greater than `1`; the name is a UTF-8 string of that length (used for the `"users"` and `"files"` tags).
+
+String tags (`0x02`) write a 2-byte length followed by UTF-8 bytes. For compatibility with eMule, aMule writes the four string fields `ST_SERVERNAME`, `ST_DYNIP`, `ST_DESCRIPTION` and `ST_VERSION` **twice in a row**: first a copy whose value is prefixed with a UTF-8 byte order mark (BOM, `0xEF 0xBB 0xBF`), then an identical copy without the BOM. Both carry the same tag ID, so a reader keeps the first occurrence (stripping any leading BOM) and ignores the duplicate.
 
 ### Server tag reference
 
-All tags are optional. aMule always writes at least the 12 fixed tags; the optional ones are written only when the corresponding field is non-empty or non-zero.
+aMule always writes the same set of tags for every server: `ST_FAIL`, `ST_PREFERENCE`, `"users"`, `"files"`, `ST_PING`, `ST_LASTPING`, `ST_MAXUSERS`, `ST_SOFTFILES`, `ST_HARDFILES`, `ST_UDPFLAGS` and `ST_LOWIDUSERS`. The remaining tags are written only when the corresponding field is non-empty or non-zero. Readers must treat every tag as optional, since files from other clients may omit any of them.
 
 | Tag ID | Constant | Value type | Description |
 |---|---|---|---|
@@ -100,9 +104,9 @@ All tags are optional. aMule always writes at least the 12 fixed tags; the optio
 | `0x88` | `ST_SOFTFILES` | uint32 | Soft file limit (files per user session) |
 | `0x89` | `ST_HARDFILES` | uint32 | Hard file limit (global maximum files on the server) |
 | `0x90` | `ST_LASTPING` | uint32 | Unix timestamp of the last successful ping |
-| `0x91` | `ST_VERSION` | string | Server software version string |
+| `0x91` | `ST_VERSION` | string or uint32 | Server software version. aMule writes a string; if read as a uint32 it is decoded as `major.minor` (high 16 bits `.` low 16 bits) |
 | `0x92` | `ST_UDPFLAGS` | uint32 | UDP capability flags (see below) |
-| `0x93` | `ST_AUXPORTSLIST` | string | Auxiliary TCP ports, comma-separated |
+| `0x93` | `ST_AUXPORTSLIST` | string | Auxiliary TCP ports, comma-separated. On read, the first port in the list becomes the active TCP port (the original record port is kept as a fallback); empty values are ignored |
 | `0x94` | `ST_LOWIDUSERS` | uint32 | Number of Low ID users currently connected |
 | `0x95` | `ST_UDPKEY` | uint32 | Server UDP key for obfuscation |
 | `0x96` | `ST_UDPKEYIP` | uint32 | Client IP to which the UDP key was issued |
@@ -154,10 +158,15 @@ def read_tag(f):
     short_name = bool(type_byte & 0x80)
 
     if short_name:
+        # Short ID form: name is a single numeric byte.
         (name,) = struct.unpack("B", f.read(1))
     else:
         (nlen,) = struct.unpack("<H", f.read(2))
-        name = f.read(nlen).decode("utf-8", errors="replace")
+        if nlen == 1:
+            # A name length of exactly 1 is a numeric tag ID, not a string.
+            (name,) = struct.unpack("B", f.read(1))
+        else:
+            name = f.read(nlen).decode("utf-8", errors="replace")
 
     if tag_type == TAGTYPE_STRING:
         (slen,) = struct.unpack("<H", f.read(2))

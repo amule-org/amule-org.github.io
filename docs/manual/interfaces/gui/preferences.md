@@ -164,9 +164,7 @@ Options for aMule's security features, including protocol obfuscation and IP fil
 
 ### IP-Filtering
 
-The IP filter blocks all traffic to and from a configurable list of IP addresses and ranges, read from
-[`ipfilter.dat` and `ipfilter_static.dat`](../../configuration/config-files/index.md#ip-filter-files).
-Each option below maps to a key in [`amule.conf`](../../configuration/config-files/amule-conf.md).
+The IP filter blocks all traffic to and from a configurable list of IP addresses and ranges, read from [`ipfilter.dat` and `ipfilter_static.dat`](../../configuration/config-files/index.md#ip-filter-files). Each option below maps to a key in [`amule.conf`](../../configuration/config-files/amule-conf.md).
 
 | Setting | Description |
 |---|---|
@@ -181,8 +179,7 @@ Each option below maps to a key in [`amule.conf`](../../configuration/config-fil
 | **Paranoid handling of non-matching IPs** | Reject a packet if the client IP differs from the IP it was received from. Use with caution (`ParanoidFiltering`). |
 | **Use system-wide ipfilter.dat if available** | If the local `ipfilter.dat` cannot be loaded, fall back to the [system-wide file](../../configuration/config-files/index.md#ip-filter-files) (`IPFilterSystem`). |
 
-aMule always blocks the reserved RFC 3330 IP ranges regardless of these settings; see
-[always-filtered ranges](../../configuration/config-files/index.md#always-filtered-ranges-hard-coded).
+aMule always blocks the reserved RFC 3330 IP ranges regardless of these settings; see [always-filtered ranges](../../configuration/config-files/index.md#always-filtered-ranges-hard-coded).
 
 ## Interface
 

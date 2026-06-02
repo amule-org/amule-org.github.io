@@ -3,14 +3,9 @@ id: index
 title: File Formats
 ---
 
-Reference for the **binary and textual formats** of the files aMule reads and writes. These are
-the files that are **not meant to be edited by hand**: their on-disk layout is documented here for
-developers, integrators, and expert users who need to parse, repair, or build aMule's data files.
+Reference for the **binary and textual formats** of the files aMule reads and writes. These are the files that are **not meant to be edited by hand**: their on-disk layout is documented here for developers, integrators, and expert users who need to parse, repair, or build aMule's data files.
 
-For the **editable configuration files** (`amule.conf`, `remote.conf`), see the
-[aMule Files Reference](../../manual/configuration/config-files/index.md) in the User Manual — editing
-those is a user task, so their key reference lives there. The same registry lists every file aMule
-creates, with a one-line description and a link to its format here.
+For the **editable configuration files** (`amule.conf`, `remote.conf`), see the [aMule Files Reference](../../manual/configuration/config-files/index.md) in the User Manual — editing those is a user task, so their key reference lives there. The same registry lists every file aMule creates, with a one-line description and a link to its format here.
 
 ## Files with a dedicated page
 
@@ -26,21 +21,18 @@ The remaining formats are documented inline below.
 
 ## `preferences.dat` {#preferencesdat}
 
-In early eMule versions this file stored all user configuration. In current aMule it stores only
-two fields: the **configuration file version** and the **userhash**.
+In early eMule versions this file stored all user configuration. In current aMule it stores only two fields: the **configuration file version** and the **userhash**.
 
-The [userhash](../../p2p-networks/concepts.md) is a 128-bit value that uniquely identifies a client
-on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for
-Secure User Identification.
+The [userhash](../../p2p-networks/concepts.md) is a 128-bit value that uniquely identifies a client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
 
 ### Format
 
-All fields are stored in big-endian byte order.
+The userhash is stored as 16 raw bytes, exactly as-is — it is not an integer, so byte order does not apply to it. The version is a single byte (no endianness either).
 
 | Offset | Size | Field | Description |
 |---|---|---|---|
 | 0 | 1 byte | Version | Config file version — currently `0x14` (decimal 20) |
-| 1 | 16 bytes | Userhash | 128-bit client identifier, big-endian |
+| 1 | 16 bytes | Userhash | 128-bit client identifier, stored as 16 raw bytes (as-is) |
 
 **Total size:** 17 bytes.
 
@@ -56,8 +48,7 @@ Decoded:
 
 ## `preferencesKad.dat` {#preferenceskaddat}
 
-Stores the client's IP address and its Kademlia ClientID. Both are used to identify the client on
-the Kad network.
+Stores the client's IP address and its Kademlia ClientID. Both are used to identify the client on the Kad network.
 
 ### Format
 
@@ -68,9 +59,7 @@ the Kad network.
 | 6 | 16 bytes | ClientID | 128-bit Kademlia ID (special encoding, see below) |
 | 22 | 1 byte | End-of-tags | Always `0x00` (for compatibility with old eMule clients) |
 
-**ClientID encoding:** The 128-bit value is stored as four 32-bit little-endian integers, which
-together represent the value in big-endian order. aMule ignores the end-of-tags byte when reading,
-but writes it for compatibility.
+**ClientID encoding:** The 128-bit value is stored as four 32-bit little-endian integers, which together represent the value in big-endian order. aMule ignores the end-of-tags byte when reading, but writes it for compatibility.
 
 ### Example
 
@@ -86,12 +75,9 @@ Decoded:
 
 ## `cryptkey.dat` {#cryptkeydat}
 
-Contains the client's **384-bit RSA private key**, used for
-[Secure User Identification](../../p2p-networks/ed2k/secure-user-identification.md). This key is
-unique to each client and is generated automatically the first time aMule runs.
+Contains the client's **384-bit RSA private key**, used for [Secure User Identification](../../p2p-networks/ed2k/secure-user-identification.md). This key is unique to each client and is generated automatically the first time aMule runs.
 
-The key is stored in a PEM-like format: 5 lines of 72 characters each, with the last line followed
-by a newline character.
+The key is the RSA private key in **DER (PKCS#1)** form, **Base64-encoded** and wrapped at 72 columns — that is, raw Base64 without the PEM `-----BEGIN/END RSA PRIVATE KEY-----` header lines. For a 384-bit key this produces 5 lines of 72 characters each, with the last line followed by a newline character.
 
 ### Example
 
@@ -104,15 +90,12 @@ AhhzraOSxQyHu72P1xq2jX1wv9eAa7QyH3kCGQC7jgzTqW+wGGP/Bll2YXu8bRYphVTVZgo=
 ```
 
 :::warning
-This file contains your private key. Never share it. If it is compromised, anyone can impersonate
-your client on the eD2k network.
+This file contains your private key. Never share it. If it is compromised, anyone can impersonate your client on the eD2k network.
 :::
 
 ## `staticservers.dat` {#staticserversdat}
 
-A text file listing eD2k servers that should always be treated as
-[static servers](../../manual/interfaces/gui/preferences.md). When aMule loads, entries from this
-file override matching entries in `server.met`. This file is never modified by aMule.
+A text file listing eD2k servers that should always be treated as [static servers](../../manual/interfaces/gui/preferences.md). When aMule loads, entries from this file override matching entries in `server.met`. This file is never modified by aMule.
 
 ### Format
 
@@ -127,8 +110,7 @@ Host:Port,Priority,Name
 - **Priority** — `0` (normal), `1` (high), `2` (low). Any other value defaults to normal.
 - **Name** — display name; if empty, `Host:Port` is used
 
-Lines beginning with `/` or `#` are treated as comments and ignored. Any line that does not contain
-exactly three comma-separated fields is ignored.
+Lines beginning with `/` or `#` are treated as comments and ignored. Any line that does not contain exactly three comma-separated fields is ignored.
 
 ### Example
 
@@ -145,9 +127,7 @@ exactly three comma-separated fields is ignored.
 
 ## `addresses.dat` {#addressesdat}
 
-A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the "Update
-server list on startup" preference is enabled). The downloaded lists are merged into
-`~/.aMule/server.met`.
+A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the "Update server list on startup" preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
 
 ### Format
 
@@ -163,23 +143,19 @@ ftp://localhost/fastservers.met
 
 ## `known.met` {#knownmet}
 
-Binary file that caches the hashes, names, sizes, modification dates, priorities, and notes of
-shared files. This prevents aMule from having to rehash every shared file each time it starts — a
-significant time saving for large files.
+Binary file that caches the hashes, names, sizes, modification dates, priorities, and notes of shared files. This prevents aMule from having to rehash every shared file each time it starts — a significant time saving for large files.
 
-The file uses a variable-length binary block format: one block per file, whose length depends on
-the number of metadata tags stored. Updated whenever a file is hashed and when aMule shuts down.
+The file begins with a 1-byte header: `0x0E` (`MET_HEADER`), or `0x0F` (`MET_HEADER_WITH_LARGEFILES`) when the list contains files larger than 4 GiB. It is followed by a 32-bit unsigned, little-endian record count, and then one variable-length block per file. Each block's length depends on the number of metadata tags stored. Updated whenever a file is hashed and when aMule shuts down.
 
 ## `known2_64.met` {#known2_64met}
 
-Binary file that stores the verified [AICH](../../p2p-networks/ed2k/aich.md) hashes of shared files.
-Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`.
+Binary file that stores the verified [AICH](../../p2p-networks/ed2k/aich.md) hashes of shared files. Supports large files (64-bit sizes). This is the successor to the deprecated `known2.met`; aMule migrates the old file on first load.
+
+The file begins with a 1-byte version header (`0x02`). Each entry that follows stores the AICH root hash (20 bytes, SHA-1), a 32-bit unsigned record count of block hashes, and then that many 20-byte block hashes.
 
 ## `canceled.met` {#canceledmet}
 
-Binary file storing the MD4 hashes of all downloads the user has cancelled. When a file appears in
-a search result but its hash is listed here, aMule marks it with a distinct colour to indicate it
-was previously cancelled.
+Binary file storing the MD4 hashes of all downloads the user has cancelled. When a file appears in a search result but its hash is listed here, aMule marks it with a distinct colour to indicate it was previously cancelled.
 
 ### Format
 
@@ -191,8 +167,7 @@ was previously cancelled.
 
 ## Shared directory files {#shareddirdat}
 
-aMule uses three related files to track shared directories: `shareddir-explicit.dat`,
-`shareddir-recursive.dat`, and the derived `shareddir.dat`.
+aMule uses three related files to track shared directories: `shareddir-explicit.dat`, `shareddir-recursive.dat`, and the derived `shareddir.dat`.
 
 | File | Purpose |
 |---|---|
@@ -200,9 +175,7 @@ aMule uses three related files to track shared directories: `shareddir-explicit.
 | `shareddir-recursive.dat` | **Canonical.** Recursive roots: aMule expands each listed directory to include all subdirectories. |
 | `shareddir.dat` | **Derived.** Union of the expanded contents of the two canonical files. aMule regenerates this file automatically on every save. External tools that only know `shareddir.dat` (e.g. old scripts or older aMule versions) can still read it. |
 
-When aMule starts and neither `shareddir-explicit.dat` nor `shareddir-recursive.dat` exists (fresh
-install or migration from an older version), all entries in `shareddir.dat` are loaded as explicit
-(non-recursive) shares. This is the safe default for migration.
+When aMule starts and neither `shareddir-explicit.dat` nor `shareddir-recursive.dat` exists (fresh install or migration from an older version), all entries in `shareddir.dat` are loaded as explicit (non-recursive) shares. This is the safe default for migration.
 
 ### Format
 
@@ -232,11 +205,7 @@ All three files use the same format: one absolute directory path per line, UTF-8
 
 ## `ipfilter.dat` and `ipfilter_static.dat` {#ipfilterdat}
 
-Text files containing the IP ranges that aMule blocks or allows. `ipfilter.dat` is the main list
-(auto-updatable); `ipfilter_static.dat` holds custom overrides that aMule never modifies. For how
-to enable and configure IP filtering, and where to download `ipfilter.dat`, see the
-[aMule Files Reference](../../manual/configuration/config-files/index.md#ip-filter-files) and
-[Preferences → Security → IP-Filtering](../../manual/interfaces/gui/preferences.md#ip-filtering).
+Text files containing the IP ranges that aMule blocks or allows. `ipfilter.dat` is the main list (auto-updatable); `ipfilter_static.dat` holds custom overrides that aMule never modifies. For how to enable and configure IP filtering, and where to download `ipfilter.dat`, see the [aMule Files Reference](../../manual/configuration/config-files/index.md#ip-filter-files) and [Preferences → Security → IP-Filtering](../../manual/interfaces/gui/preferences.md#ip-filtering).
 
 ### Format
 
@@ -254,17 +223,14 @@ RangeStart - RangeEnd , AccessLevel , Description
 Description : RangeStart - RangeEnd
 ```
 
-A range is blocked when its `AccessLevel` is **less than** the configured *Filtering Level*
-(`FilterLevel`, default 127); equal or higher levels are allowed. Because AntiP2P entries default to
-access level `0`, they are always blocked at any filtering level above 0.
+A range is blocked when its `AccessLevel` is **less than** the configured *Filtering Level* (`FilterLevel`, default 127); equal or higher levels are allowed. Because AntiP2P entries default to access level `0`, they are always blocked at any filtering level above 0.
 
 Lines beginning with `#` are comments. Malformed lines are skipped and logged.
 
 `ipfilter_static.dat` uses the exact same format, with two differences:
 
 1. **Precedence:** entries in it override conflicting entries in `ipfilter.dat`.
-2. **Immutable:** aMule never modifies it. Use it for custom IP ranges that must survive
-   auto-updates.
+2. **Immutable:** aMule never modifies it. Use it for custom IP ranges that must survive auto-updates.
 
 ### Default comment block
 
@@ -289,9 +255,7 @@ When aMule creates `ipfilter_static.dat` for the first time, it includes the fol
 
 ## `ED2KLinks` {#ed2klinks}
 
-A plain-text interface for sending commands to a running aMule instance. As soon as aMule detects
-that this file exists, it reads it, processes each entry, and **deletes the file**. The interface
-is one-directional (write-only from the user's perspective).
+A plain-text interface for sending commands to a running aMule instance. As soon as aMule detects that this file exists, it reads it, processes each entry, and **deletes the file**. The interface is one-directional (write-only from the user's perspective).
 
 ### Format
 
@@ -307,8 +271,7 @@ ed2k://|file|Knoppix%20v3.6-2004-08-16-En.iso|733499392|E1A848648CF99A2295909799
 ed2k://|file|debian-30r1-i386-binary-2.iso|676495360|557B59750976519476DA071BDF79A014|/
 ```
 
-This mechanism is used by browser plugins and the [`ed2k`](../../manual/utilities/ed2k.md)
-command-line tool to pass links to a running aMule session.
+This mechanism is used by browser plugins and the [`ed2k`](../../manual/utilities/ed2k.md) command-line tool to pass links to a running aMule session.
 
 ## `amulesig.dat` {#amulesigdat}
 
@@ -318,12 +281,7 @@ aMule's status signature file. It is written periodically by aMule to inform ext
 
 ### Format
 
-The file is plain text, one field per line, written through wxWidgets' text-file facility
-(`wxTextFile`). Line endings are therefore the host platform's **native** ones — LF (`\n`) on Linux,
-macOS and BSD, and CRLF (`\r\n`) on Windows — and a trailing newline follows the last (17th) line.
-Note that the fixed sentinel blocks aMule emits while connecting or after a clean shutdown embed
-literal `\n` separators regardless of platform, so on Windows such a file can mix `\n` and `\r\n`;
-parsers should split on `\n` and strip a trailing `\r`.
+The file is plain text, one field per line, written through wxWidgets' text-file facility (`wxTextFile`). Line endings are therefore the host platform's **native** ones — LF (`\n`) on Linux, macOS and BSD, and CRLF (`\r\n`) on Windows — and a trailing newline follows the last (17th) line. Note that the fixed sentinel blocks aMule emits while connecting or after a clean shutdown embed literal `\n` separators regardless of platform, so on Windows such a file can mix `\n` and `\r\n`; parsers should split on `\n` and strip a trailing `\r`.
 
 | Line | Field | Values | Notes |
 |---|---|---|---|
@@ -424,14 +382,11 @@ CVS
 
 ## `onlinesig.dat` {#onlinesigdat}
 
-eMule-compatible 2-line status file. aMule generates it for compatibility with eMule utilities.
-The native aMule status file is `amulesig.dat`, which carries far more information.
+eMule-compatible 2-line status file. aMule generates it for compatibility with eMule utilities. The native aMule status file is `amulesig.dat`, which carries far more information.
 
 ### Format
 
-Two content lines. aMule always joins them with a literal LF (`0x0A`), then writes the file through
-wxWidgets' text-file facility (`wxTextFile`), which appends a trailing newline using the host
-platform's **native** line ending (LF on Linux, macOS and BSD; CRLF on Windows).
+Two content lines. aMule always joins them with a literal LF (`0x0A`), then writes the file through wxWidgets' text-file facility (`wxTextFile`), which appends a trailing newline using the host platform's **native** line ending (LF on Linux, macOS and BSD; CRLF on Windows).
 
 **When online:**
 ```
@@ -463,30 +418,21 @@ Offline:
 
 ## `GeoLite2-Country.mmdb` {#geolite2-country-mmdb}
 
-Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address.
-The on-disk layout is the standard MaxMind DB format and is not aMule-specific. For how to obtain
-and configure the database, see the
-[aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-country-mmdb).
+Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address. The on-disk layout is the standard MaxMind DB format and is not aMule-specific. For how to obtain and configure the database, see the [aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-country-mmdb).
 
 ## `key_index.dat`, `src_index.dat` and `load_index.dat` {#key_indexdat-and-load_indexdat}
 
 Binary files that store the Kademlia network index data this client maintains as a Kad node:
 
-- **`key_index.dat`** — keyword index: the keywords this client publishes to the Kad network, so
-  other clients can search for files through it.
-- **`src_index.dat`** — source index: the sources (which clients hold which files) this client
-  publishes to the Kad network.
-- **`load_index.dat`** — stores keyIDs of known Kademlia clients along with the date when each was
-  last seen. Used to calculate load distribution across the Kad network.
+- **`key_index.dat`** — keyword index: the keywords this client publishes to the Kad network, so other clients can search for files through it.
+- **`src_index.dat`** — source index: the sources (which clients hold which files) this client publishes to the Kad network.
+- **`load_index.dat`** — stores keyIDs of known Kademlia clients along with the date when each was last seen. Used to calculate load distribution across the Kad network.
 
 All three files are internal to the Kad implementation and are not intended for manual editing.
 
 ## `statistics.dat` {#statisticsdat}
 
-Small binary file storing aMule's lifetime traffic totals: the cumulative number of bytes
-ever uploaded and downloaded across all sessions. These totals were previously kept in the
-`[Statistics]` section of `amule.conf` (`TotalUploadedBytes` / `TotalDownloadedBytes`); aMule now
-migrates those keys into this file on first load and deletes them from the config.
+Small binary file storing aMule's lifetime traffic totals: the cumulative number of bytes ever uploaded and downloaded across all sessions. These totals were previously kept in the `[Statistics]` section of `amule.conf` (`TotalUploadedBytes` / `TotalDownloadedBytes`); aMule now migrates those keys into this file on first load and deletes them from the config.
 
 ### Format
 

@@ -7,12 +7,12 @@ title: clients.met
 
 **Location:** `~/.aMule/clients.met`
 
-A backup copy is maintained at `clients.met.bak`. aMule will not overwrite the backup if it is larger than the current file (the backup is preserved in case the current file is corrupt or truncated).
+A backup copy is maintained at `clients.met.bak`. The backup is refreshed while **loading** `clients.met` (right after the version byte is validated, before any record is read) — not when saving. aMule will not overwrite the backup if it is larger than the current file (the backup is preserved in case the current file is corrupt or truncated).
 
 All multi-byte integers in this file are stored in **little-endian** byte order.
 
 :::warning
-The entire file is discarded if any byte violates the format rules, or if the file's version number does not match the version expected by the running aMule build. Edit this file with care.
+The file is discarded under two conditions: if the version byte does not match the version expected by the running aMule build (the file is silently ignored and rebuilt on the next save), or if any record reports a SecureIdent hash size greater than 80 bytes — treated as a corruption sentinel that causes the **entire** in-memory list to be dropped. A truncated or otherwise unreadable file aborts loading cleanly, keeping whatever records were read so far. Edit this file with care.
 :::
 
 ## Format
@@ -22,7 +22,7 @@ The entire file is discarded if any byte violates the format rules, or if the fi
 | Bytes | Field | Description |
 |---|---|---|
 | 1 | Version | File format version. aMule currently supports version **18** (`0x12`). |
-| 4 | Client count | Number of client records that follow (32-bit unsigned). |
+| 4 | Client count | Number of client records that follow (32-bit unsigned). Only peers with a non-zero upload **or** download total are written, so this counts persisted peers, not every peer aMule has ever seen. |
 
 ### Per-client record (119 bytes fixed)
 
@@ -33,12 +33,12 @@ Each client occupies exactly **119 bytes**:
 | 0 | 16 | Userhash | The peer's 128-bit user hash (MD4) |
 | 16 | 4 | Upload low bytes | Lower 4 bytes of the total bytes uploaded **to** this client |
 | 20 | 4 | Download low bytes | Lower 4 bytes of the total bytes downloaded **from** this client |
-| 24 | 4 | Last seen | Unix timestamp (seconds since 1970-01-01 UTC) of the last identification |
+| 24 | 4 | Last seen | Unix timestamp (32-bit unsigned seconds since 1970-01-01 UTC) of the last identification |
 | 28 | 4 | Upload high bytes | Upper 4 bytes of the total bytes uploaded **to** this client |
 | 32 | 4 | Download high bytes | Upper 4 bytes of the total bytes downloaded **from** this client |
 | 36 | 2 | Reserved | Set to any value; reserved for future use |
-| 38 | 1 | SecureIdent hash size | Number of significant bytes in the SecureIdent public hash (e.g., `0x38` = 56 bytes) |
-| 39 | 80 | SecureIdent hash | The peer's SecureIdent public key hash, padded with random bytes to exactly 80 bytes |
+| 38 | 1 | SecureIdent hash size | Number of significant bytes in the SecureIdent public hash (e.g., `0x38` = 56 bytes). Must be ≤ 80; a larger value marks the file as corrupt |
+| 39 | 80 | SecureIdent hash | The peer's SecureIdent public key hash. Always occupies 80 bytes; only the first *SecureIdent hash size* bytes are significant. The remainder is ignored on load (aMule writes whatever happens to be there) |
 
 **Total per record:** 16 + 4 + 4 + 4 + 4 + 4 + 2 + 1 + 80 = **119 bytes**.
 
@@ -119,8 +119,7 @@ D4 F8 76 A9 E7 C7 D8 9A
 
 ```
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 0A 00 00 10 11 64 F4 00 00 00 FA EE E4 00
-00 00
+00 00 0A 00 00 10 11 64
 ```
 → **Padding:** 80 − 56 = 24 random bytes to complete the 80-byte field
 
@@ -134,7 +133,9 @@ D4 F8 76 A9 E7 C7 D8 9A
 
 ## Notes
 
-- **Credit expiry:** Credits for a client expire after **12,960,000 seconds (150 days)** without seeing that client. Expired entries are purged on next load.
+- **Credit expiry:** Credits for a client expire after **12,960,000 seconds (150 days)** without seeing that client. Expired entries are skipped while loading and therefore dropped on the next save.
+- **What gets saved:** A peer is only written to disk if its total uploaded or downloaded byte count is non-zero. Peers with no recorded transfer in either direction are not persisted.
 - **Backup preservation:** If `clients.met.bak` is larger than the current `clients.met`, the backup is not overwritten. This protects against accidental truncation.
 - **Capacity:** The 4-byte client count field allows up to ~4.3 billion records. The practical size limit of `clients.met` is approximately 475 GiB (119 bytes × 4,294,967,296), which no real-world filesystem will ever reach.
 - **Record size:** Each client record is exactly 119 bytes (952 bits).
+- **Inspecting the file:** aMule's `fileview` utility can dump the decoded contents of a `clients.met` file, which is useful for verifying the layout described here.

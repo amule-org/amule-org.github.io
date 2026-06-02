@@ -59,8 +59,7 @@ The following files require manual handling:
 | `Category.ini` | `amule.conf` (`[Cat\#N]` sections) | Categories use a different format; see [Importing Categories](#importing-categories) |
 | `shareddir.dat` | `~/.aMule/shareddir.dat` | Path format is incompatible on non-Windows systems; aMule regenerates this when you set shared directories via Preferences |
 
-Files from eMule that are **not used by aMule** and can be ignored:
-`AC_BootstrapIPs.dat`, `AC_IPFilterUpdateURLs.dat`, `AC_SearchStrings.dat`, `AC_ServerMetURLs.dat`, `fileinfo.ini`, `k_index.dat`, `preferencesK.dat`, `s_index.dat`, `statistics.ini`, `webservices.dat`
+Files from eMule that are **not used by aMule** and can be ignored: `AC_BootstrapIPs.dat`, `AC_IPFilterUpdateURLs.dat`, `AC_SearchStrings.dat`, `AC_ServerMetURLs.dat`, `fileinfo.ini`, `k_index.dat`, `preferencesK.dat`, `s_index.dat`, `statistics.ini`, `webservices.dat`
 
 ## Importing Missing Configurations
 

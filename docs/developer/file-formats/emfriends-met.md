@@ -7,11 +7,9 @@ title: emfriends.met
 
 **Location:** `~/.aMule/emfriends.met`
 
-All multi-byte integers in this file are stored in **little-endian** byte order, with the exception of IP addresses and username strings, which are stored in **big-endian**.
+All multi-byte integers in this file are stored in **little-endian** byte order. IP addresses are an exception: their four bytes are written in network order, so reading them in file order yields the dotted-quad octets directly (see the example below).
 
-When aMule is compiled with Unicode support, username strings are written **twice**: first as a Unicode (UTF-16) string, then as a plain ASCII string.
-
-The entire file is written in packets of 2 bytes, little-endian.
+Username strings are **always** written **twice** (regardless of how aMule was compiled): first as a UTF-8 string prefixed with a UTF-8 byte-order mark (BOM), then as an ISO-8859-1 (Latin-1) string. On load, aMule keeps whichever of the two copies it reads first.
 
 ## Format
 
@@ -19,7 +17,7 @@ The entire file is written in packets of 2 bytes, little-endian.
 
 | Bytes | Field | Description |
 |---|---|---|
-| 1 | Magic byte | Always `0x0E` — identifies a valid `emfriends.met` |
+| 1 | Magic byte | Always `0x0E` — the generic `.met` header byte (shared with other `.met` files such as `server.met` and `known.met`) |
 | 4 | Friend count | Number of friend records that follow (32-bit unsigned, little-endian) |
 
 ### Per-friend record
@@ -33,22 +31,34 @@ Each friend block is variable-length because the username string length varies.
 | 2 | Port | Last known port (16-bit unsigned) |
 | 4 | Last seen | Unix timestamp of when the friend was last seen online (little-endian); `0` if added manually |
 | 4 | Last chatted | Unix timestamp of the last chat session (little-endian); `0` if never chatted |
-| 4 | Tag count | Number of additional tags for this friend (32-bit unsigned, little-endian) |
-| variable | Tags | One or two tag blocks (see below) |
+| 4 | Tag count | Number of tags for this friend (32-bit unsigned, little-endian); `(2 if a username is present) + (1 if the friend has a reserved friend slot)`, i.e. 0–3 |
+| variable | Tags | Zero to three tag blocks (see below) |
 
-### Tag block
+### Tag blocks
 
-Only one tag type is supported: **tag type `0x02`** (byte array / string). Only one tag meaning is defined: **`0x01`** (username).
+Two tag meanings are defined:
 
-When compiled with Unicode support, the username is written as two consecutive tags: the first contains the UTF-16 encoded string (with BOM `EF BB BF`), the second contains the plain ASCII string.
+- **`0x01` — username**, a string tag (tag type `0x02`, `TAGTYPE_STRING`). The username is **always** written as two consecutive tags: the first holds the UTF-8 encoded string prefixed with the UTF-8 BOM `EF BB BF`, the second holds the same name encoded as ISO-8859-1 (Latin-1) with no BOM.
+- **`0x02` — friend slot**, an 8-bit integer tag (tag type `0x09`, `TAGTYPE_UINT8`). Present only when the friend has a reserved friend (upload) slot; its value is always `0x01`.
+
+**Username tag** (`0x01`):
 
 | Bytes | Field | Description |
 |---|---|---|
-| 1 | Tag type | Always `0x02` (byte array) |
-| 2 | Tag type length | Always `0x0001` (1 byte tag-meaning field) |
+| 1 | Tag type | Always `0x02` (`TAGTYPE_STRING`) |
+| 2 | Tag name length | Always `0x0001` (1-byte tag-meaning field) |
 | 1 | Tag meaning | Always `0x01` (username) |
-| 2 | String length | Number of bytes in the string (little-endian) |
-| N | String | The username bytes |
+| 2 | String length | Number of bytes in the string, including the 3-byte BOM for the first copy (little-endian) |
+| N | String | The username bytes (UTF-8 with leading `EF BB BF` for the first copy; Latin-1 for the second) |
+
+**Friend slot tag** (`0x02`):
+
+| Bytes | Field | Description |
+|---|---|---|
+| 1 | Tag type | Always `0x09` (`TAGTYPE_UINT8`) |
+| 2 | Tag name length | Always `0x0001` (1-byte tag-meaning field) |
+| 1 | Tag meaning | Always `0x02` (friend slot) |
+| 1 | Value | Always `0x01` |
 
 ## Annotated example
 
@@ -92,9 +102,9 @@ EA 00
 ```
 02 00 00 00
 ```
-→ **Tag count:** 2 (Unicode build: username stored in two tags)
+→ **Tag count:** 2 (the username is always stored in two tags; a third tag would appear here if the friend had a reserved friend slot)
 
-**Tag #1 — Unicode username:**
+**Tag #1 — username (UTF-8 with BOM):**
 
 ```
 02
@@ -119,9 +129,9 @@ EA 00
 ```
 EF BB BF 64 73 61 64 73 61
 ```
-→ `EF BB BF` = UTF-8/UTF-16 BOM, followed by `d s a d s a` — username: **`dsadsa`**
+→ `EF BB BF` = UTF-8 BOM, followed by `d s a d s a` — username: **`dsadsa`**
 
-**Tag #2 — ASCII username:**
+**Tag #2 — username (Latin-1, no BOM):**
 
 ```
 02
@@ -146,7 +156,7 @@ EF BB BF 64 73 61 64 73 61
 ```
 64 73 61 64 73 61
 ```
-→ `d s a d s a` — username: **`dsadsa`** (plain ASCII)
+→ `d s a d s a` — username: **`dsadsa`** (Latin-1)
 
 **Friend #2:**
 
@@ -179,6 +189,6 @@ EA 00
 ## Notes
 
 - **Last seen = 0** means the friend was added manually by the user (not encountered on the network).
-- **Maximum friends:** The 4-byte friend count field allows up to 4,294,967,296 (~4.3 billion) friends.
-- **Maximum username length:** The 2-byte string-length field allows strings up to 65,536 bytes. For multi-byte Unicode characters, this may be fewer than 65,536 displayed characters.
+- **Maximum friends:** The 4-byte friend count field allows up to 4,294,967,295 (~4.3 billion) friends.
+- **Maximum username length:** The 2-byte string-length field allows strings up to 65,535 bytes. For multi-byte UTF-8 characters, this may be fewer than 65,535 displayed characters.
 - **Compatibility:** The file format is shared with eMule and is compatible across all Mule-family clients.

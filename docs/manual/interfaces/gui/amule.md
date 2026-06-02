@@ -45,8 +45,7 @@ Common command-line flags:
 
 ## Interface
 
-The aMule interface is divided into several panels accessible via tabs or the toolbar.
-Full documentation for each panel is in the [GUI](./index.md) guides.
+The aMule interface is divided into several panels accessible via tabs or the toolbar. Full documentation for each panel is in the [GUI](./index.md) guides.
 
 ## ED2K Link Integration
 

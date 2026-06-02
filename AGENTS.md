@@ -73,6 +73,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 
 ## Important Notes
 
+- **Markdown line wrapping**: Do **not** hard-wrap prose. Write each paragraph/sentence on a single line (no manual line breaks mid-sentence). Keep tables, code blocks and list items as-is.
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).
 - **Images in components**: referenced as `/img/<file>` (served from `static/`).
 - **Social card**: `static/img/social-card.png` is a placeholder; replace with a proper 1200×630 image.

@@ -58,7 +58,7 @@ The download is triggered from the Kad tab in the interface. Supported URL schem
 Two fields need care when decoding by hand:
 
 - **IP address.** The 4 IP bytes are stored little-endian, so the dotted-decimal address is the four bytes **read in reverse**. For example, the bytes `E5 5E 04 DE` decode to `222.4.94.229` (`0xDE.0x04.0x5E.0xE5`). The same applies to the IP embedded inside the KadUDPKey.
-- **ClientID.** The 16 ClientID bytes are shown below exactly as they appear on disk (raw byte order).
+- **ClientID.** The 128-bit ID is stored on disk as **four little-endian 32-bit words, most-significant word first**. The 16 ClientID bytes are shown throughout this page exactly as they appear on disk (raw byte order). To recover the canonical ID that aMule displays in its GUI, reverse the bytes **within each 4-byte word** (the order of the four words is unchanged). For example, the on-disk bytes `12 25 74 25 …` become the word `0x25742512 …`.
 
 UDP and TCP ports are plain little-endian 16-bit integers (`40 12` → `0x1240` → 4672).
 
@@ -117,7 +117,7 @@ Decoded:
 
 ### Notes
 
-- The maximum number of contacts representable in the format (4-byte count field) is ~4.3 billion. aMule, eMule, and all compatible clients impose a **hard limit of 5000 contacts** in practice.
+- The maximum number of contacts representable in the format (4-byte count field) is ~4.3 billion. aMule, eMule, and all compatible clients impose a **hard limit of 5000 contacts** in practice. aMule itself is far more conservative: it writes at most **~200 contacts** per save, capped by an internal safety limit of **500** (`CONTACT_FILE_LIMIT` in `RoutingZone.cpp`), and does not write the file at all if fewer than 25 contacts are available. On read, aMule imposes no count limit and loads every contact listed.
 - Contacts whose per-contact Kad version is `≤ 1` (Kad1) are silently ignored on read.
 - The format does not support IPv6 addresses (IP field is only 4 bytes).
 
@@ -307,7 +307,8 @@ def main():
         print(f"Contact count     : {count}")
         print()
 
-        header = f"{'idx':>4}  {last_label:>4}  {'IP address':<15}  {'UDP':>5}  {'TCP':>5}"
+        header = (f"{'idx':>4}  {'ClientID (raw)':<32}  {last_label:>4}  "
+                  f"{'IP address':<15}  {'UDP':>5}  {'TCP':>5}")
         if wide:
             header += f"  {'KadUDPKey':>10}  {'key bound IP':<15}  {'verified':>8}"
         print(header)
@@ -316,7 +317,8 @@ def main():
             clientid = f.read(16)
             ip = f.read(4)
             udp, tcp, last = struct.unpack("<HHB", f.read(5))
-            row = f"{i:>4}  {last:>4}  {fmt_ip(ip):<15}  {udp:>5}  {tcp:>5}"
+            row = (f"{i:>4}  {clientid.hex().upper():<32}  {last:>4}  "
+                   f"{fmt_ip(ip):<15}  {udp:>5}  {tcp:>5}")
             if wide:
                 (key,) = struct.unpack("<I", f.read(4))
                 key_ip = f.read(4)

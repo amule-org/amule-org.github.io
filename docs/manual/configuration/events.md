@@ -105,10 +105,7 @@ echo "aMule error: $1 is full." | mail -s "aMule: out of disk space" mymail@doma
 ```
 
 :::note Sending mail
-`mail` (from `mailutils` or `bsd-mailx`) delivers through the local mail system. To send through an
-external SMTP server (Gmail, your provider, etc.) install **`msmtp`** and **`msmtp-mta`** and
-configure it as the system `sendmail` backend in `~/.msmtprc`. `msmtp` is the maintained replacement
-for the older `ssmtp`, which is unmaintained and has been removed from current distributions.
+`mail` (from `mailutils` or `bsd-mailx`) delivers through the local mail system. To send through an external SMTP server (Gmail, your provider, etc.) install **`msmtp`** and **`msmtp-mta`** and configure it as the system `sendmail` backend in `~/.msmtprc`. `msmtp` is the maintained replacement for the older `ssmtp`, which is unmaintained and has been removed from current distributions.
 :::
 
 ### Linux — email notification on download completed
@@ -147,8 +144,7 @@ dlTime=$5
 
 ### Linux — desktop notification with sound
 
-Show a desktop notification (and optionally play a sound) on the machine running aMule. These use
-`notify-send` (package `libnotify-bin`) and `play` (package `sox`). Install them first:
+Show a desktop notification (and optionally play a sound) on the machine running aMule. These use `notify-send` (package `libnotify-bin`) and `play` (package `sox`). Install them first:
 
 ```sh
 apt-get install libnotify-bin sox
@@ -236,15 +232,12 @@ notify-send -i amule "No disk space available" \
 ```
 
 :::tip
-If you don't have `sox`, drop the `&& play …` part, or use `paplay` (PulseAudio/PipeWire) or
-`canberra-gtk-play -i complete` instead.
+If you don't have `sox`, drop the `&& play …` part, or use `paplay` (PulseAudio/PipeWire) or `canberra-gtk-play -i complete` instead.
 :::
 
 ### Windows — toast notification
 
-Show a native Windows 10/11 toast notification when a download completes. The easiest way is the
-[BurntToast](https://github.com/Windos/BurntToast) PowerShell module. Install it once (in an
-elevated PowerShell):
+Show a native Windows 10/11 toast notification when a download completes. The easiest way is the [BurntToast](https://github.com/Windos/BurntToast) PowerShell module. Install it once (in an elevated PowerShell):
 
 ```powershell
 Install-Module BurntToast -Scope CurrentUser
@@ -264,6 +257,5 @@ powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\notify.ps1 "%NAME"
 ```
 
 :::note
-The old `net send` / Windows *Messenger* service approach no longer works: that service was removed
-from Windows starting with Windows Vista. Use toast notifications (as above) on modern Windows.
+The old `net send` / Windows *Messenger* service approach no longer works: that service was removed from Windows starting with Windows Vista. Use toast notifications (as above) on modern Windows.
 :::

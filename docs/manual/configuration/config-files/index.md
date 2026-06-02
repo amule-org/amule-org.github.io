@@ -70,8 +70,8 @@ These are aMule's **configuration** paths. For the **download** directories (Inc
 | [`aMule-online-sign.png`](#cas-files) | CAS-generated PNG status image |
 | [`*.part`](#temporary-download-files) | In-progress download data (in `Temp/`) |
 | [`*.part.met`](#temporary-download-files) | Download metadata: hashes, verified chunks, tags (in `Temp/`) |
-| [`*.part.met.bak`](#temporary-download-files) | Periodic backup of `*.part.met` |
-| [`*.part.met.backup`](#temporary-download-files) | Write-in-progress temp (renamed to `.met` on success) |
+| [`*.part.met.bak`](#temporary-download-files) | Recovery backup of `*.part.met` (previous version, kept on each save) |
+| [`*.part.met.tmp`](#temporary-download-files) | Write-in-progress temp (renamed to `.met` on success) |
 | [`*.part.met.seeds`](#temporary-download-files) | Up to 10 sources for rare files (in `Temp/`) |
 
 ## Configuration files
@@ -290,10 +290,7 @@ For its format (identical to `ipfilter.dat`) and the default comment block aMule
 
 ### Always-filtered ranges (hard-coded)
 
-In addition to the ranges loaded from the files above, aMule **always** blocks the reserved IP ranges
-defined by [RFC 3330](https://www.rfc-editor.org/rfc/rfc3330). These are reserved, special-use, or
-non-routable addresses that should never appear as eD2k peers. This list is compiled into aMule and
-**cannot be disabled** by any preference:
+In addition to the ranges loaded from the files above, aMule **always** blocks the reserved IP ranges defined by [RFC 3330](https://www.rfc-editor.org/rfc/rfc3330). These are reserved, special-use, or non-routable addresses that should never appear as eD2k peers. This list is compiled into aMule and **cannot be disabled** by any preference:
 
 ```
 0.0.0.0/8         "This" Network                     [RFC1700]
@@ -311,8 +308,7 @@ non-routable addresses that should never appear as eD2k peers. This list is comp
 240.0.0.0/4       Reserved for Future Use            [RFC1700]
 ```
 
-Separately, the private LAN ranges below are blocked **only** when **Always filter LAN IPs**
-(`FilterLanIPs`, in [`amule.conf`](./amule-conf.md)) is enabled, which is the default:
+Separately, the private LAN ranges below are blocked **only** when **Always filter LAN IPs** (`FilterLanIPs`, in [`amule.conf`](./amule-conf.md)) is enabled, which is the default:
 
 ```
 10.0.0.0/8        Private-Use Networks               [RFC1918]
@@ -453,7 +449,7 @@ Files used by the [`cas`](../../utilities/wxcas-cas.md) status-image tool: `casr
 
 ### `*.part`, `*.part.met` and related {#temporary-download-files}
 
-Each in-progress download in the `Temp/` directory is represented by a group of files: `*.part` (the partial data), `*.part.met` (metadata: hashes, verified chunks, tags), `*.part.met.bak` / `*.part.met.backup` (backups), and `*.part.met.seeds` (up to 10 sources for rare files).
+Each in-progress download in the `Temp/` directory is represented by a group of files: `*.part` (the partial data), `*.part.met` (metadata: hashes, verified chunks, tags), `*.part.met.bak` (recovery backup of `*.part.met`), `*.part.met.tmp` (short-lived write-in-progress temp), and `*.part.met.seeds` (up to 10 sources for rare files).
 
 See the [Temporary download files reference](../../../developer/file-formats/part-met.md) for the complete formats.
 
