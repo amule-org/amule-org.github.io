@@ -130,7 +130,7 @@ aMule always writes the same set of tags for every server: `ST_FAIL`, `ST_PREFER
 
 ## Python 3 dump script
 
-The following script reads a `server.met` file and prints a table of all server records. Pass the path to a `server.met` file as the only argument.
+The following script reads a `server.met` file and prints a table of all server records. Pass the path to a `server.met` file as the only argument. For a quick decode without writing any code, aMule's [`fileview`](./fileview.md) tool dumps the same data.
 
 ```python
 #!/usr/bin/env python3

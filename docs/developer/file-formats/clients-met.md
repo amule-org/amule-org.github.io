@@ -3,7 +3,7 @@ id: clients-met
 title: clients.met
 ---
 
-`clients.met` is the **credit ledger** — a binary database that records how many bytes aMule has uploaded to and downloaded from each known peer. The eD2k credit system uses these values to prioritise upload slots for peers that have previously uploaded to you.
+`clients.met` is the **credit ledger** — a binary database that records how many bytes aMule has uploaded to and downloaded from each known peer. The eD2k [credit system](../../p2p-networks/concepts.md) uses these values to prioritise upload slots for peers that have previously uploaded to you.
 
 **Location:** `~/.aMule/clients.met`
 
@@ -38,7 +38,7 @@ Each client occupies exactly **119 bytes**:
 | 32 | 4 | Download high bytes | Upper 4 bytes of the total bytes downloaded **from** this client |
 | 36 | 2 | Reserved | Set to any value; reserved for future use |
 | 38 | 1 | SecureIdent hash size | Number of significant bytes in the SecureIdent public hash (e.g., `0x38` = 56 bytes). Must be ≤ 80; a larger value marks the file as corrupt |
-| 39 | 80 | SecureIdent hash | The peer's SecureIdent public key hash. Always occupies 80 bytes; only the first *SecureIdent hash size* bytes are significant. The remainder is ignored on load (aMule writes whatever happens to be there) |
+| 39 | 80 | SecureIdent hash | The peer's [Secure User Identification](../../p2p-networks/ed2k/secure-user-identification.md) public key hash. Always occupies 80 bytes; only the first *SecureIdent hash size* bytes are significant. The remainder is ignored on load (aMule writes whatever happens to be there) |
 
 **Total per record:** 16 + 4 + 4 + 4 + 4 + 4 + 2 + 1 + 80 = **119 bytes**.
 
@@ -138,4 +138,4 @@ D4 F8 76 A9 E7 C7 D8 9A
 - **Backup preservation:** If `clients.met.bak` is larger than the current `clients.met`, the backup is not overwritten. This protects against accidental truncation.
 - **Capacity:** The 4-byte client count field allows up to ~4.3 billion records. The practical size limit of `clients.met` is approximately 475 GiB (119 bytes × 4,294,967,296), which no real-world filesystem will ever reach.
 - **Record size:** Each client record is exactly 119 bytes (952 bits).
-- **Inspecting the file:** aMule's `fileview` utility can dump the decoded contents of a `clients.met` file, which is useful for verifying the layout described here.
+- **Inspecting the file:** aMule's [`fileview`](./fileview.md) utility can dump the decoded contents of a `clients.met` file, which is useful for verifying the layout described here.

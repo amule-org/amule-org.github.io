@@ -7,6 +7,8 @@ Reference for the **binary and textual formats** of the files aMule reads and wr
 
 For the **editable configuration files** (`amule.conf`, `remote.conf`), see the [aMule Files Reference](../../manual/configuration/config-files/index.md) in the User Manual — editing those is a user task, so their key reference lives there. The same registry lists every file aMule creates, with a one-line description and a link to its format here.
 
+To inspect a real file against the layouts documented here, use the [`fileview`](./fileview.md) console tool, which dumps the decoded contents of most of these binary files.
+
 ## Files with a dedicated page
 
 The most complex formats have their own reference pages:

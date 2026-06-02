@@ -5,6 +5,8 @@ title: Temporary download files (*.part, *.part.met, *.part.met.seeds)
 
 While a file is being downloaded, aMule creates a group of temporary files in the **Temp directory** (`~/.aMule/Temp/` by default). Each in-progress download produces up to five related files.
 
+These files share a common base name: a sequential three-digit number assigned in order of creation (the lowest free number, e.g. `001`, `002`, …) — for example `001.part`, `001.part.met`, `001.part.met.seeds`. The file's MD4 hash is **not** part of the filename; it is stored inside the `.part.met` file (see the MD4 hash field below).
+
 ## `*.part`
 
 The actual download data. aMule creates this file with the **full size of the completed file** from the very beginning. Portions that have not yet been downloaded are filled with zero bytes, while received data overwrites the zeros at the correct offsets.
@@ -22,6 +24,8 @@ The download **metadata** file. It records everything aMule needs to resume and 
 - Tags: filename, file size, download priority, and other metadata
 
 Without the `.part.met` file, the corresponding `.part` file has no meaning to aMule.
+
+When a completed chunk fails its hash check, aMule uses [AICH](../../p2p-networks/ed2k/aich.md) to locate and re-download only the corrupted portion instead of the whole chunk.
 
 ### Format
 
@@ -80,7 +84,7 @@ aMule reads all of these types (the compact integer and fixed-string variants ex
 
 ### Python 3 parsing script
 
-The following script reads a `.part.met` file and prints its header fields and tags. Pass the path to a `.part.met` file as the only argument.
+The following script reads a `.part.met` file and prints its header fields and tags. Pass the path to a `.part.met` file as the only argument. For a quick decode without writing any code, aMule's [`fileview`](./fileview.md) tool dumps the same data.
 
 ```python
 #!/usr/bin/env python3
@@ -196,8 +200,6 @@ A transient write-in-progress file. aMule saves a `.part.met` atomically: it fir
 Stores up to 10 known source addresses for the corresponding download. This allows aMule to reconnect to sources for **rare files** (files with very few sources) immediately after a restart, without having to re-discover them from scratch.
 
 This file is only created when the **"Store sources for rare files"** preference is enabled.
-
-**Location:** `~/.aMule/Temp/<hash>.part.met.seeds`
 
 ### Format
 

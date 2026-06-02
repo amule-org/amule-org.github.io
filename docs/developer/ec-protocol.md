@@ -7,6 +7,8 @@ The **External Connections (EC) protocol** is the binary protocol that [`amuled`
 
 The protocol is defined in the aMule source under `src/libs/ec/` and `src/ExternalConn.cpp` — those files are the canonical reference if anything on this page conflicts with them.
 
+EC packets carry data as nested, typed tags. The same tag-encoding idea (a type byte, a name, and a type-dependent value) underlies aMule's on-disk binary files; see [File Formats](file-formats/index.md) for those layouts.
+
 :::note
 EC is considered stable. Opcodes, tag names, and tag content formats can still change between releases. If you are implementing an EC client, pin the `EC_TAG_PROTOCOL_VERSION` to the version you have tested against.
 :::

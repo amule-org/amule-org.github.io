@@ -3,7 +3,7 @@ id: nodes-dat
 title: nodes.dat
 ---
 
-`nodes.dat` stores a list of known [Kademlia](../../p2p-networks/kademlia) contacts (Kad nodes). aMule reads this file at startup to bootstrap its connection to the Kad network, establishing initial contact with known nodes before building its own routing table.
+`nodes.dat` stores a list of known [Kademlia](../../p2p-networks/kademlia.md) contacts (Kad nodes). aMule reads this file at startup to bootstrap its connection to the Kad network, establishing initial contact with known nodes before building its own routing table.
 
 **Location:** `~/.aMule/nodes.dat`
 
@@ -261,7 +261,7 @@ Decoded:
 
 ## Python 3 dump script
 
-The following script parses every `nodes.dat` format — v0, v1, the current v2, and the v3 bootstrap edition — and prints the contents in a human-readable table. Pass the path to a `nodes.dat` file as the only argument.
+The following script parses every `nodes.dat` format — v0, v1, the current v2, and the v3 bootstrap edition — and prints the contents in a human-readable table. Pass the path to a `nodes.dat` file as the only argument. For a quick decode without writing any code, aMule's [`fileview`](./fileview.md) tool dumps the same data.
 
 ```python
 #!/usr/bin/env python3

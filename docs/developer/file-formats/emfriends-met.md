@@ -192,3 +192,4 @@ EA 00
 - **Maximum friends:** The 4-byte friend count field allows up to 4,294,967,295 (~4.3 billion) friends.
 - **Maximum username length:** The 2-byte string-length field allows strings up to 65,535 bytes. For multi-byte UTF-8 characters, this may be fewer than 65,535 displayed characters.
 - **Compatibility:** The file format is shared with eMule and is compatible across all Mule-family clients.
+- **Inspecting the file:** aMule's [`fileview`](./fileview.md) tool can dump the decoded contents of an `emfriends.met` file, which is useful for verifying the layout described here.

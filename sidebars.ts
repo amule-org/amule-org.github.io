@@ -138,6 +138,7 @@ const sidebars: SidebarsConfig = {
           label: 'File Formats',
           link: {type: 'doc', id: 'developer/file-formats/index'},
           items: [
+            'developer/file-formats/fileview',
             'developer/file-formats/server-met',
             'developer/file-formats/nodes-dat',
             'developer/file-formats/clients-met',

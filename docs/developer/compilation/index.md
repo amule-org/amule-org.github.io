@@ -70,7 +70,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_ALCC` | NO | [`alcc`](../../manual/utilities/alc-alcc.md) — aMuleLinkCreator console |
 | `BUILD_CAS` | NO | [`cas`](../../manual/utilities/wxcas-cas.md) — C statistics tool (Unix only) |
 | `BUILD_WXCAS` | NO | [`wxcas`](../../manual/utilities/wxcas-cas.md) — GUI statistics tool |
-| `BUILD_FILEVIEW` | NO | `fileview` — console file viewer (experimental) |
+| `BUILD_FILEVIEW` | NO | [`fileview`](../file-formats/fileview.md) — console file viewer (experimental) |
 | `BUILD_TESTING` | YES | [Unit test suite](../testing.md) |
 | `ENABLE_NLS` | YES | [Native-language support](../translations.md) (gettext) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
