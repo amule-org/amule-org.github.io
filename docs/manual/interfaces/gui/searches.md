@@ -3,7 +3,7 @@ id: searches
 title: Searches
 ---
 
-The Searches window lets you search for files across the eD2k and Kademlia networks and add results directly to your download queue.
+The Searches window lets you search for files across the [eD2k](../../../p2p-networks/ed2k/index.md) and [Kademlia](../../../p2p-networks/kademlia.md) networks and add results directly to your [download queue](./downloads.md).
 
 ## Overview
 
@@ -37,7 +37,7 @@ Once a search starts, a results tab appears:
 
 ![Results tab](/img/docs/usage/window_search5.jpg)
 
-The results list shows, for each file: **filename**, **size**, **sources** (total sources and, in brackets, sources with the complete file), **type**, and **file ID**:
+The results list shows, for each file: **filename**, **size**, **sources** (total sources, followed by the sources holding the complete file in parentheses, and an optional client count in square brackets), **type**, **file ID** (hash), **status** (download status) and **directories** (only populated for results obtained from a "view [shared files](./shared-files.md)" request):
 
 ![Results list with columns](/img/docs/usage/window_search6.jpg)
 
@@ -74,7 +74,7 @@ Double-click a single file, or select it and press **Enter**:
 ![Double-click to download](/img/docs/usage/window_search8.jpg)
 
 :::note
-Double-clicking or pressing Enter downloads only the file you double-clicked on, not all selected files. The selection is also cleared.
+Double-clicking or pressing Enter downloads **all currently selected files** (the selection is not cleared), the same as the **Download** button. The only exception is a result with grouped variants (see below): double-clicking it expands or collapses its variants instead of downloading.
 :::
 
 ### Right-Click Menu (Extended Options)
@@ -83,7 +83,7 @@ Right-click on one or more selected files and choose **Download** or **Download 
 
 ![Right-click download menu](/img/docs/usage/window_search21.jpg)
 
-Using **Download in category** lets you assign the file(s) to a specific download category at the moment of queuing:
+Using **Download in category** lets you assign the file(s) to a specific download [category](./downloads.md#categories) at the moment of queuing:
 
 ![Download in category submenu](/img/docs/usage/window_search22.jpg)
 
@@ -103,7 +103,11 @@ Files in the results list are colour-coded:
 | ![Light blue](/img/docs/usage/window_search44.jpg) Light blue | Not downloaded and not in queue; more sources |
 | Magenta | Previously queued for download but cancelled |
 
-The brighter/more vivid the blue, the more sources the file has. Some search results may also display an **average rating** (when the server provides it). Comments are never shown in search results, only average ratings.
+The brighter/more vivid the blue, the more sources the file has. Some search results may also display an **average rating** (when the server provides it). [Comments](./comments.md) are never shown in search results, only average ratings.
+
+### Grouped Variants
+
+When several results share the same file (identical hash) but differ in name, they are grouped under a single parent row. A grouped row can be expanded to reveal its variants and collapsed again. Double-clicking a grouped row expands or collapses it instead of starting a download. The **Directories** column shows the source directory for variants that come from a "view shared files" request.
 
 ## Tabs
 
@@ -165,10 +169,9 @@ The **Type** dropdown selects the search method:
 
 | Type | Description |
 |---|---|
-| **Local** | Search only against the server you are currently connected to; instant results |
-| **Global** | Broadcast the query to all known servers; slower but broader results |
-| **Kad** | Search across the Kademlia network; slower, results trickle in over time |
-| **Web** | External web-based search (requires a configured web search service) |
+| **Local** | Search only against the [server](../../../p2p-networks/ed2k/servers.md) you are currently connected to; instant results |
+| **Global** | Broadcast the query to all known [servers](../../../p2p-networks/ed2k/servers.md); slower but broader results |
+| **Kad** | Search across the [Kademlia](../../../p2p-networks/kademlia.md) network; slower, results trickle in over time |
 
 ### Extended Parameters
 
@@ -178,13 +181,13 @@ Click **Extended parameters** to reveal additional search filters:
 
 #### File Type
 
-Restrict results to a specific media category (Video, Audio, Images, Documents, Archives, Programs, etc.):
+Restrict results to a specific media category (Any, Archives, Audio, CD-Images, Pictures, Programs, Texts, Videos):
 
 ![File type filter](/img/docs/usage/window_search29.jpg)
 
 #### Category
 
-Automatically assign queued downloads to a specific category instead of the default "Main" category:
+Automatically assign queued downloads to a specific [category](./downloads.md#categories) instead of the default "Main" category:
 
 ![Category selector](/img/docs/usage/window_search30.jpg)
 
@@ -196,13 +199,13 @@ Show only files with a specific file extension (e.g., `avi`, `mp3`, `iso`):
 
 #### Minimum Size
 
-Discard results smaller than the specified size. Select the unit (Bytes, Kilobytes, Megabytes, Gigabytes):
+Discard results smaller than the specified size. Select the unit (Bytes, KB, MB, GB):
 
 ![Minimum size filter](/img/docs/usage/window_search32.jpg)
 
 #### Maximum Size
 
-Discard results larger than the specified size. Select the unit (Bytes, Kilobytes, Megabytes, Gigabytes):
+Discard results larger than the specified size. Select the unit (Bytes, KB, MB, GB):
 
 ![Maximum size filter](/img/docs/usage/window_search33.jpg)
 
@@ -240,7 +243,7 @@ Click **Hide known files** to remove from the results list any file that is alre
 
 ### Clear Search Parameters
 
-Click the **Reset** button to clear the search text and reset all extended parameters to their defaults:
+Click the **Reset Fields** button to clear the search text and reset all extended parameters to their defaults:
 
 ![Reset button](/img/docs/usage/window_search16.jpg)
 
@@ -264,13 +267,13 @@ Right-clicking on a result row opens this menu:
 |---|---|
 | Download | Add selected file(s) to the download queue |
 | Download in category | Add selected file(s) to a specific category |
-| Get Razorback 2's stats for this file | Open a browser with Razorback 2 statistics for the file (last selected file if multiple are selected) |
-| Copy ED2k link to clipboard | Copy the ed2k link(s) as plain text |
-| Copy ED2k link to clipboard (HTML) | Copy the ed2k link(s) as an HTML anchor: `<a href="link">filename</a>` |
+| Get *&lt;stats server&gt;* for this file | Open a browser with the configured statistics server for the file (last selected file if multiple are selected). The label shows the configured server name (default: "Shorty's ED2K stats"); this entry only appears when a statistics server is configured |
+| Search related files (eD2k, local server) | Start a new search for files related to the selected file |
+| Copy eD2k link to clipboard | Copy the [ed2k link(s)](../../../p2p-networks/ed2k/links.md) as plain text (single selection only) |
 
 ## Miscellaneous
 
-The **Fast ED2K links handler** bar at the bottom of the search window is always visible in the Searches panel, regardless of whether it is enabled in **Preferences → Interface → Show "Fast eD2k Links Handler" in every window**. To hide it in the search window as well, click the **Search** button in the toolbar twice.
+The **Fast ED2K links handler** bar at the bottom of the search window lets you paste [ed2k links](../../../p2p-networks/ed2k/links.md) to add them directly to the download queue. It is always visible in the Searches panel, regardless of whether it is enabled in **[Preferences → Interface → Show "Fast eD2k Links Handler" in every window](./preferences.md#interface)**. To hide it in the search window as well, click the **[Search](./toolbar.md#window-buttons)** button in the toolbar twice.
 
 ## Quick Reference
 
@@ -334,6 +337,6 @@ The **Fast ED2K links handler** bar at the bottom of the search window is always
 |---|---|
 | 1 | Download the selected file(s) |
 | 2 | Download into the selected category |
-| 3 | Get Razorback 2 statistics for the file |
-| 4 | Copy ed2k link to clipboard |
-| 5 | Copy ed2k link to clipboard as HTML anchor |
+| 3 | Get statistics for the file from the configured statistics server |
+| 4 | Search for related files |
+| 5 | Copy ed2k link to clipboard |

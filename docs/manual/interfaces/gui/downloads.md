@@ -23,13 +23,13 @@ Above the download list, a row of **category tabs** lets you filter which files 
 | Column | Description |
 |---|---|
 | **Part** | The internal part-file number (e.g. `000`). Empty when the file is complete. |
-| **File Name** | Name of the file. A smiley icon to the left indicates ratings or comments from other users. |
-| **Size** | Total file size. The eD2k network supports files up to 4 GB. |
+| **File Name** | Name of the file. A smiley icon to the left indicates [ratings or comments](./comments.md) from other users. |
+| **Size** | Total file size. The [eD2k network](../../../p2p-networks/ed2k/index.md) supports [files up to 4 GB](../../../p2p-networks/ed2k/index.md#file-size-limit). |
 | **Transferred** | Total bytes received so far (including parts later found to be corrupt). |
-| **Completed** | Bytes that have passed hash verification and are permanently stored. May be less than *Transferred* if corrupted data was received. |
+| **Completed** | Bytes that have passed [hash verification](../../../p2p-networks/ed2k/aich.md) and are permanently stored. May be less than *Transferred* if corrupted data was received. |
 | **Speed** | Current download speed for this file. Only shown while actively receiving data. |
 | **Progress** | Visual progress bar (see [Progress Bar](#progress-bar) below). |
-| **Sources** | Format: `Asked/All +A4AF (Transferring)`. *Asked* = sources already contacted; *All* = all known sources; *A4AF* = sources currently assigned to another file; *Transferring* = sources actively uploading to you. |
+| **Sources** | Format: `Asked/All+A4AF (Transferring)`. *Asked* = sources already contacted; *All* = all known sources; *A4AF* = sources currently assigned to another file; *Transferring* = sources actively uploading to you. |
 | **Priority** | Download priority: Low, Normal, High, or Auto. See [Priority](./priority.md). |
 | **Status** | Current state of the download (see [File Status](#file-status) below). |
 | **Time Remaining** | Estimated time to completion and remaining bytes. Only shown when actively receiving data. |
@@ -38,7 +38,7 @@ Above the download list, a row of **category tabs** lets you filter which files 
 
 ### Progress Bar
 
-The progress bar shows the chunk composition of a file at a glance. Each file is split into 9.28 MB chunks:
+The progress bar shows the chunk composition of a file at a glance. Each file is split into 9.28 MB [chunks](../../../p2p-networks/ed2k/index.md#chunks):
 
 | Colour | Meaning |
 |---|---|
@@ -48,7 +48,7 @@ The progress bar shows the chunk composition of a file at a glance. Each file is
 | Red | Chunk not available from any known source. Downloads stall on red segments — avoid files with many red chunks. |
 | Green (thin bar on top) | Overall completion percentage. |
 
-When **Show percentage** is enabled in preferences, the completion percentage is printed over the bar.
+When **Show progress percentage** is enabled in [preferences](./preferences.md#download-queue-files), the completion percentage is printed over the bar.
 
 ### File Status
 
@@ -59,9 +59,10 @@ When **Show percentage** is enabled in preferences, the completion percentage is
 | **Paused** | Download has been manually paused. |
 | **Stopped** | Download has been manually stopped. Sources are no longer searched. |
 | **Erroneous** | An error occurred (e.g. disk write error). |
-| **Completing** | All data received; aMule is verifying the final hash. |
-| **Hashing** | Part file is being hashed after a restart. |
-| **Waiting for hash** | Hash verification is queued. |
+| **Allocating** | Disk space for the file is being pre-allocated. |
+| **Hashing** | Part file is being hashed (e.g. after a restart, or while queued for hash verification). |
+| **Completing** | All data received; aMule is verifying the final hash and moving the file to the Incoming directory. |
+| **Complete** | The file has finished downloading and has been moved to the Incoming directory. |
 | **Insufficient disk space** | Download paused automatically because the disk is full. |
 
 ### Controlling Downloads
@@ -83,7 +84,7 @@ Right-click a file (or a selection of files) to open the context menu:
 | **Show file details** | Open the [File Details](./file-details.md) dialog with hashes, names, and source breakdown. |
 | **Show all comments** | View user ratings and comments for this file. |
 | **Copy magnet URI to clipboard** | Copy a magnet link for the file. |
-| **Copy eD2k link to clipboard** | Copy an `ed2k://` link for the file. |
+| **Copy eD2k link to clipboard** | Copy an [`ed2k://` link](../../../p2p-networks/ed2k/links.md) for the file. |
 | **Copy feedback to clipboard** | Copy formatted download feedback text. |
 | **Assign to category** | Move the file to a specific category. Selecting *unassign* returns it to the default category. |
 
@@ -110,8 +111,8 @@ Clicking a file in the download queue populates the source list below with all k
 | **Uploaded** | Bytes uploaded to this source in the current session. |
 | **Available Parts** | Bar showing which chunks of the file this source has available. |
 | **Version** | Client software version string. |
-| **Download Status** | Your position in this client's upload queue, or transfer state. |
-| **Origin** | How this source was found (server list, Kad, source exchange, etc.). |
+| **Download Status** | Your position in this client's [upload queue](../../../p2p-networks/concepts.md#queue-rank-qr), or transfer state. |
+| **Origin** | How this source was found ([server list](../../../p2p-networks/ed2k/servers.md#the-server-list), [Kad](../../../p2p-networks/kademlia.md), source exchange, etc.). |
 | **Local File Name** | The name the file has on your system. |
 | **Remote File Name** | The name the file has on the remote client. |
 | **Shares File List** | Whether this client shares its file list. |
@@ -129,18 +130,18 @@ Each source row shows a small icon indicating the client software and connection
 | mlDonkey icon | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) |
 | Shareaza icon | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) |
 | xMule icon | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) |
-| Friend icon | A client you have marked as a friend |
+| Friend icon | A client you have marked as a [friend](../../../p2p-networks/concepts.md#friend) |
 | Unknown icon | Unrecognised client |
 
 Overlay badges on the base icon indicate additional attributes:
 
 | Overlay | Meaning |
 |---|---|
-| eMule protocol | Client supports extended eMule protocol extensions (source sharing, etc.). |
-| Good credit | Client has a good credit rating with you. |
-| Normal credit | Client has a normal credit rating. |
-| Secure ID (good) | Client identity has been securely verified. |
-| Secure ID (bad) | Client has been flagged as a bad actor. |
+| Good credit | Client has a good [credit rating](../../../p2p-networks/ed2k/index.md#credits-and-scoring) with you (you have uploaded more than you downloaded from it). |
+| No extended protocol | Client does **not** support the extended eMule protocol extensions (source sharing, etc.). |
+| Secure ID (good) | Client identity has been [securely verified](../../../p2p-networks/ed2k/secure-user-identification.md). |
+| Secure ID (bad) | Client failed [secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) and has been flagged as a [bad actor](../../../p2p-networks/concepts.md#bad-guy). Shown only when the client is not identified. |
+| Encrypted | The connection to this client is [obfuscated/encrypted](./preferences.md#protocol-obfuscation). |
 
 The icon colour also reflects the **source status**:
 
@@ -149,7 +150,7 @@ The icon colour also reflects the **source status**:
 | Sending | Client is uploading data or a hashset to you right now. |
 | Queued / Asking | You are in this client's upload queue, or you are currently requesting a file from it. |
 | Connecting | A connection attempt to this client is in progress. |
-| Unavailable | Client is asked for another file, has no needed parts, or cannot be reached (Low ID behind a firewall). |
+| Unavailable | Client is asked for another file, has no needed parts, or cannot be reached ([Low ID](../../../p2p-networks/ed2k/high-id.md) behind a firewall). |
 | Unknown | State has not yet been determined. |
 
 Double-clicking a source (or middle-clicking) opens the [Client Details](./client-details.md) dialog.
@@ -189,25 +190,25 @@ Right-clicking any tab (including **All**) exposes additional category managemen
 
 | Option | Action |
 |---|---|
-| **Add category** | Create a new category with a name, colour, and save folder. |
-| **Edit category** | Change the name, colour, or save folder of the selected category. |
+| **Add category** | Create a new category with a name, comment, colour, save folder, and default download priority. |
+| **Edit category** | Change the name, comment, colour, save folder, or default download priority of the selected category. |
 | **Remove category** | Delete the selected category; files in it revert to the default category. |
 | **Cancel / Stop / Pause / Resume** | Apply the action to every file in the selected category at once. |
 
-When **Show category tab info** is enabled in preferences, each tab label shows `(downloading/total)` file counts.
+When **Show extended info on categories tabs** is enabled in [preferences](./preferences.md#interface), each tab label shows `(downloading/total)` file counts.
 
 Up to 99 user-defined categories are supported.
 
 ### Assigning Files to Categories
 
 - **From the right-click menu**: right-click a file → **Assign to category**.
-- **At search time**: in the Searches window, right-click a result → **Download in category**.
+- **At search time**: in the [Searches](./searches.md) window, right-click a result → **Download in category**.
 
 Each category can have its own incoming directory. Completed files are saved to the category's folder instead of the default incoming folder.
 
 ## Where Are the Files?
 
-While downloading, aMule stores incomplete data in a **Temporary directory**. Completed files are moved to the **Incoming directory**. Both paths depend on your platform and can be changed in **Preferences → Directories**. Per-category incoming folders override the default incoming directory for files assigned to that category.
+While downloading, aMule stores incomplete data in a **Temporary directory**. Completed files are moved to the **Incoming directory**. Both paths depend on your platform and can be changed in **[Preferences → Directories](./preferences.md#directories)**. Per-category incoming folders override the default incoming directory for files assigned to that category.
 
 See [Directories](../../configuration/directories.md) for the default paths on each platform.
 

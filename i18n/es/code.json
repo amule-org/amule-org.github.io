@@ -29,28 +29,28 @@
   "homepage.highlights.title": {
     "message": "Novedades de 3.0.0"
   },
-  "homepage.highlights.hl1.label": {
+  "homepage.highlights.performance.label": {
     "message": "Transferencias mucho más rápidas"
   },
-  "homepage.highlights.hl1.detail": {
+  "homepage.highlights.performance.detail": {
     "message": "La E/S de disco se trasladó fuera del hilo principal y se reescribió la capa de red. Las descargas peer-to-peer alcanzan aceleraciones de ~100–380× respecto a 2.3.3 en macOS, Linux y Windows."
   },
-  "homepage.highlights.hl3.label": {
+  "homepage.highlights.buildSystem.label": {
     "message": "Sistema de compilación moderno"
   },
-  "homepage.highlights.hl3.detail": {
+  "homepage.highlights.buildSystem.detail": {
     "message": "Autotools se ha eliminado por completo. Compilación unificada con CMake; CMake 3.10 como mínimo y wxWidgets 3.2.0 como mínimo."
   },
-  "homepage.highlights.hl4.label": {
+  "homepage.highlights.packages.label": {
     "message": "Binarios para cada plataforma de escritorio"
   },
-  "homepage.highlights.hl4.detail": {
+  "homepage.highlights.packages.detail": {
     "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x64 y ARM64 donde la plataforma lo admita."
   },
-  "homepage.highlights.hl6.label": {
+  "homepage.highlights.bandwidth.label": {
     "message": "Limitación de ancho de banda funcional"
   },
-  "homepage.highlights.hl6.detail": {
+  "homepage.highlights.bandwidth.detail": {
     "message": "Los limitadores de subida y descarga se reescribieron como limitadores token bucket reales. {code} pasa a significar literalmente sin límite."
   },
   "homepage.highlights.changelog": {
@@ -98,125 +98,152 @@
   "homepage.features.title": {
     "message": "Características"
   },
-  "homepage.features.card1.title": {
+  "homepage.features.docsLink": {
+    "message": "Explora la documentación completa →"
+  },
+  "homepage.features.networks.title": {
     "message": "eD2k + Kademlia"
   },
-  "homepage.features.card1.desc": {
+  "homepage.features.networks.desc": {
     "message": "Conéctate simultáneamente a la red eD2k basada en servidores y a la red DHT Kademlia sin servidores para maximizar el alcance y la disponibilidad de archivos."
   },
-  "homepage.features.card2.title": {
+  "homepage.features.emuleCompatible.title": {
     "message": "Compatible con eMule"
   },
-  "homepage.features.card2.desc": {
+  "homepage.features.emuleCompatible.desc": {
     "message": "Totalmente compatible a nivel de protocolo con eMule y con todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar."
   },
-  "homepage.features.card3.title": {
+  "homepage.features.search.title": {
     "message": "Búsqueda potente"
   },
-  "homepage.features.card3.desc": {
+  "homepage.features.search.desc": {
     "message": "Busca en servidores eD2k (local y global) y en nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Compatible con operadores booleanos (AND, OR, NOT)."
   },
-  "homepage.features.card4.title": {
+  "homepage.features.sourceExchange.title": {
     "message": "Intercambio de fuentes"
   },
-  "homepage.features.card4.desc": {
+  "homepage.features.sourceExchange.desc": {
     "message": "Intercambia automáticamente listas de fuentes con pares conectados para descubrir más fuentes para tus descargas sin tener que consultar al servidor de forma repetida."
   },
-  "homepage.features.card5.title": {
+  "homepage.features.creditSystem.title": {
     "message": "Sistema de créditos"
   },
-  "homepage.features.card5.desc": {
+  "homepage.features.creditSystem.desc": {
     "message": "El sistema integrado de créditos y puntuación recompensa a los usuarios que suben datos activamente. Cuanto más compartes, mayor es tu puntuación y más rápidas son tus descargas."
   },
-  "homepage.features.card6.title": {
+  "homepage.features.ipFiltering.title": {
     "message": "Filtrado de IPs"
   },
-  "homepage.features.card6.desc": {
+  "homepage.features.ipFiltering.desc": {
     "message": "Bloquea direcciones IP no deseadas mediante listas estándar de filtrado. Mantén alejados de tu cliente a pares agresivos, maliciosos o espía."
   },
-  "homepage.features.card7.title": {
+  "homepage.features.preview.title": {
     "message": "Vista previa antes de completar"
   },
-  "homepage.features.card7.desc": {
+  "homepage.features.preview.desc": {
     "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia."
   },
-  "homepage.features.card8.title": {
+  "homepage.features.categories.title": {
     "message": "Categorías de descarga"
   },
-  "homepage.features.card8.desc": {
+  "homepage.features.categories.desc": {
     "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente."
   },
-  "homepage.features.card9.title": {
+  "homepage.features.daemon.title": {
     "message": "aMule Daemon"
   },
-  "homepage.features.card9.desc": {
+  "homepage.features.daemon.desc": {
     "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla."
   },
-  "homepage.features.card10.title": {
+  "homepage.features.remoteInterfaces.title": {
     "message": "Interfaces remotas"
   },
-  "homepage.features.card10.desc": {
+  "homepage.features.remoteInterfaces.desc": {
     "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd)."
   },
-  "homepage.features.card11.title": {
+  "homepage.features.secureIdentification.title": {
     "message": "Identificación segura"
   },
-  "homepage.features.card11.desc": {
+  "homepage.features.secureIdentification.desc": {
     "message": "La identificación criptográfica segura del usuario evita que otros pares roben o suplanten el hash de tu cliente en la red."
   },
-  "homepage.features.card12.title": {
+  "homepage.features.proxy.title": {
     "message": "Soporte para proxy"
   },
-  "homepage.features.card12.desc": {
+  "homepage.features.proxy.desc": {
     "message": "Encamina las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mejorar la privacidad o sortear restricciones de red."
   },
-  "homepage.features.card13.title": {
+  "homepage.features.messaging.title": {
     "message": "Mensajería y amigos"
   },
-  "homepage.features.card13.desc": {
+  "homepage.features.messaging.desc": {
     "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para seguir conectado con tus compañeros habituales de intercambio."
   },
-  "homepage.features.card14.title": {
+  "homepage.features.openSource.title": {
     "message": "Libre y de código abierto"
   },
-  "homepage.features.card14.desc": {
+  "homepage.features.openSource.desc": {
     "message": "Licencia GPL-2.0, sin telemetría, sin publicidad y sin dependencia de un proveedor. Tus datos son tuyos: inspecciona el código fuente y contribuye."
   },
-  "homepage.features.card15.title": {
+  "homepage.features.nativePackages.title": {
     "message": "Paquetes nativos"
   },
-  "homepage.features.card15.desc": {
+  "homepage.features.nativePackages.desc": {
     "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x64 y ARM64."
   },
-  "homepage.features.card16.title": {
+  "homepage.features.corruptionHandling.title": {
     "message": "Corrección de corrupción"
   },
-  "homepage.features.card16.desc": {
+  "homepage.features.corruptionHandling.desc": {
     "message": "Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los chunks corruptos de una descarga, lo que garantiza archivos completos e íntegros sin necesidad de reiniciar."
   },
-  "homepage.features.card17.title": {
-    "message": "Interfaz en 28 idiomas"
+  "homepage.features.languages.title": {
+    "message": "Interfaz en 37 idiomas"
   },
-  "homepage.features.card17.desc": {
-    "message": "La interfaz completa de aMule está traducida a 28 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional."
+  "homepage.features.languages.desc": {
+    "message": "La interfaz completa de aMule está traducida a 37 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional."
   },
-  "homepage.features.card18.title": {
+  "homepage.features.compressedTransfers.title": {
     "message": "Transferencias comprimidas"
   },
-  "homepage.features.card18.desc": {
+  "homepage.features.compressedTransfers.desc": {
     "message": "Los datos de archivos y la comunicación con los servidores se comprimen con zlib, lo que reduce el uso de ancho de banda con archivos compresibles y disminuye la carga sobre los servidores eD2k."
   },
-  "homepage.features.card19.title": {
+  "homepage.features.ed2kLinks.title": {
     "message": "Integración de enlaces ed2k://"
   },
-  "homepage.features.card19.desc": {
+  "homepage.features.ed2kLinks.desc": {
     "message": "Haz clic en enlaces ed2k:// desde el navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con el escritorio para ofrecer una experiencia fluida con un solo clic."
   },
-  "homepage.features.card20.title": {
+  "homepage.features.slotAllocation.title": {
     "message": "Asignación de slots"
   },
-  "homepage.features.card20.desc": {
+  "homepage.features.slotAllocation.desc": {
     "message": "Controla exactamente a cuántos clientes subes de forma simultánea y fija objetivos de ancho de banda por slot para ajustar con precisión tu capacidad de subida."
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Control de ancho de banda"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Fija límites estrictos de velocidad de subida y bajada, aplicados por limitadores token-bucket precisos. Limita aMule para que nunca sature tu conexión, o déjalo a máxima velocidad cuando no estés."
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Reescaneo automático de carpetas"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule vigila tus carpetas compartidas y la carpeta Incoming, y detecta automáticamente los archivos nuevos, modificados o eliminados, sin necesidad de recarga manual cuando cambia tu biblioteca."
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Bandeja del sistema"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimiza aMule a la bandeja del sistema y déjalo funcionando discretamente en segundo plano. Funciona en Windows, macOS y todos los escritorios principales de Linux."
+  },
+  "homepage.features.powerShare.title": {
+    "message": "PowerShare"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo."
   },
   "theme.navbar.item.label.Download": {
     "message": "Descargar",

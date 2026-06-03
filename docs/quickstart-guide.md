@@ -5,7 +5,7 @@ title: Getting Started
 
 ## What is aMule
 
-aMule is a peer-to-peer (P2P) client for the [eD2k](https://en.wikipedia.org/wiki/EDonkey_network) network, commonly known as the eDonkey network or eD2k network (eDonkey2000). This guide does not require you to be familiar with these networks, but it does require that you have aMule installed on your computer. If you haven't installed aMule yet, please refer to the installation guide for your platform.
+aMule is a peer-to-peer (P2P) client for the [eD2k](./p2p-networks/ed2k/index.md) network, commonly known as the eDonkey network or eD2k network (eDonkey2000). This guide does not require you to be familiar with these networks, but it does require that you have aMule installed on your computer. If you haven't installed aMule yet, please refer to the installation guide for your platform.
 
 ## Installation
 
@@ -27,14 +27,14 @@ Before you begin file sharing, you will need to properly configure aMule. This i
 
 The eDonkey network enforces upload. In order to download, you must share files yourself (don't worry if you don't have anything to share yet). This is enforced in two ways:
 
-- Your download speed depends on how fast you upload. If your upload speed is set below 10 kB/s, your maximum download speed will be roughly 3–4× your upload speed. Limiting upload to 5 kB/s means you can only download at ~20 kB/s.
-- Partially downloaded files are shared automatically once you have received at least one chunk (a chunk is a 9.28 MB piece of a file).
+- Your download speed depends on how fast you upload. aMule caps your download relative to your upload limit: an upload below 4 kB/s caps downloads at 3× the upload, and an upload of 4–9 kB/s caps them at 4×; at 10 kB/s or above this ratio is no longer enforced. For example, limiting upload to 5 kB/s caps your download at ~20 kB/s.
+- Partially downloaded files are shared automatically once you have received at least one [chunk](./p2p-networks/ed2k/index.md#chunks) (a chunk is a 9.28 MB piece of a file).
 
 When you first open the [Preferences](./manual/interfaces/gui/preferences.md) dialog, the **General** page is shown. To configure bandwidth, click the **Connection** tab:
 
 ![Bandwidth limits dialog](/img/docs/bandwidth_limits.png)
 
-aMule ships with both upload and download caps **disabled by default** (`MaxUpload=0`, `MaxDownload=0` — both interpreted as literal unlimited). On a connection that aMule can saturate, this means aMule will eat all the bandwidth available to it, starving every other application sharing the link; an uncapped upload can also slow down your own downloads (saturated upstream kills the TCP ACKs that drive your downloads). **Setting realistic limits is strongly recommended.**
+aMule ships with both upload and download caps **disabled by default** (`MaxUpload=0`, `MaxDownload=0` — both interpreted as literal unlimited). On a connection that aMule can saturate, this means aMule will eat all the bandwidth available to it, starving every other application sharing the link; an uncapped upload can also slow down your own downloads (saturated upstream kills the TCP ACKs that drive your downloads). **Setting realistic limits is strongly recommended.** See [Slow Download Speeds](./manual/troubleshooting/slow-speeds.md) if aMule is starving the rest of your connection.
 
 Under **Bandwidth Limits** — the **Upload** and **Download** fields — set both to roughly **80% of your actual line speed**. Values are in **kilobytes per second** (kB/s); ISP advertised speeds are usually in **megabits per second** (Mbps). To convert, multiply Mbps by **125**.
 
@@ -46,8 +46,8 @@ Once you have entered the correct values, click **OK** to save.
 
 aMule can connect to two networks simultaneously:
 
-- **ED2K** — the classic server-based eDonkey network.
-- **Kademlia (Kad)** — a serverless distributed network. This allows aMule and other eDonkey clients to function without relying on centralised servers.
+- **[ED2K](./p2p-networks/ed2k/index.md)** — the classic server-based eDonkey network.
+- **[Kademlia (Kad)](./p2p-networks/kademlia.md)** — a serverless distributed network. This allows aMule and other eDonkey clients to function without relying on centralised servers.
 
 Both networks are enabled by default. You can disable either from the lower part of the **Connection** [preferences](./manual/interfaces/gui/preferences.md#connection) page. Users with slow upload speeds should consider enabling only one network to reduce overhead.
 
@@ -57,7 +57,7 @@ After opening aMule you should see the [Networks](./manual/interfaces/gui/networ
 
 ![Empty server list](/img/docs/serverlist_empty.png)
 
-The server list is empty on first run. To populate it, click the text field that contains the URL (e.g. `https://upd.emule-security.org/server.met`) and press Enter. A dialog will appear briefly while the list downloads.
+The [server list](./p2p-networks/ed2k/servers.md#the-server-list) is empty on first run. To populate it, click the text field that contains the URL (e.g. `https://upd.emule-security.org/server.met`) and press Enter. A dialog will appear briefly while the list downloads.
 
 ![Server list populated via ED2K](/img/docs/serverlist_ed2k.png)
 
@@ -67,7 +67,7 @@ Once you have a list of servers, click the large **Connect** button near the top
 
 To connect to the Kademlia network (when it is enabled in preferences), press the **Connect** button on the top toolbar. Note that manually connecting to a specific ED2K server by double-clicking it does **not** connect you to Kademlia.
 
-Alternatively, go to the **Kad** sub-page of the [Networks](./manual/interfaces/gui/networks.md) window and press **Bootstrap from known clients**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
+Alternatively, go to the **Kad** sub-page of the [Networks](./manual/interfaces/gui/networks.md) window and press **[Bootstrap from known clients](./p2p-networks/kademlia.md#manual-bootstrapping)**. If this is your first time using Kad, update your `nodes.dat` file by clicking the URL text field and pressing Enter. You do not need to repeat this later — aMule keeps the node list updated while it is running.
 
 ![Kademlia network page](/img/docs/serverlist_kad.png)
 
@@ -133,7 +133,7 @@ Examples:
 |---|---|
 | **Local** | Queries only the currently connected server. Fast; sufficient in most cases. |
 | **Global** | Queries every server in your list (~0.75 s per server). Use when Local returns no results. |
-| **Kad** | Queries the Kademlia network. Results represent complete sources only (unlike ED2K, which counts both complete and incomplete sources). |
+| **Kad** | Queries the Kademlia network. When the same file is reported by several Kad results, the source counts are merged by taking the maximum, whereas ED2K sums the counts reported by each server. |
 
 ### The Download Queue
 
@@ -150,12 +150,12 @@ Double-click any file to inspect the sources found for it.
 | Column | Description |
 |---|---|
 | **Filename** | Name of the file. |
-| **Size** | File size. The eD2k network supports files up to 4 GB. |
+| **Size** | File size. The original eD2k protocol capped files at 4 GB, but aMule supports large files up to 256 GB when the peers involved also support the large-file extension. |
 | **Transferred** | Total bytes received so far. |
 | **Completed** | How much of the file is actually complete. May be less than *Transferred* if corrupted data was received and discarded. |
 | **Progress** | Visual progress bar. Blue = sources available (darker = more sources); Red = no source has this part; Black = already downloaded; Yellow = currently downloading. The thin green bar on top shows overall completion. |
 | **Sources** | Format: `<Asked>[/All] [+A4AF] [(Transferring)]`. *Asked* = sources that have been queried; *All* = all known sources; *A4AF* = sources asked for another file; *Transferring* = sources uploading to you right now. |
-| **Priority** | Download priority. Auto-priority (default) lets aMule manage allocation automatically. Higher-priority files attract more sources. |
+| **Priority** | [Download priority](./manual/interfaces/gui/priority.md). Auto-priority (default) lets aMule manage allocation automatically. Higher-priority files attract more sources. |
 | **Status** | Current state of the download. *Waiting* means aMule is waiting for a source to start uploading. |
 | **Time Remaining** | Estimated time to completion. Only shown when actively receiving data. |
 | **Last Seen Complete** | Last time a source had the complete file. |
@@ -202,7 +202,7 @@ The Transfers page uses small icons to indicate the state of each source connect
 | eMule protocol | Client supports extended eMule protocol extensions (source sharing, etc.). |
 | Good credit | Client has a good credit rating. |
 | Normal credit | Client has a normal credit rating. |
-| Secure ID (good) | Client has been securely identified. |
+| [Secure ID](./p2p-networks/ed2k/secure-user-identification.md) (good) | Client has been securely identified. |
 | Secure ID (bad) | Client has been flagged as a bad actor. |
 
 ### Categories for Downloads
@@ -219,7 +219,7 @@ aMule uses a **Temporary directory** for in-progress downloads and an **Incoming
 
 If a directory named `config` exists next to the aMule executable, configuration files are stored there instead — useful for running aMule from a USB drive.
 
-If you have incomplete downloads from eMule, copy their temp files into aMule's Temp directory and aMule will resume them.
+If you have incomplete downloads from eMule, copy their temp files into aMule's Temp directory and aMule will resume them. See [Migrating from eMule](./manual/migration/migrate-from-emule.md#temporary-files-downloads-in-progress) for the full procedure.
 
 ### Sharing Files
 

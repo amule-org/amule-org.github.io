@@ -12,36 +12,36 @@ interface WhatsNew {
 const WHATS_NEW: WhatsNew[] = [
   {
     tag: 'Performance',
-    label: <Translate id="homepage.highlights.hl1.label">Dramatically faster transfers</Translate>,
+    label: <Translate id="homepage.highlights.performance.label">Dramatically faster transfers</Translate>,
     detail: (
-      <Translate id="homepage.highlights.hl1.detail">
+      <Translate id="homepage.highlights.performance.detail">
         Disk I/O moved off the main thread and the network layer overhauled. Peer-to-peer downloads see ~100–380× speedups over 2.3.3 across macOS, Linux, and Windows.
       </Translate>
     ),
   },
   {
     tag: 'Packages',
-    label: <Translate id="homepage.highlights.hl4.label">Binaries for every desktop</Translate>,
+    label: <Translate id="homepage.highlights.packages.label">Binaries for every desktop</Translate>,
     detail: (
-      <Translate id="homepage.highlights.hl4.detail">
+      <Translate id="homepage.highlights.packages.detail">
         Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x64 and ARM64 where supported.
       </Translate>
     ),
   },
   {
     tag: 'Bandwidth',
-    label: <Translate id="homepage.highlights.hl6.label">Bandwidth limiting that works</Translate>,
+    label: <Translate id="homepage.highlights.bandwidth.label">Bandwidth limiting that works</Translate>,
     detail: (
-      <Translate id="homepage.highlights.hl6.detail" values={{code: <code>MaxUpload=0</code>}}>
+      <Translate id="homepage.highlights.bandwidth.detail" values={{code: <code>MaxUpload=0</code>}}>
         {'Upload and download throttlers rewritten as proper token-bucket limiters. {code} means literal unlimited.'}
       </Translate>
     ),
   },
   {
     tag: 'CMake',
-    label: <Translate id="homepage.highlights.hl3.label">Modern build system</Translate>,
+    label: <Translate id="homepage.highlights.buildSystem.label">Modern build system</Translate>,
     detail: (
-      <Translate id="homepage.highlights.hl3.detail">
+      <Translate id="homepage.highlights.buildSystem.detail">
         Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.
       </Translate>
     ),

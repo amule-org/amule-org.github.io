@@ -4,85 +4,81 @@ title: Documentación de aMule
 slug: /
 ---
 
-aMule es un cliente peer-to-peer libre, de código abierto y multiplataforma para compartir archivos en las redes **eD2k (eDonkey2000)** y **Kademlia (Kad)**. Está escrito en C++ con wxWidgets y funciona en Windows, macOS, Linux, FreeBSD y OpenBSD.
+aMule es un programa para compartir archivos libre y de código abierto para las redes peer-to-peer [**eD2k (eDonkey2000)**](p2p-networks/ed2k/index.md) y [**Kademlia (Kad)**](p2p-networks/kademlia.md). Funciona en Windows, macOS, Linux, FreeBSD y OpenBSD, y se mantiene fiel a eMule en aspecto y manejo para que cambiar de uno a otro sea sencillo.
 
 ## Historia
 
-aMule surgió como fork del proyecto xMule (anteriormente conocido como lMule) en septiembre de 2003. Comenzó como una continuación multiplataforma del linaje *Mule y desde entonces ha evolucionado sustancialmente respecto a sus orígenes.
+aMule nació en agosto de 2003 como un fork multiplataforma de xMule (que a su vez derivaba de lMule), llevando la experiencia de eMule a sistemas más allá de Windows. Desde entonces ha crecido mucho más allá de sus orígenes.
 
 ## Características
 
-### Características de *Mule
+### Características heredadas de eMule
 
-aMule implementa la mayoría de las características del cliente eMule original:
+aMule incluye las características que los usuarios de eMule ya reconocerán:
 
-- Soporte para las redes **eD2k y Kademlia**.
-- Disponible en **28 idiomas**.
-- **Source Exchange** — los clientes comparten listas de fuentes para encontrar fuentes de descarga adicionales de forma más eficiente.
-- **Sistema de créditos** — recompensa a los usuarios que comparten con otros; las colas largas se gestionan de forma equitativa para que todos los clientes reciban finalmente los archivos que desean.
-- **Transferencias y comunicación con servidores comprimidas** mediante zlib — transferencias más rápidas para archivos comprimibles y menor carga en los servidores.
-- **Identificación segura** — previene el robo de hashes de usuario y la suplantación de clientes.
-- **Filtros IP** — bloquea conexiones desde rangos de IP conocidos como problemáticos.
-- **Búsqueda booleana** — operadores `AND`, `OR`, `NOT` en las consultas de búsqueda.
-- **Variantes de barra de progreso** — barra de fragmentos tradicional, porcentaje completado, o ambas simultáneamente.
-- **Integración en la bandeja del sistema** para GNOME, KDE y gestores de ventanas compatibles (y Windows).
-- **Online Signatures** — `amulesig.dat` permite a herramientas externas mostrar el estado de aMule.
-- **Detección agresiva de clientes** — detecta y bloquea peers con comportamiento incorrecto.
-- **Hashes MD4** — utilizados para descubrimiento de fuentes y verificación de integridad de archivos, previniendo la corrupción.
-- **ICH y AICH** — Intelligent Corruption Handler y Advanced Intelligent Corruption Handler aceleran la corrección de partes de archivos corruptas.
-- **Prioridades automáticas y gestión de fuentes** — inicia múltiples descargas sin supervisión manual.
-- **Función de previsualización** — permite ver vídeos y archivos comprimidos antes de que la descarga finalice (se recomienda MPlayer o Xine; VLC también funciona).
-- **Categorías** — organiza las descargas en grupos con nombre.
-- **Tipos de búsqueda**:
-  - Búsqueda en servidor local
-  - Búsqueda global en servidores (consulta todos los servidores conocidos)
-  - Búsqueda Kademlia
-  - Integración con navegadores mediante enlaces `ed2k://` para descarga con un clic
-- **Sistema de mensajería y amigos** — envía mensajes a otros clientes y mantiene una lista de amigos.
-- **Actualización de la lista de servidores desde URL** — actualiza al inicio, al conectar, o manualmente en tiempo de ejecución.
-- **PowerShare** — gestión prioritaria de tus propios archivos compartidos (conocido como Release).
-- **Soporte de skins**.
+- **Dos redes** — se conecta tanto a la red eD2k como a Kad para acceder al mayor conjunto posible de archivos y fuentes.
+- **37 idiomas** — usa aMule en tu propio idioma.
+- **Intercambio de fuentes** — los clientes se comparten entre sí sus listas de fuentes, así encuentras más sitios desde los que descargar, y más rápido.
+- **[Sistema de créditos](p2p-networks/concepts.md)** — cuanto más subes a alguien, antes te sube esa persona a ti, manteniendo el reparto justo para todos.
+- **Transferencias comprimidas** — los datos se comprimen al vuelo para transferencias más rápidas y menos carga en los servidores.
+- **[Identificación segura](p2p-networks/ed2k/secure-user-identification.md)** — protege tu identidad para que nadie pueda hacerse pasar por ti ni robarte tus créditos de subida.
+- **Filtrado de IP** — bloquea conexiones desde rangos de direcciones conocidos como problemáticos o no deseados.
+- **Búsqueda booleana** — afina tus búsquedas con `AND`, `OR` y `NOT`.
+- **Visualización de progreso flexible** — muestra el progreso de la descarga como barra de fragmentos, como porcentaje, o ambos.
+- **[Bandeja del sistema](manual/interfaces/gui/tray-icon.md)** — mantén aMule funcionando discretamente en la bandeja del sistema (o área de notificación) en todos los escritorios principales.
+- **[Firma en línea](manual/utilities/wxcas-cas.md)** — publica tu estado actual, como la velocidad y las descargas activas, en una web o en la firma de un foro.
+- **Detección de clientes que hacen trampa** — detecta y bloquea a los peers que intentan saltarse las reglas de compartición.
+- **[Reparación automática de corrupción](p2p-networks/ed2k/aich.md)** — las descargas se comprueban para verificar su integridad, y las partes dañadas se detectan y se vuelven a descargar por sí solas.
+- **Gestión de descargas automática** — aMule asigna [prioridades](manual/interfaces/gui/priority.md) y busca fuentes por sí mismo, así puedes iniciar muchas descargas y dejarlas funcionando.
+- **[Previsualización](manual/interfaces/gui/downloads.md)** — mira un vídeo o abre un archivo comprimido antes de que termine la descarga (usando tu reproductor multimedia preferido; MPlayer por defecto).
+- **[Categorías](manual/interfaces/gui/downloads.md#categories)** — organiza tus descargas en grupos con nombre.
+- **[Varias formas de buscar](manual/interfaces/gui/searches.md)**:
+  - Tu servidor conectado
+  - Todos los servidores conocidos a la vez (búsqueda global)
+  - La red Kad, que puede pedir más resultados a peers adicionales
+  - Directamente desde tu navegador, haciendo clic en [enlaces `ed2k://`](p2p-networks/ed2k/links.md)
+- **[Amigos y mensajería](manual/interfaces/gui/messages.md)** — mantén una lista de amigos e intercambia mensajes con otros usuarios.
+- **[Actualización automática de la lista de servidores](p2p-networks/ed2k/servers.md)** — mantén tu lista de servidores al día automáticamente, o actualízala cuando quieras.
+- **[PowerShare](manual/interfaces/gui/priority.md#release-priority)** — da máxima prioridad a tus propios archivos compartidos para que otros puedan obtenerlos rápidamente.
+- **[Skins](manual/interfaces/gui/skins.md)** — cambia el aspecto de aMule con skins descargables.
 
-### Características específicas de aMule
+### Características añadidas por aMule
 
-Además de la base *Mule, aMule añade:
+Además de eso, aMule añade capacidades propias:
 
-- **Multiplataforma** — Windows, macOS, Linux, BSD y muchas más.
-- **Soporte de proxy**.
-- **Mejores controles contra clientes agresivos**.
-- **Protocolo External Connections (EC) completo** — desarrollado desde cero; permite el control remoto total.
-- **aMule Daemon ([`amuled`](manual/interfaces/amuled.md))** — ejecuta aMule como proceso sin interfaz gráfica con un uso muy bajo de CPU y memoria. Ideal para servidores y dispositivos NAS.
-- **aMuleGUI ([`amulegui`](manual/interfaces/gui/amulegui.md))** — GUI remota con la misma interfaz que el cliente local.
-- **aMuleWeb ([`amuleweb`](manual/interfaces/amuleweb.md))** — interfaz basada en navegador; funciona de forma local y remota desde cualquier dispositivo.
-- **aMuleCMD ([`amulecmd`](manual/interfaces/amulecmd.md))** — control remoto por línea de comandos; scriptable mediante shell y cron.
-- **Herramientas de estadísticas** — [`cas` y `wxcas`](manual/utilities/wxcas-cas.md) leen `amulesig.dat` para generar imágenes de estado y páginas HTML.
-- **ALinkCreator ([`alc` / `alcc`](manual/utilities/alc-alcc.md))** — genera enlaces ed2k para archivos locales sin necesidad de ejecutar aMule.
-- **Gestor rápido de enlaces ed2k** — integrado en la parte inferior de cada página (puede desactivarse en Preferencias).
-- **Ejecutar un comando al completar un archivo**.
-- **Guardar hasta 20 fuentes en archivos poco comunes** (≤20 fuentes) — mejora la reconexión tras reinicios.
-- **Filtrar resultados de búsqueda**.
-- **Permisos de archivo por defecto** para las descargas completadas.
-- **Soporte de múltiples sistemas de archivos**.
-- **Comprobación de actualizaciones de versión**.
-- **Asignación de slots** — especifica el ancho de banda mínimo por slot de subida. Por ejemplo, con 20 KB/s de capacidad de subida y una asignación de 10 KB/s por slot, aMule sube a dos clientes simultáneamente a 10 KB/s cada uno.
+- **[Funciona en todas partes](manual/installation/index.md)** — soporte nativo para Windows, macOS, Linux y BSD.
+- **[Soporte de proxy](manual/configuration/proxy.md)** — enruta tu conexión a través de un servidor proxy.
+- **Control remoto completo** — ejecuta aMule en segundo plano y gestiónalo de forma remota desde una [GUI remota](manual/interfaces/gui/amulegui.md), una [interfaz web](manual/interfaces/amuleweb.md) o una [interfaz de línea de comandos](manual/interfaces/amulecmd.md), todo sobre su sistema de [External Connections (EC)](developer/ec-protocol.md).
+- **Barra rápida de enlaces ed2k** — pega enlaces `ed2k://` directamente en una barra en la parte inferior de cada ventana (puede desactivarse).
+- **[Ejecutar un comando al completar](manual/configuration/events.md)** — lanza automáticamente un script o programa cuando termina una descarga.
+- **Recuerda las fuentes de archivos poco comunes** — guarda dónde encontrar archivos difíciles de conseguir para que tus descargas se reanuden rápidamente tras un reinicio.
+- **[Filtrado de resultados de búsqueda](manual/interfaces/gui/searches.md)** — oculta los resultados no deseados para que encuentres lo que buscas más rápido.
+- **Permisos de archivo por defecto** — elige los permisos de acceso que se aplican a las descargas completadas.
+- **Funciona entre sistemas de archivos** — guarda las descargas y los archivos compartidos en distintas unidades o sistemas de archivos.
+- **Avisos de actualización** — aMule te avisa cuando hay una nueva versión disponible.
+- **Reescaneo automático de carpetas** — aMule detecta cuándo se añaden, cambian o eliminan archivos en tus [carpetas compartidas y en Incoming](manual/configuration/directories.md), sin recarga manual.
+- **Inicio al arrancar sesión** — haz que aMule se inicie automáticamente cuando inicias sesión.
+- **Consulta de país** — muestra el país de los servidores y usuarios a los que te conectas (se requiere la descarga de una base de datos de países gratuita).
+- **Actualizaciones seguras (HTTPS)** — las listas de servidores y de filtros pueden descargarse mediante conexiones HTTPS seguras.
+- **Control de slots de subida** — fija una velocidad mínima por subida para compartir con un número razonable de personas a la vez, en lugar de repartirte demasiado.
 
 ## Inicio rápido
 
-- [Guía de inicio rápido](quickstart-guide/index.md) — primera ejecución, configuración, búsqueda y descarga
+- [Primeros pasos](quickstart-guide.md) — primera ejecución, configuración, búsqueda y descarga
 
 ## Módulos
 
-| Binario | Descripción |
+| Herramienta | Qué hace |
 |---|---|
-| [`amule`](manual/interfaces/gui/amule.md) | Cliente GUI todo en uno |
-| [`amuled`](manual/interfaces/amuled.md) | Daemon sin interfaz gráfica |
-| [`amulegui`](manual/interfaces/gui/amulegui.md) | GUI remota; se conecta a `amuled` mediante el protocolo EC |
-| [`amuleweb`](manual/interfaces/amuleweb.md) | Interfaz web HTTP para un `amuled` en ejecución |
-| [`amulecmd`](manual/interfaces/amulecmd.md) | Interfaz interactiva de línea de comandos para un `amuled` en ejecución |
-| [`ed2k`](manual/utilities/ed2k.md) | Herramienta de línea de comandos para añadir enlaces eD2k a una instancia de aMule en ejecución |
-| [`alc` / `alcc`](manual/utilities/alc-alcc.md) | Herramientas GUI y de línea de comandos para generar enlaces ed2k de archivos locales |
-| [`wxcas` / `cas`](manual/utilities/wxcas-cas.md) | Herramientas de estadísticas que muestran el estado de aMule desde `amulesig.dat` |
+| [`amule`](manual/interfaces/gui/amule.md) | Cliente todo en uno con interfaz gráfica completa |
+| [`amuled`](manual/interfaces/amuled.md) | Versión en segundo plano sin ventana (demonio) |
+| [`amulegui`](manual/interfaces/gui/amulegui.md) | Interfaz gráfica que controla un aMule en segundo plano |
+| [`amuleweb`](manual/interfaces/amuleweb.md) | Interfaz web para un aMule en segundo plano |
+| [`amulecmd`](manual/interfaces/amulecmd.md) | Interfaz de línea de comandos para un aMule en segundo plano |
+| [`ed2k`](manual/utilities/ed2k.md) | Utilidad de línea de comandos que envía enlaces `ed2k://` a un aMule en ejecución |
+| [`alc` / `alcc`](manual/utilities/alc-alcc.md) | Crea enlaces `ed2k://` para tus propios archivos (gráfica y línea de comandos) |
+| [`wxcas` / `cas`](manual/utilities/wxcas-cas.md) | Muestra tu estado de aMule como imágenes o páginas web |
 
-## Plataformas compatibles
+## Plataformas soportadas
 
-Windows, macOS, Linux, FreeBSD y OpenBSD (x86\_64 y ARM64).
+aMule funciona en Windows, macOS, Linux, FreeBSD y OpenBSD, en hardware x86\_64 y ARM64.

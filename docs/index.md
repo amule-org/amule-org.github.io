@@ -4,67 +4,63 @@ title: aMule Documentation
 slug: /
 ---
 
-aMule is a free, open-source, multi-platform peer-to-peer file-sharing client for the **eD2k (eDonkey2000)** and **Kademlia (Kad)** networks. It is written in C++ using wxWidgets and runs on Windows, macOS, Linux, FreeBSD, and OpenBSD.
+aMule is a free, open-source file-sharing program for the [**eD2k (eDonkey2000)**](./p2p-networks/ed2k/index.md) and [**Kademlia (Kad)**](./p2p-networks/kademlia.md) peer-to-peer networks. It runs on Windows, macOS, Linux, FreeBSD, and OpenBSD, and stays close to eMule in look and feel so users can switch with ease.
 
 ## History
 
-aMule was forked from the xMule project (formerly known as lMule) in September 2003. It started as a multiplatform continuation of the *Mule lineage and has since diverged substantially from its origins.
+aMule began in August 2003 as a multiplatform fork of xMule (itself derived from lMule), bringing the eMule experience to systems beyond Windows. It has grown well beyond its origins ever since.
 
 ## Features
 
-### *Mule features
+### Features inherited from eMule
 
-aMule implements most features of the original eMule client:
+aMule supports the features eMule users will already recognize:
 
-- **eD2k and Kademlia** network support.
-- Available in **28 languages**.
-- **Source Exchange** — clients share source lists to find additional download sources more efficiently.
-- **Credit system** — rewards users who upload to others; large queues are managed fairly so all clients eventually receive the files they want.
-- **Compressed transfers and server communication** using zlib — faster transfers for compressible files and reduced server load.
-- **Secure Identification** — prevents user hash theft and client impersonation.
-- **IP Filters** — block connections from known-bad IP ranges.
-- **Boolean search** — `AND`, `OR`, `NOT` operators in search queries.
-- **Progress bar variants** — traditional chunk bar, percentage completed, or both simultaneously.
-- **Systray integration** for GNOME, KDE, and compatible window managers (and Windows).
-- **Online Signatures** — `amulesig.dat` lets external tools display your aMule status.
-- **Aggressive client detection** — checks and blocks misbehaving peers.
-- **MD4 hashes** — used for source discovery and file integrity verification, preventing corruption.
-- **ICH and AICH** — Intelligent Corruption Handler and Advanced Intelligent Corruption Handler speed up correction of corrupted file parts.
-- **Auto priorities and source management** — start many downloads without manual monitoring.
-- **Preview function** — view videos and archives before download completes (MPlayer or Xine recommended; VLC also works).
-- **Categories** — organize downloads into named groups.
-- **Search types**:
-  - Local server search
-  - Global server search (queries all known servers)
-  - Kademlia search
-  - Integration with browsers via `ed2k://` links for click-to-download
-- **Messaging and Friends system** — send messages to other clients and maintain a friends list.
-- **Server list updates from URL** — update at startup, on connect, or manually at runtime.
-- **PowerShare** — prioritized handling of your own shared files (known as Release).
-- **Skins support**.
+- **Two networks** — connects to both the eD2k and Kad networks for the widest possible pool of files and sources.
+- **37 languages** — use aMule in your own language.
+- **Source Exchange** — clients share their source lists with each other, so you find more places to download from, faster.
+- **[Credit system](./p2p-networks/concepts.md)** — the more you upload to someone, the sooner they upload back to you, keeping sharing fair for everyone.
+- **Compressed transfers** — data is compressed on the fly for faster transfers and less load on servers.
+- **[Secure identification](./p2p-networks/ed2k/secure-user-identification.md)** — protects your identity so no one can impersonate you or steal your upload credits.
+- **IP filtering** — block connections from known-bad or unwanted address ranges.
+- **Boolean search** — refine your searches with `AND`, `OR`, and `NOT`.
+- **Flexible progress display** — show download progress as a chunk bar, a percentage, or both.
+- **[System tray](./manual/interfaces/gui/tray-icon.md)** — keep aMule running quietly in the system tray (or notification area) on all major desktops.
+- **[Online signature](./manual/utilities/wxcas-cas.md)** — publish your current status, such as speed and active downloads, on a website or forum signature.
+- **Misbehaving-client detection** — spots and blocks peers that try to cheat the sharing rules.
+- **[Automatic corruption repair](./p2p-networks/ed2k/aich.md)** — downloads are checked for integrity, and damaged parts are detected and re-downloaded on their own.
+- **Hands-off download management** — aMule sets [priorities](./manual/interfaces/gui/priority.md) and finds sources by itself, so you can start many downloads and leave them running.
+- **[Preview](./manual/interfaces/gui/downloads.md)** — watch a video or open an archive before the download finishes (using your preferred media player; MPlayer by default).
+- **[Categories](./manual/interfaces/gui/downloads.md#categories)** — organize your downloads into named groups.
+- **[Several ways to search](./manual/interfaces/gui/searches.md)**:
+  - Your connected server
+  - All known servers at once (global search)
+  - The Kad network, which can ask extra peers for more results
+  - Straight from your browser, by clicking [`ed2k://` links](./p2p-networks/ed2k/links.md)
+- **[Friends and messaging](./manual/interfaces/gui/messages.md)** — keep a friends list and exchange messages with other users.
+- **[Automatic server-list updates](./p2p-networks/ed2k/servers.md)** — keep your server list current automatically, or refresh it whenever you like.
+- **[PowerShare](./manual/interfaces/gui/priority.md#release-priority)** — give your own shared files top priority so others can grab them quickly.
+- **[Skins](./manual/interfaces/gui/skins.md)** — change aMule's appearance with downloadable skins.
 
-### aMule-specific features
+### Features added by aMule
 
-In addition to the *Mule baseline, aMule adds:
+On top of that, aMule adds capabilities of its own:
 
-- **Multiplatform** — Windows, macOS, Linux, BSD, and many more.
-- **Proxy support**.
-- **Improved checks against aggressive clients**.
-- **Complete External Connections (EC) protocol** — built from scratch; allows full remote control.
-- **aMule Daemon ([`amuled`](./manual/interfaces/amuled.md))** — run aMule as a headless process with very low CPU and memory usage. Ideal for servers and NAS devices.
-- **aMuleGUI ([`amulegui`](./manual/interfaces/gui/amulegui.md))** — remote GUI with the same interface as the local client.
-- **aMuleWeb ([`amuleweb`](./manual/interfaces/amuleweb.md))** — browser-based interface; works locally and remotely from any device.
-- **aMuleCMD ([`amulecmd`](./manual/interfaces/amulecmd.md))** — command-line remote control; scriptable via shell and cron.
-- **Statistics tools** — [`cas` and `wxcas`](./manual/utilities/wxcas-cas.md) read `amulesig.dat` to generate status images and HTML pages.
-- **ALinkCreator ([`alc` / `alcc`](./manual/utilities/alc-alcc.md))** — generate ed2k links for local files without running aMule.
-- **Fast ed2k link handler** — embedded at the bottom of every page (can be disabled in Preferences).
-- **Run a command when a file completes**.
-- **Save up to 20 sources on rare files** (≤20 sources) — improves re-connectivity after restarts.
-- **Filter search results**.
-- **Default file permissions** for completed downloads.
-- **Multiple filesystem support**.
-- **Version update checks**.
-- **Slot allocation** — specify the minimum bandwidth per upload slot. For example, with 20 KB/s upload capacity and a 10 KB/s slot allocation, aMule uploads to two clients simultaneously at 10 KB/s each.
+- **[Runs everywhere](./manual/installation/index.md)** — native support for Windows, macOS, Linux, and BSD.
+- **[Proxy support](./manual/configuration/proxy.md)** — route your connection through a proxy server.
+- **Full remote control** — run aMule in the background and manage it remotely from a [remote GUI](./manual/interfaces/gui/amulegui.md), a [web interface](./manual/interfaces/amuleweb.md), or a [command-line interface](./manual/interfaces/amulecmd.md), all built on its [External Connections (EC)](./developer/ec-protocol.md) system.
+- **Quick ed2k link bar** — paste `ed2k://` links straight into a bar at the bottom of every window (can be turned off).
+- **[Run a command on completion](./manual/configuration/events.md)** — automatically launch a script or program when a download finishes.
+- **Remembers sources for rare files** — saves where to find hard-to-get files so your downloads pick up again quickly after a restart.
+- **[Search-result filtering](./manual/interfaces/gui/searches.md)** — hide unwanted results so you find what you want faster.
+- **Default file permissions** — choose the access permissions applied to completed downloads.
+- **Works across filesystems** — keep downloads and shared files on different drives or filesystems.
+- **Update notifications** — aMule lets you know when a new version is available.
+- **Automatic folder rescan** — aMule notices when files are added, changed, or removed in your [shared and Incoming folders](./manual/configuration/directories.md), with no manual refresh.
+- **Start on login** — have aMule launch automatically when you sign in.
+- **Country lookup** — shows the country of the servers and users you connect to (a free country database download is required).
+- **Secure (HTTPS) updates** — server lists and filter lists can be downloaded over secure HTTPS connections.
+- **Upload slot control** — set a minimum speed per upload so you share with a sensible number of people at once, instead of spreading too thin.
 
 ## Quick Start
 
@@ -72,17 +68,17 @@ In addition to the *Mule baseline, aMule adds:
 
 ## Modules
 
-| Binary | Description |
+| Tool | What it does |
 |---|---|
-| [`amule`](./manual/interfaces/gui/amule.md) | All-in-one GUI client |
-| [`amuled`](./manual/interfaces/amuled.md) | Headless daemon (no GUI) |
-| [`amulegui`](./manual/interfaces/gui/amulegui.md) | Remote GUI; connects to `amuled` via the EC protocol |
-| [`amuleweb`](./manual/interfaces/amuleweb.md) | HTTP web interface for a running `amuled` |
-| [`amulecmd`](./manual/interfaces/amulecmd.md) | Interactive command-line interface for a running `amuled` |
-| [`ed2k`](./manual/utilities/ed2k.md) | Command-line tool for adding eD2k links to a running aMule instance |
-| [`alc` / `alcc`](./manual/utilities/alc-alcc.md) | GUI and command-line tools for generating ed2k links for local files |
-| [`wxcas` / `cas`](./manual/utilities/wxcas-cas.md) | Statistics tools that display aMule status from `amulesig.dat` |
+| [`amule`](./manual/interfaces/gui/amule.md) | All-in-one client with a full graphical interface |
+| [`amuled`](./manual/interfaces/amuled.md) | Background version with no window (daemon) |
+| [`amulegui`](./manual/interfaces/gui/amulegui.md) | Graphical interface that controls a background aMule |
+| [`amuleweb`](./manual/interfaces/amuleweb.md) | Web interface for a background aMule |
+| [`amulecmd`](./manual/interfaces/amulecmd.md) | Command-line interface for a background aMule |
+| [`ed2k`](./manual/utilities/ed2k.md) | Command-line helper that sends `ed2k://` links to a running aMule |
+| [`alc` / `alcc`](./manual/utilities/alc-alcc.md) | Create `ed2k://` links for your own files (graphical and command-line) |
+| [`wxcas` / `cas`](./manual/utilities/wxcas-cas.md) | Show your aMule status as images or web pages |
 
 ## Supported Platforms
 
-Windows, macOS, Linux, FreeBSD, and OpenBSD (x86\_64 and ARM64).
+aMule runs on Windows, macOS, Linux, FreeBSD, and OpenBSD, on both x86\_64 and ARM64 hardware.

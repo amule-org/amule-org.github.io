@@ -73,6 +73,23 @@
   background: rgba(255 255 255 / 0.03);
 }
 
+.docsCta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.docsLink {
+  display: inline-block;
+  color: var(--ifm-color-primary-lighter);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.docsLink:hover {
+  text-decoration: underline;
+}
+
 .iconWrap {
   width: 36px;
   height: 36px;
