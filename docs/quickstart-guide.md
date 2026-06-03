@@ -34,14 +34,11 @@ When you first open the [Preferences](./manual/interfaces/gui/preferences.md) di
 
 ![Bandwidth limits dialog](/img/docs/bandwidth_limits.png)
 
-The relevant settings are under **Bandwidth Limits** — the **Upload** and **Download** fields. You don't need to set a maximum download speed, but it is recommended to set the upload speed to around **80% of your actual speed**, as leaving it uncapped can slow down downloads.
+aMule ships with both upload and download caps **disabled by default** (`MaxUpload=0`, `MaxDownload=0` — both interpreted as literal unlimited). On a connection that aMule can saturate, this means aMule will eat all the bandwidth available to it, starving every other application sharing the link; an uncapped upload can also slow down your own downloads (saturated upstream kills the TCP ACKs that drive your downloads). **Setting realistic limits is strongly recommended.**
 
-Note that ISP speeds are typically given in kilo**bits** per second (kb/s), but aMule expects kilo**bytes** per second (kB/s). Divide by 8 to convert:
+Under **Bandwidth Limits** — the **Upload** and **Download** fields — set both to roughly **80% of your actual line speed**. Values are in **kilobytes per second** (kB/s); ISP advertised speeds are usually in **megabits per second** (Mbps). To convert, multiply Mbps by **125**.
 
-```
-Maximum Downstream: 1024 kb/s ÷ 8 = 128 kB/s
-Maximum Upstream:    512 kb/s ÷ 8 =  64 kB/s
-```
+> **Example**: a 100 Mbps / 20 Mbps fibre line → roughly 12,500 kB/s downstream and 2,500 kB/s upstream. Set the limits to about **10,000 down / 2,000 up** to stay below the line cap.
 
 Once you have entered the correct values, click **OK** to save.
 
