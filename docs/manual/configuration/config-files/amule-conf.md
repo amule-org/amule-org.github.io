@@ -176,6 +176,8 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 
 ### Statistics
 
+Settings behind the [Statistics](../../interfaces/gui/statistics.md) window's graphs and tree.
+
 | Key | Default | Description |
 |---|---|---|
 | `StatGraphsInterval` | `3` | Graph update interval in seconds. |
@@ -353,7 +355,7 @@ See the [Events](../events.md) page for the substitution variables available to 
 
 | Key | Default | Description |
 |---|---|---|
-| `Skin` | _(empty)_ | Path to the skin `.zip` file used to customise aMule's bitmaps. Empty = no skin (default appearance). |
+| `Skin` | _(empty)_ | Path to the skin `.zip` file used to customise aMule's bitmaps. Empty = no skin (default appearance). See [Skins](../../interfaces/gui/skins.md). |
 
 ## `[GUI]`, `[GUI/TransferWnd]` and `[GUI/SharedWnd]` sections
 

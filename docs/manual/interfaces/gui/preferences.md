@@ -209,7 +209,7 @@ Options for aMule's graphical interface.
 
 ## Statistics
 
-Options for aMule's statistics display.
+Options for aMule's [Statistics](./statistics.md) display.
 
 ![Statistics preferences tab](/img/docs/gui_preferences/preferences_statistics.png)
 

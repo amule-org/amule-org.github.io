@@ -14,17 +14,63 @@ aMule supports two independent skinning systems:
 
 ### What can be skinned
 
-aMule bitmap skins replace the icons in the toolbar and in the client list. Toolbar images are **32×32 px** and client images are **16×16 px**. Any image not present in the skin falls back to the aMule default.
+aMule bitmap skins replace the icons in the [toolbar](./toolbar.md) and the per-source [client icons](./downloads.md#client-icons) shown in the download queue. Toolbar images are **32×32 px** and client images are **16×16 px**. Any image not present in the skin falls back to the aMule default.
 
 ### Enabling a skin
 
-1. Open **Preferences → Interface**.
+1. Open **[Preferences → Interface](./preferences.md#interface)**.
 2. In the **Skin to use** dropdown, select the skin you want to apply.
 3. Click **OK** or **Apply**. The skin takes effect immediately.
 
 To disable skins, select **- default -** from the dropdown.
 
-The dropdown is automatically populated with skins found in the user and system skins directories, prefixed with `User:` or `System:` respectively.
+The dropdown is automatically populated with skins found in the user and system skins directories. Each entry shows the full zip file name prefixed with `User:` or `System:` respectively — for example, `System:gnome.zip` or `User:crystal-project.zip`.
+
+![The "Skin to use" dropdown in Preferences → Interface](/img/docs/gui_skins/skins_preferences_selector.png)
+
+### Bundled skins
+
+aMule ships with several ready-to-use skins. They are installed to the system skins directory and appear in the **Skin to use** dropdown with a `System:` prefix. Below is how each one renders the main toolbar, with the default aMule icons shown first for comparison:
+
+**Default** (`- default -`) — the standard aMule icons
+
+![Default aMule toolbar icons](/img/docs/gui_skins/skin_default.png)
+
+**`gnome`** — GNOME icon theme
+
+![gnome skin toolbar](/img/docs/gui_skins/skin_gnome.png)
+
+**`kde4`** — KDE 4 icon theme
+
+![kde4 skin toolbar](/img/docs/gui_skins/skin_kde4.png)
+
+**`Mac_Gray`** — macOS-style gray icons
+
+![Mac_Gray skin toolbar](/img/docs/gui_skins/skin_mac_grey.png)
+
+**`papirus`** — Papirus icon theme
+
+![papirus skin toolbar](/img/docs/gui_skins/skin_papirus.png)
+
+**`priscilla`** — Classic aMule skin
+
+![priscilla skin toolbar](/img/docs/gui_skins/skin_priscilla.png)
+
+**`tango`** — Tango icon theme
+
+![tango skin toolbar](/img/docs/gui_skins/skin_tango.png)
+
+**`xfce`** — Xfce icon theme
+
+![xfce skin toolbar](/img/docs/gui_skins/skin_xfce.png)
+
+### Community skins
+
+The following skins are available for download. To install, copy the zip file to the user skins directory for your platform.
+
+**Crystal Project** — version 0.2.3, download [skin-crystal-project-0.2.3.zip](/skins/skin-crystal-project-0.2.3.zip)
+
+![Crystal Project skin toolbar](/img/docs/gui_skins/skin_cristal_project.png)
 
 ### Skin file paths
 
@@ -32,7 +78,7 @@ Skins are looked for in two locations: a per-user directory and a system-wide di
 
 | Platform | User skins | System skins |
 |---|---|---|
-| Windows | `%APPDATA%\aMule\skins\` | `.\skins\` (amule.exe directory) |
+| Windows | `%APPDATA%\aMule\skins\` | `..\share\amule\skins\` (relative to `amule.exe` in `bin\`) |
 | macOS | `~/Library/Application Support/aMule/skins/` | `aMule.app/Contents/SharedSupport/skins/` |
 | Linux / Solaris / BSD | `~/.aMule/skins/` | `/usr/share/amule/skins/` (or `/usr/local/share/amule/skins/` for local builds) |
 
@@ -50,75 +96,57 @@ A skin file is a standard **zip archive** containing PNG images. The file names 
 
 #### Toolbar images (32×32 px)
 
+Each of these buttons is described in detail on the [Toolbar](./toolbar.md) page.
+
 | File | Element |
 |---|---|
-| `Toolbar_Connect.png` | Connect button |
-| `Toolbar_Disconnect.png` | Disconnect button |
-| `Toolbar_Connecting.png` | Connecting (in-progress) button |
-| `Toolbar_Network.png` | Networks window button |
-| `Toolbar_Transfers.png` | Downloads window button |
-| `Toolbar_Search.png` | Searches window button |
-| `Toolbar_Shared.png` | Shared Files window button |
-| `Toolbar_Messages.png` | Messages window button |
-| `Toolbar_Stats.png` | Statistics window button |
-| `Toolbar_Prefs.png` | Preferences window button |
-| `Toolbar_Import.png` | Import window button |
+| `Toolbar_Connect.png` | [Connect](./toolbar.md#connect--disconnect) button |
+| `Toolbar_Disconnect.png` | [Disconnect](./toolbar.md#connect--disconnect) button |
+| `Toolbar_Connecting.png` | [Connecting](./toolbar.md#connect--disconnect) (in-progress) button |
+| `Toolbar_Network.png` | [Networks](./networks.md) window button |
+| `Toolbar_Transfers.png` | [Downloads](./downloads.md) window button |
+| `Toolbar_Search.png` | [Searches](./searches.md) window button |
+| `Toolbar_Shared.png` | [Shared Files](./shared-files.md) window button |
+| `Toolbar_Messages.png` | [Messages](./messages.md) window button |
+| `Toolbar_Stats.png` | [Statistics](./statistics.md) window button |
+| `Toolbar_Prefs.png` | [Preferences](./preferences.md) window button |
+| `Toolbar_Import.png` | [Import](../../migration/import.md) window button |
 | `Toolbar_About.png` | About window button |
 | `Toolbar_Blink.png` | Blink/notification indicator |
 
 #### Client images (16×16 px)
 
+The meaning of each client icon is described in [Downloads → Client Icons](./downloads.md#client-icons).
+
 | File | Element |
 |---|---|
 | `Client_A4AFNoNeededPartsQueueFull.png` | A4AF client with full queue and no needed parts |
 | `Client_aMule.png` | aMule client |
-| `Client_BadGuy.png` | Bad/banned client |
-| `Client_CommentOnly.png` | Client with comment only |
+| `Client_BadGuy.png` | [Bad/banned](../../../p2p-networks/concepts.md#bad-guy) client |
+| `Client_CommentOnly.png` | Client with [comment](./comments.md) only |
 | `Client_Connecting.png` | Connecting client |
-| `Client_CreditsGrey.png` | Client with credits (grey) |
-| `Client_CreditsYellow.png` | Client with credits (yellow) |
+| `Client_CreditsGrey.png` | Client with [credits](../../../p2p-networks/ed2k/index.md#credits-and-scoring) (grey) |
+| `Client_CreditsYellow.png` | Client with [credits](../../../p2p-networks/ed2k/index.md#credits-and-scoring) (yellow) |
 | `Client_eDonkeyHybrid.png` | [eDonkey Hybrid](../../../p2p-networks/ed2k/clients.md#edonkey2000-20002005) client |
 | `Client_eMule.png` | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) client |
-| `Client_Encrypted.png` | Encrypted connection |
-| `Client_ExcellentRatingOnFile.png` | Client with excellent file rating |
+| `Client_Encrypted.png` | [Encrypted](./preferences.md#protocol-obfuscation) connection |
+| `Client_ExcellentRatingOnFile.png` | Client with excellent file [rating](./comments.md) |
 | `Client_ExtendedProtocol.png` | Client using extended protocol |
-| `Client_FairRatingOnFile.png` | Client with fair file rating |
-| `Client_Friend.png` | Friend |
-| `Client_GoodRatingOnFile.png` | Client with good file rating |
-| `Client_InvalidRatingOnFile.png` | Client with invalid file rating |
+| `Client_FairRatingOnFile.png` | Client with fair file [rating](./comments.md) |
+| `Client_Friend.png` | [Friend](../../../p2p-networks/concepts.md#friend) |
+| `Client_GoodRatingOnFile.png` | Client with good file [rating](./comments.md) |
+| `Client_InvalidRatingOnFile.png` | Client with invalid file [rating](./comments.md) |
 | `Client_lphant.png` | [lphant](../../../p2p-networks/ed2k/clients.md#lphant-20052009) client |
 | `Client_mlDonkey.png` | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) client |
-| `Client_OnQueue.png` | Client on queue |
-| `Client_PoorRatingOnFile.png` | Client with poor file rating |
-| `Client_SecIdent.png` | Secure identification active |
+| `Client_OnQueue.png` | Client [on queue](../../../p2p-networks/concepts.md#queue) |
+| `Client_PoorRatingOnFile.png` | Client with poor file [rating](./comments.md) |
+| `Client_SecIdent.png` | [Secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) active |
 | `Client_Shareaza.png` | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) client |
 | `Client_StatusUnknown.png` | Unknown client status |
 | `Client_Transfer.png` | Transferring client |
 | `Client_Unknown.png` | Unknown client |
 | `Client_Upload.png` | Uploading client |
 | `Client_xMule.png` | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) client |
-
-### Bundled skins
-
-aMule ships with several ready-to-use skins. They are installed to the system skins directory and appear in the **Skin to use** dropdown with a `System:` prefix.
-
-| Skin | Style |
-|---|---|
-| `gnome` | GNOME icon theme |
-| `kde4` | KDE 4 icon theme |
-| `Mac_Gray` | macOS-style gray icons |
-| `papirus` | Papirus icon theme |
-| `priscilla` | Classic aMule skin |
-| `tango` | Tango icon theme |
-| `xfce` | Xfce icon theme |
-
-### Community skins
-
-The following skins are available for download. To install, copy the zip file to the user skins directory for your platform.
-
-| Skin | Version | Download |
-|---|---|---|
-| Crystal Project | 0.2.3 | [skin-crystal-project-0.2.3.zip](/skins/skin-crystal-project-0.2.3.zip) |
 
 ## GTK theme skins (Linux/BSD)
 
@@ -138,7 +166,7 @@ amule --version
 
 Example output:
 ```
-aMule 2.3.3 using wxGTK3 v3.2.4 (OS: Linux)
+aMule 3.0.0 compiled with wxGTK3 v3.2.4 (OS: Linux)
 ```
 
 The `wxGTK` version string tells you which GTK version your aMule build is linked against:

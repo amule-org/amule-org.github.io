@@ -3,18 +3,19 @@ id: index
 title: Installation
 ---
 
-This page explains how to install aMule on each supported platform. Pre-built binaries are available for Windows, macOS, and Linux. BSD users can install from the system package repository or ports tree. If no binary is available for your platform, see [Building from Source](#building-from-source).
+aMule is a multi-platform eD2k / Kad client, officially supported on **Windows, macOS, Linux, FreeBSD and OpenBSD** (x86\_64 and ARM64). As portable C++/wxWidgets code it can usually be compiled on other Unix-like systems and CPU architectures too, though those are not officially supported.
 
 ## Supported Platforms
 
-| Platform | Minimum version | Architectures | Distribution format |
-|---|---|---|---|
-| Windows | 10 / 11 | x64, ARM64 | Installer `.exe`, portable `.zip` |
-| macOS | 11.0 (Big Sur) | Apple Silicon, Intel (Universal2) | `.dmg` disk image |
-| Linux | glibc ≥ 2.35 | x64, ARM64 | AppImage, Flatpak |
-| FreeBSD | — | x86\_64, aarch64 | `pkg` / Ports Collection |
-| OpenBSD | — | x86\_64 | `pkg_add` |
-| NetBSD | — | x86\_64 | pkgin / pkgsrc |
+The project publishes **official pre-built binaries** only for Windows, macOS and Linux; on the other supported platforms aMule is installed through the system package manager or [built from source](#building-from-source). Version and architecture requirements for the official binaries are listed in each platform's section below.
+
+| Platform | Architectures | How to install |
+|---|---|---|
+| Windows | x64, ARM64 | [Official installer or portable build](#windows) |
+| macOS | Apple Silicon, Intel | [Official `.dmg`](#macos) |
+| Linux | x64, ARM64 | [Official AppImage or Flatpak](#linux), or distribution package |
+| FreeBSD | x86\_64, ARM64 | [System package or Ports](#freebsd) |
+| OpenBSD | x86\_64 | [System package](#openbsd) |
 
 ## Downloads
 
@@ -26,19 +27,21 @@ The latest release is available on the [Downloads](/download) page, which links 
 - `aMule-<version>-Windows-arm64.zip` — portable build for Windows ARM64
 - `aMule-<version>-macOS-universal2.dmg` — Universal2 disk image for macOS (Apple Silicon + Intel)
 - `aMule-<version>-Linux-x64.AppImage` — portable Linux binary for x86\_64
-- `aMule-<version>-Linux-arm64.AppImage` — portable Linux binary for aarch64
+- `aMule-<version>-Linux-arm64.AppImage` — portable Linux binary for ARM64
 - `aMule-<version>-Linux-x64.flatpak` — Flatpak bundle for x86\_64
-- `aMule-<version>-Linux-arm64.flatpak` — Flatpak bundle for aarch64
-- `aMule-<version>.tar.gz` — source tarball
+- `aMule-<version>-Linux-arm64.flatpak` — Flatpak bundle for ARM64
+- **Source code** (`<version>.tar.gz` and `<version>.zip`) — automatically attached by GitHub to every release.
+
+Every official pre-built package bundles the **complete set of aMule executables**: the interface clients [`amule`](../interfaces/gui/amule.md), [`amuled`](../interfaces/amuled.md), [`amulegui`](../interfaces/gui/amulegui.md), [`amuleweb`](../interfaces/amuleweb.md) and [`amulecmd`](../interfaces/amulecmd.md), plus the standalone [utilities](../utilities/index.md) `ed2k`, `alc`, `alcc`, `wxcas` and `cas`. Each platform section below covers how to launch a specific component. (Distribution packages may instead split these across several packages.)
 
 ## Windows
+
+aMule is distributed for Windows in two formats: an **installer** (`.exe`) that sets up Start menu shortcuts and an Add or Remove Programs entry, and a **portable** build (`.zip`) that runs from any folder without installation. Both contain the same full set of aMule executables and bundled runtime libraries. Choose whichever fits your workflow.
 
 ### Requirements
 
 - Windows 10 or 11
 - x64 or ARM64 processor
-
-aMule is distributed for Windows in two formats: an **installer** (`.exe`) that sets up Start menu shortcuts and an Add or Remove Programs entry, and a **portable** build (`.zip`) that runs from any folder without installation. Both contain the same binaries (`amule`, `amuled`, `amulegui`, `amulecmd`, `ed2k`) and bundled runtime libraries. Choose whichever fits your workflow.
 
 ### Installer
 
@@ -47,7 +50,7 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
    - `aMule-<version>-Windows-Setup-x64.exe` for most PCs (Intel/AMD)
    - `aMule-<version>-Windows-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
 3. Run the downloaded `.exe` and follow the on-screen steps.
-4. Optionally enable **Start aMule when I sign in** during setup to launch aMule automatically on login.
+4. Optionally enable **Start aMule when I log in** during setup to launch aMule automatically on login.
 
 The installer creates Start menu shortcuts and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`); uninstalling does not delete this folder, so your settings and downloads are preserved.
 
@@ -104,7 +107,7 @@ xattr -dr com.apple.quarantine /Applications/aMule.app
 
 ### Additional binaries
 
-The `.dmg` also includes the command-line tools (`amuled`, `amulecmd`, `amuleweb`, `ed2k`) inside `aMule.app/Contents/MacOS/`. These can be run directly from the terminal:
+The `aMule.app` bundle also includes the command-line components inside `aMule.app/Contents/MacOS/`, which can be run directly from the terminal:
 
 ```sh
 /Applications/aMule.app/Contents/MacOS/amuled --version
@@ -158,21 +161,16 @@ To integrate the AppImage into your application menu, you can use [AppImageLaunc
 
 #### Running other components from the AppImage
 
-The AppImage bundles all [aMule components](../interfaces/index.md) — `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, and `cas` — in a single file. Invoking the AppImage directly runs `amule` (the GUI); the component that runs is otherwise selected by the name used to invoke the AppImage.
+The AppImage bundles every aMule executable in a single file. Invoking the AppImage directly runs `amule` (the GUI); the component that runs is otherwise selected by the name used to invoke the AppImage.
 
 Create one symlink per component you want to use. The `.AppImage` suffix is stripped automatically, so you can name the symlinks after the binaries:
 
 ```sh
-ln -s aMule-<version>-Linux-x64.AppImage amule
+# one symlink per component you want — for example:
 ln -s aMule-<version>-Linux-x64.AppImage amuled
-ln -s aMule-<version>-Linux-x64.AppImage amulegui
 ln -s aMule-<version>-Linux-x64.AppImage amuleweb
 ln -s aMule-<version>-Linux-x64.AppImage amulecmd
 ln -s aMule-<version>-Linux-x64.AppImage ed2k
-ln -s aMule-<version>-Linux-x64.AppImage alc
-ln -s aMule-<version>-Linux-x64.AppImage alcc
-ln -s aMule-<version>-Linux-x64.AppImage wxcas
-ln -s aMule-<version>-Linux-x64.AppImage cas
 ```
 
 Then invoke each symlink directly:
@@ -188,7 +186,7 @@ Then invoke each symlink directly:
 
 The Flatpak bundle runs in a sandboxed environment and is suitable for distributions that ship Flatpak support.
 
-**Requirements:** Flatpak with GNOME runtime 49 or later installed.
+**Requirements:** Flatpak. The bundle targets the GNOME 49 runtime (`org.gnome.Platform`), which Flatpak installs automatically when you install the bundle.
 
 **Installation:**
 
@@ -218,17 +216,13 @@ flatpak run --filesystem=/mnt/data --command=amuled org.amule.aMule
 
 #### Running other components from the Flatpak
 
-The Flatpak bundle also includes all [aMule components](../interfaces/index.md) — `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, and `cas`. Use the `--command` flag with `flatpak run` to select which binary to execute:
+The Flatpak bundle also includes every aMule executable. Use the `--command` flag with `flatpak run` to select which binary to execute:
 
 ```sh
 flatpak run --command=amuled org.amule.aMule --ec-password yourpassword
 flatpak run --command=amuleweb org.amule.aMule --webpassword yourpassword
 flatpak run --command=amulecmd org.amule.aMule
 flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
-flatpak run --command=alc org.amule.aMule
-flatpak run --command=alcc org.amule.aMule
-flatpak run --command=wxcas org.amule.aMule
-flatpak run --command=cas org.amule.aMule
 ```
 
 ### Distribution Packages
@@ -331,6 +325,6 @@ Once aMule is installed, the first launch creates the configuration directory:
 
 See the [aMule Files Reference](../configuration/config-files/index.md) for a complete description of every file and directory created by aMule.
 
-aMule ships with reasonable defaults and can be used as-is. To connect to the eD2k network and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the initial bandwidth configuration, server/Kademlia connection, and your first search.
+aMule ships with reasonable defaults and can be used as-is. To connect to the [eD2k network](../../p2p-networks/ed2k/index.md) and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the initial bandwidth configuration, eD2k server / [Kademlia](../../p2p-networks/kademlia.md) connection, and your first search.
 
 To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.
