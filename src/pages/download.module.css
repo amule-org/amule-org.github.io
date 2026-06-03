@@ -20,20 +20,35 @@
 
 .versionRow {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.6rem;
 }
 
-.versionLabel {
-  font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
 .versionNumber {
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1;
   color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.versionNumber:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+.versionBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
 }
 
 .versionMeta {
@@ -44,12 +59,12 @@
 }
 
 .versionDate {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ifm-color-emphasis-700);
 }
 
 .changelogLink {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -66,6 +81,8 @@
 }
 
 .dlLead {
+  font-size: 1.05rem;
+  line-height: 1.75;
   margin-bottom: 1.5rem;
 }
 
@@ -152,7 +169,13 @@
 
 .formatLabel {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
+}
+
+.formatMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .formatArch {
@@ -161,8 +184,21 @@
   text-align: right;
 }
 
+.dlIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--ifm-color-emphasis-500);
+  transition: color 0.15s;
+}
+
+.formatRow:hover .dlIcon {
+  color: var(--ifm-color-primary);
+}
+
 .dlFoot {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--ifm-color-emphasis-700);
 }
 
@@ -183,7 +219,8 @@
 .prevList li {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
   padding: 0.4rem 0;
 }
 
@@ -194,4 +231,33 @@
 .prevDate {
   font-size: 0.85rem;
   color: var(--ifm-color-emphasis-600);
+}
+
+.prevLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  margin-left: auto;
+}
+
+.prevLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.prevLinks a:not(:first-child)::before {
+  content: '·';
+  margin-right: 0.5rem;
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 400;
+}
+
+.prevDlIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }

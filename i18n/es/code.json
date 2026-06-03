@@ -706,9 +706,18 @@
     "message": "Versiones anteriores"
   },
   "homepage.download.previous.body": {
-    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {link}."
+    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {github} y {sourceforge}."
   },
   "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.entry.sourceforge": {
     "message": "SourceForge"
   }
 }
