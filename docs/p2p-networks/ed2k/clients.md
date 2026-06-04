@@ -38,7 +38,7 @@ Since mlDonkey 2.5.30-x, a feature known as **swarming** is supported, making it
 
 mlDonkey is actively maintained on [GitHub](https://github.com/ygrek/mldonkey), where its latest release is available. Note that the original mldonkey.sourceforge.net website was shut down on August 21, 2023.
 
-<img src="/img/docs/ed2k_clients/MLDonkey.png" alt="mlDonkey user interface screenshot" className="enable-zoom" />
+![mlDonkey user interface screenshot](/img/docs/ed2k_clients/MLDonkey.png)
 
 *mlDonkey main interface*
 
@@ -50,7 +50,7 @@ The original development team released version 0.50a on April 7, 2010, after whi
 
 aMule is protocol-compatible with eMule and can exchange files with eMule clients on both eD2k and Kademlia networks.
 
-<img src="/img/docs/ed2k_clients/Emule.png" alt="eMule user interface screenshot" className="enable-zoom" />
+![eMule user interface screenshot](/img/docs/ed2k_clients/Emule.png)
 
 *eMule main interface*
 
@@ -60,7 +60,7 @@ aMule is protocol-compatible with eMule and can exchange files with eMule client
 
 The source code is hosted in [SourceForge](https://sourceforge.net/projects/jmule/). The last stable release was **0.5.8** (January 13, 2010), followed by a final beta **0.5.8 B9** (September 15, 2011). Development has been abandoned since then and the project is likely incompatible with modern Java versions.
 
-<img src="/img/docs/ed2k_clients/Jmule.png" alt="JMule user interface screenshot" className="enable-zoom" />
+![JMule user interface screenshot](/img/docs/ed2k_clients/Jmule.png)
 
 *JMule main interface*
 
@@ -100,7 +100,7 @@ The last legitimate release was **version 3.51** on March 3, 2009. Just days lat
 
 > **Warning:** lphant is not recommended. Its closed-source nature and known adware/spyware bundling make it unsafe to use.
 
-<img src="/img/docs/ed2k_clients/Lphant.jpg" alt="Lphant user interface screenshot" className="enable-zoom" />
+![Lphant user interface screenshot](/img/docs/ed2k_clients/Lphant.jpg)
 
 *Lphant main interface*
 

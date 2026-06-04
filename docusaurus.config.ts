@@ -2,6 +2,7 @@ import path from 'path';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkZoomLargeImages from './plugins/remark-zoom-large-images';
 
 const url = process.env.DOCUSAURUS_URL ?? 'https://amule-org.github.io';
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? '/';
@@ -68,6 +69,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/amule-org/amule-org.github.io/edit/main/',
+          remarkPlugins: [remarkZoomLargeImages],
         },
         blog: {
           blogTitle: 'Blog',
@@ -79,6 +81,7 @@ const config: Config = {
             type: 'all',
             copyright: 'aMule developers',
           },
+          remarkPlugins: [remarkZoomLargeImages],
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -103,6 +106,7 @@ const config: Config = {
           type: 'all',
           copyright: 'aMule developers',
         },
+        remarkPlugins: [remarkZoomLargeImages],
       },
     ],
     'docusaurus-plugin-image-zoom',

@@ -179,11 +179,9 @@ All images must have meaningful `alt` text for accessibility. Documentation imag
 optipng -strip all *.png
 ```
 
-By default, images are **not** zoomable. Reserve zoom for **large** images — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them); leave icons, thumbnails and narrow dialogs as plain Markdown. To let readers click a large image to enlarge it, write it as an HTML `<img>` tag with the `enable-zoom` class instead of Markdown:
+Click-to-zoom is applied **automatically** — always write images in plain Markdown as shown above. A custom remark plugin (`plugins/remark-zoom-large-images.js`) inspects every image at build time and lets readers click to enlarge only the **large** ones — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them). Icons, thumbnails and narrow dialogs are left untouched.
 
-```html
-<img src="/img/docs/image-name.png" alt="Alt text" className="enable-zoom" />
-```
+Always reference images in Markdown rather than with a hardcoded HTML `<img>` tag: Docusaurus validates Markdown image paths and **fails the build** if a referenced file is missing, but it does **not** check paths inside HTML `<img>` tags.
 
 ### Links
 

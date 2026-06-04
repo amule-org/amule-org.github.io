@@ -140,13 +140,7 @@ Documentation images should be in **PNG** format and placed inside the `static/i
 optipng -strip all *.png
 ```
 
-### Zoomable images
-
-Documentation images are not click-to-zoom by default. Enable it only for **large** images — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them); leave icons, thumbnails and narrow dialogs as plain Markdown. To make a large image enlarge on click, write it as an HTML `<img>` tag with the `enable-zoom` class instead of Markdown:
-
-```html
-<img src="/img/docs/image-name.png" alt="Alt text" className="enable-zoom" />
-```
+Always add images with plain Markdown (`![Alt text](/img/docs/image-name.png)`). Large images become click-to-zoom automatically, so there's nothing extra to do.
 
 ## Useful links
 

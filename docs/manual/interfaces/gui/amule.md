@@ -5,7 +5,7 @@ title: amule — GUI Client
 
 `amule` is the all-in-one graphical client. It bundles the aMule core and a full wxWidgets-based interface in a single executable, and connects directly to both the eD2k and Kademlia networks.
 
-<img src="/img/docs/gui_amule/amule_downloads.png" alt="aMule downloads screenshot" className="enable-zoom" />
+![aMule downloads screenshot](/img/docs/gui_amule/amule_downloads.png)
 
 ## Overview
 

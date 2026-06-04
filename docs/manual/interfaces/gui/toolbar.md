@@ -5,7 +5,7 @@ title: Toolbar
 
 The toolbar provides one-click access to all major aMule windows and to the connect/disconnect action. It is normally positioned at the top of the main window but can be moved to the left side by enabling **[Preferences → Interface → Vertical toolbar orientation](./preferences.md#interface)**.
 
-<img src="/img/docs/gui_toolbar/toolbar.png" alt="aMule toolbar" className="enable-zoom" />
+![aMule toolbar](/img/docs/gui_toolbar/toolbar.png)
 
 ## Connect / Disconnect
 
