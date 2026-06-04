@@ -75,6 +75,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 
 - **Markdown line wrapping**: Do **not** hard-wrap prose. Write each paragraph/sentence on a single line (no manual line breaks mid-sentence). Keep tables, code blocks and list items as-is.
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).
+- **Image zoom**: always use plain Markdown (`![alt](/img/docs/<file>)`), never hardcoded HTML `<img>` (Markdown paths are build-validated, `<img>` paths are not). Click-to-zoom is added automatically to large images (width ≥ 850px) by `plugins/remark-zoom-large-images.js`.
 - **Images in components**: referenced as `/img/<file>` (served from `static/`).
 - **Social card**: `static/img/social-card.png` is a placeholder; replace with a proper 1200×630 image.
 - **URLs to generated files**: For links to generated files (feeds, sitemaps) that the broken-links checker cannot verify, use the `pathname://` protocol: e.g. `pathname:///blog/atom.xml`. This bypasses the checker and renders as a correct relative path at runtime. Do **not** use absolute URLs with `url`/`baseUrl` — those break in local dev.

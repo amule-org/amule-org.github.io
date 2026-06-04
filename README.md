@@ -132,6 +132,16 @@ npm run build
    npm run start -- --locale fr
    ```
 
+## Documentation images
+
+Documentation images should be in **PNG** format and placed inside the `static/img/docs/` folder. Before committing them to git, optimize them and strip their metadata with [`optipng`](https://optipng.sourceforge.net/):
+
+```sh
+optipng -strip all *.png
+```
+
+Always add images with plain Markdown (`![Alt text](/img/docs/image-name.png)`). Large images become click-to-zoom automatically, so there's nothing extra to do.
+
 ## Useful links
 
 * aMule source code: [github.com/amule-org/amule](https://github.com/amule-org/amule)

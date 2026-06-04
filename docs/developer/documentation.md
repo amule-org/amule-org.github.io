@@ -173,7 +173,15 @@ Place images in `static/img/docs/` and reference them as:
 ![Alt text](/img/docs/image-name.png)
 ```
 
-All images must have meaningful `alt` text for accessibility. Prefer PNG for screenshots.
+All images must have meaningful `alt` text for accessibility. Documentation images should be in **PNG** format and placed inside the `static/img/docs/` folder. Before committing them to git, optimize them and strip their metadata with [`optipng`](https://optipng.sourceforge.net/):
+
+```sh
+optipng -strip all *.png
+```
+
+Click-to-zoom is applied **automatically** — always write images in plain Markdown as shown above. A custom remark plugin (`plugins/remark-zoom-large-images.js`) inspects every image at build time and lets readers click to enlarge only the **large** ones — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them). Icons, thumbnails and narrow dialogs are left untouched.
+
+Always reference images in Markdown rather than with a hardcoded HTML `<img>` tag: Docusaurus validates Markdown image paths and **fails the build** if a referenced file is missing, but it does **not** check paths inside HTML `<img>` tags.
 
 ### Links
 
