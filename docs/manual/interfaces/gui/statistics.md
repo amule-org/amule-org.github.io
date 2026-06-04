@@ -5,7 +5,7 @@ title: Statistics
 
 The Statistics window shows detailed data about the current aMule session: speed graphs, transfer totals, connection metrics, client population, and server statistics.
 
-![Statistics window overview](/img/docs/gui_statistics/statistics.png)
+<img src="/img/docs/gui_statistics/statistics.png" alt="Statistics window overview" className="enable-zoom" />
 
 The window is divided into two main areas:
 

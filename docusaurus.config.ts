@@ -105,6 +105,7 @@ const config: Config = {
         },
       },
     ],
+    'docusaurus-plugin-image-zoom',
   ],
 
   themes: [
@@ -125,6 +126,17 @@ const config: Config = {
     image: 'img/social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
+    zoom: {
+      selector: '.markdown img.enable-zoom',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(36, 37, 38)',
+      },
     },
     navbar: {
       title: 'aMule',

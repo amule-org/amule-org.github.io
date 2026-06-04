@@ -7,15 +7,15 @@ The Searches window lets you search for files across the [eD2k](../../../p2p-net
 
 ## Overview
 
-![Search window overview](/img/docs/usage/window_search1.jpg)
+<img src="/img/docs/usage/window_search1.jpg" alt="Search window overview" className="enable-zoom" />
 
 The window is divided into two main areas. The **upper area** (highlighted in red) contains the search controls:
 
-![Search controls area](/img/docs/usage/window_search2.jpg)
+<img src="/img/docs/usage/window_search2.jpg" alt="Search controls area" className="enable-zoom" />
 
 The **lower area** displays search results:
 
-![Search results area](/img/docs/usage/window_search3.jpg)
+<img src="/img/docs/usage/window_search3.jpg" alt="Search results area" className="enable-zoom" />
 
 ## Basic Searching
 
@@ -23,7 +23,7 @@ The **lower area** displays search results:
 
 Type what you want to find in the **Name** field and click **Start**:
 
-![Name field and Start button](/img/docs/usage/window_search4.jpg)
+<img src="/img/docs/usage/window_search4.jpg" alt="Name field and Start button" className="enable-zoom" />
 
 Search queries are matched against file names. For example:
 - `amule` — finds files whose name contains "amule"
@@ -35,11 +35,11 @@ For details on how the search logic works (AND, OR, NOT), see [Search types](#se
 
 Once a search starts, a results tab appears:
 
-![Results tab](/img/docs/usage/window_search5.jpg)
+<img src="/img/docs/usage/window_search5.jpg" alt="Results tab" className="enable-zoom" />
 
 The results list shows, for each file: **filename**, **size**, **sources** (total sources, followed by the sources holding the complete file in parentheses, and an optional client count in square brackets), **type**, **file ID** (hash), **status** (download status) and **directories** (only populated for results obtained from a "view [shared files](./shared-files.md)" request):
 
-![Results list with columns](/img/docs/usage/window_search6.jpg)
+<img src="/img/docs/usage/window_search6.jpg" alt="Results list with columns" className="enable-zoom" />
 
 When no files are found for the query, the results tab is empty.
 
@@ -51,7 +51,7 @@ For **global searches**, a progress bar appears showing how far the search has p
 
 Click the **Stop** button to halt an active search:
 
-![Stop button](/img/docs/usage/window_search18.jpg)
+<img src="/img/docs/usage/window_search18.jpg" alt="Stop button" className="enable-zoom" />
 
 Alternatively, close the active tab (described in [Tabs](#tabs) below).
 
@@ -63,7 +63,7 @@ Once results appear there are three ways to start a download.
 
 Select one or more files in the results list and click the **Download** button:
 
-![Download button](/img/docs/usage/window_search7.jpg)
+<img src="/img/docs/usage/window_search7.jpg" alt="Download button" className="enable-zoom" />
 
 This method supports downloading multiple files in a single click.
 
@@ -71,7 +71,7 @@ This method supports downloading multiple files in a single click.
 
 Double-click a single file, or select it and press **Enter**:
 
-![Double-click to download](/img/docs/usage/window_search8.jpg)
+<img src="/img/docs/usage/window_search8.jpg" alt="Double-click to download" className="enable-zoom" />
 
 :::note
 Double-clicking or pressing Enter downloads **all currently selected files** (the selection is not cleared), the same as the **Download** button. The only exception is a result with grouped variants (see below): double-clicking it expands or collapses its variants instead of downloading.
@@ -113,23 +113,23 @@ When several results share the same file (identical hash) but differ in name, th
 
 Each search opens its own **results tab**:
 
-![Single search tab](/img/docs/usage/window_search10.jpg)
+<img src="/img/docs/usage/window_search10.jpg" alt="Single search tab" className="enable-zoom" />
 
 Starting a new search creates an additional tab; previous tabs remain accessible in the background:
 
-![Multiple search tabs](/img/docs/usage/window_search11.jpg)
+<img src="/img/docs/usage/window_search11.jpg" alt="Multiple search tabs" className="enable-zoom" />
 
 The tab label shows the search text you entered:
 
-![Tab label with search text](/img/docs/usage/window_search12.jpg)
+<img src="/img/docs/usage/window_search12.jpg" alt="Tab label with search text" className="enable-zoom" />
 
 Clicking any tab shows the results for that particular search, allowing you to compare multiple searches simultaneously:
 
-![Switching between tabs](/img/docs/usage/window_search13.jpg)
+<img src="/img/docs/usage/window_search13.jpg" alt="Switching between tabs" className="enable-zoom" />
 
 The number in brackets next to the search text is the result count:
 
-![Result count in tab](/img/docs/usage/window_search14.jpg)
+<img src="/img/docs/usage/window_search14.jpg" alt="Result count in tab" className="enable-zoom" />
 
 When a **filter** is active (see [Filtering](#filtering) below), the count appears as `N/M`, where `M` is the total number of results received and `N` is the number currently passing through the filter:
 
@@ -139,13 +139,13 @@ When a **filter** is active (see [Filtering](#filtering) below), the count appea
 
 Click the **X** button on the left side of a tab to close it. Closing a tab also stops its search if it is still running:
 
-![Close tab X button](/img/docs/usage/window_search15.jpg)
+<img src="/img/docs/usage/window_search15.jpg" alt="Close tab X button" className="enable-zoom" />
 
 ### Scrolling Tabs
 
 When there are more tabs than fit in the window, scroll arrows appear on both ends of the tab bar:
 
-![Tab scroll arrows](/img/docs/usage/window_search20.jpg)
+<img src="/img/docs/usage/window_search20.jpg" alt="Tab scroll arrows" className="enable-zoom" />
 
 ### Tab Right-Click Menu
 
@@ -165,7 +165,7 @@ Right-clicking a tab reveals three options:
 
 The **Type** dropdown selects the search method:
 
-![Search type dropdown](/img/docs/usage/window_search23.jpg)
+<img src="/img/docs/usage/window_search23.jpg" alt="Search type dropdown" className="enable-zoom" />
 
 | Type | Description |
 |---|---|
@@ -177,7 +177,7 @@ The **Type** dropdown selects the search method:
 
 Click **Extended parameters** to reveal additional search filters:
 
-![Extended parameters panel](/img/docs/usage/window_search24.jpg)
+<img src="/img/docs/usage/window_search24.jpg" alt="Extended parameters panel" className="enable-zoom" />
 
 #### File Type
 
@@ -219,7 +219,7 @@ Discard results with fewer sources than the specified minimum:
 
 Click the **Filtering** checkbox to reveal post-search filtering controls. Filters apply to all open result tabs simultaneously:
 
-![Filtering controls](/img/docs/usage/window_search25.jpg)
+<img src="/img/docs/usage/window_search25.jpg" alt="Filtering controls" className="enable-zoom" />
 
 #### Filter
 
@@ -245,13 +245,13 @@ Click **Hide known files** to remove from the results list any file that is alre
 
 Click the **Reset Fields** button to clear the search text and reset all extended parameters to their defaults:
 
-![Reset button](/img/docs/usage/window_search16.jpg)
+<img src="/img/docs/usage/window_search16.jpg" alt="Reset button" className="enable-zoom" />
 
 ### Clear All Tabs
 
 Click the **Clear** button to close all open tabs at once:
 
-![Clear button](/img/docs/usage/window_search17.jpg)
+<img src="/img/docs/usage/window_search17.jpg" alt="Clear button" className="enable-zoom" />
 
 You can also right-click any tab and choose **Close all tabs**:
 
@@ -279,7 +279,7 @@ The **Fast ED2K links handler** bar at the bottom of the search window lets you 
 
 ### Search Window
 
-![Search window quick reference](/img/docs/usage/window_search36.jpg)
+<img src="/img/docs/usage/window_search36.jpg" alt="Search window quick reference" className="enable-zoom" />
 
 | # | Description |
 |---|---|

@@ -5,13 +5,13 @@ title: Messages
 
 The Messages window provides two related features: a **friends list** for keeping track of known clients on the network, and a **chat system** for direct messaging between clients.
 
-![Messages window](/img/docs/usage/window_messages1.jpg)
+<img src="/img/docs/usage/window_messages1.jpg" alt="Messages window" className="enable-zoom" />
 
 ## Friends List
 
 The friends list is on the left side of the Messages window:
 
-![Friends list panel](/img/docs/usage/window_messages2.jpg)
+<img src="/img/docs/usage/window_messages2.jpg" alt="Friends list panel" className="enable-zoom" />
 
 Friends remain in the list permanently unless you explicitly remove them. This allows you to keep track of clients even when they are offline — unlike the Downloads window, where clients appear only when they are actively connected.
 
@@ -79,7 +79,7 @@ If successful, the shared file list appears as a new tab in the Searches window 
 :::note
 By default, clients deny shared-file-list requests for privacy reasons. A failure is reported in the log and the status bar:
 
-![View files failed log message](/img/docs/usage/window_messages17.jpg)
+<img src="/img/docs/usage/window_messages17.jpg" alt="View files failed log message" className="enable-zoom" />
 :::
 
 ### Establishing a Friend Slot
@@ -98,19 +98,19 @@ This option may be disabled if the friend is not currently confirmed as online.
 
 The right side of the Messages window contains the chat panel:
 
-![Chat panel](/img/docs/usage/window_messages3.jpg)
+<img src="/img/docs/usage/window_messages3.jpg" alt="Chat panel" className="enable-zoom" />
 
 ### Starting a Chat
 
 When you send a message or receive one, a chat tab appears:
 
-![Chat tab](/img/docs/usage/window_messages15.jpg)
+<img src="/img/docs/usage/window_messages15.jpg" alt="Chat tab" className="enable-zoom" />
 
 ### Chatting
 
 The conversation panel displays the full message history:
 
-![Conversation history](/img/docs/usage/window_messages14.jpg)
+<img src="/img/docs/usage/window_messages14.jpg" alt="Conversation history" className="enable-zoom" />
 
 Each message is preceded by the time it was sent/received and the sender's username:
 - **Your username** is displayed in **green**.
@@ -140,7 +140,7 @@ Each conversation opens in its own tab. The tab label shows the username of the 
 
 Starting a new conversation adds a new tab; previous conversations remain accessible in the background:
 
-![Multiple chat tabs](/img/docs/usage/window_messages16.jpg)
+<img src="/img/docs/usage/window_messages16.jpg" alt="Multiple chat tabs" className="enable-zoom" />
 
 Click any tab to switch to that conversation.
 
@@ -176,11 +176,11 @@ When a message arrives while you are not on the Messages window:
 
 - The **Messages** icon in the toolbar blinks alternately blue and red:
 
-  ![Toolbar messages icon blinking](/img/docs/usage/window_messages4.jpg)
+  <img src="/img/docs/usage/window_messages4.jpg" alt="Toolbar messages icon blinking" className="enable-zoom" />
 
 - The **status bar** log displays a notification message:
 
-  ![Status bar message notification](/img/docs/usage/window_messages5.jpg)
+  <img src="/img/docs/usage/window_messages5.jpg" alt="Status bar message notification" className="enable-zoom" />
 
 ## Miscellaneous
 
@@ -194,7 +194,7 @@ aMule messaging uses **direct IP:port connections**, not the eD2k or Kademlia ne
 
 ### Messages Window
 
-![Messages window quick reference](/img/docs/usage/window_messages25.jpg)
+<img src="/img/docs/usage/window_messages25.jpg" alt="Messages window quick reference" className="enable-zoom" />
 
 | # | Description |
 |---|---|

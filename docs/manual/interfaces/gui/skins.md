@@ -34,35 +34,35 @@ aMule ships with several ready-to-use skins. They are installed to the system sk
 
 **Default** (`- default -`) — the standard aMule icons
 
-![Default aMule toolbar icons](/img/docs/gui_skins/skin_default.png)
+<img src="/img/docs/gui_skins/skin_default.png" alt="Default aMule toolbar icons" className="enable-zoom" />
 
 **`gnome`** — GNOME icon theme
 
-![gnome skin toolbar](/img/docs/gui_skins/skin_gnome.png)
+<img src="/img/docs/gui_skins/skin_gnome.png" alt="gnome skin toolbar" className="enable-zoom" />
 
 **`kde4`** — KDE 4 icon theme
 
-![kde4 skin toolbar](/img/docs/gui_skins/skin_kde4.png)
+<img src="/img/docs/gui_skins/skin_kde4.png" alt="kde4 skin toolbar" className="enable-zoom" />
 
 **`Mac_Gray`** — macOS-style gray icons
 
-![Mac_Gray skin toolbar](/img/docs/gui_skins/skin_mac_grey.png)
+<img src="/img/docs/gui_skins/skin_mac_grey.png" alt="Mac_Gray skin toolbar" className="enable-zoom" />
 
 **`papirus`** — Papirus icon theme
 
-![papirus skin toolbar](/img/docs/gui_skins/skin_papirus.png)
+<img src="/img/docs/gui_skins/skin_papirus.png" alt="papirus skin toolbar" className="enable-zoom" />
 
 **`priscilla`** — Classic aMule skin
 
-![priscilla skin toolbar](/img/docs/gui_skins/skin_priscilla.png)
+<img src="/img/docs/gui_skins/skin_priscilla.png" alt="priscilla skin toolbar" className="enable-zoom" />
 
 **`tango`** — Tango icon theme
 
-![tango skin toolbar](/img/docs/gui_skins/skin_tango.png)
+<img src="/img/docs/gui_skins/skin_tango.png" alt="tango skin toolbar" className="enable-zoom" />
 
 **`xfce`** — Xfce icon theme
 
-![xfce skin toolbar](/img/docs/gui_skins/skin_xfce.png)
+<img src="/img/docs/gui_skins/skin_xfce.png" alt="xfce skin toolbar" className="enable-zoom" />
 
 ### Community skins
 
@@ -70,7 +70,7 @@ The following skins are available for download. To install, copy the zip file to
 
 **Crystal Project** — version 0.2.3, download [skin-crystal-project-0.2.3.zip](/skins/skin-crystal-project-0.2.3.zip)
 
-![Crystal Project skin toolbar](/img/docs/gui_skins/skin_cristal_project.png)
+<img src="/img/docs/gui_skins/skin_cristal_project.png" alt="Crystal Project skin toolbar" className="enable-zoom" />
 
 ### Skin file paths
 

@@ -12,13 +12,13 @@ The window is split into two panels separated by a draggable divider:
 - **Upper panel** — a tabbed notebook with two tabs: **[ED2K](#ed2k)** and **[Kad](#kademlia-kad)**.
 - **Lower panel** — a tabbed notebook with four tabs: **[aMule Log](#amule-log)**, **[Server Info](#server-info)**, **[ED2K Info](#ed2k-info)**, and **[Kad Info](#kad-info)**.
 
-![The Networks window](/img/docs/gui_networks/networks.png)
+<img src="/img/docs/gui_networks/networks.png" alt="The Networks window" className="enable-zoom" />
 
 ## ED2K
 
 The ED2K tab manages your connection to the eDonkey server network.
 
-![The ED2K tab](/img/docs/gui_networks/networks_upper_ed2k.png)
+<img src="/img/docs/gui_networks/networks_upper_ed2k.png" alt="The ED2K tab" className="enable-zoom" />
 
 ### Connecting
 
@@ -92,7 +92,7 @@ Static servers are never removed during automatic list cleanup. Mark your prefer
 
 The Kad tab manages your connection to the Kademlia distributed network. Unlike ED2K, Kad does not rely on centralised servers.
 
-![The Kad tab](/img/docs/gui_networks/networks_upper_kad.png)
+<img src="/img/docs/gui_networks/networks_upper_kad.png" alt="The Kad tab" className="enable-zoom" />
 
 ### Connecting
 
@@ -136,19 +136,19 @@ The lower panel contains four tabs with live status information.
 
 A scrollable log of all application events: connections, downloads, errors, and internal messages. Click **Reset** to clear the log.
 
-![The aMule Log tab](/img/docs/gui_networks/networks_lower_amule_logs.png)
+<img src="/img/docs/gui_networks/networks_lower_amule_logs.png" alt="The aMule Log tab" className="enable-zoom" />
 
 ### Server Info
 
 A scrollable log of eD2k server events: connection attempts, server messages, and status updates. Click **Reset** to clear the log.
 
-![The Server Info tab](/img/docs/gui_networks/networks_lower_server_info.png)
+<img src="/img/docs/gui_networks/networks_lower_server_info.png" alt="The Server Info tab" className="enable-zoom" />
 
 ### ED2K Info
 
 Live eD2k connection details:
 
-![The ED2K Info tab](/img/docs/gui_networks/networks_lower_ed2k_info.png)
+<img src="/img/docs/gui_networks/networks_lower_ed2k_info.png" alt="The ED2K Info tab" className="enable-zoom" />
 
 | Field | Value |
 |---|---|
@@ -163,7 +163,7 @@ A **HighID** means your ports are reachable from the internet and you have full 
 
 Live Kademlia connection details (shown only when Kad is running):
 
-![The Kad Info tab](/img/docs/gui_networks/networks_lower_kad_info.png)
+<img src="/img/docs/gui_networks/networks_lower_kad_info.png" alt="The Kad Info tab" className="enable-zoom" />
 
 | Field | Value |
 |---|---|

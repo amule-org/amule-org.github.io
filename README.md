@@ -132,6 +132,22 @@ npm run build
    npm run start -- --locale fr
    ```
 
+## Documentation images
+
+Documentation images should be in **PNG** format and placed inside the `static/img/docs/` folder. Before committing them to git, optimize them and strip their metadata with [`optipng`](https://optipng.sourceforge.net/):
+
+```sh
+optipng -strip all *.png
+```
+
+### Zoomable images
+
+Documentation images are not click-to-zoom by default. Enable it only for **large** images — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them); leave icons, thumbnails and narrow dialogs as plain Markdown. To make a large image enlarge on click, write it as an HTML `<img>` tag with the `enable-zoom` class instead of Markdown:
+
+```html
+<img src="/img/docs/image-name.png" alt="Alt text" className="enable-zoom" />
+```
+
 ## Useful links
 
 * aMule source code: [github.com/amule-org/amule](https://github.com/amule-org/amule)

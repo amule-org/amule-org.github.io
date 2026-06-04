@@ -173,7 +173,17 @@ Place images in `static/img/docs/` and reference them as:
 ![Alt text](/img/docs/image-name.png)
 ```
 
-All images must have meaningful `alt` text for accessibility. Prefer PNG for screenshots.
+All images must have meaningful `alt` text for accessibility. Documentation images should be in **PNG** format and placed inside the `static/img/docs/` folder. Before committing them to git, optimize them and strip their metadata with [`optipng`](https://optipng.sourceforge.net/):
+
+```sh
+optipng -strip all *.png
+```
+
+By default, images are **not** zoomable. Reserve zoom for **large** images — those with a real width of **850px or more** (wider than the ~750px content column, so the browser downscales them); leave icons, thumbnails and narrow dialogs as plain Markdown. To let readers click a large image to enlarge it, write it as an HTML `<img>` tag with the `enable-zoom` class instead of Markdown:
+
+```html
+<img src="/img/docs/image-name.png" alt="Alt text" className="enable-zoom" />
+```
 
 ### Links
 

@@ -5,7 +5,7 @@ title: Status Bar
 
 The status bar is located at the bottom of the main aMule window. It gives a continuous at-a-glance summary of the current session: the latest log line, network user and file counts, transfer speeds, and connection status.
 
-![aMule status bar](/img/docs/gui_statusbar/statusbar.png)
+<img src="/img/docs/gui_statusbar/statusbar.png" alt="aMule status bar" className="enable-zoom" />
 
 ## Log
 

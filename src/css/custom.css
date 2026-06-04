@@ -86,3 +86,14 @@
   line-height: 1.6;
   max-width: 880px;
 }
+
+
+/* Doc content images: never overflow the column, and hint they are zoomable */
+.markdown img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown img.enable-zoom {
+  cursor: zoom-in;
+}
