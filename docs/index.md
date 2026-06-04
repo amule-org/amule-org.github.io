@@ -39,7 +39,7 @@ aMule supports the features eMule users will already recognize:
   - Straight from your browser, by clicking [`ed2k://` links](./p2p-networks/ed2k/links.md)
 - **[Friends and messaging](./manual/interfaces/gui/messages.md)** — keep a friends list and exchange messages with other users.
 - **[Automatic server-list updates](./p2p-networks/ed2k/servers.md)** — keep your server list current automatically, or refresh it whenever you like.
-- **[PowerShare](./manual/interfaces/gui/priority.md#release-priority)** — give your own shared files top priority so others can grab them quickly.
+- **[Release Priority](./manual/interfaces/gui/priority.md#release-priority)** (known as PowerShare in eMule) — give your own shared files top priority so others can grab them quickly.
 - **[Skins](./manual/interfaces/gui/skins.md)** — change aMule's appearance with downloadable skins.
 
 ### Features added by aMule

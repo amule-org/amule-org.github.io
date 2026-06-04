@@ -219,10 +219,10 @@ const FEATURES: FeatureCard[] = [
   },
   {
     icon: '🚀',
-    title: <Translate id="homepage.features.powerShare.title">PowerShare</Translate>,
+    title: <Translate id="homepage.features.powerShare.title">Release Priority</Translate>,
     desc: (
       <Translate id="homepage.features.powerShare.desc">
-        Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content.
+        Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content. In eMule this feature is known as PowerShare.
       </Translate>
     ),
   },

@@ -240,10 +240,10 @@
     "message": "Minimiza aMule a la bandeja del sistema y déjalo funcionando discretamente en segundo plano. Funciona en Windows, macOS y todos los escritorios principales de Linux."
   },
   "homepage.features.powerShare.title": {
-    "message": "PowerShare"
+    "message": "Release Priority"
   },
   "homepage.features.powerShare.desc": {
-    "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo."
+    "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo. En eMule esta funcionalidad se conoce como PowerShare."
   },
   "theme.navbar.item.label.Download": {
     "message": "Descargar",

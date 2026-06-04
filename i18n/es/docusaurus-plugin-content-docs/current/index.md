@@ -39,7 +39,7 @@ aMule incluye las características que los usuarios de eMule ya reconocerán:
   - Directamente desde tu navegador, haciendo clic en [enlaces `ed2k://`](p2p-networks/ed2k/links.md)
 - **[Amigos y mensajería](manual/interfaces/gui/messages.md)** — mantén una lista de amigos e intercambia mensajes con otros usuarios.
 - **[Actualización automática de la lista de servidores](p2p-networks/ed2k/servers.md)** — mantén tu lista de servidores al día automáticamente, o actualízala cuando quieras.
-- **[PowerShare](manual/interfaces/gui/priority.md#release-priority)** — da máxima prioridad a tus propios archivos compartidos para que otros puedan obtenerlos rápidamente.
+- **[Release Priority](manual/interfaces/gui/priority.md#release-priority)** (conocida como PowerShare en eMule) — da máxima prioridad a tus propios archivos compartidos para que otros puedan obtenerlos rápidamente.
 - **[Skins](manual/interfaces/gui/skins.md)** — cambia el aspecto de aMule con skins descargables.
 
 ### Características añadidas por aMule

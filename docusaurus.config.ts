@@ -126,6 +126,10 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
     navbar: {
       title: 'aMule',
       logo: {
