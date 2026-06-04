@@ -103,44 +103,14 @@ A toggle button next to the counters shows or hides the list of clients currentl
 
 Click the **Reload** button (showing two green arrows) in the toolbar area of the Shared Files window to rescan all shared directories and refresh the list. Use this after external changes such as files being added, moved, renamed, or deleted outside aMule.
 
+By default you rarely need to do this: aMule watches your shared folders and reloads the list automatically when files are added or removed outside the application. This is controlled by the **Automatically rescan shared folders for changes** option in [**Preferences → Directories**](./preferences.md#directories). Disable it if the automatic watching is undesirable — for example on systems that hit a file-watch limit — and rely on the **Reload** button instead.
+
 ## Shared Directories
 
-aMule shares the **contents** of any directory you mark as shared. Subdirectories are **not** shared recursively by default. For full configuration details, see [Directories](../../configuration/directories.md#shared-directories).
+You manage which directories are shared from [**Preferences → Directories**](../../configuration/directories.md#configuring-shared-directories): **double-click** a directory to share that directory only, or **right-click** it to share it recursively (including all its subdirectories). The Incoming directory and the verified chunks of files still downloading are always shared.
 
-### Configuring via Preferences
-
-Go to **Preferences → Directories** and check the box next to each directory you want to share. Checking (or double-clicking) a directory shares **only that directory** — its subdirectories are not included.
-
-To share a directory **recursively** (including all its subdirectories), **right-click** it in the directory tree. Recursive share roots are shown in **bold italic**. The actual subdirectory list is expanded when you click **OK** in Preferences, so very large trees show a progress dialog you can cancel.
-
-:::note
-A subdirectory covered by a recursive share cannot be unshared on its own. To stop sharing it, right-click the recursive root above it to remove or modify the recursive share.
-:::
+For the full reference — the directory tree and its font/icon states, recursive shares, the rescan options, and the editable `shareddir-*.dat` configuration files — see [Shared Directories](../../configuration/directories.md#shared-directories).
 
 :::warning
 Be careful which directories you share. Sharing your home directory, documents folder, or any directory containing passwords, address books, or sensitive personal data will make that data available to every client on the network.
 :::
-
-### Configuring via shareddir.dat
-
-You can also edit the [`shareddir.dat`](../../configuration/config-files/index.md#shareddirdat) file directly. It is located in the aMule configuration directory (`~/.aMule/`), with one full directory path per line.
-
-aMule keeps the share configuration in three files in that directory:
-
-- `shareddir-explicit.dat` — directories shared **non-recursively** (this directory only).
-- `shareddir-recursive.dat` — directories shared **recursively** (the directory and all its descendants).
-- `shareddir.dat` — the **union** of the two lists above, kept for backward compatibility.
-
-Edits you make to `shareddir.dat` are imported back as non-recursive shares the next time aMule reloads its shared files, so external changes (for example from a Docker entrypoint or a setup script) survive.
-
-:::warning
-Editing `shareddir.dat` while aMule is running is still risky: changes may be overwritten when aMule saves its configuration. Stop aMule before editing it to be safe.
-:::
-
-Example (Debian, editing as root with the daemon stopped):
-
-```bash
-sudo /etc/init.d/amule-daemon stop
-sudo vi /home/amule/.aMule/shareddir.dat
-sudo /etc/init.d/amule-daemon start
-```
