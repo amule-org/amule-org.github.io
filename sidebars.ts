@@ -31,16 +31,18 @@ const sidebars: SidebarsConfig = {
             'manual/configuration/upnp',
             'manual/configuration/proxy',
             'manual/configuration/events',
+            'manual/configuration/macos',
           ],
         },
         {
           type: 'category',
           label: 'Interfaces',
+          collapsed: false,
           link: {type: 'doc', id: 'manual/interfaces/index'},
           items: [
             {
               type: 'category',
-              label: 'GUI',
+              label: 'GUI — amule & amulegui',
               link: {type: 'doc', id: 'manual/interfaces/gui/index'},
               items: [
                 'manual/interfaces/gui/amule',
@@ -61,7 +63,6 @@ const sidebars: SidebarsConfig = {
                 'manual/interfaces/gui/shortcuts',
                 'manual/interfaces/gui/tray-icon',
                 'manual/interfaces/gui/skins',
-                'manual/interfaces/gui/macos',
               ],
             },
             'manual/interfaces/amuled',

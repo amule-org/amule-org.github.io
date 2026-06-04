@@ -94,7 +94,7 @@ Right-click a file (or a selection of files) to open the context menu:
 :::
 
 :::note
-Right-click menus are not available on macOS with a single-button mouse. Use [Ctrl+Click](./macos.md) instead.
+Right-click menus are not available on macOS with a single-button mouse. Use [Ctrl+Click](../../configuration/macos.md) instead.
 :::
 
 ## Source List

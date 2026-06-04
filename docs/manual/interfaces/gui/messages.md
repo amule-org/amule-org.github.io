@@ -13,7 +13,9 @@ The friends list is on the left side of the Messages window:
 
 ![Friends list panel](/img/docs/usage/window_messages2.jpg)
 
-Friends remain in the list permanently unless you explicitly remove them. This allows you to keep track of clients even when they are offline — unlike the Downloads window, where clients appear only when they are actively connected.
+Friends remain in the list permanently unless you explicitly remove them. This allows you to keep track of clients even when they are offline — unlike the [Downloads window](./downloads.md), where clients appear only when they are actively connected.
+
+Friends currently confirmed as connected are shown in **blue**; friends that are not connected use the system's default text colour.
 
 Each entry represents one friend client:
 
@@ -32,9 +34,9 @@ The Add Friend window opens:
 | Field | Required | Description |
 |---|---|---|
 | **IP** | Yes | The friend's IP address |
-| **Port** | Yes | The friend's standard client TCP port (usually 4662) |
+| **Port** | Yes | The friend's [standard client TCP port](../../configuration/network-connectivity.md#ports-used-by-amule) (usually 4662) |
 | **Username** | Optional | Displayed in the list until the client is contacted and the real username is confirmed |
-| **Userhash** | Optional | The friend's userhash. Providing this prevents another client reusing the same IP/port from being mistaken for your friend, since every client has a unique userhash |
+| **Userhash** | Optional | The friend's userhash. Providing this prevents another client reusing the same IP/port from being mistaken for your friend, since every client has a [unique userhash](../../../p2p-networks/ed2k/secure-user-identification.md) |
 
 Click **OK** to add the friend, or **Cancel** to close without adding.
 
@@ -74,17 +76,17 @@ Right-click a friend and select **View Files** to request a list of that client'
 
 ![View files menu item](/img/docs/usage/window_messages22.jpg)
 
-If successful, the shared file list appears as a new tab in the Searches window with the friend's username as the tab name.
+If successful, the shared file list appears as a new tab in the [Searches window](./searches.md) with the friend's username as the tab name.
 
 :::note
-By default, clients deny shared-file-list requests for privacy reasons. A failure is reported in the log and the status bar:
+Whether a client honours the request is governed by its **Who can see my shared files** setting (**Everybody**, **Friends**, or **No one**), configured on the [Security preferences tab](./preferences.md#security). The default is **No one**, so by default clients deny shared-file-list requests for privacy reasons. A failure is reported in the log and the status bar:
 
 ![View files failed log message](/img/docs/usage/window_messages17.jpg)
 :::
 
 ### Establishing a Friend Slot
 
-You can reserve a dedicated **upload slot** for a specific friend, guaranteeing them upload bandwidth regardless of queue position. Only one friend slot can be active at a time.
+You can reserve a dedicated **upload slot** for a specific friend, guaranteeing them upload bandwidth regardless of queue position. Only one friend slot can be active at a time. The menu entry acts as a toggle — selecting it again releases the slot — and the assignment is remembered, so it persists across reconnections and aMule restarts.
 
 Right-click the friend and select **Establish Friend Slot**:
 
@@ -125,6 +127,10 @@ To send a message, type in the message input box:
 Press **Enter** or click **Send** to send:
 
 ![Send button](/img/docs/usage/window_messages13.jpg)
+
+:::note
+A single message is limited to 450 characters; anything longer is truncated before being sent.
+:::
 
 ### Closing a Conversation
 
@@ -182,78 +188,14 @@ When a message arrives while you are not on the Messages window:
 
   ![Status bar message notification](/img/docs/usage/window_messages5.jpg)
 
+:::note
+Incoming messages can be filtered before they ever reach the Messages window. The [Filters preferences tab](./preferences.md#messages) lets you ignore messages from people not on your friend list, from unknown clients, or containing specific words, as well as log every received message. Independently, an advanced spam filter may require a client that is not your friend to solve a CAPTCHA before its first message gets through; clients that send URLs in a first message or keep messaging without a reply are flagged as spammers and their session is closed automatically.
+:::
+
 ## Miscellaneous
 
 :::note
-aMule messaging uses **direct IP:port connections**, not the eD2k or Kademlia network overlay. This means:
+aMule messaging uses **direct IP:port connections**, not the [eD2k](../../../p2p-networks/ed2k/index.md) or [Kademlia](../../../p2p-networks/kademlia.md) network overlay. This means:
 - You can message a client even if you are only on eD2k and they are only on Kademlia, or vice versa.
 - You can even message a client when neither of you is connected to any network — as long as both clients are online (running with an internet connection) and know each other's IP and port.
 :::
-
-## Quick Reference
-
-### Messages Window
-
-![Messages window quick reference](/img/docs/usage/window_messages25.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Friends list |
-| 2 | A friend entry |
-| 3 | Chat area |
-| 4 | Conversation history |
-| 5 | Control messages (connection events, IP info, etc.) |
-| 6 | Tab header |
-| 7 | Close tab button |
-| 8 | Other client's username (in tab header) |
-| 9 | Message timestamp |
-| 10 | Your username (shown in green) |
-| 11 | Other client's username (shown in blue) |
-| 12 | A sent/received message |
-| 13 | Message input box |
-| 14 | Send button |
-| 15 | Close conversation button |
-
-### Empty Friends List Menu
-
-![Empty friends list right-click menu](/img/docs/usage/window_messages26.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Add a friend |
-
-### Friends List Right-Click Menu
-
-![Friends list right-click menu](/img/docs/usage/window_messages27.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Show client details |
-| 2 | Add a friend |
-| 3 | Remove selected friend(s) |
-| 4 | Start a chat with selected friend(s) |
-| 5 | View selected friend(s)' shared files |
-| 6 | Establish friend upload slot for selected friend |
-
-### Add Friend Window
-
-![Add friend window reference](/img/docs/usage/window_messages29.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Friend's IP address |
-| 2 | Friend's TCP port |
-| 3 | Friend's username (optional) |
-| 4 | Friend's userhash (optional) |
-| 5 | Add friend |
-| 6 | Close without adding |
-
-### Tab Right-Click Menu
-
-![Tab right-click menu reference](/img/docs/usage/window_messages28.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Close the selected tab |
-| 2 | Close all tabs |
-| 3 | Close all tabs except the selected one |

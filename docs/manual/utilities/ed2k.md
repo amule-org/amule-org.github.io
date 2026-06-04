@@ -135,12 +135,15 @@ If your aMule configuration directory is in a non-default location (e.g. `D:\amu
 
 ### macOS
 
-macOS routes `ed2k://` links through **LaunchServices**:
+Current macOS builds of aMule do **not** register a handler for the `ed2k://` scheme: the application bundle does not declare the scheme, and the legacy `ed2kHelperScript.app` that older versions relied on is no longer shipped. As a result, clicking an `ed2k://` link in a browser will not open aMule.
 
-1. Run aMule at least once so the OS registers it as the handler for the `ed2k://` scheme.
-2. Click an `ed2k://` link in your browser. The OS shows a dialog asking whether to allow aMule to open the link — allow it (and tick the option to remember the choice if offered).
+On macOS, add links through one of these instead:
 
-**Safari:** Safari does not always process non-Apple scheme links on a plain click. If a click does nothing, **drag the link to the address bar** instead — this forces the handoff to aMule.
+- Copy the link and paste it into the **ED2K-Link Handler** field in aMule's Searches window.
+- Append the link to the [`ED2KLinks` file](#ed2klinks-file) at `~/Library/Application Support/aMule/ED2KLinks`.
+- Run the bundled `ed2k` tool from a terminal: `aMule.app/Contents/MacOS/ed2k "ed2k://|file|...|/"`.
+
+See [macOS → Handling ed2k Links](../configuration/macos.md#handling-ed2k-links) for the GUI walkthrough.
 
 ### GNU/Linux
 

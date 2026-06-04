@@ -88,6 +88,8 @@ Windows Defender SmartScreen may show a warning when you run the installer or `a
 5. Eject the disk image.
 6. Open `aMule.app` from `/Applications` or Launchpad.
 
+After installing, see the [macOS configuration guide](../configuration/macos.md) for macOS-specific considerations such as context menus, firewall access, and handling `ed2k://` links.
+
 ### Gatekeeper Warning
 
 The `.dmg` is distributed **unsigned**. macOS Gatekeeper will block the first launch with a message like *"aMule cannot be opened because the developer cannot be verified."* To allow it:

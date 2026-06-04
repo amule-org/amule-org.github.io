@@ -3,18 +3,18 @@ id: amulecmd
 title: amulecmd — Command-Line Interface
 ---
 
-`amulecmd` is an interactive command-line client for controlling a running `amuled` (or `amule`) instance. It is useful for scripting, cron jobs, and environments where a graphical or browser-based interface is not available.
+`amulecmd` is an interactive command-line client for controlling a running [`amuled`](amuled.md) (or [`amule`](gui/amule.md)) instance. It is useful for scripting, cron jobs, and environments where a [graphical](gui/index.md) or [browser-based](amuleweb.md) interface is not available.
 
 ## Overview
 
-`amulecmd` connects to aMule through the External Connections (EC) protocol (TCP, default port 4712). It provides a subset of aMule functionality:
+`amulecmd` connects to aMule through the External Connections (EC) protocol (TCP, default port 4712; see the [EC Protocol](../../developer/ec-protocol.md) reference). It provides a subset of aMule functionality:
 
-- Search for files on eD2k and Kademlia.
-- Start, pause, resume, and cancel downloads.
+- Search for files on [eD2k](../../p2p-networks/ed2k/index.md) and [Kademlia](../../p2p-networks/kademlia.md).
+- Start, pause, resume, and cancel downloads, and change their priority.
 - View the download and upload queue.
 - View and reset the log.
-- Display status information.
-- Change bandwidth limits and other settings at runtime.
+- Display status information and statistics.
+- Change bandwidth limits, IP filtering, and other settings at runtime.
 
 `amulecmd` can be used interactively (a `aMulecmd$` prompt) or in one-shot mode with the `-c` flag for use in shell scripts and cron jobs.
 
@@ -26,7 +26,7 @@ See [Installation](../installation/index.md) for pre-built packages, or [Compila
 
 ### Enabling External Connections in aMule
 
-Before using `amulecmd`, you must enable EC in aMule's Preferences (or in [`amule.conf`](../configuration/config-files/amule-conf.md)):
+Before using `amulecmd`, you must enable EC in aMule's [Preferences → Remote Controls](gui/preferences.md#remote-controls) (or in [`amule.conf`](../configuration/config-files/amule-conf.md)):
 
 1. Open **Preferences → Remote Controls**.
 2. Check **Accept External Connections**.
@@ -68,6 +68,8 @@ The `-w` flag writes the connection details to `remote.conf` without starting an
 
 You can also copy [`remote.conf`](../configuration/config-files/remote-conf.md) from the host machine and change the `Host=` line accordingly.
 
+If you cannot connect to a remote host, see [Remote Access Troubleshooting](../troubleshooting/remote-access.md) and the [Remote Access FAQ](../faq/remote-access.md).
+
 ## Interactive Usage
 
 Start `amulecmd`:
@@ -84,42 +86,66 @@ aMulecmd$ help <command>
 
 ## Commands Reference
 
+Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<number>` is the index shown next to each entry by the relevant `show` command (or, for `download`, by `results`).
+
 | Command | Description |
 |---|---|
-| `add <ed2k-link>` | Add an ed2k link to the download queue |
-| `cancel <hash>` | Cancel and remove a download by its hash |
-| `connect` | Connect to the eD2k network and Kademlia |
+| `add <ed2k-link \| magnet-link>` | Add a link to the core: an [eD2k file link](../../p2p-networks/ed2k/links.md) (queued for download), an eD2k [server](../../p2p-networks/ed2k/servers.md) or serverlist link (added to the server list), or a magnet link (must contain the eD2k hash and file length) |
+| `cancel <hash \| number>` | Cancel and remove a download (also accepts `all` or a filename) |
+| `connect` | Connect to all networks enabled in Preferences |
 | `connect ed2k` | Connect to the eD2k network only |
 | `connect kad` | Connect to the Kademlia network only |
+| `connect <IP:Port>` | Connect to a single eD2k server (IPv4 address or DNS name) |
 | `disconnect` | Disconnect from all networks |
 | `disconnect ed2k` | Disconnect from eD2k only |
 | `disconnect kad` | Disconnect from Kademlia only |
-| `download <hash>` | Start downloading a file from search results by hash |
-| `exit` | Exit `amulecmd` (does not stop `amuled`) |
-| `get <option>` | Get the value of a setting |
-| `help [command]` | Show help for all commands, or detailed help for one command |
-| `pause <hash>` | Pause a download |
-| `quit` | Alias for `exit` |
-| `reload shared` | Reload the shared files list from disk |
-| `reload ipfilter` | Reload the IP filter from disk |
-| `results` | Show results from the last search |
-| `resume <hash>` | Resume a paused download |
-| `set bwlimit up <kB/s>` | Set upload bandwidth limit (0 = unlimited) |
-| `set bwlimit down <kB/s>` | Set download bandwidth limit (0 = unlimited) |
+| `download <number>` | Start downloading file `<number>` from the last search results |
+| `pause <hash \| number>` | Pause a download (also accepts `all` or a filename) |
+| `resume <hash \| number>` | Resume a paused download (also accepts `all` or a filename) |
+| `priority <low\|normal\|high\|auto> <hash \| number>` | Set the [priority](gui/priority.md) of a download |
+| `search global <term>` | Search all servers (global search) |
+| `search local <term>` | Search the currently connected server (local search) |
+| `search kad <term>` | Search the Kademlia network |
+| `results` | Show the results of the last search |
+| `progress` | Show the progress of an on-going search |
+| `set bwlimit up <kB/s>` | Set upload bandwidth limit in kB/s (0 = unlimited) |
+| `set bwlimit down <kB/s>` | Set download bandwidth limit in kB/s (0 = unlimited) |
+| `set ipfilter on \| off` | Enable/disable [IP filtering](gui/preferences.md#ip-filtering) for both clients and servers |
+| `set ipfilter clients on \| off` | Enable/disable IP filtering for clients |
+| `set ipfilter servers on \| off` | Enable/disable IP filtering for servers |
+| `set ipfilter level <0-255>` | Set the IP filtering level (default 127) |
+| `get bwlimits` | Show the current bandwidth limits |
+| `get ipfilter` | Show IP filtering state and level (subcommands: `get ipfilter state [clients\|servers]`, `get ipfilter level`) |
 | `show dl` | Show the download queue |
 | `show ul` | Show the upload queue |
 | `show log` | Show the aMule log |
 | `show servers` | Show the server list |
 | `show shared` | Show shared files |
-| `shutdown` | Shut down the connected `amuled` instance |
-| `statistics` | Show detailed statistics |
-| `status` | Show current connection status, speeds, and queue sizes |
+| `reload shared` | Reload the shared files list from disk |
+| `reload ipfilter` | Reload the IP filter table (use `reload ipfilter net [URL]` to update it from a URL) |
 | `reset` | Reset (clear) the log |
-| `search ed2k <term>` | Search the eD2k network |
-| `search kad <term>` | Search the Kademlia network |
-| `search global <term>` | Search all servers globally |
+| `statistics [number]` | Show the statistics tree; the optional `number` (0-255) limits how many client versions are shown per type (0 = unlimited) |
+| `status` | Show connection status, current up/download speeds, etc. |
+| `shutdown` | Shut down the connected `amuled` (or `amule`) instance; this also exits `amulecmd` |
+| `help [command]` | Show the list of commands, or detailed help for one command |
+| `exit` | Exit `amulecmd` (does not stop `amuled`) |
+| `quit` | Alias for `exit` |
 
 For the full and current list, run `help` from within `amulecmd`.
+
+### Search Filters
+
+`search` accepts optional filters that can be placed before, after, or interleaved with the search keyword(s):
+
+| Filter | Description |
+|---|---|
+| `--type <Audio\|Video\|Image\|Doc\|Pro\|Arc\|Iso>` | Restrict results to the given file type |
+| `--extension <ext>` (alias `--ext`) | Restrict results to a file extension (e.g. `iso`, `mp3`) |
+| `--avail <N>` (alias `--availability`) | Minimum number of sources a result must report |
+| `--min-size <N[KMG]>` | Smallest file size to return |
+| `--max-size <N[KMG]>` | Largest file size to return |
+
+Size suffixes use binary multipliers (`K` = 1024, `M` = K×1024, `G` = M×1024); no suffix means bytes. For example, `search global linux iso --type Iso --min-size 100M` returns results for "linux iso" of file type Iso at least 100 MiB.
 
 ## One-liner Mode
 
@@ -131,15 +157,24 @@ amulecmd -c "show dl"
 amulecmd -c "set bwlimit up 30"
 ```
 
-Common flags for one-liner mode:
+Command-line flags:
 
 | Flag | Description |
 |---|---|
-| `-h <hostname>` | Host running `amuled` (default: localhost) |
-| `-p <port>` | EC port (default: 4712) |
-| `-P <password>` | EC password (plaintext) |
-| `-c "<command>"` | Run a single command and exit |
-| `-w` | Write configuration to `remote.conf` and exit |
+| `-h, --host <hostname>` | Host running `amuled` (default: localhost); may be an IP address or DNS name |
+| `-p, --port <port>` | EC port (default: 4712) |
+| `-P, --password <password>` | EC password (plaintext; converted to an MD5 hash internally) |
+| `-f, --config-file <path>` | Use the given configuration file (default: `~/.aMule/remote.conf`) |
+| `-q, --quiet` | Do not print any output to stdout |
+| `-v, --verbose` | Be verbose — also show debug messages |
+| `-l, --locale <lang>` | Set the program locale (language) |
+| `-c, --command "<command>"` | Execute a single command and exit |
+| `-w, --write-config` | Write the connection settings to `remote.conf` and exit |
+| `--create-config-from=<path>` | Create `remote.conf` from a valid aMule config file and exit |
+| `--version` | Print the program version |
+| `--help` | Show the usage description |
+
+A plain filename (no directory part) given to `-f`/`--config-file` is taken relative to the aMule configuration directory (`~/.aMule`).
 
 ## Scheduling with Cron
 
@@ -229,7 +264,7 @@ amulecmd -c "results"
 
 ## Color Log Display Script
 
-This script uses `amulecmd show log` to display a colored summary of recent activity. Requires `amulecmd` version 2.1.2 or later (which introduced the `show log` command).
+This script uses `amulecmd show log` to display a colored summary of recent activity.
 
 Failed downloads are shown in red, completed downloads in green, and in-progress downloads in yellow.
 

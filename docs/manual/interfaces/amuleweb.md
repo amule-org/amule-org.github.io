@@ -3,7 +3,7 @@ id: amuleweb
 title: amuleweb — Web Interface
 ---
 
-`amuleweb` is an HTTP server that acts as an intermediary between a running `amuled` (or `amule`) instance and a web browser. It connects to aMule via the External Connections (EC) protocol and exposes a browser-accessible interface for remote control.
+`amuleweb` is an HTTP server that acts as an intermediary between a running [`amuled`](./amuled.md) (or [`amule`](./gui/amule.md)) instance and a web browser. It connects to aMule via the [External Connections (EC) protocol](../../developer/ec-protocol.md) and exposes a browser-accessible interface for remote control.
 
 ## Overview
 
@@ -11,11 +11,50 @@ aMule itself does not speak HTTP. `amuleweb` bridges the gap: it listens for bro
 
 Available functionality through the web interface:
 
-- Search for files across eD2k and Kademlia.
+- Search for files across [eD2k](../../p2p-networks/ed2k/index.md) and [Kademlia](../../p2p-networks/kademlia.md).
 - Start, pause, resume, and cancel downloads.
 - View the download and upload queue.
 - Monitor status information (speeds, connections, ID).
 - Change some aMule options.
+
+## Command-Line Options
+
+Options can be given on the command line or written to the configuration file (with `--write-config`). Command-line options take precedence over config-file options.
+
+### External Connections (link to aMule)
+
+| Option | Description |
+|---|---|
+| `-h`, `--host=<host>` | Host where aMule is running; an IP address or DNS name (default: `localhost`) |
+| `-p`, `--port=<port>` | aMule's port for External Connections (default: `4712`) |
+| `-P`, `--password=<password>` | External Connections password (plaintext; hashed internally) |
+| `-f`, `--config-file=<path>` | Use the given configuration file (default: `~/.aMule/remote.conf`) |
+| `-l`, `--locale=<lang>` | Set the program locale (language) |
+| `-q`, `--quiet` | Do not print any output to stdout |
+| `-v`, `--verbose` | Be verbose — also show debug messages |
+| `-w`, `--write-config` | Write the command-line options to the config file and exit |
+| `--create-config-from=<path>` | Create the config file based on a valid aMule `amule.conf`, then exit |
+| `--help` | Print a short usage description |
+| `--version` | Display the version number |
+
+### Web server
+
+| Option | Description |
+|---|---|
+| `-t`, `--template=<name>` | Load the template (skin) named `<name>` (default: `default`) |
+| `-s`, `--server-port=<port>` | Web server HTTP port — the port the browser connects to (default: `4711`) |
+| `-u`, `--enable-upnp` | Use [UPnP](../configuration/upnp.md) port forwarding on the web server port |
+| `-U`, `--upnp-port=<port>` | UPnP port (default: `50001`) |
+| `-z`, `--enable-gzip` | Enable gzip compression of HTTP traffic to save bandwidth |
+| `-Z`, `--disable-gzip` | Disable gzip compression (this is the default) |
+| `-A`, `--admin-pass=<passwd>` | Full access password for the web server |
+| `-G`, `--guest-pass=<passwd>` | Guest password for the web server |
+| `-a`, `--allow-guest` | Allow guest access |
+| `-d`, `--deny-guest` | Deny guest access (this is the default) |
+| `-L`, `--load-settings` | Load/save web server settings from/to the remote aMule, ignoring command-line and config-file settings |
+| `-N`, `--no-script-cache` | Recompile PHP pages on each request (for template development) |
+| `--no-php` | Deprecated — has no effect |
+| `--amule-config-file=<path>` | aMule config file path. **Do not use directly** — aMule sets this when launching `amuleweb` at startup; it implies `-q -L` |
 
 ## Default Ports
 
@@ -103,7 +142,7 @@ amuleweb
 
 ### 6. Connect with a browser
 
-Open `http://localhost:4711` (replace `localhost` with the server's hostname or IP for remote access).
+Open `http://localhost:4711` (replace `localhost` with the server's hostname or IP for [remote access](../troubleshooting/remote-access.md)).
 
 ## Template (Skin) Locations
 
@@ -118,7 +157,7 @@ If `amuleweb` fails to start because it cannot load the template, create the dir
 
 ```bash
 mkdir -p ~/.aMule/webserver/default
-cp -r /path/to/amule-source/src/webserver/* ~/.aMule/webserver/default/
+cp -r /path/to/amule-source/src/webserver/default/* ~/.aMule/webserver/default/
 ```
 
 ## Running as a System Service
@@ -300,11 +339,23 @@ Queries aMule data structures. The `$command` parameter selects which data to re
 | `amule_do_reload_shared_cmd()` | Reload shared files from disk |
 | `amule_do_add_server_cmd($addr, $port, $name)` | Add an eD2k server to the server list |
 | `amule_do_server_cmd($ip, $port, $cmd)` | Send a command to a server: `"connect"`, `"disconnect"`, or `"remove"` |
-| `amule_do_ed2k_download_cmd($link, $cat)` | Queue an ed2k link for download in category `$cat` (integer index) |
+| `amule_do_ed2k_download_cmd($link, $cat)` | Queue an [eD2k link](../../p2p-networks/ed2k/links.md) for download in category `$cat` (integer index) |
 | `amule_do_search_start_cmd($term, $ext, $type, $search_type, $avail, $min_size, $max_size)` | Start a search: `$search_type` is `0`=local, `1`=global, `2`=Kad; `$avail` is minimum source count; `$min_size`/`$max_size` are byte limits (`0` = no limit) |
 | `amule_do_search_download_cmd($hash, $cat)` | Queue a search result for download in category `$cat` |
 | `amule_get_log($reset)` | Return log contents as a string; pass `1` to clear the log before reading, `0` to read without clearing |
 | `amule_get_serverinfo($reset)` | Return server info log as a string; pass `1` to clear before reading, `0` to read without clearing |
+
+#### Network Control Functions
+
+These functions control aMule's connection to the eD2k and Kademlia networks:
+
+| Function | Description |
+|---|---|
+| `amule_kad_start()` | Start the Kademlia network, bootstrapping from the on-disk [`nodes.dat`](../../developer/file-formats/nodes-dat.md) |
+| `amule_kad_connect($ip, $port)` | Bootstrap Kademlia from a specific node's IP address and UDP port |
+| `amule_kad_disconnect()` | Stop the Kademlia network |
+| `amule_kad_update_from_url($url)` | Download a fresh `nodes.dat` from `$url`, bootstrap Kademlia from it, and persist the URL into the `KadNodesUrl` preference so later starts reuse the same source |
+| `amule_server_disconnect()` | Disconnect from the current eD2k server (does not require an IP/port, unlike `amule_do_server_cmd`) |
 
 ### Authentication
 
@@ -312,7 +363,7 @@ Authentication and session management are handled by the webserver itself, not b
 
 ### Debugging
 
-All error messages are printed to the terminal where `amuleweb` was started. Start `amuleweb` manually from a terminal (do not start it automatically from aMule's preferences) to see script errors.
+All error messages are printed to the terminal where `amuleweb` was started. Start `amuleweb` manually from a terminal (do not start it automatically from aMule's [Remote Controls preferences](./gui/preferences.md#remote-controls)) to see script errors.
 
 Error types:
 - **Compile-time** — syntax errors (missing `;`, mismatched `()`).

@@ -18,3 +18,4 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | [UPnP (Universal Plug and Play)](./upnp.md) | Automatic port forwarding via UPnP |
 | [Proxy](./proxy.md) | Routing aMule connections through a proxy server |
 | [Events](./events.md) | Automating actions on download completion, disk-full alerts, and more |
+| [macOS](./macos.md) | macOS-specific notes: firewall setup, ed2k-link handling, and video preview |

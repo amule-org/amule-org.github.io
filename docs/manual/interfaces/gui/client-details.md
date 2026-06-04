@@ -25,13 +25,13 @@ The **Username** field shows the nickname the client has set:
 
 ### Userhash
 
-The **Userhash** field shows the client's unique userhash:
+The **Userhash** field shows the client's unique [userhash](../../../p2p-networks/concepts.md#userhash):
 
 ![Userhash field](/img/docs/usage/window_client4.jpg)
 
 ### Client Software
 
-The **Client software** field shows the application the client is using to connect to the network (aMule, eMule, etc.). For aMule and Hydranode clients, the operating system is shown in brackets, since both applications are multiplatform:
+The **Client software** field shows the application the client is using to connect to the network ([aMule, eMule, and other eD2k clients](../../../p2p-networks/ed2k/clients.md)). When the client reports its operating system (typically multiplatform clients such as aMule), it is shown in brackets:
 
 ![Client software field](/img/docs/usage/window_client5.jpg)
 
@@ -49,13 +49,13 @@ The **IP address** field shows the client's IP address and its standard client T
 
 ### User ID
 
-The **User ID** field shows the client's numeric ID on the server it is connected to, with the ID type ([High ID or Low ID](../../../p2p-networks/ed2k/high-id.md)) shown in brackets. If the client has not yet been identified or is connected only through Kademlia, the ID is 0:
+The **User ID** field shows the client's numeric ID on the server it is connected to, with the ID type ([High ID or Low ID](../../../p2p-networks/ed2k/high-id.md)) shown in brackets. If the client has not yet been identified or is connected only through [Kademlia](../../../p2p-networks/kademlia.md), the ID is 0:
 
 ![User ID field](/img/docs/usage/window_client8.jpg)
 
 ### Server IP
 
-The **Server IP** field shows the IP address of the server the client is connected to. If the client is connected only through Kademlia, this field displays **Unknown**:
+The **Server IP** field shows the IP address of the [server](../../../p2p-networks/ed2k/servers.md) the client is connected to. If the client is connected only through Kademlia, this field displays **Unknown**:
 
 ![Server IP field](/img/docs/usage/window_client21.jpg)
 
@@ -64,6 +64,22 @@ The **Server IP** field shows the IP address of the server the client is connect
 The **Server name** field shows the name of the server the client is connected to. If the client is connected only through Kademlia, this field displays **Unknown**:
 
 ![Server name field](/img/docs/usage/window_client22.jpg)
+
+### Obfuscation
+
+The **Obfuscation** field shows the status of [protocol obfuscation](preferences.md#protocol-obfuscation) for this client:
+
+| Value | Meaning |
+|---|---|
+| **Enabled** | Obfuscation is active for this connection |
+| **Supported** | The client supports obfuscation but it is not currently in use |
+| **Not supported** | The client does not support obfuscation |
+| **Disabled** | Obfuscation is disabled for this connection |
+| **Unknown** | The obfuscation status is not yet known |
+
+### Kad
+
+The **Kad** field shows whether the client is reachable through the [Kademlia](../../../p2p-networks/kademlia.md) network. It displays **Connected** when the client exposes a Kad UDP port, and **Disconnected** otherwise.
 
 ## Transfers to Client
 
@@ -111,63 +127,33 @@ The **Downloaded (Total)** field shows the total data you have ever downloaded f
 
 ## Scores
 
-### DL/UL Modifier
+### DL/UP Modifier
 
-The **DL/UL modifier** field shows the client's current score modifier, which affects its position in the upload queue:
+The **DL/UP modifier** field shows the client's current [score modifier](../../../p2p-networks/concepts.md#rate-score-modifier), which affects its position in the upload queue:
 
-![DL/UL modifier](/img/docs/usage/window_client16.jpg)
+![DL/UP modifier](/img/docs/usage/window_client16.jpg)
 
-### Rating
+### Queue Rank
 
-The **Rating** field shows the client's current credit-based rating:
-
-![Rating field](/img/docs/usage/window_client17.jpg)
+The **Queue rank** field shows the client's current waiting position ([queue rank](../../../p2p-networks/concepts.md#queue-rank-qr)) in your upload queue. If the client is not in the upload queue (because it has not requested a file or the queue is full), a dash (—) is displayed.
 
 ### Queue Score
 
-The **Queue score** field shows the client's calculated queue score and, in brackets, its current queue rank. If the client is not in the upload queue (because it has not requested a file or the queue is full), a dash (—) is displayed:
+The **Queue score** field shows the client's calculated queue score. If the client is not in the upload queue (because it has not requested a file or the queue is full), a dash (—) is displayed:
 
 ![Queue score field](/img/docs/usage/window_client18.jpg)
 
 ### Secure Ident
 
-The **Secure ident** field shows the result of Secure User Identification (SUI) verification:
+The **Secure ident** field shows the result of [Secure User Identification (SUI)](../../../p2p-networks/ed2k/secure-user-identification.md) verification:
 
 ![Secure ident field](/img/docs/usage/window_client19.jpg)
 
 | Value | Meaning |
 |---|---|
-| **Not Available** | SUI is not enabled on your client |
-| **N/A** | The remote client has not yet started the identification process |
-| **Bad Guy** | The client has violated network policy and has been banned |
+| **Not Available** | SUI is not available on your client (cryptography is disabled) |
+| **Not supported** | The remote client does not support SUI |
 | **Failed** | The client failed the SUI challenge |
-| **Not Supported** | The remote client does not support SUI |
 | **Not complete** | The identification process is still in progress |
-| **Valid - OK** | The client successfully identified through SUI |
-
-## Quick Reference
-
-![Client Details quick reference](/img/docs/usage/window_client20.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Client's DL/UL score modifier |
-| 2 | Client's credit-based rating |
-| 3 | Client software (and OS in brackets) |
-| 4 | Total data uploaded to the client ever |
-| 5 | Data uploaded to the client this session |
-| 6 | Average upload speed to the client |
-| 7 | IP of the server the client is connected to |
-| 8 | Client's IP address and TCP port |
-| 9 | File the client has requested from you |
-| 10 | Close button |
-| 11 | Client's username |
-| 12 | Client's userhash |
-| 13 | Client software version |
-| 14 | Client's server ID and ID type (High/Low) |
-| 15 | Name of the server the client is connected to |
-| 16 | Average download speed from the client |
-| 17 | Data downloaded from the client this session |
-| 18 | Total data downloaded from the client ever |
-| 19 | Secure identification status |
-| 20 | Client's queue score and queue rank in brackets |
+| **Bad Guy** | The client has violated network policy and has been [banned](../../../p2p-networks/concepts.md#ban) |
+| **Verified - OK** | The client successfully identified through SUI |

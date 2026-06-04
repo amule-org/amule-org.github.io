@@ -13,10 +13,32 @@ title: amuled — Headless Daemon
 - [`amuleweb`](./amuleweb.md) — browser-based HTTP interface
 - [`amulecmd`](./amulecmd.md) — command-line interface
 
-All remote interfaces communicate with `amuled` through the **External Connections (EC)** protocol on TCP port 4712 (configurable).
+All remote interfaces communicate with `amuled` through the **[External Connections (EC)](../../developer/ec-protocol.md)** protocol on TCP port 4712 (configurable).
+
+## Command-Line Options
+
+`amuled` accepts the following options:
+
+| Short | Long | Description |
+|---|---|---|
+| `-v` | `--version` | Display the current version number and exit. |
+| `-h` | `--help` | Display the list of options and exit. |
+| `-c <dir>` | `--config-dir=<dir>` | Read the configuration from `<dir>` instead of the default `~/.aMule/`. |
+| `-o` | `--log-stdout` | Print log messages to stdout (ignored when the daemon forks to background). |
+| `-r` | `--reset-config` | Reset the configuration to default values (the old config is backed up with a `.backup` suffix). |
+| `-e` | `--ec-config` | Configure [External Connections (EC)](../../developer/ec-protocol.md) interactively. |
+| `-f` | `--full-daemon` | Fork to background (daemonize). Without this flag `amuled` stays in the foreground. |
+| `-p <file>` | `--pid-file=<file>` | After forking, write the daemon's PID to `<file>` so a service manager can track it. |
+| `-w <path>` | `--use-amuleweb=<path>` | Specify the location of the `amuleweb` binary. |
+| `-i` | `--enable-stdin` | Do not close stdin (closed by default). |
+| `-d` | `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). |
+| `-t <n>` | `--category=<n>` | Set the category for passed eD2k links. |
+| | `--configure-autostart=on\|off` | Enable or disable starting `amuled` on user login, then exit. |
+
+One or more eD2k links may be passed as positional arguments to add them to the download queue.
 
 :::note
-Do not set `MaxConnections` above **1024** in [`amule.conf`](../configuration/config-files/amule-conf.md). The wxBase library that `amuled` uses cannot handle more simultaneous connections than that.
+Do not set an excessively high `MaxConnections` value in [`amule.conf`](../configuration/config-files/amule-conf.md). The default is around **500** and `amuled` adapts the recommended maximum to your operating system's capabilities. Setting it far too high wastes resources and can degrade performance.
 :::
 
 ## Installation
@@ -37,7 +59,7 @@ Alternatively, run `amuled` once normally — it will create [`~/.aMule/amule.co
 
 ### Key [`amule.conf`](../configuration/config-files/amule-conf.md) Settings
 
-The relevant section is `[ExternalConnect]`:
+The relevant section is [`[ExternalConnect]`](../configuration/config-files/amule-conf.md#externalconnect-section):
 
 ```ini
 [ExternalConnect]
@@ -62,21 +84,29 @@ ECAddress=127.0.0.1
 
 ## Starting amuled
 
-Run in the foreground (logs go to stdout):
+By default `amuled` runs in the **foreground**. Add `-o` to print log messages to stdout:
 
 ```bash
-amuled -f
+amuled -o
 ```
 
-Run in the background (default when `-f` is omitted):
+Use `-f` to **fork to the background** (daemonize). When it forks, `amuled` detaches from the controlling terminal and closes stdin/stdout/stderr, so logging to stdout is disabled automatically. Combine it with `-p` to write a PID file that a service manager can track:
 
 ```bash
-amuled
+amuled -f -p /run/amuled/amuled.pid
 ```
 
-The process writes its PID to `~/.aMule/muleLock`.
+:::note
+aMule creates a single-instance lock at `~/.aMule/muleLock` to prevent a second instance from starting with the same configuration. This is **not** a manageable PID file — use `-p` if you need one.
+:::
 
 ## Running as a System Service
+
+On modern Linux distributions the init system is **systemd**, so that is the recommended way to run `amuled` unattended; Gentoo uses **OpenRC** instead.
+
+:::tip
+Many distributions package `amuled` with a ready-made service (for example Debian/Ubuntu's `amule-daemon` package). If you installed aMule through your package manager, use that service instead of writing your own.
+:::
 
 ### systemd (modern Linux)
 
@@ -90,13 +120,17 @@ After=network.target
 [Service]
 Type=simple
 User=amule
-ExecStart=/usr/bin/amuled -f
+ExecStart=/usr/bin/amuled -o -d
 Restart=on-failure
 RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+:::note
+Do **not** pass `-f` here. With `Type=simple`, systemd expects `amuled` to stay in the foreground; forking to background would make systemd lose track of the process. Run it in the foreground with `-o` so log messages go to the journal, and `-d` so it behaves well under the service manager. (If you prefer the classic forking style, use `Type=forking`, `ExecStart=/usr/bin/amuled -f -p /run/amuled/amuled.pid` and `PIDFile=/run/amuled/amuled.pid` instead.)
+:::
 
 Enable and start:
 
@@ -107,210 +141,31 @@ systemctl start amuled
 
 Replace `User=amule` with the name of a user that has already run `amule` or `amuled` once to generate a configuration.
 
-### Generic Debian/Ubuntu (init.d)
-
-Save the following as `/etc/init.d/amuled` and make it executable (`chmod 755 /etc/init.d/amuled`).
-
-Edit the `USER=` line to match your username (as reported by `whoami`).
-
-```bash
-#!/bin/bash
-NAME=$(basename "$0")
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/bin/amuled
-DESC=amuled
-USER=yourusername   # A user who has run amule once to configure it.
-
-test -x "$DAEMON" || exit 0
-
-case "$1" in
-  start)
-    echo -n "Starting $DESC: "
-    su "$USER" -c "$(printf "%q -f" "$DAEMON")"
-    echo "$NAME."
-    ;;
-  stop)
-    echo -n "Stopping $DESC: "
-    killall --quiet "$DAEMON"
-    echo "$NAME."
-    ;;
-  restart|force-reload)
-    echo -n "Restarting $DESC: "
-    killall --quiet "$DAEMON"
-    sleep 1
-    su "$USER" -c "$(printf "%q -f" "$DAEMON")"
-    ;;
-  *)
-    printf "Usage: %q {start|stop|restart|force-reload}\n" "$0" >&2
-    exit 1
-    ;;
-esac
-exit 0
-```
-
-Register the service:
-
-```bash
-# On Debian/Ubuntu:
-update-rc.d amuled defaults
-
-# On a generic system (manual symlinks):
-ln -s /etc/init.d/amuled /etc/rc0.d/K20amuled
-ln -s /etc/init.d/amuled /etc/rc1.d/K20amuled
-ln -s /etc/init.d/amuled /etc/rc6.d/K20amuled
-ln -s /etc/init.d/amuled /etc/rc4.d/S20amuled
-ln -s /etc/init.d/amuled /etc/rc5.d/S20amuled
-```
-
-**Ubuntu note:** Ubuntu ships `/etc/init.d/amule-daemon` already. Set the user by editing `/etc/default/amule-daemon`; `amuled` will then start automatically as that user.
-
-### Red Hat / Fedora / RHEL / CentOS / SME7 (init.d)
-
-Save the following as `/etc/init.d/amuled`, make it executable, then register it with `chkconfig`:
-
-```bash
-#!/bin/sh
-# aMule daemon startup script
-# description: amule p2p download service
-# chkconfig: 345 97 03
-
-# Source function library.
-. /etc/rc.d/init.d/functions
-
-USER=yourusername   # A user who has run amule once to configure it.
-RETVAL=0
-
-case "$1" in
-  start)
-    echo -n "Starting amule daemon: "
-    daemon --user=$USER amuled -f
-    RETVAL=$?
-    echo
-    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/amule
-    ;;
-  stop)
-    echo -n "Stopping amule daemon: "
-    killproc amuled
-    RETVAL=$?
-    rm -f /var/lock/subsys/amule && rm -f /var/lock/amule
-    echo
-    ;;
-  status)
-    status amuled
-    RETVAL=$?
-    ;;
-  restart|force-reload)
-    $0 stop
-    $0 start
-    RETVAL=$?
-    ;;
-  *)
-    printf "Usage: %q {start|stop|status|restart|force-reload}\n" "$0" >&2
-    exit 1
-    ;;
-esac
-exit $RETVAL
-```
-
-Register the service:
-
-```bash
-chkconfig --add amuled
-```
-
 ### Gentoo (OpenRC)
 
-Save the following as `/etc/init.d/amuled`:
+Save the following as `/etc/init.d/amuled` and make it executable (`chmod 755 /etc/init.d/amuled`):
 
 ```bash
-#!/sbin/runscript
-# Copyright 1999-2008 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
+#!/sbin/openrc-run
 
-NAME=$(basename "$0")
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/bin/amuled
-DESC=amuled
-USER=yourusername
+name="amuled"
+description="aMule Daemon"
+command="/usr/bin/amuled"
+command_args="-o -d"
+command_user="amule"        # A user that has run amule once to configure it.
+command_background="yes"
+pidfile="/run/amuled.pid"
 
 depend() {
     need net
 }
-
-start() {
-    ebegin "Starting $DESC"
-    su "$USER" -c "$(printf "%q -f" "$DAEMON")"
-    eend $?
-}
-
-stop() {
-    ebegin "Stopping $DESC"
-    killall --quiet "$DAEMON"
-    eend $?
-}
-
-restart() {
-    svc_stop
-    svc_start
-}
 ```
 
-### SUSE / openSUSE (init.d with LSB headers)
-
-Save the following as `/etc/init.d/amuled`:
+OpenRC runs `amuled` in the foreground (`-o -d`) and handles backgrounding and the PID file itself (`command_background`). Enable and start it with:
 
 ```bash
-#!/bin/bash
-### BEGIN INIT INFO
-# Provides:          amuled
-# Required-Start:    $ALL
-# Should-Start:      $ALL
-# Required-Stop:     $ALL
-# Should-Stop:       $ALL
-# Default-Start:     3 5
-# Default-Stop:      0 1 2 6
-# Short-Description: aMule Daemon
-# Description:       Start aMuled, Daemon for aMule
-### END INIT INFO
-
-NAME=$(basename "$0")
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/bin/amuled
-DESC=amuled
-USER=yourusername   # A user who has run amule once to configure it.
-
-test -x "$DAEMON" || exit 0
-
-case "$1" in
-  start)
-    echo -n "Starting $DESC: "
-    su "$USER" -c "$(printf "%q -f" "$DAEMON")"
-    echo "$NAME."
-    ;;
-  stop)
-    echo -n "Stopping $DESC: "
-    killall --quiet "$DAEMON"
-    echo "$NAME."
-    ;;
-  restart|force-reload)
-    echo -n "Restarting $DESC: "
-    killall --quiet "$DAEMON"
-    sleep 1
-    su "$USER" -c "$(printf "%q -f" "$DAEMON")"
-    ;;
-  *)
-    printf "Usage: %q {start|stop|restart|force-reload}\n" "$0" >&2
-    exit 1
-    ;;
-esac
-exit 0
-```
-
-Insert into the startup list:
-
-```bash
-chmod 755 /etc/init.d/amuled
-insserv /etc/init.d/amuled
+rc-update add amuled default
+rc-service amuled start
 ```
 
 ## Connecting Remotely
@@ -324,3 +179,5 @@ Once `amuled` is running with EC enabled, connect to it using any of the remote 
 | CLI | `amulecmd -h hostname -p 4712 -P yourpassword` |
 
 See the individual pages for [amulegui](./gui/amulegui.md), [amuleweb](./amuleweb.md), and [amulecmd](./amulecmd.md) for full setup instructions.
+
+To connect from another machine, make sure the EC port (and the `amuleweb` HTTP port, if used) is reachable: see [Network Connectivity](../configuration/network-connectivity.md) for the full list of ports and [Firewall](../configuration/firewall.md) for how to open them.

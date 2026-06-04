@@ -3,11 +3,11 @@ id: import
 title: Import
 ---
 
-The Import tool integrates eDonkey2000 part files into aMule so you can continue downloads that were in progress in eDonkey2000 without starting over. aMule detects the part files, converts them to its own format, and adds them to the download queue.
+The Import tool integrates [eDonkey2000](../../p2p-networks/ed2k/index.md) part files into aMule so you can continue downloads that were in progress in eDonkey2000 without starting over. aMule detects the part files, converts them to its own format, and adds them to the [download queue](../interfaces/gui/downloads.md#download-queue).
 
 ![Import window](/img/docs/usage/window_import1.jpg)
 
-Open the Import tool by clicking the **Import** button in the [toolbar](../interfaces/gui/toolbar.md).
+Open the Import tool by clicking the **Import** button in the [toolbar](../interfaces/gui/toolbar.md). The window that opens is titled **Import partfiles**.
 
 :::note
 If you are migrating from **eMule**, the temporary file format is directly compatible — no import needed. See [Migrate from eMule](./migrate-from-emule.md) for the full migration guide.
@@ -53,11 +53,11 @@ If any eDonkey2000 part files are found, they are added to the import list:
 
 Files in the import list are processed in sequence — as soon as one file finishes converting, the next begins. Only one file is imported at a time.
 
-**Remove a file** from the list (cancels import if in progress) by selecting it and clicking **Remove selected**:
+**Remove a file** from the list by selecting it and clicking **Remove selected**. The file currently being converted cannot be removed — the action is ignored for it:
 
 ![Remove selected button](/img/docs/usage/window_import6.jpg)
 
-**Retry a failed file** by selecting it and clicking **Retry selected**:
+**Retry a file** (any file that is not completed and not currently in progress — typically a failed one) by selecting it and clicking **Retry selected**. The file is put back into the queue:
 
 ![Retry selected button](/img/docs/usage/window_import7.jpg)
 
@@ -85,7 +85,6 @@ Detailed status messages appear above the progress bar:
 
 | Message | Meaning |
 |---|---|
-| `Fetching status...` | Reading configuration and initialising |
 | `Reading temp folder` | Searching for part files in the selected directory |
 | `Retrieving basic information from download info file` | Reading metadata from the part file to begin conversion |
 | `Creating destination file` | Allocating disk space for the converted file |
@@ -99,10 +98,10 @@ Detailed status messages appear above the progress bar:
 
 | Column | Description |
 |---|---|
-| **Filename** | Path to the directory being imported, or the filename of the specific file |
+| **File name** | Path to the directory being imported, or the filename of the specific file |
 | **State** | Current import status (see table below) |
-| **Size** | Original file size, and in brackets the disk space needed for the converted file |
-| **Filehash** | The resulting eD2k hash of the converted file |
+| **Size** | Original file size, followed by the disk space needed for the converted file in the form `(Disk: …)` |
+| **Filehash** | The resulting [eD2k hash](../../p2p-networks/concepts.md#md4-hash-ed2k-hash) of the converted file |
 
 ### State Values
 
@@ -110,13 +109,13 @@ Detailed status messages appear above the progress bar:
 |---|---|
 | **Completed** | File has been successfully converted and added to the queue |
 | **In progress** | File is currently being converted |
-| **Error: Out of diskspace** | Not enough free disk space to complete the conversion |
-| **Error: Partmet not found** | No [`.part.met`](../configuration/config-files/index.md#temporary-download-files) metadata file was found for this file |
-| **Error: IO error!** | Read or write error during conversion (possible permissions issue) |
-| **Error: Failed!** | General conversion error |
+| **ERROR: Out of disk space** | Not enough free disk space to complete the conversion |
+| **ERROR: Partmet not found** | No [`.part.met`](../configuration/config-files/index.md#temporary-download-files) metadata file was found for this file |
+| **ERROR: IO error!** | Read or write error during conversion (possible permissions issue) |
+| **ERROR: Failed!** | General conversion error |
 | **Queued** | File is waiting to be converted |
 | **Already downloading** | This file is already in the aMule download queue; conversion skipped |
-| **Unknown or bad tempfile format** | The file format is not recognised or is invalid |
+| **Unknown or bad tempfile format.** | The file format is not recognised or is invalid |
 
 ## Closing the Import Window
 
@@ -127,35 +126,3 @@ When all files have been imported, click **Close** to exit the import tool:
 :::note
 The import list is not sortable. Column widths can be resized but are not saved between sessions.
 :::
-
-## Quick Reference
-
-### Import Window
-
-![Import window quick reference](/img/docs/usage/window_import13.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Path to the file or directory currently being imported |
-| 2 | Import progress percentage |
-| 3 | Import progress bar |
-| 4 | Import list |
-| 5 | Add a directory to import |
-| 6 | Retry importing the selected file (if it failed) |
-| 7 | Import status messages |
-| 8 | Remove selected file from the list |
-| 9 | Close the import window |
-
-### Directory Browser
-
-![Directory browser quick reference](/img/docs/usage/window_import14.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Create a new directory |
-| 2 | Go to home directory |
-| 3 | File system browser |
-| 4 | Show/hide hidden directories |
-| 5 | Path input for the directory to import |
-| 6 | Accept and begin importing |
-| 7 | Close without importing |

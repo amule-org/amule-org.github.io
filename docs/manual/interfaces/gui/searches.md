@@ -88,7 +88,7 @@ Using **Download in category** lets you assign the file(s) to a specific downloa
 ![Download in category submenu](/img/docs/usage/window_search22.jpg)
 
 :::note
-This method is not available to macOS users with a single-button mouse (no right-click). Use [Ctrl+Click](./macos.md) as an alternative.
+This method is not available to macOS users with a single-button mouse (no right-click). Use [Ctrl+Click](../../configuration/macos.md) as an alternative.
 :::
 
 ### Result Row Colours
@@ -274,69 +274,3 @@ Right-clicking on a result row opens this menu:
 ## Miscellaneous
 
 The **Fast ED2K links handler** bar at the bottom of the search window lets you paste [ed2k links](../../../p2p-networks/ed2k/links.md) to add them directly to the download queue. It is always visible in the Searches panel, regardless of whether it is enabled in **[Preferences → Interface → Show "Fast eD2k Links Handler" in every window](./preferences.md#interface)**. To hide it in the search window as well, click the **[Search](./toolbar.md#window-buttons)** button in the toolbar twice.
-
-## Quick Reference
-
-### Search Window
-
-![Search window quick reference](/img/docs/usage/window_search36.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Toggle to Search window / Toggle ED2K links handler |
-| 2 | Search parameters panel |
-| 3 | Name text field |
-| 4 | Search type selector |
-| 5 | Show/hide extended parameters |
-| 6 | Extended parameters panel |
-| 7 | File type selector |
-| 8 | Filtering controls panel |
-| 9 | Filter text field |
-| 10 | Apply filter button |
-| 11 | Stop search |
-| 12 | Start search |
-| 13 | Search results list |
-| 14 | Close tab (X) |
-| 15 | Search text in tab label |
-| 16 | File name column |
-| 17 | File size column |
-| 18 | Global search progress bar |
-| 19 | Reset search parameters |
-| 20 | Show/hide filtering controls |
-| 21 | Extension field |
-| 22 | Category selector |
-| 23 | Minimum availability |
-| 24 | Maximum size unit selector |
-| 25 | Maximum size field |
-| 26 | Hide downloading or completed files |
-| 27 | Invert filter |
-| 28 | Clear all tabs |
-| 29 | Download selected file(s) |
-| 30 | Results tab |
-| 31 | Results count: filtered / total |
-| 32 | Sources count |
-| 33 | Complete-sources count |
-| 34 | File type |
-| 35 | File ID (hash) |
-
-### Tab Right-Click Menu
-
-![Tab right-click menu reference](/img/docs/usage/window_search46.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Close the selected tab |
-| 2 | Close all tabs |
-| 3 | Close all tabs except the selected one |
-
-### File Right-Click Menu
-
-![File right-click menu reference](/img/docs/usage/window_search47.jpg)
-
-| # | Description |
-|---|---|
-| 1 | Download the selected file(s) |
-| 2 | Download into the selected category |
-| 3 | Get statistics for the file from the configured statistics server |
-| 4 | Search for related files |
-| 5 | Copy ed2k link to clipboard |

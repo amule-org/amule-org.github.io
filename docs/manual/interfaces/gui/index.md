@@ -1,6 +1,6 @@
 ---
 id: index
-title: GUI
+title: GUI — amule & amulegui
 ---
 
 The graphical interface is shared by the all-in-one [`amule`](./amule.md) client and the remote [`amulegui`](./amulegui.md) client: both present the same panels and windows. The pages below document day-to-day usage of that interface — its elements, searching and downloading files, managing shared content, messaging, statistics, configuration, and appearance.
@@ -16,7 +16,7 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 
 | Page | Description |
 |---|---|
-| [Toolbar](./toolbar.md) | Connect/disconnect button and window-switching buttons |
+| [Toolbar](./toolbar.md) | Connect/disconnect button, window-switching buttons, and access buttons |
 | [Status Bar](./statusbar.md) | Network status, user/file counts, speed indicators, and globe icon |
 | [System Tray Icon](./tray-icon.md) | Tray icon colours, tooltip, and right-click menu |
 
@@ -25,18 +25,18 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 | Page | Description |
 |---|---|
 | [Networks](./networks.md) | eD2k and Kademlia network status and controls |
-| [Searches](./searches.md) | Search types, extended parameters, result filtering, tabs, and quick reference |
+| [Searches](./searches.md) | Search types, extended parameters, result filtering and tabs |
 
 ## Downloads & files
 
 | Page | Description |
 |---|---|
-| [Downloads](./downloads.md) | Download queue, upload queue, and transfer management |
+| [Downloads](./downloads.md) | Download queue, source list, categories, and transfer management |
 | [Shared Files](./shared-files.md) | Shared files panel, per-file controls, statistics, and how to configure shared directories |
 | [File Details](./file-details.md) | File properties window: status, sources, ICH stats, rename, and comments |
 | [Client Details](./client-details.md) | Client details window: identity, transfer history, and queue scores |
 | [Comments](./comments.md) | Comments and ratings window; comment/rating icons in the download queue |
-| [Priority](./priority.md) | Download and upload priority levels: Auto, Low, Normal, High, Release |
+| [Priority](./priority.md) | Download and upload priority levels: Auto, Very Low, Low, Normal, High, Very High, Release |
 
 ## Communication & statistics
 
@@ -50,11 +50,10 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 | Page | Description |
 |---|---|
 | [Preferences](./preferences.md) | Preferences window: all configuration panels and options |
-| [Skins](./skins.md) | Installing and applying GUI skins |
+| [Skins](./skins.md) | Installing and applying aMule bitmap skins and GTK themes |
 
 ## Reference
 
 | Page | Description |
 |---|---|
 | [Keyboard & Mouse Shortcuts](./shortcuts.md) | Complete shortcut reference |
-| [macOS Usage](./macos.md) | macOS firewall setup, ed2k-link handling, and video preview |

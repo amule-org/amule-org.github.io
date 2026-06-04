@@ -19,7 +19,7 @@ eMule stores its configuration under its `config/` directory. aMule stores its c
 
 | Platform | Path |
 |---|---|
-| Windows | `C:\Documents and Settings\<username>\Application Data\aMule\` |
+| Windows | `%APPDATA%\aMule\` (`C:\Users\<username>\AppData\Roaming\aMule\`) |
 | macOS | `~/Library/Application Support/aMule/` |
 | Linux / BSD | `~/.aMule/` |
 
@@ -33,7 +33,7 @@ The following eMule files are read and correctly imported by aMule without any m
 |---|---|
 | [`clients.met`](../configuration/config-files/index.md#clientsmet) | Other clients' credit information |
 | [`known.met`](../configuration/config-files/index.md#knownmet) | Details about downloaded files (shown in green when searched again) |
-| `known2.met` | AICH hashes of shared files |
+| `known2.met` | AICH hashes of shared files (converted to `known2_64.met` on first run) |
 | [`server.met`](../configuration/config-files/index.md#servermet) | Saved server list |
 | [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) | Static servers |
 | [`ipfilter.dat`](../configuration/config-files/index.md#ipfilterdat) | IP filter rules |
@@ -57,7 +57,7 @@ The following files require manual handling:
 |---|---|---|
 | `preferences.ini` | [`amule.conf`](../configuration/config-files/amule-conf.md) | Different format; must be reconfigured manually or by carefully copying specific keys |
 | `Category.ini` | `amule.conf` (`[Cat\#N]` sections) | Categories use a different format; see [Importing Categories](#importing-categories) |
-| `shareddir.dat` | `~/.aMule/shareddir.dat` | Path format is incompatible on non-Windows systems; aMule regenerates this when you set shared directories via Preferences |
+| `shareddir.dat` | `~/.aMule/shareddir.dat` | Path format is incompatible on non-Windows systems; aMule regenerates this when you set [shared directories](../configuration/directories.md#shared-directories) via Preferences |
 
 Files from eMule that are **not used by aMule** and can be ignored: `AC_BootstrapIPs.dat`, `AC_IPFilterUpdateURLs.dat`, `AC_SearchStrings.dat`, `AC_ServerMetURLs.dat`, `fileinfo.ini`, `k_index.dat`, `preferencesK.dat`, `s_index.dat`, `statistics.ini`, `webservices.dat`
 
@@ -65,7 +65,7 @@ Files from eMule that are **not used by aMule** and can be ignored: `AC_Bootstra
 
 ### Importing Categories
 
-eMule stores download categories in `Category.ini`. aMule stores them inside `amule.conf` as `[Cat\#N]` sections.
+eMule stores download [categories](../interfaces/gui/downloads.md#categories) in `Category.ini`. aMule stores them inside [`amule.conf`](../configuration/config-files/amule-conf.md) as `[Cat\#N]` sections.
 
 Use the following shell command to extract the categories from eMule's `Category.ini` and format them for aMule (run as a single line):
 
@@ -79,7 +79,7 @@ grep -E "^\[Cat|^Title|^Incoming|^Comment|^Color|^a4afPriority" Category.ini \
 
 This command:
 - Extracts the category sections and their key fields.
-- Deletes the first 6 lines (which correspond to eMule's built-in "all files" category — aMule does not need this entry, as it has its own "all" tab).
+- Deletes the first 6 lines (which correspond to eMule's built-in "all files" category — aMule does not need this entry, as it has its own ["All" tab](../interfaces/gui/downloads.md#categories)).
 - Escapes `#` and `&` characters, which have special meaning in some ini parsers.
 - Renames `a4afPriority` to `Priority`.
 
@@ -123,22 +123,15 @@ Priority=0
 If you import categories before importing temporary files, the downloads will be classified into categories as they were in eMule.
 :::
 
-### Importing Statistics
+### Statistics Cannot Be Imported
 
-eMule stores statistics in two files: `preferences.ini` and `statistics.ini`. The values in `statistics.ini` are more complete.
+eMule keeps its cumulative statistics in `statistics.ini` (and `preferences.ini`). aMule stores its cumulative upload/download totals in its own binary file, `statistics.dat`, which is **not** compatible with eMule's format.
 
-In `statistics.ini`, all statistics are under the `[Statistics]` tag. aMule uses the same tag in `amule.conf`. Copy the statistics entries from `statistics.ini` into `amule.conf`, being careful **not to delete** the two keys that already exist in aMule's `amule.conf`:
-
-- `MaxClientVersions`
-- `DesktopMode`
-
-:::note
-In practice, only a small subset of statistics values successfully import (mainly downloaded and uploaded byte counts). Most statistics will need to accumulate again as you use aMule.
-:::
+There is no way to import eMule's statistics into aMule: the [`[Statistics]` section](../configuration/config-files/amule-conf.md#statistics-section) in `amule.conf` only holds display preferences (such as the number of client versions shown in the [statistics tree](../interfaces/gui/statistics.md#statistics-tree)), not the counters themselves. Your statistics will simply start fresh and accumulate again as you use aMule.
 
 ### Other Configuration
 
-Settings such as TCP/UDP ports, incoming and temp directories, and bandwidth limits are client-specific and important for correct operation. The recommended approach is to reconfigure them from scratch using **Preferences** in aMule.
+Settings such as TCP/UDP ports, incoming and temp [directories](../configuration/directories.md), and bandwidth limits are client-specific and important for correct operation. The recommended approach is to reconfigure them from scratch using **[Preferences](../interfaces/gui/preferences.md)** in aMule.
 
 If you want to try importing settings directly, you can copy specific keys from eMule's `preferences.ini` to the corresponding keys in aMule's `amule.conf`. This is not guaranteed to work and may cause unexpected behaviour.
 
@@ -148,14 +141,14 @@ If you want to try importing settings directly, you can copy specific keys from 
 
 eMule and aMule use a **compatible temporary file format**. To resume your eMule downloads in aMule:
 
-1. Set aMule's **Temp directory** (in **Preferences → Directories**) to the same directory where eMule stores its temporary files.
+1. Set aMule's **[Temp directory](../configuration/directories.md#temporary-directory)** (in **Preferences → Directories**) to the same directory where eMule stores its temporary files.
 2. Restart aMule. It will detect and re-hash the existing files, and they will appear in the download queue ready to continue.
 
 ### Shared / Completed Files
 
 Completed files from eMule do not need to be moved. Simply:
 
-1. Add the directory containing your completed eMule downloads as a **shared directory** in aMule (**Preferences → Directories**).
+1. Add the directory containing your completed eMule downloads as a **[shared directory](../configuration/directories.md#shared-directories)** in aMule (**Preferences → Directories**).
 2. aMule will hash the files and start sharing them.
 
 ## Summary
@@ -166,5 +159,5 @@ Completed files from eMule do not need to be moved. Simply:
 | Resume in-progress downloads | Set aMule's Temp dir to eMule's temp dir |
 | Share completed files | Add eMule's Incoming dir to aMule's shared directories |
 | Import categories | Use the shell script above, paste into `amule.conf` |
-| Import statistics | Copy `[Statistics]` block from `statistics.ini` to `amule.conf` |
+| Statistics | Not possible — aMule's `statistics.dat` is incompatible with eMule; counters start fresh |
 | Ports, speed limits, directories | Reconfigure manually in Preferences |
