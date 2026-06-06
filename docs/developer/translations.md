@@ -3,7 +3,7 @@ id: translations
 title: Translations
 ---
 
-aMule has three areas that can be translated: the [application interface strings](#code-translations), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
+This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
 
 ## Code Translations
 
@@ -472,4 +472,4 @@ Open a pull request with:
 
 The website documentation (this site) is internationalized through Docusaurus's i18n system. Translations cover two areas: UI strings (navbar, sidebar labels, homepage text) stored in `i18n/<locale>/code.json`, and documentation pages stored as Markdown files under `i18n/<locale>/docusaurus-plugin-content-docs/current/`.
 
-Full instructions for adding or updating a documentation translation are in [Contributing to Documentation](./documentation.md#translations).
+The step-by-step instructions for adding or updating a documentation translation live in the [Documentation guide](./documentation.md#translations), alongside the rest of the documentation workflow.

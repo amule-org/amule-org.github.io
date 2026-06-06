@@ -35,7 +35,8 @@ npm run serve
 
 The full contributor documentation lives on the site itself:
 
-* [Documentation guide](https://amule-org.github.io/docs/developer/documentation) — repository structure, adding and editing pages, images, translations, adding a new language, and the pull request workflow.
+* [Documentation guide](https://amule-org.github.io/docs/developer/documentation) — repository structure, adding and editing pages, images, and the pull request workflow.
+* [Translations guide](https://amule-org.github.io/docs/developer/translations) — translating the application interface, the man pages, and the documentation website.
 * [Contributing](https://amule-org.github.io/docs/contributing) — all the ways to help the project.
 
 ## Useful links
