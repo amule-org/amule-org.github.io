@@ -18,11 +18,11 @@ You will find everything there: the home page, complete documentation, download 
 
 All development has moved to the new **[amule-org](https://github.com/amule-org)** GitHub organization. Here is a quick reference:
 
-| Resource       | Link                                                                     |
-| -------------- | ------------------------------------------------------------------------ |
-| Source code    | [github.com/amule-org/amule](https://github.com/amule-org/amule)         |
-| Website & docs | [amule-org.github.io](https://amule-org.github.io/)                      |
-| Downloads      | [sourceforge.net/projects/amule](https://sourceforge.net/projects/amule) |
+| Resource       | Link                                                                         |
+| -------------- | ---------------------------------------------------------------------------- |
+| Source code    | [github.com/amule-org/amule](https://github.com/amule-org/amule)             |
+| Website & docs | [amule-org.github.io](https://amule-org.github.io/)                          |
+| Downloads      | [https://amule-org.github.io/download](https://amule-org.github.io/download) |
 
 ## Get involved
 
