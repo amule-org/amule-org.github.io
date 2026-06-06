@@ -3,7 +3,7 @@ id: kademlia
 title: Kademlia Network
 ---
 
-**Kademlia** (Kad) is a fully decentralised peer-to-peer network for \*Mule clients. Unlike eD2k, it requires no central servers — every participating client simultaneously acts as both a client and a server within the distributed hash table (DHT). aMule has supported Kademlia since version **2.1.0**.
+**Kademlia** (Kad) is a fully decentralised peer-to-peer network for \*Mule clients. Unlike [eD2k](ed2k/index.md), it requires no central servers — every participating client simultaneously acts as both a client and a server within the distributed hash table (DHT). aMule has supported Kademlia since version 2.1.0.
 
 ## Algorithm
 
@@ -37,7 +37,7 @@ When searching, a query is propagated through the network: each node forwards it
 | Privacy | Server logs IPs | Distributed — harder to monitor |
 | Scalability | Server-limited | Scales with participants |
 
-At the file-transfer level, Kademlia uses the **same protocol** as eD2k, so the same chunks and hashes are compatible across both networks.
+At the file-transfer level, Kademlia uses the **same protocol** as eD2k, so the same [chunks](concepts.md#chunk) and [hashes](concepts.md#md4-hash-ed2k-hash) are compatible across both networks.
 
 ## Bootstrapping
 
@@ -54,20 +54,20 @@ aMule stores previously seen Kademlia contacts in [`nodes.dat`](../developer/fil
 If `nodes.dat` is empty, outdated, or missing, you can bootstrap manually:
 
 **Option 1 — From known clients already in your transfer list:**
-- In the aMule interface, go to **Networks → Kad** tab.
+- In the aMule interface, go to the **Networks → [Kad](../manual/interfaces/gui/networks.md#kademlia-kad)** tab.
 - Click **Bootstrap from known clients** in the toolbar **Network** menu.
 
 **Option 2 — Download a fresh nodes.dat:**
 - Download a current [`nodes.dat`](../developer/file-formats/nodes-dat.md) file from a trusted source and place it in `~/.aMule/`.
 
 **Option 3 — Connect via eD2k first:**
-- Connect to an eD2k server and start a (test) download.
+- Connect to an [eD2k server](ed2k/servers.md) and start a (test) download.
 - After a short time, Kademlia-compatible clients will appear in your source list.
 - Use those clients to bootstrap Kademlia.
 - Cancel the test download and optionally disconnect from eD2k afterwards.
 
 **Option 4 — Manual IP entry:**
-- In the **Kad** tab, enter the IP address and port of a known Kademlia-compatible client in the input boxes in the upper-right corner.
+- In the **Kad** tab, enter the IP address and port of a known Kademlia-compatible client in the input boxes in the upper-right corner. See **[Bootstrapping from a Specific Node](../manual/interfaces/gui/networks.md#bootstrapping-from-a-specific-node)** in the User Manual.
 
 ## Contact Types (Trust Levels)
 
@@ -76,12 +76,12 @@ Kademlia assigns a **type** (0–4) to each contact to express confidence in tha
 | Type | Meaning |
 |---|---|
 | Type 0 | Best — contact has been alive for **≥ 2 hours** in the current session |
-| Type 1 | Contact has been alive for **< 2 hours** and proven still online |
+| Type 1 | Contact has been alive for **1–2 hours** and proven still online |
 | Type 2 | Contact has been alive for **< 1 hour** and proven still online |
 | Type 3 | Initial type — newly discovered contact, not yet verified |
 | Type 4 | Worst — contact should be **deleted** (unreachable) |
 
-Contact types are persisted between sessions in [`nodes.dat`](../developer/file-formats/nodes-dat.md), so that aMule starts each session with a list that includes the most reliably connected contacts from previous sessions.
+Contact types are **not** persisted between sessions. [`nodes.dat`](../developer/file-formats/nodes-dat.md) stores the contact list itself (node ID, IP, UDP/TCP ports, Kad version, UDP key and an *IP-verified* flag) — chosen as a good bootstrap sample — but not the type. On startup every loaded contact begins unverified, and its type is recomputed from scratch based on how long it stays reachable during the new session.
 
 Periodically, aMule pings contacts to check if they are still alive. Based on the response (or lack thereof), contacts are promoted (Type 3 → 2 → 1 → 0) or marked for deletion (Type 4).
 
@@ -103,8 +103,8 @@ Unlike eD2k where a search goes to a centralised server, Kademlia distributes se
 3. Those nodes return the list of sources they are aware of.
 
 **Key differences from eD2k search:**
-- Results include sources that have completed chunks only (partial sources are not tracked in Kad).
-- No single server caps results at 300; however, the distributed nature means some rare files may be harder to find.
+- A **keyword search** finds **complete files only** — incomplete files are not published under keywords (a peer with the full file is expected to publish them). Once you know a file's hash, a **source lookup** returns both complete *and* partial sources: clients that are still downloading a file publish themselves as sources for it.
+- Each Kad node still returns up to 300 results per query, but because the lookup queries many nodes there is no single point that caps the total — unlike eD2k, where [one server limits the result set](ed2k/index.md#search-results-cap). The distributed nature does mean some rare files may be harder to find.
 - The search is slower to return results but is not limited by server availability.
 
 ## Open vs. Firewalled Status
@@ -128,11 +128,11 @@ A common case is being [High ID](ed2k/high-id.md) on eD2k yet Firewalled on Kade
 
 No. Both are serverless networks based on the same Kademlia algorithm, but they are **incompatible**:
 
-- **Overnet** was the serverless evolution of the original eDonkey2000 software. Its development ended and the Overnet network is no longer operational.
+- **[Overnet](other-networks.md#overnet)** was the serverless evolution of the original eDonkey2000 software. Its development ended and the Overnet network is no longer operational.
 - **Kademlia** in aMule/eMule is an independent implementation, fully open-source from the beginning, and still actively used.
 
 Same philosophy (XOR-metric DHT), different wire protocol.
 
 ## Limitations
 
-Kademlia inherits the eD2k network's maximum **file size of 256 GB** and **161-character filename limit**, since both networks share the same file identification system (MD4 hash + file size).
+Kademlia inherits the eD2k network's maximum **[file size of 256 GB](ed2k/index.md#file-size-limit)** and **[161-character filename limit](ed2k/index.md#filename-length)**, since both networks share the same file identification system ([MD4 hash](concepts.md#md4-hash-ed2k-hash) + file size).
