@@ -92,19 +92,27 @@ After installing, see the [macOS configuration guide](../configuration/macos.md)
 
 ### Gatekeeper Warning
 
-The `.dmg` is distributed **unsigned**. macOS Gatekeeper will block the first launch with a message like *"aMule cannot be opened because the developer cannot be verified."* To allow it:
+The `.dmg` is distributed **unsigned** (the project doesn't have an Apple Developer Program subscription). macOS Gatekeeper will block the first launch with a message like *"aMule cannot be opened because the developer cannot be verified."* The procedure to allow it once depends on the macOS version.
 
-1. In **Finder**, navigate to `/Applications`.
-2. Right-click (or Control-click) `aMule.app`.
-3. Select **Open** from the context menu.
-4. Click **Open** in the dialog that appears.
+#### macOS 15 (Sequoia) and newer
 
-After this one-time confirmation, aMule opens normally from Launchpad or Spotlight.
+Apple removed the Control-click → Open bypass in macOS 15. The supported path is now:
 
-Alternatively, remove the quarantine attribute from the terminal:
+1. Double-click `aMule.app` — the warning dialog appears, click **Done** to dismiss.
+2. Open **System Settings → Privacy & Security**.
+3. Scroll to the security message about aMule being blocked, click **Open Anyway**.
+4. Re-launch aMule and confirm in the dialog. macOS remembers the exception; subsequent launches go straight in.
+
+#### macOS 14 (Sonoma) and earlier
+
+Control-click `aMule.app` → **Open** → **Open** in the dialog. macOS remembers the exception; subsequent launches go straight in.
+
+#### Terminal alternative (any macOS version)
+
+Strip the quarantine attribute, no UI clicks required:
 
 ```sh
-xattr -dr com.apple.quarantine /Applications/aMule.app
+xattr -d com.apple.quarantine /Applications/aMule.app
 ```
 
 ### Additional binaries
