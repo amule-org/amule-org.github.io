@@ -149,13 +149,13 @@ const config: Config = {
         src: 'img/amule-logo.png',
       },
       items: [
+        {to: '/download', label: 'Download', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           label: 'Documentation',
           position: 'left',
         },
-        {to: '/download', label: 'Download', position: 'left'},
         {to: '/changelog', label: 'Changelog', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
