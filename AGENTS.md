@@ -73,6 +73,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 
 ## Important Notes
 
+- **Theming**: All styling must be theme-aware (light/dark). Use Infima CSS variables (`--ifm-background-color`, `--ifm-background-surface-color`, `--ifm-heading-color`, `--ifm-color-emphasis-*`, `--ifm-color-primary`) — never hardcoded hex colors or `rgba(255 255 255 / …)` overlays in page/component CSS modules. Exception: overlays over their own dark backdrop (e.g. the screenshots lightbox modal).
 - **Markdown line wrapping**: Do **not** hard-wrap prose. Write each paragraph/sentence on a single line (no manual line breaks mid-sentence). Keep tables, code blocks and list items as-is.
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).
 - **Image zoom**: always use plain Markdown (`![alt](/img/docs/<file>)`), never hardcoded HTML `<img>` (Markdown paths are build-validated, `<img>` paths are not). Click-to-zoom is added automatically to large images (width ≥ 850px) by `plugins/remark-zoom-large-images.js`.

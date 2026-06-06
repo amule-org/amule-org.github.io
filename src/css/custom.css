@@ -11,6 +11,14 @@
   --ifm-color-primary-lighter: #5595d2;
   --ifm-color-primary-lightest: #74aade;
   --ifm-code-font-size: 95%;
+
+  /* Homepage hero: subtle theme-aware gradient (brand-tinted top fading to the
+     page background). Adapts to light/dark like the rest of the site. */
+  --amule-hero-gradient: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ifm-color-primary) 8%, var(--ifm-background-color)) 0%,
+    var(--ifm-background-color) 100%
+  );
 }
 
 [data-theme='dark'] {
@@ -21,6 +29,12 @@
   --ifm-color-primary-light: #7cb9ed;
   --ifm-color-primary-lighter: #8cc1ef;
   --ifm-color-primary-lightest: #b7d9f6;
+
+  --amule-hero-gradient: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ifm-color-primary) 12%, var(--ifm-background-color)) 0%,
+    var(--ifm-background-color) 100%
+  );
 }
 
 /* Navbar: at tablet widths (between the mobile hamburger breakpoint and full
