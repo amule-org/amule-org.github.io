@@ -344,8 +344,8 @@ docs/man/
 ├── amuleweb.1
 ├── ed2k.1
 ├── po4a.config       # po4a configuration
-├── amule.de.1        # Generated translated man pages
-├── amule.es.1
+├── amule.de.1.in     # Generated translated man pages
+├── amule.es.1.in
 └── po/
     ├── manpages.pot      # master template
     ├── manpages-de.po    # German translation
@@ -354,7 +354,7 @@ docs/man/
     └── ...
 ```
 
-The same `po4a.config` and `manpages-<lang>.po` files also drive the man pages of the standalone utilities, whose masters live next to their code: `alc` and `alcc` (`src/utils/aLinkCreator/docs/`), `cas` (`src/utils/cas/docs/`), and `wxcas` (`src/utils/wxCas/docs/`). Their translated pages (`alc.<lang>.1`, …) are generated in those same directories. There is **one** set of `.po` files for all man pages — utilities included.
+The same `po4a.config` and `manpages-<lang>.po` files also drive the man pages of the standalone utilities, whose masters live next to their code: `alc` and `alcc` (`src/utils/aLinkCreator/docs/`), `cas` (`src/utils/cas/docs/`), and `wxcas` (`src/utils/wxCas/docs/`). Their translated pages (`alc.<lang>.1.in`, …) are generated in those same directories. There is **one** set of `.po` files for all man pages — utilities included.
 
 ### Prerequisites
 
@@ -442,12 +442,16 @@ po4a po4a.config
 Check the generated pages:
 
 ```sh
-man docs/man/amule.pt_BR.1
-man docs/man/amuled.pt_BR.1
-man docs/man/amulecmd.pt_BR.1
-man docs/man/amulegui.pt_BR.1
-man docs/man/amuleweb.pt_BR.1
-man docs/man/ed2k.pt_BR.1
+man docs/man/amule.pt_BR.1.in
+man docs/man/amuled.pt_BR.1.in
+man docs/man/amulecmd.pt_BR.1.in
+man docs/man/amulegui.pt_BR.1.in
+man docs/man/amuleweb.pt_BR.1.in
+man docs/man/ed2k.pt_BR.1.in
+man src/utils/aLinkCreator/docs/alc.pt_BR.1.in
+man src/utils/aLinkCreator/docs/alcc.pt_BR.1.in
+man src/utils/cas/docs/cas.pt_BR.1.in
+man src/utils/wxCas/docs/wxcas.pt_BR.1.in
 ```
 
 ### Regenerating with CMake
@@ -458,7 +462,7 @@ Maintainers can regenerate all translated man pages from within the build system
 cmake --build build --target po4a-update
 ```
 
-This rewrites `docs/man/po/manpages.pot`, syncs each `manpages-LANG.po`, and regenerates the translated `*.LANG.1` files. Commit the resulting changes.
+This rewrites `docs/man/po/manpages.pot`, syncs each `manpages-LANG.po`, and regenerates the translated `*.LANG.1.in` files. Commit the resulting changes.
 
 ### Submitting a Man Page Translation
 
@@ -466,7 +470,8 @@ Open a pull request with:
 
 - `docs/man/po/manpages-<lang>.po` — the translation file.
 - `docs/man/po/manpages-<lang>.add` — the addendum (optional but encouraged).
-- The generated `*.LANG.1` man pages (if po4a is installed and they look correct).
+- The generated `*.LANG.1.in` man pages from `docs/man/` (if po4a is installed and they look correct).
+- The generated `*.LANG.1.in` man pages from `src/utils/aLinkCreator/docs/`, `src/utils/cas/docs/`, and `src/utils/wxCas/docs/`.
 
 ## Documentation Translations
 
