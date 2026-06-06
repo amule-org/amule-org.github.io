@@ -19,7 +19,7 @@ aMule runs on Windows, macOS, Linux, FreeBSD, and OpenBSD. Any modern Linux dist
 
 The [Quick Start guide](../quickstart-guide.md) walks through first-run setup step by step: nickname and language, bandwidth limits, Temp/Incoming directories, choosing what to share, and connecting and searching. For optimal download speeds, also read [What are the best settings for a nice download rate?](#what-are-the-best-settings-i-can-set-to-have-a-nice-download-rate)
 
-For more help, ask on [GitHub Discussions](https://github.com/amule-org/amule/discussions) — the project's community forum and the best place to get answers. The legacy [aMule forums](https://forum.amule.org) and the `#amule` channel on `irc.libera.chat` are still around, but most activity has moved to GitHub.
+For more help, ask on [GitHub Discussions](https://github.com/amule-org/amule/discussions) — the project's community forum and the best place to get answers. The legacy [aMule forums](https://forum.amule.org) and the `#aMule` channel on [`irc.libera.chat`](https://web.libera.chat/#aMule) are still around, but most activity has moved to GitHub.
 
 ### Interface: colors, icons and numbers
 

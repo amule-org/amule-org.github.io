@@ -36,4 +36,4 @@ Write or improve the English documentation on this website (its source lives in 
 
 You do not need to write a single line of code to give back to the project. Helping other people use aMule is a contribution in its own right.
 
-Head over to [GitHub Discussions](https://github.com/amule-org/amule/discussions) — the project's community forum — to answer questions, share your configuration tips, and help newcomers get started. Every answered question makes aMule easier to use for the next person.
+Head over to [GitHub Discussions](https://github.com/amule-org/amule/discussions) — the project's community forum — to answer questions, share your configuration tips, and help newcomers get started. Every answered question makes aMule easier to use for the next person. You can also drop by the `#aMule` channel on [`irc.libera.chat`](https://web.libera.chat/#aMule) for real-time chat, though most activity now happens on GitHub.
