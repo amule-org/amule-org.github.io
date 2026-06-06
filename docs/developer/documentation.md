@@ -235,6 +235,48 @@ npm run write-translations -- --locale es
 
 This adds any new translation keys and preserves existing ones. Then translate the new content.
 
+### Adding a New Locale
+
+To add a language beyond the existing ones:
+
+1. Register the locale in `docusaurus.config.ts` (`i18n.locales` and `localeConfigs`):
+
+   ```ts
+   i18n: {
+     defaultLocale: 'en',
+     locales: ['en', 'es', 'fr'],   // add your locale code here
+     localeConfigs: {
+       fr: {label: 'Français'},
+     },
+   },
+   ```
+
+2. Add the same locale code to the `language` array of the `@easyops-cn/docusaurus-search-local` theme in the same file:
+
+   ```ts
+   themes: [
+     [
+       require.resolve('@easyops-cn/docusaurus-search-local'),
+       {
+         language: ['en', 'es', 'fr'],   // add your locale code here
+         // ...
+       },
+     ],
+   ],
+   ```
+
+   :::note
+   The search plugin uses the language code for tokenization. Check its [supported languages](https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#supported-languages) list — if your locale is not supported, omit it from the `language` array and the search index falls back to basic tokenization.
+   :::
+
+3. Generate the translation files and translate them as described above.
+
+4. Preview the new locale locally:
+
+   ```sh
+   npm run start -- --locale fr
+   ```
+
 ### UI Strings
 
 React component strings (navbar, sidebar labels, homepage text) are in `i18n/es/code.json`. Each entry has a `message` field (translate this) and a `description` field (context for the translator — do not translate this).
