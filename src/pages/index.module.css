@@ -3,9 +3,9 @@
   background: var(--ifm-background-color);
 }
 
-/* Hero */
+/* Hero — no own background: the global .main-wrapper top tint shows through,
+   unifying the homepage with the rest of the site. */
 .hero {
-  background: var(--amule-hero-gradient);
   color: var(--ifm-font-color-base);
   padding: 2.5rem 2rem 0.75rem;
   text-align: center;

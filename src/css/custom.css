@@ -43,6 +43,16 @@
   --amule-card-hover-shadow: 0 4px 24px rgba(255 255 255 / 0.1);
 }
 
+/* All pages: a short, theme-aware brand tint at the top that fades into the
+   page background. The gradient image is sized to ~400px so the tint
+   concentrates near the top rather than spanning the full page. The homepage
+   hero is transparent and shows this same tint, so every page is unified. */
+.main-wrapper {
+  background-image: var(--amule-hero-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 400px;
+}
+
 /* Navbar: at tablet widths (between the mobile hamburger breakpoint and full
    desktop) the items are cramped, which truncates the title to "a..." and wraps
    the external-link icons. Hide the title (the logo still identifies the brand)
