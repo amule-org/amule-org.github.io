@@ -26,10 +26,10 @@ The stated reason for keeping the source closed is to make it harder to create f
 
 Lugdunum extended the eD2k protocol while maintaining backward compatibility with older clients. Extensions implemented by Lugdunum include:
 
-- **Complex Boolean searches** — queries of the form `one AND two AND (three OR four) NOT five`
+- **Complex Boolean searches** — queries of the form `one AND two AND (three OR four) NOT five` (see [Search logic](../../manual/interfaces/gui/searches.md#search-logic-boolean-operators)). aMule limits an expression to 10 operators (`AND`, `OR` and `NOT` combined); anything more complex is rejected with *"Search expression is too complex"*.
 - **Auxiliary ports** — additional listening ports for clients whose ISPs block port 4661 (see [Connecting via auxiliary ports](#connecting-via-auxiliary-ports))
 - **Extended GetSources** — richer source information per request
-- **Extended file metadata** — encoding, audio duration, video resolution and similar fields sent over the extended server UDP port
+- **Extended file metadata** — artist, album, title, duration, bitrate and codec fields attached to files
 
 aMule's changelog tracks coordination with lugdunummaster across multiple releases, from Lugdunum 16.40 through at least 17.7.
 
@@ -68,11 +68,11 @@ The **server list** is the list of eD2k servers your client can connect to. Each
 
 The server list is stored in the binary [`server.met`](../../developer/file-formats/server-met.md) file at `~/.aMule/server.met`. Additional per-server statistics (ping time, failure count, user count, file count, UDP capability flags) are also recorded there.
 
-In aMule, the server list is visible in the **Networks** panel, **eD2k** tab:
+In aMule, the server list is visible in the **Networks** panel, **[eD2k](../../manual/interfaces/gui/networks.md#ed2k)** tab:
 
 ![eD2k server list in aMule](/img/docs/Serverlist-ed2k.png)
 
-aMule connects to one server at a time. It tries servers in priority order (High → Normal → Low), and within a priority group it connects to the server with the best score (based on ping and failure count).
+aMule connects to one server at a time. With the *Score system* enabled (the default — see [Preferences → Servers](../../manual/interfaces/gui/preferences.md#servers)), it sorts the list by priority and tries servers in priority order (High → Normal → Low). Ping time and failure count are recorded and shown per server, but they do not determine the connection order.
 
 ## Server ports
 
@@ -85,7 +85,7 @@ The standard TCP port on which eD2k servers listen for incoming client connectio
 The **extended server requests UDP port** is the port through which all non-core packets are sent to the server. This includes:
 
 - File ratings
-- Extended file descriptions (encoding, audio duration, video resolution, etc.)
+- Extended file descriptions (artist, album, title, duration, bitrate, codec)
 - Global source queries
 
 This port is historically defined as `Standard Server TCP Port + 4` = `4661 + 4` = **4665**. It is also the port used for Kademlia communication between nodes. See [Ports](index.md#ports) in the eD2k Network reference for the full port table.
@@ -130,7 +130,7 @@ A **static server** is a server you have marked as essential. Static servers are
 
 - If you manually remove a static server from the list, it will **reappear the next time aMule starts**, because it is loaded from `staticservers.dat` on every startup.
 - To **permanently remove** a static server, you must first un-mark it as static (right-click → remove static flag), then remove it from the list.
-- In **Preferences → Server**, you can enable the option to **autoconnect only to static servers** on startup. This is useful when you maintain a small, trusted list of servers and want to avoid connecting to others.
+- In **[Preferences → Servers](../../manual/interfaces/gui/preferences.md#servers)**, you can enable the option to **autoconnect only to static servers** on startup. This is useful when you maintain a small, trusted list of servers and want to avoid connecting to others.
 
 ### Configuration
 
@@ -141,6 +141,10 @@ The `staticservers.dat` file takes precedence over `server.met`: if the same ser
 ## Fake servers
 
 A fake server is an eD2k server operated with malicious intent. There are three common variants:
+
+:::tip
+For the user-facing companion to this section — how to detect [fake files](../../manual/troubleshooting/fake-files-and-servers.md#fake-files), identify a fake server, and block it with the [IP filter](../../manual/interfaces/gui/preferences.md#ip-filtering) — see [Fake Files and Servers](../../manual/troubleshooting/fake-files-and-servers.md).
+:::
 
 ### 1. Search result manipulation
 
@@ -218,6 +222,6 @@ On the [Kademlia network](../kademlia.md), there are no dedicated server machine
 
 Because Kademlia has no servers, it is immune to the fake-server problem described above. It is also unaffected by server seizures or operator shutdowns.
 
-aMule can run both eD2k and Kademlia at the same time. Sources found on either network are used together for the same downloads, since both networks share the same MD4-based file identification and 9.28 MB chunk system.
+aMule can run both eD2k and Kademlia at the same time. Sources found on either network are used together for the same downloads, since both networks share the same [MD4-based file identification](../concepts.md#md4-hash-ed2k-hash) and [9.28 MB chunk](../concepts.md#chunk) system.
 
 See [Kademlia Network](../kademlia.md) for a full description of the algorithm, bootstrapping, contact types, and firewalled status.

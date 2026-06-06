@@ -26,7 +26,7 @@ const DOWNLOAD_SVG = 'M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z';
 
 // Latest release. Update these three constants when a new version ships.
 const LATEST_VERSION = '3.0.0';
-const LATEST_DATE = '2026-06-01';
+const LATEST_DATE = '2026-06-08';
 const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
 
 // All download buttons point to the GitHub releases page for now.

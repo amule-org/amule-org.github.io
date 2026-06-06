@@ -66,7 +66,7 @@ When a file is complete, some Transfer values may reset to zero.
 
 ### Intelligent Corruption Handling
 
-This section shows statistics from the [ICH](../../../p2p-networks/ed2k/aich.md#ich--intelligent-corrupt-handling) (Intelligent Corruption Handling) subsystem:
+This section shows statistics from the [ICH](../../../p2p-networks/ed2k/aich.md#ich--intelligent-corruption-handling) (Intelligent Corruption Handling) subsystem:
 
 ![ICH section](/img/docs/usage/window_file4.jpg)
 
