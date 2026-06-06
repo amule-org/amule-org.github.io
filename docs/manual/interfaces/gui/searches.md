@@ -185,6 +185,18 @@ Restrict results to a specific media category (Any, Archives, Audio, CD-Images, 
 
 ![File type filter](/img/docs/usage/window_search29.jpg)
 
+The category of a file is determined by its **filename extension**, not by its actual content — a file named `Birthday.zip` is classified as an Archive regardless of what it really contains. The complete extension-to-category mapping is:
+
+| Category | Extensions |
+|---|---|
+| Archives | `.7z` `.ace` `.alz` `.arc` `.arj` `.bz2` `.cab` `.cbr` `.cbt` `.cbz` `.gz` `.hqx` `.lha` `.lzh` `.msi` `.pak` `.par` `.par2` `.rar` `.sea` `.sit` `.sitx` `.tar` `.tbz2` `.tgz` `.uc2` `.xpi` `.z` `.zip` `.zoo` |
+| Audio | `.669` `.aac` `.ac3` `.aif` `.aifc` `.aiff` `.amf` `.amr` `.ams` `.ape` `.au` `.aud` `.audio` `.cda` `.dbm` `.dmf` `.dsm` `.dts` `.far` `.flac` `.it` `.m1a` `.m2a` `.m4a` `.mdl` `.med` `.mid` `.midi` `.mka` `.mod` `.mol` `.mp1` `.mp2` `.mp3` `.mpa` `.mpc` `.mpp` `.mtm` `.nst` `.ogg` `.okt` `.psm` `.ptm` `.ra` `.rmi` `.s3m` `.snd` `.stm` `.ult` `.umx` `.wav` `.wma` `.wow` `.xm` |
+| CD-Images | `.bin` `.bwa` `.bwi` `.bws` `.bwt` `.ccd` `.cue` `.dmg` `.dmz` `.img` `.iso` `.mdf` `.mds` `.nrg` `.sub` `.toast` |
+| Pictures | `.bmp` `.dcx` `.emf` `.gif` `.ico` `.jfif` `.jpe` `.jpeg` `.jpg` `.pct` `.pcx` `.pic` `.pict` `.png` `.psd` `.psp` `.tga` `.tif` `.tiff` `.wbmp` `.webp` `.wmf` `.wmp` `.xif` `.xpm` |
+| Programs | `.bat` `.cmd` `.com` `.exe` `.hta` `.js` `.jse` `.msc` `.vbe` `.vbs` `.wsf` `.wsh` |
+| Texts | `.azw` `.chm` `.css` `.diz` `.doc` `.dot` `.epub` `.hlp` `.htm` `.html` `.mobi` `.nfo` `.odp` `.ods` `.odt` `.otp` `.ott` `.ots` `.pdf` `.pps` `.ppt` `.ps` `.rtf` `.stc` `.sti` `.stw` `.sxc` `.sxi` `.sxw` `.text` `.txt` `.wri` `.xls` `.xlt` `.xml` |
+| Videos | `.3g2` `.3gp` `.3gp2` `.3gpp` `.amv` `.asf` `.avi` `.bik` `.divx` `.dvr-ms` `.flc` `.fli` `.flic` `.flv` `.hdmov` `.ifo` `.m1v` `.m2t` `.m2ts` `.m2v` `.m4b` `.m4v` `.mkv` `.mov` `.movie` `.mp1v` `.mp2v` `.mp4` `.mpe` `.mpeg` `.mpg` `.mps` `.mpv` `.mpv1` `.mpv2` `.ogm` `.ogv` `.pva` `.qt` `.ram` `.ratdvd` `.rm` `.rmm` `.rmvb` `.rv` `.rv9` `.smil` `.smk` `.swf` `.tp` `.ts` `.vid` `.video` `.vivo` `.vob` `.vp6` `.webm` `.wm` `.wmv` `.xvid` |
+
 #### Category
 
 Automatically assign queued downloads to a specific [category](./downloads.md#categories) instead of the default "Main" category:

@@ -83,7 +83,7 @@ Key settings available in the Preferences dialog.
 Running `cas` with no arguments prints a status summary similar to:
 
 ```
-aMule 2.3.3 has been running for 1 D 00 h
+aMule 3.0.0 has been running for 1 D 05 h
 user is connected to server.example.com [81.84.97.64:4661] with HighID | Kad: ok
 Total Download: 171.36 GB, Upload: 188.96 GB
 Session Download: 475.42 MB, Upload: 832.46 MB

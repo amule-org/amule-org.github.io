@@ -35,7 +35,7 @@ The primary section. Contains the majority of user-facing preferences.
 
 | Key | Default | Description |
 |---|---|---|
-| `AppVersion` | `aMule 2.x.x` | aMule version string. Written by aMule; do not edit manually. |
+| `AppVersion` | `aMule 3.x.x` | aMule version string. Written by aMule; do not edit manually. |
 | `Nick` | `https://amule-org.github.io` | Username displayed to other clients on the network. |
 | `Language` | _(empty)_ | UI language code (e.g. `de`, `en_GB`). Empty = system default. |
 | `NewVersionCheck` | `1` | Check for new aMule releases at startup. |
@@ -482,7 +482,7 @@ The following is a representative `amule.conf` with current defaults. Paths will
 
 ```ini
 [eMule]
-AppVersion=aMule 2.3.3
+AppVersion=aMule 3.0.0
 Nick=https://amule-org.github.io
 NewVersionCheck=1
 StartupMinimized=0

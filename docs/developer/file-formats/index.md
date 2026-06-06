@@ -300,7 +300,7 @@ The file is plain text, one field per line, written through wxWidgets' text-file
 | 11 | Nickname | The user's configured nickname string | |
 | 12 | Total bytes downloaded | Integer — cumulative bytes downloaded across all sessions | |
 | 13 | Total bytes uploaded | Integer — cumulative bytes uploaded across all sessions | |
-| 14 | aMule version | Version string, e.g. `2.3.3` or `CVS` | |
+| 14 | aMule version | Version string, e.g. `3.0.0` or `GIT` | |
 | 15 | Session bytes downloaded | Integer — bytes downloaded in the current session | `0` when connecting or cleanly closed (since rc4) |
 | 16 | Session bytes uploaded | Integer — bytes uploaded in the current session | `0` when connecting or cleanly closed (since rc4) |
 | 17 | Uptime | Seconds aMule has been running | `0` when cleanly closed (since rc6); see version notes below |

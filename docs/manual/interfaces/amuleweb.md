@@ -331,7 +331,7 @@ Queries aMule data structures. The `$command` parameter selects which data to re
 
 | Function | Description |
 |---|---|
-| `amule_get_version()` | Returns the aMule version string (e.g. `"aMule 2.3.3"`) |
+| `amule_get_version()` | Returns the aMule version string (e.g. `"aMule 3.0.0"`) |
 | `amule_get_categories()` | Returns an indexed array of download category name strings |
 | `amule_get_options()` | Returns all configurable options as a nested associative array |
 | `amule_set_options($hash)` | Applies options; pass the array returned by `amule_get_options` with modified values |
