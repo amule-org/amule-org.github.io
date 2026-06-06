@@ -39,7 +39,7 @@
 
 .ssFigure:hover {
   border-color: var(--ifm-color-emphasis-300);
-  box-shadow: 0 4px 24px rgba(0 0 0 / 0.4);
+  box-shadow: var(--amule-card-hover-shadow);
 }
 
 .ssImg {
