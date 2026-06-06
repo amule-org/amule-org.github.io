@@ -36,7 +36,7 @@ Key milestones in its evolution:
 - **2006**: Peer exchange (PEX) introduced.
 - **2017**: BitTorrent v2 specification released, replacing SHA-1 with SHA-256 and introducing Merkle tree hashing for per-file integrity verification.
 
-BitTorrent remains one of the most widely used file-sharing protocols; as of 2019 it accounted for approximately 27% of upstream internet traffic worldwide.
+BitTorrent remains one of the most widely used file-sharing protocols; in 2019 it accounted for approximately 27% of upstream internet traffic worldwide.
 
 ## FastTrack
 

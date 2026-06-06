@@ -2,11 +2,11 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 4rem 2rem 5rem;
-  color: #94a3b8;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .section h2 {
-  color: #e6edf3;
+  color: var(--ifm-heading-color);
   margin-bottom: 0.5rem;
 }
 
@@ -33,13 +33,13 @@
   cursor: pointer;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(255 255 255 / 0.1);
+  border: 1px solid var(--ifm-color-emphasis-200);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .ssFigure:hover {
-  border-color: rgba(255 255 255 / 0.2);
-  box-shadow: 0 4px 24px rgba(0 0 0 / 0.4);
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: var(--amule-card-hover-shadow);
 }
 
 .ssImg {
@@ -51,9 +51,9 @@
 .ssCaption {
   padding: 0.5rem 0.75rem;
   font-size: 0.82rem;
-  color: #8b949e;
-  background: rgba(255 255 255 / 0.04);
-  border-top: 1px solid rgba(255 255 255 / 0.07);
+  color: var(--ifm-color-emphasis-600);
+  background: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
 /* Lightbox modal */

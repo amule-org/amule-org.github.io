@@ -85,4 +85,4 @@ The threshold `16,777,216 = 256³` is the smallest possible High ID value, corre
 - [Network Connectivity](../../manual/configuration/network-connectivity.md) — how to obtain a High ID (ports, firewall, router, troubleshooting)
 - [Kademlia Network](../kademlia.md) — the serverless counterpart, with its own open / firewalled status
 - [Concepts & Glossary](../concepts.md) — all eD2k/Kademlia technical terms defined
-- [FAQ: Network & Connectivity](../../manual/faq/network.md) — common questions about networks, ports and IDs
+- [FAQ: Network and Connectivity](../../manual/faq.md#network-and-connectivity) — common questions about networks, ports and IDs

@@ -38,96 +38,6 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
-    icon: '🔄',
-    title: <Translate id="homepage.features.sourceExchange.title">Source Exchange</Translate>,
-    desc: (
-      <Translate id="homepage.features.sourceExchange.desc">
-        Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly.
-      </Translate>
-    ),
-  },
-  {
-    icon: '⭐',
-    title: <Translate id="homepage.features.creditSystem.title">Credit System</Translate>,
-    desc: (
-      <Translate id="homepage.features.creditSystem.desc">
-        A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads.
-      </Translate>
-    ),
-  },
-  {
-    icon: '🛡️',
-    title: <Translate id="homepage.features.ipFiltering.title">IP Filtering</Translate>,
-    desc: (
-      <Translate id="homepage.features.ipFiltering.desc">
-        Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client.
-      </Translate>
-    ),
-  },
-  {
-    icon: '▶️',
-    title: <Translate id="homepage.features.preview.title">Preview Before Complete</Translate>,
-    desc: (
-      <Translate id="homepage.features.preview.desc">
-        Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players.
-      </Translate>
-    ),
-  },
-  {
-    icon: '📂',
-    title: <Translate id="homepage.features.categories.title">Download Categories</Translate>,
-    desc: (
-      <Translate id="homepage.features.categories.desc">
-        Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically.
-      </Translate>
-    ),
-  },
-  {
-    icon: '⚙️',
-    title: <Translate id="homepage.features.daemon.title">aMule Daemon</Translate>,
-    desc: (
-      <Translate id="homepage.features.daemon.desc">
-        Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required.
-      </Translate>
-    ),
-  },
-  {
-    icon: '🖥️',
-    title: <Translate id="homepage.features.remoteInterfaces.title">Remote Interfaces</Translate>,
-    desc: (
-      <Translate id="homepage.features.remoteInterfaces.desc">
-        Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).
-      </Translate>
-    ),
-  },
-  {
-    icon: '🔐',
-    title: <Translate id="homepage.features.secureIdentification.title">Secure Identification</Translate>,
-    desc: (
-      <Translate id="homepage.features.secureIdentification.desc">
-        Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network.
-      </Translate>
-    ),
-  },
-  {
-    icon: '🔀',
-    title: <Translate id="homepage.features.proxy.title">Proxy Support</Translate>,
-    desc: (
-      <Translate id="homepage.features.proxy.desc">
-        Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions.
-      </Translate>
-    ),
-  },
-  {
-    icon: '💬',
-    title: <Translate id="homepage.features.messaging.title">Messaging & Friends</Translate>,
-    desc: (
-      <Translate id="homepage.features.messaging.desc">
-        Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners.
-      </Translate>
-    ),
-  },
-  {
     icon: '📖',
     title: <Translate id="homepage.features.openSource.title">Free & Open Source</Translate>,
     desc: (
@@ -146,6 +56,24 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
+    icon: '🔄',
+    title: <Translate id="homepage.features.sourceExchange.title">Source Exchange</Translate>,
+    desc: (
+      <Translate id="homepage.features.sourceExchange.desc">
+        Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly.
+      </Translate>
+    ),
+  },
+  {
+    icon: '⭐',
+    title: <Translate id="homepage.features.creditSystem.title">Credit System</Translate>,
+    desc: (
+      <Translate id="homepage.features.creditSystem.desc">
+        A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads.
+      </Translate>
+    ),
+  },
+  {
     icon: '🛠️',
     title: <Translate id="homepage.features.corruptionHandling.title">Corruption Handling</Translate>,
     desc: (
@@ -155,20 +83,29 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
-    icon: '🗣️',
-    title: <Translate id="homepage.features.languages.title">37 Interface Languages</Translate>,
+    icon: '🚦',
+    title: <Translate id="homepage.features.bandwidthControl.title">Bandwidth Control</Translate>,
     desc: (
-      <Translate id="homepage.features.languages.desc">
-        The full aMule interface is translated into 37 languages. Download and share files in your native language — the UI adapts automatically to your locale.
+      <Translate id="homepage.features.bandwidthControl.desc">
+        Set hard upload and download speed limits, enforced by precise token-bucket limiters. Cap aMule so it never saturates your connection — or let it run full-throttle when you're away.
       </Translate>
     ),
   },
   {
-    icon: '⚡',
-    title: <Translate id="homepage.features.compressedTransfers.title">Compressed Transfers</Translate>,
+    icon: '📂',
+    title: <Translate id="homepage.features.categories.title">Download Categories</Translate>,
     desc: (
-      <Translate id="homepage.features.compressedTransfers.desc">
-        File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers.
+      <Translate id="homepage.features.categories.desc">
+        Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically.
+      </Translate>
+    ),
+  },
+  {
+    icon: '▶️',
+    title: <Translate id="homepage.features.preview.title">Preview Before Complete</Translate>,
+    desc: (
+      <Translate id="homepage.features.preview.desc">
+        Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players.
       </Translate>
     ),
   },
@@ -182,6 +119,42 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
+    icon: '🖥️',
+    title: <Translate id="homepage.features.remoteInterfaces.title">Remote Interfaces</Translate>,
+    desc: (
+      <Translate id="homepage.features.remoteInterfaces.desc">
+        Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).
+      </Translate>
+    ),
+  },
+  {
+    icon: '⚙️',
+    title: <Translate id="homepage.features.daemon.title">aMule Daemon</Translate>,
+    desc: (
+      <Translate id="homepage.features.daemon.desc">
+        Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required.
+      </Translate>
+    ),
+  },
+  {
+    icon: '🛡️',
+    title: <Translate id="homepage.features.ipFiltering.title">IP Filtering</Translate>,
+    desc: (
+      <Translate id="homepage.features.ipFiltering.desc">
+        Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client.
+      </Translate>
+    ),
+  },
+  {
+    icon: '🔐',
+    title: <Translate id="homepage.features.secureIdentification.title">Secure Identification</Translate>,
+    desc: (
+      <Translate id="homepage.features.secureIdentification.desc">
+        Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network.
+      </Translate>
+    ),
+  },
+  {
     icon: '🎛️',
     title: <Translate id="homepage.features.slotAllocation.title">Slot Allocation</Translate>,
     desc: (
@@ -191,11 +164,20 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
-    icon: '🚦',
-    title: <Translate id="homepage.features.bandwidthControl.title">Bandwidth Control</Translate>,
+    icon: '🚀',
+    title: <Translate id="homepage.features.powerShare.title">Release Priority</Translate>,
     desc: (
-      <Translate id="homepage.features.bandwidthControl.desc">
-        Set hard upload and download speed limits, enforced by precise token-bucket limiters. Cap aMule so it never saturates your connection — or let it run full-throttle when you're away.
+      <Translate id="homepage.features.powerShare.desc">
+        Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content. In eMule this feature is known as PowerShare.
+      </Translate>
+    ),
+  },
+  {
+    icon: '⚡',
+    title: <Translate id="homepage.features.compressedTransfers.title">Compressed Transfers</Translate>,
+    desc: (
+      <Translate id="homepage.features.compressedTransfers.desc">
+        File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers.
       </Translate>
     ),
   },
@@ -218,11 +200,29 @@ const FEATURES: FeatureCard[] = [
     ),
   },
   {
-    icon: '🚀',
-    title: <Translate id="homepage.features.powerShare.title">Release Priority</Translate>,
+    icon: '💬',
+    title: <Translate id="homepage.features.messaging.title">Messaging & Friends</Translate>,
     desc: (
-      <Translate id="homepage.features.powerShare.desc">
-        Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content. In eMule this feature is known as PowerShare.
+      <Translate id="homepage.features.messaging.desc">
+        Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners.
+      </Translate>
+    ),
+  },
+  {
+    icon: '🔀',
+    title: <Translate id="homepage.features.proxy.title">Proxy Support</Translate>,
+    desc: (
+      <Translate id="homepage.features.proxy.desc">
+        Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions.
+      </Translate>
+    ),
+  },
+  {
+    icon: '🗣️',
+    title: <Translate id="homepage.features.languages.title">37 Interface Languages</Translate>,
+    desc: (
+      <Translate id="homepage.features.languages.desc">
+        The full aMule interface is translated into 37 languages. Download and share files in your native language — the UI adapts automatically to your locale.
       </Translate>
     ),
   },

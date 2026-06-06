@@ -82,9 +82,9 @@ ed2k -e mycollection.emulecollection
 You can write to the [`ED2KLinks` file](../configuration/config-files/index.md#ed2klinks) directly without using the `ed2k` command:
 
 ```
-ed2k://|file|Mandrake%20Linux%2010.0-Official-Powerpack-Cd1%20i586.iso|722343936|13048F2EC3B917E33BB9593D956E81AC|/
-ed2k://|file|Knoppix%20v3.6-2004-08-16-En.iso|733499392|E1A848648CF99A2295909799FA45F0A8|/
-ed2k://|file|debian-30r1-i386-binary-2.iso|676495360|557B59750976519476DA071BDF79A014|/
+ed2k://|file|debian-live-13.1.0-amd64-kde.iso|4127195136|6879BBE25C84E01EE4DCA0B783FF7C01|/
+ed2k://|file|ubuntu-24.04.4-desktop-amd64.iso|6655619072|0031C9CBA65C50DD2015C184B2CA2C88|/
+ed2k://|file|Fedora-Workstation-Live-x86_64-34-1.2.iso|2007367680|ABCC5847A58F4844CCE2946D9A62A757|/
 ```
 
 Rules:

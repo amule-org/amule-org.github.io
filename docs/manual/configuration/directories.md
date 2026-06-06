@@ -19,8 +19,8 @@ Completed files are moved here when the download finishes and all [chunks](../..
 
 | Platform | Default Incoming Directory |
 |---|---|
+| Windows Vista / 8 / 10 / 11 | `C:\Users\<user>\Documents\aMule Downloads` |
 | Windows XP | `C:\Documents and Settings\<user>\My Documents\aMule Downloads` |
-| Windows Vista+ | `C:\Users\<user>\Documents\aMule Downloads` |
 | macOS | `~/Documents/aMule Downloads` |
 | Linux / BSD | `~/.aMule/Incoming` |
 
@@ -40,8 +40,8 @@ While a file is downloading, aMule stores its data here as a set of temporary fi
 
 | Platform | Default Temporary Directory |
 |---|---|
+| Windows Vista / 8 / 10 / 11 | `C:\Users\<user>\AppData\Roaming\aMule\Temp` |
 | Windows XP | `C:\Documents and Settings\<user>\Application Data\aMule\Temp` |
-| Windows Vista+ | `C:\Users\<user>\AppData\Roaming\aMule\Temp` |
 | macOS | `~/Library/Application Support/aMule/Temp` |
 | Linux / BSD | `~/.aMule/Temp` |
 

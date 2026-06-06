@@ -21,6 +21,10 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 These are aMule's **configuration** paths. For the **download** directories (Incoming, Temporary, and shared folders), see [Directories](../directories.md).
 :::
 
+### Portable configuration (running from a USB drive)
+
+If a directory named `config` exists next to the aMule executable (in its working directory) and already contains an `amule.conf`, aMule reads and writes its configuration there instead of the platform path above. This makes it possible to run a fully self-contained, portable aMule — for example from a USB drive — without touching the host machine's user profile.
+
 ## All files at a glance
 
 | File | Description |

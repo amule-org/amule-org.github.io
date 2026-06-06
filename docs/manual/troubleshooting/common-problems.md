@@ -3,40 +3,21 @@ id: common-problems
 title: Common Problems
 ---
 
-# Common Problems
-
 Solutions to the most frequently encountered problems when running aMule.
 
 ## Why is aMule taking so much CPU at startup?
 
-aMule hashes every new or modified file found in the Shared Directories at startup. This is expected behavior for new files.
+aMule hashes every new or modified file found in the [Shared Directories](../configuration/directories.md#shared-directories) at startup. It recognizes already-hashed files by matching their name, size and modification time against [`known.met`](../configuration/config-files/index.md#knownmet), so only files not found there are hashed. This is expected behavior for new files.
 
-:::tip
-aMule 3.0.0 includes additional fixes for excessive CPU usage at startup. If you are still experiencing this issue, upgrading to the latest version is strongly recommended.
-:::
+If aMule is **always** consuming heavy CPU at startup even when no new files have been added or modified, `known.met` may be corrupted (by an external program or user error). Delete it and restart aMule to force a full rehash:
 
-If aMule is **always** consuming heavy CPU at startup even when no new files have been added or modified, there is a known issue:
-
-- **Versions earlier than 2.0.0-rc3**: hashing always occurred when the Temp, Incoming, or any Shared Directory was on a FAT32 partition. This was fixed in 2.0.0-rc3.
-- **Versions earlier than 2.0.0-rc4**: filesystems with UTF-8 encoding (observed with SuSE 9.1) caused problems when any file or directory in the Shared Directories path contained a special character.
-
-  **Workaround for the UTF-8 issue**: after aMule finishes hashing (CPU usage drops), close aMule and re-encode `~/.aMule/known.met`:
-
-  ```bash
-  recode u8 ~/.aMule/known.met
-  ```
-
-  This must be repeated whenever a new file is added or modified. The recommended fix is to upgrade to the latest aMule version.
-
-- **Corrupted `known.met`**: if none of the above applies, [`known.met`](../configuration/config-files/index.md#knownmet) may be corrupted (by an external program or user error). Delete it and restart aMule to force a full rehash:
-
-  ```bash
-  rm ~/.aMule/known.met
-  ```
+```bash
+rm ~/.aMule/known.met
+```
 
 ## "No valid servers to connect in serverlist found" — what does this mean?
 
-This message appears when the option **"Auto connect to servers in the static list only"** is enabled but the static server list is empty.
+This message appears when the option **"Auto connect to servers in the static list only"** is enabled but the static server list is empty. See [Static Servers](../../p2p-networks/ed2k/index.md#static-servers) for background and [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) for the file that stores this list.
 
 **Solutions:**
 
@@ -54,32 +35,21 @@ If your internet connection was lost briefly, aMule detected the disconnection, 
 
 **Solution**: disable **"Remove dead server after X retries"**. It is safe to leave "Reconnect on loss" enabled.
 
-## aMule connects to a server but always gets a Low ID. Why?
+To repopulate the list, see [Server List](../../p2p-networks/ed2k/index.md#server-list). When re-adding servers, be careful with untrusted sources — see [Fake Servers](./fake-files-and-servers.md#fake-servers).
 
-Three possible causes:
+## Why does aMule always get a Low ID after connecting to a server?
+
+A [Low ID](../configuration/network-connectivity.md) is assigned when the server cannot reach your client on the eD2k TCP port. Three possible causes:
 
 1. **Port 4662 TCP is not open** in your firewall or not forwarded in your router. See [Network Connectivity](../configuration/network-connectivity.md) and [Test Your Ports](../configuration/network-connectivity.md#testing-your-port-status).
 
 2. **The server is overloaded or misconfigured** and is issuing LowIDs even to clients with open ports. Try a different server.
 
-3. **Your ISP blocks P2P traffic** on the standard eD2k port 4662. Configure aMule to use a different port:
-   - Preferences → Connection → Standard client TCP port → change to a non-standard value (e.g., TCP port 25600 has been known to work on some ISPs).
-
-## aMule was interrupted while completing a file and now it never completes (it shows 100% downloaded). How do I fix this?
-
-This happens when aMule is killed mid-completion and the final hash-check pass was not finished. Fix:
-
-1. Close aMule.
-2. Go to your Temp directory (see [Directories](../configuration/directories.md#temporary-directory) for the path on your platform).
-3. Run:
-   ```bash
-   touch ./*
-   ```
-4. Restart aMule. It will detect the pending completion and finish the process.
+3. **Your ISP blocks P2P traffic** on the standard eD2k port 4662. See [ISP blocking or throttling eD2k ports](./slow-speeds.md#isp-blocking-or-throttling-ed2k-ports).
 
 ## I lost a download — can I recover it?
 
-Two scenarios:
+All partial downloads live in the [Temporary directory](../configuration/directories.md#temporary-directory) as [`*.part` and `*.part.met` files](../configuration/config-files/index.md#temporary-download-files). Two scenarios:
 
 ### Scenario 1: `*.part` files are missing
 
@@ -104,25 +74,24 @@ done
 
 ### Scenario 3: Both `*.part.met` and `*.part.met.bak` are missing but `*.part` exists
 
-Two approaches:
+Search aMule for the file you were downloading and start a new download of it. Then reassign the existing partial data:
 
-- **MetFileRegenerator**: a Java tool that reconstructs `*.part.met` files from the existing `.part` data. Search for it in aMule forums.
-- **Manual reassignment**:
-  1. Search aMule for the file you were downloading and start a new download of it.
-  2. Close aMule. The new download creates a new `NNN.part` file (e.g., `011.part`) with its own `011.part.met`.
-  3. Rename the new `.met` to match the old `.part` number (e.g., rename `011.part.met` to `008.part.met` if your old partial file was `008.part`).
-  4. Delete the new `.part` file (e.g., delete `011.part`).
-  5. Restart aMule — it will pick up the old `.part` file with the restored `.met`.
+1. Close aMule. The new download creates a new `NNN.part` file (e.g., `011.part`) with its own `011.part.met`.
+2. Rename the new `.met` to match the old `.part` number (e.g., rename `011.part.met` to `008.part.met` if your old partial file was `008.part`).
+3. Delete the new `.part` file (e.g., delete `011.part`).
+4. Restart aMule — it will pick up the old `.part` file with the restored `.met`.
 
 ## Why does aMule become unresponsive to mouse clicks even though it hasn't crashed?
 
 A dialog window is open somewhere on your desktop, possibly hidden behind other windows or on a different workspace. aMule is waiting for it to be dismissed. Check all workspaces for any aMule dialog (confirmation boxes, error dialogs, etc.) and click OK or Cancel.
 
+If aMule has genuinely stopped responding instead of waiting on a dialog, see [aMule is crashing quite often](#amule-is-crashing-quite-often-can-i-set-it-to-restart-automatically) and, to report the problem, [Report a Bug](../../contributing/bug-report.md).
+
 ## Why are some files in my shared folders not shown in the Shared Files window?
 
-If you added files after aMule was already running, click the **Reload** button in the Shared Files window. aMule will rescan and hash the new files (this takes CPU time proportional to the number of new files).
+If you added files after aMule was already running, click the **Reload** button in the Shared Files window. aMule will rescan and hash the new files (this takes CPU time proportional to the number of new files). See [Managing Shared Files](../configuration/directories.md#managing-shared-files) for details.
 
-If files keep disappearing after a restart, `~/.aMule/known.met` may be corrupted. Delete it:
+If files keep disappearing after a restart, [`known.met`](../configuration/config-files/index.md#knownmet) may be corrupted. Delete it:
 
 ```bash
 rm ~/.aMule/known.met
@@ -130,7 +99,7 @@ rm ~/.aMule/known.met
 
 On next startup, aMule will rehash all shared files from scratch.
 
-## I always get a message about addresses.met when I start aMule. What's wrong?
+## I always get a message about addresses.dat when I start aMule. What's wrong?
 
 This happens when:
 - The option **Preferences → Servers → "Auto-update serverlist at startup"** is enabled, **and**
@@ -151,116 +120,42 @@ rm ~/.aMule/cryptkey.dat
 rm ~/.aMule/preferences.dat
 ```
 
-Start aMule fresh and begin rebuilding credits.
-
-## Why does the Upload/Download limit reset to 0 after every restart?
-
-This occurred in aMule versions **earlier than 2.0.0-rc4** when you set a Bandwidth Limit higher than the corresponding Bandwidth Capacity value. The fix was applied in 2.0.0-rc4. If you are on a current version and still see this, verify that your Download/Upload limits do not exceed the corresponding Capacity values in Preferences → Connection.
+Start aMule fresh and begin rebuilding credits. For how credits work, see [FAQ → Credits, bandwidth and upload](/docs/manual/faq#credits-bandwidth-and-upload).
 
 ## Why is aMule ignoring the bandwidth I set per slot?
 
-The per-slot bandwidth setting is enforced only if it allows **at least 3 simultaneous upload slots**. The effective maximum speed per slot is:
+aMule does not give each slot exactly the value you configured. The number of upload slots is derived from your upload limit and the slot allocation:
 
 ```
-max_slot_speed = BandwidthLimit / 3
+slots = round(BandwidthLimit / SlotAllocation)
 ```
+
+with a hard **minimum of 2 slots** that aMule always enforces, regardless of any other setting. When your **Bandwidth Limit** is very low (below 10 KBps) aMule also falls back to this 2-slot minimum.
+
+This is why the per-slot value can appear to be ignored: if your upload limit is too low to honor the slot allocation, aMule still opens the minimum 2 slots, so each slot ends up with **less** bandwidth than you asked for.
 
 Do not confuse **Bandwidth Limit** (actual maximum upload rate for aMule) with **Bandwidth Capacity** (your line's physical maximum, used only for the Statistics graph).
-
-Additionally, if after allocating slots there is remaining bandwidth before hitting the Limit, aMule will open an extra slot and redistribute the bandwidth evenly across all slots.
 
 **Example:**
 - Bandwidth Limit: 7 KBps
 - Slot allocation: 2 KBps
 
-After 3 slots (6 KBps used), 1 KBps remains. aMule opens a 4th slot and gives all 4 slots `7 / 4 = 1.75 KBps` each.
+aMule opens `round(7 / 2) = 4` slots, so each slot averages `7 / 4 = 1.75 KBps` — below the 2 KBps you set.
 
-## Why am I getting "Too many connections" messages in the terminal?
-
-You have set a very high value for **Preferences → Connection → Max Connections** that approaches or exceeds the operating system's per-process file descriptor limit. Other applications on the same machine also consume connections, which means aMule hits the OS limit and fails to open new ones.
-
-**On Windows 9x/ME**: the limit is 100 TCP connections. To raise it, edit the Windows registry:
-
-```
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\MSTCP\MaxConnections
-```
-
-Set it as a String value containing a 32-bit decimal number. (This key usually does not exist and must be created.)
-
-**On Linux**: check limits with `ulimit -a` and adjust with `ulimit -n <value>`.
-
-## My progress bars have lost their 3D effect and look flat. Can I restore them?
-
-In most aMule versions: **Preferences → Interface → Download Queue Files → Progress bar style → move the slider to the rightmost position (Round)** for the best 3D effect.
-
-Exception — versions 2.0.0-rc4 to 2.0.0-rc6: in those specific releases, the best 3D effect is achieved with the **middle** position. The rightmost gives a flat appearance; the leftmost gives a dark appearance.
+See also [FAQ → What is slot allocation?](/docs/manual/faq#what-is-slot-allocation).
 
 ## All my downloads suddenly paused and I can't resume them. What's going on?
 
-Check disk space in the filesystem where your **Temp directory** is located. aMule requires a minimum of **9.28 MB** of free space to download a chunk. If free space drops below the threshold set in **Preferences → Files → "Min disk space"**, aMule pauses all downloads to avoid corruption.
+Check disk space in the filesystem where your [Temporary directory](../configuration/directories.md#temporary-directory) is located. aMule requires a minimum of **9.28 MB** of free space to download a chunk. If free space drops below the threshold set in **Preferences → Files → "Min disk space"**, aMule pauses all downloads to avoid corruption. See [Disk Space Protection](../configuration/directories.md#disk-space-protection) for details.
 
 Free up disk space and then resume downloads.
 
-## Why can't I preview a file?
-
-aMule allows preview of **video files only**. Two conditions must be met:
-
-1. The file has a recognized video extension (`.avi`, `.mpg`, `.mpeg`, `.divx`, `.mov`, `.rm`, etc.).
-2. At least the **first 256 KB** of the file has been downloaded.
-
-If aMule refuses to preview a file that you believe is previewable, navigate to your Temp directory manually and open the `NNN.part` file with a video player directly.
-
-## Why doesn't aMule's preview work with MPlayer?
-
-Since aMule 2.0.0-rc4, the preview command does not run in the same terminal as aMule. MPlayer requires a terminal to display output and accept keyboard input.
-
-Set aMule's preview command in Preferences to:
-
-```bash
-xterm -T "aMule preview" -iconic -e mplayer -idx "%PARTFILE"
-```
-
-If MPlayer hangs on incomplete AVI files, add `-demuxer lavf`:
-
-```bash
-xterm -T "aMule preview" -iconic -e mplayer -demuxer lavf "%PARTFILE"
-```
-
-## After closing MPlayer from a preview, my aMule stays locked
-
-This bug existed in aMule **prior to 2.0.0-rc4**. The root cause: MPlayer kept its main process running in the background after the window was closed, and aMule was waiting for the preview process to exit.
-
-**Workaround (aMule < 2.0.0-rc4)**: exit MPlayer by pressing the **Q** key (not by closing the window).
-
-**Fix**: upgrade to a current aMule version.
-
-## Why is Transferred a smaller number than Completed?
-
-This seems counterintuitive but is correct. See [General FAQ → Transferred vs Completed](/docs/manual/faq/general#what-is-the-difference-between-transferred-and-completed-in-the-downloads-window).
-
-In summary: "Transferred" is raw compressed bytes received. "Completed" is the amount of actual useful file data extracted from those bytes after decompression and protocol header removal. Transferred will always be less than or equal to Completed.
-
-## aMule always slows down my computer when it completes a download. Is this normal?
-
-Yes. When a download completes, aMule performs a **full file hash verification**: it hashes all downloaded chunks and verifies them against the expected values. Even though chunk integrity is checked incrementally during downloading, this final pass ensures no chunk was corrupted by the user or an external application after it was written.
-
-This is CPU-intensive for large files and is expected behavior.
-
-## Is there a way to recursively select a whole directory and its contents in Preferences?
-
-Yes:
-
-- **aMule 2.0.0-rc4 or later**: right-click the directory icon you want to select recursively in the Shared Directories list.
-- **aMule 1.x and up to 2.0.0-rc3**: click the directory while holding the **Ctrl** key.
-
-aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/configuration/config-files) for details.
-
 ## I downloaded a file that got corrupted after completion. Can I avoid re-downloading the whole thing?
 
-If you still have the `ed2k://` link:
+This works because aMule verifies each chunk against its expected hash, so it can keep the intact chunks of the renamed file and only re-fetch the corrupted ones. If you still have the `ed2k://` link:
 
 1. Start the download again.
-2. Wait until at least one full chunk (9.28 MB) has been downloaded.
+2. Wait until at least one full chunk (9.28 MB) has been downloaded into the [Temporary directory](../configuration/directories.md#temporary-directory) (the [`*.part` / `*.part.met` files](../configuration/config-files/index.md#temporary-download-files)).
 3. Close aMule.
 4. Rename the corrupted completed file to match the new partial download's `.part` filename (e.g., `002.part`).
 5. Run `touch` on the renamed file:
@@ -271,23 +166,23 @@ If you still have the `ed2k://` link:
 
 ## What should I be aware of when using NFS mounts with aMule?
 
-If any of your Shared Directories or Temp/Incoming directories are on NFS mounts, make sure to **unmount those NFS shares from any computer being shut down** before the shutdown happens.
+If any of your [Shared Directories](../configuration/directories.md#shared-directories) or [Temp/Incoming directories](../configuration/directories.md#incoming-directory) are on NFS mounts, make sure to **unmount those NFS shares from any computer being shut down** before the shutdown happens.
 
 If an NFS mount becomes unavailable while aMule is running, aMule will hang indefinitely waiting for the mount to come back. Symptoms: the Statistics window shows flat non-zero lines for Download/Upload/Connections that drop to zero only after the NFS mounts are restored.
 
 After unmounting NFS shares from any machine, also click **Reload** in the Shared Files window.
 
-## Downloaded files don't get the permissions I set in Preferences. Why?
+## Why don't downloaded files have the permissions I expect?
 
-aMule respects the **umask** of the process. The `umask` value defines which permission bits applications are **not** allowed to set.
+aMule has no in-application file-permission setting. It creates files in your [Incoming directory](../configuration/directories.md#incoming-directory) using the operating system's default mode, which is then masked by the process **umask**. The `umask` value defines which permission bits applications are **not** allowed to set.
 
-Example: if you configure file permissions as `664` in Preferences but `umask` is `022`:
+Example: aMule requests mode `666` (read/write for everyone) when creating a file, but if your `umask` is `022`:
 
 ```
-664 AND NOT 022 = 644
+666 AND NOT 022 = 644
 ```
 
-aMule creates files with `644` instead of `664`.
+the file ends up with `644` (group and others lose write access).
 
 Check your current umask:
 
@@ -297,9 +192,9 @@ umask
 
 To change it, set `umask` in your shell profile or session before launching aMule. On systemd-based systems you can set `UMask=` in the service unit file.
 
-## aMule fails to create files / shows file descriptor errors. What's going on?
+## Why am I getting "Too many connections" or file descriptor errors?
 
-This should never happen in normal operation. When it does, the most likely cause is that the **open file descriptor limit** is set too low for your user account.
+Both symptoms have the same root cause: the number of connections aMule tries to open approaches or exceeds the operating system's per-process **open file descriptor** limit. Other applications on the same machine also consume descriptors, so aMule hits the OS limit and fails to open new connections or create files.
 
 Check current limits:
 
@@ -307,17 +202,18 @@ Check current limits:
 ulimit -a
 ```
 
-The relevant line is `open files`. Read the manual for how to raise it:
+The relevant line is `open files`. Raise it for your session with:
 
 ```bash
-man ulimit
+ulimit -n <value>
 ```
 
-On most Linux distributions, permanent limits can be set in `/etc/security/limits.conf`. Remember that changes take effect on the next login session (or system restart, depending on your configuration).
+On most Linux distributions, permanent limits can be set in `/etc/security/limits.conf` (changes take effect on the next login session). If you do not want to raise the OS limit, lower **Preferences → Connection → Max Connections** instead — see [Max simultaneous connections too high](./slow-speeds.md#max-simultaneous-connections-too-high) for guidance on choosing a value.
 
 ## aMule is crashing quite often. Can I set it to restart automatically?
 
-aMule has no built-in restart mechanism, but shell scripts can handle this — some of which also catch hangs (not just crashes). Community scripts for this purpose:
+aMule has no built-in restart mechanism, but shell scripts can handle this — some of which also catch hangs (not just crashes). See this community thread for example scripts:
 
-- [Forum thread 1](http://forum.amule.org/index.php?topic=1232.0)
-- [Forum thread 2](http://forum.amule.org/index.php?topic=542.0)
+- [Auto-restart scripts (forum thread)](https://forum.amule.org/index.php?topic=542.0)
+
+If the crashes are reproducible, please [report the bug](../../contributing/bug-report.md) and attach the [`logfile`](../configuration/config-files/index.md#logfile).

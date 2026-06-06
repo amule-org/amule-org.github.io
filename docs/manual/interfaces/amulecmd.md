@@ -68,7 +68,7 @@ The `-w` flag writes the connection details to `remote.conf` without starting an
 
 You can also copy [`remote.conf`](../configuration/config-files/remote-conf.md) from the host machine and change the `Host=` line accordingly.
 
-If you cannot connect to a remote host, see [Remote Access Troubleshooting](../troubleshooting/remote-access.md) and the [Remote Access FAQ](../faq/remote-access.md).
+If you cannot connect to a remote host, see [Remote Access Troubleshooting](../troubleshooting/remote-access.md) and the [Remote Access FAQ](../faq.md#remote-access).
 
 ## Interactive Usage
 
@@ -200,6 +200,7 @@ Example — reduce upload speed at 06:00 and restore it at 22:00:
 
 ```bash
 #!/bin/sh
+
 amulecmd -c "show dl" | \
     grep '.' | \
     sed "1,/Succeeded/d" | \
@@ -213,6 +214,7 @@ Save this as `amc` and make it executable (`chmod +x amc`):
 
 ```bash
 #!/bin/sh
+
 amulecmd -c "$*"
 ```
 
@@ -230,6 +232,7 @@ Create the script, verify it works, then add it to cron (many cron daemons autom
 
 ```bash
 #!/bin/sh
+
 echo "=== aMule download summary: $(date) ==="
 amulecmd -c "show dl"
 echo ""
@@ -242,6 +245,7 @@ This script searches Kademlia and polls until the result count stabilizes:
 
 ```bash
 #!/bin/sh
+
 echo "Searching for $1"
 amulecmd -c "search kad $1" > /dev/null
 prevres=-1
@@ -271,7 +275,6 @@ Failed downloads are shown in red, completed downloads in green, and in-progress
 
 ```bash
 #!/bin/sh
-# Version 20060330
 
 domule() {
     amulecmd -c "$@" | grep "^ >"
@@ -298,6 +301,7 @@ Save the script to a file and make it executable (`chmod u+x yourscript.sh`). Ru
 
 ```bash
 #!/bin/sh
+
 domule() {
     amulecmd -c "$@" | grep "^ >"
 }
@@ -312,6 +316,7 @@ domule "reset" > /dev/null
 
 ```bash
 #!/bin/sh
+
 domule() {
     amulecmd -c "$@" | grep "^ >"
 }

@@ -1,5 +1,5 @@
 .wrapper {
-  background: #0e1938;
+  background: var(--ifm-background-surface-color);
   padding: 5rem 2rem;
 }
 
@@ -10,7 +10,7 @@
 
 .title {
   text-align: center;
-  color: #e6edf3;
+  color: var(--ifm-heading-color);
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3rem;
@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
-  border: 1px solid rgba(255 255 255 / 0.07);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -37,8 +37,8 @@
   gap: 1rem;
   align-items: flex-start;
   padding: 1.75rem 2rem;
-  border-right: 1px solid rgba(255 255 255 / 0.07);
-  border-bottom: 1px solid rgba(255 255 255 / 0.07);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
   transition: background 0.15s ease;
 }
 
@@ -62,7 +62,7 @@
   }
   /* Reset multi-col last-row rule */
   .item:nth-last-child(-n+2) {
-    border-bottom: 1px solid rgba(255 255 255 / 0.07);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
   }
   .item:nth-last-child(1) {
     border-bottom: none;
@@ -70,7 +70,7 @@
 }
 
 .item:hover {
-  background: rgba(255 255 255 / 0.03);
+  background: var(--ifm-color-emphasis-100);
 }
 
 .docsCta {
@@ -94,7 +94,7 @@
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255 255 255 / 0.06);
+  background: var(--ifm-color-emphasis-200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,13 +111,13 @@
 .itemTitle {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #e6edf3;
+  color: var(--ifm-heading-color);
   margin: 0 0 0.35rem;
 }
 
 .itemDesc {
   font-size: 0.85rem;
-  color: #8b949e;
+  color: var(--ifm-color-emphasis-700);
   line-height: 1.65;
   margin: 0;
 }

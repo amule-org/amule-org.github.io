@@ -101,16 +101,7 @@ const sidebars: SidebarsConfig = {
             'manual/troubleshooting/remote-access',
           ],
         },
-        {
-          type: 'category',
-          label: 'FAQ',
-          link: {type: 'doc', id: 'manual/faq/index'},
-          items: [
-            'manual/faq/general',
-            'manual/faq/network',
-            'manual/faq/remote-access',
-          ],
-        },
+        {type: 'doc', id: 'manual/faq', label: 'FAQ'},
       ],
     },
     {
