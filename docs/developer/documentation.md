@@ -221,6 +221,8 @@ Use consistent terminology throughout the documentation:
 
 ## Translations
 
+This section covers translating the **website documentation** into another language. To translate the aMule application interface or the man pages, see the [Translations](./translations.md) guide instead.
+
 The default locale is English (`en`). The only currently supported additional locale is Spanish (`es`).
 
 ### Adding or Updating a Translation
