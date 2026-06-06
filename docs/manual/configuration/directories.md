@@ -36,6 +36,10 @@ On Linux, `.aMule` is a hidden directory. Enable *Show hidden files* in your fil
 
 While a file is downloading, aMule stores its data here as a set of temporary files. Once a download completes, the finished file is moved to the Incoming directory and the temporary files are deleted.
 
+:::tip
+Keep the Temporary and Incoming directories on the **same partition (filesystem)**. When a download finishes, aMule moves the file from Temp to Incoming. On the same filesystem this is an instant rename; if they are on different partitions, aMule must copy the whole file byte-for-byte, which can turn a sub-second operation into minutes for large files.
+:::
+
 ### Default Locations
 
 | Platform | Default Temporary Directory |
