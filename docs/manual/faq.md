@@ -9,12 +9,6 @@ Frequently asked questions about aMule, covering general usage, the eD2k and Kad
 
 ### About aMule
 
-#### What is aMule?
-
-aMule is a multi-platform client for the [eD2k file sharing network](../p2p-networks/ed2k/index.md) (it also supports the [Kademlia network](../p2p-networks/kademlia.md)), based on the Windows client eMule. aMule started in August 2003 as a fork of xMule, which is itself a fork of lMule. aMule supports Windows, macOS, Linux, FreeBSD, and OpenBSD on both 32-bit and 64-bit computers.
-
-aMule is designed to be as user-friendly and feature-rich as eMule, and to remain faithful to the look and feel of eMule so that users familiar with either client can switch between the two easily. Since aMule is based on the eMule codebase, new features in eMule tend to find their way into aMule shortly after their inclusion in eMule. If you have just installed it, start with the [Quick Start guide](../quickstart-guide.md).
-
 #### Which distribution or OS is recommended for running aMule?
 
 aMule runs on Windows, macOS, Linux, FreeBSD, and OpenBSD. Any modern Linux distribution with up-to-date packages works well. The best choice is whichever OS you are already comfortable maintaining. See [Installation](installation/index.md) for the available packages and methods on each platform.
@@ -371,9 +365,7 @@ For IPv4 TCP/IP: each packet carries a minimum of 20 bytes IPv4 header + 20 byte
 
 TCP requires the receiver to send **ACK** packets back for every segment received. If aMule saturates your uplink with uploads and connection overhead, outgoing ACKs for your **downloads** may be delayed or dropped — causing the remote sender to slow down, which directly reduces your download speed.
 
-**Never use more than 80% of your upload capacity for aMule.** Set realistic rate limits in **Preferences → Connection → Bandwidth Limits**.
-
-For ADSL: never run uplink or downlink at 100%. A good target is 90–95%, accounting for all overhead. See [aMule Is Slow](/docs/manual/troubleshooting/slow-speeds) for specific values.
+**Never use more than 80% of your upload capacity for aMule.** Set realistic rate limits in **Preferences → Connection → Bandwidth Limits**. This applies to any connection — especially asymmetric ones (cable, DSL) where the uplink is the bottleneck — so always leave headroom for ACKs and other traffic rather than running the link at 100%. See [aMule Is Slow](/docs/manual/troubleshooting/slow-speeds) for specific values.
 
 #### How do routers and SOHO devices cope with P2P load?
 

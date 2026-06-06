@@ -51,8 +51,11 @@ Before `amulegui` can connect, the core (`amuled` or `amule`) must have External
 
 ### Connecting amulegui to the core
 
-When `amulegui` starts, it presents a connection dialog. Enter:
+When `amulegui` starts, it presents a connection dialog.
 
+![amulegui connection dialog](/img/docs/gui_amulegui/amulegui_connect.png)
+
+Enter:
 - **Host/IP** — hostname or IP address of the machine running the core (default: `127.0.0.1`).
 - **Port** — EC port (default: `4712`).
 - **Password** — the plaintext password (not the MD5 hash); `amulegui` hashes it internally before sending. A non-empty password is required.

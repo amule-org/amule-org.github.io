@@ -4,11 +4,11 @@ title: aMule Documentation
 slug: /
 ---
 
-aMule is a free, open-source file-sharing program for the [**eD2k (eDonkey2000)**](./p2p-networks/ed2k/index.md) and [**Kademlia (Kad)**](./p2p-networks/kademlia.md) peer-to-peer networks. It runs on Windows, macOS, Linux, FreeBSD, and OpenBSD, and stays close to eMule in look and feel so users can switch with ease.
+aMule is a free, open-source file-sharing program for the [**eD2k (eDonkey2000)**](./p2p-networks/ed2k/index.md) and [**Kademlia (Kad)**](./p2p-networks/kademlia.md) peer-to-peer networks. It runs on Windows, macOS, Linux, FreeBSD, and OpenBSD, and stays close to [eMule](./p2p-networks/ed2k/clients.md#emule-2002present) in look and feel so users can switch with ease.
 
 ## History
 
-aMule began in August 2003 as a multiplatform fork of xMule (itself derived from lMule), bringing the eMule experience to systems beyond Windows. It has grown well beyond its origins ever since.
+aMule began in August 2003 as a multiplatform fork of xMule (itself derived from lMule), bringing the eMule experience to systems beyond Windows. It stays faithful to eMule's look and feel, and as eMule's own development has largely stalled, aMule has grown well beyond its origins to become the actively maintained client for the eD2k and Kad networks.
 
 ## Features
 

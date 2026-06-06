@@ -29,7 +29,13 @@ Search queries are matched against file names. For example:
 - `amule` — finds files whose name contains "amule"
 - `debian iso` — finds files whose name contains both "debian" and "iso"
 
-For details on how the search logic works (AND, OR, NOT), see [Search types](#search-type) below.
+### Search Logic (Boolean Operators)
+
+aMule supports Boolean search expressions using the `AND`, `OR`, and `NOT` operators, and expressions can be grouped with parentheses. Listing several words separated by spaces is treated as an implicit `AND`. For example:
+
+```
+(knoppix AND V5.1.1) OR (knoppix AND V6.0)
+```
 
 ### Getting Results
 
@@ -172,6 +178,10 @@ The **Type** dropdown selects the search method:
 | **Local** | Search only against the [server](../../../p2p-networks/ed2k/servers.md) you are currently connected to; instant results |
 | **Global** | Broadcast the query to all known [servers](../../../p2p-networks/ed2k/servers.md); slower but broader results |
 | **Kad** | Search across the [Kademlia](../../../p2p-networks/kademlia.md) network; slower, results trickle in over time |
+
+:::note
+When the same file is reported more than once, aMule merges the source counts differently depending on the network: for **Kad** results it takes the **maximum** of the reported counts, whereas for **eD2k** it **sums** the counts reported by each server.
+:::
 
 ### Extended Parameters
 

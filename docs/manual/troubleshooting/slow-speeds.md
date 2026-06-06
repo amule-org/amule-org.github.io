@@ -23,7 +23,7 @@ Set your upload limit to at least **10 KB/s** for unrestricted downloads, under 
 
 Paradoxically, setting your upload limit **too close to your line's actual maximum** also causes slow downloads. A saturated uplink delays the outgoing TCP ACK packets for your downloads, causing the remote sender to slow down its transmission rate — the [ACK bottleneck](../faq.md#what-is-the-ack-bottleneck).
 
-As a general rule: **never use more than 75–80% of your upload capacity** for aMule. Leave headroom for ACKs and other traffic. Adjust the value under [Preferences → Connection → Bandwidth limits](../interfaces/gui/preferences.md#bandwidth-limits).
+As a general rule: **never use more than 80% of your upload capacity** for aMule. Leave headroom for ACKs and other traffic. Adjust the value under [Preferences → Connection → Bandwidth limits](../interfaces/gui/preferences.md#bandwidth-limits).
 
 #### Max simultaneous connections too low
 
@@ -99,7 +99,7 @@ When aMule is running and all other applications using the internet become slow 
 
 ### Upload limit too high
 
-If [Preferences → Connection → Bandwidth limits → Upload](../interfaces/gui/preferences.md#bandwidth-limits) exceeds approximately **75% of your actual upload bandwidth**, download speeds for all applications — including aMule itself — will suffer, because a saturated uplink delays the outgoing TCP ACK packets every download depends on (the [ACK bottleneck](../faq.md#what-is-the-ack-bottleneck)).
+If [Preferences → Connection → Bandwidth limits → Upload](../interfaces/gui/preferences.md#bandwidth-limits) exceeds approximately **80% of your actual upload bandwidth**, download speeds for all applications — including aMule itself — will suffer, because a saturated uplink delays the outgoing TCP ACK packets every download depends on (the [ACK bottleneck](../faq.md#what-is-the-ack-bottleneck)).
 
 **Example**: if your uplink is 100 Mbps (12.5 MB/s), do not set aMule's upload limit above 9600 KB/s (~9.38 MB/s).
 
