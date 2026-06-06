@@ -23,4 +23,4 @@ Follow these steps to get up and running:
 | [Utilities](./utilities/index.md) | Standalone helpers: `ed2k`, `alc`/`alcc`, `wxcas`/`cas` |
 | [Migration](./migration/index.md) | Migrating to aMule from eMule, eDonkey2000, or other eD2k clients |
 | [Troubleshooting](./troubleshooting/index.md) | Solutions to common problems: slow speeds, fake files and servers, remote access |
-| [FAQ](./faq/index.md) | Frequently asked questions about aMule, organized by topic |
+| [FAQ](./faq.md) | Frequently asked questions about aMule, organized by topic |
