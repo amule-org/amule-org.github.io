@@ -66,9 +66,9 @@ Además de eso, aMule añade capacidades propias:
 - **Inicio al arrancar sesión** — haz que aMule se inicie automáticamente cuando inicias sesión.
 - **Permisos de archivo por defecto** — elige los permisos de acceso que se aplican a las descargas completadas.
 
-## Inicio rápido
+## Guía rápida
 
-- [Primeros pasos](quickstart-guide.md) — primera ejecución, configuración, búsqueda y descarga
+- [Guía rápida](quickstart-guide.md) — primera ejecución, configuración, búsqueda y descarga
 
 ## Módulos
 

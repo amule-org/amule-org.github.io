@@ -60,7 +60,7 @@
     "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
   },
   "sidebar.docsSidebar.doc.Quick Start": {
-    "message": "Inicio rápido",
+    "message": "Guía rápida",
     "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
   },
   "version.label": {
