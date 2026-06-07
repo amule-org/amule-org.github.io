@@ -55,10 +55,12 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es'],
+    locales: ['en', 'es', 'fr', 'tr'],
     localeConfigs: {
       en: {label: 'English'},
       es: {label: 'Español'},
+      fr: {label: 'français'},
+      tr:  {label: 'Türkçe'},
     },
   },
 
@@ -117,7 +119,7 @@ const config: Config = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
-        language: ['en', 'es'],
+        language: ['en', 'es', 'fr', 'tr'],
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
