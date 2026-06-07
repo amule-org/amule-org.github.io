@@ -4,14 +4,14 @@ import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 interface WhatsNew {
-  tag: string;
+  tag: React.ReactNode;
   label: React.ReactNode;
   detail: React.ReactNode;
 }
 
 const WHATS_NEW: WhatsNew[] = [
   {
-    tag: 'Performance',
+    tag: <Translate id="homepage.highlights.performance.tag">Performance</Translate>,
     label: <Translate id="homepage.highlights.performance.label">Dramatically faster transfers</Translate>,
     detail: (
       <Translate id="homepage.highlights.performance.detail">
@@ -20,7 +20,7 @@ const WHATS_NEW: WhatsNew[] = [
     ),
   },
   {
-    tag: 'Packages',
+    tag: <Translate id="homepage.highlights.packages.tag">Packages</Translate>,
     label: <Translate id="homepage.highlights.packages.label">Binaries for every desktop</Translate>,
     detail: (
       <Translate id="homepage.highlights.packages.detail">
@@ -29,7 +29,7 @@ const WHATS_NEW: WhatsNew[] = [
     ),
   },
   {
-    tag: 'Bandwidth',
+    tag: <Translate id="homepage.highlights.bandwidth.tag">Bandwidth</Translate>,
     label: <Translate id="homepage.highlights.bandwidth.label">Bandwidth limiting that works</Translate>,
     detail: (
       <Translate id="homepage.highlights.bandwidth.detail" values={{code: <code>MaxUpload=0</code>}}>
@@ -38,7 +38,7 @@ const WHATS_NEW: WhatsNew[] = [
     ),
   },
   {
-    tag: 'CMake',
+    tag: <Translate id="homepage.highlights.buildSystem.tag">CMake</Translate>,
     label: <Translate id="homepage.highlights.buildSystem.label">Modern build system</Translate>,
     detail: (
       <Translate id="homepage.highlights.buildSystem.detail">
