@@ -726,5 +726,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "Etiketler",
     "description": "The title of the tag list page"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Performans"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paketler"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Bant genişliği"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
   }
 }
