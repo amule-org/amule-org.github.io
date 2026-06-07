@@ -726,5 +726,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "Étiquettes",
     "description": "The title of the tag list page"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Performances"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paquets"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Bande passante"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
   }
 }

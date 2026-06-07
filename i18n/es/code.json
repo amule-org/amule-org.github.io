@@ -150,7 +150,7 @@
     "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente."
   },
   "homepage.features.daemon.title": {
-    "message": "aMule Daemon"
+    "message": "Demonio aMule"
   },
   "homepage.features.daemon.desc": {
     "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla."
@@ -240,7 +240,7 @@
     "message": "Minimiza aMule a la bandeja del sistema y déjalo funcionando discretamente en segundo plano. Funciona en Windows, macOS y todos los escritorios principales de Linux."
   },
   "homepage.features.powerShare.title": {
-    "message": "Release Priority"
+    "message": "Prioridad Release"
   },
   "homepage.features.powerShare.desc": {
     "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo. En eMule esta funcionalidad se conoce como PowerShare."
@@ -417,7 +417,7 @@
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "tip",
+    "message": "consejo",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {
@@ -746,5 +746,17 @@
   },
   "homepage.download.previous.entry.sourceforge": {
     "message": "SourceForge"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Rendimiento"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paquetes"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Ancho de banda"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
   }
 }

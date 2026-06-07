@@ -74,5 +74,17 @@
   "sidebar.docsSidebar.doc.Installation": {
     "message": "Instalación",
     "description": "The label for the doc item 'Installation' in sidebar 'docsSidebar', linking to the doc manual/installation/index"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Configuration Files",
+    "description": "The label for category 'Configuration Files' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "GUI — amule & amulegui",
+    "description": "The label for category 'GUI — amule & amulegui' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "FAQ",
+    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc manual/faq"
   }
 }
