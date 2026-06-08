@@ -1,11 +1,5 @@
 {
   "description": {
     "message": "Blog"
-  },
-  "title": {
-    "message": ""
-  },
-  "sidebar.title": {
-    "message": ""
   }
 }
