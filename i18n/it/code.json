@@ -634,5 +634,17 @@
   },
   "theme.tags.tagsPageTitle": {
     "message": "Etichette"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
   }
 }
