@@ -1,5 +1,11 @@
 {
   "description": {
     "message": "Blog"
+  },
+  "sidebar.title": {
+    "message": "Versões"
+  },
+  "title": {
+    "message": "Changelog"
   }
 }
