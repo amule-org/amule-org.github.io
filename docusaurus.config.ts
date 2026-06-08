@@ -109,12 +109,13 @@ const config: Config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-content-blog',
+      require.resolve('./plugins/blog-changelog'),
       {
         id: 'changelog',
         path: './changelog',
         routeBasePath: '/changelog',
         blogTitle: 'Changelog',
+        blogDescription: 'Changelog',
         blogSidebarTitle: 'Versions',
         blogSidebarCount: 'ALL',
         postsPerPage: 5,
