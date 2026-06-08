@@ -55,12 +55,14 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es', 'fr', 'it', 'tr'],
+    locales: ['en', 'ca', 'es', 'fr', 'it', 'pt-BR', 'tr'],
     localeConfigs: {
       en: {label: 'English'},
+      ca: {label: 'Català'},
       es: {label: 'Español'},
       fr: {label: 'français'},
       it: {label: 'Italiano'},
+      'pt-BR': {label: 'Português (Brasil)'},
       tr: {label: 'Türkçe'},
     },
   },
@@ -120,7 +122,10 @@ const config: Config = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
-        language: ['en', 'es', 'fr', 'it', 'tr'],
+        // Lunr stemmer languages. 'pt' covers the pt-BR locale. Catalan (ca) has
+        // no lunr-languages stemmer, so it is omitted — its index falls back to
+        // the multi-language tokenizer rather than failing the build.
+        language: ['en', 'es', 'fr', 'it', 'pt', 'tr'],
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
