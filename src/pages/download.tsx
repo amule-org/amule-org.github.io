@@ -129,7 +129,7 @@ const DOWNLOAD_OSES: DownloadOs[] = [
   },
   {
     svg: SOURCE_SVG,
-    name: <Translate id="homepage.download.source.os" description="Source-code option name in the download page">Source</Translate>,
+    name: <Translate id="homepage.download.source.os" description="Source-code option name in the download page">Source code</Translate>,
     platform: <Translate id="homepage.download.source.platform" description="Subtitle under the Source download heading">Build it yourself</Translate>,
     formats: [
       {

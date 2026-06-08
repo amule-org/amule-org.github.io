@@ -112,7 +112,7 @@
     "description": "Label for the source-code download format"
   },
   "homepage.download.source.os": {
-    "message": "Source",
+    "message": "Source code",
     "description": "Source-code option name in the download page"
   },
   "homepage.download.source.platform": {
