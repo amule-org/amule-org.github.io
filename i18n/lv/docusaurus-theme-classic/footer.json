@@ -1,1 +1,17 @@
-{}
+{
+  "link.item.label.Blog RSS": {
+    "message": "Emuāra RSS"
+  },
+  "link.item.label.Changelog RSS": {
+    "message": "Izmaiņu žurnāla RSS"
+  },
+  "link.item.label.Releases": {
+    "message": "Izlaidumi"
+  },
+  "link.item.label.Source code": {
+    "message": "Pirmkods"
+  },
+  "copyright": {
+    "message": "aMule — brīva programmatūra, kas izlaista saskaņā ar GNU GPL v2 licenci. aMule izstrādātāji nekādā veidā nekontrolē to, kādu saturu citi lietotāji pārsūta, izmantojot eD2k/Kad tīklus, un nevar tikt saukti pie atbildības par trešo pušu veiktiem nepersoniskiem autortiesību pārkāpumiem vai citām nelikumīgām darbībām. Kopīgojiet datnes atbildīgi."
+  }
+}
