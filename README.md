@@ -39,6 +39,10 @@ The full contributor documentation lives on the site itself:
 * [Translations guide](https://amule-org.github.io/docs/developer/translations) — translating the application interface, the man pages, and the documentation website.
 * [Contributing](https://amule-org.github.io/docs/contributing) — all the ways to help the project.
 
+## Translations
+
+The website translations are managed with [Weblate](https://weblate.org/). See the [Documentation guide](https://amule-org.github.io/docs/developer/documentation#translating-with-weblate) for the component setup and contributor workflow.
+
 ## Useful links
 
 * aMule source code: [github.com/amule-org/amule](https://github.com/amule-org/amule)
