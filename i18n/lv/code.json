@@ -1,1 +1,17 @@
-{}
+{
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versijas"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Birkas:"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Skatīt visas birkas"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Birkas"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Izmaiņu žurnāls"
+  }
+}
