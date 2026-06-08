@@ -30,6 +30,8 @@ For each JSON component, set **Settings → Files → JSON indentation** to `2`,
 
 At the project level, enable the **Remove blank strings** add-on. It removes untranslated (blank) strings from the translation files, so the Docusaurus JSON files never end up with empty `message` values.
 
+Also enable the **Squash Git commits** add-on, with **Commit squashing** set to *All commits into one* and **Append trailers to squashed commit message** enabled. This keeps each Weblate pull request to a single, clean commit while preserving the per-translator attribution trailers.
+
 Also at the project level, under **aMule → Settings → Workflow**:
 
 - **Enable reviews** is turned on: anyone on Weblate can propose suggestions, but changes must be approved by a reviewer before they are accepted.
