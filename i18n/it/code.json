@@ -720,20 +720,5 @@
   "theme.tags.tagsPageTitle": {
     "message": "Etichette",
     "description": "The title of the tag list page"
-  },
-  "homepage.download.source.targz": {
-    "message": ""
-  },
-  "homepage.download.arch.x64": {
-    "message": ""
-  },
-  "homepage.download.source.zip": {
-    "message": ""
-  },
-  "homepage.download.source.label": {
-    "message": ""
-  },
-  "homepage.download.arch.arm64": {
-    "message": ""
   }
 }
