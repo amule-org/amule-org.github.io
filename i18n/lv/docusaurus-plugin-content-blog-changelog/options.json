@@ -1,1 +1,11 @@
-{}
+{
+  "description": {
+    "message": "Emuārs"
+  },
+  "sidebar.title": {
+    "message": "Versijas"
+  },
+  "title": {
+    "message": "Izmaiņu žurnāls"
+  }
+}
