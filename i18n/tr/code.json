@@ -1,87 +1,27 @@
 {
-  "homepage.download.windows.os": {
-    "message": "Windows"
-  },
-  "homepage.download.windows.platform": {
-    "message": "Windows 10 / 11 · x64 · ARM64"
-  },
-  "homepage.download.windows.installer.label": {
-    "message": "Kurulum Programı (.exe)"
-  },
-  "homepage.download.windows.portable.label": {
-    "message": "Taşınabilir Sürüm (.zip)"
-  },
-  "homepage.download.arch.x64": {
-    "message": "x64"
+  "homepage.description": {
+    "message": "aMule, özgür, Windows, macOS ve GNU/Linux için her platforma uygun, eMule ile uyumlu bir eD2k/Kad istemcisidir."
   },
   "homepage.download.arch.arm64": {
     "message": "ARM64"
   },
-  "homepage.download.macos.os": {
-    "message": "macOS"
+  "homepage.download.arch.x64": {
+    "message": "x64"
   },
-  "homepage.download.macos.platform": {
-    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  "homepage.download.compile": {
+    "message": "{link}, aMule'ü kaynak koddan derlemek için talimatlar içermektedir."
   },
-  "homepage.download.macos.dmg.label": {
-    "message": "Disk kalıbı (.dmg)"
+  "homepage.download.compile.link": {
+    "message": "Derleme kılavuzu"
   },
-  "homepage.download.macos.dmg.arch": {
-    "message": "Universal2"
-  },
-  "homepage.download.linux.os": {
-    "message": "GNU/Linux"
-  },
-  "homepage.download.linux.platform": {
-    "message": "glibc ≥ 2.35 · x64 · ARM64"
-  },
-  "homepage.download.linux.appimage.label": {
-    "message": "AppImage"
-  },
-  "homepage.download.linux.flatpak.label": {
-    "message": "Flatpak"
-  },
-  "homepage.download.source.os": {
-    "message": "Kaynak Kodu"
-  },
-  "homepage.download.source.platform": {
-    "message": "Kendiniz derleyin"
-  },
-  "homepage.download.source.label": {
-    "message": "Kaynak Kodu"
-  },
-  "homepage.download.source.targz": {
-    "message": ".tar.gz"
-  },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
-  "homepage.download.title": {
-    "message": "İndir"
-  },
-  "homepage.download.pageDescription": {
-    "message": "aMule'ü Windows, macOS veya GNU/Linux için indirin veya kaynak koddan derleyin."
-  },
-  "homepage.download.version.label": {
-    "message": "En yeni sürüm"
-  },
-  "homepage.download.version.date": {
-    "message": "Yayınlanma tarihi: {date}"
-  },
-  "homepage.download.version.changelog": {
-    "message": "Değişiklikler günlüğü"
-  },
-  "homepage.download.lead": {
-    "message": "aMule, hatırı sayılır masaüstü platformlarının çoğu için mevcuttur."
+  "homepage.download.distros.link": {
+    "message": "hatırı sayılır GNU/Linux dağıtımları"
   },
   "homepage.download.foot": {
     "message": "Tüm dosyalar {release} sayfasında mevcuttur. aMule aynı zamanda {distros} depolarında da bulunur ancak paketler eski olabilir."
   },
   "homepage.download.foot.link": {
     "message": "en yeni sürüm sayfası"
-  },
-  "homepage.download.distros.link": {
-    "message": "hatırı sayılır GNU/Linux dağıtımları"
   },
   "homepage.download.install": {
     "message": "{install} her platformu kapsar ve {quickstart} kurulum ve ilk indirme işleminiz konusunda size yol gösterir."
@@ -92,23 +32,38 @@
   "homepage.download.install.link": {
     "message": "Hızlı başlangıç kılavuzu"
   },
-  "homepage.download.compile": {
-    "message": "{link}, aMule'ü kaynak koddan derlemek için talimatlar içermektedir."
+  "homepage.download.lead": {
+    "message": "aMule, hatırı sayılır masaüstü platformlarının çoğu için mevcuttur."
   },
-  "homepage.download.compile.link": {
-    "message": "Derleme kılavuzu"
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
   },
-  "homepage.download.previous.title": {
-    "message": "Önceki sürümler"
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.linux.os": {
+    "message": "GNU/Linux"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Disk kalıbı (.dmg)"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.download.pageDescription": {
+    "message": "aMule'ü Windows, macOS veya GNU/Linux için indirin veya kaynak koddan derleyin."
   },
   "homepage.download.previous.body": {
     "message": "3.0.0 öncesi sürümler {github} ve {sourceforge} sitelerinde arşivlenmiştir."
-  },
-  "homepage.download.previous.link": {
-    "message": "SourceForge"
-  },
-  "homepage.download.previous.github.link": {
-    "message": "GitHub"
   },
   "homepage.download.previous.entry.github": {
     "message": "GitHub"
@@ -116,14 +71,203 @@
   "homepage.download.previous.entry.sourceforge": {
     "message": "SourceForge"
   },
-  "homepage.description": {
-    "message": "aMule, özgür, Windows, macOS ve GNU/Linux için her platforma uygun, eMule ile uyumlu bir eD2k/Kad istemcisidir."
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
   },
-  "homepage.hero.logo.alt": {
-    "message": "aMule logosu"
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
   },
-  "homepage.tagline": {
-    "message": "Her platforma uygun eMule ile uyumlu eD2k/Kad istemcisi"
+  "homepage.download.previous.title": {
+    "message": "Önceki sürümler"
+  },
+  "homepage.download.source.label": {
+    "message": "Kaynak Kodu"
+  },
+  "homepage.download.source.os": {
+    "message": "Kaynak Kodu"
+  },
+  "homepage.download.source.platform": {
+    "message": "Kendiniz derleyin"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.download.title": {
+    "message": "İndir"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Değişiklikler günlüğü"
+  },
+  "homepage.download.version.date": {
+    "message": "Yayınlanma tarihi: {date}"
+  },
+  "homepage.download.version.label": {
+    "message": "En yeni sürüm"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Kurulum Programı (.exe)"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Taşınabilir Sürüm (.zip)"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "İndirme ve gönderme hızları için katı sınırlar ayarlayın, ki bunlar hassas jeton kovası sınırlayıcıları tarafından uygulanır. Bağlantınızı aşırı yüklememesi için aMule'e sınır koyun — veya bilgisayarınızın önünde değilken son sürat çalışmasına izin verin."
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Bant Genişliği Kontrolü"
+  },
+  "homepage.features.categories.desc": {
+    "message": "İndirmeleri kişisel kayıt yolları ve öncelikler ile tanzim edin. Kütüphanenizi otomatik olarak düzenli tutmak için kategori başına kurallar uygulayın."
+  },
+  "homepage.features.categories.title": {
+    "message": "İndirme Kategorileri"
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Dosya verileri ile sunucu ile iletişim, zlib ile sıkıştırılmıştır ve bu sıkıştırılabilir dosyalar için bant genişliği kullanımını ve eD2k sunucuları üzerindeki yükü azaltır."
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Sıkıştırılmış Aktarmalar"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "Akıllı Bozulma Yönetimi (Intelligent Corruption Handler (ICH)) ve AICH otomatik olarak bozuk indirme parçalarını tespit ve tamir eder, böylece tekrar başlamadan tam, bozulmamış dosyaları garantiler."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Bozulma Yönetimi"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Yerleşik kredi ve puanlama sistemi, etkin bir şekilde gönderme yapan kullanıcıları ödüllendirir. Ne kadar fazla paylaşırsanız, puanınız o kadar yüksek olacaktır — bunun sonucu da daha hızlı indirmeler olur."
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Kredi Sistemi"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "aMule'u hafif bir arka plan süreci (amuled) olarak sunucularda, NAS cihazlarında veya VPS örneklemelerinde çalıştırın — grafik bir ekrana ihtiyaç olmaz."
+  },
+  "homepage.features.daemon.title": {
+    "message": "aMule Daemon'u"
+  },
+  "homepage.features.docsLink": {
+    "message": "Belgelendirmenin tamamını tarayın →"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "İndirmeleri aMule üzerinde anında başlatmak için tarayıcınızda ed2k:// bağlantılarına tıklayın. Bağlantı yöneticisi, sorunsuz tek tıklamalık bir deneyim için masaüstünüzle entegre olur."
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "ed2k:// Bağlantı Birleşimi"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "eMule ve tüm *Mule istemcileriyle tamamen uyumludur. Aynı kaynaklarla dosya paylaşın, aynı sunuculara bağlanın ve standart ed2k:// bağlantılarını açın."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "eMule ile Uyumlu"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule, paylaşılan ve gelen dizinlerinizi takip eder ve yeni, değişmiş veya kaldırılmış dosyaları otomatik olarak tespit eder — kütüphaneniz değiştiğinde el ile tekrar yüklemeye gerek kalmaz."
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Otomatik Dizin Tekrar Taraması"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "İstenmeyen IP adrelerini standart IP filtre listeleri kullanarak engelleyin. Saldırgan, kötücül veya casus eşlerin istemcinize bağlanmalarını önleyin."
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "IP Filtreleme"
+  },
+  "homepage.features.languages.desc": {
+    "message": "aMule arayüzü 37 dile tercüme edilmiştir. Dosyaları anadilinizde indirin ve paylaşın — Arayüz otomatik olarak yerel ayarlarınıza uyum sağlar."
+  },
+  "homepage.features.languages.title": {
+    "message": "37 Arayüz Dili"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Diğer aMule kullanıcılarıyla doğrudan mesaj alışverişinde bulunun ve düzenli olarak paylaşım yaptığınız kişilerle bağlantıda kalmak için bir arkadaş listesi oluşturun."
+  },
+  "homepage.features.messaging.title": {
+    "message": "Mesajlaşma ve Arkadaşlar"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, GNU/Linux üzerinde AppImage and Flatpak. Hem x64 hem de ARM64 için mevcuttur."
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Yerel Paketler"
+  },
+  "homepage.features.networks.desc": {
+    "message": "Hem geleneksel eD2k sunucu ağına hem de sunucusuz Kademlia DHT (dağıtık karma değer tablosu) ağına aynı zamanda bağlanın, böylece erişiminizi ve dosya bulunabilirliğini azami düzeye çıkarın."
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.features.openSource.desc": {
+    "message": "GPL-2.0 kapsamında lisanlanmıştır, telemetri içermez, reklam içermez ve tedarikçi bağımlılığı yoktur. Verileriniz sizindir — kaynak kodu inceleyin ve katkıda bulunun."
+  },
+  "homepage.features.openSource.title": {
+    "message": "Özgür ve Açık Kaynaklı"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Kendi yayınladığınız dosyaları en yüksek önceliği verin, böylece ağda mümkün olan azami hızda yayılırlar — bu yeni içerik paylaşmak için idealdir. eMule'de bu işlev PowerShare olarak bilinir."
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Yayın Önceliği"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Video veya ses dosyalarını indirme tamamladan evvel oynatın. MPlayer, VLC ve diğer ortam oynatıcılarıyla uyumludur."
+  },
+  "homepage.features.preview.title": {
+    "message": "Tamamlamadan Önce Önizleme"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Mahremiyetinizi korumak veya ağ kısıtlamalarını aşmak için bağlantıları SOCKS4, SOCKS5 veya HTTP vekil suncularıyla yönlendirin."
+  },
+  "homepage.features.proxy.title": {
+    "message": "Vekil Sunucu Desteği"
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "aMule'ü her yerden kontrol edin: yerel bir uzak grafik arayüz (amulegui), tarayıcı tabanlı web arayüzü (amuleweb) veya bir komut satırı aracı (amulecmd)."
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Uzak Arayüzler"
+  },
+  "homepage.features.search.desc": {
+    "message": "eD2k sunucularında (yerel ve genel) ve Kademlia düğümlerinde arama yapın. Tür, boyut ve bulunabilirliğe göre süzün. Filter by type, size, and availability. Mantıksal operatörler (AND, OR, NOT) desteklenir."
+  },
+  "homepage.features.search.title": {
+    "message": "Güçlü Arama"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Kriptografik güvenli kullanıcı kimlik doğrulaması istemcinizin karma değerinin çalınmasının veya ağdaki başka eşler tarafından taklit edilmesinin önüne geçer."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Güvenli Kimlik Doğrulama"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Aynı zamanda kaç istemciye gönderi yaptığınızı tam olarak kontrol edin ve oluk başı bant genişliği hedefleri ayarlayın, ki bu size gönderme kapasiteniz üzerinde ayrıntılı kontrol imkânı sağlar."
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Oluk Atama"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Sunucuya tekrar tekrar sorgu göndermeden indirmeleriniz için daha fazla kaynak bulmak için bağlı eşler ile kaynak listelerini otomatik olarak paylaşın."
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Kaynak Değişimi"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "aMule'ü sistem tepsisine küçültün ve onu arka planda usulca çalışmasına izin verin. Windows, macOS ve tüm hatırı sayılır GNU/Linux masaüstlerinde çalışır."
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Sistem Tepsisi"
+  },
+  "homepage.features.title": {
+    "message": "İşlevler"
   },
   "homepage.hero.cta.download": {
     "message": "İndir"
@@ -131,197 +275,71 @@
   "homepage.hero.cta.quickstart": {
     "message": "Hızlı Başlangıç"
   },
-  "homepage.whatisamule.title": {
-    "message": "aMule Nedir?"
-  },
-  "homepage.whatisamule.p1": {
-    "message": "aMule, özgür, GPL kapsamında lisanslanmış {ed2k} ve {kad} ağları için eşten eşe dosya paylaşım istemcisidir. eMule ile uyumludur ve Windows, macOS ve GNU/Linux üzerinde yerel olarak çalışır. Aynı disk üzerinde durum, aynı protokol, her ana masaüstü için bir ikili çalıştırılabilir dosya."
+  "homepage.hero.logo.alt": {
+    "message": "aMule logosu"
   },
   "homepage.hero.screenshot.alt": {
     "message": "aMule indirmeler sekmesi"
   },
-  "homepage.features.networks.title": {
-    "message": "eD2k + Kademlia"
-  },
-  "homepage.features.networks.desc": {
-    "message": "Hem geleneksel eD2k sunucu ağına hem de sunucusuz Kademlia DHT (dağıtık karma değer tablosu) ağına aynı zamanda bağlanın, böylece erişiminizi ve dosya bulunabilirliğini azami düzeye çıkarın."
-  },
-  "homepage.features.emuleCompatible.title": {
-    "message": "eMule ile Uyumlu"
-  },
-  "homepage.features.emuleCompatible.desc": {
-    "message": "eMule ve tüm *Mule istemcileriyle tamamen uyumludur. Aynı kaynaklarla dosya paylaşın, aynı sunuculara bağlanın ve standart ed2k:// bağlantılarını açın."
-  },
-  "homepage.features.search.title": {
-    "message": "Güçlü Arama"
-  },
-  "homepage.features.search.desc": {
-    "message": "eD2k sunucularında (yerel ve genel) ve Kademlia düğümlerinde arama yapın. Tür, boyut ve bulunabilirliğe göre süzün. Filter by type, size, and availability. Mantıksal operatörler (AND, OR, NOT) desteklenir."
-  },
-  "homepage.features.openSource.title": {
-    "message": "Özgür ve Açık Kaynaklı"
-  },
-  "homepage.features.openSource.desc": {
-    "message": "GPL-2.0 kapsamında lisanlanmıştır, telemetri içermez, reklam içermez ve tedarikçi bağımlılığı yoktur. Verileriniz sizindir — kaynak kodu inceleyin ve katkıda bulunun."
-  },
-  "homepage.features.nativePackages.title": {
-    "message": "Yerel Paketler"
-  },
-  "homepage.features.nativePackages.desc": {
-    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, GNU/Linux üzerinde AppImage and Flatpak. Hem x64 hem de ARM64 için mevcuttur."
-  },
-  "homepage.features.sourceExchange.title": {
-    "message": "Kaynak Değişimi"
-  },
-  "homepage.features.sourceExchange.desc": {
-    "message": "Sunucuya tekrar tekrar sorgu göndermeden indirmeleriniz için daha fazla kaynak bulmak için bağlı eşler ile kaynak listelerini otomatik olarak paylaşın."
-  },
-  "homepage.features.creditSystem.title": {
-    "message": "Kredi Sistemi"
-  },
-  "homepage.features.creditSystem.desc": {
-    "message": "Yerleşik kredi ve puanlama sistemi, etkin bir şekilde gönderme yapan kullanıcıları ödüllendirir. Ne kadar fazla paylaşırsanız, puanınız o kadar yüksek olacaktır — bunun sonucu da daha hızlı indirmeler olur."
-  },
-  "homepage.features.corruptionHandling.title": {
-    "message": "Bozulma Yönetimi"
-  },
-  "homepage.features.corruptionHandling.desc": {
-    "message": "Akıllı Bozulma Yönetimi (Intelligent Corruption Handler (ICH)) ve AICH otomatik olarak bozuk indirme parçalarını tespit ve tamir eder, böylece tekrar başlamadan tam, bozulmamış dosyaları garantiler."
-  },
-  "homepage.features.bandwidthControl.title": {
-    "message": "Bant Genişliği Kontrolü"
-  },
-  "homepage.features.bandwidthControl.desc": {
-    "message": "İndirme ve gönderme hızları için katı sınırlar ayarlayın, ki bunlar hassas jeton kovası sınırlayıcıları tarafından uygulanır. Bağlantınızı aşırı yüklememesi için aMule'e sınır koyun — veya bilgisayarınızın önünde değilken son sürat çalışmasına izin verin."
-  },
-  "homepage.features.categories.title": {
-    "message": "İndirme Kategorileri"
-  },
-  "homepage.features.categories.desc": {
-    "message": "İndirmeleri kişisel kayıt yolları ve öncelikler ile tanzim edin. Kütüphanenizi otomatik olarak düzenli tutmak için kategori başına kurallar uygulayın."
-  },
-  "homepage.features.preview.title": {
-    "message": "Tamamlamadan Önce Önizleme"
-  },
-  "homepage.features.preview.desc": {
-    "message": "Video veya ses dosyalarını indirme tamamladan evvel oynatın. MPlayer, VLC ve diğer ortam oynatıcılarıyla uyumludur."
-  },
-  "homepage.features.ed2kLinks.title": {
-    "message": "ed2k:// Bağlantı Birleşimi"
-  },
-  "homepage.features.ed2kLinks.desc": {
-    "message": "İndirmeleri aMule üzerinde anında başlatmak için tarayıcınızda ed2k:// bağlantılarına tıklayın. Bağlantı yöneticisi, sorunsuz tek tıklamalık bir deneyim için masaüstünüzle entegre olur."
-  },
-  "homepage.features.remoteInterfaces.title": {
-    "message": "Uzak Arayüzler"
-  },
-  "homepage.features.remoteInterfaces.desc": {
-    "message": "aMule'ü her yerden kontrol edin: yerel bir uzak grafik arayüz (amulegui), tarayıcı tabanlı web arayüzü (amuleweb) veya bir komut satırı aracı (amulecmd)."
-  },
-  "homepage.features.daemon.title": {
-    "message": "aMule Daemon'u"
-  },
-  "homepage.features.daemon.desc": {
-    "message": "aMule'u hafif bir arka plan süreci (amuled) olarak sunucularda, NAS cihazlarında veya VPS örneklemelerinde çalıştırın — grafik bir ekrana ihtiyaç olmaz."
-  },
-  "homepage.features.ipFiltering.title": {
-    "message": "IP Filtreleme"
-  },
-  "homepage.features.ipFiltering.desc": {
-    "message": "İstenmeyen IP adrelerini standart IP filtre listeleri kullanarak engelleyin. Saldırgan, kötücül veya casus eşlerin istemcinize bağlanmalarını önleyin."
-  },
-  "homepage.features.secureIdentification.title": {
-    "message": "Güvenli Kimlik Doğrulama"
-  },
-  "homepage.features.secureIdentification.desc": {
-    "message": "Kriptografik güvenli kullanıcı kimlik doğrulaması istemcinizin karma değerinin çalınmasının veya ağdaki başka eşler tarafından taklit edilmesinin önüne geçer."
-  },
-  "homepage.features.slotAllocation.title": {
-    "message": "Oluk Atama"
-  },
-  "homepage.features.slotAllocation.desc": {
-    "message": "Aynı zamanda kaç istemciye gönderi yaptığınızı tam olarak kontrol edin ve oluk başı bant genişliği hedefleri ayarlayın, ki bu size gönderme kapasiteniz üzerinde ayrıntılı kontrol imkânı sağlar."
-  },
-  "homepage.features.powerShare.title": {
-    "message": "Yayın Önceliği"
-  },
-  "homepage.features.powerShare.desc": {
-    "message": "Kendi yayınladığınız dosyaları en yüksek önceliği verin, böylece ağda mümkün olan azami hızda yayılırlar — bu yeni içerik paylaşmak için idealdir. eMule'de bu işlev PowerShare olarak bilinir."
-  },
-  "homepage.features.compressedTransfers.title": {
-    "message": "Sıkıştırılmış Aktarmalar"
-  },
-  "homepage.features.compressedTransfers.desc": {
-    "message": "Dosya verileri ile sunucu ile iletişim, zlib ile sıkıştırılmıştır ve bu sıkıştırılabilir dosyalar için bant genişliği kullanımını ve eD2k sunucuları üzerindeki yükü azaltır."
-  },
-  "homepage.features.folderRescan.title": {
-    "message": "Otomatik Dizin Tekrar Taraması"
-  },
-  "homepage.features.folderRescan.desc": {
-    "message": "aMule, paylaşılan ve gelen dizinlerinizi takip eder ve yeni, değişmiş veya kaldırılmış dosyaları otomatik olarak tespit eder — kütüphaneniz değiştiğinde el ile tekrar yüklemeye gerek kalmaz."
-  },
-  "homepage.features.systemTray.title": {
-    "message": "Sistem Tepsisi"
-  },
-  "homepage.features.systemTray.desc": {
-    "message": "aMule'ü sistem tepsisine küçültün ve onu arka planda usulca çalışmasına izin verin. Windows, macOS ve tüm hatırı sayılır GNU/Linux masaüstlerinde çalışır."
-  },
-  "homepage.features.messaging.title": {
-    "message": "Mesajlaşma ve Arkadaşlar"
-  },
-  "homepage.features.messaging.desc": {
-    "message": "Diğer aMule kullanıcılarıyla doğrudan mesaj alışverişinde bulunun ve düzenli olarak paylaşım yaptığınız kişilerle bağlantıda kalmak için bir arkadaş listesi oluşturun."
-  },
-  "homepage.features.proxy.title": {
-    "message": "Vekil Sunucu Desteği"
-  },
-  "homepage.features.proxy.desc": {
-    "message": "Mahremiyetinizi korumak veya ağ kısıtlamalarını aşmak için bağlantıları SOCKS4, SOCKS5 veya HTTP vekil suncularıyla yönlendirin."
-  },
-  "homepage.features.languages.title": {
-    "message": "37 Arayüz Dili"
-  },
-  "homepage.features.languages.desc": {
-    "message": "aMule arayüzü 37 dile tercüme edilmiştir. Dosyaları anadilinizde indirin ve paylaşın — Arayüz otomatik olarak yerel ayarlarınıza uyum sağlar."
-  },
-  "homepage.features.title": {
-    "message": "İşlevler"
-  },
-  "homepage.features.docsLink": {
-    "message": "Belgelendirmenin tamamını tarayın →"
-  },
-  "homepage.highlights.performance.label": {
-    "message": "Çok daha hızlı aktarımlar"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "Disk G/Ç işlemleri ana iş parçacığından ayrılmıştır ve ağ katmanı tamamen yeniden düzenlenmiştir. Eşten eşe indirmeler, 2.3.3'e nazaran macOS, GNU/Linux ve Windows üzerinde ~100–380× hızlanmıştır."
-  },
-  "homepage.highlights.packages.label": {
-    "message": "Her masaüstü için ikili dosyalar"
-  },
-  "homepage.highlights.packages.detail": {
-    "message": "Windows kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, AppImage, Flatpak — desteklendiğinde x64 ve ARM64."
+  "homepage.highlights.bandwidth.detail": {
+    "message": "Yükleme ve indirme hız sınırlayıcıları, uygun jeton kova sınırlayıcıları olarak yeniden yazılmıştır. {code} tam anlamıyla sınırsız anlamına gelir."
   },
   "homepage.highlights.bandwidth.label": {
     "message": "Hakikaten işleyen bant genişliği sınırlaması"
   },
-  "homepage.highlights.bandwidth.detail": {
-    "message": "Yükleme ve indirme hız sınırlayıcıları, uygun jeton kova sınırlayıcıları olarak yeniden yazılmıştır. {code} tam anlamıyla sınırsız anlamına gelir."
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Modern derleme sistemi"
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Bant genişliği"
   },
   "homepage.highlights.buildSystem.detail": {
     "message": "Autotools tamamen kaldırılmıştır. Tek CMake derlemesi, asgari CMake 3.10, asgari wxWidgets 3.2.0."
   },
-  "homepage.highlights.title": {
-    "message": "3.0.0 sürümündeki yenilikler"
+  "homepage.highlights.buildSystem.label": {
+    "message": "Modern derleme sistemi"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
   },
   "homepage.highlights.changelog": {
     "message": "Tam değişiklik listesi →"
   },
-  "homepage.whatisamule.p2": {
-    "message": "Seneler süren sessizliğin ardından proje yeniden etkin bakıma alınmıştır. 3.0.0 sürümü, veri aktarım hızında son derece büyük iyileştirmeler, güncellenmiş bir derleme sistemi, her hatırı sayılır platform için yeni yerel paketler ve çağdaş sistemler için güncellenmiş kaynak kod tabanı sağlar — tüm bunlar, aMule'ün eMule temelli istemcilerle çalışmasını sağlayan protokol uyumluluğunu bozmadan yapılmıştır."
+  "homepage.highlights.packages.detail": {
+    "message": "Windows kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, AppImage, Flatpak — desteklendiğinde x64 ve ARM64."
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Her masaüstü için ikili dosyalar"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paketler"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "Disk G/Ç işlemleri ana iş parçacığından ayrılmıştır ve ağ katmanı tamamen yeniden düzenlenmiştir. Eşten eşe indirmeler, 2.3.3'e nazaran macOS, GNU/Linux ve Windows üzerinde ~100–380× hızlanmıştır."
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Çok daha hızlı aktarımlar"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Performans"
+  },
+  "homepage.highlights.title": {
+    "message": "3.0.0 sürümündeki yenilikler"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Faal indirmeler bulunan indirme sekmesi"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "İndirmeler — bulunabilirlik çubuklarıyla dosya başı ilerleme"
+  },
+  "homepage.screenshots.lead": {
+    "message": "aMule Grafik Arayüzü (GUI) — Windows, macOS ve and GNU/Linux üzerinde aynı görünüm. Büyütmek için herhangi bir ekran fotoğrafının üzerine tıklayın; gezinmek için {left} {right} kullanın, kaptmak için {esc} kullanın."
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Kapat (Esc)"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Sonraki (→)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Önceki (←)"
   },
   "homepage.screenshots.networks.alt": {
     "message": "Ağlar sekmesi — sunucu listesi ve Kademlia durumu"
@@ -335,12 +353,6 @@
   "homepage.screenshots.search.caption": {
     "message": "Arama — eD2k + Kad arama sonuçları"
   },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Faal indirmeler bulunan indirme sekmesi"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "İndirmeler — bulunabilirlik çubuklarıyla dosya başı ilerleme"
-  },
   "homepage.screenshots.shared.alt": {
     "message": "Paylaşılan dosyalar sekmesi"
   },
@@ -350,294 +362,84 @@
   "homepage.screenshots.title": {
     "message": "Ekran fotoğrafları"
   },
-  "homepage.screenshots.lead": {
-    "message": "aMule Grafik Arayüzü (GUI) — Windows, macOS ve and GNU/Linux üzerinde aynı görünüm. Büyütmek için herhangi bir ekran fotoğrafının üzerine tıklayın; gezinmek için {left} {right} kullanın, kaptmak için {esc} kullanın."
+  "homepage.tagline": {
+    "message": "Her platforma uygun eMule ile uyumlu eD2k/Kad istemcisi"
   },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Kapat (Esc)"
+  "homepage.whatisamule.p1": {
+    "message": "aMule, özgür, GPL kapsamında lisanslanmış {ed2k} ve {kad} ağları için eşten eşe dosya paylaşım istemcisidir. eMule ile uyumludur ve Windows, macOS ve GNU/Linux üzerinde yerel olarak çalışır. Aynı disk üzerinde durum, aynı protokol, her ana masaüstü için bir ikili çalıştırılabilir dosya."
   },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Önceki (←)"
+  "homepage.whatisamule.p2": {
+    "message": "Seneler süren sessizliğin ardından proje yeniden etkin bakıma alınmıştır. 3.0.0 sürümü, veri aktarım hızında son derece büyük iyileştirmeler, güncellenmiş bir derleme sistemi, her hatırı sayılır platform için yeni yerel paketler ve çağdaş sistemler için güncellenmiş kaynak kod tabanı sağlar — tüm bunlar, aMule'ün eMule temelli istemcilerle çalışmasını sağlayan protokol uyumluluğunu bozmadan yapılmıştır."
   },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Sonraki (→)"
-  },
-  "theme.ErrorPageContent.title": {
-    "message": "Bu sayfa çöktü.",
-    "description": "The title of the fallback page when the page crashed"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Sayfa başına dön",
-    "description": "The ARIA label for the back to top button"
-  },
-  "theme.blog.archive.title": {
-    "message": "Arşiv",
-    "description": "The page & hero title of the blog archive page"
-  },
-  "theme.blog.archive.description": {
-    "message": "Arşiv",
-    "description": "The page & hero description of the blog archive page"
-  },
-  "theme.blog.paginator.navAriaLabel": {
-    "message": "Blog gönderi sayfası navigasyonu",
-    "description": "The ARIA label for the blog pagination"
-  },
-  "theme.blog.paginator.newerEntries": {
-    "message": "Yeni Girdiler",
-    "description": "The label used to navigate to the newer blog posts page (previous page)"
-  },
-  "theme.blog.paginator.olderEntries": {
-    "message": "Eski Girdiler",
-    "description": "The label used to navigate to the older blog posts page (next page)"
-  },
-  "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Blog gönderi sayfası navigasyonu",
-    "description": "The ARIA label for the blog posts pagination"
-  },
-  "theme.blog.post.paginator.newerPost": {
-    "message": "Daha Yeni Gönderi",
-    "description": "The blog post button label to navigate to the newer/previous post"
-  },
-  "theme.blog.post.paginator.olderPost": {
-    "message": "Daha Eski Gönderi",
-    "description": "The blog post button label to navigate to the older/next post"
-  },
-  "theme.tags.tagsPageLink": {
-    "message": "Tüm Etiketleri Görüntüle",
-    "description": "The label of the link targeting the tag list page"
-  },
-  "theme.colorToggle.ariaLabel.mode.system": {
-    "message": "sistem kipi",
-    "description": "The name for the system color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "Aydınlık kip",
-    "description": "The name for the light color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "Karanlık kip",
-    "description": "The name for the dark color mode"
-  },
-  "theme.colorToggle.ariaLabel": {
-    "message": "Karanlık ve aydınlık kip arasında geçiş yapın (şu anda {mode})",
-    "description": "The ARIA label for the color mode toggle"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Gezinti yolu",
-    "description": "The ARIA label for the breadcrumbs"
-  },
-  "theme.docs.paginator.navAriaLabel": {
-    "message": "Belgeler sayfası",
-    "description": "The ARIA label for the docs pagination"
-  },
-  "theme.docs.paginator.previous": {
-    "message": "Önceki",
-    "description": "The label used to navigate to the previous doc"
-  },
-  "theme.docs.paginator.next": {
-    "message": "Sonraki",
-    "description": "The label used to navigate to the next doc"
-  },
-  "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "Bir belge etiketlendi|{count} belge etiketlendi",
-    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.docs.tagDocListPageTitle": {
-    "message": "\"{tagName}\" ile etiketlenmiş {nDocsTagged}",
-    "description": "The title of the page for a docs tag"
-  },
-  "theme.docs.versionBadge.label": {
-    "message": "Sürüm: {versionLabel}"
-  },
-  "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "Bu, {siteTitle} {versionLabel} sürümü için yayınlanmamış belgelendirmedir.",
-    "description": "The label used to tell the user that he's browsing an unreleased doc version"
-  },
-  "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Bu, {siteTitle} {versionLabel} belgelendirmesidir ve bakımı sonlanmıştır.",
-    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
-  },
-  "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "Güncel belgeler için bkz. {latestVersionLink} ({versionLabel}).",
-    "description": "The label used to tell the user to check the latest version"
-  },
-  "theme.docs.versions.latestVersionLinkLabel": {
-    "message": "en son sürüm",
-    "description": "The label used for the latest version suggestion link label"
-  },
-  "theme.common.editThisPage": {
-    "message": "Bu sayfayı düzenle",
-    "description": "The link label to edit the current page"
-  },
-  "theme.common.headingLinkTitle": {
-    "message": "{heading} doğrudan bağlantı",
-    "description": "Title for link to heading"
-  },
-  "theme.lastUpdated.atDate": {
-    "message": " {date} tarihinde",
-    "description": "The words used to describe on which date a page has been last updated"
-  },
-  "theme.lastUpdated.byUser": {
-    "message": " {user} tarafından",
-    "description": "The words used to describe by who the page has been last updated"
-  },
-  "theme.lastUpdated.lastUpdatedAtBy": {
-    "message": "En son {atDate} {byUser} güncellendi",
-    "description": "The sentence used to display when a page has been last updated, and by who"
-  },
-  "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "Sürümler",
-    "description": "The label for the navbar versions dropdown on mobile view"
-  },
-  "theme.NotFound.title": {
-    "message": "Sayfa Bulunamadı",
-    "description": "The title of the 404 page"
-  },
-  "theme.tags.tagsListLabel": {
-    "message": "Etiketler:",
-    "description": "The label alongside a tag list"
+  "homepage.whatisamule.title": {
+    "message": "aMule Nedir?"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Kapat",
-    "description": "The ARIA label for close button of announcement bar"
+    "description": "The ARIA label for close button of announcement bar",
+    "message": "Kapat"
   },
-  "theme.admonition.caution": {
-    "message": "uyarı",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.admonition.danger": {
-    "message": "tehlike",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "bilgi",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.note": {
-    "message": "not",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "ipucu",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.warning": {
-    "message": "uyarı",
-    "description": "The default label used for the Warning admonition (:::warning)"
-  },
-  "theme.blog.sidebar.navAriaLabel": {
-    "message": "Blog son gönderiler navigasyonu",
-    "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "message": "Kenar çubuğu kategorisini genişlet '{label}'",
-    "description": "The ARIA label to expand the sidebar category"
-  },
-  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "message": "Kenar çubuğu kategorisini daralt '{label}'",
-    "description": "The ARIA label to collapse the sidebar category"
-  },
-  "theme.IconExternalLink.ariaLabel": {
-    "message": "(opens in new tab)",
-    "description": "The ARIA label for the external link icon"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "Ana menü",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Diller",
-    "description": "The label for the mobile language switcher dropdown"
-  },
-  "theme.NotFound.p1": {
-    "message": "Aradığınız şeyi bulamadık.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Lütfen sizi orijinal URL'ye yönlendiren sitenin sahibiyle iletişime geçin ve bağlantısının bozuk olduğunu bildirin.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "Bu sayfada",
-    "description": "The label used by the button on the collapsible TOC component"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Daha Fazla",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "{title} hakkında daha fazla bilgi edinin",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "{readingTime} dakikalık okuma|{readingTime} dakikalık okuma",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.CodeBlock.copy": {
-    "message": "Kopyala",
-    "description": "The copy button label on code blocks"
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "description": "The ARIA label for the back to top button",
+    "message": "Sayfa başına dön"
   },
   "theme.CodeBlock.copied": {
-    "message": "Kopyalandı",
-    "description": "The copied button label on code blocks"
+    "description": "The copied button label on code blocks",
+    "message": "Kopyalandı"
+  },
+  "theme.CodeBlock.copy": {
+    "description": "The copy button label on code blocks",
+    "message": "Kopyala"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
-    "message": "Kodu panoya kopyala",
-    "description": "The ARIA label for copy code blocks button"
+    "description": "The ARIA label for copy code blocks button",
+    "message": "Kodu panoya kopyala"
   },
   "theme.CodeBlock.wordWrapToggle": {
-    "message": "Kelime kaydırmayı aç/kapat",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
+    "description": "The title attribute for toggle word wrapping button of code block lines",
+    "message": "Kelime kaydırmayı aç/kapat"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Ana sayfa",
-    "description": "The ARIA label for the home page in the breadcrumbs"
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "description": "The ARIA label to collapse the sidebar category",
+    "message": "Kenar çubuğu kategorisini daralt '{label}'"
   },
-  "theme.docs.sidebar.collapseButtonTitle": {
-    "message": "Kenar çubuğunu daralt",
-    "description": "The title attribute for collapse button of doc sidebar"
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "description": "The ARIA label to expand the sidebar category",
+    "message": "Kenar çubuğu kategorisini genişlet '{label}'"
   },
-  "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "message": "Kenar çubuğunu daralt",
-    "description": "The title attribute for collapse button of doc sidebar"
+  "theme.ErrorPageContent.title": {
+    "description": "The title of the fallback page when the page crashed",
+    "message": "Bu sayfa çöktü."
   },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Belgeler kenar çubuğu",
-    "description": "The ARIA label for the sidebar navigation"
+  "theme.ErrorPageContent.tryAgain": {
+    "description": "The label of the button to try again rendering when the React error boundary captures an error",
+    "message": "Tekrar deneyin"
   },
-  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "message": "Gezinme çubuğunu kapat",
-    "description": "The ARIA label for close button of mobile sidebar"
+  "theme.IconExternalLink.ariaLabel": {
+    "description": "The ARIA label for the external link icon",
+    "message": "(opens in new tab)"
   },
-  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Ana menüye dön",
-    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  "theme.NavBar.navAriaLabel": {
+    "description": "The ARIA label for the main navigation",
+    "message": "Ana menü"
   },
-  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Gezinme çubuğunu aç/kapat",
-    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  "theme.NotFound.p1": {
+    "description": "The first paragraph of the 404 page",
+    "message": "Aradığınız şeyi bulamadık."
   },
-  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
-    "message": "Açılır menüyü genişlet",
-    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  "theme.NotFound.p2": {
+    "description": "The 2nd paragraph of the 404 page",
+    "message": "Lütfen sizi orijinal URL'ye yönlendiren sitenin sahibiyle iletişime geçin ve bağlantısının bozuk olduğunu bildirin."
   },
-  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
-    "message": "Açılır menüyü küçült",
-    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  "theme.NotFound.title": {
+    "description": "The title of the 404 page",
+    "message": "Sayfa Bulunamadı"
   },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "Kenar çubuğunu genişlet",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Kenar çubuğunu genişlet",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.SearchBar.label": {
+    "description": "The ARIA label and placeholder for search button",
+    "message": "Ara"
   },
   "theme.SearchBar.noResultsText": {
     "message": "Hiçbir sonuç yok"
-  },
-  "theme.SearchBar.seeAllOutsideContext": {
-    "message": "\"{context}\" haricinde tüm sonuçları gör"
   },
   "theme.SearchBar.searchInContext": {
     "message": "\"{context}\" dahilinde tüm sonuçları gör"
@@ -645,95 +447,293 @@
   "theme.SearchBar.seeAll": {
     "message": "Tüm sonuçları gör"
   },
-  "theme.SearchBar.label": {
-    "message": "Ara",
-    "description": "The ARIA label and placeholder for search button"
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "\"{context}\" haricinde tüm sonuçları gör"
   },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "\"{query}\"için arama sonuçları",
-    "description": "The search page title for non-empty query"
+  "theme.SearchPage.documentsFound.plurals": {
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "1 belge bulundu|{count} belge bulundu"
   },
   "theme.SearchPage.emptyResultsTitle": {
-    "message": "Belgelendirmede ara",
-    "description": "The search page title for empty query"
+    "description": "The search page title for empty query",
+    "message": "Belgelendirmede ara"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "description": "The search page title for non-empty query",
+    "message": "\"{query}\"için arama sonuçları"
+  },
+  "theme.SearchPage.noResultsText": {
+    "description": "The paragraph for empty search result",
+    "message": "Hiçbir belge bulunamadı"
   },
   "theme.SearchPage.searchContext.everywhere": {
     "message": "Her yerde"
   },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "1 belge bulundu|{count} belge bulundu",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "description": "The label used by the button on the collapsible TOC component",
+    "message": "Bu sayfada"
   },
-  "theme.SearchPage.noResultsText": {
-    "message": "Hiçbir belge bulunamadı",
-    "description": "The paragraph for empty search result"
+  "theme.admonition.caution": {
+    "description": "The default label used for the Caution admonition (:::caution)",
+    "message": "uyarı"
   },
-  "theme.blog.post.plurals": {
-    "message": "Bir gönderi|{count} gönderi",
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  "theme.admonition.danger": {
+    "description": "The default label used for the Danger admonition (:::danger)",
+    "message": "tehlike"
   },
-  "theme.blog.tagTitle": {
-    "message": "\"{tagName}\" ile etiketlenmiş {nPosts}",
-    "description": "The title of the page for a blog tag"
+  "theme.admonition.info": {
+    "description": "The default label used for the Info admonition (:::info)",
+    "message": "bilgi"
   },
-  "theme.blog.author.pageTitle": {
-    "message": "{authorName} - {nPosts}",
-    "description": "The title of the page for a blog author"
+  "theme.admonition.note": {
+    "description": "The default label used for the Note admonition (:::note)",
+    "message": "not"
   },
-  "theme.blog.authorsList.pageTitle": {
-    "message": "Yazarlar",
-    "description": "The title of the authors page"
+  "theme.admonition.tip": {
+    "description": "The default label used for the Tip admonition (:::tip)",
+    "message": "ipucu"
   },
-  "theme.blog.authorsList.viewAll": {
-    "message": "Tüm Yazarları Görüntüle",
-    "description": "The label of the link targeting the blog authors page"
+  "theme.admonition.warning": {
+    "description": "The default label used for the Warning admonition (:::warning)",
+    "message": "uyarı"
+  },
+  "theme.blog.archive.description": {
+    "description": "The page & hero description of the blog archive page",
+    "message": "Arşiv"
+  },
+  "theme.blog.archive.title": {
+    "description": "The page & hero title of the blog archive page",
+    "message": "Arşiv"
   },
   "theme.blog.author.noPosts": {
-    "message": "Bu yazar henüz herhangi bir yazı yazmadı.",
-    "description": "The text for authors with 0 blog post"
+    "description": "The text for authors with 0 blog post",
+    "message": "Bu yazar henüz herhangi bir yazı yazmadı."
   },
-  "theme.contentVisibility.unlistedBanner.title": {
-    "message": "Listelenmeyen sayfa",
-    "description": "The unlisted content banner title"
+  "theme.blog.author.pageTitle": {
+    "description": "The title of the page for a blog author",
+    "message": "{authorName} - {nPosts}"
   },
-  "theme.contentVisibility.unlistedBanner.message": {
-    "message": "Bu sayfa listelenmemiş. Arama motorları dizine eklemez ve yalnızca doğrudan bağlantısı olan kullanıcılar buna erişebilir.",
-    "description": "The unlisted content banner message"
+  "theme.blog.authorsList.pageTitle": {
+    "description": "The title of the authors page",
+    "message": "Yazarlar"
   },
-  "theme.contentVisibility.draftBanner.title": {
-    "message": "Taslak sayfa",
-    "description": "The draft content banner title"
+  "theme.blog.authorsList.viewAll": {
+    "description": "The label of the link targeting the blog authors page",
+    "message": "Tüm Yazarları Görüntüle"
   },
-  "theme.contentVisibility.draftBanner.message": {
-    "message": "Bu sayfa bir taslaktır. Sadece dev'de görünür olacak ve üretim yapısından hariç tutulacaktır.",
-    "description": "The draft content banner message"
+  "theme.blog.paginator.navAriaLabel": {
+    "description": "The ARIA label for the blog pagination",
+    "message": "Blog gönderi sayfası navigasyonu"
   },
-  "theme.docs.DocCard.categoryDescription.plurals": {
-    "message": "1 öğe|{count} öğe",
-    "description": "The default description for a category card in the generated index about how many items this category includes"
+  "theme.blog.paginator.newerEntries": {
+    "description": "The label used to navigate to the newer blog posts page (previous page)",
+    "message": "Yeni Girdiler"
   },
-  "theme.ErrorPageContent.tryAgain": {
-    "message": "Tekrar deneyin",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  "theme.blog.paginator.olderEntries": {
+    "description": "The label used to navigate to the older blog posts page (next page)",
+    "message": "Eski Girdiler"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "description": "The ARIA label for the blog posts pagination",
+    "message": "Blog gönderi sayfası navigasyonu"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "description": "The blog post button label to navigate to the newer/previous post",
+    "message": "Daha Yeni Gönderi"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "description": "The blog post button label to navigate to the older/next post",
+    "message": "Daha Eski Gönderi"
+  },
+  "theme.blog.post.plurals": {
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "Bir gönderi|{count} gönderi"
+  },
+  "theme.blog.post.readMore": {
+    "description": "The label used in blog post item excerpts to link to full blog posts",
+    "message": "Daha Fazla"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "description": "The ARIA label for the link to full blog posts from excerpts",
+    "message": "{title} hakkında daha fazla bilgi edinin"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "{readingTime} dakikalık okuma|{readingTime} dakikalık okuma"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "description": "The ARIA label for recent posts in the blog sidebar",
+    "message": "Blog son gönderiler navigasyonu"
+  },
+  "theme.blog.tagTitle": {
+    "description": "The title of the page for a blog tag",
+    "message": "\"{tagName}\" ile etiketlenmiş {nPosts}"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "description": "The ARIA label for the color mode toggle",
+    "message": "Karanlık ve aydınlık kip arasında geçiş yapın (şu anda {mode})"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "description": "The name for the dark color mode",
+    "message": "Karanlık kip"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "description": "The name for the light color mode",
+    "message": "Aydınlık kip"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "description": "The name for the system color mode",
+    "message": "sistem kipi"
+  },
+  "theme.common.editThisPage": {
+    "description": "The link label to edit the current page",
+    "message": "Bu sayfayı düzenle"
+  },
+  "theme.common.headingLinkTitle": {
+    "description": "Title for link to heading",
+    "message": "{heading} doğrudan bağlantı"
   },
   "theme.common.skipToMainContent": {
-    "message": "Ana içeriğe geç",
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation",
+    "message": "Ana içeriğe geç"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "description": "The draft content banner message",
+    "message": "Bu sayfa bir taslaktır. Sadece dev'de görünür olacak ve üretim yapısından hariç tutulacaktır."
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "description": "The draft content banner title",
+    "message": "Taslak sayfa"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "description": "The unlisted content banner message",
+    "message": "Bu sayfa listelenmemiş. Arama motorları dizine eklemez ve yalnızca doğrudan bağlantısı olan kullanıcılar buna erişebilir."
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "description": "The unlisted content banner title",
+    "message": "Listelenmeyen sayfa"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "description": "The default description for a category card in the generated index about how many items this category includes",
+    "message": "1 öğe|{count} öğe"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "description": "The ARIA label for the home page in the breadcrumbs",
+    "message": "Ana sayfa"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "description": "The ARIA label for the breadcrumbs",
+    "message": "Gezinti yolu"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "description": "The ARIA label for the docs pagination",
+    "message": "Belgeler sayfası"
+  },
+  "theme.docs.paginator.next": {
+    "description": "The label used to navigate to the next doc",
+    "message": "Sonraki"
+  },
+  "theme.docs.paginator.previous": {
+    "description": "The label used to navigate to the previous doc",
+    "message": "Önceki"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "description": "The ARIA label for close button of mobile sidebar",
+    "message": "Gezinme çubuğunu kapat"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "description": "The title attribute for collapse button of doc sidebar",
+    "message": "Kenar çubuğunu daralt"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "description": "The title attribute for collapse button of doc sidebar",
+    "message": "Kenar çubuğunu daralt"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "description": "The ARIA label and title attribute for expand button of doc sidebar",
+    "message": "Kenar çubuğunu genişlet"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "description": "The ARIA label and title attribute for expand button of doc sidebar",
+    "message": "Kenar çubuğunu genişlet"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "description": "The ARIA label for the sidebar navigation",
+    "message": "Belgeler kenar çubuğu"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "description": "The ARIA label for hamburger menu button of mobile navigation",
+    "message": "Gezinme çubuğunu aç/kapat"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "description": "The title of the page for a docs tag",
+    "message": "\"{tagName}\" ile etiketlenmiş {nDocsTagged}"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "Bir belge etiketlendi|{count} belge etiketlendi"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Sürüm: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "description": "The label used for the latest version suggestion link label",
+    "message": "en son sürüm"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "description": "The label used to tell the user to check the latest version",
+    "message": "Güncel belgeler için bkz. {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version",
+    "message": "Bu, {siteTitle} {versionLabel} belgelendirmesidir ve bakımı sonlanmıştır."
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "description": "The label used to tell the user that he's browsing an unreleased doc version",
+    "message": "Bu, {siteTitle} {versionLabel} sürümü için yayınlanmamış belgelendirmedir."
+  },
+  "theme.lastUpdated.atDate": {
+    "description": "The words used to describe on which date a page has been last updated",
+    "message": " {date} tarihinde"
+  },
+  "theme.lastUpdated.byUser": {
+    "description": "The words used to describe by who the page has been last updated",
+    "message": " {user} tarafından"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "description": "The sentence used to display when a page has been last updated, and by who",
+    "message": "En son {atDate} {byUser} güncellendi"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item",
+    "message": "Açılır menüyü küçült"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item",
+    "message": "Açılır menüyü genişlet"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "description": "The label for the mobile language switcher dropdown",
+    "message": "Diller"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)",
+    "message": "← Ana menüye dön"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "description": "The label for the navbar versions dropdown on mobile view",
+    "message": "Sürümler"
+  },
+  "theme.tags.tagsListLabel": {
+    "description": "The label alongside a tag list",
+    "message": "Etiketler:"
+  },
+  "theme.tags.tagsPageLink": {
+    "description": "The label of the link targeting the tag list page",
+    "message": "Tüm Etiketleri Görüntüle"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Etiketler",
-    "description": "The title of the tag list page"
-  },
-  "homepage.highlights.performance.tag": {
-    "message": "Performans"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Paketler"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Bant genişliği"
-  },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
+    "description": "The title of the tag list page",
+    "message": "Etiketler"
   }
 }

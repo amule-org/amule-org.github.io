@@ -1,15 +1,273 @@
 {
-  "homepage.tagline": {
-    "message": "Cliente eD2k/Kad multiplataforma compatible con eMule"
-  },
   "homepage.description": {
     "message": "aMule es un cliente eD2k/Kad libre, multiplataforma y compatible con eMule para Windows, macOS y Linux."
   },
-  "homepage.hero.logo.alt": {
-    "message": "Logo de aMule"
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
   },
-  "homepage.hero.screenshot.alt": {
-    "message": "Pestaña de descargas de aMule"
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.compile": {
+    "message": "En la {link} encontrarás las instrucciones para construir aMule desde el código fuente."
+  },
+  "homepage.download.compile.link": {
+    "message": "guía de compilación"
+  },
+  "homepage.download.distros.link": {
+    "message": "principales distribuciones de Linux"
+  },
+  "homepage.download.foot": {
+    "message": "Todos los artefactos están disponibles en la {release}. aMule también está disponible en los repositorios de las {distros}, aunque puede que los paquetes estén desactualizados."
+  },
+  "homepage.download.foot.link": {
+    "message": "página de la release más reciente"
+  },
+  "homepage.download.install": {
+    "message": "La {install} cubre todas las plataformas, y la {quickstart} te guía a través de la configuración y tu primera descarga."
+  },
+  "homepage.download.install.guide.link": {
+    "message": "guía de instalación"
+  },
+  "homepage.download.install.link": {
+    "message": "guía de inicio rápido"
+  },
+  "homepage.download.lead": {
+    "message": "aMule está disponible para las principales plataformas de escritorio."
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Imagen de disco (.dmg)"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Descarga aMule para Windows, macOS y Linux o compílalo desde el código fuente."
+  },
+  "homepage.download.previous.body": {
+    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {github} y {sourceforge}."
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.previous.title": {
+    "message": "Versiones anteriores"
+  },
+  "homepage.download.source.label": {
+    "message": "Código fuente"
+  },
+  "homepage.download.source.os": {
+    "message": "Código fuente"
+  },
+  "homepage.download.source.platform": {
+    "message": "Compílalo tú mismo"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.download.title": {
+    "message": "Descargas"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Changelog"
+  },
+  "homepage.download.version.date": {
+    "message": "Publicado el {date}"
+  },
+  "homepage.download.version.label": {
+    "message": "Última versión"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Instalador (.exe)"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Portable (.zip)"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Fija límites estrictos de velocidad de subida y bajada, aplicados por limitadores token-bucket precisos. Limita aMule para que nunca sature tu conexión, o déjalo a máxima velocidad cuando no estés."
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Control de ancho de banda"
+  },
+  "homepage.features.categories.desc": {
+    "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente."
+  },
+  "homepage.features.categories.title": {
+    "message": "Categorías de descarga"
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Los datos de archivos y la comunicación con los servidores se comprimen con zlib, lo que reduce el uso de ancho de banda con archivos compresibles y disminuye la carga sobre los servidores eD2k."
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Transferencias comprimidas"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los chunks corruptos de una descarga, lo que garantiza archivos completos e íntegros sin necesidad de reiniciar."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Corrección de corrupción"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "El sistema integrado de créditos y puntuación recompensa a los usuarios que suben datos activamente. Cuanto más compartes, mayor es tu puntuación y más rápidas son tus descargas."
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Sistema de créditos"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla."
+  },
+  "homepage.features.daemon.title": {
+    "message": "Demonio aMule"
+  },
+  "homepage.features.docsLink": {
+    "message": "Explora la documentación completa →"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Haz clic en enlaces ed2k:// desde el navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con el escritorio para ofrecer una experiencia fluida con un solo clic."
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Integración de enlaces ed2k://"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Totalmente compatible a nivel de protocolo con eMule y con todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Compatible con eMule"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule vigila tus carpetas compartidas y la carpeta Incoming, y detecta automáticamente los archivos nuevos, modificados o eliminados, sin necesidad de recarga manual cuando cambia tu biblioteca."
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Reescaneo automático de carpetas"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Bloquea direcciones IP no deseadas mediante listas estándar de filtrado. Mantén alejados de tu cliente a pares agresivos, maliciosos o espía."
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "Filtrado de IPs"
+  },
+  "homepage.features.languages.desc": {
+    "message": "La interfaz completa de aMule está traducida a 37 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional."
+  },
+  "homepage.features.languages.title": {
+    "message": "Interfaz en 37 idiomas"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para seguir conectado con tus compañeros habituales de intercambio."
+  },
+  "homepage.features.messaging.title": {
+    "message": "Mensajería y amigos"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x64 y ARM64."
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Paquetes nativos"
+  },
+  "homepage.features.networks.desc": {
+    "message": "Conéctate simultáneamente a la red eD2k basada en servidores y a la red DHT Kademlia sin servidores para maximizar el alcance y la disponibilidad de archivos."
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.features.openSource.desc": {
+    "message": "Licencia GPL-2.0, sin telemetría, sin publicidad y sin dependencia de un proveedor. Tus datos son tuyos: inspecciona el código fuente y contribuye."
+  },
+  "homepage.features.openSource.title": {
+    "message": "Libre y de código abierto"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo. En eMule esta funcionalidad se conoce como PowerShare."
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Prioridad Release"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia."
+  },
+  "homepage.features.preview.title": {
+    "message": "Vista previa antes de completar"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Encamina las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mejorar la privacidad o sortear restricciones de red."
+  },
+  "homepage.features.proxy.title": {
+    "message": "Soporte para proxy"
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd)."
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Interfaces remotas"
+  },
+  "homepage.features.search.desc": {
+    "message": "Busca en servidores eD2k (local y global) y en nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Compatible con operadores booleanos (AND, OR, NOT)."
+  },
+  "homepage.features.search.title": {
+    "message": "Búsqueda potente"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "La identificación criptográfica segura del usuario evita que otros pares roben o suplanten el hash de tu cliente en la red."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Identificación segura"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Controla exactamente a cuántos clientes subes de forma simultánea y fija objetivos de ancho de banda por slot para ajustar con precisión tu capacidad de subida."
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Asignación de slots"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Intercambia automáticamente listas de fuentes con pares conectados para descubrir más fuentes para tus descargas sin tener que consultar al servidor de forma repetida."
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Intercambio de fuentes"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimiza aMule a la bandeja del sistema y déjalo funcionando discretamente en segundo plano. Funciona en Windows, macOS y todos los escritorios principales de Linux."
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Bandeja del sistema"
+  },
+  "homepage.features.title": {
+    "message": "Características"
   },
   "homepage.hero.cta.download": {
     "message": "Descargar"
@@ -17,50 +275,71 @@
   "homepage.hero.cta.quickstart": {
     "message": "Inicio rápido"
   },
-  "homepage.whatisamule.title": {
-    "message": "¿Qué es aMule?"
+  "homepage.hero.logo.alt": {
+    "message": "Logo de aMule"
   },
-  "homepage.whatisamule.p1": {
-    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes {ed2k} y {kad}. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
-  },
-  "homepage.whatisamule.p2": {
-    "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora mejoras dramáticas de rendimiento, un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
-  },
-  "homepage.highlights.title": {
-    "message": "Novedades de 3.0.0"
-  },
-  "homepage.highlights.performance.label": {
-    "message": "Transferencias mucho más rápidas"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "La E/S de disco se trasladó fuera del hilo principal y se reescribió la capa de red. Las descargas peer-to-peer alcanzan aceleraciones de ~100–380× respecto a 2.3.3 en macOS, Linux y Windows."
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Sistema de compilación moderno"
-  },
-  "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools se ha eliminado por completo. Compilación unificada con CMake; CMake 3.10 como mínimo y wxWidgets 3.2.0 como mínimo."
-  },
-  "homepage.highlights.packages.label": {
-    "message": "Binarios para cada plataforma de escritorio"
-  },
-  "homepage.highlights.packages.detail": {
-    "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x64 y ARM64 donde la plataforma lo admita."
-  },
-  "homepage.highlights.bandwidth.label": {
-    "message": "Limitación de ancho de banda funcional"
+  "homepage.hero.screenshot.alt": {
+    "message": "Pestaña de descargas de aMule"
   },
   "homepage.highlights.bandwidth.detail": {
     "message": "Los limitadores de subida y descarga se reescribieron como limitadores token bucket reales. {code} pasa a significar literalmente sin límite."
   },
+  "homepage.highlights.bandwidth.label": {
+    "message": "Limitación de ancho de banda funcional"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Ancho de banda"
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": "Autotools se ha eliminado por completo. Compilación unificada con CMake; CMake 3.10 como mínimo y wxWidgets 3.2.0 como mínimo."
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": "Sistema de compilación moderno"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
   "homepage.highlights.changelog": {
     "message": "Changelog completo →"
   },
-  "homepage.screenshots.title": {
-    "message": "Capturas de pantalla"
+  "homepage.highlights.packages.detail": {
+    "message": "Instalador y .zip portable para Windows, .dmg Universal2 para macOS, AppImage y Flatpak en Linux; x64 y ARM64 donde la plataforma lo admita."
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Binarios para cada plataforma de escritorio"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paquetes"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "La E/S de disco se trasladó fuera del hilo principal y se reescribió la capa de red. Las descargas peer-to-peer alcanzan aceleraciones de ~100–380× respecto a 2.3.3 en macOS, Linux y Windows."
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Transferencias mucho más rápidas"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Rendimiento"
+  },
+  "homepage.highlights.title": {
+    "message": "Novedades de 3.0.0"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Pestaña Descargas con descargas activas"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Descargas — progreso por archivo con disponibilidad"
   },
   "homepage.screenshots.lead": {
     "message": "GUI de aMule: mismo aspecto en Windows, macOS y Linux. Haz clic en cualquier captura para ampliarla; usa {left} y {right} para navegar y {esc} para cerrar."
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Cerrar (Esc)"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Siguiente (→)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Anterior (←)"
   },
   "homepage.screenshots.networks.alt": {
     "message": "Pestaña Redes — lista de servidores y estado de Kademlia"
@@ -74,473 +353,93 @@
   "homepage.screenshots.search.caption": {
     "message": "Búsqueda — resultados eD2k + Kad"
   },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Pestaña Descargas con descargas activas"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "Descargas — progreso por archivo con disponibilidad"
-  },
   "homepage.screenshots.shared.alt": {
     "message": "Pestaña Archivos compartidos"
   },
   "homepage.screenshots.shared.caption": {
     "message": "Archivos compartidos"
   },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Cerrar (Esc)"
+  "homepage.screenshots.title": {
+    "message": "Capturas de pantalla"
   },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Anterior (←)"
+  "homepage.tagline": {
+    "message": "Cliente eD2k/Kad multiplataforma compatible con eMule"
   },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Siguiente (→)"
+  "homepage.whatisamule.p1": {
+    "message": "aMule es un cliente peer-to-peer (P2P) para compartir archivos, libre y con licencia GPL, para las redes {ed2k} y {kad}. Es compatible con eMule y se ejecuta de forma nativa en Windows, macOS y Linux. Mismo estado en disco, mismo protocolo y un binario nativo para cada plataforma de escritorio principal."
   },
-  "homepage.features.title": {
-    "message": "Características"
+  "homepage.whatisamule.p2": {
+    "message": "Tras años de poca actividad, el proyecto vuelve a tener mantenimiento activo. La versión 3.0.0 incorpora mejoras dramáticas de rendimiento, un sistema de compilación modernizado, nuevos paquetes nativos para las principales plataformas de escritorio y una base de código actualizada para los sistemas actuales, sin romper la compatibilidad de protocolo que permite a aMule interoperar con cualquier cliente basado en eMule."
   },
-  "homepage.features.docsLink": {
-    "message": "Explora la documentación completa →"
-  },
-  "homepage.features.networks.title": {
-    "message": "eD2k + Kademlia"
-  },
-  "homepage.features.networks.desc": {
-    "message": "Conéctate simultáneamente a la red eD2k basada en servidores y a la red DHT Kademlia sin servidores para maximizar el alcance y la disponibilidad de archivos."
-  },
-  "homepage.features.emuleCompatible.title": {
-    "message": "Compatible con eMule"
-  },
-  "homepage.features.emuleCompatible.desc": {
-    "message": "Totalmente compatible a nivel de protocolo con eMule y con todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar."
-  },
-  "homepage.features.search.title": {
-    "message": "Búsqueda potente"
-  },
-  "homepage.features.search.desc": {
-    "message": "Busca en servidores eD2k (local y global) y en nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Compatible con operadores booleanos (AND, OR, NOT)."
-  },
-  "homepage.features.sourceExchange.title": {
-    "message": "Intercambio de fuentes"
-  },
-  "homepage.features.sourceExchange.desc": {
-    "message": "Intercambia automáticamente listas de fuentes con pares conectados para descubrir más fuentes para tus descargas sin tener que consultar al servidor de forma repetida."
-  },
-  "homepage.features.creditSystem.title": {
-    "message": "Sistema de créditos"
-  },
-  "homepage.features.creditSystem.desc": {
-    "message": "El sistema integrado de créditos y puntuación recompensa a los usuarios que suben datos activamente. Cuanto más compartes, mayor es tu puntuación y más rápidas son tus descargas."
-  },
-  "homepage.features.ipFiltering.title": {
-    "message": "Filtrado de IPs"
-  },
-  "homepage.features.ipFiltering.desc": {
-    "message": "Bloquea direcciones IP no deseadas mediante listas estándar de filtrado. Mantén alejados de tu cliente a pares agresivos, maliciosos o espía."
-  },
-  "homepage.features.preview.title": {
-    "message": "Vista previa antes de completar"
-  },
-  "homepage.features.preview.desc": {
-    "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia."
-  },
-  "homepage.features.categories.title": {
-    "message": "Categorías de descarga"
-  },
-  "homepage.features.categories.desc": {
-    "message": "Organiza las descargas en categorías con directorios de destino y prioridades personalizadas. Aplica reglas por categoría para mantener la biblioteca ordenada automáticamente."
-  },
-  "homepage.features.daemon.title": {
-    "message": "Demonio aMule"
-  },
-  "homepage.features.daemon.desc": {
-    "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla."
-  },
-  "homepage.features.remoteInterfaces.title": {
-    "message": "Interfaces remotas"
-  },
-  "homepage.features.remoteInterfaces.desc": {
-    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd)."
-  },
-  "homepage.features.secureIdentification.title": {
-    "message": "Identificación segura"
-  },
-  "homepage.features.secureIdentification.desc": {
-    "message": "La identificación criptográfica segura del usuario evita que otros pares roben o suplanten el hash de tu cliente en la red."
-  },
-  "homepage.features.proxy.title": {
-    "message": "Soporte para proxy"
-  },
-  "homepage.features.proxy.desc": {
-    "message": "Encamina las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mejorar la privacidad o sortear restricciones de red."
-  },
-  "homepage.features.messaging.title": {
-    "message": "Mensajería y amigos"
-  },
-  "homepage.features.messaging.desc": {
-    "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para seguir conectado con tus compañeros habituales de intercambio."
-  },
-  "homepage.features.openSource.title": {
-    "message": "Libre y de código abierto"
-  },
-  "homepage.features.openSource.desc": {
-    "message": "Licencia GPL-2.0, sin telemetría, sin publicidad y sin dependencia de un proveedor. Tus datos son tuyos: inspecciona el código fuente y contribuye."
-  },
-  "homepage.features.nativePackages.title": {
-    "message": "Paquetes nativos"
-  },
-  "homepage.features.nativePackages.desc": {
-    "message": "Instalador y .zip portable para Windows, Universal2 .dmg para macOS, AppImage y Flatpak en Linux. Disponible para x64 y ARM64."
-  },
-  "homepage.features.corruptionHandling.title": {
-    "message": "Corrección de corrupción"
-  },
-  "homepage.features.corruptionHandling.desc": {
-    "message": "Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los chunks corruptos de una descarga, lo que garantiza archivos completos e íntegros sin necesidad de reiniciar."
-  },
-  "homepage.features.languages.title": {
-    "message": "Interfaz en 37 idiomas"
-  },
-  "homepage.features.languages.desc": {
-    "message": "La interfaz completa de aMule está traducida a 37 idiomas. Descarga y comparte archivos en tu idioma; la interfaz se adapta automáticamente a tu configuración regional."
-  },
-  "homepage.features.compressedTransfers.title": {
-    "message": "Transferencias comprimidas"
-  },
-  "homepage.features.compressedTransfers.desc": {
-    "message": "Los datos de archivos y la comunicación con los servidores se comprimen con zlib, lo que reduce el uso de ancho de banda con archivos compresibles y disminuye la carga sobre los servidores eD2k."
-  },
-  "homepage.features.ed2kLinks.title": {
-    "message": "Integración de enlaces ed2k://"
-  },
-  "homepage.features.ed2kLinks.desc": {
-    "message": "Haz clic en enlaces ed2k:// desde el navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con el escritorio para ofrecer una experiencia fluida con un solo clic."
-  },
-  "homepage.features.slotAllocation.title": {
-    "message": "Asignación de slots"
-  },
-  "homepage.features.slotAllocation.desc": {
-    "message": "Controla exactamente a cuántos clientes subes de forma simultánea y fija objetivos de ancho de banda por slot para ajustar con precisión tu capacidad de subida."
-  },
-  "homepage.features.bandwidthControl.title": {
-    "message": "Control de ancho de banda"
-  },
-  "homepage.features.bandwidthControl.desc": {
-    "message": "Fija límites estrictos de velocidad de subida y bajada, aplicados por limitadores token-bucket precisos. Limita aMule para que nunca sature tu conexión, o déjalo a máxima velocidad cuando no estés."
-  },
-  "homepage.features.folderRescan.title": {
-    "message": "Reescaneo automático de carpetas"
-  },
-  "homepage.features.folderRescan.desc": {
-    "message": "aMule vigila tus carpetas compartidas y la carpeta Incoming, y detecta automáticamente los archivos nuevos, modificados o eliminados, sin necesidad de recarga manual cuando cambia tu biblioteca."
-  },
-  "homepage.features.systemTray.title": {
-    "message": "Bandeja del sistema"
-  },
-  "homepage.features.systemTray.desc": {
-    "message": "Minimiza aMule a la bandeja del sistema y déjalo funcionando discretamente en segundo plano. Funciona en Windows, macOS y todos los escritorios principales de Linux."
-  },
-  "homepage.features.powerShare.title": {
-    "message": "Prioridad Release"
-  },
-  "homepage.features.powerShare.desc": {
-    "message": "Da máxima prioridad en la cola de subida a tus archivos publicados (Release) para que se propaguen por la red lo más rápido posible; ideal para compartir contenido nuevo. En eMule esta funcionalidad se conoce como PowerShare."
-  },
-  "theme.navbar.item.label.Download": {
-    "message": "Descargar",
-    "description": "Navbar item label for Download"
-  },
-  "theme.navbar.item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item label for Blog"
-  },
-  "theme.navbar.item.label.Documentation": {
-    "message": "Documentación",
-    "description": "Navbar item label for Documentation"
-  },
-  "theme.navbar.item.label.Releases": {
-    "message": "Releases",
-    "description": "Navbar item label for Releases"
-  },
-  "theme.navbar.item.label.Discussions": {
-    "message": "Debates",
-    "description": "Navbar item label for Discussions"
-  },
-  "theme.ErrorPageContent.title": {
-    "message": "Esta página ha fallado.",
-    "description": "The title of the fallback page when the page crashed"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Volver al principio",
-    "description": "The ARIA label for the back to top button"
-  },
-  "theme.blog.archive.title": {
-    "message": "Archivo del blog",
-    "description": "The page & hero title of the blog archive page"
-  },
-  "theme.blog.archive.description": {
-    "message": "Archivo del blog",
-    "description": "The page & hero description of the blog archive page"
-  },
-  "theme.blog.paginator.navAriaLabel": {
-    "message": "Navegación de la lista del blog",
-    "description": "The ARIA label for the blog pagination"
-  },
-  "theme.blog.paginator.newerEntries": {
-    "message": "Entradas más recientes",
-    "description": "The label used to navigate to the newer blog posts page (previous page)"
-  },
-  "theme.blog.paginator.olderEntries": {
-    "message": "Entradas más antiguas",
-    "description": "The label used to navigate to the older blog posts page (next page)"
-  },
-  "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Barra de paginación de publicaciones del blog",
-    "description": "The ARIA label for the blog posts pagination"
-  },
-  "theme.blog.post.paginator.newerPost": {
-    "message": "Publicación más reciente",
-    "description": "The blog post button label to navigate to the newer/previous post"
-  },
-  "theme.blog.post.paginator.olderPost": {
-    "message": "Publicación más antigua",
-    "description": "The blog post button label to navigate to the older/next post"
-  },
-  "theme.tags.tagsPageLink": {
-    "message": "Ver todas las etiquetas",
-    "description": "The label of the link targeting the tag list page"
-  },
-  "theme.colorToggle.ariaLabel.mode.system": {
-    "message": "modo del sistema",
-    "description": "The name for the system color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "modo claro",
-    "description": "The name for the light color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "modo oscuro",
-    "description": "The name for the dark color mode"
-  },
-  "theme.colorToggle.ariaLabel": {
-    "message": "Cambiar entre modo oscuro y claro (actualmente {mode})",
-    "description": "The ARIA label for the color mode toggle"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Rastro de navegación",
-    "description": "The ARIA label for the breadcrumbs"
-  },
-  "theme.docs.paginator.navAriaLabel": {
-    "message": "Página del documento",
-    "description": "The ARIA label for the docs pagination"
-  },
-  "theme.docs.paginator.previous": {
-    "message": "Anterior",
-    "description": "The label used to navigate to the previous doc"
-  },
-  "theme.docs.paginator.next": {
-    "message": "Siguiente",
-    "description": "The label used to navigate to the next doc"
-  },
-  "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "Un documento etiquetado|{count} documentos etiquetados",
-    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.docs.tagDocListPageTitle": {
-    "message": "{nDocsTagged} con \"{tagName}\"",
-    "description": "The title of the page for a docs tag"
-  },
-  "theme.docs.versionBadge.label": {
-    "message": "Versión: {versionLabel}"
-  },
-  "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "Esta es la documentación sin publicar para {siteTitle}, versión {versionLabel}.",
-    "description": "The label used to tell the user that he's browsing an unreleased doc version"
-  },
-  "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Esta es la documentación para {siteTitle} {versionLabel}, que ya no se mantiene activamente.",
-    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
-  },
-  "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "Para consultar la documentación actualizada, ve a {latestVersionLink} ({versionLabel}).",
-    "description": "The label used to tell the user to check the latest version"
-  },
-  "theme.docs.versions.latestVersionLinkLabel": {
-    "message": "última versión",
-    "description": "The label used for the latest version suggestion link label"
-  },
-  "theme.common.editThisPage": {
-    "message": "Editar esta página",
-    "description": "The link label to edit the current page"
-  },
-  "theme.common.headingLinkTitle": {
-    "message": "Enlace directo al {heading}",
-    "description": "Title for link to heading"
-  },
-  "theme.lastUpdated.atDate": {
-    "message": " en {date}",
-    "description": "The words used to describe on which date a page has been last updated"
-  },
-  "theme.lastUpdated.byUser": {
-    "message": " por {user}",
-    "description": "The words used to describe by who the page has been last updated"
-  },
-  "theme.lastUpdated.lastUpdatedAtBy": {
-    "message": "Última actualización{atDate}{byUser}",
-    "description": "The sentence used to display when a page has been last updated, and by who"
-  },
-  "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "Versiones",
-    "description": "The label for the navbar versions dropdown on mobile view"
-  },
-  "theme.NotFound.title": {
-    "message": "Página no encontrada",
-    "description": "The title of the 404 page"
-  },
-  "theme.tags.tagsListLabel": {
-    "message": "Etiquetas:",
-    "description": "The label alongside a tag list"
-  },
-  "theme.admonition.caution": {
-    "message": "precaución",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.admonition.danger": {
-    "message": "peligro",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.note": {
-    "message": "nota",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "consejo",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.warning": {
-    "message": "aviso",
-    "description": "The default label used for the Warning admonition (:::warning)"
+  "homepage.whatisamule.title": {
+    "message": "¿Qué es aMule?"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Cerrar",
-    "description": "The ARIA label for close button of announcement bar"
+    "description": "The ARIA label for close button of announcement bar",
+    "message": "Cerrar"
   },
-  "theme.blog.sidebar.navAriaLabel": {
-    "message": "Navegación de publicaciones recientes",
-    "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "message": "Ampliar la categoría '{label}' de la barra lateral",
-    "description": "The ARIA label to expand the sidebar category"
-  },
-  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "message": "Contraer la categoría '{label}' de la barra lateral",
-    "description": "The ARIA label to collapse the sidebar category"
-  },
-  "theme.IconExternalLink.ariaLabel": {
-    "message": "(se abre en una nueva pestaña)",
-    "description": "The ARIA label for the external link icon"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "Navegación principal",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Idiomas",
-    "description": "The label for the mobile language switcher dropdown"
-  },
-  "theme.NotFound.p1": {
-    "message": "No hemos podido encontrar lo que buscabas.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Ponte en contacto con el propietario del sitio que te proporcionó la URL original y avísale de que el enlace está roto.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "En esta página",
-    "description": "The label used by the button on the collapsible TOC component"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Leer más",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "Leer más sobre {title}",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "1 min de lectura|{readingTime} min de lectura",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.CodeBlock.copy": {
-    "message": "Copiar",
-    "description": "The copy button label on code blocks"
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "description": "The ARIA label for the back to top button",
+    "message": "Volver al principio"
   },
   "theme.CodeBlock.copied": {
-    "message": "Copiado",
-    "description": "The copied button label on code blocks"
+    "description": "The copied button label on code blocks",
+    "message": "Copiado"
+  },
+  "theme.CodeBlock.copy": {
+    "description": "The copy button label on code blocks",
+    "message": "Copiar"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
-    "message": "Copiar código",
-    "description": "The ARIA label for copy code blocks button"
+    "description": "The ARIA label for copy code blocks button",
+    "message": "Copiar código"
   },
   "theme.CodeBlock.wordWrapToggle": {
-    "message": "Alternar ajuste de palabras",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
+    "description": "The title attribute for toggle word wrapping button of code block lines",
+    "message": "Alternar ajuste de palabras"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Inicio",
-    "description": "The ARIA label for the home page in the breadcrumbs"
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "description": "The ARIA label to collapse the sidebar category",
+    "message": "Contraer la categoría '{label}' de la barra lateral"
   },
-  "theme.docs.sidebar.collapseButtonTitle": {
-    "message": "Contraer barra lateral",
-    "description": "The title attribute for collapse button of doc sidebar"
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "description": "The ARIA label to expand the sidebar category",
+    "message": "Ampliar la categoría '{label}' de la barra lateral"
   },
-  "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "message": "Contraer barra lateral",
-    "description": "The title attribute for collapse button of doc sidebar"
+  "theme.ErrorPageContent.title": {
+    "description": "The title of the fallback page when the page crashed",
+    "message": "Esta página ha fallado."
   },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Barra lateral de documentos",
-    "description": "The ARIA label for the sidebar navigation"
+  "theme.ErrorPageContent.tryAgain": {
+    "description": "The label of the button to try again rendering when the React error boundary captures an error",
+    "message": "Volver a intentarlo"
   },
-  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "message": "Cerrar barra lateral",
-    "description": "The ARIA label for close button of mobile sidebar"
+  "theme.IconExternalLink.ariaLabel": {
+    "description": "The ARIA label for the external link icon",
+    "message": "(se abre en una nueva pestaña)"
   },
-  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Volver al menú principal",
-    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  "theme.NavBar.navAriaLabel": {
+    "description": "The ARIA label for the main navigation",
+    "message": "Navegación principal"
   },
-  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Mostrar u ocultar la barra lateral",
-    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  "theme.NotFound.p1": {
+    "description": "The first paragraph of the 404 page",
+    "message": "No hemos podido encontrar lo que buscabas."
   },
-  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
-    "message": "Expandir menú desplegable",
-    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  "theme.NotFound.p2": {
+    "description": "The 2nd paragraph of the 404 page",
+    "message": "Ponte en contacto con el propietario del sitio que te proporcionó la URL original y avísale de que el enlace está roto."
   },
-  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
-    "message": "Contraer menú desplegable",
-    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  "theme.NotFound.title": {
+    "description": "The title of the 404 page",
+    "message": "Página no encontrada"
   },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "Expandir barra lateral",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Expandir barra lateral",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.SearchBar.label": {
+    "description": "The ARIA label and placeholder for search button",
+    "message": "Buscar"
   },
   "theme.SearchBar.noResultsText": {
     "message": "Sin resultados"
-  },
-  "theme.SearchBar.seeAllOutsideContext": {
-    "message": "Ver todos los resultados fuera de \"{context}\""
   },
   "theme.SearchBar.searchInContext": {
     "message": "Ver todos los resultados dentro de \"{context}\""
@@ -548,212 +447,313 @@
   "theme.SearchBar.seeAll": {
     "message": "Ver todos los resultados"
   },
-  "theme.SearchBar.label": {
-    "message": "Buscar",
-    "description": "The ARIA label and placeholder for search button"
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Ver todos los resultados fuera de \"{context}\""
   },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "Resultados de búsqueda para \"{query}\"",
-    "description": "The search page title for non-empty query"
+  "theme.SearchPage.documentsFound.plurals": {
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "1 documento encontrado|{count} documentos encontrados"
   },
   "theme.SearchPage.emptyResultsTitle": {
-    "message": "Buscar en la documentación",
-    "description": "The search page title for empty query"
+    "description": "The search page title for empty query",
+    "message": "Buscar en la documentación"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "description": "The search page title for non-empty query",
+    "message": "Resultados de búsqueda para \"{query}\""
+  },
+  "theme.SearchPage.noResultsText": {
+    "description": "The paragraph for empty search result",
+    "message": "No se encontraron documentos"
   },
   "theme.SearchPage.searchContext.everywhere": {
     "message": "En todas partes"
   },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "1 documento encontrado|{count} documentos encontrados",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "description": "The label used by the button on the collapsible TOC component",
+    "message": "En esta página"
   },
-  "theme.SearchPage.noResultsText": {
-    "message": "No se encontraron documentos",
-    "description": "The paragraph for empty search result"
+  "theme.admonition.caution": {
+    "description": "The default label used for the Caution admonition (:::caution)",
+    "message": "precaución"
   },
-  "theme.blog.post.plurals": {
-    "message": "1 publicación|{count} publicaciones",
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  "theme.admonition.danger": {
+    "description": "The default label used for the Danger admonition (:::danger)",
+    "message": "peligro"
   },
-  "theme.blog.tagTitle": {
-    "message": "{nPosts} etiquetados con \"{tagName}\"",
-    "description": "The title of the page for a blog tag"
+  "theme.admonition.info": {
+    "description": "The default label used for the Info admonition (:::info)",
+    "message": "info"
   },
-  "theme.blog.author.pageTitle": {
-    "message": "{authorName} - {nPosts}",
-    "description": "The title of the page for a blog author"
+  "theme.admonition.note": {
+    "description": "The default label used for the Note admonition (:::note)",
+    "message": "nota"
   },
-  "theme.blog.authorsList.pageTitle": {
-    "message": "Autores",
-    "description": "The title of the authors page"
+  "theme.admonition.tip": {
+    "description": "The default label used for the Tip admonition (:::tip)",
+    "message": "consejo"
   },
-  "theme.blog.authorsList.viewAll": {
-    "message": "Ver todos los autores",
-    "description": "The label of the link targeting the blog authors page"
+  "theme.admonition.warning": {
+    "description": "The default label used for the Warning admonition (:::warning)",
+    "message": "aviso"
+  },
+  "theme.blog.archive.description": {
+    "description": "The page & hero description of the blog archive page",
+    "message": "Archivo del blog"
+  },
+  "theme.blog.archive.title": {
+    "description": "The page & hero title of the blog archive page",
+    "message": "Archivo del blog"
   },
   "theme.blog.author.noPosts": {
-    "message": "Este autor aún no ha escrito ninguna publicación.",
-    "description": "The text for authors with 0 blog post"
+    "description": "The text for authors with 0 blog post",
+    "message": "Este autor aún no ha escrito ninguna publicación."
   },
-  "theme.contentVisibility.unlistedBanner.title": {
-    "message": "Página no listada",
-    "description": "The unlisted content banner title"
+  "theme.blog.author.pageTitle": {
+    "description": "The title of the page for a blog author",
+    "message": "{authorName} - {nPosts}"
   },
-  "theme.contentVisibility.unlistedBanner.message": {
-    "message": "Esta página no está listada. Los motores de búsqueda no la indexarán y solo los usuarios con un enlace directo podrán acceder a ella.",
-    "description": "The unlisted content banner message"
+  "theme.blog.authorsList.pageTitle": {
+    "description": "The title of the authors page",
+    "message": "Autores"
   },
-  "theme.contentVisibility.draftBanner.title": {
-    "message": "Página borrador",
-    "description": "The draft content banner title"
+  "theme.blog.authorsList.viewAll": {
+    "description": "The label of the link targeting the blog authors page",
+    "message": "Ver todos los autores"
   },
-  "theme.contentVisibility.draftBanner.message": {
-    "message": "Esta página es un borrador. Solo será visible en desarrollo y se excluirá de la compilación de producción.",
-    "description": "The draft content banner message"
+  "theme.blog.paginator.navAriaLabel": {
+    "description": "The ARIA label for the blog pagination",
+    "message": "Navegación de la lista del blog"
   },
-  "theme.docs.DocCard.categoryDescription.plurals": {
-    "message": "1 artículo|{count} artículos",
-    "description": "The default description for a category card in the generated index about how many items this category includes"
+  "theme.blog.paginator.newerEntries": {
+    "description": "The label used to navigate to the newer blog posts page (previous page)",
+    "message": "Entradas más recientes"
   },
-  "theme.ErrorPageContent.tryAgain": {
-    "message": "Volver a intentarlo",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  "theme.blog.paginator.olderEntries": {
+    "description": "The label used to navigate to the older blog posts page (next page)",
+    "message": "Entradas más antiguas"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "description": "The ARIA label for the blog posts pagination",
+    "message": "Barra de paginación de publicaciones del blog"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "description": "The blog post button label to navigate to the newer/previous post",
+    "message": "Publicación más reciente"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "description": "The blog post button label to navigate to the older/next post",
+    "message": "Publicación más antigua"
+  },
+  "theme.blog.post.plurals": {
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "1 publicación|{count} publicaciones"
+  },
+  "theme.blog.post.readMore": {
+    "description": "The label used in blog post item excerpts to link to full blog posts",
+    "message": "Leer más"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "description": "The ARIA label for the link to full blog posts from excerpts",
+    "message": "Leer más sobre {title}"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "1 min de lectura|{readingTime} min de lectura"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "description": "The ARIA label for recent posts in the blog sidebar",
+    "message": "Navegación de publicaciones recientes"
+  },
+  "theme.blog.tagTitle": {
+    "description": "The title of the page for a blog tag",
+    "message": "{nPosts} etiquetados con \"{tagName}\""
+  },
+  "theme.colorToggle.ariaLabel": {
+    "description": "The ARIA label for the color mode toggle",
+    "message": "Cambiar entre modo oscuro y claro (actualmente {mode})"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "description": "The name for the dark color mode",
+    "message": "modo oscuro"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "description": "The name for the light color mode",
+    "message": "modo claro"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "description": "The name for the system color mode",
+    "message": "modo del sistema"
+  },
+  "theme.common.editThisPage": {
+    "description": "The link label to edit the current page",
+    "message": "Editar esta página"
+  },
+  "theme.common.headingLinkTitle": {
+    "description": "Title for link to heading",
+    "message": "Enlace directo al {heading}"
   },
   "theme.common.skipToMainContent": {
-    "message": "Saltar al contenido principal",
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation",
+    "message": "Saltar al contenido principal"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "description": "The draft content banner message",
+    "message": "Esta página es un borrador. Solo será visible en desarrollo y se excluirá de la compilación de producción."
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "description": "The draft content banner title",
+    "message": "Página borrador"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "description": "The unlisted content banner message",
+    "message": "Esta página no está listada. Los motores de búsqueda no la indexarán y solo los usuarios con un enlace directo podrán acceder a ella."
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "description": "The unlisted content banner title",
+    "message": "Página no listada"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "description": "The default description for a category card in the generated index about how many items this category includes",
+    "message": "1 artículo|{count} artículos"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "description": "The ARIA label for the home page in the breadcrumbs",
+    "message": "Inicio"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "description": "The ARIA label for the breadcrumbs",
+    "message": "Rastro de navegación"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "description": "The ARIA label for the docs pagination",
+    "message": "Página del documento"
+  },
+  "theme.docs.paginator.next": {
+    "description": "The label used to navigate to the next doc",
+    "message": "Siguiente"
+  },
+  "theme.docs.paginator.previous": {
+    "description": "The label used to navigate to the previous doc",
+    "message": "Anterior"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "description": "The ARIA label for close button of mobile sidebar",
+    "message": "Cerrar barra lateral"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "description": "The title attribute for collapse button of doc sidebar",
+    "message": "Contraer barra lateral"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "description": "The title attribute for collapse button of doc sidebar",
+    "message": "Contraer barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "description": "The ARIA label and title attribute for expand button of doc sidebar",
+    "message": "Expandir barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "description": "The ARIA label and title attribute for expand button of doc sidebar",
+    "message": "Expandir barra lateral"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "description": "The ARIA label for the sidebar navigation",
+    "message": "Barra lateral de documentos"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "description": "The ARIA label for hamburger menu button of mobile navigation",
+    "message": "Mostrar u ocultar la barra lateral"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "description": "The title of the page for a docs tag",
+    "message": "{nDocsTagged} con \"{tagName}\""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
+    "message": "Un documento etiquetado|{count} documentos etiquetados"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versión: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "description": "The label used for the latest version suggestion link label",
+    "message": "última versión"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "description": "The label used to tell the user to check the latest version",
+    "message": "Para consultar la documentación actualizada, ve a {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version",
+    "message": "Esta es la documentación para {siteTitle} {versionLabel}, que ya no se mantiene activamente."
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "description": "The label used to tell the user that he's browsing an unreleased doc version",
+    "message": "Esta es la documentación sin publicar para {siteTitle}, versión {versionLabel}."
+  },
+  "theme.lastUpdated.atDate": {
+    "description": "The words used to describe on which date a page has been last updated",
+    "message": " en {date}"
+  },
+  "theme.lastUpdated.byUser": {
+    "description": "The words used to describe by who the page has been last updated",
+    "message": " por {user}"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "description": "The sentence used to display when a page has been last updated, and by who",
+    "message": "Última actualización{atDate}{byUser}"
+  },
+  "theme.navbar.item.label.Blog": {
+    "description": "Navbar item label for Blog",
+    "message": "Blog"
+  },
+  "theme.navbar.item.label.Discussions": {
+    "description": "Navbar item label for Discussions",
+    "message": "Debates"
+  },
+  "theme.navbar.item.label.Documentation": {
+    "description": "Navbar item label for Documentation",
+    "message": "Documentación"
+  },
+  "theme.navbar.item.label.Download": {
+    "description": "Navbar item label for Download",
+    "message": "Descargar"
+  },
+  "theme.navbar.item.label.Releases": {
+    "description": "Navbar item label for Releases",
+    "message": "Releases"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item",
+    "message": "Contraer menú desplegable"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item",
+    "message": "Expandir menú desplegable"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "description": "The label for the mobile language switcher dropdown",
+    "message": "Idiomas"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)",
+    "message": "← Volver al menú principal"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "description": "The label for the navbar versions dropdown on mobile view",
+    "message": "Versiones"
+  },
+  "theme.tags.tagsListLabel": {
+    "description": "The label alongside a tag list",
+    "message": "Etiquetas:"
+  },
+  "theme.tags.tagsPageLink": {
+    "description": "The label of the link targeting the tag list page",
+    "message": "Ver todas las etiquetas"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Etiquetas",
-    "description": "The title of the tag list page"
-  },
-  "homepage.download.pageDescription": {
-    "message": "Descarga aMule para Windows, macOS y Linux o compílalo desde el código fuente."
-  },
-  "homepage.download.title": {
-    "message": "Descargas"
-  },
-  "homepage.download.version.label": {
-    "message": "Última versión"
-  },
-  "homepage.download.version.date": {
-    "message": "Publicado el {date}"
-  },
-  "homepage.download.version.changelog": {
-    "message": "Changelog"
-  },
-  "homepage.download.lead": {
-    "message": "aMule está disponible para las principales plataformas de escritorio."
-  },
-  "homepage.download.windows.os": {
-    "message": "Windows"
-  },
-  "homepage.download.windows.platform": {
-    "message": "Windows 10 / 11 · x64 · ARM64"
-  },
-  "homepage.download.windows.installer.label": {
-    "message": "Instalador (.exe)"
-  },
-  "homepage.download.windows.portable.label": {
-    "message": "Portable (.zip)"
-  },
-  "homepage.download.arch.x64": {
-    "message": "x64"
-  },
-  "homepage.download.arch.arm64": {
-    "message": "ARM64"
-  },
-  "homepage.download.macos.os": {
-    "message": "macOS"
-  },
-  "homepage.download.macos.platform": {
-    "message": "macOS 11.0+ · Apple Silicon · Intel"
-  },
-  "homepage.download.macos.dmg.label": {
-    "message": "Imagen de disco (.dmg)"
-  },
-  "homepage.download.macos.dmg.arch": {
-    "message": "Universal2"
-  },
-  "homepage.download.linux.os": {
-    "message": "Linux"
-  },
-  "homepage.download.linux.platform": {
-    "message": "glibc ≥ 2.35 · x64 · ARM64"
-  },
-  "homepage.download.linux.appimage.label": {
-    "message": "AppImage"
-  },
-  "homepage.download.linux.flatpak.label": {
-    "message": "Flatpak"
-  },
-  "homepage.download.source.os": {
-    "message": "Código fuente"
-  },
-  "homepage.download.source.platform": {
-    "message": "Compílalo tú mismo"
-  },
-  "homepage.download.source.label": {
-    "message": "Código fuente"
-  },
-  "homepage.download.source.targz": {
-    "message": ".tar.gz"
-  },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
-  "homepage.download.foot": {
-    "message": "Todos los artefactos están disponibles en la {release}. aMule también está disponible en los repositorios de las {distros}, aunque puede que los paquetes estén desactualizados."
-  },
-  "homepage.download.foot.link": {
-    "message": "página de la release más reciente"
-  },
-  "homepage.download.distros.link": {
-    "message": "principales distribuciones de Linux"
-  },
-  "homepage.download.install": {
-    "message": "La {install} cubre todas las plataformas, y la {quickstart} te guía a través de la configuración y tu primera descarga."
-  },
-  "homepage.download.install.guide.link": {
-    "message": "guía de instalación"
-  },
-  "homepage.download.install.link": {
-    "message": "guía de inicio rápido"
-  },
-  "homepage.download.compile": {
-    "message": "En la {link} encontrarás las instrucciones para construir aMule desde el código fuente."
-  },
-  "homepage.download.compile.link": {
-    "message": "guía de compilación"
-  },
-  "homepage.download.previous.title": {
-    "message": "Versiones anteriores"
-  },
-  "homepage.download.previous.body": {
-    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {github} y {sourceforge}."
-  },
-  "homepage.download.previous.link": {
-    "message": "SourceForge"
-  },
-  "homepage.download.previous.github.link": {
-    "message": "GitHub"
-  },
-  "homepage.download.previous.entry.github": {
-    "message": "GitHub"
-  },
-  "homepage.download.previous.entry.sourceforge": {
-    "message": "SourceForge"
-  },
-  "homepage.highlights.performance.tag": {
-    "message": "Rendimiento"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Paquetes"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Ancho de banda"
-  },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
+    "description": "The title of the tag list page",
+    "message": "Etiquetas"
   }
 }
