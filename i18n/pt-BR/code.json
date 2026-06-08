@@ -106,5 +106,365 @@
   },
   "homepage.download.previous.github.link": {
     "message": "GitHub"
+  },
+  "homepage.screenshots.lead": {
+    "message": "aMule GUI — mesmo visual em Windows, macOS e Linux. Clique em qualquer captura de tela para aumentar; use {left} {right} para navegar, {esc} para fechar."
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Fechar (Esc)"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Próximo (→)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Anterior (←)"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "Aba de Rede — lista de servidores e estado da rede Kademlia"
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": "Redes — servidores eD2k e estado da rede Kad"
+  },
+  "homepage.screenshots.search.alt": {
+    "message": "Aba de procura com resultados"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Downloads — progresso por arquivo com barras de disponibilidade"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Aba de download com downloads ativos"
+  },
+  "homepage.screenshots.search.caption": {
+    "message": "Busca — resuldados da busca eD2k + Kad"
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": "Aba de arquivos compartilhados"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "Arquivos compartilhados"
+  },
+  "homepage.screenshots.title": {
+    "message": "Capturas de tela"
+  },
+  "homepage.tagline": {
+    "message": "Cliente eMule-compatível eD2k/Kad para todas as plataformas"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, livre, com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por desktop principal."
+  },
+  "homepage.whatisamule.p2": {
+    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. A versão 3.0.0 traz melhorias dramáticas de taxa de transferência, um sistema de montagem modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
+  },
+  "homepage.whatisamule.title": {
+    "message": "O que é o aMule?"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Fechar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Rolar até o topo"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Copiado"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Copiar"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Copiar o código para a área de transferência"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Alterna quebra de linha"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Colapsar a categoria '{label}' da barra lateral"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expande a categoria '{label}' da barra lateral"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Esta página quebrou."
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Tente novamente"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(abre em uma nova aba)"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Principal"
+  },
+  "theme.NotFound.p1": {
+    "message": "Não conseguimos achar o que você está procurando."
+  },
+  "theme.NotFound.p2": {
+    "message": "Por favor, entre em contato com o dono do site que ligou você à URL original e comunique-os que o link está quebrado."
+  },
+  "theme.NotFound.title": {
+    "message": "Página não encontrada"
+  },
+  "theme.SearchBar.label": {
+    "message": "Busca"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Sem resultados"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Veja todos os resultados dentro de \"{context}\""
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Veja todos os resultados"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Veja todos os resultados fora de \"{context}\""
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 documento encontrado |{count} documentos encontrados"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Busca na documentação"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Resultados da busca por \"{query}\""
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Nenhum documento encontrado"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Em todo lugar"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Nesta página"
+  },
+  "theme.admonition.caution": {
+    "message": "cudado"
+  },
+  "theme.admonition.danger": {
+    "message": "perigo"
+  },
+  "theme.admonition.info": {
+    "message": "informação"
+  },
+  "theme.admonition.note": {
+    "message": "nota"
+  },
+  "theme.admonition.tip": {
+    "message": "dica"
+  },
+  "theme.admonition.warning": {
+    "message": "aviso"
+  },
+  "theme.blog.archive.description": {
+    "message": "Arquivo"
+  },
+  "theme.blog.archive.title": {
+    "message": "Arquivo"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Este autor ainda não escreveu uma postagem."
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autores"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Ver todos os autores"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Página de navegação da lista do Blog"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Entradas novas"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Entradas antigas"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Página de navegação de postagens do Blog"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Postagens novas"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Postagens antigas"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Uma postagem|{count} postagens"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Ler mais"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Ler mais sobre {title}"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Leitura de um minuto|Leitura de {readingTime} minutos"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Navegação de postagens recentes do Blog"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} marcados com \"{tagName}\""
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Mudar entre modo escuro e claro (atualmente {mode})"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "modo escuro"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "modo claro"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "modo do sistema"
+  },
+  "theme.common.editThisPage": {
+    "message": "Editar esta página"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Ligação direta para {heading}"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Pular para o conteúdo principal"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Esta página é um rascunho. Ela será visível apenas em desenvolvimento e será excluída da montagem de produção."
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Página de rascunho"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Esta página não está listada. Motores de busca não vão indexá-la, e apenas usuários com uma ligação direta podem acessá-la."
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Página não listada"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 item|{count} items"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Página inicial"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Migalhas de pão"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Páginas de documentação"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Próximo"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Anterior"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Fechar a barra de navegação"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Colapsar a barra lateral"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Colapsar a barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Expandir a barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Expandir a barra lateral"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Barra lateral de documentação"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Alternar a barra de navegação"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} com \"{tagName}\""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Um documento marcado|{count} documentos marcados"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versão: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "versão mais recente"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Para documentação atualizada, veja em {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Esta documentação é para {siteTitle} {versionLabel}, o qual não é mais ativamente mantido."
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Esta é a documentação não lançada para {siteTitle} versão {versionLabel}."
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " em {date}"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " por {user}"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Última atualização {atDate}{byUser}"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Colapsar a suspensão"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expandir a suspensão"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Linguagens"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← De volta ao menu principal"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versões"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Marcadores:"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Ver todos os marcadores"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Marcadores"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.source.label": {
+    "message": "Código fonte"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Ajuste duro dos limites de velocidade de upload e download, forçados por limitadores \"token-bucket\" precisos. Limita o aMule de modo que ele nunca sature sua conexão, ou deixe-o na velocidade máxima quando você estiver fora."
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Controle de banda"
+  },
+  "homepage.features.categories.desc": {
+    "message": "Organiza os downloads em categorias com caminhos de salvagem e prioridades customizáveis. Aplica regras por categoria para manter sua biblioteca arrumada automaticamente."
+  },
+  "homepage.features.categories.title": {
+    "message": "Categorias de Download"
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Comunicações de dados de arquivos e servidor são comprimidas com zlib, reduzindo o uso de banda para arquivos compressíveis e diminuindo a carda sobre servidores eD2k."
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Transferências Comprimidas"
   }
 }
