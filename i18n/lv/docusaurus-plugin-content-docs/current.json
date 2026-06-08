@@ -1,1 +1,17 @@
-{}
+{
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Izstrādātāja rokasgrāmata"
+  },
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Datņu formāti"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "eD2k tīkls"
+  },
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Lietotāja rokasgrāmata"
+  },
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "P2P tīkli"
+  }
+}
