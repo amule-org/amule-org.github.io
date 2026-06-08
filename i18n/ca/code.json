@@ -25,5 +25,629 @@
   },
   "homepage.download.windows.platform": {
     "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.description": {
+    "message": "aMule és un client eD2k/Kad gratuït i compatible amb eMule per a totes les plataformes per a Windows, macOS i Linux."
+  },
+  "homepage.download.compile": {
+    "message": "El {link} té instruccions per construir aMule des de la font."
+  },
+  "homepage.download.compile.link": {
+    "message": "Guia de compilació"
+  },
+  "homepage.download.distros.link": {
+    "message": "distribucions principals de Linux"
+  },
+  "homepage.download.foot": {
+    "message": "Tots els artefactes estan disponibles a {release}. aMule també està disponible als dipòsits de {distros}, encara que els paquets poden estar obsolets."
+  },
+  "homepage.download.foot.link": {
+    "message": "darrera pàgina de llançament"
+  },
+  "homepage.download.install": {
+    "message": "{install} cobreix totes les plataformes i {quickstart} us guiarà per la configuració i la vostra primera descàrrega."
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Guia d'instal·lació"
+  },
+  "homepage.download.install.link": {
+    "message": "Guia d'inici ràpid"
+  },
+  "homepage.download.lead": {
+    "message": "aMule està disponible per a la majoria de plataformes d'escriptori principals."
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Imatge de disc (.dmg)"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Baixeu aMule per a Windows, macOS, Linux o creeu-lo des de la font."
+  },
+  "homepage.download.previous.body": {
+    "message": "Les versions anteriors a la 3.0.0 s'arxiven a {github} i {sourceforge}."
+  },
+  "homepage.download.previous.title": {
+    "message": "Estrenes anteriors"
+  },
+  "homepage.download.source.label": {
+    "message": "Codi font"
+  },
+  "homepage.download.source.os": {
+    "message": "Origen"
+  },
+  "homepage.download.source.platform": {
+    "message": "Construeix-lo tu mateix"
+  },
+  "homepage.download.version.date": {
+    "message": "Publicat {date}"
+  },
+  "homepage.download.version.label": {
+    "message": "Última versió"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Instal·lador (.exe)"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Portàtil (.zip)"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Establiu límits de velocitat de càrrega i descàrrega durs, imposats per limitadors precisos de token-bucket. Cap aMule perquè mai saturi la vostra connexió o deixeu-lo funcionar a tota velocitat quan no sou."
+  },
+  "homepage.features.categories.desc": {
+    "message": "Organitzeu les baixades en categories amb camins i prioritats personalitzades. Apliqueu regles per categoria per mantenir la vostra biblioteca ordenada automàticament."
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Les dades dels fitxers i la comunicació del servidor es comprimeixen amb zlib, reduint l'ús d'ample de banda per als fitxers compressibles i reduint la càrrega dels servidors eD2k."
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "L'Intelligent Corruption Handler (ICH) i l'AICH detecten i repara automàticament els fragments de descàrrega danyats, garantint fitxers complets i intactes sense reiniciar-los."
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Un sistema de crèdit i puntuació integrat premia els usuaris que carreguen activament. Com més comparteixes, més alta serà la teva puntuació, cosa que donarà lloc a descàrregues més ràpides."
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Executeu aMule com un procés lleuger sense cap (amuled) en servidors, dispositius NAS o instàncies VPS, sense necessitat de visualització gràfica."
+  },
+  "homepage.features.docsLink": {
+    "message": "Consulta la documentació completa →"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Feu clic als enllaços ed2k:// al vostre navegador per iniciar les baixades a l'instant a aMule. El gestor d'enllaços s'integra amb el vostre escriptori per a una experiència perfecta amb un sol clic."
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "ed2k:// Integració d'enllaços"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Totalment compatible amb eMule i tots els clients *Mule. Compartiu fitxers amb les mateixes fonts, connecteu-vos als mateixos servidors i obriu enllaços estàndard ed2k://."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Compatible amb eMule"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule mira les teves carpetes compartides i entrants i recull automàticament els fitxers nous, modificats o eliminats; no cal tornar a carregar manualment quan canvia la teva biblioteca."
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Reexploració automàtica de carpetes"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Bloqueja les adreces IP no desitjades mitjançant llistes de filtres IP estàndard. Eviteu que els companys agressius, maliciosos o espia es connectin al vostre client."
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "Filtrat IP"
+  },
+  "homepage.features.languages.desc": {
+    "message": "La interfície completa d'aMule està traduïda a 37 idiomes. Baixeu i compartiu fitxers en el vostre idioma nadiu: la interfície d'usuari s'adapta automàticament a la vostra configuració regional."
+  },
+  "homepage.features.languages.title": {
+    "message": "37 Idiomes de la interfície"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Intercanvieu missatges directament amb altres usuaris d'aMule i manteniu una llista d'amics per mantenir-vos connectat amb els vostres socis habituals."
+  },
+  "homepage.features.messaging.title": {
+    "message": "Missatgeria i amics"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Instal·lador i .zip portàtil per a Windows, Universal2 .dmg per a macOS, AppImage i Flatpak a Linux. Disponible tant per a x64 com per a ARM64."
+  },
+  "homepage.features.networks.desc": {
+    "message": "Connecteu-vos tant a la xarxa de servidors tradicional eD2k com a Kademlia DHT sense servidor simultàniament, maximitzant el vostre abast i la disponibilitat de fitxers."
+  },
+  "homepage.features.openSource.desc": {
+    "message": "Llicència GPL-2.0 sense telemetria, sense anuncis i sense bloqueig de proveïdor. Les vostres dades són vostres: inspeccioneu i contribuïu al codi font."
+  },
+  "homepage.features.openSource.title": {
+    "message": "Lliure i codi obert"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Doneu als vostres propis fitxers publicats la màxima prioritat a la cua de càrrega perquè s'estenin per la xarxa el més ràpid possible, ideal per compartir contingut nou. A eMule, aquesta funció es coneix com PowerShare."
+  },
+  "homepage.features.preview.desc": {
+    "message": "Reprodueix vídeos i fitxers d'àudio abans que finalitzi una baixada. Compatible amb MPlayer, VLC i altres reproductors multimèdia."
+  },
+  "homepage.features.preview.title": {
+    "message": "Vista prèvia abans de completar"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Encamineu les connexions mitjançant servidors intermediaris SOCKS4, SOCKS5 o HTTP per a la privadesa o per evitar les restriccions de la xarxa."
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Controleu aMule des de qualsevol lloc: una GUI remota nativa (amulegui), una interfície web basada en navegador (amuleweb) o una eina de línia d'ordres (amulecmd)."
+  },
+  "homepage.features.search.desc": {
+    "message": "Cerca entre servidors eD2k (locals i globals) i nodes de Kademlia. Filtreu per tipus, mida i disponibilitat. S'admeten operadors booleans (AND, OR, NOT)."
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "La identificació criptogràfica segura d'usuari evita que altres companys de la xarxa us roben o falsifiquen el hash del vostre client."
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Controleu exactament quants clients pengeu alhora i establiu objectius d'amplada de banda per ranura, donant-vos un control detallat sobre la vostra capacitat de càrrega."
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Intercanvia automàticament llistes de fonts amb companys connectats per descobrir més fonts per a les teves descàrregues sense consultar al servidor repetidament."
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimitza aMule a la safata del sistema i deixa que s'executi en silenci en segon pla. Funciona amb Windows, macOS i tots els escriptoris principals de Linux."
+  },
+  "homepage.hero.logo.alt": {
+    "message": "logotip d'aMule"
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "Pestanya de descàrregues d'aMule"
+  },
+  "homepage.highlights.bandwidth.detail": {
+    "message": "Carregueu i descarregueu acceleradors reescrits com a limitadors de butxaca adequats. {code} significa literalment il·limitat."
+  },
+  "homepage.highlights.bandwidth.label": {
+    "message": "Limitació d'amplada de banda que funciona"
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": "Autotools eliminat completament. Única compilació CMake, mínim CMake 3.10, mínim wxWidgets 3.2.0."
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": "Sistema de construcció modern"
+  },
+  "homepage.highlights.changelog": {
+    "message": "Registre de canvis complet →"
+  },
+  "homepage.highlights.packages.detail": {
+    "message": "Instal·lador de Windows i .zip portàtil, macOS Universal2 .dmg, AppImage, Flatpak — x64 i ARM64 on són compatibles."
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Binaris per a cada escriptori"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "L'E/S de disc es va desplaçar del fil principal i la capa de xarxa es va revisar. Les descàrregues peer-to-peer veuen ~100–380× acceleracions més de 2.3.3 a macOS, Linux i Windows."
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Transferències espectacularment més ràpides"
+  },
+  "homepage.highlights.title": {
+    "message": "Novetats a la 3.0.0"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Pestanya de descàrregues amb descàrregues actives"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Descàrregues: progrés per fitxer amb barres de disponibilitat"
+  },
+  "homepage.screenshots.lead": {
+    "message": "aMule GUI: mateix aspecte a Windows, macOS i Linux. Feu clic a qualsevol captura de pantalla per ampliar-la; utilitza {left} {right} per navegar, {esc} per tancar."
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Tancar (Esc)"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Següent (→)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Anterior (←)"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "Pestanya Xarxes: llista de servidors i estat de Kademlia"
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": "Xarxes: servidors eD2k i estat Kad"
+  },
+  "homepage.screenshots.search.alt": {
+    "message": "Pestanya de cerca amb resultats"
+  },
+  "homepage.screenshots.search.caption": {
+    "message": "Cerca — Resultats de la cerca eD2k + Kad"
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": "Pestanya Fitxers compartits"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "Fitxers compartits"
+  },
+  "homepage.tagline": {
+    "message": "Client eD2k/Kad compatible amb eMule per a totes les plataformes"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule és un client gratuït per compartir fitxers entre iguals i amb llicència GPL per a les xarxes {ed2k} i {kad}. És compatible amb eMule i s'executa de manera nativa a Windows, macOS i Linux. El mateix estat al disc, el mateix protocol, un binari per escriptori principal."
+  },
+  "homepage.whatisamule.p2": {
+    "message": "Després d'anys de silenci, el projecte torna a estar en manteniment actiu. La versió 3.0.0 aporta millores espectaculars del rendiment, un sistema de construcció modernitzat, paquets natius nous per a tots els escriptoris principals i una base de codi actualitzada preparada per als sistemes actuals, sense trencar la compatibilitat del protocol que permet a aMule treballar juntament amb qualsevol client basat en eMule."
+  },
+  "homepage.whatisamule.title": {
+    "message": "Què és aMule?"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Desplaceu-vos cap a dalt"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Copia el codi al porta-retalls"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Commuta l'ajustament de paraules"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Replega la categoria de la barra lateral \"{label}\""
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Amplieu la categoria de la barra lateral \"{label}\""
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Aquesta pàgina s'ha estavellat."
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Torna-ho a provar"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(s'obre en una pestanya nova)"
+  },
+  "theme.NotFound.p1": {
+    "message": "No hem trobat el que estaves buscant."
+  },
+  "theme.NotFound.p2": {
+    "message": "Contacta amb el propietari del lloc que t'ha enllaçat a l'URL original i fes-li saber que el seu enllaç està trencat."
+  },
+  "theme.NotFound.title": {
+    "message": "Pàgina no trobada"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Sense resultats"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Mostra tots els resultats a \"{context}\""
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Veure tots els resultats"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Mostra tots els resultats fora de \"{context}\""
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "S'ha trobat 1 document|{count} documents trobats"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Busca la documentació"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Resultats de la cerca per a \"{query}\""
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No s'han trobat documents"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "En aquesta pàgina"
+  },
+  "theme.admonition.caution": {
+    "message": "precaució"
+  },
+  "theme.admonition.danger": {
+    "message": "perill"
+  },
+  "theme.admonition.info": {
+    "message": "informació"
+  },
+  "theme.admonition.note": {
+    "message": "nota"
+  },
+  "theme.admonition.tip": {
+    "message": "propina"
+  },
+  "theme.admonition.warning": {
+    "message": "advertència"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Aquest autor encara no ha escrit cap entrada."
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Veure tots els autors"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Navegació de la llista de blocs"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Entrades més noves"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Entrades més antigues"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Navegació de la pàgina d'entrada del blog"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Publicació més nova"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Publicació més antiga"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Una publicació|{count} publicacions"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Llegeix més"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Llegeix més sobre {title}"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Un minut de lectura|{readingTime} min de lectura"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Navegació de publicacions recents del bloc"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} etiquetat amb \"{tagName}\""
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Canvia entre el mode fosc i clar (actualment {mode})"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "mode fosc"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "mode de llum"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "mode del sistema"
+  },
+  "theme.common.editThisPage": {
+    "message": "Edita aquesta pàgina"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Enllaç directe a {heading}"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Vés al contingut principal"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Aquesta pàgina és un esborrany. Només serà visible al desenvolupament i s'exclourà de la construcció de producció."
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Esborrany de pàgina"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Aquesta pàgina no està llistada. Els motors de cerca no l'indexaran i només hi poden accedir els usuaris que tinguin un enllaç directe."
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Pàgina no llistada"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 element|{count} elements"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Pàgina d'inici"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Pàgines de documents"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Tanca la barra de navegació"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Replega la barra lateral"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Replega la barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Amplieu la barra lateral"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Amplieu la barra lateral"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Barra lateral de Documents"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Canvia la barra de navegació"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} amb \"{tagName}\""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Un document etiquetat|{count} document etiquetat"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versió: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "darrera versió"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Per obtenir la documentació actualitzada, consulteu {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Aquesta és la documentació per a {siteTitle} {versionLabel}, que ja no es manté activament."
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Aquesta és la documentació no publicada per a la versió {siteTitle} {versionLabel}."
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " a {date}"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " per {user}"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Última actualització{atDate}{byUser}"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Replega el menú desplegable"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Amplieu el menú desplegable"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Tornar al menú principal"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Etiquetes:"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Veure totes les etiquetes"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.download.title": {
+    "message": "Descàrrega"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Diari de canvis"
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Control d'ample de banda"
+  },
+  "homepage.features.categories.title": {
+    "message": "Categories de descàrrega"
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Transferències comprimides"
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Tractament de corrupció"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Sistema de crèdit"
+  },
+  "homepage.features.daemon.title": {
+    "message": "Dimoni aMule"
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Paquets natius"
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Prioritat de llançament"
+  },
+  "homepage.features.proxy.title": {
+    "message": "Suport de proxy"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Interfícies remotes"
+  },
+  "homepage.features.search.title": {
+    "message": "Cerca poderosa"
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Identificació segura"
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Col·locació de ranura"
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Intercanvi d'origen"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Barra de sistema"
+  },
+  "homepage.features.title": {
+    "message": "Característiques"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Descàrrega"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Inici ràpid"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Ample de banda"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Paquets"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Rendiment"
+  },
+  "homepage.screenshots.title": {
+    "message": "Captures de pantalla"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Tancar"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Copiat"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Copiar"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Principal"
+  },
+  "theme.SearchBar.label": {
+    "message": "Cercar"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "A tot arreu"
+  },
+  "theme.blog.archive.description": {
+    "message": "Arxiu"
+  },
+  "theme.blog.archive.title": {
+    "message": "Arxiu"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autors"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Migues de pa"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Següent"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Anterior"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Idiomes"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Etiquetes"
   }
 }
