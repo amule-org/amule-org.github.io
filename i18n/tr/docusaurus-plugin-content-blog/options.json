@@ -1,14 +1,11 @@
 {
   "description": {
-    "message": "Blog",
-    "description": "The description for the blog used in SEO"
+    "message": "Blog"
   },
   "sidebar.title": {
-    "message": "Son makaleler",
-    "description": "The label for the left sidebar"
+    "message": "Son makaleler"
   },
   "title": {
-    "message": "Blog",
-    "description": "The title for the blog used in SEO"
+    "message": "Blog"
   }
 }

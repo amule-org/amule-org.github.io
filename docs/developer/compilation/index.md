@@ -72,7 +72,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_WXCAS` | NO | [`wxcas`](../../manual/utilities/wxcas-cas.md) — GUI statistics tool |
 | `BUILD_FILEVIEW` | NO | [`fileview`](../file-formats/fileview.md) — console file viewer (experimental) |
 | `BUILD_TESTING` | YES | [Unit test suite](../testing.md) |
-| `ENABLE_NLS` | YES | [Native-language support](../translations.md) (gettext) |
+| `ENABLE_NLS` | YES | [Native-language support](../translations/index.md) (gettext) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `ENABLE_IP2COUNTRY` | NO | IP→country mapping (libmaxminddb) |
 | `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
@@ -176,7 +176,7 @@ xargs rm -f < build/install_manifest.txt
 
 ## Refreshing Translated Man Pages
 
-The translated `*.LANG.1` man pages under `docs/man/` are committed pre-generated artifacts. They are refreshed from `docs/man/po/manpages-LANG.po` using `po4a`. See [Man Page Translations](../translations.md#man-page-translations) for the full translation workflow. The refresh CMake target is available only when `po4a` is found at configure time:
+The translated `*.LANG.1` man pages under `docs/man/` are committed pre-generated artifacts. They are refreshed from `docs/man/po/manpages-LANG.po` using `po4a`. See [Man Page Translations](../translations/index.md#man-page-translations) for the full translation workflow. The refresh CMake target is available only when `po4a` is found at configure time:
 
 ```sh
 cmake --build build --target po4a-update

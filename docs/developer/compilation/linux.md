@@ -100,7 +100,7 @@ Select components with USE flags:
 | `webserver` | Build [`amuleweb`](../../manual/interfaces/amuleweb.md) |
 | `amulecmd` | Build [`amulecmd`](../../manual/interfaces/amulecmd.md) |
 | `ed2k` | Build [`ed2k`](../../manual/utilities/ed2k.md) link handler |
-| `nls` | [Native-language support](../translations.md) |
+| `nls` | [Native-language support](../translations/index.md) |
 | `upnp` | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `geoip` | IP→country mapping |
 | `debug` | Debug symbols ([Debugging](../debugging.md)) |

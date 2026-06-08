@@ -122,7 +122,12 @@ const sidebars: SidebarsConfig = {
         },
         'developer/debugging',
         'developer/testing',
-        'developer/translations',
+        {
+          type: 'category',
+          label: 'Translations',
+          link: {type: 'doc', id: 'developer/translations/index'},
+          items: ['developer/translations/weblate'],
+        },
         'developer/documentation',
         'developer/code-style',
         {

@@ -1,78 +1,62 @@
 {
   "sidebar.docsSidebar.category.Compilation": {
-    "message": "Derleme",
-    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
+    "message": "Derleme"
   },
   "sidebar.docsSidebar.category.Configuration": {
-    "message": "Yapılandırma",
-    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
+    "message": "Yapılandırma"
   },
   "sidebar.docsSidebar.category.Configuration Files": {
-    "message": "Yapılandırma Dosyaları",
-    "description": "The label for category 'Configuration Files' in sidebar 'docsSidebar'"
+    "message": "Yapılandırma Dosyaları"
   },
   "sidebar.docsSidebar.category.Contributing": {
-    "message": "Katkıda Bulunmak",
-    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+    "message": "Katkıda Bulunmak"
   },
   "sidebar.docsSidebar.category.Developer Guide": {
-    "message": "Geliştirici Kılavuzu",
-    "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
+    "message": "Geliştirici Kılavuzu"
   },
   "sidebar.docsSidebar.category.File Formats": {
-    "message": "Dosya Biçimleri",
-    "description": "The label for category 'File Formats' in sidebar 'docsSidebar'"
+    "message": "Dosya Biçimleri"
   },
   "sidebar.docsSidebar.category.GUI — amule & amulegui": {
-    "message": "Grafik Arayüz — amule ve amulegui",
-    "description": "The label for category 'GUI — amule & amulegui' in sidebar 'docsSidebar'"
+    "message": "Grafik Arayüz — amule ve amulegui"
   },
   "sidebar.docsSidebar.category.Interfaces": {
-    "message": "Arayüzler",
-    "description": "The label for category 'Interfaces' in sidebar 'docsSidebar'"
+    "message": "Arayüzler"
   },
   "sidebar.docsSidebar.category.Migration": {
-    "message": "Geçiş",
-    "description": "The label for category 'Migration' in sidebar 'docsSidebar'"
+    "message": "Geçiş"
   },
   "sidebar.docsSidebar.category.P2P Networks": {
-    "message": "Eşten Eşe Ağlar",
-    "description": "The label for category 'P2P Networks' in sidebar 'docsSidebar'"
+    "message": "Eşten Eşe Ağlar"
   },
   "sidebar.docsSidebar.category.Troubleshooting": {
-    "message": "Sorun Giderme",
-    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
+    "message": "Sorun Giderme"
   },
   "sidebar.docsSidebar.category.User Manual": {
-    "message": "Kullanıcı Kılavuzu",
-    "description": "The label for category 'User Manual' in sidebar 'docsSidebar'"
+    "message": "Kullanıcı Kılavuzu"
   },
   "sidebar.docsSidebar.category.Utilities": {
-    "message": "Yardımcı Araçlar",
-    "description": "The label for category 'Utilities' in sidebar 'docsSidebar'"
+    "message": "Yardımcı Araçlar"
   },
   "sidebar.docsSidebar.category.eD2k Network": {
-    "message": "eD2k Ağı",
-    "description": "The label for category 'eD2k Network' in sidebar 'docsSidebar'"
+    "message": "eD2k Ağı"
   },
   "sidebar.docsSidebar.doc.FAQ": {
-    "message": "SSS",
-    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc manual/faq"
+    "message": "SSS"
   },
   "sidebar.docsSidebar.doc.Installation": {
-    "message": "Kurulum",
-    "description": "The label for the doc item 'Installation' in sidebar 'docsSidebar', linking to the doc manual/installation/index"
+    "message": "Kurulum"
   },
   "sidebar.docsSidebar.doc.Overview": {
-    "message": "Genel Bakış",
-    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
+    "message": "Genel Bakış"
   },
   "sidebar.docsSidebar.doc.Quick Start": {
-    "message": "Hızlı Başlangıç",
-    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
+    "message": "Hızlı Başlangıç"
   },
   "version.label": {
-    "message": "Sonraki",
-    "description": "The label for version current"
+    "message": "Sonraki"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Çeviriler"
   }
 }

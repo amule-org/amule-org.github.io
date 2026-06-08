@@ -90,7 +90,7 @@ This enables a common set of components. See [Build Options](index.md#build-opti
 
 > CMake probes glibc-only headers such as `argz.h` for completeness, but does **not** gate NLS on them — aMule does not include those headers. Localization depends only on `gettext`/`libintl` being available.
 
-If `ENABLE_NLS=YES` but `msgfmt`/`msgmerge` or `libintl` cannot be found, the configure step **fails with a fatal error** rather than silently disabling translations. Either install `gettext`, or disable NLS with `-DENABLE_NLS=NO`. See the [Translations](../translations.md) guide for how aMule's localization catalogs are maintained.
+If `ENABLE_NLS=YES` but `msgfmt`/`msgmerge` or `libintl` cannot be found, the configure step **fails with a fatal error** rather than silently disabling translations. Either install `gettext`, or disable NLS with `-DENABLE_NLS=NO`. See the [Translations](../translations/index.md) guide for how aMule's localization catalogs are maintained.
 
 ## Running from the Build Directory
 

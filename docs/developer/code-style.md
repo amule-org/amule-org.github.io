@@ -268,7 +268,7 @@ When using a string literal to construct a `wxString`:
 
 Failure to use these macros makes aMule fail to compile in Unicode mode.
 
-Debug messages must always be in English and must not be wrapped in `_()`. Messages visible to the user must be wrapped in `_()`. See [Translations → Marking Strings for Translation in C++ Source](translations.md#marking-strings-for-translation-in-c-source) for the full rules on translatable strings.
+Debug messages must always be in English and must not be wrapped in `_()`. Messages visible to the user must be wrapped in `_()`. See [Translations → Marking Strings for Translation in C++ Source](translations/index.md#marking-strings-for-translation-in-c-source) for the full rules on translatable strings.
 
 ## What Never To Do
 

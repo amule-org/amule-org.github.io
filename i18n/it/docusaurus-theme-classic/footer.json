@@ -1,22 +1,17 @@
 {
   "link.item.label.Source code": {
-    "message": "Codice sorgente",
-    "description": "The label of footer link with label=Source code linking to https://github.com/amule-org/amule"
+    "message": "Codice sorgente"
   },
   "link.item.label.Releases": {
-    "message": "Rilasci",
-    "description": "The label of footer link with label=Releases linking to https://github.com/amule-org/amule/releases"
+    "message": "Rilasci"
   },
   "link.item.label.Changelog RSS": {
-    "message": "RSS del changelog",
-    "description": "The label of footer link with label=Changelog RSS linking to pathname:///changelog/atom.xml"
+    "message": "RSS del changelog"
   },
   "link.item.label.Blog RSS": {
-    "message": "RSS del blog",
-    "description": "The label of footer link with label=Blog RSS linking to pathname:///blog/atom.xml"
+    "message": "RSS del blog"
   },
   "copyright": {
-    "message": "aMule è software libero rilasciato sotto licenza GNU GPL v2. Gli sviluppatori di aMule non hanno alcun controllo su ciò che gli altri peer trasferiscono tramite eD2k/Kad e non possono essere ritenuti responsabili per violazioni del diritto d'autore non personali o altre attività illegali da parte di terzi. Condividi responsabilmente.",
-    "description": "The footer copyright"
+    "message": "aMule è software libero rilasciato sotto licenza GNU GPL v2. Gli sviluppatori di aMule non hanno alcun controllo su ciò che gli altri peer trasferiscono tramite eD2k/Kad e non possono essere ritenuti responsabili per violazioni del diritto d'autore non personali o altre attività illegali da parte di terzi. Condividi responsabilmente."
   }
 }

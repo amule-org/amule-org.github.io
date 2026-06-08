@@ -26,11 +26,11 @@ If you write code, submit a pull request on [GitHub](https://github.com/amule-or
 
 ### Translations
 
-aMule can be translated in three areas: the application interface, the man pages, and this documentation website. The [Translations](../developer/translations.md) guide is the single starting point for all of them — use it to update an existing language, add a new one, translate the man pages, or localize the documentation.
+aMule can be translated in three areas: the application interface, the man pages, and this documentation website. The [Translations](../developer/translations/index.md) guide is the single starting point for all of them — use it to update an existing language, add a new one, translate the man pages, or localize the documentation.
 
 ### Documentation
 
-Write or improve the English documentation on this website (its source lives in the [website repository](https://github.com/amule-org/amule-org.github.io)). See the [Documentation](../developer/documentation.md) guide for the repository structure, writing guidelines, and the PR workflow. To *translate* the documentation into another language, see [Translations](../developer/translations.md) instead.
+Write or improve the English documentation on this website (its source lives in the [website repository](https://github.com/amule-org/amule-org.github.io)). See the [Documentation](../developer/documentation.md) guide for the repository structure, writing guidelines, and the PR workflow. To *translate* the documentation into another language, see [Translations](../developer/translations/index.md) instead.
 
 ## Help Other Users
 

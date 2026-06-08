@@ -118,7 +118,7 @@ cmake --build build -j"$(sysctl -n hw.ncpu)"
 
 ### NLS and `libintl`
 
-On BSD, `libintl` is **not** part of the base C library (unlike glibc on GNU/Linux, where `gettext` is integrated into `libc`). aMule links `libintl` directly to provide [native-language support](../translations.md). When `ENABLE_NLS=YES`, CMake locates it through `find_package(Intl)`; if missing, the build fails:
+On BSD, `libintl` is **not** part of the base C library (unlike glibc on GNU/Linux, where `gettext` is integrated into `libc`). aMule links `libintl` directly to provide [native-language support](../translations/index.md). When `ENABLE_NLS=YES`, CMake locates it through `find_package(Intl)`; if missing, the build fails:
 
 ```
 CMake Error: ENABLE_NLS=YES but the libintl headers/library were not found.

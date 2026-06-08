@@ -1,90 +1,71 @@
 {
   "sidebar.docsSidebar.category.Compilation": {
-    "message": "Compilación",
-    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
+    "message": "Compilación"
   },
   "sidebar.docsSidebar.category.Config Files": {
-    "message": "Ficheros de configuración",
-    "description": "The label for category 'Config Files' in sidebar 'docsSidebar'"
+    "message": "Ficheros de configuración"
   },
   "sidebar.docsSidebar.category.Configuration": {
-    "message": "Configuración",
-    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
+    "message": "Configuración"
   },
   "sidebar.docsSidebar.category.Configuration Files": {
-    "message": "Configuration Files",
-    "description": "The label for category 'Configuration Files' in sidebar 'docsSidebar'"
+    "message": "Configuration Files"
   },
   "sidebar.docsSidebar.category.Contributing": {
-    "message": "Contribuir",
-    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+    "message": "Contribuir"
   },
   "sidebar.docsSidebar.category.Developer Guide": {
-    "message": "Guía de Desarrollador",
-    "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
+    "message": "Guía de Desarrollador"
   },
   "sidebar.docsSidebar.category.FAQ": {
-    "message": "FAQ",
-    "description": "The label for category 'FAQ' in sidebar 'docsSidebar'"
+    "message": "FAQ"
   },
   "sidebar.docsSidebar.category.File Formats": {
-    "message": "Formatos de ficheros",
-    "description": "The label for category 'File Formats' in sidebar 'docsSidebar'"
+    "message": "Formatos de ficheros"
   },
   "sidebar.docsSidebar.category.GUI": {
-    "message": "GUI",
-    "description": "The label for category 'GUI' in sidebar 'docsSidebar'"
+    "message": "GUI"
   },
   "sidebar.docsSidebar.category.GUI — amule & amulegui": {
-    "message": "GUI — amule & amulegui",
-    "description": "The label for category 'GUI — amule & amulegui' in sidebar 'docsSidebar'"
+    "message": "GUI — amule & amulegui"
   },
   "sidebar.docsSidebar.category.Interfaces": {
-    "message": "Interfaces",
-    "description": "The label for category 'Interfaces' in sidebar 'docsSidebar'"
+    "message": "Interfaces"
   },
   "sidebar.docsSidebar.category.Migration": {
-    "message": "Migración",
-    "description": "The label for category 'Migration' in sidebar 'docsSidebar'"
+    "message": "Migración"
   },
   "sidebar.docsSidebar.category.P2P Networks": {
-    "message": "Redes P2P",
-    "description": "The label for category 'P2P Networks' in sidebar 'docsSidebar'"
+    "message": "Redes P2P"
   },
   "sidebar.docsSidebar.category.Troubleshooting": {
-    "message": "Solución de problemas",
-    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
+    "message": "Solución de problemas"
   },
   "sidebar.docsSidebar.category.User Manual": {
-    "message": "Manual de usuario",
-    "description": "The label for category 'User Manual' in sidebar 'docsSidebar'"
+    "message": "Manual de usuario"
   },
   "sidebar.docsSidebar.category.Utilities": {
-    "message": "Utilidades",
-    "description": "The label for category 'Utilities' in sidebar 'docsSidebar'"
+    "message": "Utilidades"
   },
   "sidebar.docsSidebar.category.eD2k Network": {
-    "message": "Red eD2k",
-    "description": "The label for category 'eD2k Network' in sidebar 'docsSidebar'"
+    "message": "Red eD2k"
   },
   "sidebar.docsSidebar.doc.FAQ": {
-    "message": "FAQ",
-    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc manual/faq"
+    "message": "FAQ"
   },
   "sidebar.docsSidebar.doc.Installation": {
-    "message": "Instalación",
-    "description": "The label for the doc item 'Installation' in sidebar 'docsSidebar', linking to the doc manual/installation/index"
+    "message": "Instalación"
   },
   "sidebar.docsSidebar.doc.Overview": {
-    "message": "Visión general",
-    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
+    "message": "Visión general"
   },
   "sidebar.docsSidebar.doc.Quick Start": {
-    "message": "Inicio rápido",
-    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
+    "message": "Inicio rápido"
   },
   "version.label": {
-    "message": "Actual",
-    "description": "The label for version current"
+    "message": "Actual"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Traducciones"
   }
 }
