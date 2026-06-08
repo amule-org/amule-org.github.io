@@ -13,5 +13,14 @@
   },
   "sidebar.docsSidebar.category.P2P Networks": {
     "message": "P2P tīkli"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Kompilēšana"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Iestatījumi"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Iestatījumu datnes"
   }
 }

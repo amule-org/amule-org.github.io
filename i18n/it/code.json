@@ -36,7 +36,7 @@
     "message": "Flatpak"
   },
   "homepage.download.source.os": {
-    "message": "Sorgenti"
+    "message": "Codice sorgente"
   },
   "homepage.download.source.platform": {
     "message": "Compila tu stesso"
@@ -646,5 +646,8 @@
   },
   "homepage.download.source.zip": {
     "message": ".zip"
+  },
+  "homepage.download.source.label": {
+    "message": "Codice sorgente"
   }
 }
