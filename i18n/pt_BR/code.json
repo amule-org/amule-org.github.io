@@ -526,5 +526,113 @@
   },
   "theme.NotFound.title": {
     "message": ""
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.download.foot": {
+    "message": "Todos os artefatos estão disponíveis em  {release}. O aMule também está disponível nos repositórios das  {distros}, apesar dos pacotes poderem ser antigos."
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.title": {
+    "message": "Download"
+  },
+  "homepage.download.previous.body": {
+    "message": "Versões antes de 3.0.0 estão arquivadas no {github} e {sourceforge}."
+  },
+  "homepage.download.lead": {
+    "message": "aMule está disponível para a maioria das principais plataformas de desktop."
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Disk image (.dmg)"
+  },
+  "homepage.download.install.link": {
+    "message": "Guia de começo rápido"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Download aMule para Windows, macOS, Linux ou compile do código fonte."
+  },
+  "homepage.download.compile.link": {
+    "message": "Guia de compilação"
+  },
+  "homepage.download.foot.link": {
+    "message": "página da versão mais recente"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.download.install": {
+    "message": "A {install} cobre todas as plataformas, e o {quickstart} guia você atráves do setup e de seu primeiro download."
+  },
+  "homepage.download.compile": {
+    "message": "A {link} tem instruções para compilar o aMule do código fonte."
+  },
+  "homepage.download.version.label": {
+    "message": "Versão mais recente"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.description": {
+    "message": "O aMule é um cliente eD2k/Kad livre e para todas as plataformas, Windows, macOS, and Linux."
+  },
+  "homepage.download.previous.title": {
+    "message": "Versões anteriores"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Instalador (.exe)"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "logo do aMule"
+  },
+  "homepage.download.source.platform": {
+    "message": "Faça você mesmo"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Portable (.zip)"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Guia de instalação"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.download.version.date": {
+    "message": "Lnaçada {date}"
+  },
+  "homepage.download.distros.link": {
+    "message": "principais distribuições Linux"
+  },
+  "homepage.download.source.os": {
+    "message": "Código fonte"
+  },
+  "homepage.download.version.changelog": {
+    "message": "Changelog"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
   }
 }
