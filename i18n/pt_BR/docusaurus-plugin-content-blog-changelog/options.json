@@ -4,5 +4,8 @@
   },
   "sidebar.title": {
     "message": ""
+  },
+  "description": {
+    "message": "Blog"
   }
 }
