@@ -466,5 +466,86 @@
   },
   "homepage.features.compressedTransfers.title": {
     "message": "Transferências Comprimidas"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "O manipulador de corrupção inteligente (ICH) e AICH detectam e reparam automaticamente pedaços de download corrompidos, assegurando arquivos completos e intactos sem reiniciar."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Lidando com Corrupção"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Um sistema de créditos e pontos premia usuários que fazem upload ativamente. Quanto mais você compartilha, maior é a sua pontuação — o que resulta em downloads mais rápidos."
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Sistema de Créditos"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Roda o aMule como um processo leve sem monitor (amuled) nos servidores, dispositivos NAS or instâncias VPS — não há a necessidade de display gráfico."
+  },
+  "homepage.features.daemon.title": {
+    "message": "Daemon aMule"
+  },
+  "homepage.features.docsLink": {
+    "message": "Folhear a documentação completa →"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Clicque ed2k:// links em seu navegador para iniciar downloads instantâneamente no aMule. O manipulador dos links integra com seu desktop para uma experiência natural de um único click."
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Integração de Links ed2k://"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Totalmente compatível com eMule e todos os clientes *Mule. Compartilhe arquivos com as mesmas fontes, conecte-se aos mesmos servidores e abra links ed2k:// padronizados."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Compatível com eMule"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "O aMule monitora suas pastas \"shared\" e \"Incoming\" e automaticamente pega arquivos novos, mudados ou removidos — não há necessidade de recarga manual quando sua biblioteca muda."
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Reescaneamento Automático de Pasta"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Bloqueia endereços IP indesejados usando listas de filtros de IP padronizadas. Impede que pares agressivos, maliciosos ou espiões se conectem a seu cliente."
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "Filtragem de IP"
+  },
+  "homepage.features.languages.desc": {
+    "message": "A interface completa do aMule está traduzida em 37 línguas. Baixe e compartilhe seus arquivos em sua lingua nativa — a UI se adapta automaticamente ao seu local."
+  },
+  "homepage.features.languages.title": {
+    "message": "37 Línguas de Interface"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Troque mensagens diretamente com outros usuários do aMule e mantenha uma lista de amigos para ficar conectado com pares que compartilham com você regularmente."
+  },
+  "homepage.features.messaging.title": {
+    "message": "Mensagens e Amigos"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Instalador e .zip portátil para Windows, Universal2 .dmg para macOS, AppImage e Flatpak no Linux. Disponível para ambos x64 e ARM64."
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Pacotes Nativos"
+  },
+  "homepage.features.networks.desc": {
+    "message": "Connecta-se a tanto à traditional rede de servidores eD2k quanto à rede sem servidores Kademlia DHT simultaneamente, maximizando o seu alcance e disponibilidade de arquivos."
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.features.openSource.desc": {
+    "message": "Licenciado com GPL-2.0 sem telemetria, sem propagandas, e sem trava de vendedor. Seus dados são seus — inspecione e contribua com o código fonte."
+  },
+  "homepage.features.openSource.title": {
+    "message": "Livre e de Código Aberto"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Dê a seus próprios arquivos lançados prioridade máxima na fila de upload de modo a espalhá-los pela rede o mais rápido possível — ideal para compartilhar novo conteúdo. No eMule esta funcionalidade é conhecida como PowerShare."
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Prioridade de Lançamento"
   }
 }
