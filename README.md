@@ -41,7 +41,7 @@ The full contributor documentation lives on the site itself:
 
 ## Translations
 
-The website translations are managed with [Weblate](https://weblate.org/). See the [Documentation guide](https://amule-org.github.io/docs/developer/documentation#translating-with-weblate) for the component setup and contributor workflow.
+The website translations are managed with [Weblate](https://hosted.weblate.org/projects/amule/). See the [Documentation guide](https://amule-org.github.io/docs/developer/documentation#translating-with-weblate) for the component setup and contributor workflow.
 
 ## Useful links
 

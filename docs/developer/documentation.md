@@ -289,7 +289,7 @@ Translations must faithfully reflect the English original. Do not paraphrase or 
 
 ### Translating with Weblate
 
-Translations can also be managed through [Weblate](https://weblate.org/). Weblate is a *monolingual* setup: every component needs an English **base file** that lists the source strings. The English UI strings live in code (`<Translate>` / `translate()` defaults) and in `docusaurus.config.ts`, not in a JSON file, so the base files are generated into `i18n/en/` with:
+Translations can also be managed through [Weblate](https://hosted.weblate.org/projects/amule/). Weblate is a *monolingual* setup: every component needs an English **base file** that lists the source strings. The English UI strings live in code (`<Translate>` / `translate()` defaults) and in `docusaurus.config.ts`, not in a JSON file, so the base files are generated into `i18n/en/` with:
 
 ```sh
 npm run write-translations
