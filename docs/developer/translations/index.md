@@ -1,9 +1,13 @@
 ---
-id: translations
+id: index
 title: Translations
 ---
 
 This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
+
+Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website documentation](#documentation-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
+
+There are two equally valid ways to contribute a translation: open a pull request to the relevant repository, or use [Weblate](https://hosted.weblate.org/projects/amule/) — a translation tool that stays in sync with git. Both edit the same files and either is accepted — pick whichever you prefer. The [Weblate](./weblate.md) guide documents how each module is connected; the sections below describe the underlying file formats and the manual (pull request) workflow.
 
 ## Code Translations
 
@@ -129,7 +133,7 @@ To verify a translation at runtime, set `LANG` before launching aMule. Use `LANG
 LANG=pt_BR.UTF-8 amule
 ```
 
-The program must be installed first so the `.mo` catalog is discoverable. See the [Compilation](./compilation/index.md) guide for the full build and install workflow. During development, install locally without `sudo`:
+The program must be installed first so the `.mo` catalog is discoverable. See the [Compilation](../compilation/index.md) guide for the full build and install workflow. During development, install locally without `sudo`:
 
 ```sh
 cmake --install build --prefix=$HOME/.local
@@ -144,7 +148,7 @@ xargs rm -f < build/install_manifest.txt
 
 ### Build Integration
 
-The CMake build compiles every enabled `.po` into a `.gmo` binary catalog via `msgfmt`. The [Compilation](./compilation/index.md) guide documents the full set of build options; translation support requires `-DENABLE_NLS=YES` (the default):
+The CMake build compiles every enabled `.po` into a `.gmo` binary catalog via `msgfmt`. The [Compilation](../compilation/index.md) guide documents the full set of build options; translation support requires `-DENABLE_NLS=YES` (the default):
 
 ```sh
 cmake -B build -DENABLE_NLS=YES
@@ -168,7 +172,7 @@ Use the standard gettext macros:
 
 After adding new uses of these macros, run `./scripts/update-po.sh` to pull the new strings into the `.pot` and all `.po` files.
 
-When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent. New source changes should also follow the project [Coding Style](./code-style.md).
+When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent. New source changes should also follow the project [Coding Style](../code-style.md).
 
 ### Format Specifiers Reference
 
@@ -477,4 +481,4 @@ Open a pull request with:
 
 The website documentation (this site) is internationalized through Docusaurus's i18n system. Translations cover two areas: UI strings (navbar, sidebar labels, homepage text) stored in `i18n/<locale>/code.json`, and documentation pages stored as Markdown files under `i18n/<locale>/docusaurus-plugin-content-docs/current/`.
 
-The step-by-step instructions for adding or updating a documentation translation live in the [Documentation guide](./documentation.md#translations), alongside the rest of the documentation workflow.
+The step-by-step instructions for adding or updating a documentation translation live in the [Documentation guide](../documentation.md#translations), alongside the rest of the documentation workflow. The website translations are managed on Weblate — see the [Weblate](./weblate.md#website) guide for the base files, components, and workflow.

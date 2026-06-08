@@ -1,34 +1,26 @@
 {
   "item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item with label Blog"
+    "message": "Blog"
   },
   "item.label.Changelog": {
-    "message": "Değişiklikler Günlüğü",
-    "description": "Navbar item with label Changelog"
+    "message": "Değişiklikler Günlüğü"
   },
   "item.label.Discussions": {
-    "message": "Tartışmalar",
-    "description": "Navbar item with label Discussions"
+    "message": "Tartışmalar"
   },
   "item.label.Documentation": {
-    "message": "Belgelendirme",
-    "description": "Navbar item with label Documentation"
+    "message": "Belgelendirme"
   },
   "item.label.Download": {
-    "message": "İndir",
-    "description": "Navbar item with label Download"
+    "message": "İndir"
   },
   "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
+    "message": "GitHub"
   },
   "logo.alt": {
-    "message": "aMule logosu",
-    "description": "The alt text of navbar logo"
+    "message": "aMule logosu"
   },
   "title": {
-    "message": "aMule",
-    "description": "The title in the navbar"
+    "message": "aMule"
   }
 }

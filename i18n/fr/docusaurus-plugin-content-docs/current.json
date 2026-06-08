@@ -1,78 +1,62 @@
 {
   "sidebar.docsSidebar.category.Compilation": {
-    "message": "Compilation",
-    "description": "The label for category 'Compilation' in sidebar 'docsSidebar'"
+    "message": "Compilation"
   },
   "sidebar.docsSidebar.category.Configuration": {
-    "message": "Configuration",
-    "description": "The label for category 'Configuration' in sidebar 'docsSidebar'"
+    "message": "Configuration"
   },
   "sidebar.docsSidebar.category.Configuration Files": {
-    "message": "Fichiers de configuration",
-    "description": "The label for category 'Configuration Files' in sidebar 'docsSidebar'"
+    "message": "Fichiers de configuration"
   },
   "sidebar.docsSidebar.category.Contributing": {
-    "message": "Contribuer",
-    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+    "message": "Contribuer"
   },
   "sidebar.docsSidebar.category.Developer Guide": {
-    "message": "Guide du développeur",
-    "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
+    "message": "Guide du développeur"
   },
   "sidebar.docsSidebar.category.File Formats": {
-    "message": "Formats de fichiers",
-    "description": "The label for category 'File Formats' in sidebar 'docsSidebar'"
+    "message": "Formats de fichiers"
   },
   "sidebar.docsSidebar.category.GUI — amule & amulegui": {
-    "message": "Interface graphique — amule et amulegui",
-    "description": "The label for category 'GUI — amule & amulegui' in sidebar 'docsSidebar'"
+    "message": "Interface graphique — amule et amulegui"
   },
   "sidebar.docsSidebar.category.Interfaces": {
-    "message": "Interfaces",
-    "description": "The label for category 'Interfaces' in sidebar 'docsSidebar'"
+    "message": "Interfaces"
   },
   "sidebar.docsSidebar.category.Migration": {
-    "message": "Migration",
-    "description": "The label for category 'Migration' in sidebar 'docsSidebar'"
+    "message": "Migration"
   },
   "sidebar.docsSidebar.category.P2P Networks": {
-    "message": "Réseaux P2P",
-    "description": "The label for category 'P2P Networks' in sidebar 'docsSidebar'"
+    "message": "Réseaux P2P"
   },
   "sidebar.docsSidebar.category.Troubleshooting": {
-    "message": "Dépannage",
-    "description": "The label for category 'Troubleshooting' in sidebar 'docsSidebar'"
+    "message": "Dépannage"
   },
   "sidebar.docsSidebar.category.User Manual": {
-    "message": "Manuel de l'utilisateur",
-    "description": "The label for category 'User Manual' in sidebar 'docsSidebar'"
+    "message": "Manuel de l'utilisateur"
   },
   "sidebar.docsSidebar.category.Utilities": {
-    "message": "Utilitaires",
-    "description": "The label for category 'Utilities' in sidebar 'docsSidebar'"
+    "message": "Utilitaires"
   },
   "sidebar.docsSidebar.category.eD2k Network": {
-    "message": "Réseau eD2k",
-    "description": "The label for category 'eD2k Network' in sidebar 'docsSidebar'"
+    "message": "Réseau eD2k"
   },
   "sidebar.docsSidebar.doc.FAQ": {
-    "message": "FAQ",
-    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc manual/faq"
+    "message": "FAQ"
   },
   "sidebar.docsSidebar.doc.Installation": {
-    "message": "Installation",
-    "description": "The label for the doc item 'Installation' in sidebar 'docsSidebar', linking to the doc manual/installation/index"
+    "message": "Installation"
   },
   "sidebar.docsSidebar.doc.Overview": {
-    "message": "Vue d'ensemble",
-    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
+    "message": "Vue d'ensemble"
   },
   "sidebar.docsSidebar.doc.Quick Start": {
-    "message": "Démarrage rapide",
-    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide"
+    "message": "Démarrage rapide"
   },
   "version.label": {
-    "message": "Suivant",
-    "description": "The label for version current"
+    "message": "Suivant"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Traductions"
   }
 }

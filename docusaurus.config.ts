@@ -18,6 +18,17 @@ const config: Config = {
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
+  future: {
+    // Required by faster.ssgWorkerThreads. These are forward-compatibility
+    // flags towards Docusaurus v4, stable in 3.10.
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
+    // Enables all build-acceleration flags: rspackBundler,
+    // rspackPersistentCache, swcJsLoader/swcJsMinimizer, swcHtmlMinimizer,
+    // lightningCssMinimizer, mdxCrossCompilerCache, ssgWorkerThreads.
+    faster: true,
+  },
   markdown: {
     hooks: {
       // When a relative link in a translated page points to a page that hasn't

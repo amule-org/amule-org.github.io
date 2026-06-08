@@ -174,7 +174,7 @@ See [Debugging](debugging.md) for instructions on:
 - [Compilation](compilation/index.md) — build system, dependencies, and platform-specific notes
 - [Debugging](debugging.md) — GDB backtraces and valgrind usage
 - [Testing](testing.md) — unit tests and virtual test network
-- [Translations](./translations.md) — gettext workflow and po4a for man pages
+- [Translations](./translations/index.md) — gettext workflow and po4a for man pages
 - [Documentation](./documentation.md) — documentation website structure, writing guidelines, and PR workflow
 - [Coding Style](./code-style.md) — formatting, naming, and forbidden patterns
 - [File Formats](file-formats/index.md) — on-disk layout of aMule's binary `.met` and `.dat` files

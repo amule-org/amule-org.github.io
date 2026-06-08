@@ -74,5 +74,9 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Translations",
+    "description": "The label for category 'Translations' in sidebar 'docsSidebar'"
   }
 }
