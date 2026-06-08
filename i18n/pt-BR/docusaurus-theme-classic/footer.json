@@ -1,1 +1,17 @@
-{}
+{
+  "copyright": {
+    "message": "O aMule é software livre lançado sob a licensa GNU GPL v2. Os desenvolvedores do aMule não tem controle sobre o que outros pares transferem através das redes eD2k/Kad e não podem ser responsabilizados por infrações não pessoais de direitos autorais ou outras atividades ilegais por terceiros. Compartilhe com responsabilidade."
+  },
+  "link.item.label.Blog RSS": {
+    "message": "RSS do Blog"
+  },
+  "link.item.label.Changelog RSS": {
+    "message": "RSS do Changelog"
+  },
+  "link.item.label.Releases": {
+    "message": "Versões"
+  },
+  "link.item.label.Source code": {
+    "message": "Código fonte"
+  }
+}
