@@ -8,14 +8,14 @@
   "homepage.download.windows.installer.label": {
     "message": "Installer (.exe)"
   },
-  "homepage.download.windows.installer.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.windows.portable.label": {
     "message": "Portable (.zip)"
   },
-  "homepage.download.windows.portable.arch": {
-    "message": "x64 · ARM64"
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
   },
   "homepage.download.macos.os": {
     "message": "macOS"
@@ -38,14 +38,8 @@
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
-  "homepage.download.linux.appimage.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.linux.flatpak.label": {
     "message": "Flatpak"
-  },
-  "homepage.download.linux.flatpak.arch": {
-    "message": "x64 · ARM64"
   },
   "homepage.download.source.os": {
     "message": "Source"
@@ -53,11 +47,14 @@
   "homepage.download.source.platform": {
     "message": "Compilez-le vous-même"
   },
-  "homepage.download.source.tarball.label": {
-    "message": "Archive tar du code source (.tar.gz)"
+  "homepage.download.source.label": {
+    "message": "Code source"
   },
-  "homepage.download.source.tarball.arch": {
-    "message": "toutes les plateformes"
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
   },
   "homepage.download.title": {
     "message": "Télécharger"

@@ -654,14 +654,14 @@
   "homepage.download.windows.installer.label": {
     "message": "Instalador (.exe)"
   },
-  "homepage.download.windows.installer.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.windows.portable.label": {
     "message": "Portable (.zip)"
   },
-  "homepage.download.windows.portable.arch": {
-    "message": "x64 · ARM64"
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
   },
   "homepage.download.macos.os": {
     "message": "macOS"
@@ -684,14 +684,8 @@
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
-  "homepage.download.linux.appimage.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.linux.flatpak.label": {
     "message": "Flatpak"
-  },
-  "homepage.download.linux.flatpak.arch": {
-    "message": "x64 · ARM64"
   },
   "homepage.download.source.os": {
     "message": "Código fuente"
@@ -699,11 +693,14 @@
   "homepage.download.source.platform": {
     "message": "Compílalo tú mismo"
   },
-  "homepage.download.source.tarball.label": {
-    "message": "Código fuente (.tar.gz)"
+  "homepage.download.source.label": {
+    "message": "Código fuente"
   },
-  "homepage.download.source.tarball.arch": {
-    "message": "todas las plataformas"
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
   },
   "homepage.download.foot": {
     "message": "Todos los artefactos están disponibles en la {release}. aMule también está disponible en los repositorios de las {distros}, aunque puede que los paquetes estén desactualizados."

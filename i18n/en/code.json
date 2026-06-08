@@ -8,14 +8,8 @@
   "homepage.download.windows.installer.label": {
     "message": "Installer (.exe)"
   },
-  "homepage.download.windows.installer.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.windows.portable.label": {
     "message": "Portable (.zip)"
-  },
-  "homepage.download.windows.portable.arch": {
-    "message": "x64 · ARM64"
   },
   "homepage.download.macos.os": {
     "message": "macOS"
@@ -38,26 +32,14 @@
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
-  "homepage.download.linux.appimage.arch": {
-    "message": "x64 · ARM64"
-  },
   "homepage.download.linux.flatpak.label": {
     "message": "Flatpak"
-  },
-  "homepage.download.linux.flatpak.arch": {
-    "message": "x64 · ARM64"
   },
   "homepage.download.source.os": {
     "message": "Source"
   },
   "homepage.download.source.platform": {
     "message": "Build it yourself"
-  },
-  "homepage.download.source.tarball.label": {
-    "message": "Source tarball (.tar.gz)"
-  },
-  "homepage.download.source.tarball.arch": {
-    "message": "all platforms"
   },
   "homepage.download.title": {
     "message": "Download"
@@ -738,5 +720,20 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.source.label": {
+    "message": "Source code"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
   }
 }

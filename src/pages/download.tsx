@@ -29,8 +29,11 @@ const LATEST_VERSION = '3.0.0';
 const LATEST_DATE = '2026-06-08';
 const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
 
-// All download buttons point to the GitHub releases page for now.
+// Generic releases page (version number link, footer links).
 const RELEASES_URL = 'https://github.com/amule-org/amule/releases/latest';
+// Per-artifact download bases, derived from the version number.
+const ASSET_BASE = `https://github.com/amule-org/amule/releases/download/${LATEST_VERSION}`;
+const SOURCE_ARCHIVE_BASE = `https://github.com/amule-org/amule/archive/refs/tags/${LATEST_VERSION}`;
 
 // Archived releases (before 3.0.0). URLs are derived from the version number.
 const PREV_RELEASES = [
@@ -39,11 +42,18 @@ const PREV_RELEASES = [
   {version: '2.3.1', date: '2011-11-11'},
 ];
 
+interface DownloadFile {
+  // Architecture label, e.g. "x64"
+  arch: React.ReactNode;
+  // Full download URL for this specific artifact
+  href: string;
+}
+
 interface DownloadFormat {
   // Binary type, e.g. "Installer (.exe)"
   label: React.ReactNode;
-  // Supported architectures, e.g. "x64 · ARM64"
-  arch: React.ReactNode;
+  // One entry per downloadable artifact (architecture)
+  files: DownloadFile[];
 }
 
 interface DownloadOs {
@@ -54,6 +64,10 @@ interface DownloadOs {
   formats: DownloadFormat[];
 }
 
+// Reusable architecture labels (technical terms, repeated across artifacts).
+const ARCH_X64 = <Translate id="homepage.download.arch.x64">x64</Translate>;
+const ARCH_ARM64 = <Translate id="homepage.download.arch.arm64">ARM64</Translate>;
+
 const DOWNLOAD_OSES: DownloadOs[] = [
   {
     svg: WINDOWS_SVG,
@@ -62,11 +76,17 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     formats: [
       {
         label: <Translate id="homepage.download.windows.installer.label">Installer (.exe)</Translate>,
-        arch: <Translate id="homepage.download.windows.installer.arch">x64 · ARM64</Translate>,
+        files: [
+          {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-Setup-x64.exe`},
+          {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-Setup-arm64.exe`},
+        ],
       },
       {
         label: <Translate id="homepage.download.windows.portable.label">Portable (.zip)</Translate>,
-        arch: <Translate id="homepage.download.windows.portable.arch">x64 · ARM64</Translate>,
+        files: [
+          {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-x64.zip`},
+          {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-arm64.zip`},
+        ],
       },
     ],
   },
@@ -77,7 +97,12 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     formats: [
       {
         label: <Translate id="homepage.download.macos.dmg.label">Disk image (.dmg)</Translate>,
-        arch: <Translate id="homepage.download.macos.dmg.arch">Universal2</Translate>,
+        files: [
+          {
+            arch: <Translate id="homepage.download.macos.dmg.arch">Universal2</Translate>,
+            href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-macOS-universal2.dmg`,
+          },
+        ],
       },
     ],
   },
@@ -88,11 +113,17 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     formats: [
       {
         label: <Translate id="homepage.download.linux.appimage.label">AppImage</Translate>,
-        arch: <Translate id="homepage.download.linux.appimage.arch">x64 · ARM64</Translate>,
+        files: [
+          {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64.AppImage`},
+          {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64.AppImage`},
+        ],
       },
       {
         label: <Translate id="homepage.download.linux.flatpak.label">Flatpak</Translate>,
-        arch: <Translate id="homepage.download.linux.flatpak.arch">x64 · ARM64</Translate>,
+        files: [
+          {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64.flatpak`},
+          {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64.flatpak`},
+        ],
       },
     ],
   },
@@ -102,8 +133,17 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     platform: <Translate id="homepage.download.source.platform">Build it yourself</Translate>,
     formats: [
       {
-        label: <Translate id="homepage.download.source.tarball.label">Source tarball (.tar.gz)</Translate>,
-        arch: <Translate id="homepage.download.source.tarball.arch">all platforms</Translate>,
+        label: <Translate id="homepage.download.source.label">Source code</Translate>,
+        files: [
+          {
+            arch: <Translate id="homepage.download.source.targz">.tar.gz</Translate>,
+            href: `${SOURCE_ARCHIVE_BASE}.tar.gz`,
+          },
+          {
+            arch: <Translate id="homepage.download.source.zip">.zip</Translate>,
+            href: `${SOURCE_ARCHIVE_BASE}.zip`,
+          },
+        ],
       },
     ],
   },
@@ -171,15 +211,19 @@ export default function DownloadPage(): React.JSX.Element {
                 </div>
                 <div className={styles.formatList}>
                   {os.formats.map((fmt, j) => (
-                    <Link key={j} className={styles.formatRow} to={RELEASES_URL}>
+                    <div key={j} className={styles.formatRow}>
                       <span className={styles.formatLabel}>{fmt.label}</span>
                       <span className={styles.formatMeta}>
-                        <span className={styles.formatArch}>{fmt.arch}</span>
-                        <svg className={styles.dlIcon} viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="currentColor" d={DOWNLOAD_SVG} />
-                        </svg>
+                        {fmt.files.map((file, k) => (
+                          <Link key={k} className={styles.formatArchLink} to={file.href}>
+                            <span className={styles.formatArch}>{file.arch}</span>
+                            <svg className={styles.dlIcon} viewBox="0 0 24 24" aria-hidden="true">
+                              <path fill="currentColor" d={DOWNLOAD_SVG} />
+                            </svg>
+                          </Link>
+                        ))}
                       </span>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
