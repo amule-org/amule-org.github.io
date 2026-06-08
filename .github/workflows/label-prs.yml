@@ -1,0 +1,62 @@
+name: Label PRs
+
+# Auto-labels pull requests with two rules:
+#   - Author rule: PRs opened by the GitHub user "weblate" get the "weblate" label.
+#   - Path rule:   PRs that modify any file under "i18n/" get the "translation" label.
+# Weblate opens PRs that touch "i18n/", so its PRs end up with both labels.
+#
+# pull_request_target is required because Weblate opens the PR from a fork, so a
+# plain pull_request token would be read-only and unable to add the label. No PR
+# code is checked out or executed here, so pull_request_target is safe.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  label:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Add labels
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const labels = [];
+
+            // Author rule: PRs from the "weblate" user.
+            if (pr.user.login === 'weblate') {
+              labels.push('weblate');
+            }
+
+            // Path rule: any PR touching files under "i18n/".
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: pr.number,
+            });
+            if (files.some((f) => f.filename.startsWith('i18n/'))) {
+              labels.push('translation');
+            }
+
+            if (labels.length === 0) {
+              return;
+            }
+
+            // Fail the workflow if any label does not exist (getLabel throws 404).
+            for (const name of labels) {
+              await github.rest.issues.getLabel({ owner, repo, name });
+            }
+
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: pr.number,
+              labels,
+            });
