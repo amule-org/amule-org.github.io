@@ -1,1 +1,626 @@
-{}
+{
+  "homepage.features.sourceExchange.title": {
+    "message": ""
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": ""
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": ""
+  },
+  "homepage.features.systemTray.desc": {
+    "message": ""
+  },
+  "homepage.features.networks.title": {
+    "message": ""
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": ""
+  },
+  "theme.admonition.caution": {
+    "message": ""
+  },
+  "homepage.download.foot": {
+    "message": ""
+  },
+  "homepage.download.source.targz": {
+    "message": ""
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": ""
+  },
+  "homepage.features.creditSystem.title": {
+    "message": ""
+  },
+  "homepage.features.languages.desc": {
+    "message": ""
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": ""
+  },
+  "theme.tags.tagsListLabel": {
+    "message": ""
+  },
+  "homepage.features.nativePackages.title": {
+    "message": ""
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": ""
+  },
+  "homepage.download.previous.link": {
+    "message": ""
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": ""
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": ""
+  },
+  "homepage.features.languages.title": {
+    "message": ""
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": ""
+  },
+  "homepage.download.title": {
+    "message": ""
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": ""
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": ""
+  },
+  "homepage.download.previous.body": {
+    "message": ""
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": ""
+  },
+  "homepage.highlights.packages.detail": {
+    "message": ""
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": ""
+  },
+  "homepage.highlights.performance.tag": {
+    "message": ""
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": ""
+  },
+  "homepage.screenshots.lead": {
+    "message": ""
+  },
+  "homepage.features.proxy.desc": {
+    "message": ""
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": ""
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": ""
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": ""
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": ""
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": ""
+  },
+  "homepage.highlights.performance.detail": {
+    "message": ""
+  },
+  "theme.SearchBar.seeAll": {
+    "message": ""
+  },
+  "homepage.download.lead": {
+    "message": ""
+  },
+  "homepage.download.arch.x64": {
+    "message": ""
+  },
+  "theme.blog.tagTitle": {
+    "message": ""
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": ""
+  },
+  "theme.NotFound.p2": {
+    "message": ""
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": ""
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": ""
+  },
+  "homepage.highlights.title": {
+    "message": ""
+  },
+  "theme.ErrorPageContent.title": {
+    "message": ""
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": ""
+  },
+  "homepage.download.install.link": {
+    "message": ""
+  },
+  "homepage.download.pageDescription": {
+    "message": ""
+  },
+  "homepage.features.preview.title": {
+    "message": ""
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": ""
+  },
+  "theme.SearchBar.label": {
+    "message": ""
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": ""
+  },
+  "homepage.download.compile.link": {
+    "message": ""
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": ""
+  },
+  "theme.admonition.warning": {
+    "message": ""
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": ""
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": ""
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": ""
+  },
+  "homepage.features.messaging.desc": {
+    "message": ""
+  },
+  "homepage.features.networks.desc": {
+    "message": ""
+  },
+  "homepage.features.categories.desc": {
+    "message": ""
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": ""
+  },
+  "homepage.highlights.performance.label": {
+    "message": ""
+  },
+  "theme.lastUpdated.atDate": {
+    "message": ""
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": ""
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": ""
+  },
+  "homepage.features.preview.desc": {
+    "message": ""
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": ""
+  },
+  "theme.docs.paginator.next": {
+    "message": ""
+  },
+  "theme.blog.author.pageTitle": {
+    "message": ""
+  },
+  "homepage.screenshots.title": {
+    "message": ""
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": ""
+  },
+  "homepage.features.docsLink": {
+    "message": ""
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": ""
+  },
+  "homepage.features.systemTray.title": {
+    "message": ""
+  },
+  "homepage.features.daemon.desc": {
+    "message": ""
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": ""
+  },
+  "homepage.download.foot.link": {
+    "message": ""
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": ""
+  },
+  "homepage.screenshots.search.caption": {
+    "message": ""
+  },
+  "homepage.hero.cta.download": {
+    "message": ""
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": ""
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": ""
+  },
+  "homepage.features.folderRescan.title": {
+    "message": ""
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": ""
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": ""
+  },
+  "homepage.features.proxy.title": {
+    "message": ""
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": ""
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": ""
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": ""
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": ""
+  },
+  "homepage.download.install": {
+    "message": ""
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": ""
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": ""
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": ""
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": ""
+  },
+  "homepage.download.compile": {
+    "message": ""
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": ""
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": ""
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": ""
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": ""
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": ""
+  },
+  "homepage.tagline": {
+    "message": ""
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": ""
+  },
+  "homepage.whatisamule.title": {
+    "message": ""
+  },
+  "theme.blog.author.noPosts": {
+    "message": ""
+  },
+  "homepage.download.version.label": {
+    "message": ""
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": ""
+  },
+  "homepage.features.categories.title": {
+    "message": ""
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": ""
+  },
+  "theme.blog.post.plurals": {
+    "message": ""
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": ""
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": ""
+  },
+  "theme.admonition.note": {
+    "message": ""
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": ""
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": ""
+  },
+  "homepage.features.powerShare.desc": {
+    "message": ""
+  },
+  "homepage.features.openSource.desc": {
+    "message": ""
+  },
+  "homepage.description": {
+    "message": ""
+  },
+  "homepage.download.previous.title": {
+    "message": ""
+  },
+  "theme.lastUpdated.byUser": {
+    "message": ""
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": ""
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": ""
+  },
+  "theme.blog.archive.description": {
+    "message": ""
+  },
+  "homepage.features.title": {
+    "message": ""
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": ""
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": ""
+  },
+  "homepage.download.source.zip": {
+    "message": ""
+  },
+  "homepage.highlights.changelog": {
+    "message": ""
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": ""
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": ""
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": ""
+  },
+  "theme.admonition.tip": {
+    "message": ""
+  },
+  "theme.admonition.danger": {
+    "message": ""
+  },
+  "homepage.download.windows.installer.label": {
+    "message": ""
+  },
+  "homepage.features.openSource.title": {
+    "message": ""
+  },
+  "homepage.hero.logo.alt": {
+    "message": ""
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": ""
+  },
+  "homepage.download.source.platform": {
+    "message": ""
+  },
+  "homepage.highlights.packages.label": {
+    "message": ""
+  },
+  "homepage.download.windows.portable.label": {
+    "message": ""
+  },
+  "homepage.features.powerShare.title": {
+    "message": ""
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": ""
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": ""
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": ""
+  },
+  "homepage.features.messaging.title": {
+    "message": ""
+  },
+  "theme.blog.archive.title": {
+    "message": ""
+  },
+  "homepage.whatisamule.p1": {
+    "message": ""
+  },
+  "homepage.whatisamule.p2": {
+    "message": ""
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": ""
+  },
+  "homepage.download.source.label": {
+    "message": ""
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": ""
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": ""
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": ""
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": ""
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": ""
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": ""
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": ""
+  },
+  "theme.CodeBlock.copy": {
+    "message": ""
+  },
+  "homepage.highlights.bandwidth.detail": {
+    "message": ""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": ""
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": ""
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": ""
+  },
+  "homepage.highlights.packages.tag": {
+    "message": ""
+  },
+  "theme.tags.tagsPageLink": {
+    "message": ""
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": ""
+  },
+  "homepage.download.install.guide.link": {
+    "message": ""
+  },
+  "homepage.download.previous.entry.github": {
+    "message": ""
+  },
+  "theme.NotFound.p1": {
+    "message": ""
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": ""
+  },
+  "theme.blog.post.readMore": {
+    "message": ""
+  },
+  "homepage.features.search.title": {
+    "message": ""
+  },
+  "theme.CodeBlock.copied": {
+    "message": ""
+  },
+  "homepage.features.daemon.title": {
+    "message": ""
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": ""
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": ""
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": ""
+  },
+  "homepage.screenshots.search.alt": {
+    "message": ""
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": ""
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": ""
+  },
+  "homepage.download.version.date": {
+    "message": ""
+  },
+  "homepage.download.distros.link": {
+    "message": ""
+  },
+  "homepage.highlights.bandwidth.label": {
+    "message": ""
+  },
+  "theme.admonition.info": {
+    "message": ""
+  },
+  "homepage.download.source.os": {
+    "message": ""
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": ""
+  },
+  "theme.common.skipToMainContent": {
+    "message": ""
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": ""
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": ""
+  },
+  "homepage.download.version.changelog": {
+    "message": ""
+  },
+  "theme.common.headingLinkTitle": {
+    "message": ""
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": ""
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": ""
+  },
+  "theme.docs.versionBadge.label": {
+    "message": ""
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": ""
+  },
+  "theme.common.editThisPage": {
+    "message": ""
+  },
+  "homepage.download.arch.arm64": {
+    "message": ""
+  },
+  "homepage.features.search.desc": {
+    "message": ""
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": ""
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": ""
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": ""
+  },
+  "theme.docs.paginator.previous": {
+    "message": ""
+  },
+  "homepage.download.previous.github.link": {
+    "message": ""
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": ""
+  },
+  "theme.NotFound.title": {
+    "message": ""
+  }
+}
