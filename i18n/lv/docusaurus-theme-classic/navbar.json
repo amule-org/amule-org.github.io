@@ -1,1 +1,26 @@
-{}
+{
+  "item.label.Changelog": {
+    "message": "Izmaiņu žurnāls"
+  },
+  "item.label.Blog": {
+    "message": "Emuārs"
+  },
+  "item.label.Discussions": {
+    "message": "Diskusijas"
+  },
+  "item.label.Documentation": {
+    "message": "Dokumentācija"
+  },
+  "item.label.Download": {
+    "message": "Lejupielādēt"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "logo.alt": {
+    "message": "aMule logotips"
+  },
+  "title": {
+    "message": "aMule"
+  }
+}
