@@ -1,0 +1,34 @@
+{
+  "title": {
+    "message": "aMule",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo di aMule",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Download": {
+    "message": "Scarica",
+    "description": "Navbar item with label Download"
+  },
+  "item.label.Documentation": {
+    "message": "Documentazione",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.Changelog": {
+    "message": "Changelog",
+    "description": "Navbar item with label Changelog"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Discussions": {
+    "message": "Discussioni",
+    "description": "Navbar item with label Discussions"
+  }
+}
