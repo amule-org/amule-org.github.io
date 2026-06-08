@@ -223,7 +223,7 @@ Use consistent terminology throughout the documentation:
 
 This section covers translating the **website documentation** into another language. To translate the aMule application interface or the man pages, see the [Translations](./translations.md) guide instead.
 
-The default locale is English (`en`). The only currently supported additional locale is Spanish (`es`).
+The default locale is English (`en`). The additional locales are Spanish (`es`), French (`fr`), and Turkish (`tr`).
 
 ### Adding or Updating a Translation
 
@@ -286,6 +286,42 @@ React component strings (navbar, sidebar labels, homepage text) are in `i18n/es/
 ### Translation Fidelity
 
 Translations must faithfully reflect the English original. Do not paraphrase or simplify. Technical terms (hash, changelog, peer, release, etc.) should remain in English when a translated equivalent would be less precise or less commonly used.
+
+### Translating with Weblate
+
+Translations can also be managed through [Weblate](https://weblate.org/). Weblate is a *monolingual* setup: every component needs an English **base file** that lists the source strings. The English UI strings live in code (`<Translate>` / `translate()` defaults) and in `docusaurus.config.ts`, not in a JSON file, so the base files are generated into `i18n/en/` with:
+
+```sh
+npm run write-translations
+```
+
+This writes `i18n/en/code.json` and the matching `docusaurus-theme-classic/`, `docusaurus-plugin-content-docs/`, and blog/changelog JSON files. These files are committed so Weblate has a stable base to read from. They are safe for the site — Docusaurus uses them for the `en` locale and their values equal the in-code defaults, so the rendered output is unchanged.
+
+:::warning
+The `i18n/en/` base files must stay in sync with the source strings. After adding or changing any `<Translate>` string, regenerate them with `npm run write-translations` and commit the result. The `Build Check` CI workflow runs the same command and fails the pull request if `i18n/en/` is out of date.
+:::
+
+#### Components
+
+Configure one Weblate component per source file. All component names are prefixed `Website:` so this site's components stay grouped when other modules (e.g. the aMule application) are added to the same Weblate project.
+
+| Component name | File mask | Monolingual base file | Format |
+|---|---|---|---|
+| `Website: Web` | `i18n/*/code.json` | `i18n/en/code.json` | JSON nested structure |
+| `Website: Navbar` | `i18n/*/docusaurus-theme-classic/navbar.json` | `i18n/en/docusaurus-theme-classic/navbar.json` | JSON nested structure |
+| `Website: Footer` | `i18n/*/docusaurus-theme-classic/footer.json` | `i18n/en/docusaurus-theme-classic/footer.json` | JSON nested structure |
+| `Website: Blog Sidebar` | `i18n/*/docusaurus-plugin-content-blog/options.json` | `i18n/en/docusaurus-plugin-content-blog/options.json` | JSON nested structure |
+| `Website: Changelog Sidebar` | `i18n/*/docusaurus-plugin-content-blog-changelog/options.json` | `i18n/en/docusaurus-plugin-content-blog-changelog/options.json` | JSON nested structure |
+| `Website: Docs Sidebar` | `i18n/*/docusaurus-plugin-content-docs/current.json` | `i18n/en/docusaurus-plugin-content-docs/current.json` | JSON nested structure |
+| `Website: Docs` | `i18n/*/docusaurus-plugin-content-docs/current/**.md` | corresponding `docs/**.md` | Markdown |
+
+Docusaurus has no dedicated Weblate format. Each JSON entry is an object (`{"message": "...", "description": "..."}`), so the **JSON nested structure** format is used and the translatable unit is the `*.message` key. The `Website: Docs` component covers many Markdown files — use Weblate's **component discovery** add-on to create them automatically from the file mask.
+
+#### Conventions
+
+- **Descriptions are read-only.** The `*.description` keys carry translator context and must never be edited; set them read-only in Weblate so they are not written into the locale files (which only contain `message`).
+- **Git stays editable.** Components track the repository in both directions: Weblate pushes translations to git, and changes committed to git are imported into Weblate.
+- **Markdown caveat.** Weblate's Markdown support is still under development. Edits made directly in git to a translated `.md` file may not be imported back into Weblate reliably — for the `Website: Docs` component, prefer editing translations in Weblate.
 
 ## Submitting a Contribution
 

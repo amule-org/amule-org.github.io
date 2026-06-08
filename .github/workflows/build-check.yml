@@ -24,5 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check translation base files are in sync
+        run: |
+          npm run write-translations
+          git diff --exit-code i18n/en || {
+            echo "::error::i18n/en is out of sync. Run 'npm run write-translations' and commit the changes."
+            exit 1
+          }
+
       - name: Build Docusaurus
         run: npm run build
