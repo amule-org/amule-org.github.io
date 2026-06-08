@@ -65,24 +65,24 @@ interface DownloadOs {
 }
 
 // Reusable architecture labels (technical terms, repeated across artifacts).
-const ARCH_X64 = <Translate id="homepage.download.arch.x64">x64</Translate>;
-const ARCH_ARM64 = <Translate id="homepage.download.arch.arm64">ARM64</Translate>;
+const ARCH_X64 = <Translate id="homepage.download.arch.x64" description="Architecture label for an x64 download artifact">x64</Translate>;
+const ARCH_ARM64 = <Translate id="homepage.download.arch.arm64" description="Architecture label for an ARM64 download artifact">ARM64</Translate>;
 
 const DOWNLOAD_OSES: DownloadOs[] = [
   {
     svg: WINDOWS_SVG,
-    name: <Translate id="homepage.download.windows.os">Windows</Translate>,
-    platform: <Translate id="homepage.download.windows.platform">Windows 10 / 11 · x64 · ARM64</Translate>,
+    name: <Translate id="homepage.download.windows.os" description="Windows OS name in the download page">Windows</Translate>,
+    platform: <Translate id="homepage.download.windows.platform" description="Supported-platform line under the Windows download heading">Windows 10 / 11 · x64 · ARM64</Translate>,
     formats: [
       {
-        label: <Translate id="homepage.download.windows.installer.label">Installer (.exe)</Translate>,
+        label: <Translate id="homepage.download.windows.installer.label" description="Label for the Windows installer download format">Installer (.exe)</Translate>,
         files: [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-Setup-x64.exe`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-Setup-arm64.exe`},
         ],
       },
       {
-        label: <Translate id="homepage.download.windows.portable.label">Portable (.zip)</Translate>,
+        label: <Translate id="homepage.download.windows.portable.label" description="Label for the Windows portable .zip download format">Portable (.zip)</Translate>,
         files: [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-x64.zip`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Windows-arm64.zip`},
@@ -92,14 +92,14 @@ const DOWNLOAD_OSES: DownloadOs[] = [
   },
   {
     svg: MACOS_SVG,
-    name: <Translate id="homepage.download.macos.os">macOS</Translate>,
-    platform: <Translate id="homepage.download.macos.platform">macOS 11.0+ · Apple Silicon · Intel</Translate>,
+    name: <Translate id="homepage.download.macos.os" description="macOS OS name in the download page">macOS</Translate>,
+    platform: <Translate id="homepage.download.macos.platform" description="Supported-platform line under the macOS download heading">macOS 11.0+ · Apple Silicon · Intel</Translate>,
     formats: [
       {
-        label: <Translate id="homepage.download.macos.dmg.label">Disk image (.dmg)</Translate>,
+        label: <Translate id="homepage.download.macos.dmg.label" description="Label for the macOS disk image download format">Disk image (.dmg)</Translate>,
         files: [
           {
-            arch: <Translate id="homepage.download.macos.dmg.arch">Universal2</Translate>,
+            arch: <Translate id="homepage.download.macos.dmg.arch" description="Architecture label for the macOS Universal2 disk image">Universal2</Translate>,
             href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-macOS-universal2.dmg`,
           },
         ],
@@ -108,18 +108,18 @@ const DOWNLOAD_OSES: DownloadOs[] = [
   },
   {
     svg: LINUX_SVG,
-    name: <Translate id="homepage.download.linux.os">Linux</Translate>,
-    platform: <Translate id="homepage.download.linux.platform">glibc ≥ 2.35 · x64 · ARM64</Translate>,
+    name: <Translate id="homepage.download.linux.os" description="Linux OS name in the download page">Linux</Translate>,
+    platform: <Translate id="homepage.download.linux.platform" description="Supported-platform line under the Linux download heading">glibc ≥ 2.35 · x64 · ARM64</Translate>,
     formats: [
       {
-        label: <Translate id="homepage.download.linux.appimage.label">AppImage</Translate>,
+        label: <Translate id="homepage.download.linux.appimage.label" description="Label for the Linux AppImage download format">AppImage</Translate>,
         files: [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64.AppImage`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64.AppImage`},
         ],
       },
       {
-        label: <Translate id="homepage.download.linux.flatpak.label">Flatpak</Translate>,
+        label: <Translate id="homepage.download.linux.flatpak.label" description="Label for the Linux Flatpak download format">Flatpak</Translate>,
         files: [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64.flatpak`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64.flatpak`},
@@ -129,18 +129,18 @@ const DOWNLOAD_OSES: DownloadOs[] = [
   },
   {
     svg: SOURCE_SVG,
-    name: <Translate id="homepage.download.source.os">Source</Translate>,
-    platform: <Translate id="homepage.download.source.platform">Build it yourself</Translate>,
+    name: <Translate id="homepage.download.source.os" description="Source-code option name in the download page">Source</Translate>,
+    platform: <Translate id="homepage.download.source.platform" description="Subtitle under the Source download heading">Build it yourself</Translate>,
     formats: [
       {
-        label: <Translate id="homepage.download.source.label">Source code</Translate>,
+        label: <Translate id="homepage.download.source.label" description="Label for the source-code download format">Source code</Translate>,
         files: [
           {
-            arch: <Translate id="homepage.download.source.targz">.tar.gz</Translate>,
+            arch: <Translate id="homepage.download.source.targz" description="Label for the .tar.gz source archive">.tar.gz</Translate>,
             href: `${SOURCE_ARCHIVE_BASE}.tar.gz`,
           },
           {
-            arch: <Translate id="homepage.download.source.zip">.zip</Translate>,
+            arch: <Translate id="homepage.download.source.zip" description="Label for the .zip source archive">.zip</Translate>,
             href: `${SOURCE_ARCHIVE_BASE}.zip`,
           },
         ],
@@ -155,16 +155,17 @@ export default function DownloadPage(): React.JSX.Element {
   } = useDocusaurusContext();
   return (
     <Layout
-      title={translate({id: 'homepage.download.title', message: 'Download'})}
+      title={translate({id: 'homepage.download.title', message: 'Download', description: 'Download page title and main heading'})}
       description={translate({
         id: 'homepage.download.pageDescription',
         message: 'Download aMule for Windows, macOS, Linux or build from source.',
+        description: 'Download page SEO meta description (HTML description tag)',
       })}
     >
       <main>
         <section className={styles.section} id="download">
           <h2>
-            <Translate id="homepage.download.title">Download</Translate>
+            <Translate id="homepage.download.title" description="Download page title and main heading">Download</Translate>
           </h2>
 
           <div className={styles.versionHeader}>
@@ -173,26 +174,27 @@ export default function DownloadPage(): React.JSX.Element {
                 aMule {LATEST_VERSION}
               </Link>
               <span className={styles.versionBadge}>
-                <Translate id="homepage.download.version.label">Latest version</Translate>
+                <Translate id="homepage.download.version.label" description="Badge next to the version number marking it as the latest release">Latest version</Translate>
               </span>
             </div>
             <div className={styles.versionMeta}>
               <span className={styles.versionDate}>
                 <Translate
                   id="homepage.download.version.date"
+                  description="Release date line on the download page; {date} is the localized release date"
                   values={{date: formatDate(LATEST_DATE, currentLocale)}}
                 >
                   {'Released {date}'}
                 </Translate>
               </span>
               <Link className={styles.changelogLink} to={CHANGELOG_URL}>
-                <Translate id="homepage.download.version.changelog">Changelog</Translate>
+                <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
               </Link>
             </div>
           </div>
 
           <p className={styles.dlLead}>
-            <Translate id="homepage.download.lead">
+            <Translate id="homepage.download.lead" description="Intro line above the per-OS download panels">
               aMule is available for most major desktop platforms.
             </Translate>
           </p>
@@ -233,15 +235,16 @@ export default function DownloadPage(): React.JSX.Element {
           <p className={styles.dlFoot}>
             <Translate
               id="homepage.download.foot"
+              description="Footer note under the download panels; {release} and {distros} are links"
               values={{
                 release: (
                   <Link to={RELEASES_URL}>
-                    <Translate id="homepage.download.foot.link">latest release page</Translate>
+                    <Translate id="homepage.download.foot.link" description="Link text for the latest release page in the download footer note">latest release page</Translate>
                   </Link>
                 ),
                 distros: (
                   <Link to="/docs/manual/installation#distribution-packages">
-                    <Translate id="homepage.download.distros.link">major Linux distributions</Translate>
+                    <Translate id="homepage.download.distros.link" description="Link text for Linux distribution packages in the download footer note">major Linux distributions</Translate>
                   </Link>
                 ),
               }}
@@ -252,15 +255,16 @@ export default function DownloadPage(): React.JSX.Element {
           <p className={styles.dlFoot}>
             <Translate
               id="homepage.download.install"
+              description="Footer note pointing to the install and quick-start guides; {install} and {quickstart} are links"
               values={{
                 install: (
                   <Link to="/docs/manual/installation">
-                    <Translate id="homepage.download.install.guide.link">Installation guide</Translate>
+                    <Translate id="homepage.download.install.guide.link" description="Link text for the installation guide in the download footer note">Installation guide</Translate>
                   </Link>
                 ),
                 quickstart: (
                   <Link to="/docs/quickstart-guide">
-                    <Translate id="homepage.download.install.link">Quick Start guide</Translate>
+                    <Translate id="homepage.download.install.link" description="Link text for the Quick Start guide in the download footer note">Quick Start guide</Translate>
                   </Link>
                 ),
               }}
@@ -271,10 +275,11 @@ export default function DownloadPage(): React.JSX.Element {
           <p className={styles.dlFoot}>
             <Translate
               id="homepage.download.compile"
+              description="Footer note pointing to the compilation guide; {link} is a link"
               values={{
                 link: (
                   <Link to="/docs/developer/compilation">
-                    <Translate id="homepage.download.compile.link">Compilation guide</Translate>
+                    <Translate id="homepage.download.compile.link" description="Link text for the compilation guide in the download footer note">Compilation guide</Translate>
                   </Link>
                 ),
               }}
@@ -285,20 +290,21 @@ export default function DownloadPage(): React.JSX.Element {
 
           <section className={styles.prevReleases}>
             <h3>
-              <Translate id="homepage.download.previous.title">Previous releases</Translate>
+              <Translate id="homepage.download.previous.title" description="Heading of the previous-releases section on the download page">Previous releases</Translate>
             </h3>
             <p className={styles.dlFoot}>
               <Translate
                 id="homepage.download.previous.body"
+                description="Intro text of the previous-releases section; {github} and {sourceforge} are links"
                 values={{
                   sourceforge: (
                     <Link to="https://sourceforge.net/projects/amule/files/aMule/">
-                      <Translate id="homepage.download.previous.link">SourceForge</Translate>
+                      <Translate id="homepage.download.previous.link" description="SourceForge link text in the previous-releases intro">SourceForge</Translate>
                     </Link>
                   ),
                   github: (
                     <Link to="https://github.com/amule-org/amule/releases">
-                      <Translate id="homepage.download.previous.github.link">GitHub</Translate>
+                      <Translate id="homepage.download.previous.github.link" description="GitHub link text in the previous-releases intro">GitHub</Translate>
                     </Link>
                   ),
                 }}
@@ -316,16 +322,16 @@ export default function DownloadPage(): React.JSX.Element {
                       <svg className={styles.prevDlIcon} viewBox="0 0 24 24" aria-hidden="true">
                         <path fill="currentColor" d={DOWNLOAD_SVG} />
                       </svg>
-                      <Translate id="homepage.download.previous.entry.github">GitHub</Translate>
+                      <Translate id="homepage.download.previous.entry.github" description="GitHub download link for a previous release entry">GitHub</Translate>
                     </Link>
                     <Link to={`https://sourceforge.net/projects/amule/files/aMule/${r.version}/`}>
                       <svg className={styles.prevDlIcon} viewBox="0 0 24 24" aria-hidden="true">
                         <path fill="currentColor" d={DOWNLOAD_SVG} />
                       </svg>
-                      <Translate id="homepage.download.previous.entry.sourceforge">SourceForge</Translate>
+                      <Translate id="homepage.download.previous.entry.sourceforge" description="SourceForge download link for a previous release entry">SourceForge</Translate>
                     </Link>
                     <Link to={`/changelog/${r.version}`}>
-                      <Translate id="homepage.download.version.changelog">Changelog</Translate>
+                      <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
                     </Link>
                   </span>
                 </li>

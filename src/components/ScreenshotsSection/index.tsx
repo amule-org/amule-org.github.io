@@ -12,23 +12,23 @@ interface Screenshot {
 const SCREENSHOTS: Screenshot[] = [
   {
     src: 'screenshots/networks.png',
-    alt: translate({id: 'homepage.screenshots.networks.alt', message: 'Networks tab — server list and Kademlia status'}),
-    caption: <Translate id="homepage.screenshots.networks.caption">Networks — eD2k servers and Kad status</Translate>,
+    alt: translate({id: 'homepage.screenshots.networks.alt', message: 'Networks tab — server list and Kademlia status', description: 'Alt text for the Networks-tab screenshot'}),
+    caption: <Translate id="homepage.screenshots.networks.caption" description="Caption under the Networks-tab screenshot">Networks — eD2k servers and Kad status</Translate>,
   },
   {
     src: 'screenshots/search.png',
-    alt: translate({id: 'homepage.screenshots.search.alt', message: 'Search tab with results'}),
-    caption: <Translate id="homepage.screenshots.search.caption">Search — eD2k + Kad search results</Translate>,
+    alt: translate({id: 'homepage.screenshots.search.alt', message: 'Search tab with results', description: 'Alt text for the Search-tab screenshot'}),
+    caption: <Translate id="homepage.screenshots.search.caption" description="Caption under the Search-tab screenshot">Search — eD2k + Kad search results</Translate>,
   },
   {
     src: 'screenshots/downloads.png',
-    alt: translate({id: 'homepage.screenshots.downloads.alt', message: 'Downloads tab with active downloads'}),
-    caption: <Translate id="homepage.screenshots.downloads.caption">Downloads — per-file progress with availability bars</Translate>,
+    alt: translate({id: 'homepage.screenshots.downloads.alt', message: 'Downloads tab with active downloads', description: 'Alt text for the Downloads-tab screenshot'}),
+    caption: <Translate id="homepage.screenshots.downloads.caption" description="Caption under the Downloads-tab screenshot">Downloads — per-file progress with availability bars</Translate>,
   },
   {
     src: 'screenshots/shared.png',
-    alt: translate({id: 'homepage.screenshots.shared.alt', message: 'Shared files tab'}),
-    caption: <Translate id="homepage.screenshots.shared.caption">Shared files</Translate>,
+    alt: translate({id: 'homepage.screenshots.shared.alt', message: 'Shared files tab', description: 'Alt text for the Shared-files-tab screenshot'}),
+    caption: <Translate id="homepage.screenshots.shared.caption" description="Caption under the Shared-files-tab screenshot">Shared files</Translate>,
   },
 ];
 
@@ -71,11 +71,12 @@ export default function ScreenshotsSection(): React.JSX.Element {
   return (
     <section className={styles.section}>
       <h2>
-        <Translate id="homepage.screenshots.title">Screenshots</Translate>
+        <Translate id="homepage.screenshots.title" description="Heading of the Screenshots section on the homepage">Screenshots</Translate>
       </h2>
       <p className={styles.ssLead}>
         <Translate
           id="homepage.screenshots.lead"
+          description="Intro text under the Screenshots heading; {left} {right} {esc} are keyboard keys rendered as kbd elements"
           values={{
             left: <kbd>←</kbd>,
             right: <kbd>→</kbd>,
@@ -113,7 +114,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
           <button
             className={`${styles.modalBtn} ${styles.modalClose}`}
             onClick={close}
-            aria-label={translate({id: 'homepage.screenshots.lightbox.close', message: 'Close (Esc)'})}
+            aria-label={translate({id: 'homepage.screenshots.lightbox.close', message: 'Close (Esc)', description: 'Accessible label for the close button in the screenshot lightbox'})}
           >
             ×
           </button>
@@ -123,7 +124,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
               e.stopPropagation();
               prev();
             }}
-            aria-label={translate({id: 'homepage.screenshots.lightbox.prev', message: 'Previous (←)'})}
+            aria-label={translate({id: 'homepage.screenshots.lightbox.prev', message: 'Previous (←)', description: 'Accessible label for the previous-image button in the screenshot lightbox'})}
           >
             ❮
           </button>
@@ -133,7 +134,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
               e.stopPropagation();
               next();
             }}
-            aria-label={translate({id: 'homepage.screenshots.lightbox.next', message: 'Next (→)'})}
+            aria-label={translate({id: 'homepage.screenshots.lightbox.next', message: 'Next (→)', description: 'Accessible label for the next-image button in the screenshot lightbox'})}
           >
             ❯
           </button>

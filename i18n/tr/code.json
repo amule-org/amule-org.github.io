@@ -375,67 +375,51 @@
     "message": "aMule Nedir?"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "description": "The ARIA label for close button of announcement bar",
     "message": "Kapat"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
-    "description": "The ARIA label for the back to top button",
     "message": "Sayfa başına dön"
   },
   "theme.CodeBlock.copied": {
-    "description": "The copied button label on code blocks",
     "message": "Kopyalandı"
   },
   "theme.CodeBlock.copy": {
-    "description": "The copy button label on code blocks",
     "message": "Kopyala"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
-    "description": "The ARIA label for copy code blocks button",
     "message": "Kodu panoya kopyala"
   },
   "theme.CodeBlock.wordWrapToggle": {
-    "description": "The title attribute for toggle word wrapping button of code block lines",
     "message": "Kelime kaydırmayı aç/kapat"
   },
   "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "description": "The ARIA label to collapse the sidebar category",
     "message": "Kenar çubuğu kategorisini daralt '{label}'"
   },
   "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "description": "The ARIA label to expand the sidebar category",
     "message": "Kenar çubuğu kategorisini genişlet '{label}'"
   },
   "theme.ErrorPageContent.title": {
-    "description": "The title of the fallback page when the page crashed",
     "message": "Bu sayfa çöktü."
   },
   "theme.ErrorPageContent.tryAgain": {
-    "description": "The label of the button to try again rendering when the React error boundary captures an error",
     "message": "Tekrar deneyin"
   },
   "theme.IconExternalLink.ariaLabel": {
-    "description": "The ARIA label for the external link icon",
     "message": "(opens in new tab)"
   },
   "theme.NavBar.navAriaLabel": {
-    "description": "The ARIA label for the main navigation",
     "message": "Ana menü"
   },
   "theme.NotFound.p1": {
-    "description": "The first paragraph of the 404 page",
     "message": "Aradığınız şeyi bulamadık."
   },
   "theme.NotFound.p2": {
-    "description": "The 2nd paragraph of the 404 page",
     "message": "Lütfen sizi orijinal URL'ye yönlendiren sitenin sahibiyle iletişime geçin ve bağlantısının bozuk olduğunu bildirin."
   },
   "theme.NotFound.title": {
-    "description": "The title of the 404 page",
     "message": "Sayfa Bulunamadı"
   },
   "theme.SearchBar.label": {
-    "description": "The ARIA label and placeholder for search button",
     "message": "Ara"
   },
   "theme.SearchBar.noResultsText": {
@@ -451,289 +435,219 @@
     "message": "\"{context}\" haricinde tüm sonuçları gör"
   },
   "theme.SearchPage.documentsFound.plurals": {
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
     "message": "1 belge bulundu|{count} belge bulundu"
   },
   "theme.SearchPage.emptyResultsTitle": {
-    "description": "The search page title for empty query",
     "message": "Belgelendirmede ara"
   },
   "theme.SearchPage.existingResultsTitle": {
-    "description": "The search page title for non-empty query",
     "message": "\"{query}\"için arama sonuçları"
   },
   "theme.SearchPage.noResultsText": {
-    "description": "The paragraph for empty search result",
     "message": "Hiçbir belge bulunamadı"
   },
   "theme.SearchPage.searchContext.everywhere": {
     "message": "Her yerde"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
-    "description": "The label used by the button on the collapsible TOC component",
     "message": "Bu sayfada"
   },
   "theme.admonition.caution": {
-    "description": "The default label used for the Caution admonition (:::caution)",
     "message": "uyarı"
   },
   "theme.admonition.danger": {
-    "description": "The default label used for the Danger admonition (:::danger)",
     "message": "tehlike"
   },
   "theme.admonition.info": {
-    "description": "The default label used for the Info admonition (:::info)",
     "message": "bilgi"
   },
   "theme.admonition.note": {
-    "description": "The default label used for the Note admonition (:::note)",
     "message": "not"
   },
   "theme.admonition.tip": {
-    "description": "The default label used for the Tip admonition (:::tip)",
     "message": "ipucu"
   },
   "theme.admonition.warning": {
-    "description": "The default label used for the Warning admonition (:::warning)",
     "message": "uyarı"
   },
   "theme.blog.archive.description": {
-    "description": "The page & hero description of the blog archive page",
     "message": "Arşiv"
   },
   "theme.blog.archive.title": {
-    "description": "The page & hero title of the blog archive page",
     "message": "Arşiv"
   },
   "theme.blog.author.noPosts": {
-    "description": "The text for authors with 0 blog post",
     "message": "Bu yazar henüz herhangi bir yazı yazmadı."
   },
   "theme.blog.author.pageTitle": {
-    "description": "The title of the page for a blog author",
     "message": "{authorName} - {nPosts}"
   },
   "theme.blog.authorsList.pageTitle": {
-    "description": "The title of the authors page",
     "message": "Yazarlar"
   },
   "theme.blog.authorsList.viewAll": {
-    "description": "The label of the link targeting the blog authors page",
     "message": "Tüm Yazarları Görüntüle"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "description": "The ARIA label for the blog pagination",
     "message": "Blog gönderi sayfası navigasyonu"
   },
   "theme.blog.paginator.newerEntries": {
-    "description": "The label used to navigate to the newer blog posts page (previous page)",
     "message": "Yeni Girdiler"
   },
   "theme.blog.paginator.olderEntries": {
-    "description": "The label used to navigate to the older blog posts page (next page)",
     "message": "Eski Girdiler"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "description": "The ARIA label for the blog posts pagination",
     "message": "Blog gönderi sayfası navigasyonu"
   },
   "theme.blog.post.paginator.newerPost": {
-    "description": "The blog post button label to navigate to the newer/previous post",
     "message": "Daha Yeni Gönderi"
   },
   "theme.blog.post.paginator.olderPost": {
-    "description": "The blog post button label to navigate to the older/next post",
     "message": "Daha Eski Gönderi"
   },
   "theme.blog.post.plurals": {
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
     "message": "Bir gönderi|{count} gönderi"
   },
   "theme.blog.post.readMore": {
-    "description": "The label used in blog post item excerpts to link to full blog posts",
     "message": "Daha Fazla"
   },
   "theme.blog.post.readMoreLabel": {
-    "description": "The ARIA label for the link to full blog posts from excerpts",
     "message": "{title} hakkında daha fazla bilgi edinin"
   },
   "theme.blog.post.readingTime.plurals": {
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
     "message": "{readingTime} dakikalık okuma|{readingTime} dakikalık okuma"
   },
   "theme.blog.sidebar.navAriaLabel": {
-    "description": "The ARIA label for recent posts in the blog sidebar",
     "message": "Blog son gönderiler navigasyonu"
   },
   "theme.blog.tagTitle": {
-    "description": "The title of the page for a blog tag",
     "message": "\"{tagName}\" ile etiketlenmiş {nPosts}"
   },
   "theme.colorToggle.ariaLabel": {
-    "description": "The ARIA label for the color mode toggle",
     "message": "Karanlık ve aydınlık kip arasında geçiş yapın (şu anda {mode})"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
-    "description": "The name for the dark color mode",
     "message": "Karanlık kip"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
-    "description": "The name for the light color mode",
     "message": "Aydınlık kip"
   },
   "theme.colorToggle.ariaLabel.mode.system": {
-    "description": "The name for the system color mode",
     "message": "sistem kipi"
   },
   "theme.common.editThisPage": {
-    "description": "The link label to edit the current page",
     "message": "Bu sayfayı düzenle"
   },
   "theme.common.headingLinkTitle": {
-    "description": "Title for link to heading",
     "message": "{heading} doğrudan bağlantı"
   },
   "theme.common.skipToMainContent": {
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation",
     "message": "Ana içeriğe geç"
   },
   "theme.contentVisibility.draftBanner.message": {
-    "description": "The draft content banner message",
     "message": "Bu sayfa bir taslaktır. Sadece dev'de görünür olacak ve üretim yapısından hariç tutulacaktır."
   },
   "theme.contentVisibility.draftBanner.title": {
-    "description": "The draft content banner title",
     "message": "Taslak sayfa"
   },
   "theme.contentVisibility.unlistedBanner.message": {
-    "description": "The unlisted content banner message",
     "message": "Bu sayfa listelenmemiş. Arama motorları dizine eklemez ve yalnızca doğrudan bağlantısı olan kullanıcılar buna erişebilir."
   },
   "theme.contentVisibility.unlistedBanner.title": {
-    "description": "The unlisted content banner title",
     "message": "Listelenmeyen sayfa"
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
-    "description": "The default description for a category card in the generated index about how many items this category includes",
     "message": "1 öğe|{count} öğe"
   },
   "theme.docs.breadcrumbs.home": {
-    "description": "The ARIA label for the home page in the breadcrumbs",
     "message": "Ana sayfa"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
-    "description": "The ARIA label for the breadcrumbs",
     "message": "Gezinti yolu"
   },
   "theme.docs.paginator.navAriaLabel": {
-    "description": "The ARIA label for the docs pagination",
     "message": "Belgeler sayfası"
   },
   "theme.docs.paginator.next": {
-    "description": "The label used to navigate to the next doc",
     "message": "Sonraki"
   },
   "theme.docs.paginator.previous": {
-    "description": "The label used to navigate to the previous doc",
     "message": "Önceki"
   },
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "description": "The ARIA label for close button of mobile sidebar",
     "message": "Gezinme çubuğunu kapat"
   },
   "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "description": "The title attribute for collapse button of doc sidebar",
     "message": "Kenar çubuğunu daralt"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
-    "description": "The title attribute for collapse button of doc sidebar",
     "message": "Kenar çubuğunu daralt"
   },
   "theme.docs.sidebar.expandButtonAriaLabel": {
-    "description": "The ARIA label and title attribute for expand button of doc sidebar",
     "message": "Kenar çubuğunu genişlet"
   },
   "theme.docs.sidebar.expandButtonTitle": {
-    "description": "The ARIA label and title attribute for expand button of doc sidebar",
     "message": "Kenar çubuğunu genişlet"
   },
   "theme.docs.sidebar.navAriaLabel": {
-    "description": "The ARIA label for the sidebar navigation",
     "message": "Belgeler kenar çubuğu"
   },
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "description": "The ARIA label for hamburger menu button of mobile navigation",
     "message": "Gezinme çubuğunu aç/kapat"
   },
   "theme.docs.tagDocListPageTitle": {
-    "description": "The title of the page for a docs tag",
     "message": "\"{tagName}\" ile etiketlenmiş {nDocsTagged}"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)",
     "message": "Bir belge etiketlendi|{count} belge etiketlendi"
   },
   "theme.docs.versionBadge.label": {
     "message": "Sürüm: {versionLabel}"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
-    "description": "The label used for the latest version suggestion link label",
     "message": "en son sürüm"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "description": "The label used to tell the user to check the latest version",
     "message": "Güncel belgeler için bkz. {latestVersionLink} ({versionLabel})."
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "description": "The label used to tell the user that he's browsing an unmaintained doc version",
     "message": "Bu, {siteTitle} {versionLabel} belgelendirmesidir ve bakımı sonlanmıştır."
   },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "description": "The label used to tell the user that he's browsing an unreleased doc version",
     "message": "Bu, {siteTitle} {versionLabel} sürümü için yayınlanmamış belgelendirmedir."
   },
   "theme.lastUpdated.atDate": {
-    "description": "The words used to describe on which date a page has been last updated",
     "message": " {date} tarihinde"
   },
   "theme.lastUpdated.byUser": {
-    "description": "The words used to describe by who the page has been last updated",
     "message": " {user} tarafından"
   },
   "theme.lastUpdated.lastUpdatedAtBy": {
-    "description": "The sentence used to display when a page has been last updated, and by who",
     "message": "En son {atDate} {byUser} güncellendi"
   },
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
-    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item",
     "message": "Açılır menüyü küçült"
   },
   "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
-    "description": "The ARIA label of the button to expand the mobile dropdown navbar item",
     "message": "Açılır menüyü genişlet"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
-    "description": "The label for the mobile language switcher dropdown",
     "message": "Diller"
   },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)",
     "message": "← Ana menüye dön"
   },
   "theme.navbar.mobileVersionsDropdown.label": {
-    "description": "The label for the navbar versions dropdown on mobile view",
     "message": "Sürümler"
   },
   "theme.tags.tagsListLabel": {
-    "description": "The label alongside a tag list",
     "message": "Etiketler:"
   },
   "theme.tags.tagsPageLink": {
-    "description": "The label of the link targeting the tag list page",
     "message": "Tüm Etiketleri Görüntüle"
   },
   "theme.tags.tagsPageTitle": {
-    "description": "The title of the tag list page",
     "message": "Etiketler"
   }
 }

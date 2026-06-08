@@ -1,378 +1,503 @@
 {
   "homepage.description": {
-    "message": "aMule is a free, all-platform eMule-compatible eD2k/Kad client for Windows, macOS, and Linux."
+    "message": "aMule is a free, all-platform eMule-compatible eD2k/Kad client for Windows, macOS, and Linux.",
+    "description": "Homepage SEO meta description (HTML description tag)"
   },
   "homepage.download.arch.arm64": {
-    "message": "ARM64"
+    "message": "ARM64",
+    "description": "Architecture label for an ARM64 download artifact"
   },
   "homepage.download.arch.x64": {
-    "message": "x64"
+    "message": "x64",
+    "description": "Architecture label for an x64 download artifact"
   },
   "homepage.download.compile": {
-    "message": "The {link} has instructions for building aMule from source."
+    "message": "The {link} has instructions for building aMule from source.",
+    "description": "Footer note pointing to the compilation guide; {link} is a link"
   },
   "homepage.download.compile.link": {
-    "message": "Compilation guide"
+    "message": "Compilation guide",
+    "description": "Link text for the compilation guide in the download footer note"
   },
   "homepage.download.distros.link": {
-    "message": "major Linux distributions"
+    "message": "major Linux distributions",
+    "description": "Link text for Linux distribution packages in the download footer note"
   },
   "homepage.download.foot": {
-    "message": "All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated."
+    "message": "All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated.",
+    "description": "Footer note under the download panels; {release} and {distros} are links"
   },
   "homepage.download.foot.link": {
-    "message": "latest release page"
+    "message": "latest release page",
+    "description": "Link text for the latest release page in the download footer note"
   },
   "homepage.download.install": {
-    "message": "The {install} covers every platform, and the {quickstart} walks you through setup and your first download."
+    "message": "The {install} covers every platform, and the {quickstart} walks you through setup and your first download.",
+    "description": "Footer note pointing to the install and quick-start guides; {install} and {quickstart} are links"
   },
   "homepage.download.install.guide.link": {
-    "message": "Installation guide"
+    "message": "Installation guide",
+    "description": "Link text for the installation guide in the download footer note"
   },
   "homepage.download.install.link": {
-    "message": "Quick Start guide"
+    "message": "Quick Start guide",
+    "description": "Link text for the Quick Start guide in the download footer note"
   },
   "homepage.download.lead": {
-    "message": "aMule is available for most major desktop platforms."
+    "message": "aMule is available for most major desktop platforms.",
+    "description": "Intro line above the per-OS download panels"
   },
   "homepage.download.linux.appimage.label": {
-    "message": "AppImage"
+    "message": "AppImage",
+    "description": "Label for the Linux AppImage download format"
   },
   "homepage.download.linux.flatpak.label": {
-    "message": "Flatpak"
+    "message": "Flatpak",
+    "description": "Label for the Linux Flatpak download format"
   },
   "homepage.download.linux.os": {
-    "message": "Linux"
+    "message": "Linux",
+    "description": "Linux OS name in the download page"
   },
   "homepage.download.linux.platform": {
-    "message": "glibc ≥ 2.35 · x64 · ARM64"
+    "message": "glibc ≥ 2.35 · x64 · ARM64",
+    "description": "Supported-platform line under the Linux download heading"
   },
   "homepage.download.macos.dmg.arch": {
-    "message": "Universal2"
+    "message": "Universal2",
+    "description": "Architecture label for the macOS Universal2 disk image"
   },
   "homepage.download.macos.dmg.label": {
-    "message": "Disk image (.dmg)"
+    "message": "Disk image (.dmg)",
+    "description": "Label for the macOS disk image download format"
   },
   "homepage.download.macos.os": {
-    "message": "macOS"
+    "message": "macOS",
+    "description": "macOS OS name in the download page"
   },
   "homepage.download.macos.platform": {
-    "message": "macOS 11.0+ · Apple Silicon · Intel"
+    "message": "macOS 11.0+ · Apple Silicon · Intel",
+    "description": "Supported-platform line under the macOS download heading"
   },
   "homepage.download.pageDescription": {
-    "message": "Download aMule for Windows, macOS, Linux or build from source."
+    "message": "Download aMule for Windows, macOS, Linux or build from source.",
+    "description": "Download page SEO meta description (HTML description tag)"
   },
   "homepage.download.previous.body": {
-    "message": "Releases before 3.0.0 are archived on {github} and {sourceforge}."
+    "message": "Releases before 3.0.0 are archived on {github} and {sourceforge}.",
+    "description": "Intro text of the previous-releases section; {github} and {sourceforge} are links"
   },
   "homepage.download.previous.entry.github": {
-    "message": "GitHub"
+    "message": "GitHub",
+    "description": "GitHub download link for a previous release entry"
   },
   "homepage.download.previous.entry.sourceforge": {
-    "message": "SourceForge"
+    "message": "SourceForge",
+    "description": "SourceForge download link for a previous release entry"
   },
   "homepage.download.previous.github.link": {
-    "message": "GitHub"
+    "message": "GitHub",
+    "description": "GitHub link text in the previous-releases intro"
   },
   "homepage.download.previous.link": {
-    "message": "SourceForge"
+    "message": "SourceForge",
+    "description": "SourceForge link text in the previous-releases intro"
   },
   "homepage.download.previous.title": {
-    "message": "Previous releases"
+    "message": "Previous releases",
+    "description": "Heading of the previous-releases section on the download page"
   },
   "homepage.download.source.label": {
-    "message": "Source code"
+    "message": "Source code",
+    "description": "Label for the source-code download format"
   },
   "homepage.download.source.os": {
-    "message": "Source"
+    "message": "Source",
+    "description": "Source-code option name in the download page"
   },
   "homepage.download.source.platform": {
-    "message": "Build it yourself"
+    "message": "Build it yourself",
+    "description": "Subtitle under the Source download heading"
   },
   "homepage.download.source.targz": {
-    "message": ".tar.gz"
+    "message": ".tar.gz",
+    "description": "Label for the .tar.gz source archive"
   },
   "homepage.download.source.zip": {
-    "message": ".zip"
+    "message": ".zip",
+    "description": "Label for the .zip source archive"
   },
   "homepage.download.title": {
-    "message": "Download"
+    "message": "Download",
+    "description": "Download page title and main heading"
   },
   "homepage.download.version.changelog": {
-    "message": "Changelog"
+    "message": "Changelog",
+    "description": "Link to a release's changelog on the download page"
   },
   "homepage.download.version.date": {
-    "message": "Released {date}"
+    "message": "Released {date}",
+    "description": "Release date line on the download page; {date} is the localized release date"
   },
   "homepage.download.version.label": {
-    "message": "Latest version"
+    "message": "Latest version",
+    "description": "Badge next to the version number marking it as the latest release"
   },
   "homepage.download.windows.installer.label": {
-    "message": "Installer (.exe)"
+    "message": "Installer (.exe)",
+    "description": "Label for the Windows installer download format"
   },
   "homepage.download.windows.os": {
-    "message": "Windows"
+    "message": "Windows",
+    "description": "Windows OS name in the download page"
   },
   "homepage.download.windows.platform": {
-    "message": "Windows 10 / 11 · x64 · ARM64"
+    "message": "Windows 10 / 11 · x64 · ARM64",
+    "description": "Supported-platform line under the Windows download heading"
   },
   "homepage.download.windows.portable.label": {
-    "message": "Portable (.zip)"
+    "message": "Portable (.zip)",
+    "description": "Label for the Windows portable .zip download format"
   },
   "homepage.features.bandwidthControl.desc": {
-    "message": "Set hard upload and download speed limits, enforced by precise token-bucket limiters. Cap aMule so it never saturates your connection — or let it run full-throttle when you're away."
+    "message": "Set hard upload and download speed limits, enforced by precise token-bucket limiters. Cap aMule so it never saturates your connection — or let it run full-throttle when you're away.",
+    "description": "Body of the 'Bandwidth Control' feature card"
   },
   "homepage.features.bandwidthControl.title": {
-    "message": "Bandwidth Control"
+    "message": "Bandwidth Control",
+    "description": "Title of the 'Bandwidth Control' feature card"
   },
   "homepage.features.categories.desc": {
-    "message": "Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically."
+    "message": "Organize downloads into categories with custom save paths and priorities. Apply rules per category to keep your library tidy automatically.",
+    "description": "Body of the 'Download Categories' feature card"
   },
   "homepage.features.categories.title": {
-    "message": "Download Categories"
+    "message": "Download Categories",
+    "description": "Title of the 'Download Categories' feature card"
   },
   "homepage.features.compressedTransfers.desc": {
-    "message": "File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers."
+    "message": "File data and server communication are compressed with zlib, reducing bandwidth usage for compressible files and lowering the load on eD2k servers.",
+    "description": "Body of the 'Compressed Transfers' feature card"
   },
   "homepage.features.compressedTransfers.title": {
-    "message": "Compressed Transfers"
+    "message": "Compressed Transfers",
+    "description": "Title of the 'Compressed Transfers' feature card"
   },
   "homepage.features.corruptionHandling.desc": {
-    "message": "The Intelligent Corruption Handler (ICH) and AICH automatically detect and repair corrupted download chunks, ensuring complete, intact files without restarting."
+    "message": "The Intelligent Corruption Handler (ICH) and AICH automatically detect and repair corrupted download chunks, ensuring complete, intact files without restarting.",
+    "description": "Body of the 'Corruption Handling' feature card"
   },
   "homepage.features.corruptionHandling.title": {
-    "message": "Corruption Handling"
+    "message": "Corruption Handling",
+    "description": "Title of the 'Corruption Handling' feature card"
   },
   "homepage.features.creditSystem.desc": {
-    "message": "A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads."
+    "message": "A built-in credit and scoring system rewards users who actively upload. The more you share, the higher your score — resulting in faster downloads.",
+    "description": "Body of the 'Credit System' feature card"
   },
   "homepage.features.creditSystem.title": {
-    "message": "Credit System"
+    "message": "Credit System",
+    "description": "Title of the 'Credit System' feature card"
   },
   "homepage.features.daemon.desc": {
-    "message": "Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required."
+    "message": "Run aMule as a lightweight headless process (amuled) on servers, NAS devices, or VPS instances — no graphical display required.",
+    "description": "Body of the 'aMule Daemon' feature card"
   },
   "homepage.features.daemon.title": {
-    "message": "aMule Daemon"
+    "message": "aMule Daemon",
+    "description": "Title of the 'aMule Daemon' feature card"
   },
   "homepage.features.docsLink": {
-    "message": "Browse the full documentation →"
+    "message": "Browse the full documentation →",
+    "description": "Link to the documentation below the feature grid on the homepage"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Click ed2k:// links in your browser to start downloads instantly in aMule. The link handler integrates with your desktop for a seamless one-click experience."
+    "message": "Click ed2k:// links in your browser to start downloads instantly in aMule. The link handler integrates with your desktop for a seamless one-click experience.",
+    "description": "Body of the 'ed2k:// Link Integration' feature card"
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "ed2k:// Link Integration"
+    "message": "ed2k:// Link Integration",
+    "description": "Title of the 'ed2k:// Link Integration' feature card"
   },
   "homepage.features.emuleCompatible.desc": {
-    "message": "Fully wire-compatible with eMule and all *Mule clients. Share files with the same sources, connect to the same servers, and open standard ed2k:// links."
+    "message": "Fully wire-compatible with eMule and all *Mule clients. Share files with the same sources, connect to the same servers, and open standard ed2k:// links.",
+    "description": "Body of the 'eMule Compatible' feature card"
   },
   "homepage.features.emuleCompatible.title": {
-    "message": "eMule Compatible"
+    "message": "eMule Compatible",
+    "description": "Title of the 'eMule Compatible' feature card"
   },
   "homepage.features.folderRescan.desc": {
-    "message": "aMule watches your shared and Incoming folders and picks up new, changed, or removed files automatically — no manual reload needed when your library changes."
+    "message": "aMule watches your shared and Incoming folders and picks up new, changed, or removed files automatically — no manual reload needed when your library changes.",
+    "description": "Body of the 'Automatic Folder Rescan' feature card"
   },
   "homepage.features.folderRescan.title": {
-    "message": "Automatic Folder Rescan"
+    "message": "Automatic Folder Rescan",
+    "description": "Title of the 'Automatic Folder Rescan' feature card"
   },
   "homepage.features.ipFiltering.desc": {
-    "message": "Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client."
+    "message": "Block unwanted IP addresses using standard IP filter lists. Keep aggressive, malicious, or spy peers from connecting to your client.",
+    "description": "Body of the 'IP Filtering' feature card"
   },
   "homepage.features.ipFiltering.title": {
-    "message": "IP Filtering"
+    "message": "IP Filtering",
+    "description": "Title of the 'IP Filtering' feature card"
   },
   "homepage.features.languages.desc": {
-    "message": "The full aMule interface is translated into 37 languages. Download and share files in your native language — the UI adapts automatically to your locale."
+    "message": "The full aMule interface is translated into 37 languages. Download and share files in your native language — the UI adapts automatically to your locale.",
+    "description": "Body of the '37 Interface Languages' feature card"
   },
   "homepage.features.languages.title": {
-    "message": "37 Interface Languages"
+    "message": "37 Interface Languages",
+    "description": "Title of the '37 Interface Languages' feature card"
   },
   "homepage.features.messaging.desc": {
-    "message": "Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners."
+    "message": "Exchange messages directly with other aMule users and maintain a friends list to stay connected with your regular sharing partners.",
+    "description": "Body of the 'Messaging & Friends' feature card"
   },
   "homepage.features.messaging.title": {
-    "message": "Messaging & Friends"
+    "message": "Messaging & Friends",
+    "description": "Title of the 'Messaging & Friends' feature card"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Installer and portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x64 and ARM64."
+    "message": "Installer and portable .zip for Windows, Universal2 .dmg for macOS, AppImage and Flatpak on Linux. Available for both x64 and ARM64.",
+    "description": "Body of the 'Native Packages' feature card"
   },
   "homepage.features.nativePackages.title": {
-    "message": "Native Packages"
+    "message": "Native Packages",
+    "description": "Title of the 'Native Packages' feature card"
   },
   "homepage.features.networks.desc": {
-    "message": "Connect to both the traditional eD2k server network and the serverless Kademlia DHT simultaneously, maximizing your reach and file availability."
+    "message": "Connect to both the traditional eD2k server network and the serverless Kademlia DHT simultaneously, maximizing your reach and file availability.",
+    "description": "Body of the 'eD2k + Kademlia' feature card"
   },
   "homepage.features.networks.title": {
-    "message": "eD2k + Kademlia"
+    "message": "eD2k + Kademlia",
+    "description": "Title of the 'eD2k + Kademlia' feature card"
   },
   "homepage.features.openSource.desc": {
-    "message": "GPL-2.0 licensed with no telemetry, no advertisements, and no vendor lock-in. Your data is yours — inspect and contribute to the source code."
+    "message": "GPL-2.0 licensed with no telemetry, no advertisements, and no vendor lock-in. Your data is yours — inspect and contribute to the source code.",
+    "description": "Body of the 'Free & Open Source' feature card"
   },
   "homepage.features.openSource.title": {
-    "message": "Free & Open Source"
+    "message": "Free & Open Source",
+    "description": "Title of the 'Free & Open Source' feature card"
   },
   "homepage.features.powerShare.desc": {
-    "message": "Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content. In eMule this feature is known as PowerShare."
+    "message": "Give your own released files top priority in the upload queue so they spread across the network as fast as possible — ideal for sharing new content. In eMule this feature is known as PowerShare.",
+    "description": "Body of the 'Release Priority' feature card (PowerShare in eMule)"
   },
   "homepage.features.powerShare.title": {
-    "message": "Release Priority"
+    "message": "Release Priority",
+    "description": "Title of the 'Release Priority' feature card (PowerShare in eMule)"
   },
   "homepage.features.preview.desc": {
-    "message": "Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players."
+    "message": "Play videos and audio files before a download finishes. Compatible with MPlayer, VLC, and other media players.",
+    "description": "Body of the 'Preview Before Complete' feature card"
   },
   "homepage.features.preview.title": {
-    "message": "Preview Before Complete"
+    "message": "Preview Before Complete",
+    "description": "Title of the 'Preview Before Complete' feature card"
   },
   "homepage.features.proxy.desc": {
-    "message": "Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions."
+    "message": "Route connections through SOCKS4, SOCKS5, or HTTP proxies for privacy or to work around network restrictions.",
+    "description": "Body of the 'Proxy Support' feature card"
   },
   "homepage.features.proxy.title": {
-    "message": "Proxy Support"
+    "message": "Proxy Support",
+    "description": "Title of the 'Proxy Support' feature card"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd)."
+    "message": "Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).",
+    "description": "Body of the 'Remote Interfaces' feature card"
   },
   "homepage.features.remoteInterfaces.title": {
-    "message": "Remote Interfaces"
+    "message": "Remote Interfaces",
+    "description": "Title of the 'Remote Interfaces' feature card"
   },
   "homepage.features.search.desc": {
-    "message": "Search across eD2k servers (local and global) and Kademlia nodes. Filter by type, size, and availability. Boolean operators (AND, OR, NOT) supported."
+    "message": "Search across eD2k servers (local and global) and Kademlia nodes. Filter by type, size, and availability. Boolean operators (AND, OR, NOT) supported.",
+    "description": "Body of the 'Powerful Search' feature card"
   },
   "homepage.features.search.title": {
-    "message": "Powerful Search"
+    "message": "Powerful Search",
+    "description": "Title of the 'Powerful Search' feature card"
   },
   "homepage.features.secureIdentification.desc": {
-    "message": "Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network."
+    "message": "Cryptographic secure user identification prevents your client hash from being stolen or spoofed by other peers on the network.",
+    "description": "Body of the 'Secure Identification' feature card"
   },
   "homepage.features.secureIdentification.title": {
-    "message": "Secure Identification"
+    "message": "Secure Identification",
+    "description": "Title of the 'Secure Identification' feature card"
   },
   "homepage.features.slotAllocation.desc": {
-    "message": "Control exactly how many clients you upload to at once and set per-slot bandwidth targets, giving you fine-grained control over your upload capacity."
+    "message": "Control exactly how many clients you upload to at once and set per-slot bandwidth targets, giving you fine-grained control over your upload capacity.",
+    "description": "Body of the 'Slot Allocation' feature card"
   },
   "homepage.features.slotAllocation.title": {
-    "message": "Slot Allocation"
+    "message": "Slot Allocation",
+    "description": "Title of the 'Slot Allocation' feature card"
   },
   "homepage.features.sourceExchange.desc": {
-    "message": "Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly."
+    "message": "Automatically exchange source lists with connected peers to discover more sources for your downloads without querying the server repeatedly.",
+    "description": "Body of the 'Source Exchange' feature card"
   },
   "homepage.features.sourceExchange.title": {
-    "message": "Source Exchange"
+    "message": "Source Exchange",
+    "description": "Title of the 'Source Exchange' feature card"
   },
   "homepage.features.systemTray.desc": {
-    "message": "Minimize aMule to the system tray and let it run quietly in the background. Works across Windows, macOS, and all major Linux desktops."
+    "message": "Minimize aMule to the system tray and let it run quietly in the background. Works across Windows, macOS, and all major Linux desktops.",
+    "description": "Body of the 'System Tray' feature card"
   },
   "homepage.features.systemTray.title": {
-    "message": "System Tray"
+    "message": "System Tray",
+    "description": "Title of the 'System Tray' feature card"
   },
   "homepage.features.title": {
-    "message": "Features"
+    "message": "Features",
+    "description": "Heading of the Features section on the homepage"
   },
   "homepage.hero.cta.download": {
-    "message": "Download"
+    "message": "Download",
+    "description": "Label for the Download call-to-action button in the homepage hero"
   },
   "homepage.hero.cta.quickstart": {
-    "message": "Quick Start"
+    "message": "Quick Start",
+    "description": "Label for the Quick Start call-to-action button in the homepage hero"
   },
   "homepage.hero.logo.alt": {
-    "message": "aMule logo"
+    "message": "aMule logo",
+    "description": "Alt text for the aMule logo in the homepage hero"
   },
   "homepage.hero.screenshot.alt": {
-    "message": "aMule downloads tab"
+    "message": "aMule downloads tab",
+    "description": "Alt text for the downloads-tab screenshot on the homepage"
   },
   "homepage.highlights.bandwidth.detail": {
-    "message": "Upload and download throttlers rewritten as proper token-bucket limiters. {code} means literal unlimited."
+    "message": "Upload and download throttlers rewritten as proper token-bucket limiters. {code} means literal unlimited.",
+    "description": "Body text of the Bandwidth card in the 'What's new in 3.0.0' section; {code} is the MaxUpload=0 setting in monospace"
   },
   "homepage.highlights.bandwidth.label": {
-    "message": "Bandwidth limiting that works"
+    "message": "Bandwidth limiting that works",
+    "description": "Title of the Bandwidth card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.bandwidth.tag": {
-    "message": "Bandwidth"
+    "message": "Bandwidth",
+    "description": "Category badge of the Bandwidth card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0."
+    "message": "Autotools removed entirely. Single CMake build, minimum CMake 3.10, minimum wxWidgets 3.2.0.",
+    "description": "Body text of the build-system card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.buildSystem.label": {
-    "message": "Modern build system"
+    "message": "Modern build system",
+    "description": "Title of the build-system card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
+    "message": "CMake",
+    "description": "Category badge of the build-system card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.changelog": {
-    "message": "Full changelog →"
+    "message": "Full changelog →",
+    "description": "Link to the full 3.0.0 changelog in the release-highlights section"
   },
   "homepage.highlights.packages.detail": {
-    "message": "Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x64 and ARM64 where supported."
+    "message": "Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x64 and ARM64 where supported.",
+    "description": "Body text of the Packages card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.packages.label": {
-    "message": "Binaries for every desktop"
+    "message": "Binaries for every desktop",
+    "description": "Title of the Packages card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.packages.tag": {
-    "message": "Packages"
+    "message": "Packages",
+    "description": "Category badge of the Packages card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.performance.detail": {
-    "message": "Disk I/O moved off the main thread and the network layer overhauled. Peer-to-peer downloads see ~100–380× speedups over 2.3.3 across macOS, Linux, and Windows."
+    "message": "Disk I/O moved off the main thread and the network layer overhauled. Peer-to-peer downloads see ~100–380× speedups over 2.3.3 across macOS, Linux, and Windows.",
+    "description": "Body text of the Performance card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.performance.label": {
-    "message": "Dramatically faster transfers"
+    "message": "Dramatically faster transfers",
+    "description": "Title of the Performance card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.performance.tag": {
-    "message": "Performance"
+    "message": "Performance",
+    "description": "Category badge of the Performance card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.title": {
-    "message": "What's new in 3.0.0"
+    "message": "What's new in 3.0.0",
+    "description": "Heading of the release-highlights section on the homepage"
   },
   "homepage.screenshots.downloads.alt": {
-    "message": "Downloads tab with active downloads"
+    "message": "Downloads tab with active downloads",
+    "description": "Alt text for the Downloads-tab screenshot"
   },
   "homepage.screenshots.downloads.caption": {
-    "message": "Downloads — per-file progress with availability bars"
+    "message": "Downloads — per-file progress with availability bars",
+    "description": "Caption under the Downloads-tab screenshot"
   },
   "homepage.screenshots.lead": {
-    "message": "aMule GUI — same look on Windows, macOS, and Linux. Click any screenshot to enlarge; use {left} {right} to navigate, {esc} to close."
+    "message": "aMule GUI — same look on Windows, macOS, and Linux. Click any screenshot to enlarge; use {left} {right} to navigate, {esc} to close.",
+    "description": "Intro text under the Screenshots heading; {left} {right} {esc} are keyboard keys rendered as kbd elements"
   },
   "homepage.screenshots.lightbox.close": {
-    "message": "Close (Esc)"
+    "message": "Close (Esc)",
+    "description": "Accessible label for the close button in the screenshot lightbox"
   },
   "homepage.screenshots.lightbox.next": {
-    "message": "Next (→)"
+    "message": "Next (→)",
+    "description": "Accessible label for the next-image button in the screenshot lightbox"
   },
   "homepage.screenshots.lightbox.prev": {
-    "message": "Previous (←)"
+    "message": "Previous (←)",
+    "description": "Accessible label for the previous-image button in the screenshot lightbox"
   },
   "homepage.screenshots.networks.alt": {
-    "message": "Networks tab — server list and Kademlia status"
+    "message": "Networks tab — server list and Kademlia status",
+    "description": "Alt text for the Networks-tab screenshot"
   },
   "homepage.screenshots.networks.caption": {
-    "message": "Networks — eD2k servers and Kad status"
+    "message": "Networks — eD2k servers and Kad status",
+    "description": "Caption under the Networks-tab screenshot"
   },
   "homepage.screenshots.search.alt": {
-    "message": "Search tab with results"
+    "message": "Search tab with results",
+    "description": "Alt text for the Search-tab screenshot"
   },
   "homepage.screenshots.search.caption": {
-    "message": "Search — eD2k + Kad search results"
+    "message": "Search — eD2k + Kad search results",
+    "description": "Caption under the Search-tab screenshot"
   },
   "homepage.screenshots.shared.alt": {
-    "message": "Shared files tab"
+    "message": "Shared files tab",
+    "description": "Alt text for the Shared-files-tab screenshot"
   },
   "homepage.screenshots.shared.caption": {
-    "message": "Shared files"
+    "message": "Shared files",
+    "description": "Caption under the Shared-files-tab screenshot"
   },
   "homepage.screenshots.title": {
-    "message": "Screenshots"
+    "message": "Screenshots",
+    "description": "Heading of the Screenshots section on the homepage"
   },
   "homepage.tagline": {
-    "message": "All-platform eMule-compatible eD2k/Kad client"
+    "message": "All-platform eMule-compatible eD2k/Kad client",
+    "description": "Tagline shown under the aMule title in the homepage hero"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule is a free, GPL-licensed peer-to-peer file-sharing client for the {ed2k} and {kad} networks. It's compatible with eMule and runs natively on Windows, macOS, and Linux. The same on-disk state, the same protocol, one binary per major desktop."
+    "message": "aMule is a free, GPL-licensed peer-to-peer file-sharing client for the {ed2k} and {kad} networks. It's compatible with eMule and runs natively on Windows, macOS, and Linux. The same on-disk state, the same protocol, one binary per major desktop.",
+    "description": "First paragraph of the 'What is aMule?' homepage section; {ed2k} and {kad} are network names rendered in bold"
   },
   "homepage.whatisamule.p2": {
-    "message": "After years of quiet, the project is back under active maintenance. The 3.0.0 release brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client."
+    "message": "After years of quiet, the project is back under active maintenance. The 3.0.0 release brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.",
+    "description": "Intro paragraph above the release-highlights cards on the homepage"
   },
   "homepage.whatisamule.title": {
-    "message": "What is aMule?"
+    "message": "What is aMule?",
+    "description": "Heading of the 'What is aMule?' section on the homepage"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Close",

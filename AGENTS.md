@@ -55,6 +55,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 
 - Default locale: `en`. Additional locales: `es`, `fr`, `tr`.
 - UI strings (React components): `i18n/<locale>/code.json` — each entry has `message` (translate this) and `description` (context, do not translate).
+- **Translated `code.json` files contain only `message`** — the `description` is translator context and belongs **only** in the English base (`i18n/en/`). Never write `description` into `i18n/<locale>/code.json` for non-`en` locales; in Weblate it is set read-only for the same reason.
 - Docs content: `i18n/<locale>/docusaurus-plugin-content-docs/current/` mirrors `docs/`.
 - Blog/changelog content: `i18n/<locale>/docusaurus-plugin-content-blog/` mirrors `blog/`; `i18n/<locale>/docusaurus-plugin-content-blog-changelog/` mirrors `changelog/`.
 - Sidebar labels: `i18n/<locale>/docusaurus-plugin-content-docs/current/current.json`.
