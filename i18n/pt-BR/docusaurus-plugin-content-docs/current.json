@@ -1,1 +1,59 @@
-{}
+{
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Compilação"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Configuração"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Arquivos de configuração"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Contribuindo"
+  },
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Guia do Desenvolvedor"
+  },
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Formatos de Arquivo"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "GUI — amule & amulegui"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Interfaces"
+  },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Migração"
+  },
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "Redes P2P"
+  },
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Solução de problemas"
+  },
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Manual do Usuário"
+  },
+  "sidebar.docsSidebar.category.Utilities": {
+    "message": "Utilitários"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "Rede eD2k"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "Perguntas Frequentes"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Instalação"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Visão Geral"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Início Rápido"
+  },
+  "version.label": {
+    "message": "Próximo"
+  }
+}
