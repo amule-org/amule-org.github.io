@@ -366,7 +366,7 @@
     "message": "Client eD2k/Kad compatible avec eMule, disponible sur toutes les plateformes"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule est un client de partage de fichiers pair à pair libre, sous licence GPL pour les réseaux {eD2k} et {Kademlia}. Il est compatible avec eMule et fonctionne nativement sous GNU/Linux, macOS et Windows. Même état sur le disque, même protocole, un binaire par bureau majeur.."
+    "message": "aMule est un client de partage de fichiers pair à pair libre, sous licence GPL pour les réseaux {ed2k} et {kad}. Il est compatible avec eMule et fonctionne nativement sous GNU/Linux, macOS et Windows. Même état sur le disque, même protocole, un binaire par bureau majeur."
   },
   "homepage.whatisamule.p2": {
     "message": "Après des années de calme, le projet est à nouveau maintenu activement. La version 3.0.0 apporte des débits considérablement améliorés, un système de compilation modernisé, des nouveaux paquets natifs pour chaque bureau notable et un code source modernisé pour les systèmes actuels — sans rompre la compatibilité du protocole qui permet à aMule de fonctionner avec n'importe quel autre client fondé sur eMule."

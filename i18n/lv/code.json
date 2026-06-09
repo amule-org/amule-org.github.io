@@ -12,7 +12,7 @@
     "message": "Birkas"
   },
   "homepage.download.version.changelog": {
-    "message": "Izmaiņu žurnāls"
+    "message": "Izmaiņas"
   },
   "homepage.download.arch.arm64": {
     "message": "ARM64"
@@ -162,6 +162,63 @@
     "message": "3.0.0 versijas jaunumi"
   },
   "homepage.whatisamule.p2": {
-    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz dramatiskus caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai svarīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzētam klientam."
+    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai svarīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzētam klientam."
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 vienums|{count} vienumi(-s)"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "Kopīgotās datnes"
+  },
+  "homepage.download.previous.body": {
+    "message": "Izlaiduma versijas pirms 3.0.0 pieejamas {github} un {sourceforge}."
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Veiktspēja"
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": "Kopīgotās datnes cilne"
+  },
+  "homepage.download.compile.link": {
+    "message": "Kompilēšanas rokasgrāmatā"
+  },
+  "homepage.features.categories.desc": {
+    "message": "Iespēja organizēt lejupielādes pa kategorijām pēc paša atlasītām saglabāšanas mapēm un prioritātēm. Automātiski uztur kārtību tavā bibliotēkā, piemērojot konkrētus noteikumus katrai kategorijai."
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Ievērojami ātrāka datu apmaiņa"
+  },
+  "homepage.screenshots.search.caption": {
+    "message": "Meklēt — eD2k un Kad meklēšanas rezultāti"
+  },
+  "homepage.download.compile": {
+    "message": "{link} ir norādījumi par to, kā izveidot aMule no pirmkoda."
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": "Tīkli — eD2k serveri un Kad statuss"
+  },
+  "homepage.features.categories.title": {
+    "message": "Lejupielādes pa kategorijām"
+  },
+  "homepage.highlights.changelog": {
+    "message": "Visas izmaiņas →"
+  },
+  "homepage.download.source.platform": {
+    "message": "Tiem, kas grib kompilēt paši"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Pārnēsājamā versija (.zip)"
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Uzstādīšanas rokasgrāmata"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Meklēšanas rezultāti \"{query}\" vaicājumam"
+  },
+  "homepage.screenshots.search.alt": {
+    "message": "Meklēt cilne ar rezultātiem"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "Tīkli cilne — serveru saraksts un Kademlia statuss"
   }
 }
