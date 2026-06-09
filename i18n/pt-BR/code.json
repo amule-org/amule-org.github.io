@@ -3,7 +3,7 @@
     "message": "SourceForge"
   },
   "homepage.download.foot": {
-    "message": "Todos os artefatos estão disponíveis em  {release}. O aMule também está disponível nos repositórios das  {distros}, apesar dos pacotes poderem ser antigos."
+    "message": "Todos os artefatos estão disponíveis em {release}. O aMule também está disponível nos repositórios das {distros}, apesar dos pacotes poderem ser antigos."
   },
   "homepage.download.previous.link": {
     "message": "SourceForge"
@@ -12,13 +12,13 @@
     "message": "Download"
   },
   "homepage.download.previous.body": {
-    "message": "Versões antes de 3.0.0 estão arquivadas no {github} e {sourceforge}."
+    "message": "Versões anteriores a 3.0.0 estão arquivadas no {github} e {sourceforge}."
   },
   "homepage.download.lead": {
-    "message": "aMule está disponível para a maioria das principais plataformas de desktop."
+    "message": "O aMule está disponível para a maioria das principais plataformas de desktop."
   },
   "homepage.download.macos.dmg.label": {
-    "message": "Disk image (.dmg)"
+    "message": "Imagem de disco (.dmg)"
   },
   "homepage.download.install.link": {
     "message": "Guia de começo rápido"
@@ -27,7 +27,7 @@
     "message": "glibc ≥ 2.35 · x64 · ARM64"
   },
   "homepage.download.pageDescription": {
-    "message": "Download aMule para Windows, macOS, Linux ou compile do código fonte."
+    "message": "Download o aMule para Windows, macOS, Linux ou compile do código fonte."
   },
   "homepage.download.compile.link": {
     "message": "Guia de compilação"
@@ -39,10 +39,10 @@
     "message": "Linux"
   },
   "homepage.download.install": {
-    "message": "A {install} cobre todas as plataformas, e o {quickstart} guia você atráves do setup e de seu primeiro download."
+    "message": "O {install} cobre todas as plataformas, e o {quickstart} guia você atráves do setup e de seu primeiro download."
   },
   "homepage.download.compile": {
-    "message": "A {link} tem instruções para compilar o aMule do código fonte."
+    "message": "O {link} tem instruções para compilar o aMule do código fonte."
   },
   "homepage.download.version.label": {
     "message": "Versão mais recente"
@@ -66,10 +66,10 @@
     "message": "logo do aMule"
   },
   "homepage.download.source.platform": {
-    "message": "Faça você mesmo"
+    "message": "Compile você mesmo"
   },
   "homepage.download.windows.portable.label": {
-    "message": "Portable (.zip)"
+    "message": "Portátil (.zip)"
   },
   "homepage.download.macos.os": {
     "message": "macOS"
@@ -93,7 +93,7 @@
     "message": "Windows 10 / 11 · x64 · ARM64"
   },
   "homepage.download.version.date": {
-    "message": "Lnaçada {date}"
+    "message": "Lançada em {date}"
   },
   "homepage.download.distros.link": {
     "message": "principais distribuições Linux"
@@ -120,10 +120,10 @@
     "message": "Anterior (←)"
   },
   "homepage.screenshots.networks.alt": {
-    "message": "Aba de Rede — lista de servidores e estado da rede Kademlia"
+    "message": "Aba de Redes — estado da lista de servidores e da rede Kademlia"
   },
   "homepage.screenshots.networks.caption": {
-    "message": "Redes — servidores eD2k e estado da rede Kad"
+    "message": "Redes — estado dos servidores eD2k e da rede Kad"
   },
   "homepage.screenshots.search.alt": {
     "message": "Aba de procura com resultados"
@@ -153,7 +153,7 @@
     "message": "aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, livre, com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por desktop principal."
   },
   "homepage.whatisamule.p2": {
-    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. A versão 3.0.0 traz melhorias dramáticas de taxa de transferência, um sistema de montagem modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
+    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. A versão 3.0.0 traz melhorias dramáticas de taxa de transferência, um sistema de compilação modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
   },
   "homepage.whatisamule.title": {
     "message": "O que é o aMule?"
@@ -309,7 +309,7 @@
     "message": "{nPosts} marcados com \"{tagName}\""
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "Mudar entre modo escuro e claro (atualmente {mode})"
+    "message": "Alternar entre modo escuro e claro (atualmente {mode})"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "modo escuro"
@@ -330,7 +330,7 @@
     "message": "Pular para o conteúdo principal"
   },
   "theme.contentVisibility.draftBanner.message": {
-    "message": "Esta página é um rascunho. Ela será visível apenas em desenvolvimento e será excluída da montagem de produção."
+    "message": "Esta página é um rascunho. Ela será visível apenas em desenvolvimento e será excluída da compilação de produção."
   },
   "theme.contentVisibility.draftBanner.title": {
     "message": "Página de rascunho"
@@ -456,7 +456,7 @@
     "message": "Controle de banda"
   },
   "homepage.features.categories.desc": {
-    "message": "Organiza os downloads em categorias com caminhos de salvagem e prioridades customizáveis. Aplica regras por categoria para manter sua biblioteca arrumada automaticamente."
+    "message": "Organize os downloads em categorias com caminhos de salvagem e prioridades customizáveis. Aplica regras por categoria para manter sua biblioteca arrumada automaticamente."
   },
   "homepage.features.categories.title": {
     "message": "Categorias de Download"
@@ -547,5 +547,107 @@
   },
   "homepage.features.powerShare.title": {
     "message": "Prioridade de Lançamento"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Download"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Início Rápido"
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "Aba de downloads do aMule"
+  },
+  "homepage.highlights.bandwidth.detail": {
+    "message": "Limitadores de upload e download reescritos como limitadores \"token-bucket\" próprios. {code} significa literalmente ilimitado."
+  },
+  "homepage.highlights.bandwidth.label": {
+    "message": "Limitação de banda que funciona"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Largura de banda"
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": "Autotools removido completamente. Compilação apenas com CMake, mínimo CMake 3.10, mínimo wxWidgets 3.2.0."
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": "Sistema de compilação moderno"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
+  "homepage.highlights.changelog": {
+    "message": "Changelog completo →"
+  },
+  "homepage.highlights.packages.detail": {
+    "message": "Instalador Windows e .zip portátil, macOS Universal2 .dmg, AppImage, Flatpak — x64 e ARM64 onde suportados."
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Binários para todos os desktops"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Pacotes"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "E/S de disco movida para fora da thread principal e camada de rede revisada. Downloads par-a-par vêem aceleração de ~100–380× sobre 2.3.3 em macOS, Linux, e Windows."
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Transferências dramaticamente mais rápidas"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Desempenho"
+  },
+  "homepage.highlights.title": {
+    "message": "O que há de novo no 3.0.0"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Toca vídeos e arquivos de audio antes de terminar um download. Compatível com MPlayer, VLC e outros tocadores de midia."
+  },
+  "homepage.features.preview.title": {
+    "message": "Pré-visualização Antes do Término"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Roteia conexões por proxies SOCKS4, SOCKS5 ou HTTP para privacidade ou para contornar restrições de rede."
+  },
+  "homepage.features.proxy.title": {
+    "message": "Suporte a Proxy"
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Controle o aMule de qualquer lugar: uma GUI de controle remoto nagiva (amulegui), uma interface web baseada em navegador (amuleweb) ou uma ferramenta de linha de comando (amulecmd)."
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Interfaces Remotas"
+  },
+  "homepage.features.search.desc": {
+    "message": "Busque através de servidores eD2k (local e globalmente) e nós Kademlia. Filtre por tipo, tamanho e disponibilidade. Operadores booleanos (AND, OR, NOT) são suportados."
+  },
+  "homepage.features.search.title": {
+    "message": "Busca Poderosa"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Identificação de usuário criptográficamente segura previne que o hash de seu cliente seja roubado ou forjado por outros pares na rede."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Identificação Segura"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Controle exatamente para quantos clientes você faz upload ao mesmo tempo e ajuste os alvos de largura de banda por slot, dando a você controle fino sobre sua capacidade de upload."
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Alocação de Slot"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Troca automática de listas de fonte com pares conectados para descobrir mais fontes para seus downloads sem perguntar repetidamente aos servidores."
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Troca de Fontes"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimize o aMule para a bandeija do sistema e deixe-o rodando quieto em segundo plano. Funciona em Windows, macOS, e todas os principais desktops Linux."
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Bandeija do Sistema"
+  },
+  "homepage.features.title": {
+    "message": "Características"
   }
 }

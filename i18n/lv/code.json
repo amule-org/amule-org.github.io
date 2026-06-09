@@ -13,5 +13,155 @@
   },
   "homepage.download.version.changelog": {
     "message": "Izmaiņu žurnāls"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.download.title": {
+    "message": "Lejupielādēt"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Lejupielādēt"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
+  "homepage.screenshots.title": {
+    "message": "Ekrānuzņēmumi"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Kopēt"
+  },
+  "theme.SearchBar.label": {
+    "message": "Meklēt"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Visur"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autori"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Uz nākamo"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Uz iepriekšējo"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Valodas"
+  },
+  "homepage.download.previous.title": {
+    "message": "Iepriekšējie izlaidumi"
+  },
+  "homepage.download.source.label": {
+    "message": "Pirmkods"
+  },
+  "homepage.download.source.os": {
+    "message": "Pirmkods"
+  },
+  "homepage.download.version.label": {
+    "message": "Jaunākā versija"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Uzstādīšanas programma (.exe)"
+  },
+  "homepage.features.proxy.title": {
+    "message": "Starpniekservera atbalsts"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "aMule logotips"
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Aizvērt (Esc)"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Nākamo attēlu (→)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Iepriekšējo attēlu (←)"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "tumšais motīvs"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "gaišais motīvs"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "sistēmas motīvs"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versija: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "jaunākā versija"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Atjaunināja{byUser}{atDate}"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " {user}"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " {date}"
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Diska attēls (.dmg)"
+  },
+  "homepage.features.languages.title": {
+    "message": "Saskarne 37 valodās"
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.features.title": {
+    "message": "Funkcionalitāte"
+  },
+  "homepage.features.docsLink": {
+    "message": "Pārlūkot visu dokumentāciju →"
+  },
+  "homepage.features.languages.desc": {
+    "message": "Visa aMule saskarne tulkota 37 valodās. Lejupielādē un kopīgo datnes savā dzimtajā valodā — lietotāja saskarne automātiski pielāgojas Tavai sistēmas valodai."
+  },
+  "homepage.whatisamule.title": {
+    "message": "Kas ir aMule?"
+  },
+  "homepage.tagline": {
+    "message": "eD2k/Kad klients, kas saderīgs ar eMule un pieejams jebkurai operētājsistēmai"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena binārā datne katrai svarīgai darbvirsmas operētājsistēmai."
+  },
+  "homepage.highlights.title": {
+    "message": "3.0.0 versijas jaunumi"
+  },
+  "homepage.whatisamule.p2": {
+    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz dramatiskus caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai svarīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzētam klientam."
   }
 }

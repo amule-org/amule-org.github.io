@@ -22,5 +22,32 @@
   },
   "sidebar.docsSidebar.category.Configuration Files": {
     "message": "Iestatījumu datnes"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Dod savu artavu"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "Grafiskā saskarne — amule un amulegui"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Saskarnes"
+  },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Migrācija"
+  },
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Problēmu novēršana"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "BUJ"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Uzstādīšana"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Īsā pamācība"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Tulkojumi"
   }
 }
