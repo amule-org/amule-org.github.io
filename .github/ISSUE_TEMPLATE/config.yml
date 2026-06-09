@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: aMule application issues (bugs, crashes, features)
+    url: https://github.com/amule-org/amule/issues
+    about: This repository is ONLY for the aMule website and its documentation. Report problems with the aMule application itself in the main aMule repository.
+  - name: aMule questions & discussions
+    url: https://github.com/amule-org/amule/discussions
+    about: For usage help and general questions about aMule, please use the aMule Discussions.
