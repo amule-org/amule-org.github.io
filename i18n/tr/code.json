@@ -405,7 +405,7 @@
     "message": "Tekrar deneyin"
   },
   "theme.IconExternalLink.ariaLabel": {
-    "message": "(opens in new tab)"
+    "message": "(yeni sekmede açılır)"
   },
   "theme.NavBar.navAriaLabel": {
     "message": "Ana menü"
@@ -453,7 +453,7 @@
     "message": "Bu sayfada"
   },
   "theme.admonition.caution": {
-    "message": "uyarı"
+    "message": "dikkat"
   },
   "theme.admonition.danger": {
     "message": "tehlike"
@@ -489,7 +489,7 @@
     "message": "Tüm Yazarları Görüntüle"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "Blog gönderi sayfası navigasyonu"
+    "message": "Blog listesi sayfa gezintisi"
   },
   "theme.blog.paginator.newerEntries": {
     "message": "Yeni Girdiler"
@@ -498,7 +498,7 @@
     "message": "Eski Girdiler"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Blog gönderi sayfası navigasyonu"
+    "message": "Blog makalesi sayfa gezintisi"
   },
   "theme.blog.post.paginator.newerPost": {
     "message": "Daha Yeni Gönderi"
@@ -649,5 +649,14 @@
   },
   "theme.tags.tagsPageTitle": {
     "message": "Etiketler"
+  },
+  "homepage.download.docker": {
+    "message": "Sunucular ve NAS cihazları için, aynı zamanda aMule ekibinin bir mensubu tarafından bakımı yapılan bir {repo} mevcuttur — {guide} sayfasına bakın."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "gayri resmi Docker kalıbı"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Kurulum kılavuzunun Docker bölümü"
   }
 }
