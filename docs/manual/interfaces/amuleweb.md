@@ -143,7 +143,7 @@ amuleweb
 
 ### 6. Connect with a browser
 
-Open `http://localhost:4711` (replace `localhost` with the server's hostname or IP for [remote access](../troubleshooting/remote-access.md)).
+Open `http://127.0.0.1:4711` (replace `127.0.0.1` with the server's hostname or IP for [remote access](../troubleshooting/remote-access.md)).
 
 ## Template (Skin) Locations
 

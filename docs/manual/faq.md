@@ -442,7 +442,7 @@ WSThread: created socket listening on :4711
 amuleweb$
 ```
 
-Then open a browser and navigate to `http://localhost:4711` (or the remote host's address). For full setup, see the [`amuleweb` documentation](/docs/manual/interfaces/amuleweb).
+Then open a browser and navigate to `http://127.0.0.1:4711` (or the remote host's address). For full setup, see the [`amuleweb` documentation](/docs/manual/interfaces/amuleweb).
 
 #### Can I run `amuleweb` as a daemon (background process)?
 
