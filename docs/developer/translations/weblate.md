@@ -9,12 +9,11 @@ Using Weblate is optional: translations can also be contributed by opening a pul
 
 Weblate uses a *monolingual* model: every component needs an English **base file** that lists the source strings, plus one translation file per language.
 
-The modules span two repositories — the website and its documentation are in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io), and the application, man pages, and installer are in [amule-org/amule](https://github.com/amule-org/amule):
+The modules span two repositories — the application and man pages are in [amule-org/amule](https://github.com/amule-org/amule), and the website and its documentation are in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io):
 
-- **[Website](#website)** — the project website (UI strings and documentation). *Configured.*
-- **[aMule application](#amule-application)** — the application interface strings.
+- **[aMule application](#amule-application)** — the application interface strings, including the Windows installer strings.
 - **[Man pages](#man-pages)** — the command-line manual pages.
-- **[Windows installer](#windows-installer)** — the Windows installer strings.
+- **[Website](#website)** — the project website (UI strings and documentation). *Configured.*
 
 ## For Weblate administrators
 
@@ -49,6 +48,22 @@ Weblate synchronizes with the Git repository in both directions from **aMule →
 - **Pulling from git.** Weblate detects changes in Git automatically. If Weblate and the repository ever get out of sync, press **Reset and reapply** to discard Weblate's local state and re-pull from Git.
 
 The per-module sections below list the file masks and base files for each component.
+
+## aMule application
+
+The aMule interface strings are managed with GNU gettext (`.po` files in `po/`). See [Code Translations](./index.md#code-translations) for the current manual workflow. The same `.po` catalogs also contain the [Windows installer strings](./index.md#windows-installer-strings), so they are covered by this module.
+
+:::note Not configured yet
+Translating the aMule application through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
+:::
+
+## Man pages
+
+The man pages are translated with po4a. See [Man Page Translations](./index.md#man-page-translations) for the current manual workflow.
+
+:::note Not configured yet
+Translating the man pages through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
+:::
 
 ## Website
 
@@ -87,25 +102,3 @@ Each Docusaurus JSON entry is an object (`{"message": "...", "description": "...
 - **Descriptions are context, not translated.** With the WebExtension JSON format, each `description` is presented to translators as the source string's context and is never written into the locale files (which only contain `message`).
 - **Git stays editable.** Components track the repository in both directions: Weblate proposes translations via GitHub pull requests, and changes committed to git are imported into Weblate.
 - **Markdown caveat.** Weblate's Markdown support is still under development. Edits made directly in git to a translated `.md` file may not be imported back into Weblate reliably — for the `Website: Docs` component, prefer editing translations in Weblate.
-
-## aMule application
-
-The aMule interface strings are managed with GNU gettext (`.po` files in `po/`). See [Code Translations](./index.md#code-translations) for the current manual workflow.
-
-:::note Not configured yet
-Translating the aMule application through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
-:::
-
-## Man pages
-
-The man pages are translated with po4a. See [Man Page Translations](./index.md#man-page-translations) for the current manual workflow.
-
-:::note Not configured yet
-Translating the man pages through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
-:::
-
-## Windows installer
-
-:::note Not configured yet
-Translating the Windows installer through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
-:::

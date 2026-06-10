@@ -3,7 +3,7 @@ id: index
 title: Translations
 ---
 
-This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
+This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations) (which also cover the [Windows installer](#windows-installer-strings)), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
 
 Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website documentation](#documentation-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
 
@@ -159,6 +159,19 @@ To build only a subset of languages:
 ```sh
 cmake -B build -DENABLE_NLS=YES -DTRANSLATIONS="de,fr,pt_BR"
 ```
+
+### Windows Installer Strings
+
+The `.po` catalogs also cover the Windows installer (an [NSIS](https://nsis.sourceforge.io/) `.exe`). Its standard wizard pages, buttons, and error dialogs come from NSIS's own bundled language files and need no translation work; the aMule-specific strings (section names, component descriptions, runtime messages) appear in `po/<lang>.po` next to the application strings, marked `#: packaging/windows/installer_strings.c:<line>`. Translate them like any other entry — at installer build time, `packaging/windows/po-to-nsh.py` converts them into the per-language NSIS `LangString` blocks automatically.
+
+Specific to these strings:
+
+- Keep `$INSTDIR`, `$0`, and `$APPDATA` verbatim — they are NSIS runtime variables, evaluated at install time.
+- Keep the `\r\n` escapes; the bridge converts them to NSIS's `$\r$\n` line breaks.
+- `%APPDATA%` (with percent signs) is a literal Windows environment-variable reference shown to the user, not a format placeholder — keep it as text.
+- Only locales that map to an NSIS language are bundled (the mapping table is at the top of `po-to-nsh.py`); untranslated entries, and locales without an NSIS counterpart, fall back to English.
+
+For developers, adding or renaming an installer string means updating three files in sync — the `_("...")` entry in `packaging/windows/installer_strings.c` (extraction-only, never compiled), the `${LANG_ENGLISH}` `LangString` baseline and its `$(MYSTR_*)` call site in `packaging/windows/installer.nsi`, and the `KEYS` list in `po-to-nsh.py` — then running `./scripts/update-po.sh`.
 
 ### Marking Strings for Translation in C++ Source
 
