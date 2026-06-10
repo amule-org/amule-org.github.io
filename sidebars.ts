@@ -27,6 +27,7 @@ const sidebars: SidebarsConfig = {
             },
             'manual/configuration/directories',
             'manual/configuration/network-connectivity',
+            'manual/configuration/bandwidth-slots',
             'manual/configuration/firewall',
             'manual/configuration/upnp',
             'manual/configuration/proxy',

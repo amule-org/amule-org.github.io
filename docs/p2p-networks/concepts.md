@@ -217,13 +217,13 @@ Credits are stored in `~/.aMule/clients.met` (see the [clients.met file format](
 
 ### Upload Slot
 
-An **upload slot** is a share of your upload bandwidth allocated to one downloading client. The number of slots is derived from a configurable **slot allocation** target (default **2 KB/s** per slot, set in **Preferences → Files**):
+An **upload slot** is a share of your upload bandwidth allocated to one downloading client. The number of slots is derived from a configurable **slot allocation** target (default **10 KB/s** per slot, set in **Preferences → Connection**):
 
 ```
 slots = round(upload_limit / slot_allocation)
 ```
 
-The result is clamped to a minimum of **2 slots** and a maximum of **250 slots**, regardless of the upload limit. When the upload limit is unlimited, aMule scales the slot count from the observed upload rate instead, with a floor of 20 slots to allow the uplink to ramp up.
+The result is clamped to a minimum of **2 slots** and a maximum of **250 slots**, regardless of the upload limit. When the upload limit is unlimited, aMule scales the slot count from the observed upload rate instead, with a floor of 20 slots to allow the uplink to ramp up. See [Bandwidth & Upload Slots](../manual/configuration/bandwidth-slots.md) for how aMule opens and rotates slots and which values to choose.
 
 ## Client Behaviour
 

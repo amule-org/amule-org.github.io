@@ -60,7 +60,7 @@ The **Start aMule automatically when I log in** preference is deliberately not s
 |---|---|---|
 | `MaxDownload` | `0` | Maximum download speed in KiB/s. `0` = unlimited. |
 | `MaxUpload` | `0` | Maximum upload speed in KiB/s. `0` = unlimited. |
-| `SlotAllocation` | `2` | Target speed per upload slot in KiB/s. |
+| `SlotAllocation` | `10` | Target speed per upload slot in KiB/s. See [Bandwidth & Upload Slots](../bandwidth-slots.md). |
 | `Port` | `4662` | Standard eD2k client TCP port. |
 | `UDPPort` | `4672` | Extended client UDP port (used for extended server requests and Kademlia). |
 | `UDPEnable` | `1` | Enable the UDP port. Setting to `0` reduces performance but frees the UDP port. |
@@ -495,7 +495,7 @@ Notifications=0
 ToolTipDelay=1
 MaxDownload=0
 MaxUpload=0
-SlotAllocation=2
+SlotAllocation=10
 DownloadCapacity=300
 UploadCapacity=100
 Port=4662

@@ -14,6 +14,7 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | [Configuration Files](./config-files/index.md) | Files aMule stores on disk, including the hand-editable `amule.conf` and `remote.conf` |
 | [Directories](./directories.md) | Incoming directory, temporary directory, and shared directories |
 | [Network Connectivity](./network-connectivity.md) | How to configure your ports to obtain a High ID (eD2k) and open status (Kademlia) |
+| [Bandwidth & Upload Slots](./bandwidth-slots.md) | How upload bandwidth is split into upload slots, and how to tune the Slot Allocation setting |
 | [Firewall](./firewall.md) | How to open the required ports in your firewall |
 | [UPnP (Universal Plug and Play)](./upnp.md) | Automatic port forwarding via UPnP |
 | [Proxy](./proxy.md) | Routing aMule connections through a proxy server |

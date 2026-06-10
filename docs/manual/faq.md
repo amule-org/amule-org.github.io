@@ -236,9 +236,9 @@ Even if you share no directories, aMule always shares the **files you are curren
 
 Each active upload connection is one **slot**. Slot allocation defines how much bandwidth is assigned to each slot.
 
-Example: if your upload limit is 20 KBps and you set slot allocation to 2 KBps, up to 10 clients can download from you simultaneously, each at a maximum of 2 KBps.
+Example: on a 10 Mbps line your upload limit is about 1,250 KBps. With the default slot allocation of 10 KBps aMule opens `1,250 / 10 = 125` upload slots, so up to 125 clients can download from you simultaneously, each averaging about 10 KBps. The slot count is always kept between 2 and 250, so on lines above ≈ 20 Mbps the 250-slot cap takes over unless you raise the slot allocation.
 
-See [Why is aMule ignoring the bandwidth I set per slot?](/docs/manual/troubleshooting/common-problems#why-is-amule-ignoring-the-bandwidth-i-set-per-slot) for important caveats.
+See [Bandwidth & Upload Slots](/docs/manual/configuration/bandwidth-slots) for how it works and recommended values, and [Why is aMule ignoring the bandwidth I set per slot?](/docs/manual/troubleshooting/common-problems#why-is-amule-ignoring-the-bandwidth-i-set-per-slot) for important caveats.
 
 #### What is a friend slot?
 

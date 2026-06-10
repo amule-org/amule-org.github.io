@@ -42,7 +42,7 @@ Options regarding aMule's network connections.
 |---|---|
 | **Download** | Maximum download speed to allow (kB/s). `0` = unlimited. |
 | **Upload** | Maximum upload speed to allow (kB/s). `0` = unlimited. |
-| **Slot Allocation** | Target speed per allocated upload slot (kB/s). |
+| **Slot Allocation** | Target speed per allocated upload slot (kB/s). Default: 10. aMule derives the number of upload slots from it — see [Bandwidth & Upload Slots](../../configuration/bandwidth-slots.md). |
 
 These values are in **kilobytes per second** (kB/s), while ISP speeds are usually advertised in **megabits per second** (Mbps). To convert, multiply the Mbps figure by **125** (e.g. a 100 Mbps line ≈ 12,500 kB/s). A good starting point is roughly **80% of your actual line speed**. See [Slow Download Speeds](../../troubleshooting/slow-speeds.md) for why setting realistic limits matters.
 

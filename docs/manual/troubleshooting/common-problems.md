@@ -142,7 +142,7 @@ Do not confuse **Bandwidth Limit** (actual maximum upload rate for aMule) with *
 
 aMule opens `round(7 / 2) = 4` slots, so each slot averages `7 / 4 = 1.75 KBps` — below the 2 KBps you set.
 
-See also [FAQ → What is slot allocation?](/docs/manual/faq#what-is-slot-allocation).
+See [Bandwidth & Upload Slots](../configuration/bandwidth-slots.md) for the full slot calculation and recommended values, and [FAQ → What is slot allocation?](/docs/manual/faq#what-is-slot-allocation).
 
 ## All my downloads suddenly paused and I can't resume them. What's going on?
 
