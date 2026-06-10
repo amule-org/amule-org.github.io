@@ -52,7 +52,7 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
    - `aMule-<version>-Windows-Setup-x64.exe` for most PCs (Intel/AMD)
    - `aMule-<version>-Windows-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
 3. Run the downloaded `.exe` and follow the on-screen steps.
-4. Optionally enable **Start aMule when I log in** during setup to launch aMule automatically on login.
+4. Optionally enable **Start aMule when I log in** during setup to launch aMule automatically on login. You can change this later from [Preferences → General](../interfaces/gui/preferences.md#general).
 
 The installer creates Start menu shortcuts and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`); uninstalling does not delete this folder, so your settings and downloads are preserved.
 

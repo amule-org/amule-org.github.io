@@ -33,15 +33,27 @@ amule
 
 On first run, aMule creates its [configuration directory](../../configuration/config-files/index.md) (`~/.aMule/`) and presents a first-run wizard for basic setup (TCP/UDP ports, download/upload directories, bandwidth limits).
 
-Common command-line flags:
+Command-line flags:
 
 | Flag | Description |
 |---|---|
 | `-h`, `--help` | Display help and exit |
 | `-v`, `--version` | Print version and exit |
-| `-c <path>` | Use an alternative configuration directory instead of `~/.aMule/` |
+| `-c`, `--config-dir <dir>` | Use an alternative configuration directory instead of `~/.aMule/` |
+| `--geometry <geom>` | Set the window geometry, using the standard X11 format `[=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]` |
 | `-o`, `--log-stdout` | Print log messages to stdout |
-| `-q`, `--quiet` | Disable output to stdout |
+| `-r`, `--reset-config` | Reset config to default values (the old config is backed up as `.backup`) |
+| `--configure-autostart=on\|off` | Enable or disable starting `amule` on user login, then exit |
+| `-w`, `--use-amuleweb <path>` | Specify the location of the `amuleweb` binary |
+| `-d`, `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts) |
+| `-i`, `--enable-stdin` | Do not close stdin (closed by default) |
+| `-t`, `--category <num>` | Category for passed eD2k links (default: `0`) |
+
+You can also pass one or more [eD2k links](../../../p2p-networks/ed2k/links.md) as arguments to enqueue them:
+
+```bash
+amule -t 1 "ed2k://|file|example.iso|123456|<hash>|/"
+```
 
 ## Interface
 
