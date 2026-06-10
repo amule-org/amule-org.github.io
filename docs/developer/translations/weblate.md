@@ -7,13 +7,13 @@ aMule translations live in git — the repository is the source of truth. [Webla
 
 Using Weblate is optional: translations can also be contributed by opening a pull request to the relevant repository. Both options are equally valid and edit the same files — see the [Translations](./index.md) guide for the manual workflow.
 
-Weblate uses a *monolingual* model: every component needs an English **base file** that lists the source strings, plus one translation file per language.
+Weblate components follow one of two models, matching how each part of the project stores its translations. The application and man-page components are *bilingual*: each gettext `.po` file contains both the English source string and its translation, and the `.pot` template lists the source strings. The website components are *monolingual*: an English **base file** lists the source strings, plus one translation file per language.
 
 The modules span two repositories — the application and man pages are in [amule-org/amule](https://github.com/amule-org/amule), and the website and its documentation are in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io):
 
 - **[aMule application](#amule-application)** — the application interface strings, including the Windows installer strings.
 - **[Man pages](#man-pages)** — the command-line manual pages.
-- **[Website](#website)** — the project website (UI strings and documentation). *Configured.*
+- **[Website](#website)** — the project website (UI strings and documentation).
 
 ## For Weblate administrators
 
@@ -21,6 +21,7 @@ Set up **one Weblate component per file** in the git repository. Every component
 
 - **Settings → Version control → Version control system**: *GitHub pull request* — Weblate proposes its changes as pull requests instead of committing directly to the branch.
 - **Settings → Files → File format**:
+  - *gettext PO file* for the application and man-page catalogs. This is the bilingual variant — do **not** use *gettext PO file (monolingual)*, which does not match how aMule's `.po` files are laid out.
   - *WebExtension JSON file* for the Docusaurus JSON files. Docusaurus stores each entry as `{"key": {"message": "…", "description": "…"}}`, which is exactly the WebExtension `messages.json` shape: Weblate translates the `message` value and uses `description` as the source context.
   - *Markdown* for the documentation pages.
 - **Workspace → Settings → Adding new translation**: *Contact maintainers* — translators cannot create new languages directly; they request them from the maintainers, who register the locale in the repository first.
@@ -30,6 +31,8 @@ For each JSON component, set **Settings → Files → JSON indentation** to `2`,
 At the project level, enable the **Remove blank strings** add-on. It removes untranslated (blank) strings from the translation files, so the Docusaurus JSON files never end up with empty `message` values.
 
 Also enable the **Squash Git commits** add-on, with **Commit squashing** set to *All commits into one* and **Append trailers to squashed commit message** enabled. This keeps each Weblate pull request to a single, clean commit while preserving the per-translator attribution trailers.
+
+Also enable the **Update PO files to match POT (msgmerge)** add-on. Whenever a regenerated `.pot` template lands in git, it runs `msgmerge` so every `.po` file picks up the new and changed source strings. It only affects the gettext components — the website components ignore it.
 
 Also at the project level, under **aMule → Settings → Workflow**:
 
@@ -51,19 +54,23 @@ The per-module sections below list the file masks and base files for each compon
 
 ## aMule application
 
-The aMule interface strings are managed with GNU gettext (`.po` files in `po/`). See [Code Translations](./index.md#code-translations) for the current manual workflow. The same `.po` catalogs also contain the [Windows installer strings](./index.md#windows-installer-strings), so they are covered by this module.
+The aMule interface strings are managed with GNU gettext (`.po` files in `po/`). See [Code Translations](./index.md#code-translations) for the manual workflow. The same `.po` catalogs also contain the [Windows installer strings](./index.md#windows-installer-strings), so they are covered by this module.
 
-:::note Not configured yet
-Translating the aMule application through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
-:::
+| Component name | File mask | Template | Format |
+|---|---|---|---|
+| `Application` | `po/*.po` | `po/amule.pot` | gettext PO file |
+
+The template `po/amule.pot` is regenerated in git by [`./scripts/update-po.sh`](./index.md#updating-an-existing-translation); the **Update PO files to match POT (msgmerge)** add-on then propagates the new and changed strings to every `.po` file in Weblate.
 
 ## Man pages
 
-The man pages are translated with po4a. See [Man Page Translations](./index.md#man-page-translations) for the current manual workflow.
+The man pages are translated with po4a (`.po` files in `docs/man/po/`). See [Man Page Translations](./index.md#man-page-translations) for the manual workflow.
 
-:::note Not configured yet
-Translating the man pages through Weblate is planned but not yet set up. This section will be completed once the corresponding Weblate component is configured.
-:::
+| Component name | File mask | Template | Format |
+|---|---|---|---|
+| `Application Man Pages` | `docs/man/po/manpages-*.po` | `docs/man/po/manpages.pot` | gettext PO file |
+
+The template `docs/man/po/manpages.pot` is regenerated in git by running po4a; the **Update PO files to match POT (msgmerge)** add-on then propagates the new and changed strings to every `manpages-*.po` file in Weblate. The po4a addenda (`docs/man/po/manpages-*.add`, the translator-credit blocks) are not managed by Weblate — they are edited directly in git.
 
 ## Website
 

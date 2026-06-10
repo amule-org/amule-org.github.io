@@ -157,8 +157,12 @@ cmake -B build -DENABLE_NLS=YES
 To build only a subset of languages:
 
 ```sh
-cmake -B build -DENABLE_NLS=YES -DTRANSLATIONS="de,fr,pt_BR"
+cmake -B build -DENABLE_NLS=YES -DTRANSLATIONS="de,fr,pt_BR,"
 ```
+
+:::note
+Keep the trailing comma: `po/CMakeLists.txt` matches each language code followed by a comma, so without it the last language in the list is silently skipped.
+:::
 
 ### Windows Installer Strings
 
@@ -354,12 +358,12 @@ aMule's man pages can also be translated using [po4a](https://po4a.org/). The tr
 
 ```
 docs/man/
-├── amule.1           # English man page (master)
-├── amuled.1
-├── amulecmd.1
-├── amulegui.1
-├── amuleweb.1
-├── ed2k.1
+├── amule.1.in        # English man page (master)
+├── amuled.1.in
+├── amulecmd.1.in
+├── amulegui.1.in
+├── amuleweb.1.in
+├── ed2k.1.in
 ├── po4a.config       # po4a configuration
 ├── amule.de.1.in     # Generated translated man pages
 ├── amule.es.1.in
