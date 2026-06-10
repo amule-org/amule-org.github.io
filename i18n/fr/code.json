@@ -108,7 +108,7 @@
     "message": "Version la plus récente"
   },
   "homepage.download.windows.installer.label": {
-    "message": "Installer (.exe)"
+    "message": "Installeur (.exe)"
   },
   "homepage.download.windows.os": {
     "message": "Windows"
@@ -591,7 +591,7 @@
     "message": "Déplier le menu latéral"
   },
   "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs sidebar"
+    "message": "Barre latérale de la documentation"
   },
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
     "message": "Ouvrir/fermer la barre de navigation"
@@ -603,7 +603,7 @@
     "message": "Un document étiqueté|{count} documents étiquetés"
   },
   "theme.docs.versionBadge.label": {
-    "message": "Version: {versionLabel}"
+    "message": "Version : {versionLabel}"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "dernière version"
@@ -649,5 +649,14 @@
   },
   "theme.tags.tagsPageTitle": {
     "message": "Étiquettes"
+  },
+  "homepage.download.docker": {
+    "message": "Pour les serveurs et les périphériques NAS, un {repo} maintenu par un membre de l'équipe aMule est également disponible — voyez le {guide}."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "image Docker non officiel"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "La section Docker du guide d'installation"
   }
 }
