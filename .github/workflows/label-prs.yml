@@ -2,7 +2,8 @@ name: Label PRs
 
 # Auto-labels pull requests with two rules:
 #   - Author rule: PRs opened by the GitHub user "weblate" get the "weblate" label.
-#   - Path rule:   PRs that modify any file under "i18n/" get the "translation" label.
+#   - Path rule:   PRs that modify any file under "i18n/" (excluding "i18n/en/", the
+#                  English source files) get the "translation" label.
 # Weblate opens PRs that touch "i18n/", so its PRs end up with both labels.
 #
 # pull_request_target is required because Weblate opens the PR from a fork, so a
@@ -35,13 +36,14 @@ jobs:
               labels.push('weblate');
             }
 
-            // Path rule: any PR touching files under "i18n/".
+            // Path rule: any PR touching translation files under "i18n/"
+            // (i18n/en/ holds the English source files, not translations).
             const files = await github.paginate(github.rest.pulls.listFiles, {
               owner,
               repo,
               pull_number: pr.number,
             });
-            if (files.some((f) => f.filename.startsWith('i18n/'))) {
+            if (files.some((f) => f.filename.startsWith('i18n/') && !f.filename.startsWith('i18n/en/'))) {
               labels.push('translation');
             }
 
