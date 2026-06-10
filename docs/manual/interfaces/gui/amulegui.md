@@ -80,6 +80,9 @@ Once connected, the interface is the same as the monolithic `amule` client, with
 | `-r`, `--reset-config` | Reset config to default values (the old config is backed up as `.backup`). |
 | `-s`, `--skip` | Skip the connection dialog and connect using the saved settings. |
 | `--geometry <geom>` | Set the window geometry, using the standard X11 format `[=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]`. |
+| `--configure-autostart=on\|off` | Enable or disable starting `amulegui` on user login, then exit. |
+| `-d`, `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). |
+| `-i`, `--enable-stdin` | Do not close stdin (closed by default). |
 | `-t`, `--category <num>` | Category for passed eD2k links (default: `0`). |
 
 You can also pass one or more [eD2k links](../../../p2p-networks/ed2k/links.md) as arguments to enqueue them into the connected core:

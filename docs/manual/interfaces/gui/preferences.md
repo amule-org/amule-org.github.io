@@ -18,7 +18,7 @@ Options regarding general aspects of aMule.
 | **Nick** | Username displayed to other clients on the network. |
 | **Language** | Language for the aMule interface. On UNIX systems this requires the appropriate `LC_ALL` (or `LC_MESSAGES`) environment variable. *System default* uses the system's language. |
 | **Check for new version at startup** | When aMule starts it checks whether new releases are available and displays a message if so. |
-| **Start aMule automatically when I log in** | Launch aMule automatically when you log in to your desktop session. |
+| **Start aMule automatically when I log in** | Launch aMule automatically when you log in to your desktop session. The state is stored by the OS (Windows registry Run key, macOS LaunchAgent, Linux XDG `.desktop` autostart entry), not in [`amule.conf`](../../configuration/config-files/amule-conf.md). The command-line equivalent is `--configure-autostart=on\|off` (see [amule](./amule.md#starting-amule)). |
 | **Start minimized** | Minimize aMule to the taskbar when it starts. |
 | **Prompt on exit** | Show a confirmation dialog when closing aMule. |
 | **Enable Tray Icon** | Show a system tray icon for aMule. |

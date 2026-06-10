@@ -52,6 +52,8 @@ The primary section. Contains the majority of user-facing preferences.
 | `ShowAllNotCats` | `0` | Show uncategorised files when a category tab is selected. |
 | `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Downloads window. |
 
+The **Start aMule automatically when I log in** preference is deliberately not stored in `amule.conf` — the state lives in the OS autostart store (Windows registry Run key, macOS LaunchAgent, Linux XDG `.desktop` autostart entry) and is managed via the [Preferences checkbox](../../interfaces/gui/preferences.md#general) or the `--configure-autostart=on|off` command-line option.
+
 ### Connection
 
 | Key | Default | Description |
