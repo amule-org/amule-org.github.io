@@ -860,5 +860,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "homepage.download.docker": {
+    "message": "For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.",
+    "description": "Footer note about the unofficial Docker image; {repo} and {guide} are links"
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "unofficial Docker image",
+    "description": "Link text for the Docker image repository in the download footer note"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Docker section of the installation guide",
+    "description": "Link text for the Docker section of the installation guide in the download footer note"
   }
 }

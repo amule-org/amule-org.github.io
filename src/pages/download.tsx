@@ -254,6 +254,26 @@ export default function DownloadPage(): React.JSX.Element {
           </p>
           <p className={styles.dlFoot}>
             <Translate
+              id="homepage.download.docker"
+              description="Footer note about the unofficial Docker image; {repo} and {guide} are links"
+              values={{
+                repo: (
+                  <Link to="https://github.com/ngosang/docker-amule">
+                    <Translate id="homepage.download.docker.repo.link" description="Link text for the Docker image repository in the download footer note">unofficial Docker image</Translate>
+                  </Link>
+                ),
+                guide: (
+                  <Link to="/docs/manual/installation#docker">
+                    <Translate id="homepage.download.docker.guide.link" description="Link text for the Docker section of the installation guide in the download footer note">Docker section of the installation guide</Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {'For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.'}
+            </Translate>
+          </p>
+          <p className={styles.dlFoot}>
+            <Translate
               id="homepage.download.install"
               description="Footer note pointing to the install and quick-start guides; {install} and {quickstart} are links"
               values={{

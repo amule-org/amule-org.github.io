@@ -17,6 +17,8 @@ The project publishes **official pre-built binaries** only for Windows, macOS an
 | FreeBSD | x86\_64, ARM64 | [System package or Ports](#freebsd) |
 | OpenBSD | x86\_64 | [System package](#openbsd) |
 
+Additionally, an [unofficial Docker image](#docker) runs aMule on any platform with a container runtime.
+
 ## Downloads
 
 The latest release is available on the [Downloads](/download) page, which links directly to the [GitHub releases page](https://github.com/amule-org/amule/releases/latest). Each release provides the following artifacts:
@@ -125,7 +127,7 @@ The `aMule.app` bundle also includes the command-line components inside `aMule.a
 
 ## Linux
 
-Linux users can install aMule through three methods: an **AppImage** (self-contained portable binary), a **Flatpak** (sandboxed package), or a **distribution package** installed via the system package manager.
+Linux users can install aMule through three methods: an **AppImage** (self-contained portable binary), a **Flatpak** (sandboxed package), or a **distribution package** installed via the system package manager. For headless server setups, see also the unofficial [Docker image](#docker).
 
 ### AppImage
 
@@ -332,6 +334,33 @@ Using pkgsrc:
 cd /usr/pkgsrc/net/amule
 make install clean
 ```
+
+## Docker
+
+An **unofficial Docker image**, maintained by a member of the aMule Team, is available at [ngosang/docker-amule](https://github.com/ngosang/docker-amule). It runs [`amuled`](../interfaces/amuled.md) with the [`amuleweb`](../interfaces/amuleweb.md) web interface enabled — a headless setup suited to home servers and NAS devices. The image is Linux-based, but it runs on any system with a container runtime, including Windows and macOS via [Docker Desktop](https://www.docker.com/products/docker-desktop/). Images are published on [Docker Hub](https://hub.docker.com/r/ngosang/amule) (`ngosang/amule`) and [GitHub Container Registry](https://github.com/ngosang/docker-amule/pkgs/container/amule) for a wide range of architectures (x64, ARM, RISC-V and more).
+
+A minimal Docker Compose setup:
+
+```yaml
+services:
+  amule:
+    image: ngosang/amule
+    ports:
+      - "4711:4711"     # amuleweb web interface
+      - "4712:4712"     # External Connections (amulegui, amulecmd, amuleweb)
+      - "4662:4662"     # eD2k client-to-client TCP (required for High ID)
+      - "4665:4665/udp" # eD2k server UDP (global searches)
+      - "4672:4672/udp" # extended eMule protocol and Kademlia UDP
+    volumes:
+      - /path/to/config:/home/amule/.aMule
+      - /path/to/downloads:/downloads
+```
+
+Once the container is running, open the web interface at `http://<host>:4711` or connect [`amulegui`](../interfaces/gui/amulegui.md) to port 4712. See the [repository documentation](https://github.com/ngosang/docker-amule) for the full list of environment variables (user/group IDs, passwords, timezone) and optional features.
+
+:::note Unofficial image
+The Docker image is built from the official aMule source code but is **not an official aMule project distribution**. Issues with the image should be reported on its [own issue tracker](https://github.com/ngosang/docker-amule/issues).
+:::
 
 ## Building from Source
 
