@@ -156,13 +156,13 @@
     "message": "eD2k/Kad klients, kas saderīgs ar eMule un pieejams jebkurai operētājsistēmai"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena binārā datne katrai svarīgai darbvirsmas operētājsistēmai."
+    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena binārā datne katrai nozīmīgai darbvirsmas operētājsistēmai."
   },
   "homepage.highlights.title": {
     "message": "3.0.0 versijas jaunumi"
   },
   "homepage.whatisamule.p2": {
-    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai svarīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzētam klientam."
+    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai nozīmīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzes izstrādātam klientam."
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "1 vienums|{count} vienumi(-s)"
@@ -222,10 +222,10 @@
     "message": "Tīkli cilne — serveru saraksts un Kademlia statuss"
   },
   "homepage.download.docker": {
-    "message": "Serveriem un NAS ierīcēm ir pieejams arī {repo}, ko uztur kāds no aMule komandas biedriem — skatiet {guide}."
+    "message": "Serveriem un NAS ierīcēm ir pieejams arī {repo}, ko uztur viens no aMule komandas biedriem — skatiet {guide}."
   },
   "homepage.download.docker.guide.link": {
-    "message": "Uzstādīšanas rokasgrāmatas Docker sadaļu"
+    "message": "uzstādīšanas rokasgrāmatas Docker sadaļu"
   },
   "homepage.download.docker.repo.link": {
     "message": "neoficiālais Docker attēls"
@@ -253,5 +253,14 @@
   },
   "homepage.download.foot.link": {
     "message": "jaunākās versijas izlaiduma lapā"
+  },
+  "homepage.download.lead": {
+    "message": "aMule ir pieejama nozīmīgākajām darbvirsmas operētājsistēmām."
+  },
+  "homepage.download.version.date": {
+    "message": "Publicēts {date}"
+  },
+  "homepage.download.distros.link": {
+    "message": "nozīmīgāko Linux distribūciju"
   }
 }
