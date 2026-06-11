@@ -220,5 +220,38 @@
   },
   "homepage.screenshots.networks.alt": {
     "message": "Tīkli cilne — serveru saraksts un Kademlia statuss"
+  },
+  "homepage.download.docker": {
+    "message": "Serveriem un NAS ierīcēm ir pieejams arī {repo}, ko uztur kāds no aMule komandas biedriem — skatiet {guide}."
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Uzstādīšanas rokasgrāmatas Docker sadaļu"
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "neoficiālais Docker attēls"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Maršrutē savienojumus caur SOCKS4, SOCKS5 vai HTTP starpniekserveriem, lai nodrošinātu konfidencialitāti vai apietu tīkla ierobežojumus."
+  },
+  "homepage.download.pageDescription": {
+    "message": "Lejupielādēt aMule Windows, macOS vai Linux operētājsistēmai vai tā pirmkodu."
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Saderīgs ar eMule"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Pilnībā saderīgs ar eMule un visiem pārējiem *Mule klientiem. Kopīgo datnes ar tiem pašiem avotiem, no kuriem tos lejupielādēji, pieslēdzies tiem pašiem serveriem un atveri tās paša standarta ed2k:// saites."
+  },
+  "homepage.download.foot": {
+    "message": "Visi gatavie izstrādājumi ir pieejami {release}. Tāpat aMule ir pieejama arī {distros} krātuvēs, kaut gan šīs pakotnes var būt novecojušas."
+  },
+  "homepage.download.foot.link": {
+    "message": "jaunākās versijas izlaiduma lapā"
   }
 }
