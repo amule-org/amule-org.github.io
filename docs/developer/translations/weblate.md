@@ -28,11 +28,11 @@ Set up **one Weblate component per file** in the git repository. Every component
 
 For each JSON component, set **Settings → Files → JSON indentation** to `2`, matching the indentation Docusaurus uses so Weblate does not reformat the files.
 
+For each gettext component, set **Settings → Files → Long lines wrapping** to *Only wrap lines at newlines (like 'xgettext --no-wrap')* — the `.po` files in git are stored unwrapped, and any other value would make Weblate re-wrap every file it touches.
+
 At the project level, enable the **Remove blank strings** add-on. It removes untranslated (blank) strings from the translation files, so the Docusaurus JSON files never end up with empty `message` values.
 
 Also enable the **Squash Git commits** add-on, with **Commit squashing** set to *All commits into one* and **Append trailers to squashed commit message** enabled. This keeps each Weblate pull request to a single, clean commit while preserving the per-translator attribution trailers.
-
-Also enable the **Update PO files to match POT (msgmerge)** add-on. Whenever a regenerated `.pot` template lands in git, it runs `msgmerge` so every `.po` file picks up the new and changed source strings. It only affects the gettext components — the website components ignore it.
 
 Also at the project level, under **aMule → Settings → Workflow**:
 
@@ -47,8 +47,8 @@ Reviewers are added in **aMule → Operations → Users → Teams → Review**. 
 
 Weblate synchronizes with the Git repository in both directions from **aMule → Operations → Repository maintenance**:
 
-- **Pushing to git.** By default Weblate does not commit to Git on its own. Press **Push** to make Weblate open a pull request with the pending approved translations.
-- **Pulling from git.** Weblate detects changes in Git automatically. If Weblate and the repository ever get out of sync, press **Reset and reapply** to discard Weblate's local state and re-pull from Git.
+- **Pushing to git.** By default Weblate does not commit to Git on its own. First press **Commit** to commit the pending changes — only approved translations are included in the commit; entries listed as *skipped* are not yet approved. Then press **Push** to make Weblate open a pull request with the committed translations.
+- **Pulling from git.** Weblate detects changes in Git automatically. To pull manually, press **Update**. If Weblate and the repository ever get out of sync, press **Reset and reapply** to discard Weblate's local state and re-pull from Git — this is the last resort.
 
 The per-module sections below list the file masks and base files for each component.
 
@@ -60,7 +60,7 @@ The aMule interface strings are managed with GNU gettext (`.po` files in `po/`).
 |---|---|---|---|
 | `Application` | `po/*.po` | `po/amule.pot` | gettext PO file |
 
-The template `po/amule.pot` is regenerated in git by [`./scripts/update-po.sh`](./index.md#updating-an-existing-translation); the **Update PO files to match POT (msgmerge)** add-on then propagates the new and changed strings to every `.po` file in Weblate.
+The template `po/amule.pot` is regenerated in git by [`./scripts/update-po.sh`](./index.md#updating-an-existing-translation), which also merges the new and changed strings into every `.po` file; Weblate imports the result when it pulls from git.
 
 ## Man pages
 
@@ -70,7 +70,9 @@ The man pages are translated with po4a (`.po` files in `docs/man/po/`). See [Man
 |---|---|---|---|
 | `Application Man Pages` | `docs/man/po/manpages-*.po` | `docs/man/po/manpages.pot` | gettext PO file |
 
-The template `docs/man/po/manpages.pot` is regenerated in git by running po4a; the **Update PO files to match POT (msgmerge)** add-on then propagates the new and changed strings to every `manpages-*.po` file in Weblate. The po4a addenda (`docs/man/po/manpages-*.add`, the translator-credit blocks) are not managed by Weblate — they are edited directly in git.
+The template `docs/man/po/manpages.pot` is regenerated in git by [`./scripts/update-manpages-po.sh`](./index.md#updating-the-template-after-editing-an-english-master), which also merges the new and changed strings into every `manpages-*.po` file; Weblate imports the result when it pulls from git. The po4a addenda (`docs/man/po/manpages-*.add`, the translator-credit blocks) are not managed by Weblate — they are edited directly in git.
+
+The rendered translated man pages are not tracked in git — the build renders them from the `.po` files at build time — so a Weblate pull request touching only the `manpages-*.po` files is complete by itself.
 
 ## Website
 

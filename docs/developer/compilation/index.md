@@ -27,6 +27,7 @@ wxWidgets must be built with Unicode support (the default since wx 3.0). aMule i
 | `libupnp` ≥ 1.6.6 | UPnP port forwarding |
 | `libmaxminddb` ≥ 1.0 | Country flags and IP→country mapping |
 | `gettext` ≥ 0.11.5 | Native-language support (NLS) |
+| `po4a` | Translated man pages, rendered at build time; see [Translated Man Pages](#translated-man-pages) |
 | `libayatana-appindicator3` | **Linux only.** StatusNotifierItem (SNI) tray-icon backend; see [Building on Linux](linux.md#sni-tray-icon). |
 | `glib-2.0` dev headers | **wxGTK builds (Linux / BSD).** Required for the `g_set_prgname()` desktop-entry binding when building `amule`, `amuled`, or `amulegui`. No-op on macOS. |
 | `readline` | Line editing in `amulecmd` and `amuleweb` |
@@ -73,6 +74,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_FILEVIEW` | NO | [`fileview`](../file-formats/fileview.md) — console file viewer (experimental) |
 | `BUILD_TESTING` | YES | [Unit test suite](../testing.md) |
 | `ENABLE_NLS` | YES | [Native-language support](../translations/index.md) (gettext) |
+| `TRANSLATED_MANPAGES` | YES | [Translated man pages](#translated-man-pages) rendered via po4a (requires `ENABLE_NLS`; skipped with a notice if po4a is not found) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `ENABLE_IP2COUNTRY` | NO | IP→country mapping (libmaxminddb) |
 | `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
@@ -133,6 +135,8 @@ Default installation layout under `/usr/local`:
 |---|---|
 | Binaries | `/usr/local/bin/` |
 | Translation catalogs | `/usr/local/share/locale/<lang>/LC_MESSAGES/amule.mo` |
+| Man pages (English) | `/usr/local/share/man/man1/` |
+| Man pages (translated) | `/usr/local/share/man/<lang>/man1/` |
 | Data files (skins, webserver) | `/usr/local/share/amule/` |
 | Documentation | `/usr/local/share/doc/amule/` |
 | License | `/usr/local/share/LICENSE.md` |
@@ -174,15 +178,15 @@ sudo xargs rm -f < build/install_manifest.txt
 xargs rm -f < build/install_manifest.txt
 ```
 
-## Refreshing Translated Man Pages
+## Translated Man Pages
 
-The translated `*.LANG.1` man pages under `docs/man/` are committed pre-generated artifacts. They are refreshed from `docs/man/po/manpages-LANG.po` using `po4a`. See [Man Page Translations](../translations/index.md#man-page-translations) for the full translation workflow. The refresh CMake target is available only when `po4a` is found at configure time:
+The translated man pages are not tracked in git — they are rendered at build time by [po4a](https://po4a.org/) from the English masters (`docs/man/*.1.in`, `src/utils/*/docs/*.1.in`) and the translation catalogs (`docs/man/po/manpages-<lang>.po`), then installed under `<prefix>/share/man/<lang>/man1/`. Rendering is controlled by the `TRANSLATED_MANPAGES` option (default `YES` when `ENABLE_NLS=YES`): if `po4a` is found, the pages are rendered as part of the normal build; if it is missing, the build prints a notice and installs only the English pages — pass `-DTRANSLATED_MANPAGES=NO` to silence it.
 
-```sh
-cmake --build build --target po4a-update
-```
+After editing an English master, refresh the translation catalogs with `./scripts/update-manpages-po.sh` and commit the diff (CI checks this). See [Man Page Translations](../translations/index.md#man-page-translations) for the full translation workflow.
 
-This rewrites `docs/man/po/manpages.pot`, syncs each `manpages-LANG.po`, and regenerates the translated man pages in place. Commit the resulting changes.
+:::note For packagers
+To build without `po4a` and still ship translated man pages, use the **source bundle** attached to each [GitHub Release](https://github.com/amule-org/amule/releases) (`aMule-<VERSION>-src.tar.gz`) instead of the GitHub-generated "Source code" archive. It includes the pre-rendered `*.<lang>.1.in` files alongside the English masters, so po4a is not needed at build time.
+:::
 
 ## Running Without Installing
 

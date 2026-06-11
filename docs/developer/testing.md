@@ -236,4 +236,6 @@ Each job:
 3. Builds everything.
 4. Runs `ctest --test-dir build --output-on-failure --timeout 10`.
 
+A separate i18n workflow validates the translation catalogs on every push and pull request: every `.po` file must compile, and the application and man page templates must be in sync with the source and the English man page masters. See [Translations](./translations/index.md) for the scripts that keep them in sync.
+
 Pull requests that fail any CI job will not be merged.
