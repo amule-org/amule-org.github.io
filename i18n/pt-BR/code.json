@@ -649,5 +649,14 @@
   },
   "homepage.features.title": {
     "message": "Características"
+  },
+  "homepage.download.docker": {
+    "message": "Para servidores e dispositivos NAS, um {repo}, mantido por um membro do time aMule, também está disponível — veja o {guide}."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "Imagem Docker não-oficial"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Seção Docker do guia de instalação"
   }
 }

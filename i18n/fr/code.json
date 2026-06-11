@@ -441,7 +441,7 @@
     "message": "Rechercher dans la documentation"
   },
   "theme.SearchPage.existingResultsTitle": {
-    "message": "Résultast de recherche pour \"{query}\""
+    "message": "Résultats de recherche pour \"{query}\""
   },
   "theme.SearchPage.noResultsText": {
     "message": "Aucun document n'a été trouvé"
@@ -651,7 +651,7 @@
     "message": "Étiquettes"
   },
   "homepage.download.docker": {
-    "message": "Pour les serveurs et les périphériques NAS, un {repo} maintenu par un membre de l'équipe aMule est également disponible — voyez le {guide}."
+    "message": "Pour les serveurs et les périphériques NAS, une {repo} maintenue par un membre de l'équipe aMule est également disponible — voyez {guide}."
   },
   "homepage.download.docker.repo.link": {
     "message": "image Docker non officiel"
