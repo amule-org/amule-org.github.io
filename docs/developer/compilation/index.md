@@ -76,7 +76,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `ENABLE_NLS` | YES | [Native-language support](../translations/index.md) (gettext) |
 | `TRANSLATED_MANPAGES` | YES | [Translated man pages](#translated-man-pages) rendered via po4a (requires `ENABLE_NLS`; skipped with a notice if po4a is not found) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
-| `ENABLE_IP2COUNTRY` | NO | IP→country mapping (libmaxminddb) |
+| `ENABLE_IP2COUNTRY` | YES | IP→country mapping (libmaxminddb) |
 | `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
 | `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
 
@@ -112,7 +112,7 @@ Or, using the `BUILD_EVERYTHING` shorthand:
 cmake -B build -DBUILD_EVERYTHING=YES
 ```
 
-`BUILD_EVERYTHING` turns on every build target (`BUILD_*`), but it does **not** enable `ENABLE_IP2COUNTRY` (which is `NO` by default). Pass `-DENABLE_IP2COUNTRY=YES` alongside it if you want IP→country mapping. `ENABLE_NLS` and `ENABLE_UPNP` are already `YES` by default.
+`BUILD_EVERYTHING` turns on every build target (`BUILD_*`). It does not touch the `ENABLE_*` toggles, but `ENABLE_NLS`, `ENABLE_UPNP`, and `ENABLE_IP2COUNTRY` are all `YES` by default, so a default `BUILD_EVERYTHING` invocation produces a full-feature build provided their respective libraries (`gettext`, `libupnp`, `libmaxminddb`) are installed.
 
 ### Debug Build
 
