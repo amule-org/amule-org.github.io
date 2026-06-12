@@ -255,4 +255,4 @@ You enabled `-DENABLE_UPNP=YES` (the default) but the libupnp headers and librar
 CMake Error: ENABLE_IP2COUNTRY=YES but maxminddb.h was not found.
 ```
 
-You enabled `-DENABLE_IP2COUNTRY=YES` but the libmaxminddb headers (or shared library) are missing. Either install libmaxminddb (`libmaxminddb-dev` on Debian/Ubuntu, `libmaxminddb-devel` on Fedora) or pass `-DENABLE_IP2COUNTRY=NO`.
+`ENABLE_IP2COUNTRY` defaults to `YES`, so any configure without an explicit `-DENABLE_IP2COUNTRY=NO` will hit this when libmaxminddb isn't installed. Either install libmaxminddb (`libmaxminddb-dev` on Debian/Ubuntu, `libmaxminddb-devel` on Fedora) or pass `-DENABLE_IP2COUNTRY=NO` to opt out of the country-flag feature.
