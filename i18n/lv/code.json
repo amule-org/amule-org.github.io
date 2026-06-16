@@ -262,5 +262,143 @@
   },
   "homepage.download.distros.link": {
     "message": "nozīmīgāko Linux distribūciju"
+  },
+  "homepage.download.install.link": {
+    "message": "ātrā uzsākšanas rokasgrāmata"
+  },
+  "homepage.download.install": {
+    "message": "{install} aptver visas operētājsistēmu saimes, un {quickstart} tevi viegli un raiti aiz rociņas izvedīs cauri visam uzstādīšanas un iestatīšanas murgam un parādīs, kā lejupielādēt tavu pašu pirmo datni."
+  },
+  "homepage.screenshots.lead": {
+    "message": "aMule grafiskā lietotāja saskarne (GUI) — vienāds izskats uz Windows, macOS un Linux. Noklikšķiniet uz jebkura ekrānuzņēmuma, lai to palielinātu; izmantojiet {left} {right}, lai pārvietotos, un {esc}, lai aizvērtu."
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Lejupielādes cilne ar aktīvajām lejupielādēm"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Lejupielādes — katras datnes progresa rādītājs un to pieejamība"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Darbiniet aMule kā vieglu fona procesu (amuled) bez grafiskās saskarnes serveros, tīkla krātuves (NAS) ierīcēs vai virtuālos privātos serveros (VPS) — monitors nav nepieciešams."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Šī ir {siteTitle} {versionLabel} dokumentācija, kas vairs netiek aktīvi uzturēta."
+  },
+  "homepage.features.openSource.desc": {
+    "message": "GPL-2.0 licenzēta bez izsekošanas, reklāmām un piesaistes konkrētam izstrādātājam. Jūsu dati pieder jums — pārbaudiet pirmkodu un sniedziet savu artavu tā attīstībā."
+  },
+  "homepage.features.openSource.title": {
+    "message": "Brīva un atvērta pirmkoda programmatūra"
+  },
+  "homepage.features.daemon.title": {
+    "message": "aMule fona programma"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Ātrā uzsākšana"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(atveras jaunā cilnē)"
+  },
+  "homepage.features.preview.title": {
+    "message": "Priekšskatīt pirms pilnīgas lejupielādes"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Variet paskatīt video vai paklausīt audio datni negaidot tā pilnīgu lejupielādēti. Saderīgs ar MPlayer, VLC un citiem multimediju atskaņotājiem."
+  },
+  "homepage.features.search.title": {
+    "message": "Jaudīgs meklētājs"
+  },
+  "homepage.features.search.desc": {
+    "message": "Iespēja meklēt eD2k serveros (vietējos un globālajos) un Kademlia mezglos. Kā arī filtrēt pēc tipa, izmēra un pieejamības. Atbalsta Būla operācijas (UN -AND, VAI - OR, NE - NOT)."
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "aMule lejupielādes cilne"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Aizvērt"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Uz jaunāku emuārrakstu"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} ar \"{tagName}\" birku"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Kopēt kodu starpliktuvē"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Navigācijas ceļa josla"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "theme.admonition.warning": {
+    "message": "brīdinājums"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Mēģiniet vēlreiz"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Sākumlapa"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Šis autors vēl nav publicējis nevienu emuārrakstu."
+  },
+  "theme.blog.post.plurals": {
+    "message": "Nevienu emuārrakstu|{count} emuārraksts|{count} emuārraksti"
+  },
+  "theme.admonition.note": {
+    "message": "piezīme"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Emuāra lapu navigācija"
+  },
+  "homepage.description": {
+    "message": "aMule — brīvs, visām operētājsistēmām paredzēts un ar eMule saderīgs eD2k/Kad klients Windows, macOS un Linux vidēm."
+  },
+  "theme.blog.archive.description": {
+    "message": "Emuāra arhīvs"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} ar \"{tagName}\""
+  },
+  "theme.admonition.tip": {
+    "message": "padoms"
+  },
+  "theme.blog.archive.title": {
+    "message": "Emuāra arhīvs"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak pakotne"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Skatīt visus autorus"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "Atrasts neviens dokuments|Atrasts {count} dokuments|Atrasti {count} dokumenti"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Uz vecāku emuārrakstu"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Nokopēts"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "theme.admonition.info": {
+    "message": "informācija"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Nekas nav atrasts"
+  },
+  "theme.common.editThisPage": {
+    "message": "Rediģēt šo lapu"
   }
 }
