@@ -235,7 +235,11 @@ This is a warning, not an error — aMule still builds and runs, but the [tray i
 CMake Error: crypto++ version <X.Y> is too old
 ```
 
-CMake requires Crypto++ ≥ 5.6. Some older distributions (Ubuntu 18.04 LTS, RHEL 7) ship an older version. Either build Crypto++ from source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)) or upgrade to a supported distribution release.
+CMake requires classic Crypto++ ≥ 5.6 *or* any release of the
+[cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork.
+Some older distributions (Ubuntu 18.04 LTS, RHEL 7) ship an older classic
+version. Either build Crypto++ from source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)),
+install cryptopp-modern instead, or upgrade to a supported distribution release.
 
 ### `libupnp` not found
 
