@@ -14,8 +14,13 @@ aMule uses **CMake** (minimum version 3.10) as its build system. This page cover
 | CMake | 3.10 | Build system |
 | zlib | 1.2.3 | Compression |
 | wxWidgets | 3.2.0 | GUI toolkit (3.2 branch or newer) |
-| Crypto++ | 5.6 | Cryptographic functions |
+| Crypto++ | 5.6 | Cryptographic functions — classic or cryptopp-modern |
 | Boost | 1.70 | Headers only; only `asio` is used |
+
+The Crypto++ row accepts either the classic
+[weidai11/cryptopp](https://github.com/weidai11/cryptopp) library (minimum
+5.6) or the [cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern)
+fork (any release). The cmake check disambiguates the two by `CRYPTOPP_VERSION`.
 
 wxWidgets must be built with Unicode support (the default since wx 3.0). aMule is Unicode-only.
 
@@ -79,6 +84,8 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `ENABLE_IP2COUNTRY` | YES | IP→country mapping (libmaxminddb) |
 | `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
 | `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
+| `ENABLE_CCACHE` | AUTO | Use [ccache](https://ccache.dev/) as compiler launcher when found (`AUTO`/`ON`/`OFF`). Set `OFF` for distro builds that wrap the compiler themselves; set `ON` to hard-fail when ccache is missing |
+| `DEFAULT_VERSION_CHECK` | ON | Initial state of the in-app "Check for new aMule version" preference on fresh installs. Set `OFF` for OS-package builds where the distro's own update mechanism owns version notifications |
 
 To list all available options with descriptions:
 
