@@ -649,5 +649,14 @@
   },
   "homepage.download.source.label": {
     "message": "Codice sorgente"
+  },
+  "homepage.download.docker": {
+    "message": "Per server e dispositivi NAS è inoltre disponibile un {repo}, mantenuta da un membro del Team aMule — consulta la {guide}."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "immagine Docker non ufficiale"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "sezione Docker della guida d'installazione"
   }
 }
