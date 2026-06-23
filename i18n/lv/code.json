@@ -156,13 +156,13 @@
     "message": "eD2k/Kad klients, kas saderīgs ar eMule un pieejams jebkurai operētājsistēmai"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena binārā datne katrai nozīmīgai darbvirsmas operētājsistēmai."
+    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena izpildāmā datne katrai nozīmīgai darbvirsmas operētājsistēmai."
   },
   "homepage.highlights.title": {
     "message": "3.0.0 versijas jaunumi"
   },
   "homepage.whatisamule.p2": {
-    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu veidošanas sistēmu, jaunas vietējās pakotnes katrai nozīmīgai darbvirsmas operētājsistēmai un atjauninātu pirmkodu, kas gatavs pašreizējām mūsdienu sistēmām — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzes izstrādātam klientam."
+    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu izveides sistēmu, jaunas programmatūras pakotnes katrai nozīmīgai darbvirsmas operētājsistēmai un mūsdienu prasībām sagatavotu, atjauninātu pirmkodu — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzes izstrādātam klientam."
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "1 vienums|{count} vienumi(-s)"
@@ -249,7 +249,7 @@
     "message": "Pilnībā saderīgs ar eMule un visiem pārējiem *Mule klientiem. Kopīgo datnes ar tiem pašiem avotiem, no kuriem tos lejupielādēji, pieslēdzies tiem pašiem serveriem un atveri tās paša standarta ed2k:// saites."
   },
   "homepage.download.foot": {
-    "message": "Visi gatavie izstrādājumi ir pieejami {release}. Tāpat aMule ir pieejama arī {distros} krātuvēs, kaut gan šīs pakotnes var būt novecojušas."
+    "message": "Visi gatavie izstrādājumi ir pieejami {release}. Tāpat aMule ir pieejama arī {distros} krātuvēs, kaut gan šīs programmatūras pakotnes var būt novecojušas."
   },
   "homepage.download.foot.link": {
     "message": "jaunākās versijas izlaiduma lapā"
@@ -270,7 +270,7 @@
     "message": "{install} aptver visas operētājsistēmu saimes, un {quickstart} tevi viegli un raiti aiz rociņas izvedīs cauri visam uzstādīšanas un iestatīšanas murgam un parādīs, kā lejupielādēt tavu pašu pirmo datni."
   },
   "homepage.screenshots.lead": {
-    "message": "aMule grafiskā lietotāja saskarne (GUI) — vienāds izskats uz Windows, macOS un Linux. Noklikšķiniet uz jebkura ekrānuzņēmuma, lai to palielinātu; izmantojiet {left} {right}, lai pārvietotos, un {esc}, lai aizvērtu."
+    "message": "aMule grafiskā lietotāja saskarne (GUI) — identisks izskats uz Windows, macOS un Linux. Noklikšķiniet uz jebkura ekrānuzņēmuma, lai to palielinātu; izmantojiet {left} {right}, lai pārvietotos, un {esc}, lai aizvērtu."
   },
   "homepage.screenshots.downloads.alt": {
     "message": "Lejupielādes cilne ar aktīvajām lejupielādēm"
@@ -309,7 +309,7 @@
     "message": "Jaudīgs meklētājs"
   },
   "homepage.features.search.desc": {
-    "message": "Iespēja meklēt eD2k serveros (vietējos un globālajos) un Kademlia mezglos. Kā arī filtrēt pēc tipa, izmēra un pieejamības. Atbalsta Būla operācijas (UN -AND, VAI - OR, NE - NOT)."
+    "message": "Iespēja meklēt eD2k serveros (vietējos un globālajos) un Kademlia mezglos. Kā arī atlasīt pēc tipa, izmēra un pieejamības. Atbalsta Būla operācijas (UN -AND, VAI - OR, NE - NOT)."
   },
   "homepage.hero.screenshot.alt": {
     "message": "aMule lejupielādes cilne"
@@ -354,7 +354,7 @@
     "message": "piezīme"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Emuāra lapu navigācija"
+    "message": "Emuārrakstu lapu navigācija"
   },
   "homepage.description": {
     "message": "aMule — brīvs, visām operētājsistēmām paredzēts un ar eMule saderīgs eD2k/Kad klients Windows, macOS un Linux vidēm."
@@ -381,7 +381,7 @@
     "message": "Skatīt visus autorus"
   },
   "theme.SearchPage.documentsFound.plurals": {
-    "message": "Atrasts neviens dokuments|Atrasts {count} dokuments|Atrasti {count} dokumenti"
+    "message": "Atrasts {count} dokuments|Atrasti {count} dokumenti"
   },
   "theme.blog.post.paginator.olderPost": {
     "message": "Uz vecāku emuārrakstu"
@@ -396,9 +396,111 @@
     "message": "informācija"
   },
   "theme.SearchBar.noResultsText": {
-    "message": "Nekas nav atrasts"
+    "message": "Neatradu neko"
   },
   "theme.common.editThisPage": {
     "message": "Rediģēt šo lapu"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Iespēja apmainīties ar ziņojumiem tieši ar citiem aMule lietotājiem un uzturēt draugu sarakstu, lai saglabātu saikni ar saviem iecienītākajiem un regulārajiem koplietošanas dalībniekiem."
+  },
+  "homepage.features.networks.desc": {
+    "message": "Variet vienlaikus pieslēgties gan tradicionālajam eD2k serveru tīklam, gan bezservera Kademlia DHT tīklam, maksimāli palielinot savu sasniedzamību un datņu pieejamību."
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Datu pārraides caurlaides kontrole"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Bloķē nevēlamās IP adreses, izmantojot standarta IP filtru sarakstus. Neļauj agresīviem, ļaunprātīgiem vai spiegu dalībniekiem pieslēgties jūsu klientam."
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Šī lapa nav publiski pieejama. Meklētājprogrammas to neindeksēs, un piekļuve tai ir tikai lietotājiem, kam ir tiešā lapas saite."
+  },
+  "homepage.features.messaging.title": {
+    "message": "Ziņojumapmaiņa un draugi"
+  },
+  "homepage.highlights.bandwidth.label": {
+    "message": "Datu pārraides caurlaides kontrole, kas darbojas"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Datu pārraides caurlaidspēja"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "Diska ievadizvades ( I/O) operācijas vairs nepalēnina programmas galveno darbu — tās tagad notiek citā pavedienā. Tāpat ir kapitāli pārveidota tīkla daļa, tāpēc koplietot datnes starp vienādranga (P2P) tīkla dalībniekiem ir ievērojami ātrāk, ~100–380× ātrāk nekā 2.3.3 versijā gan macOS, gan Linux, gan Windows."
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Datņu dati un serveru sakari tiek saspiesti ar zlib saspiešanas algoritmu, samazinot datu pārraides apjoma patēriņu saspiežamām datnēm un tekošo eD2k serveru slodzi.\nDatņu dārgumi un serveru čuksti zlib tērpā top saspiesti, lai ceļš tiem vieglāks un eD2k kalni no smaguma brīvi austu jaunam rītam. - Rainis.\nKad datnes un serveru sarunas sastop zlib burvību, to nastas izbālē; tie traucas viegli kā vējš, un eD2k sirdis vairs nepagurst zem smagā svara. - Aspazija."
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Saspiesti pārsūtījumi"
+  },
+  "theme.admonition.caution": {
+    "message": "uzmanību"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Atlīdzības uzskaites sistēma"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Lapas saturs"
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Programmatūras pakotnes"
+  },
+  "homepage.highlights.packages.detail": {
+    "message": "Windows uzstādīšanas programma un pārnēsājamā .zip versija, macOS Universal2 .dmg, AppImage, Flatpak — gan x64, gan ARM64 arhitektūrām."
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Atgriezties lapas augšgalā"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Neatradu nevienu dokumentu"
+  },
+  "theme.NotFound.p2": {
+    "message": "Lūdzu, informējiet pirmavota tīmekļa vietnes uzturētāju, ka viņu norādītā saite uz konkrēto URL adresi vairs nav derīga."
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule uzrauga jūsu kopīgotās un ienākošās mapes un automātiski atlasa jaunas, izmainītas vai dzēstas datnes — nav nepieciešama pašrocīga mapju pārlāde, kad jūsu bibliotēkas saturs mainās."
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Iebūvētā kredītu un punktu sistēma atlīdzina lietotājus, kuri aktīvi augšupielādē datus. Jo vairāk jūs kopīgojat, jo augstāks ir jūsu vērtējums, kas nodrošina ātrāku lejupielādi."
+  },
+  "theme.admonition.danger": {
+    "message": "bīstami"
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Izpildāmās datnes katrai darbvirsmas operētājsistēmai"
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": "Moderna pakotņu izveides sistēma"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Pakotnes"
+  },
+  "theme.NotFound.p1": {
+    "message": "Mēs nevarējām atrast konkrēto lapu."
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Pieejama uzstādīšanas programma un pārnēsājamā .zip versija Windows operētājsistēmām, Universal2 .dmg macOS operētājsistēmām, kā arī AppImage un Flatpak Linux operētājsistēmām. Pieejams gan x64, gan ARM64 arhitektūrām."
+  },
+  "theme.NotFound.title": {
+    "message": "Konkrētā lapa neeksistē"
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Automātiska mapes atsvaidzināšana"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Uz jaunākiem emuārrakstiem"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Emuāra lapu navigācija"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Atgriezties uz galveno izvēlni"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Uz vecākiem emuārrakstiem"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Izlasāms pa {readingTime} minūti|Izlasāms pa {readingTime} minūtēm"
   }
 }
