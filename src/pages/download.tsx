@@ -25,8 +25,8 @@ const SOURCE_SVG = 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6
 const DOWNLOAD_SVG = 'M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z';
 
 // Latest release. Update these three constants when a new version ships.
-const LATEST_VERSION = '3.0.0';
-const LATEST_DATE = '2026-06-08';
+const LATEST_VERSION = '3.0.1';
+const LATEST_DATE = '2026-06-24';
 const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
 
 // Generic releases page (version number link, footer links).
@@ -37,6 +37,7 @@ const SOURCE_ARCHIVE_BASE = `https://github.com/amule-org/amule/archive/refs/tag
 
 // Archived releases (before 3.0.0). URLs are derived from the version number.
 const PREV_RELEASES = [
+  {version: '3.0.0', date: '2026-06-08'},
   {version: '2.3.3', date: '2021-02-07'},
   {version: '2.3.2', date: '2016-09-16'},
   {version: '2.3.1', date: '2011-11-11'},
