@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "journal des modifications →"
+  },
+  "homepage.banner.download": {
+    "message": "télécharger"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} est disponible — {download} ou lisez le {changelog}"
+  },
   "homepage.description": {
     "message": "aMule est un client libre et multi-plateforme eD2k/Kad compatible avec eMule pour Windows, macOS et GNU/Linux."
   },
@@ -321,7 +330,7 @@
     "message": "Performances"
   },
   "homepage.highlights.title": {
-    "message": "Quoi de neuf dans la version 3.0.0 ?"
+    "message": "Quoi de neuf dans aMule 3.0 ?"
   },
   "homepage.screenshots.downloads.alt": {
     "message": "Onglet de téléchargement avec des téléchargements en cours"
@@ -369,7 +378,7 @@
     "message": "aMule est un client de partage de fichiers pair à pair libre, sous licence GPL pour les réseaux {ed2k} et {kad}. Il est compatible avec eMule et fonctionne nativement sous GNU/Linux, macOS et Windows. Même état sur le disque, même protocole, un binaire par bureau majeur."
   },
   "homepage.whatisamule.p2": {
-    "message": "Après des années de calme, le projet est à nouveau maintenu activement. La version 3.0.0 apporte des débits considérablement améliorés, un système de compilation modernisé, des nouveaux paquets natifs pour chaque bureau notable et un code source modernisé pour les systèmes actuels — sans rompre la compatibilité du protocole qui permet à aMule de fonctionner avec n'importe quel autre client fondé sur eMule."
+    "message": "Après des années de calme, le projet est à nouveau maintenu activement. aMule 3.0 apporte des débits considérablement améliorés, un système de compilation modernisé, des nouveaux paquets natifs pour chaque bureau notable et un code source modernisé pour les systèmes actuels — sans rompre la compatibilité du protocole qui permet à aMule de fonctionner avec n'importe quel autre client fondé sur eMule."
   },
   "homepage.whatisamule.title": {
     "message": "Ce qu'est aMule"

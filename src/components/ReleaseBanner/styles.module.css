@@ -1,0 +1,33 @@
+.banner {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  background-color: color-mix(in srgb, var(--ifm-color-primary) 14%, var(--ifm-background-color));
+  border-bottom: 1px solid color-mix(in srgb, var(--ifm-color-primary) 35%, transparent);
+  color: var(--ifm-font-color-base);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* In dark mode the page-wide brand gradient (.main-wrapper) uses the same
+   ~12% primary tint, so a subtle banner blends into it. Use a stronger mix
+   so the bar reads as a distinct surface. */
+[data-theme='dark'] .banner {
+  background-color: color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-background-color));
+}
+
+.content {
+  display: inline-block;
+}
+
+.link {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link:hover {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: none;
+}

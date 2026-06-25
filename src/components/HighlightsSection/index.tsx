@@ -54,18 +54,18 @@ export default function HighlightsSection(): React.JSX.Element {
       <div className={styles.inner}>
         <div className={styles.header}>
           <h2 className={styles.title}>
-            <Translate id="homepage.highlights.title" description="Heading of the release-highlights section on the homepage">What's new in 3.0.0</Translate>
+            <Translate id="homepage.highlights.title" description="Heading of the release-highlights section on the homepage">What's new in aMule 3.0</Translate>
           </h2>
           <Link
             className={styles.changelogLink}
-            to="/changelog/3.0.0"
+            to="/changelog"
           >
-            <Translate id="homepage.highlights.changelog" description="Link to the full 3.0.0 changelog in the release-highlights section">Full changelog →</Translate>
+            <Translate id="homepage.highlights.changelog" description="Link to the changelog from the release-highlights section">Full changelog →</Translate>
           </Link>
         </div>
         <p className={styles.intro}>
           <Translate id="homepage.whatisamule.p2" description="Intro paragraph above the release-highlights cards on the homepage">
-            After years of quiet, the project is back under active maintenance. The 3.0.0 release brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.
+            After years of quiet, the project is back under active maintenance. aMule 3.0 brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.
           </Translate>
         </p>
         <div className={styles.strip}>

@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "izmaiņu saraksts →"
+  },
+  "homepage.banner.download": {
+    "message": "lejupielādēt"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} ir pieejama — {download} vai lasi {changelog}"
+  },
   "theme.navbar.mobileVersionsDropdown.label": {
     "message": "Versijas"
   },
@@ -159,10 +168,10 @@
     "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena izpildāmā datne katrai nozīmīgai darbvirsmas operētājsistēmai."
   },
   "homepage.highlights.title": {
-    "message": "3.0.0 versijas jaunumi"
+    "message": "aMule 3.0 jaunumi"
   },
   "homepage.whatisamule.p2": {
-    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. 3.0.0 izlaiduma versija sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu izveides sistēmu, jaunas programmatūras pakotnes katrai nozīmīgai darbvirsmas operētājsistēmai un mūsdienu prasībām sagatavotu, atjauninātu pirmkodu — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzes izstrādātam klientam."
+    "message": "Pēc gadiem ilga klusuma projekts atkal atdzimis un tiek aktīvi uzturēts. aMule 3.0 sniedz ievērojamus datu caurlaidspējas uzlabojumus, modernizētu pakotņu izveides sistēmu, jaunas programmatūras pakotnes katrai nozīmīgai darbvirsmas operētājsistēmai un mūsdienu prasībām sagatavotu, atjauninātu pirmkodu — nesabojājot protokola saderību, kas ļauj aMule darboties līdzās jebkuram uz eMule bāzes izstrādātam klientam."
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "1 vienums|{count} vienumi(-s)"

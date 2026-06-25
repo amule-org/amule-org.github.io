@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "registre de canvis →"
+  },
+  "homepage.banner.download": {
+    "message": "descàrrega"
+  },
+  "homepage.banner.text": {
+    "message": "L'aMule {version} ja està disponible — {download} o llegeix el {changelog}"
+  },
   "homepage.download.linux.platform": {
     "message": "glibc ≥ 2.35 · x64 · ARM64"
   },
@@ -222,7 +231,7 @@
     "message": "Transferències espectacularment més ràpides"
   },
   "homepage.highlights.title": {
-    "message": "Novetats a la 3.0.0"
+    "message": "Novetats a l'aMule 3.0"
   },
   "homepage.screenshots.downloads.alt": {
     "message": "Pestanya de descàrregues amb descàrregues actives"
@@ -267,7 +276,7 @@
     "message": "aMule és un client gratuït per compartir fitxers entre iguals i amb llicència GPL per a les xarxes {ed2k} i {kad}. És compatible amb eMule i s'executa de manera nativa a Windows, macOS i Linux. El mateix estat al disc, el mateix protocol, un binari per escriptori principal."
   },
   "homepage.whatisamule.p2": {
-    "message": "Després d'anys de silenci, el projecte torna a estar en manteniment actiu. La versió 3.0.0 aporta millores espectaculars del rendiment, un sistema de construcció modernitzat, paquets natius nous per a tots els escriptoris principals i una base de codi actualitzada preparada per als sistemes actuals, sense trencar la compatibilitat del protocol que permet a aMule treballar juntament amb qualsevol client basat en eMule."
+    "message": "Després d'anys de silenci, el projecte torna a estar en manteniment actiu. L'aMule 3.0 aporta millores espectaculars del rendiment, un sistema de construcció modernitzat, paquets natius nous per a tots els escriptoris principals i una base de codi actualitzada preparada per als sistemes actuals, sense trencar la compatibilitat del protocol que permet a aMule treballar juntament amb qualsevol client basat en eMule."
   },
   "homepage.whatisamule.title": {
     "message": "Què és aMule?"

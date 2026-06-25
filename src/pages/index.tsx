@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Translate, {translate} from '@docusaurus/Translate';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import ReleaseBanner from '@site/src/components/ReleaseBanner';
 import HighlightsSection from '@site/src/components/HighlightsSection';
 import FeaturesSection from '@site/src/components/FeaturesSection';
 import ScreenshotsSection from '@site/src/components/ScreenshotsSection';
@@ -22,6 +23,7 @@ export default function Home(): React.JSX.Element {
         description: 'Homepage SEO meta description (HTML description tag)',
       })}
     >
+      <ReleaseBanner />
       <header className={styles.hero}>
         <div className={styles.heroText}>
           <img src={logoSrc} alt={translate({id: 'homepage.hero.logo.alt', message: 'aMule logo', description: 'Alt text for the aMule logo in the homepage hero'})} className={styles.heroIcon} />
