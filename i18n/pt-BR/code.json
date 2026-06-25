@@ -12,7 +12,7 @@
     "message": "SourceForge"
   },
   "homepage.download.foot": {
-    "message": "Todos os artefatos estão disponíveis em {release}. O aMule também está disponível nos repositórios das {distros}, apesar dos pacotes poderem ser antigos."
+    "message": "Todos os artefatos estão disponíveis na {release}. O aMule também está disponível nos repositórios das {distros}, apesar dos pacotes poderem estar desatualizados."
   },
   "homepage.download.previous.link": {
     "message": "SourceForge"
@@ -21,7 +21,7 @@
     "message": "Download"
   },
   "homepage.download.previous.body": {
-    "message": "Versões anteriores a 3.0.0 estão arquivadas no {github} e {sourceforge}."
+    "message": "Versões anteriores a 3.0.0 estão arquivadas no {github} e na {sourceforge}."
   },
   "homepage.download.lead": {
     "message": "O aMule está disponível para a maioria das principais plataformas de desktop."
@@ -51,7 +51,7 @@
     "message": "O {install} cobre todas as plataformas, e o {quickstart} guia você atráves do setup e de seu primeiro download."
   },
   "homepage.download.compile": {
-    "message": "O {link} tem instruções para compilar o aMule do código fonte."
+    "message": "O {link} tem instruções para compilar o aMule a partir do código fonte."
   },
   "homepage.download.version.label": {
     "message": "Versão mais recente"
@@ -156,10 +156,10 @@
     "message": "Capturas de tela"
   },
   "homepage.tagline": {
-    "message": "Cliente eMule-compatível eD2k/Kad para todas as plataformas"
+    "message": "Cliente eD2k/Kad compatível com eMule e para todas as plataformas"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, livre, com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por desktop principal."
+    "message": "O aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, software livre e com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por plataforma."
   },
   "homepage.whatisamule.p2": {
     "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. O aMule 3.0 traz melhorias dramáticas de taxa de transferência, um sistema de compilação modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
@@ -660,7 +660,7 @@
     "message": "Características"
   },
   "homepage.download.docker": {
-    "message": "Para servidores e dispositivos NAS, um {repo}, mantido por um membro do time aMule, também está disponível — veja o {guide}."
+    "message": "Para servidores e dispositivos NAS, uma {repo}, mantida por um membro do time aMule, também está disponível — veja a {guide}."
   },
   "homepage.download.docker.repo.link": {
     "message": "Imagem Docker não-oficial"
