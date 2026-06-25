@@ -318,7 +318,7 @@
     "message": "Jaudīgs meklētājs"
   },
   "homepage.features.search.desc": {
-    "message": "Iespēja meklēt eD2k serveros (vietējos un globālajos) un Kademlia mezglos. Kā arī atlasīt pēc tipa, izmēra un pieejamības. Atbalsta Būla operācijas (UN -AND, VAI - OR, NE - NOT)."
+    "message": "Iespēja meklēt eD2k serveros (vietējos un globālajos) un Kademlia mezglos. Kā arī atlasīt pēc tipa, izmēra un pieejamības. Atbalsta Būla operācijas (UN - AND, VAI - OR, NE - NOT)."
   },
   "homepage.hero.screenshot.alt": {
     "message": "aMule lejupielādes cilne"
@@ -438,7 +438,7 @@
     "message": "Diska ievadizvades ( I/O) operācijas vairs nepalēnina programmas galveno darbu — tās tagad notiek citā pavedienā. Tāpat ir kapitāli pārveidota tīkla daļa, tāpēc koplietot datnes starp vienādranga (P2P) tīkla dalībniekiem ir ievērojami ātrāk, ~100–380× ātrāk nekā 2.3.3 versijā gan macOS, gan Linux, gan Windows."
   },
   "homepage.features.compressedTransfers.desc": {
-    "message": "Datņu dati un serveru sakari tiek saspiesti ar zlib saspiešanas algoritmu, samazinot datu pārraides apjoma patēriņu saspiežamām datnēm un tekošo eD2k serveru slodzi.\nDatņu dārgumi un serveru čuksti zlib tērpā top saspiesti, lai ceļš tiem vieglāks un eD2k kalni no smaguma brīvi austu jaunam rītam. - Rainis.\nKad datnes un serveru sarunas sastop zlib burvību, to nastas izbālē; tie traucas viegli kā vējš, un eD2k sirdis vairs nepagurst zem smagā svara. - Aspazija."
+    "message": "Datņu dati un serveru sakari tiek saspiesti ar zlib saspiešanas algoritmu, samazinot datu pārraides apjoma patēriņu saspiežamām datnēm un tekošo eD2k serveru slodzi.\n\nDatņu dārgumi un serveru čuksti zlib tērpā top saspiesti, lai ceļš tiem vieglāks un eD2k kalni no smaguma brīvi austu jaunam rītam. - Rainis.\n\nKad datnes un serveru sarunas sastop zlib burvību, to nastas izbālē; tie traucas viegli kā vējš, un eD2k sirdis vairs nepagurst zem smagā svara. - Aspazija."
   },
   "homepage.features.compressedTransfers.title": {
     "message": "Saspiesti pārsūtījumi"
@@ -471,7 +471,7 @@
     "message": "aMule uzrauga jūsu kopīgotās un ienākošās mapes un automātiski atlasa jaunas, izmainītas vai dzēstas datnes — nav nepieciešama pašrocīga mapju pārlāde, kad jūsu bibliotēkas saturs mainās."
   },
   "homepage.features.creditSystem.desc": {
-    "message": "Iebūvētā kredītu un punktu sistēma atlīdzina lietotājus, kuri aktīvi augšupielādē datus. Jo vairāk jūs kopīgojat, jo augstāks ir jūsu vērtējums, kas nodrošina ātrāku lejupielādi."
+    "message": "Iebūvētā kredītu un punktu sistēma atlīdzina lietotājus, kuri aktīvi augšupielādē datus. Jo vairāk jūs kopīgojiet, jo augstāks ir jūsu vērtējums, kas nodrošina ātrāku lejupielādi."
   },
   "theme.admonition.danger": {
     "message": "bīstami"
@@ -510,6 +510,12 @@
     "message": "Uz vecākiem emuārrakstiem"
   },
   "theme.blog.post.readingTime.plurals": {
-    "message": "Izlasāms pa {readingTime} minūti|Izlasāms pa {readingTime} minūtēm"
+    "message": "Izlasāms {readingTime} minūtē|Izlasāms {readingTime} minūtēs"
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Katram klientam izdalīts augšupielādes ātrums"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Ļauj precīzi kontrolēt, cik klientiem vienlaikus augšupielādēt datus, iestatot identisku katram klientam (vienam savienojumam) izdalītās spraugas augšupielādes ātruma ierobežojumu, tā iegūstot detalizētu kontroli pār savu kopējo augšupielādes caurlaidspēju."
   }
 }
