@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "changelog →"
+  },
+  "homepage.banner.download": {
+    "message": "scarica"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} è disponibile — {download} o leggi il {changelog}"
+  },
   "homepage.download.windows.os": {
     "message": "Windows"
   },
@@ -312,13 +321,13 @@
     "message": "Autotools rimosso del tutto. Build CMake unica, CMake minimo 3.10, wxWidgets minimo 3.2.0."
   },
   "homepage.highlights.title": {
-    "message": "Novità nella 3.0.0"
+    "message": "Novità in aMule 3.0"
   },
   "homepage.highlights.changelog": {
     "message": "Changelog completo →"
   },
   "homepage.whatisamule.p2": {
-    "message": "Dopo anni di silenzio, il progetto è tornato sotto manutenzione attiva. La release 3.0.0 introduce miglioramenti drastici al throughput, un sistema di compilazione modernizzato, nuovi pacchetti nativi per ogni desktop principale e una base di codice aggiornata, pronta per i sistemi attuali — senza rompere la compatibilità di protocollo che permette ad aMule di funzionare insieme a qualsiasi client basato su eMule."
+    "message": "Dopo anni di silenzio, il progetto è tornato sotto manutenzione attiva. aMule 3.0 introduce miglioramenti drastici al throughput, un sistema di compilazione modernizzato, nuovi pacchetti nativi per ogni desktop principale e una base di codice aggiornata, pronta per i sistemi attuali — senza rompere la compatibilità di protocollo che permette ad aMule di funzionare insieme a qualsiasi client basato su eMule."
   },
   "homepage.screenshots.networks.alt": {
     "message": "Scheda Reti — elenco dei server e stato Kademlia"

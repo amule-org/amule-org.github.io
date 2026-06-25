@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "değişiklik listesi →"
+  },
+  "homepage.banner.download": {
+    "message": "indir"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} yayında — {download} veya {changelog}"
+  },
   "homepage.description": {
     "message": "aMule, özgür, Windows, macOS ve GNU/Linux için her platforma uygun, eMule ile uyumlu bir eD2k/Kad istemcisidir."
   },
@@ -321,7 +330,7 @@
     "message": "Performans"
   },
   "homepage.highlights.title": {
-    "message": "3.0.0 sürümündeki yenilikler"
+    "message": "aMule 3.0 sürümündeki yenilikler"
   },
   "homepage.screenshots.downloads.alt": {
     "message": "Faal indirmeler bulunan indirme sekmesi"
@@ -369,7 +378,7 @@
     "message": "aMule, özgür, GPL kapsamında lisanslanmış {ed2k} ve {kad} ağları için eşten eşe dosya paylaşım istemcisidir. eMule ile uyumludur ve Windows, macOS ve GNU/Linux üzerinde yerel olarak çalışır. Aynı disk üzerinde durum, aynı protokol, her ana masaüstü için bir ikili çalıştırılabilir dosya."
   },
   "homepage.whatisamule.p2": {
-    "message": "Seneler süren sessizliğin ardından proje yeniden etkin bakıma alınmıştır. 3.0.0 sürümü, veri aktarım hızında son derece büyük iyileştirmeler, güncellenmiş bir derleme sistemi, her hatırı sayılır platform için yeni yerel paketler ve çağdaş sistemler için güncellenmiş kaynak kod tabanı sağlar — tüm bunlar, aMule'ün eMule temelli istemcilerle çalışmasını sağlayan protokol uyumluluğunu bozmadan yapılmıştır."
+    "message": "Seneler süren sessizliğin ardından proje yeniden etkin bakıma alınmıştır. aMule 3.0, veri aktarım hızında son derece büyük iyileştirmeler, güncellenmiş bir derleme sistemi, her hatırı sayılır platform için yeni yerel paketler ve çağdaş sistemler için güncellenmiş kaynak kod tabanı sağlar — tüm bunlar, aMule'ün eMule temelli istemcilerle çalışmasını sağlayan protokol uyumluluğunu bozmadan yapılmıştır."
   },
   "homepage.whatisamule.title": {
     "message": "aMule Nedir?"

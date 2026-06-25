@@ -1,4 +1,13 @@
 {
+  "homepage.banner.changelog": {
+    "message": "changelog →"
+  },
+  "homepage.banner.download": {
+    "message": "download"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} já está disponível — {download} ou leia o {changelog}"
+  },
   "homepage.download.previous.entry.sourceforge": {
     "message": "SourceForge"
   },
@@ -153,7 +162,7 @@
     "message": "aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, livre, com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por desktop principal."
   },
   "homepage.whatisamule.p2": {
-    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. A versão 3.0.0 traz melhorias dramáticas de taxa de transferência, um sistema de compilação modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
+    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. O aMule 3.0 traz melhorias dramáticas de taxa de transferência, um sistema de compilação modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
   },
   "homepage.whatisamule.title": {
     "message": "O que é o aMule?"
@@ -597,7 +606,7 @@
     "message": "Desempenho"
   },
   "homepage.highlights.title": {
-    "message": "O que há de novo no 3.0.0"
+    "message": "O que há de novo no aMule 3.0"
   },
   "homepage.features.preview.desc": {
     "message": "Toca vídeos e arquivos de audio antes de terminar um download. Compatível com MPlayer, VLC e outros tocadores de midia."

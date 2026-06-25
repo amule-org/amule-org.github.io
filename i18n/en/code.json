@@ -401,7 +401,7 @@
   },
   "homepage.highlights.changelog": {
     "message": "Full changelog →",
-    "description": "Link to the full 3.0.0 changelog in the release-highlights section"
+    "description": "Link to the changelog from the release-highlights section"
   },
   "homepage.highlights.packages.detail": {
     "message": "Windows installer and portable .zip, macOS Universal2 .dmg, AppImage, Flatpak — x64 and ARM64 where supported.",
@@ -428,7 +428,7 @@
     "description": "Category badge of the Performance card in the 'What's new in 3.0.0' section"
   },
   "homepage.highlights.title": {
-    "message": "What's new in 3.0.0",
+    "message": "What's new in aMule 3.0",
     "description": "Heading of the release-highlights section on the homepage"
   },
   "homepage.screenshots.downloads.alt": {
@@ -492,7 +492,7 @@
     "description": "First paragraph of the 'What is aMule?' homepage section; {ed2k} and {kad} are network names rendered in bold"
   },
   "homepage.whatisamule.p2": {
-    "message": "After years of quiet, the project is back under active maintenance. The 3.0.0 release brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.",
+    "message": "After years of quiet, the project is back under active maintenance. aMule 3.0 brings dramatic throughput improvements, a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.",
     "description": "Intro paragraph above the release-highlights cards on the homepage"
   },
   "homepage.whatisamule.title": {
@@ -872,5 +872,17 @@
   "homepage.download.docker.guide.link": {
     "message": "Docker section of the installation guide",
     "description": "Link text for the Docker section of the installation guide in the download footer note"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} is out — {download} or read the {changelog}",
+    "description": "Top-of-homepage banner announcing the latest aMule release; {version} is the version number, {download} is the link to the download page, {changelog} is the link to the changelog"
+  },
+  "homepage.banner.download": {
+    "message": "download",
+    "description": "Download link label in the latest-release banner; lowercase, reads inline mid-sentence"
+  },
+  "homepage.banner.changelog": {
+    "message": "changelog →",
+    "description": "Changelog link label in the latest-release banner"
   }
 }

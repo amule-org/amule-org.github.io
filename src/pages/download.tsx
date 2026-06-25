@@ -3,6 +3,15 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate, {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {
+  LATEST_VERSION,
+  LATEST_DATE,
+  CHANGELOG_URL,
+  RELEASES_URL,
+  ASSET_BASE,
+  SOURCE_ARCHIVE_BASE,
+  PREV_RELEASES,
+} from '@site/src/releaseInfo';
 import styles from './download.module.css';
 
 // Format an ISO date (YYYY-MM-DD) for the active locale, e.g. "1 de junio de 2026".
@@ -23,25 +32,6 @@ const MACOS_SVG =
 const WINDOWS_SVG = 'M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623';
 const SOURCE_SVG = 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z';
 const DOWNLOAD_SVG = 'M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z';
-
-// Latest release. Update these three constants when a new version ships.
-const LATEST_VERSION = '3.0.1';
-const LATEST_DATE = '2026-06-24';
-const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
-
-// Generic releases page (version number link, footer links).
-const RELEASES_URL = 'https://github.com/amule-org/amule/releases/latest';
-// Per-artifact download bases, derived from the version number.
-const ASSET_BASE = `https://github.com/amule-org/amule/releases/download/${LATEST_VERSION}`;
-const SOURCE_ARCHIVE_BASE = `https://github.com/amule-org/amule/archive/refs/tags/${LATEST_VERSION}`;
-
-// Archived releases (before 3.0.0). URLs are derived from the version number.
-const PREV_RELEASES = [
-  {version: '3.0.0', date: '2026-06-08'},
-  {version: '2.3.3', date: '2021-02-07'},
-  {version: '2.3.2', date: '2016-09-16'},
-  {version: '2.3.1', date: '2011-11-11'},
-];
 
 interface DownloadFile {
   // Architecture label, e.g. "x64"
