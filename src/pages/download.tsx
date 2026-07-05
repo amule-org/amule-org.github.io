@@ -335,7 +335,7 @@ export default function DownloadPage(): React.JSX.Element {
                       </svg>
                       <Translate id="homepage.download.previous.entry.github" description="GitHub download link for a previous release entry">GitHub</Translate>
                     </Link>
-                    <Link to={`https://sourceforge.net/projects/amule/files/aMule/${r.version}/`}>
+                    <Link to={`https://sourceforge.net/projects/amule/files/${r.version}/`}>
                       <svg className={styles.prevDlIcon} viewBox="0 0 24 24" aria-hidden="true">
                         <path fill="currentColor" d={DOWNLOAD_SVG} />
                       </svg>
