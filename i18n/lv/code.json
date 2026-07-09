@@ -1,12 +1,12 @@
 {
   "homepage.banner.changelog": {
-    "message": "izmaiņu saraksts →"
+    "message": "izmaiņas →"
   },
   "homepage.banner.download": {
     "message": "lejupielādēt"
   },
   "homepage.banner.text": {
-    "message": "aMule {version} ir pieejama — {download} vai lasi {changelog}"
+    "message": "Ir pieejama aMule {version} — variet {download} un skatīt veiktās {changelog} tagad"
   },
   "theme.navbar.mobileVersionsDropdown.label": {
     "message": "Versijas"
@@ -180,7 +180,7 @@
     "message": "Kopīgotās datnes"
   },
   "homepage.download.previous.body": {
-    "message": "Izlaiduma versijas pirms 3.0.0 pieejamas {github} un {sourceforge}."
+    "message": "Izlaiduma versijas pirms 3.0.1 pieejamas {github} un {sourceforge}."
   },
   "homepage.highlights.performance.tag": {
     "message": "Veiktspēja"
@@ -255,7 +255,7 @@
     "message": "macOS 11.0+ · Apple Silicon · Intel"
   },
   "homepage.features.emuleCompatible.desc": {
-    "message": "Pilnībā saderīgs ar eMule un visiem pārējiem *Mule klientiem. Kopīgo datnes ar tiem pašiem avotiem, no kuriem tos lejupielādēji, pieslēdzies tiem pašiem serveriem un atveri tās paša standarta ed2k:// saites."
+    "message": "Pilnībā saderīgs ar eMule un visiem pārējiem *Mule klientiem. Kopīgo datnes ar tiem pašiem avotiem - dalībniekiem, no kuriem tos lejupielādēji, pieslēdzies tiem pašiem serveriem un atveri tās pašas standarta ed2k:// saites."
   },
   "homepage.download.foot": {
     "message": "Visi gatavie izstrādājumi ir pieejami {release}. Tāpat aMule ir pieejama arī {distros} krātuvēs, kaut gan šīs programmatūras pakotnes var būt novecojušas."
@@ -336,7 +336,7 @@
     "message": "Kopēt kodu starpliktuvē"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Navigācijas ceļa josla"
+    "message": "Ceļa pavediena (pēdu raksta) josla"
   },
   "homepage.download.linux.platform": {
     "message": "glibc ≥ 2.35 · x64 · ARM64"
@@ -420,7 +420,7 @@
     "message": "Datu pārraides caurlaides kontrole"
   },
   "homepage.features.ipFiltering.desc": {
-    "message": "Bloķē nevēlamās IP adreses, izmantojot standarta IP filtru sarakstus. Neļauj agresīviem, ļaunprātīgiem vai spiegu dalībniekiem pieslēgties jūsu klientam."
+    "message": "Bloķē nevēlamās IP adreses, izmantojot standarta IP adrešu filtru sarakstus. Neļauj agresīviem, ļaunprātīgiem vai spiegu dalībniekiem pieslēgties jūsu klientam."
   },
   "theme.contentVisibility.unlistedBanner.message": {
     "message": "Šī lapa nav publiski pieejama. Meklētājprogrammas to neindeksēs, un piekļuve tai ir tikai lietotājiem, kam ir tiešā lapas saite."
@@ -517,5 +517,116 @@
   },
   "homepage.features.slotAllocation.desc": {
     "message": "Ļauj precīzi kontrolēt, cik klientiem vienlaikus augšupielādēt datus, iestatot identisku katram klientam (vienam savienojumam) izdalītās spraugas augšupielādes ātruma ierobežojumu, tā iegūstot detalizētu kontroli pār savu kopējo augšupielādes caurlaidspēju."
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Avotu informācijas apmaiņa"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Iespēja slēpt aMule sistēmas joslā un ļaut tai klusi darboties fonā. Darbojas Windows, macOS un visās galvenajās Linux darbavirsmu operētājsistēmās."
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Izvērst sānjoslas '{label}' kategoriju"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Lapas melnraksts"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Sakļaut sānjoslu"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Nepublicēta lapa"
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "IP adrešu filtrēšana"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Rādīt visus rezultātus"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Aizvērt navigācijas joslu"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Šī lapa nobruka."
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Meklēt dokumentācijā"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Parādīt navigācijas joslu"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Izvērst sānjoslu"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Ir sistēmas josla"
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Droša atpazīšanas aizsardzība"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Galvenais lapas saturs"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Lasīt visu {title} emuārrakstu"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Attālās vadības saskarnes"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Pārslēgties starp tumšo un gaišo motīvu (pašlaik izmanto {mode})"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Variet izmantot ed2k:// saites savā interneta pārlūkā, lai nekavējoties, momentāni, uzsāktu lejupielādes procesus aMule. Saišu tvērējs nemanāmi integrējas jūsu darbvirsmas saskarnē, sniedzot ērtu viena klikšķa lejupielādes pieredzi — bez liekas saites kopēšanas pārlūkā un ielīmēšanas aMule."
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Dokumentu lapas"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Izvērst sānjoslu"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Dokumentu sānjosla"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Automatiski apmainās ar avotu - dalībnieku, informāciju starp tīkla dalībniekiem, kas ļauj atklāt jaunus dalībniekus, no kuriem iespējams lejupielādēt konkrētās datnes, bez pastāvīgas vaicāšanas serverim."
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Sakļaut atlases izvēlni"
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": "Autotools ir pilnībā noņemts un netiek vairs izmantots. Tagad izmanto vienu CMake izveides datni ar minimālām prasībām — nepieciešamā versija CMake >= 3.10, wxWidgets >= 3.2.0, zlib >= 1.2.3, Crypto++ >= 5.6 un Boost >= 1.70."
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "{count} dokuments atzīmēts ar birku|{count} dokumenti atzīmēti ar birku"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Šī ir nepublicēta {siteTitle} {versionLabel} versijas dokumentācija."
+  },
+  "theme.blog.post.readMore": {
+    "message": "Lasīt visu emuārrakstu"
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Atbalsta ed2k:// saites tveršanu"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Ieslēgt/izslēgt rindu aplaušanu"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Sakļaut sānjoslas '{label}' kategoriju"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Sakļaut sānjoslu"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Kriptogrāfiski drošā lietotāja atpazīšana neļauj citiem tīkla dalībniekiem izlikties par jums, nozogot vai viltojot jūsu klienta atpazīšanas kodu (jaucējvērtību). Tādējādi nosargājot jūsu kredītpunktus/reputāciju."
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Tiešā saite uz {heading}"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Aktuālo dokumentāciju skatiet {latestVersionLink} ({versionLabel})."
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Izvērst atlases izvēlni"
   }
 }
