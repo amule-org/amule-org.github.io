@@ -256,13 +256,7 @@ sudo apt install amule amule-daemon amule-utils amuleweb
 
 #### Fedora
 
-aMule is not in Fedora's official repositories; it is provided by the third-party [RPM Fusion](https://rpmfusion.org) Free repository. Enable it first (skip this step if it is already enabled):
-
-```sh
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-```
-
-Then install aMule:
+aMule is available in Fedora's official repositories:
 
 ```sh
 sudo dnf install amule
