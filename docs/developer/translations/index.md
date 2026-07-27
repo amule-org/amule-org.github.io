@@ -7,7 +7,7 @@ This guide is the single starting point for everything related to translating aM
 
 Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website documentation](#documentation-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
 
-There are two equally valid ways to contribute a translation: open a pull request to the relevant repository, or use [Weblate](https://hosted.weblate.org/projects/amule/) — a translation tool that stays in sync with git. Both edit the same files and either is accepted — pick whichever you prefer. The [Weblate](./weblate.md) guide documents how each module is connected; the sections below describe the underlying file formats and the manual (pull request) workflow.
+There are two equally valid ways to contribute a translation: open a pull request to the relevant repository, or use [Weblate](https://hosted.weblate.org/projects/amule/) — a translation tool that stays in sync with git. Both edit the same files and either is accepted — pick whichever you prefer. The [Weblate](./weblate.md) guide documents how each component is connected; the sections below describe the underlying file formats and the manual (pull request) workflow.
 
 ## Code Translations
 
