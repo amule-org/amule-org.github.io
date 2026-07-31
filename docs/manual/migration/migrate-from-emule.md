@@ -59,7 +59,7 @@ The following files require manual handling:
 | `Category.ini` | `amule.conf` (`[Cat\#N]` sections) | Categories use a different format; see [Importing Categories](#importing-categories) |
 | `shareddir.dat` | `~/.aMule/shareddir.dat` | Path format is incompatible on non-Windows systems; aMule regenerates this when you set [shared directories](../configuration/directories.md#shared-directories) via Preferences |
 
-Files from eMule that are **not used by aMule** and can be ignored: `AC_BootstrapIPs.dat`, `AC_IPFilterUpdateURLs.dat`, `AC_SearchStrings.dat`, `AC_ServerMetURLs.dat`, `fileinfo.ini`, `k_index.dat`, `preferencesK.dat`, `s_index.dat`, `statistics.ini`, `webservices.dat`
+Files from eMule that are **not used by aMule** and can be ignored: `AC_BootstrapIPs.dat`, `AC_IPFilterUpdateURLs.dat`, `AC_SearchStrings.dat`, `AC_ServerMetURLs.dat`, `fileinfo.ini`, `k_index.dat`, `preferencesK.dat`, `s_index.dat`, `webservices.dat`
 
 ## Importing Missing Configurations
 
@@ -123,11 +123,50 @@ Priority=0
 If you import categories before importing temporary files, the downloads will be classified into categories as they were in eMule.
 :::
 
-### Statistics Cannot Be Imported
+### Importing Statistics
 
-eMule keeps its cumulative statistics in `statistics.ini` (and `preferences.ini`). aMule stores its cumulative upload/download totals in its own binary file, `statistics.dat`, which is **not** compatible with eMule's format.
+eMule keeps its cumulative upload/download totals in `statistics.ini`, section `[Statistics]`, as two plain decimal byte counts:
 
-There is no way to import eMule's statistics into aMule: the [`[Statistics]` section](../configuration/config-files/amule-conf.md#statistics-section) in `amule.conf` only holds display preferences (such as the number of client versions shown in the [statistics tree](../interfaces/gui/statistics.md#statistics-tree)), not the counters themselves. Your statistics will simply start fresh and accumulate again as you use aMule.
+```ini
+[Statistics]
+TotalDownloadedBytes=...
+TotalUploadedBytes=...
+```
+
+aMule keeps the same two totals in a small binary file, `statistics.dat`: a version byte (`0x00`) followed by two little-endian 64-bit values — total uploaded, then total downloaded. Both clients count raw payload bytes, so the two files are not interchangeable as-is, but the values map 1:1 and a short script converts one into the other.
+
+:::caution
+Run the conversion while aMule is **not running**, then copy `statistics.dat` into aMule's configuration directory. If aMule is running, its in-memory totals overwrite the file on the next save.
+:::
+
+The [`[Statistics]` section](../configuration/config-files/amule-conf.md#statistics-section) in `amule.conf` is unrelated — it only holds display preferences (such as the number of client versions shown in the [statistics tree](../interfaces/gui/statistics.md#statistics-tree)), not the counters.
+
+**Linux / macOS** (run in the directory containing eMule's `statistics.ini`):
+
+```bash
+u=$(grep -i '^TotalUploadedBytes='   statistics.ini | cut -d= -f2 | tr -d ' \r')
+d=$(grep -i '^TotalDownloadedBytes=' statistics.ini | cut -d= -f2 | tr -d ' \r')
+{ printf '\x00'
+  for n in "$u" "$d"; do
+    for i in 0 1 2 3 4 5 6 7; do printf "\\$(printf '%03o' $(( (n >> (8*i)) & 255 )))"; done
+  done
+} > statistics.dat
+```
+
+**Windows** (PowerShell; adjust the `$ini` path if your eMule `config` folder is elsewhere):
+
+```powershell
+$ini = "$env:LOCALAPPDATA\eMule\config\statistics.ini"
+$v = @{}; foreach ($l in Get-Content -LiteralPath $ini) {
+  if ($l -match '^\s*(TotalUploadedBytes|TotalDownloadedBytes)\s*=\s*(\d+)') { $v[$Matches[1]] = [uint64]$Matches[2] }
+}
+$b = [byte[]]::new(17)
+[Array]::Copy([BitConverter]::GetBytes($v['TotalUploadedBytes']),   0, $b, 1, 8)
+[Array]::Copy([BitConverter]::GetBytes($v['TotalDownloadedBytes']), 0, $b, 9, 8)
+[IO.File]::WriteAllBytes("$PWD\statistics.dat", $b)
+```
+
+Copy the resulting `statistics.dat` into aMule's configuration directory (see the [table above](#configuration-files)).
 
 ### Other Configuration
 
@@ -159,5 +198,5 @@ Completed files from eMule do not need to be moved. Simply:
 | Resume in-progress downloads | Set aMule's Temp dir to eMule's temp dir |
 | Share completed files | Add eMule's Incoming dir to aMule's shared directories |
 | Import categories | Use the shell script above, paste into `amule.conf` |
-| Statistics | Not possible — aMule's `statistics.dat` is incompatible with eMule; counters start fresh |
+| Import statistics | Convert eMule's `statistics.ini` to aMule's `statistics.dat` (see [Importing Statistics](#importing-statistics)) |
 | Ports, speed limits, directories | Reconfigure manually in Preferences |
