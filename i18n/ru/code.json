@@ -1,1 +1,671 @@
-{}
+{
+  "homepage.features.sourceExchange.title": {
+    "message": "Обмен источниками"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 элемент|{count} элемента|{count} элементов"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Сворачивайте aMule в системный трей и позволяйте ему работать незаметно в фоновом режиме. Работает в Windows, macOS и во всех основных Linux-средах."
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Метки"
+  },
+  "theme.admonition.caution": {
+    "message": "осторожно"
+  },
+  "homepage.download.foot": {
+    "message": "Все артефакты доступны на {release}. aMule также доступен в репозиториях {distros}, хотя пакеты могут быть устаревшими."
+  },
+  "homepage.download.docker": {
+    "message": "Для серверов и NAS-устройств также доступен {repo}, поддерживаемый участником команды aMule — см. {guide}."
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "Общие файлы"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Система кредитов"
+  },
+  "homepage.features.languages.desc": {
+    "message": "Весь интерфейс aMule переведён на 37 языков. Загружайте и делитесь файлами на вашем родном языке — интерфейс автоматически адаптируется к вашей локали."
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "На этой странице"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Метки:"
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Нативные пакеты"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "системный режим"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "светлый режим"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Развернуть категорию боковой панели «{label}»"
+  },
+  "homepage.features.languages.title": {
+    "message": "37 языков интерфейса"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "Интеллектуальный обработчик повреждений (ICH) и AICH автоматически обнаруживают и исправляют повреждённые фрагменты скачиваний, обеспечивая полные и неповреждённые файлы без необходимости перезапуска."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "неофициальный образ Docker"
+  },
+  "homepage.download.title": {
+    "message": "Скачать"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Черновик страницы"
+  },
+  "homepage.download.previous.body": {
+    "message": "Выпуски до версии 3.0.0 заархивированы на {github} и {sourceforge}."
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Закрыть"
+  },
+  "homepage.highlights.packages.detail": {
+    "message": "Установщик Windows и переносимая .zip-версия, macOS Universal2 .dmg, AppImage, Flatpak — x64 и ARM64, где поддерживается."
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Прокрутить вверх"
+  },
+  "homepage.highlights.performance.tag": {
+    "message": "Производительность"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Следующая запись"
+  },
+  "homepage.screenshots.lead": {
+    "message": "Интерфейс aMule — одинаковый вид на Windows, macOS и Linux. Нажмите на любой снимок экрана, чтобы увеличить; используйте {left} {right} для навигации, {esc} для закрытия."
+  },
+  "homepage.banner.download": {
+    "message": "скачайте"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Маршрутизируйте соединения через прокси SOCKS4, SOCKS5 или HTTP для обеспечения конфиденциальности или для обхода сетевых ограничений."
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Свернуть боковую панель"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Страница не в списке"
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "IP-фильтрация"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Документы не найдены"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Вкладка скачиваний с активными загрузками"
+  },
+  "homepage.highlights.performance.detail": {
+    "message": "Дисковый ввод-вывод вынесен из основного потока, а сетевой уровень переработан. Пиринговые скачивания показывают ускорение примерно в 100–380 раз по сравнению с версией 2.3.3 на macOS, Linux и Windows."
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Показать все результаты"
+  },
+  "homepage.download.lead": {
+    "message": "aMule доступен для большинства основных настольных платформ."
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} с меткой «{tagName}»"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Скопировать код в буфер обмена"
+  },
+  "theme.NotFound.p2": {
+    "message": "Пожалуйста, свяжитесь с владельцем сайта, который указал вам исходный URL-адрес, и сообщите им, что их ссылка не работает."
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Навигационная цепочка"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Закрыть панель навигации"
+  },
+  "homepage.highlights.title": {
+    "message": "Что нового в aMule 3.0"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Эта страница аварийно завершила работу."
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Образ диска (.dmg)"
+  },
+  "homepage.download.install.link": {
+    "message": "Руководство по быстрому старту"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Скачать aMule для Windows, macOS, Linux или соберите из исходных кодов."
+  },
+  "homepage.features.preview.title": {
+    "message": "Предпросмотр до завершения"
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": "Вкладка общих файлов"
+  },
+  "theme.SearchBar.label": {
+    "message": "Поиск"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule отслеживает ваши общие папки и папку Incoming и автоматически обнаруживает новые, изменённые или удалённые файлы — ручная перезагрузка не требуется при изменении вашей библиотеки."
+  },
+  "homepage.download.compile.link": {
+    "message": "Руководство по сборке"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Показать все результаты в «{context}»"
+  },
+  "theme.admonition.warning": {
+    "message": "предупреждение"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Навигация по недавним записям блога"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Поиск по документации"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Последнее обновление{atDate}{byUser}"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Обменивайтесь сообщениями напрямую с другими пользователями aMule и ведите список друзей, чтобы оставаться на связи с вашими постоянными партнёрами по обмену."
+  },
+  "homepage.features.networks.desc": {
+    "message": "Подключайтесь одновременно к традиционной серверной сети eD2k и к бессерверной DHT Kademlia, максимально расширяя охват и доступность файлов."
+  },
+  "homepage.features.categories.desc": {
+    "message": "Организуйте скачивания по категориям с пользовательскими путями сохранения и приоритетами. Применяйте правила для каждой категории, чтобы автоматически поддерживать порядок в вашей библиотеке."
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Переключить панель навигации"
+  },
+  "homepage.highlights.performance.label": {
+    "message": "Значительно более быстрые передачи"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " {date}"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Авторы"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Новее"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Воспроизводите видео и аудиофайлы до завершения загрузки. Совместимо с MPlayer, VLC и другими проигрывателями медиа."
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Развернуть боковую панель"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Далее"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "homepage.screenshots.title": {
+    "message": "Снимки экрана"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Скачивания — прогресс по каждому файлу с индикаторами доступности"
+  },
+  "homepage.features.docsLink": {
+    "message": "Просмотреть полную документацию →"
+  },
+  "homepage.banner.changelog": {
+    "message": "журнал изменений →"
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Управление пропускной способностью"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Системный трей"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Запускайте aMule как лёгкий процесс без графического интерфейса (amuled) на серверах, NAS-устройствах или VPS — графический дисплей не требуется."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Безопасная идентификация"
+  },
+  "homepage.download.foot.link": {
+    "message": "странице последнего выпуска"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "тёмный режим"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.screenshots.search.caption": {
+    "message": "Поиск — результаты поиска eD2k + Kad"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Скачать"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Эта страница является черновиком. Она будет видна только в режиме разработки и будет исключена из производственной сборки."
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Основное"
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Автоматическое сканирование папок"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Подробнее о {title}"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Везде"
+  },
+  "homepage.features.proxy.title": {
+    "message": "Поддержка прокси"
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "Закрыть (Esc)"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "Назад (←)"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Дистанционные интерфейсы"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} вышел — {download} или см. {changelog}"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Переключение между тёмным и светлым режимом (сейчас {mode})"
+  },
+  "homepage.download.install": {
+    "message": "{install} охватывает все платформы, а {quickstart} проведёт вас через настройку и первое скачивание."
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Попробовать снова"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Нажимайте ссылки ed2k:// в вашем браузере, чтобы мгновенно начать загрузку в aMule. Обработчик ссылок интегрируется с вашим рабочим столом для бесшовного взаимодействия одним щелчком."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Совместимость с eMule"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Версии"
+  },
+  "homepage.download.compile": {
+    "message": "{link} содержит инструкции по сборке aMule из исходных кодов."
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": "Сети — серверы eD2k и статус Kad"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "Далее (→)"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Это документация для {siteTitle} {versionLabel}, которая больше не поддерживается активно."
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Управляйте aMule откуда угодно: через нативный удалённый графический интерфейс (amulegui), веб-интерфейс в браузере (amuleweb) или командную строку (amulecmd)."
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Главная страница"
+  },
+  "homepage.tagline": {
+    "message": "Кроссплатформенный клиент eD2k/Kad, совместимый с eMule"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Навигация по страницам списка блога"
+  },
+  "homepage.whatisamule.title": {
+    "message": "Что такое aMule?"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Этот автор ещё не написал ни одной статьи."
+  },
+  "homepage.download.version.label": {
+    "message": "Последняя версия"
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Обработка повреждений"
+  },
+  "homepage.features.categories.title": {
+    "message": "Категории скачиваний"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Страницы документации"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Одна запись|{count} записи|{count} записей"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Встроенная система кредитов и счёта поощряет пользователей, которые активно отдают. Чем больше вы делитесь, тем выше ваш счёт — что приводит к более быстрым скачиваниям."
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "Вкладка скачиваний aMule"
+  },
+  "theme.admonition.note": {
+    "message": "примечание"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Навигация по страницам записей блога"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Развернуть боковую панель"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Придавайте вашим собственным выпущенным файлам высший приоритет в очереди отдачи, чтобы они распространялись по сети как можно быстрее — идеально для распространения нового контента. В eMule эта функция известна как PowerShare."
+  },
+  "homepage.features.openSource.desc": {
+    "message": "Лицензия GPL-2.0, без телеметрии, без рекламы и без привязки к вендору. Ваши данные принадлежат вам — изучайте и вносите вклад в исходный код."
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.description": {
+    "message": "aMule — это бесплатный, кроссплатформенный клиент eD2k/Kad, совместимый с eMule, для Windows, macOS и Linux."
+  },
+  "homepage.download.previous.title": {
+    "message": "Предыдущие выпуски"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " пользователем {user}"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Блокируйте нежелательные IP-адреса с помощью стандартных списков IP-фильтров. Не позволяйте агрессивным, вредоносным или шпионским пирам подключаться к вашему клиенту."
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Эта страница не включена в список. Поисковые системы не будут индексировать её, и доступ к ней будут иметь только пользователи, имеющие прямую ссылку."
+  },
+  "theme.blog.archive.description": {
+    "message": "Архив"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.features.title": {
+    "message": "Возможности"
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Выделение слотов"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Устанавливайте жёсткие ограничения скорости отдачи и скачивания, обеспечиваемые точными ограничителями на основе «токен-бакета». Ограничьте aMule, чтобы он никогда не забивал ваше соединение, или позвольте ему работать на полную мощность, когда вас нет."
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.highlights.changelog": {
+    "message": "Полный журнал изменений →"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} с меткой «{tagName}»"
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Файлы и обмен данными с сервером сжимаются с помощью zlib, что экономит трафик для сжимаемых файлов и снижает нагрузку на eD2k-серверы."
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Полностью совместим на уровне протокола с eMule и всеми *Mule-клиентами. Делитесь файлами с теми же источниками, подключайтесь к тем же серверам и открывайте стандартные ссылки ed2k://."
+  },
+  "theme.admonition.tip": {
+    "message": "совет"
+  },
+  "theme.admonition.danger": {
+    "message": "опасно"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Установщик (.exe)"
+  },
+  "homepage.features.openSource.title": {
+    "message": "Бесплатно и с открытым исходным кодом"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "Логотип aMule"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Назад к главному меню"
+  },
+  "homepage.download.source.platform": {
+    "message": "Соберите сами"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "раздел Docker в руководстве по установке"
+  },
+  "homepage.highlights.packages.label": {
+    "message": "Сборки для каждого рабочего стола"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Переносимая версия (.zip)"
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Приоритет распространения"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Старее"
+  },
+  "homepage.highlights.buildSystem.label": {
+    "message": "Современная система сборки"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Боковая панель документации"
+  },
+  "homepage.features.messaging.title": {
+    "message": "Сообщения и друзья"
+  },
+  "theme.blog.archive.title": {
+    "message": "Архив"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule — это бесплатный клиент для обмена файлами в пиринговых сетях {ed2k} и {kad}, распространяемый под лицензией GPL. Он совместим с eMule и работает нативно в Windows, macOS и Linux. Одинаковое состояние на диске, одинаковый протокол, один исполняемый файл для каждой основной настольной платформы."
+  },
+  "homepage.whatisamule.p2": {
+    "message": "После многих лет затишья проект снова находится в стадии активной поддержки. aMule 3.0 приносит значительные улучшения пропускной способности, модернизированную систему сборки, свежие нативные пакеты для каждой основной настольной платформы и обновлённую кодовую базу, готовую для современных систем — без нарушения совместимости протоколов, которая позволяет aMule работать вместе с любым клиентом на основе eMule."
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Автоматически обменивайтесь списками источников с подключёнными пирами, чтобы находить больше источников для ваших загрузок без повторных запросов к серверу."
+  },
+  "homepage.download.source.label": {
+    "message": "Исходный код"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Показать всех авторов"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Контролируйте, скольким клиентам одновременно вы отдаёте, и устанавливайте целевые значения пропускной способности на слот, предоставляя вам детальный контроль над вашей отдачей."
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Сжатые передачи"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Свернуть раскрывающийся список"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Языки"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "Найден 1 документ|Найдено {count} документа|Найдено {count} документов"
+  },
+  "homepage.highlights.buildSystem.detail": {
+    "message": "Autotools полностью удалены. Единая сборка на CMake, минимальная версия CMake 3.10, минимальная версия wxWidgets 3.2.0."
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Копировать"
+  },
+  "homepage.highlights.bandwidth.detail": {
+    "message": "Ограничители отдачи и скачивания переписаны как правильные ограничители на основе «токен-бакета». {code} означает буквально без ограничений."
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "1 документ с меткой|{count} документа с меткой|{count} документов с меткой"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Показать все результаты за пределами «{context}»"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Предыдущая запись"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "Пакеты"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Показать все метки"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Это невыпущенная документация для версии {siteTitle} {versionLabel}."
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Руководство по установке"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "theme.NotFound.p1": {
+    "message": "Мы не смогли найти то, что вы искали."
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Результаты поиска для «{query}»"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Читать далее"
+  },
+  "homepage.features.search.title": {
+    "message": "Мощный поиск"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Скопировано"
+  },
+  "homepage.features.daemon.title": {
+    "message": "Демон aMule"
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Интеграция ссылок ed2k://"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Переключить перенос строк"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Свернуть категорию боковой панели «{label}»"
+  },
+  "homepage.screenshots.search.alt": {
+    "message": "Вкладка поиска с результатами"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Свернуть боковую панель"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "Вкладка Сети — список серверов и статус Kademlia"
+  },
+  "homepage.download.version.date": {
+    "message": "Выпущено {date}"
+  },
+  "homepage.download.distros.link": {
+    "message": "основных дистрибутивах Linux"
+  },
+  "homepage.highlights.bandwidth.label": {
+    "message": "Работающее ограничение пропускной способности"
+  },
+  "theme.admonition.info": {
+    "message": "информация"
+  },
+  "homepage.download.source.os": {
+    "message": "Исходный код"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "Пропускная способность"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Перейти к основному содержанию"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Нет результатов"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Криптографическая безопасная идентификация пользователя предотвращает кражу или подделку хеша вашего клиента другими пирами в сети."
+  },
+  "homepage.download.version.changelog": {
+    "message": "Журнал изменений"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Прямая ссылка на {heading}"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Быстрый старт"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Для получения актуальной документации см. {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Версия: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "последняя версия"
+  },
+  "theme.common.editThisPage": {
+    "message": "Править эту страницу"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.features.search.desc": {
+    "message": "Ищите по серверам eD2k (локальным и глобальным) и узлам Kademlia. Фильтруйте по типу, размеру и доступности. Поддерживаются логические операторы (AND, OR, NOT)."
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(открывается в новой вкладке)"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Развернуть раскрывающийся список"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux. Доступно как для x64, так и для ARM64."
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Назад"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Одна минута чтения|{readingTime} минуты чтения|{readingTime} минут чтения"
+  },
+  "theme.NotFound.title": {
+    "message": "Страница не найдена"
+  }
+}

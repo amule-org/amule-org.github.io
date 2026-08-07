@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "Журнал изменений"
+  },
+  "description": {
+    "message": "Журнал изменений"
+  },
+  "sidebar.title": {
+    "message": "Версии"
+  }
+}
