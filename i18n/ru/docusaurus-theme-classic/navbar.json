@@ -1,1 +1,26 @@
-{}
+{
+  "title": {
+    "message": "aMule"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "item.label.Changelog": {
+    "message": "Журнал изменений"
+  },
+  "item.label.Blog": {
+    "message": "Блог"
+  },
+  "item.label.Documentation": {
+    "message": "Документация"
+  },
+  "item.label.Download": {
+    "message": "Скачать"
+  },
+  "item.label.Discussions": {
+    "message": "Обсуждения"
+  },
+  "logo.alt": {
+    "message": "Логотип aMule"
+  }
+}

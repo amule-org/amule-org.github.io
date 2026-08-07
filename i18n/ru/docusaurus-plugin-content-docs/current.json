@@ -1,1 +1,62 @@
-{}
+{
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Устранение неполадок"
+  },
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Руководство пользователя"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Быстрый старт"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "GUI — amule и amulegui"
+  },
+  "sidebar.docsSidebar.category.Utilities": {
+    "message": "Утилиты"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Установка"
+  },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Миграция"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Конфигурация"
+  },
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "P2P-сети"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "Сеть eD2k"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Интерфейсы"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Компиляция"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Обзор"
+  },
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Руководство разработчика"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Файлы конфигурации"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Участие в разработке"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "ЧАВО"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Переводы"
+  },
+  "version.label": {
+    "message": "Следующая"
+  },
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Форматы файлов"
+  }
+}

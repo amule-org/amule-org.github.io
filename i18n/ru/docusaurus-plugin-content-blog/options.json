@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "Блог"
+  },
+  "description": {
+    "message": "Блог"
+  },
+  "sidebar.title": {
+    "message": "Последние публикации"
+  }
+}
