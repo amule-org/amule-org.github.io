@@ -66,7 +66,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ca', 'es', 'fr', 'it', 'lv', 'pt-BR', 'tr'],
+    locales: ['en', 'ca', 'es', 'fr', 'it', 'lv', 'pt-BR', 'ru', 'tr'],
     localeConfigs: {
       en: {label: 'English'},
       ca: {label: 'Català'},
@@ -75,6 +75,7 @@ const config: Config = {
       it: {label: 'Italiano'},
       lv: {label: 'Latviešu'},
       'pt-BR': {label: 'Português (Brasil)'},
+      ru: {label: 'Русский'},
       tr: {label: 'Türkçe'},
     },
   },
