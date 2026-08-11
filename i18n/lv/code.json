@@ -411,7 +411,7 @@
     "message": "Rediģēt šo lapu"
   },
   "homepage.features.messaging.desc": {
-    "message": "Iespēja apmainīties ar ziņojumiem tieši ar citiem aMule lietotājiem un uzturēt draugu sarakstu, lai saglabātu saikni ar saviem iecienītākajiem un regulārajiem koplietošanas dalībniekiem."
+    "message": "Iespēja apmainīties ar ziņojumiem tieši ar citiem aMule dalībniekiem un uzturēt draugu sarakstu, lai saglabātu saikni ar saviem iecienītākajiem un regulārajiem koplietošanas dalībniekiem."
   },
   "homepage.features.networks.desc": {
     "message": "Variet vienlaikus pieslēgties gan tradicionālajam eD2k serveru tīklam, gan bezservera Kademlia DHT tīklam, maksimāli palielinot savu sasniedzamību un datņu pieejamību."
@@ -471,7 +471,7 @@
     "message": "aMule uzrauga jūsu kopīgotās un ienākošās mapes un automātiski atlasa jaunas, izmainītas vai dzēstas datnes — nav nepieciešama pašrocīga mapju pārlāde, kad jūsu bibliotēkas saturs mainās."
   },
   "homepage.features.creditSystem.desc": {
-    "message": "Iebūvētā kredītu un punktu sistēma atlīdzina lietotājus, kuri aktīvi augšupielādē datus. Jo vairāk jūs kopīgojiet, jo augstāks ir jūsu vērtējums, kas nodrošina ātrāku lejupielādi."
+    "message": "Iebūvētā kredītu un punktu sistēma atlīdzina dalībniekus, kuri aktīvi augšupielādē datus. Jo vairāk jūs kopīgojiet, jo augstāks ir jūsu vērtējums, kas nodrošina ātrāku lejupielādi."
   },
   "theme.admonition.danger": {
     "message": "bīstami"
@@ -618,7 +618,7 @@
     "message": "Sakļaut sānjoslu"
   },
   "homepage.features.secureIdentification.desc": {
-    "message": "Kriptogrāfiski drošā lietotāja atpazīšana neļauj citiem tīkla dalībniekiem izlikties par jums, nozogot vai viltojot jūsu klienta atpazīšanas kodu (jaucējvērtību). Tādējādi nosargājot jūsu kredītpunktus/reputāciju."
+    "message": "Kriptogrāfiski drošā dalībnieka atpazīšana neļauj citiem tīkla dalībniekiem izlikties par jums, nozogot vai viltojot jūsu klienta atpazīšanas kodu (jaucējvērtību). Tādējādi nosargājot jūsu kredītpunktus/reputāciju."
   },
   "theme.common.headingLinkTitle": {
     "message": "Tiešā saite uz {heading}"

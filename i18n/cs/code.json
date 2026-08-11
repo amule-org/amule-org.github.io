@@ -1,1 +1,26 @@
-{}
+{
+  "homepage.download.foot": {
+    "message": "Všechny artefakty jsou k dispozici v rámci {release}. aMule je také k dispozici v repozitářích {distros}, ačkoli balíčky mohou být zastaralé."
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.compile.link": {
+    "message": "Průvodce kompilací"
+  },
+  "homepage.download.foot.link": {
+    "message": "stránka nejnovějšího vydání"
+  },
+  "homepage.download.compile": {
+    "message": "{link} uvádí pokyny pro sestavení aMule ze zdrojového kódu."
+  },
+  "homepage.description": {
+    "message": "aMule je bezplatný eD2k/Kad klient pro Windows, MacOS a Linux, který je kompatibilní s eMule."
+  },
+  "homepage.download.distros.link": {
+    "message": "hlavní linuxové distribuce"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  }
+}
