@@ -618,7 +618,7 @@
     "message": "Sakļaut sānjoslu"
   },
   "homepage.features.secureIdentification.desc": {
-    "message": "Kriptogrāfiski drošā dalībnieka atpazīšana neļauj citiem tīkla dalībniekiem izlikties par jums, nozogot vai viltojot jūsu klienta atpazīšanas kodu (jaucējvērtību). Tādējādi nosargājot jūsu kredītpunktus/reputāciju."
+    "message": "Kriptogrāfiski drošā dalībnieka atpazīšana neļauj citiem tīkla dalībniekiem izlikties par jums, nozogot vai viltojot jūsu dalībnieka atpazīšanas kodu (jaucējvērtību). Tādējādi nosargājot jūsu kredītpunktus/reputāciju."
   },
   "theme.common.headingLinkTitle": {
     "message": "Tiešā saite uz {heading}"
