@@ -186,7 +186,7 @@
     "message": "Controllo della banda"
   },
   "homepage.features.bandwidthControl.desc": {
-    "message": "Imposta limiti rigorosi alle velocità di upload e download, applicati da precisi limitatori a token bucket. Limita aMule perché non saturi mai la tua connessione — oppure lascialo correre al massimo quando non sei al PC."
+    "message": "Imposta limiti rigorosi alle velocità di upload e download, applicati da precisi limitatori a token-bucket. Limita aMule perché non saturi mai la tua connessione - oppure lascialo correre al massimo quando non sei al PC."
   },
   "homepage.features.categories.title": {
     "message": "Categorie di download"
