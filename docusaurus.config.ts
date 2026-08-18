@@ -169,7 +169,7 @@ const config: Config = {
       title: 'aMule',
       logo: {
         alt: 'aMule logo',
-        src: 'img/amule-logo.png',
+        src: 'img/amule-logo.svg',
       },
       items: [
         {to: '/download', label: 'Download', position: 'left'},

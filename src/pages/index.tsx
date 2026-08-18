@@ -12,7 +12,7 @@ import styles from './index.module.css';
 
 export default function Home(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  const logoSrc = useBaseUrl('/img/amule-logo.png');
+  const logoSrc = useBaseUrl('/img/amule-logo.svg');
   const screenshotSrc = useBaseUrl('/img/screenshots/downloads.png');
   return (
     <Layout
