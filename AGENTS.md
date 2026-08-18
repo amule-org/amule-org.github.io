@@ -30,7 +30,7 @@
 - `docs/` — English documentation (Markdown)
 - `blog/` — Blog posts (`/blog`); `changelog/` — Changelog posts (`/changelog`, second blog plugin instance)
 - `i18n/<locale>/` — translations (`code.json` for UI strings; mirrored `docs/`, `blog/`, `changelog/` for content)
-- `static/img/` — images (`amule-logo.png`, `social-card.png`, favicons, `screenshots/`, `docs/`)
+- `static/img/` — images (`amule-logo.svg`, `social-card.png`, favicons, `screenshots/`, `docs/`)
 
 ## Documentation
 
