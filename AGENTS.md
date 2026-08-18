@@ -80,7 +80,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).
 - **Image zoom**: always use plain Markdown (`![alt](/img/docs/<file>)`), never hardcoded HTML `<img>` (Markdown paths are build-validated, `<img>` paths are not). Click-to-zoom is added automatically to large images (width ≥ 850px) by `plugins/remark-zoom-large-images.js`.
 - **Images in components**: referenced as `/img/<file>` (served from `static/`).
-- **Social card**: `static/img/social-card.png` is a placeholder; replace with a proper 1200×630 image.
+- **Social card**: `static/img/social-card.png` is the 1200×630 og:image (logo, wordmark, tagline). Rendered from `amule-logo.svg`; regenerate it rather than editing the raster, and keep it English-only — one static file serves every locale.
 - **URLs to generated files**: For links to generated files (feeds, sitemaps) that the broken-links checker cannot verify, use the `pathname://` protocol: e.g. `pathname:///blog/atom.xml`. This bypasses the checker and renders as a correct relative path at runtime. Do **not** use absolute URLs with `url`/`baseUrl` — those break in local dev.
 
 ## Workflow
