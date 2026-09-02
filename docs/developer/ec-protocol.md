@@ -488,6 +488,10 @@ The canonical implementation is in the aMule source:
 - `src/libs/ec/cpp/ECTag.cpp` — tag wire encoding/decoding (see `WriteTag`, `ReadFromSocket`)
 - `src/libs/ec/cpp/ECSocket.cpp` — transmission layer (see `WritePacket`, `ReadHeader`)
 
+Third-party implementations in other languages:
+
+- [amule-ec](https://github.com/AubinMahe/amule-ec-ts) — TypeScript/Node.js, zero runtime dependencies
+
 ## Section 7 — Design Notes
 
 Key design goals of the protocol:
