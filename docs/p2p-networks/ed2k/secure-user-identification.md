@@ -5,7 +5,7 @@ title: Secure User Identification
 
 **Secure User Identification** (SUI) is a cryptographic mechanism that allows [eD2k](./index.md) clients to authenticate to each other using asymmetric (public-key) encryption. It prevents other clients from impersonating your identity and manipulating your credit account.
 
-SUI is implemented in aMule and eMule. It can be enabled in [**Preferences → Security**](../../manual/interfaces/gui/preferences.md#security). Enabling SUI is strongly recommended.
+SUI is implemented in aMule and eMule, and aMule **enables it by default**: a fresh installation generates its keypair on first start and identifies itself with it from then on. The setting lives in [**Preferences → Security**](../../manual/interfaces/gui/preferences.md#security), where it should be left enabled.
 
 ## Overview
 
@@ -106,6 +106,15 @@ The original signature (*v1*) covers only the remote public key and the nonce. A
 | Validation | Each client verifies the signature with the sender's public key against (own public key + sent nonce) |
 | Failure | No credits are accumulated for the unidentified peer (no ban) |
 
-## Enabling SUI
+## Checking that SUI is active
 
-In aMule, go to [**Preferences → Security**](../../manual/interfaces/gui/preferences.md#security) and enable **Use Secure User Identification**.
+SUI is on unless it was turned off: **Use Secure User Identification** in [**Preferences → Security**](../../manual/interfaces/gui/preferences.md#security) is ticked by default.
+
+Two things confirm it is working:
+
+- `cryptkey.dat` exists in the [configuration directory](../../manual/configuration/config-files/index.md). It holds the private key and is created on the first start that finds it missing, which is also logged as `No 'cryptkey.dat' file found, creating.`
+- The **Client Details** dialog of a connected peer shows an identification line, which reads **Verified - OK** once that peer's signature has been checked.
+
+Keep the key file: deleting `cryptkey.dat` generates a new identity, and every peer that had credited your old one no longer recognises you. Back it up along with `preferences.dat` when moving to a new machine, as described in [Migration](../../manual/migration/index.md).
+
+Disabling the option stops your client from signing challenges, so peers stop crediting your uploads. There is no good reason to turn it off.
