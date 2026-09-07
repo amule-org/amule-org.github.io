@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "博客"
+  },
+  "description": {
+    "message": "博客"
+  },
+  "sidebar.title": {
+    "message": "近期文章"
+  }
+}
