@@ -22,5 +22,29 @@
   },
   "homepage.download.arch.arm64": {
     "message": "ARM64"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Štítky"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Štítky:"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "Intelligent Corruption Handler (ICH) a AICH automaticky rozpoznají a opraví poškozené části stahovaných souborů, čímž zajišťují, že soubory budou kompletní a nepoškozené, aniž by byl nutný restart."
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} se štítkem \"{tagName}\""
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Klikněte na odkazy ed2k:// ve svém prohlížeči, pro okamžité zahájení stahování v aMule. Ovladač odkazu je integrován s vaší plochou pro snadné ovládání jedním kliknutím."
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} s \"{tagName}\""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Jednomu dokumentu přidán štítek|{count} dokumentům přidán štítek"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Zobrazit všechny štítky"
   }
 }
