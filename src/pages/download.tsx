@@ -9,7 +9,6 @@ import {
   CHANGELOG_URL,
   RELEASES_URL,
   ASSET_BASE,
-  SOURCE_ARCHIVE_BASE,
   PREV_RELEASES,
 } from '@site/src/releaseInfo';
 import styles from './download.module.css';
@@ -116,6 +115,13 @@ const DOWNLOAD_OSES: DownloadOs[] = [
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64.flatpak`},
         ],
       },
+      {
+        label: <Translate id="homepage.download.linux.static.label" description="Label for the Linux fully-static precompiled (headless) binaries download format">Static binaries (.tar.gz)</Translate>,
+        files: [
+          {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64-static.tar.gz`},
+          {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64-static.tar.gz`},
+        ],
+      },
     ],
   },
   {
@@ -128,11 +134,7 @@ const DOWNLOAD_OSES: DownloadOs[] = [
         files: [
           {
             arch: <Translate id="homepage.download.source.targz" description="Label for the .tar.gz source archive">.tar.gz</Translate>,
-            href: `${SOURCE_ARCHIVE_BASE}.tar.gz`,
-          },
-          {
-            arch: <Translate id="homepage.download.source.zip" description="Label for the .zip source archive">.zip</Translate>,
-            href: `${SOURCE_ARCHIVE_BASE}.zip`,
+            href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-src.tar.gz`,
           },
         ],
       },
@@ -320,7 +322,7 @@ export default function DownloadPage(): React.JSX.Element {
                   ),
                 }}
               >
-                {'Releases before 3.0.0 are archived on {github} and {sourceforge}.'}
+                {'The previous releases are archived on {github} and {sourceforge}.'}
               </Translate>
             </p>
             <ul className={styles.prevList}>

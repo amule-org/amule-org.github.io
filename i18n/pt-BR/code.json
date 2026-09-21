@@ -21,7 +21,7 @@
     "message": "Download"
   },
   "homepage.download.previous.body": {
-    "message": "Versões anteriores a 3.0.0 estão arquivadas no {github} e na {sourceforge}."
+    "message": "As versões anteriores estão arquivadas no {github} e na {sourceforge}."
   },
   "homepage.download.lead": {
     "message": "O aMule está disponível para a maioria das principais plataformas de desktop."
@@ -455,9 +455,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.features.bandwidthControl.desc": {
     "message": "Ajuste duro dos limites de velocidade de upload e download, forçados por limitadores \"token-bucket\" precisos. Limita o aMule de modo que ele nunca sature sua conexão, ou deixe-o na velocidade máxima quando você estiver fora."
   },
@@ -667,5 +664,8 @@
   },
   "homepage.download.docker.guide.link": {
     "message": "Seção Docker do guia de instalação"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Binários estáticos (.tar.gz)"
   }
 }

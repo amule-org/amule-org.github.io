@@ -96,7 +96,7 @@
     "message": "Versioni precedenti"
   },
   "homepage.download.previous.body": {
-    "message": "Le versioni precedenti alla 3.0.0 sono archiviate su {github} e {sourceforge}."
+    "message": "Le versioni precedenti sono archiviate su {github} e {sourceforge}."
   },
   "homepage.download.previous.link": {
     "message": "SourceForge"
@@ -653,9 +653,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.download.source.label": {
     "message": "Codice sorgente"
   },
@@ -667,5 +664,8 @@
   },
   "homepage.download.docker.guide.link": {
     "message": "sezione Docker della guida d'installazione"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Binari statici (.tar.gz)"
   }
 }

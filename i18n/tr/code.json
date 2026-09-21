@@ -72,7 +72,7 @@
     "message": "aMule'ü Windows, macOS veya GNU/Linux için indirin veya kaynak koddan derleyin."
   },
   "homepage.download.previous.body": {
-    "message": "3.0.0 öncesi sürümler {github} ve {sourceforge} sitelerinde arşivlenmiştir."
+    "message": "Önceki sürümler {github} ve {sourceforge} sitelerinde arşivlenmiştir."
   },
   "homepage.download.previous.entry.github": {
     "message": "GitHub"
@@ -100,9 +100,6 @@
   },
   "homepage.download.source.targz": {
     "message": ".tar.gz"
-  },
-  "homepage.download.source.zip": {
-    "message": ".zip"
   },
   "homepage.download.title": {
     "message": "İndir"
@@ -667,5 +664,8 @@
   },
   "homepage.download.docker.guide.link": {
     "message": "Kurulum kılavuzunun Docker bölümü"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Statik ikili dosyalar (.tar.gz)"
   }
 }

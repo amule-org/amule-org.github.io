@@ -72,7 +72,7 @@
     "message": "Descarga aMule para Windows, macOS y Linux o compílalo desde el código fuente."
   },
   "homepage.download.previous.body": {
-    "message": "Las versiones anteriores a la 3.0.0 están archivadas en {github} y {sourceforge}."
+    "message": "Las versiones anteriores están archivadas en {github} y {sourceforge}."
   },
   "homepage.download.previous.entry.github": {
     "message": "GitHub"
@@ -100,9 +100,6 @@
   },
   "homepage.download.source.targz": {
     "message": ".tar.gz"
-  },
-  "homepage.download.source.zip": {
-    "message": ".zip"
   },
   "homepage.download.title": {
     "message": "Descargas"
@@ -667,5 +664,8 @@
   },
   "homepage.download.docker.guide.link": {
     "message": "sección de Docker de la guía de instalación"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Binarios estáticos (.tar.gz)"
   }
 }

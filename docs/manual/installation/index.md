@@ -32,9 +32,12 @@ The latest release is available on the [Downloads](/download) page, which links 
 - `aMule-<version>-Linux-arm64.AppImage` — portable Linux binary for ARM64
 - `aMule-<version>-Linux-x64.flatpak` — Flatpak bundle for x86\_64
 - `aMule-<version>-Linux-arm64.flatpak` — Flatpak bundle for ARM64
+- `aMule-<version>-Linux-x64-static.tar.gz` — fully static, dependency-free headless build for Linux x86\_64
+- `aMule-<version>-Linux-arm64-static.tar.gz` — fully static, dependency-free headless build for Linux ARM64
+- `aMule-<version>-src.tar.gz` — official source bundle (preferred over GitHub's auto-generated "Source code" archive; ships pre-rendered man pages)
 - **Source code** (`<version>.tar.gz` and `<version>.zip`) — automatically attached by GitHub to every release.
 
-Every official pre-built package bundles the **complete set of aMule executables**: the interface clients [`amule`](../interfaces/gui/amule.md), [`amuled`](../interfaces/amuled.md), [`amulegui`](../interfaces/gui/amulegui.md), [`amuleweb`](../interfaces/amuleweb.md) and [`amulecmd`](../interfaces/amulecmd.md), plus the standalone [utilities](../utilities/index.md) `ed2k`, `alc`, `alcc`, `wxcas` and `cas`. Each platform section below covers how to launch a specific component. (Distribution packages may instead split these across several packages.)
+Every official pre-built package bundles the **complete set of aMule executables**: the interface clients [`amule`](../interfaces/gui/amule.md), [`amuled`](../interfaces/amuled.md), [`amulegui`](../interfaces/gui/amulegui.md), [`amuleweb`](../interfaces/amuleweb.md) and [`amulecmd`](../interfaces/amulecmd.md), plus the standalone [utilities](../utilities/index.md) `ed2k`, `alc`, `alcc`, `wxcas` and `cas`. Each platform section below covers how to launch a specific component. (Distribution packages may instead split these across several packages, and the Linux [static binaries](#static-binaries) archive is a headless-only exception — it ships just `amuled`, `amulecmd` and `amuleapi`.)
 
 ## Windows
 
@@ -127,7 +130,7 @@ The `aMule.app` bundle also includes the command-line components inside `aMule.a
 
 ## Linux
 
-Linux users can install aMule through three methods: an **AppImage** (self-contained portable binary), a **Flatpak** (sandboxed package), or a **distribution package** installed via the system package manager. For headless server setups, see also the unofficial [Docker image](#docker).
+Linux users can install aMule through four methods: an **AppImage** (self-contained portable binary), a **Flatpak** (sandboxed package), **static binaries** (a fully static, dependency-free headless build), or a **distribution package** installed via the system package manager. For headless server setups, see also the static binaries below and the unofficial [Docker image](#docker).
 
 ### AppImage
 
@@ -236,6 +239,28 @@ flatpak run --command=amuleweb org.amule.aMule --webpassword yourpassword
 flatpak run --command=amulecmd org.amule.aMule
 flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
 ```
+
+### Static binaries
+
+The static binaries are a **fully static**, precompiled build (linked against musl libc) of aMule's **headless components** — [`amuled`](../interfaces/amuled.md), [`amulecmd`](../interfaces/amulecmd.md) and `amuleapi` (the REST + Web UI daemon). The binaries carry **no shared-library dependencies**, so they run on any x64 or ARM64 Linux system regardless of glibc version or installed libraries — well suited to servers, containers, minimal distributions, and systems too old for the AppImage.
+
+It does **not** include the GUI (`amule`, [`amulegui`](../interfaces/gui/amulegui.md)); for a desktop install use the [AppImage](#appimage) or [Flatpak](#flatpak) instead.
+
+**Installation:**
+
+1. Go to the [Downloads](/download) page or the [latest release](https://github.com/amule-org/amule/releases/latest).
+2. Download the tarball for your architecture:
+   - `aMule-<version>-Linux-x64-static.tar.gz` for standard PCs
+   - `aMule-<version>-Linux-arm64-static.tar.gz` for ARM64 boards and devices
+3. Extract it and run the component you need directly:
+
+```sh
+tar xzf aMule-<version>-Linux-x64-static.tar.gz
+cd aMule-<version>-Linux-x64-static
+./amuled --ec-password yourpassword
+```
+
+The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amulecmd` and `amuleapi` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder.
 
 ### Distribution Packages
 
