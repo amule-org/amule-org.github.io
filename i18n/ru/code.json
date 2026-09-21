@@ -78,7 +78,7 @@
     "message": "Черновик страницы"
   },
   "homepage.download.previous.body": {
-    "message": "Архив выпусков до версии 3.0.0 доступен в {github} и {sourceforge}."
+    "message": "Архив предыдущих выпусков доступен в {github} и {sourceforge}."
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Закрыть"
@@ -416,9 +416,6 @@
   "homepage.features.bandwidthControl.desc": {
     "message": "Устанавливайте жёсткие ограничения скорости отдачи и загрузки, обеспечиваемые точными ограничителями на основе «токен-бакета». Ограничьте aMule, чтобы он никогда не забивал ваше соединение, или позвольте ему работать на полную мощность, когда вас нет."
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.highlights.changelog": {
     "message": "Полный журнал изменений →"
   },
@@ -667,5 +664,8 @@
   },
   "theme.NotFound.title": {
     "message": "Страница не найдена"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Статические двоичные файлы (.tar.gz)"
   }
 }

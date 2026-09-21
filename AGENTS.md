@@ -53,7 +53,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 
 ## i18n
 
-- Default locale: `en`. Additional locales: `es`, `fr`, `tr`.
+- Default locale: `en`. The enabled locales are defined in `docusaurus.config.ts` (`i18n.locales`) — that array is the source of truth; don't duplicate the list here.
 - UI strings (React components): `i18n/<locale>/code.json` — each entry has `message` (translate this) and `description` (context, do not translate).
 - **Translated JSON files contain only `message`** — the `description` is translator context and belongs **only** in the English base (`i18n/en/`). Never write `description` into any non-`en` locale file (`code.json`, `navbar.json`, `footer.json`, `current.json`, blog/changelog `options.json`). `write-translations -- --locale <code>` re-adds them and Docusaurus has no option to disable this, so strip them before committing (Weblate keeps the translated files `message`-only via the WebExtension JSON format).
 - Docs content: `i18n/<locale>/docusaurus-plugin-content-docs/current/` mirrors `docs/`.

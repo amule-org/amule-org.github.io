@@ -72,7 +72,7 @@
     "message": "Baixeu aMule per a Windows, macOS, Linux o creeu-lo des de la font."
   },
   "homepage.download.previous.body": {
-    "message": "Les versions anteriors a la 3.0.0 s'arxiven a {github} i {sourceforge}."
+    "message": "Les versions anteriors s'arxiven a {github} i {sourceforge}."
   },
   "homepage.download.previous.title": {
     "message": "Estrenes anteriors"
@@ -530,9 +530,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.download.title": {
     "message": "Descàrrega"
   },
@@ -667,5 +664,8 @@
   },
   "homepage.download.docker.guide.link": {
     "message": "Secció de Docker de la guia d'instal·lació"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Binaris estàtics (.tar.gz)"
   }
 }

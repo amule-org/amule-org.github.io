@@ -84,7 +84,7 @@
     "description": "Download page SEO meta description (HTML description tag)"
   },
   "homepage.download.previous.body": {
-    "message": "Releases before 3.0.0 are archived on {github} and {sourceforge}.",
+    "message": "The previous releases are archived on {github} and {sourceforge}.",
     "description": "Intro text of the previous-releases section; {github} and {sourceforge} are links"
   },
   "homepage.download.previous.entry.github": {
@@ -122,10 +122,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz",
     "description": "Label for the .tar.gz source archive"
-  },
-  "homepage.download.source.zip": {
-    "message": ".zip",
-    "description": "Label for the .zip source archive"
   },
   "homepage.download.title": {
     "message": "Download",
@@ -884,5 +880,9 @@
   "homepage.banner.changelog": {
     "message": "changelog →",
     "description": "Changelog link label in the latest-release banner"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Static binaries (.tar.gz)",
+    "description": "Label for the Linux fully-static precompiled (headless) binaries download format"
   }
 }

@@ -47,9 +47,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.download.title": {
     "message": "Lejupielādēt"
   },
@@ -180,7 +177,7 @@
     "message": "Kopīgotās datnes"
   },
   "homepage.download.previous.body": {
-    "message": "Izlaiduma versijas pirms 3.0.1 pieejamas {github} un {sourceforge}."
+    "message": "Iepriekšējās izlaiduma versijas pieejamas {github} un {sourceforge}."
   },
   "homepage.highlights.performance.tag": {
     "message": "Veiktspēja"
@@ -628,5 +625,8 @@
   },
   "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
     "message": "Izvērst atlases izvēlni"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Statiskie binārie faili (.tar.gz)"
   }
 }

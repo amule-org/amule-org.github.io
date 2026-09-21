@@ -11,9 +11,8 @@ export const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
 
 // Generic releases page (version-number link, footer links).
 export const RELEASES_URL = 'https://github.com/amule-org/amule/releases/latest';
-// Per-artifact download bases, derived from the version number.
+// Per-artifact download base, derived from the version number.
 export const ASSET_BASE = `https://github.com/amule-org/amule/releases/download/${LATEST_VERSION}`;
-export const SOURCE_ARCHIVE_BASE = `https://github.com/amule-org/amule/archive/refs/tags/${LATEST_VERSION}`;
 
 // Archived releases (most recent first). URLs are derived from the version number.
 export const PREV_RELEASES = [
