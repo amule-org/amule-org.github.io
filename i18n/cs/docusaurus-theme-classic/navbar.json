@@ -1,1 +1,26 @@
-{}
+{
+  "title": {
+    "message": "aMule"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "item.label.Changelog": {
+    "message": "Seznam změn"
+  },
+  "item.label.Blog": {
+    "message": "Blog"
+  },
+  "item.label.Documentation": {
+    "message": "Dokumentace"
+  },
+  "item.label.Download": {
+    "message": "Stažení"
+  },
+  "item.label.Discussions": {
+    "message": "Diskuze"
+  },
+  "logo.alt": {
+    "message": "aMule logo"
+  }
+}

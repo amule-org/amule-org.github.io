@@ -658,5 +658,14 @@
   },
   "theme.tags.tagsPageTitle": {
     "message": "Etiquetes"
+  },
+  "homepage.download.docker": {
+    "message": "Per a servidors i dispositius NAS també hi ha disponible un {repo}, mantingut per un membre de l'equip de l'aMule; consulteu la {guide}."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "imatge de Docker no oficial"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Secció de Docker de la guia d'instal·lació"
   }
 }

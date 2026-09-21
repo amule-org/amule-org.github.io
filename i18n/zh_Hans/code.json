@@ -1,1 +1,62 @@
-{}
+{
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.download.title": {
+    "message": "下载"
+  },
+  "homepage.download.lead": {
+    "message": "aMule 适用于大多数主流桌面平台。"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "homepage.download.compile.link": {
+    "message": "编译向导"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.download.compile": {
+    "message": "该 {link} 提供了从源码构建 aMule 的说明。"
+  },
+  "homepage.description": {
+    "message": "aMule 是一款免费、跨平台且兼容 eMule 的 eD2k/Kad 客户端，支持 Windows、macOS 和 Linux。"
+  },
+  "homepage.download.previous.title": {
+    "message": "历史版本"
+  },
+  "homepage.download.source.zip": {
+    "message": ".zip"
+  },
+  "homepage.download.source.label": {
+    "message": "源代码"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.download.distros.link": {
+    "message": "主要Linux发行版"
+  },
+  "homepage.download.version.changelog": {
+    "message": "更新日志"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  }
+}
