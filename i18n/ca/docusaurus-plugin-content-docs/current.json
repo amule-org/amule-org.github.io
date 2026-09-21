@@ -1,1 +1,62 @@
-{}
+{
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Resolució de problemes"
+  },
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Manual d'usuari"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Inici ràpid"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "Interfície gràfica — amule i amulegui"
+  },
+  "sidebar.docsSidebar.category.Utilities": {
+    "message": "Utilitats"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Instal·lació"
+  },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Migració"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Configuració"
+  },
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "Xarxes P2P"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "Xarxa eD2k"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Interfícies"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Compilació"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Visió general"
+  },
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Guia per a desenvolupadors"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Fitxers de configuració"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Com col·laborar-hi"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "PMF"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Traduccions"
+  },
+  "version.label": {
+    "message": "Següent"
+  },
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Formats de fitxer"
+  }
+}

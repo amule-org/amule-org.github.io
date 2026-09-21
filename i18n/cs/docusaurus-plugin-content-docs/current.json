@@ -1,1 +1,62 @@
-{}
+{
+  "sidebar.docsSidebar.category.Troubleshooting": {
+    "message": "Řešení potíží"
+  },
+  "sidebar.docsSidebar.category.User Manual": {
+    "message": "Příručka uživatele"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Rychlý start"
+  },
+  "sidebar.docsSidebar.category.GUI — amule & amulegui": {
+    "message": "GUI — amule & amulegui"
+  },
+  "sidebar.docsSidebar.category.Utilities": {
+    "message": "Nástroje"
+  },
+  "sidebar.docsSidebar.doc.Installation": {
+    "message": "Instalace"
+  },
+  "sidebar.docsSidebar.category.Migration": {
+    "message": "Migrace"
+  },
+  "sidebar.docsSidebar.category.Configuration": {
+    "message": "Nastavení"
+  },
+  "sidebar.docsSidebar.category.P2P Networks": {
+    "message": "P2P sítě"
+  },
+  "sidebar.docsSidebar.category.eD2k Network": {
+    "message": "eD2k síť"
+  },
+  "sidebar.docsSidebar.category.Interfaces": {
+    "message": "Rozhraní"
+  },
+  "sidebar.docsSidebar.category.Compilation": {
+    "message": "Kompilace"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Přehled"
+  },
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Vývojářský průvodce"
+  },
+  "sidebar.docsSidebar.category.Configuration Files": {
+    "message": "Soubory nastavení"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Přispívání"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "Časté dotazy"
+  },
+  "sidebar.docsSidebar.category.Translations": {
+    "message": "Překlady"
+  },
+  "version.label": {
+    "message": "Další"
+  },
+  "sidebar.docsSidebar.category.File Formats": {
+    "message": "Formáty souborů"
+  }
+}

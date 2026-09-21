@@ -1,1 +1,17 @@
-{}
+{
+  "link.item.label.Blog RSS": {
+    "message": "RSS blogu"
+  },
+  "link.item.label.Releases": {
+    "message": "Vydání"
+  },
+  "link.item.label.Changelog RSS": {
+    "message": "RSS seznamu změn"
+  },
+  "copyright": {
+    "message": "aMule je bezplatný software vydaný pod licencí GNU GPL v2. Vývojáři aMule nemají žádnou kontrolu nad tím, co ostatní uživatelé přenášejí prostřednictvím sítí eD2k/Kad, a nemohou být činěni odpovědnými za porušení autorských práv, které se netýká osob, ani za jiné protiprávní činnosti třetích stran. Sdílejte zodpovědně."
+  },
+  "link.item.label.Source code": {
+    "message": "Zdrojový kód"
+  }
+}

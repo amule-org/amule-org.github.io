@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "Registre de canvis"
+  },
+  "description": {
+    "message": "Registre de canvis"
+  },
+  "sidebar.title": {
+    "message": "Versions"
+  }
+}
