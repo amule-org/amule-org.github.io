@@ -7,7 +7,7 @@ title: ed2k — ED2K Link Handler
 
 ## Overview
 
-Unlike [`amulecmd`](../interfaces/amulecmd.md), [`amuleweb`](../interfaces/amuleweb.md), and [`amulegui`](../interfaces/gui/amulegui.md), the `ed2k` command does **not** use the External Connections (EC) protocol. Instead, it communicates with aMule through the [**`ED2KLinks` file**](../configuration/config-files/index.md#ed2klinks): a plain text file that aMule checks roughly once per second. When aMule detects the file, it reads the links inside, queues them for download, and deletes the file.
+Unlike [`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md), [`amulecmd`](../interfaces/amulecmd.md), and [`amuleweb`](../interfaces/amuleweb.md), the `ed2k` command does **not** use the External Connections (EC) protocol. Instead, it communicates with aMule through the [**`ED2KLinks` file**](../configuration/config-files/index.md#ed2klinks): a plain text file that aMule checks roughly once per second. When aMule detects the file, it reads the links inside, queues them for download, and deletes the file.
 
 The `ED2KLinks` file lives in aMule's configuration directory; its location depends on the platform (see [Configuration Files → Platform paths](../configuration/config-files/index.md#platform-paths)). If aMule uses a non-default configuration directory, the file lives inside that directory instead (see the `-c` option below).
 

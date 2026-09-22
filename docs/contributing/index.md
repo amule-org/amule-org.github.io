@@ -9,7 +9,7 @@ aMule is a community-driven project, kept alive entirely by volunteers. You do n
 
 All of aMule's development and communication happens out in the open on GitHub. Everything — the source code, this website, the documentation, bug reports, feature requests, and discussions — is managed in two repositories:
 
-- **Source code** — [`github.com/amule-org/amule`](https://github.com/amule-org/amule): the aMule application itself (`amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, and the utilities), plus the issue tracker and discussions.
+- **Source code** — [`github.com/amule-org/amule`](https://github.com/amule-org/amule): the aMule application itself (`amule`, `amuled`, `amulegui`, `amuleapi`, `amulecmd`, `amuleweb`, and the utilities), plus the issue tracker and discussions.
 - **Website & documentation** — [`github.com/amule-org/amule-org.github.io`](https://github.com/amule-org/amule-org.github.io): this website and all of the documentation you are reading right now.
 
 If you want to follow what is going on, ask a question, or get involved, these two repositories are the place to be.

@@ -11,7 +11,7 @@ title: amule — GUI Client
 
 `amule` is the most complete way to run aMule: the core and GUI run in the same process, so no remote connection or daemon setup is required. It is the best choice for desktop systems where a persistent graphical session is available.
 
-For headless or server environments, use [`amuled`](../amuled.md) (daemon) together with [`amulegui`](./amulegui.md), [`amuleweb`](../amuleweb.md), or [`amulecmd`](../amulecmd.md).
+For headless or server environments, use [`amuled`](../amuled.md) (daemon) together with [`amulegui`](./amulegui.md), [`amuleapi`](../amuleapi/index.md), [`amulecmd`](../amulecmd.md), or [`amuleweb`](../amuleweb.md).
 
 aMule officially supports more than 60 different hardware and OS configurations. It is built on the [wxWidgets](https://www.wxwidgets.org/) toolkit (formerly wxWindows), which provides the multiplatform GUI layer.
 

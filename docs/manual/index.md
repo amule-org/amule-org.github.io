@@ -19,7 +19,7 @@ Follow these steps to get up and running:
 |---|---|
 | [Installation](./installation/index.md) | Installing aMule on Windows, macOS, Linux, and BSD |
 | [Configuration](./configuration/index.md) | Ports, firewall, UPnP, proxy, directories, events, and the on-disk config files |
-| [Interfaces](./interfaces/index.md) | `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd` and their GUI and remote usage |
+| [Interfaces](./interfaces/index.md) | `amule`, `amuled`, `amulegui`, `amuleapi`, `amulecmd`, `amuleweb` and their GUI and remote usage |
 | [Utilities](./utilities/index.md) | Standalone helpers: `ed2k`, `alc`/`alcc`, `wxcas`/`cas` |
 | [Migration](./migration/index.md) | Migrating to aMule from eMule, eDonkey2000, or other eD2k clients |
 | [Troubleshooting](./troubleshooting/index.md) | Solutions to common problems: slow speeds, fake files and servers, remote access |

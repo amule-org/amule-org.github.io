@@ -213,8 +213,9 @@ Use consistent terminology throughout the documentation:
 | `amule` (binary / module) | `aMule`, `AMule` (in code or command contexts) |
 | `amuled` | `AMuled`, `amule daemon` |
 | `amulegui` | `AMuleGUI` |
-| `amuleweb` | `AMuleWeb`, `amule web` |
+| `amuleapi` | `AMuleApi`, `amule api` |
 | `amulecmd` | `AMuleCMD`, `amule cmd` |
+| `amuleweb` | `AMuleWeb`, `amule web` |
 | eD2k | ed2k (in prose) |
 | Kademlia | kad (in prose) |
 | [High ID / Low ID](../p2p-networks/ed2k/high-id.md) | HighID, LowID, highid |

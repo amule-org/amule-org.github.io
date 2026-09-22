@@ -10,8 +10,9 @@ title: amuled — Headless Daemon
 `amuled` is a fully featured aMule client with the GUI stripped out. Without the graphical layer it has significantly reduced memory and CPU requirements and can run without an X server entirely. It is controlled exclusively through remote interfaces:
 
 - [`amulegui`](./gui/amulegui.md) — graphical remote GUI (same interface as `amule`)
-- [`amuleweb`](./amuleweb.md) — browser-based HTTP interface
+- [`amuleapi`](./amuleapi/index.md) — REST API + browser Web UI daemon (the modern replacement for `amuleweb`)
 - [`amulecmd`](./amulecmd.md) — command-line interface
+- [`amuleweb`](./amuleweb.md) — browser-based HTTP interface
 
 All remote interfaces communicate with `amuled` through the **[External Connections (EC)](../../developer/ec-protocol.md)** protocol on TCP port 4712 (configurable).
 
@@ -175,9 +176,10 @@ Once `amuled` is running with EC enabled, connect to it using any of the remote 
 | Interface | Command / URL |
 |---|---|
 | GUI | `amulegui` |
-| Web | `http://hostname:4711` (after starting `amuleweb`) |
+| REST / Web UI | `http://hostname:4713` (after starting `amuleapi`) |
 | CLI | `amulecmd -h hostname -p 4712 -P yourpassword` |
+| Web | `http://hostname:4711` (after starting `amuleweb`) |
 
-See the individual pages for [amulegui](./gui/amulegui.md), [amuleweb](./amuleweb.md), and [amulecmd](./amulecmd.md) for full setup instructions.
+See the individual pages for [amulegui](./gui/amulegui.md), [amuleapi](./amuleapi/index.md), [amulecmd](./amulecmd.md), and [amuleweb](./amuleweb.md) for full setup instructions.
 
 To connect from another machine, make sure the EC port (and the `amuleweb` HTTP port, if used) is reachable: see [Network Connectivity](../configuration/network-connectivity.md) for the full list of ports and [Firewall](../configuration/firewall.md) for how to open them.

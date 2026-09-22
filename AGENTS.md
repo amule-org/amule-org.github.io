@@ -36,7 +36,7 @@
 
 `docsSidebar` (see `sidebars.ts`) opens with two standalone docs — Overview (`docs/index.md`) and Quick Start (`docs/quickstart-guide.md`) — then **four top-level categories** by audience. Keep them separate — never mix audiences.
 
-- **User Manual** (`docs/manual/`) — install, configure, use, troubleshoot; for basic and expert users. Subdivided into `installation/`, `configuration/` (network config: `directories`, `network-connectivity`, `firewall`, `upnp`, `proxy`, `events`, `macos` + **editable text config files** in `config-files/`: `amule.conf`, `remote.conf`), `interfaces/` (GUI under `gui/`, plus `amuled`/`amuleweb`/`amulecmd`), `utilities/` (standalone helpers), `migration/`, `troubleshooting/`, `faq/`.
+- **User Manual** (`docs/manual/`) — install, configure, use, troubleshoot; for basic and expert users. Subdivided into `installation/`, `configuration/` (network config: `directories`, `network-connectivity`, `firewall`, `upnp`, `proxy`, `events`, `macos` + **editable text config files** in `config-files/`: `amule.conf`, `remote.conf`), `interfaces/` (GUI under `gui/`, plus `amuled`, `amuleapi` (folder `amuleapi/`: daemon `index` + `web-ui` subpage), `amulecmd`, `amuleweb`), `utilities/` (standalone helpers), `migration/`, `troubleshooting/`, `faq/`.
 - **Developer Guide** (`docs/developer/`) — for aMule developers and advanced integrators: compilation (`compilation/`), debugging, testing, translations, documentation, code style, the **file-format reference** (`file-formats/`: byte layouts of `.met`/`.dat` files), and the **EC protocol**.
 - **P2P Networks** (`docs/p2p-networks/`) — general **protocol** description and historical reference: eD2k (`ed2k/`), Kademlia (`kademlia`), `concepts`, `other-networks`. **Do not mix protocol with aMule's concrete implementation** — implementation details belong in the User Manual / Developer Guide and are linked, not embedded.
 - **Contributing** (`docs/contributing/`) — `bug-report`.
@@ -70,7 +70,7 @@ The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full
 ## Naming Conventions
 
 - **Project name**: Always write as "aMule" (not "Amule", "AMule", or "amule").
-- **Module names**: Always lowercase, always in code format: `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, `cas`, `xas`.
+- **Module names**: Always lowercase, always in code format: `amule`, `amulegui`, `amuled`, `amuleapi`, `amulecmd`, `amuleweb`, `ed2k`, `alc`, `alcc`, `wxcas`, `cas`, `xas`.
 - **Platform order**: When listing supported platforms in any enumeration, list, or table, always use the order **Windows, macOS, Linux, BSD** — ordered by popularity.
 
 ## Important Notes

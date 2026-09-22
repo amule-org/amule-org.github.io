@@ -262,11 +262,12 @@ Yes. Start an `ssh` session with the host running aMule, then use `amulecmd` to 
 
 Other options:
 - `cas` — shows basic aMule statistics on the command line.
+- [`amuleapi`](/docs/manual/interfaces/amuleapi) — REST API and a modern browser Web UI for a background aMule.
 - [`amuleweb`](/docs/manual/interfaces/amuleweb) — full web interface, if you can use a browser on the remote machine.
 
 #### Is there any way to start aMule with no graphical interface?
 
-Yes. Use `amuled`, the aMule daemon, which runs without any GUI and can run on a headless server. Control it with [`amuleweb`](/docs/manual/interfaces/amuleweb), [`amulecmd`](/docs/manual/interfaces/amulecmd), or [`amulegui`](/docs/manual/interfaces/gui/amulegui). See [Remote Access](#remote-access) below for an overview.
+Yes. Use `amuled`, the aMule daemon, which runs without any GUI and can run on a headless server. Control it with [`amulegui`](/docs/manual/interfaces/gui/amulegui), [`amuleapi`](/docs/manual/interfaces/amuleapi), [`amulecmd`](/docs/manual/interfaces/amulecmd), or [`amuleweb`](/docs/manual/interfaces/amuleweb). See [Remote Access](#remote-access) below for an overview.
 
 #### Can I run two aMule instances at the same time?
 
@@ -390,13 +391,13 @@ See [ed2k — Browser Configuration](utilities/ed2k.md#browser-configuration--lo
 
 ## Remote access
 
-Running aMule without a graphical interface and controlling it remotely via `amuled`, `amulecmd`, `amulegui`, and `amuleweb`.
+Running aMule without a graphical interface and controlling it remotely via `amuled`, `amulegui`, `amuleapi`, `amulecmd`, and `amuleweb`.
 
 ### aMule daemon (`amuled`)
 
 #### What is `amuled`?
 
-`amuled` is a full-featured aMule that runs without any user interface. It has reduced memory and CPU requirements and can run on a headless server with no X display. It is controlled remotely via [`amuleweb`](/docs/manual/interfaces/amuleweb), [`amulecmd`](/docs/manual/interfaces/amulecmd), or [`amulegui`](/docs/manual/interfaces/gui/amulegui) over the External Connections (EC) protocol.
+`amuled` is a full-featured aMule that runs without any user interface. It has reduced memory and CPU requirements and can run on a headless server with no X display. It is controlled remotely via [`amulegui`](/docs/manual/interfaces/gui/amulegui), [`amuleapi`](/docs/manual/interfaces/amuleapi), [`amulecmd`](/docs/manual/interfaces/amulecmd), or [`amuleweb`](/docs/manual/interfaces/amuleweb) over the External Connections (EC) protocol.
 
 :::caution
 Do not set **Max Connections** excessively high when using `amuled`. The default is around **500**, and `amuled` adapts the recommended maximum to your operating system's limits; setting it far higher wastes resources and can degrade performance. See [amuled — Configuration](/docs/manual/interfaces/amuled#configuration).

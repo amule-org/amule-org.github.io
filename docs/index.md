@@ -51,7 +51,7 @@ On top of that, aMule adds capabilities of its own:
 - **[Runs everywhere](./manual/installation/index.md)** — native support for Windows, macOS, Linux, and BSD.
 - **[Native packages](./manual/installation/index.md)** — ready-to-use builds for every platform: installer and portable `.zip` on Windows, a Universal2 `.dmg` on macOS, AppImage and Flatpak on Linux, for both x64 and ARM64.
 - **Free and open source** — released under the GPL-2.0 license with no telemetry, no advertisements, and no vendor lock-in; the full source code is open to inspect and contribute to.
-- **Full remote control** — run aMule in the background and manage it remotely from a [remote GUI](./manual/interfaces/gui/amulegui.md), a [web interface](./manual/interfaces/amuleweb.md), or a [command-line interface](./manual/interfaces/amulecmd.md), all built on its [External Connections (EC)](./developer/ec-protocol.md) system.
+- **Full remote control** — run aMule in the background and manage it remotely from a [remote GUI](./manual/interfaces/gui/amulegui.md), a [REST API and browser Web UI](./manual/interfaces/amuleapi/index.md), a [command-line interface](./manual/interfaces/amulecmd.md), or a [web interface](./manual/interfaces/amuleweb.md), all built on its [External Connections (EC)](./developer/ec-protocol.md) system.
 - **[Search-result filtering](./manual/interfaces/gui/searches.md)** — hide unwanted results so you find what you want faster.
 - **Upload slot control** — set a minimum speed per upload so you share with a sensible number of people at once, instead of spreading too thin.
 - **Automatic folder rescan** — aMule notices when files are added, changed, or removed in your [shared and Incoming folders](./manual/configuration/directories.md), with no manual refresh.
@@ -77,8 +77,9 @@ On top of that, aMule adds capabilities of its own:
 | [`amule`](./manual/interfaces/gui/amule.md) | All-in-one client with a full graphical interface |
 | [`amuled`](./manual/interfaces/amuled.md) | Background version with no window (daemon) |
 | [`amulegui`](./manual/interfaces/gui/amulegui.md) | Graphical interface that controls a background aMule |
-| [`amuleweb`](./manual/interfaces/amuleweb.md) | Web interface for a background aMule |
+| [`amuleapi`](./manual/interfaces/amuleapi/index.md) | REST API and browser Web UI for a background aMule (replaces `amuleweb`) |
 | [`amulecmd`](./manual/interfaces/amulecmd.md) | Command-line interface for a background aMule |
+| [`amuleweb`](./manual/interfaces/amuleweb.md) | Web interface for a background aMule |
 | [`ed2k`](./manual/utilities/ed2k.md) | Command-line helper that sends `ed2k://` links to a running aMule |
 | [`alc` / `alcc`](./manual/utilities/alc-alcc.md) | Create `ed2k://` links for your own files (graphical and command-line) |
 | [`wxcas` / `cas`](./manual/utilities/wxcas-cas.md) | Show your aMule status as images or web pages |

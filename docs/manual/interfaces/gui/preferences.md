@@ -282,7 +282,7 @@ Options for controlling aMule remotely via the web interface or external connect
 
 | Setting | Description |
 |---|---|
-| **Accept external connections** | Allow aMule to accept External Connection requests from remote applications (`amuleweb`, `amulegui`, `amulecmd`). |
+| **Accept external connections** | Allow aMule to accept External Connection requests from remote applications (`amulegui`, `amuleapi`, `amulecmd`, `amuleweb`). |
 | **IP of the listening interface** | IP address of the interface that listens for external connections, in `a.b.c.d` format. Empty or `0.0.0.0` means any interface. |
 | **TCP port** | TCP port where aMule listens for external connections. |
 | **Enable UPnP port forwarding on the EC port** | Ask a UPnP-capable router to forward the external-connection port. |

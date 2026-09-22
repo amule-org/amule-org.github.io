@@ -123,7 +123,7 @@ const FEATURES: FeatureCard[] = [
     title: <Translate id="homepage.features.remoteInterfaces.title" description="Title of the 'Remote Interfaces' feature card">Remote Interfaces</Translate>,
     desc: (
       <Translate id="homepage.features.remoteInterfaces.desc" description="Body of the 'Remote Interfaces' feature card">
-        Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).
+        Control aMule from anywhere: a native remote GUI (amulegui), a REST API and modern browser Web UI (amuleapi), a command-line tool (amulecmd), or a web interface (amuleweb).
       </Translate>
     ),
   },
