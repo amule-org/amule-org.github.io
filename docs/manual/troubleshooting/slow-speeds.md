@@ -35,7 +35,7 @@ If [Max simultaneous connections](../interfaces/gui/preferences.md#limits) is se
 
 #### Max new connections per 5 seconds too low
 
-If [Preferences → Advanced → Max new connections / 5 secs](../interfaces/gui/preferences.md#advanced) is too low, aMule takes a very long time to acquire sources for a new download. Increase it (the default is 20).
+If [Preferences → Advanced → Max new connections / 5 secs](../interfaces/gui/preferences.md#advanced) is too low, aMule takes a very long time to acquire sources for a new download. Increase it (the default is 50).
 
 #### Max new connections per 5 seconds too high
 
