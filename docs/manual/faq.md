@@ -263,7 +263,7 @@ Yes. Start an `ssh` session with the host running aMule, then use `amulecmd` to 
 Other options:
 - `cas` — shows basic aMule statistics on the command line.
 - [`amuleapi`](/docs/manual/interfaces/amuleapi) — REST API and a modern browser Web UI for a background aMule.
-- [`amuleweb`](/docs/manual/interfaces/amuleweb) — full web interface, if you can use a browser on the remote machine.
+- [`amuleweb`](/docs/manual/interfaces/amuleweb) — the legacy WebUI, if you can use a browser on the remote machine.
 
 #### Is there any way to start aMule with no graphical interface?
 
@@ -427,7 +427,7 @@ See the [`amulegui` documentation](/docs/manual/interfaces/gui/amulegui) for com
 
 #### What is `amuleweb`?
 
-`amuleweb` is a built-in web server that provides a browser-based interface for controlling aMule or amuled remotely. It listens for HTTP connections on port 4711 (default) and communicates with aMule over the EC protocol on port 4712.
+`amuleweb` is the **legacy WebUI** — a built-in web server that provides a browser-based interface for controlling aMule or amuled remotely. It listens for HTTP connections on port 4711 (default) and communicates with aMule over the EC protocol on port 4712. It is deprecated as of aMule 3.1.0; its replacement is [`amuleapi`](/docs/manual/interfaces/amuleapi) and its Web UI.
 
 See the [`amuleweb` documentation](/docs/manual/interfaces/amuleweb) for detailed setup instructions.
 

@@ -273,10 +273,10 @@ sudo apt update
 sudo apt install amule
 ```
 
-To also install the daemon, web interface, and command-line client:
+To also install the daemon, WebUI, and command-line client:
 
 ```sh
-sudo apt install amule amule-daemon amule-utils amuleweb
+sudo apt install amule amule-daemon amule-utils amuleapi
 ```
 
 #### Fedora
@@ -287,7 +287,7 @@ aMule is available in Fedora's official repositories:
 sudo dnf install amule
 ```
 
-For a headless setup (daemon, web interface, and command-line client without the GUI), install the `amule-nogui` subpackage instead:
+For a headless setup (daemon, WebUI, and command-line client without the GUI), install the `amule-nogui` subpackage instead:
 
 ```sh
 sudo dnf install amule-nogui
@@ -356,7 +356,7 @@ make install clean
 
 ## Docker
 
-An **unofficial Docker image**, maintained by a member of the aMule Team, is available at [ngosang/docker-amule](https://github.com/ngosang/docker-amule). It runs [`amuled`](../interfaces/amuled.md) with the [`amuleweb`](../interfaces/amuleweb.md) web interface enabled — a headless setup suited to home servers and NAS devices. The image is Linux-based, but it runs on any system with a container runtime, including Windows and macOS via [Docker Desktop](https://www.docker.com/products/docker-desktop/). Images are published on [Docker Hub](https://hub.docker.com/r/ngosang/amule) (`ngosang/amule`) and [GitHub Container Registry](https://github.com/ngosang/docker-amule/pkgs/container/amule) for a wide range of architectures (x64, ARM, RISC-V and more).
+An **unofficial Docker image**, maintained by a member of the aMule Team, is available at [ngosang/docker-amule](https://github.com/ngosang/docker-amule). It runs [`amuled`](../interfaces/amuled.md) with [`amuleapi`](../interfaces/amuleapi/index.md) enabled — serving the REST API and browser [Web UI](../interfaces/amuleapi/web-ui.md) on port 4711 — a headless setup suited to home servers and NAS devices. The image is Linux-based, but it runs on any system with a container runtime, including Windows and macOS via [Docker Desktop](https://www.docker.com/products/docker-desktop/). Images are published on [Docker Hub](https://hub.docker.com/r/ngosang/amule) (`ngosang/amule`) and [GitHub Container Registry](https://github.com/ngosang/docker-amule/pkgs/container/amule) for a wide range of architectures (x64, ARM, RISC-V and more).
 
 A minimal Docker Compose setup:
 
@@ -365,8 +365,8 @@ services:
   amule:
     image: ngosang/amule
     ports:
-      - "4711:4711"     # amuleweb web interface
-      - "4712:4712"     # External Connections (amulegui, amulecmd, amuleweb)
+      - "4711:4711"     # amuleapi REST API & Web UI
+      - "4712:4712"     # External Connections (amulegui, amulecmd, amuleapi)
       - "4662:4662"     # eD2k client-to-client TCP (required for High ID)
       - "4665:4665/udp" # eD2k server UDP (global searches)
       - "4672:4672/udp" # extended eMule protocol and Kademlia UDP
@@ -375,7 +375,7 @@ services:
       - /path/to/downloads:/downloads
 ```
 
-Once the container is running, open the web interface at `http://<host>:4711` or connect [`amulegui`](../interfaces/gui/amulegui.md) to port 4712. See the [repository documentation](https://github.com/ngosang/docker-amule) for the full list of environment variables (user/group IDs, passwords, timezone) and optional features.
+Once the container is running, open the [Web UI](../interfaces/amuleapi/web-ui.md) at `http://<host>:4711` or connect [`amulegui`](../interfaces/gui/amulegui.md) to port 4712. See the [repository documentation](https://github.com/ngosang/docker-amule) for the full list of environment variables (user/group IDs, passwords, timezone) and optional features.
 
 :::note Unofficial image
 The Docker image is built from the official aMule source code but is **not an official aMule project distribution**. Issues with the image should be reported on its [own issue tracker](https://github.com/ngosang/docker-amule/issues).

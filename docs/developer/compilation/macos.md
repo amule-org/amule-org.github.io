@@ -73,6 +73,7 @@ cmake -B build \
     -DBUILD_DAEMON=YES \
     -DBUILD_REMOTEGUI=YES \
     -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULEAPI=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
     -DENABLE_UPNP=YES \
@@ -99,10 +100,11 @@ All binaries are placed in `build/` and can be run directly without installing:
 ```sh
 ./build/amule
 ./build/amuled
+./build/amuleapi
 ./build/amulecmd
 ```
 
-For how to use each binary, see the User Manual: [amuled](../../manual/interfaces/amuled.md) (daemon), [amulecmd](../../manual/interfaces/amulecmd.md) (command-line client), and [amuleweb](../../manual/interfaces/amuleweb.md) (web interface).
+For how to use each binary, see the User Manual: [amuled](../../manual/interfaces/amuled.md) (daemon), [amuleapi](../../manual/interfaces/amuleapi/index.md) (REST API & Web UI), [amulecmd](../../manual/interfaces/amulecmd.md) (command-line client), and [amuleweb](../../manual/interfaces/amuleweb.md) (legacy WebUI).
 
 ## Packaging (App Bundle / DMG)
 
