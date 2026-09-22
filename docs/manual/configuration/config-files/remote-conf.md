@@ -3,7 +3,7 @@ id: remote-conf
 title: remote.conf
 ---
 
-`remote.conf` is the shared configuration file for all aMule remote tools: the [`amulegui`](../../interfaces/gui/amulegui.md), [`amuleapi`](../../interfaces/amuleapi/index.md), [`amulecmd`](../../interfaces/amulecmd.md), and [`amuleweb`](../../interfaces/amuleweb.md). It uses standard INI syntax and is read by each tool at startup.
+`remote.conf` is the shared configuration file for the aMule remote tools [`amulegui`](../../interfaces/gui/amulegui.md), [`amulecmd`](../../interfaces/amulecmd.md), and [`amuleweb`](../../interfaces/amuleweb.md). It uses standard INI syntax and is read by each tool at startup. The newer [`amuleapi`](../../interfaces/amuleapi/index.md) daemon does **not** use `remote.conf` — it reads its own [`amuleapi.conf`](./amuleapi-conf.md) instead.
 
 ## Location and file name
 
@@ -52,6 +52,7 @@ A single key written at the top of the file, before any section header. It selec
 | `Password` | _(empty)_ | `-P` / `--password` | MD5 hash of the EC password. The connection is rejected unless this matches the core's `ECPassword` (or both are empty). The CLI flag **accepts a plain-text password, not an MD5 hash**; passing an empty value clears the stored hash. |
 | `ZLIB` | `1` | _(none)_ | Enable zlib compression on the EC connection. Reduces bandwidth at the cost of CPU. |
 | `ForceZLIB` | `0` | `--force-zlib` | Force ZLIB compression regardless of the locality of the destination IP. Useful when the core is reachable over a VPN tunnel that resolves to a LAN IP (compression is otherwise skipped for local addresses). |
+| `Encryption` | `1` | `--disable-ec-encryption` | Enable authenticated encryption of the EC session (`0` = off, `1` = on). The `--disable-ec-encryption` flag turns it off for a single run. |
 
 ## `[WebServer]` section
 
@@ -81,21 +82,38 @@ When `amulegui` uses `remote.conf` as its configuration file, it stores preferen
 |---|---|---|
 | `Language` | _(empty)_ | UI language code used by `amulegui` (e.g. `de`, `en_GB`). This is `amulegui`'s language setting — it does **not** use the top-level `Locale` key. Empty = system default. |
 
+## `[PathMappings]` section
+
+Used by [`amulegui`](../../interfaces/gui/amulegui.md) only (remote-GUI builds). It stores the remote-to-local path translations configured in the [Path Mappings preferences panel](../../interfaces/gui/preferences.md), which rewrite the paths a remote core reports so that **Open** and **Show in Folder** resolve correctly on the local machine. The first matching prefix wins, in list order.
+
+| Key | Default | Description |
+|---|---|---|
+| `Count` | `0` | Number of path-mapping entries that follow (referenced internally as `/PathMappings/Count`). |
+
+Each entry is stored as a separate subgroup `[PathMapping#N]` (**N is 1-based**), with two keys:
+
+| Key | Description |
+|---|---|
+| `Remote` | The path prefix as reported by the remote core, stored verbatim in the core's own path syntax. |
+| `Local` | The local path prefix it maps to, stored in aMule's portable path form (via `CPath::ToUniv`). |
+
+Trailing path separators are stripped from both values when the file is written and when it is read, so a hand-edited entry with a trailing `/` or `\` is corrected on load.
+
 ## Tool-specific behavior
 
 The main body above is organized by the file's INI sections. The notes below summarize which tool owns which keys and the extra command-line flags each tool accepts.
 
+### amulegui (Remote GUI)
+
+Reads and writes the `[EC]` keys `Host`, `Port`, `Password`, `Encryption`, and `ForceZLIB`, and only when the **"Remember those settings"** checkbox in the connection dialog is ticked. It reads `/EC/ZLIB` at startup but never writes it, and it stores its language under `[eMule] Language` rather than `Locale`. It also owns the [`[PathMappings]`](#pathmappings-section) section (remote-GUI builds only). It uses a different command-line parser from the other two tools: it has no `--config-file`, `--host`, `--port`, or `--password` override (the config file name is fixed to `remote.conf`), and instead supports `-c` / `--config-dir` (config directory) and `-s` / `--skip` (skip the connection dialog and connect with the saved settings), alongside the standard `amule`/`amuled` flags. It has no `--disable-ec-encryption` flag; toggle encryption through the connection dialog's checkbox instead.
+
 ### amulecmd
 
-Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `--force-zlib` (force ZLIB compression — sets `/EC/ForceZLIB`), `-q` / `--quiet`, and `-v` / `--verbose`.
+Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `--force-zlib` (force ZLIB compression — sets `/EC/ForceZLIB`), `--disable-ec-encryption` (disable EC session encryption for the run — sets `/EC/Encryption=0`), `-q` / `--quiet`, and `-v` / `--verbose`.
 
 ### amuleweb
 
-Owns the `[WebServer]` section in addition to the common keys (including `--force-zlib`). It also accepts `-L` / `--load-settings`, which loads (and saves) the web server settings from/to the remote core instead of from the local file.
-
-### amulegui (Remote GUI)
-
-Reads and writes only the `[EC]` keys `Host`, `Port`, `Password`, and `ForceZLIB`, and only when the **"Remember those settings"** checkbox in the connection dialog is ticked. It reads `/EC/ZLIB` at startup but never writes it, and it stores its language under `[eMule] Language` rather than `Locale`. It uses a different command-line parser from the other two tools: it has no `--config-file`, `--host`, `--port`, or `--password` override (the config file name is fixed to `remote.conf`), and instead supports `-c` / `--config-dir` (config directory) and `-s` / `--skip` (skip the connection dialog and connect with the saved settings), alongside the standard `amule`/`amuled` flags.
+Owns the `[WebServer]` section in addition to the common keys (including `--force-zlib` and `--disable-ec-encryption`). It also accepts `-L` / `--load-settings`, which loads (and saves) the web server settings from/to the remote core instead of from the local file.
 
 ## Complete example
 
@@ -110,6 +128,7 @@ Port=4712
 Password=5D41402ABC4B2A76B9719D911017C592
 ZLIB=1
 ForceZLIB=0
+Encryption=1
 
 [WebServer]
 Port=4711
@@ -121,4 +140,11 @@ AllowGuest=0
 AdminPassword=
 GuestPassword=
 PageRefreshTime=120
+
+[PathMappings]
+Count=1
+
+[PathMapping#1]
+Remote=/home/user/.aMule/Incoming
+Local=/mnt/nas/amule/Incoming
 ```
