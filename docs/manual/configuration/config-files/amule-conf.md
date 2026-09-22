@@ -66,14 +66,18 @@ The **Start aMule automatically when I log in** preference is deliberately not s
 | `UDPEnable` | `1` | Enable the UDP port. Setting to `0` reduces performance but frees the UDP port. |
 | `MaxSourcesPerFile` | `300` | Maximum number of sources remembered per file. |
 | `MaxConnections` | `500` | Maximum number of simultaneous connections. The default is derived from the operating system's connection (file-descriptor) limit; `500` is used when that limit is high or cannot be determined, otherwise a lower value is chosen. |
-| `MaxConnectionsPerFiveSeconds` | `20` | Maximum number of new connections to establish per 5-second window. |
+| `MaxConnectionsPerFiveSeconds` | `50` | Maximum number of new connections to establish per 5-second window. |
 | `ConnectToED2K` | `1` | Enable the eD2k network. |
 | `ConnectToKad` | `1` | Enable the Kademlia network. |
+| `KadMaxSourceSearches` | `30` | Maximum number of concurrent Kad source searches. Clamped to the range 5–50 when the file is loaded. |
+| `KadSourceReaskMinutes` | `30` | Minimum interval, in minutes, between Kad source re-asks. Clamped to the range 30–60 when the file is loaded. |
+| `SourceReaskMinutes` | `15` | Minimum interval, in minutes, before re-asking a source for a file. Clamped to the range 15–60 when the file is loaded. |
 | `Autoconnect` | `1` | Connect to enabled networks when aMule starts. |
 | `Reconnect` | `1` | Reconnect automatically after losing a server connection. |
 | `ShowOverhead` | `0` | Show protocol overhead bandwidth in the status bar. |
 | `UPnPEnabled` | `0` | Enable UPnP to automatically open the eD2k TCP port (`Port`) on your router. |
 | `UPnPTCPPort` | `50000` | Internal UPnP TCP port used for UPnP communication. |
+| `NetworkInterface` | _(empty)_ | Bind aMule's own network sockets to a single egress interface, given as its IP address, using `IP_UNICAST_IF` / `IP_BOUND_IF`. Empty = use all interfaces. Useful for keeping aMule traffic on a specific VPN interface. |
 
 ### Server
 
@@ -98,6 +102,7 @@ The **Start aMule automatically when I log in** preference is deliberately not s
 |---|---|---|
 | `ICH` | `1` | Enable Intelligent Corruption Handling (ICH). |
 | `AICHTrust` | `0` | Trust every AICH hash received without verification. Leaving this `0` is recommended. |
+| `Endgame` | `1` | Enable endgame mode: near completion, request the remaining chunks from every available source at once, so a download does not stall behind one slow peer. |
 | `AddNewFilesPaused` | `0` | Add new downloads in paused state. |
 | `DAPPref` | `1` | Set the priority of new downloads to Auto (Dynamic Auto-Priority). |
 | `PreviewPrio` | `0` | Always download the first and last chunks of a file first (useful for previewing video). |
@@ -106,9 +111,10 @@ The **Start aMule automatically when I log in** preference is deliberately not s
 | `StartNextFileSameCat` | `0` | When `StartNextFile=1`, resume from the same category first. |
 | `StartNextFileAlpha` | `0` | When `StartNextFile=1`, resume the next file in alphabetical order instead of by priority. |
 | `CheckDiskspace` | `1` | Monitor free disk space and pause downloads when space falls below `MinFreeDiskSpace`. |
-| `MinFreeDiskSpace` | `1` | Minimum free disk space in MiB before downloads are paused (requires `CheckDiskspace=1`). |
+| `MinFreeDiskSpace` | `500` | Minimum free disk space in MiB before downloads are paused (requires `CheckDiskspace=1`). |
 | `AllocateFullFile` | `0` | Pre-allocate the full file size on disk when a download starts. Prevents fragmentation but uses disk space immediately. |
-| `CreateSparseFiles` | `1` | Create sparse files for in-progress downloads on supported filesystems (Linux/NTFS). Saves disk space when `AllocateFullFile=0`. |
+| `CreateSparseFiles` | `1` | Create sparse files for in-progress downloads on supported filesystems (Linux/NTFS). Saves disk space when `AllocateFullFile=0`. Also exposed as a checkbox in the Files preferences panel. |
+| `MMapEnabled` | `0` | Use memory-mapped file I/O for part files. Can be toggled at runtime; the change is applied when preferences are saved. |
 
 :::note
 The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x and earlier. They were removed and replaced by the `[UserEvents]` section in current versions. See the [`[UserEvents]` section](#userevents-section) below.
@@ -123,7 +129,17 @@ The keys `ExecOnCompletion` and `ExecOnCompletionCommand` existed in aMule 2.2.x
 | `ShareHiddenFiles` | `0` | Include hidden files when sharing the contents of shared directories. |
 | `AutoRescanSharedDirs` | `1` | Automatically rescan shared directories for new or removed files using a filesystem watcher. When disabled, you must click "Reload shared files" manually. |
 | `FollowSymlinksInShares` | `1` | Follow symbolic links (to files or directories) when scanning shared folders. When disabled, symlinked entries are skipped. |
+| `ExcludeSharePatterns` | _(see note)_ | Names of files to exclude from sharing, given as `\|`-separated wildcard patterns (or a single regular expression when `ExcludeSharePatternsUseRegex=1`). Ships with a non-empty default list of common OS junk files. |
+| `ExcludeSharePatternsUseRegex` | `0` | Treat the whole `ExcludeSharePatterns` string as one regular expression instead of a `\|`-separated list of wildcards. |
 | `VideoPlayer` | _(empty)_ | Command used to preview audio/video files. The filename is appended at the end. |
+
+:::note Default `ExcludeSharePatterns`
+The default value is a `|`-separated list of common OS junk files:
+
+```
+.DS_Store|._*|.Spotlight-V100|.Trashes|.fseventsd|.DocumentRevisions-V100|.TemporaryItems|.apdisk|Thumbs.db|ehthumbs.db|desktop.ini|.directory
+```
+:::
 
 ### Network URLs
 
@@ -162,8 +178,8 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 | Key | Default | Description |
 |---|---|---|
 | `SeeShare` | `2` | Who can see your shared files list. `0` = everyone, `1` = friends only, `2` = nobody. |
-| `IPFilterAutoLoad` | `1` | Download and apply the IP filter from `IPFilterURL` at startup. |
-| `IPFilterURL` | _(empty)_ | URL to download the IP filter from. Supports `http://`, `https://`, and `ftp://`. |
+| `IPFilterAutoLoad` | `0` | Download and apply the IP filter from `IPFilterURL` at startup. |
+| `IPFilterURL` | `https://upd.emule-security.org/ipfilter.zip` | URL to download the IP filter from. Supports `http://`, `https://`, and `ftp://`. |
 | `FilterLevel` | `127` | IP filter level (0–255). Ranges whose access level is **less than** this value are blocked. |
 | `FilterLanIPs` | `1` | Always block LAN IP addresses (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`). |
 | `ParanoidFiltering` | `1` | Paranoid handling of non-matching IPs: reject a packet if the client IP differs from the IP it was received from. |
@@ -173,8 +189,15 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 
 | Key | Default | Description |
 |---|---|---|
-| `GeoIPEnabled` | `1` | Show country flags next to clients and servers (requires `GeoLite2-Country.mmdb`). |
-| `GeoLiteCountryUpdateUrl` | _(empty)_ | Direct URL to a `.mmdb` or `.mmdb.gz` database (the auto-updater does not handle `.tar.gz`, so MaxMind's official download URL is unsupported). No GUI field — edit this file directly. Leave empty to manage the database manually (a free MaxMind account is required to download it). |
+| `GeoIPEnabled` | `1` | Show country flags next to clients and servers (requires a GeoIP country database). |
+| `GeoIPSource` | `dbip` | GeoIP database provider — the key you edit by hand to switch source. One of `dbip` (DB-IP, the default), `maxmind` (MaxMind GeoLite2) or `custom` (your own URL). Any other value falls back to `dbip`. |
+| `GeoIPAutoUpdate` | `1` | Automatically download and refresh the GeoIP database. |
+| `GeoIPMaxMindLicense` | _(empty)_ | MaxMind license key, used only when `GeoIPSource=maxmind`. |
+| `GeoIPCustomUrl` | _(empty)_ | URL of a custom GeoIP database, used only when `GeoIPSource=custom`. |
+
+:::note
+`GeoIPLoadedSource` records which provider the currently loaded database came from (provenance, written by aMule), and `GeoLiteCountryUpdateUrl` is a legacy key kept only to migrate older configurations. Neither selects the provider — use `GeoIPSource` for that.
+:::
 
 ### Statistics
 
@@ -185,8 +208,8 @@ Settings behind the [Statistics](../../interfaces/gui/statistics.md) window's gr
 | `StatGraphsInterval` | `3` | Graph update interval in seconds. |
 | `StatsAverageMinutes` | `5` | Time window (minutes) used to calculate running average in graphs. |
 | `VariousStatisticsMaxValue` | `100` | Maximum connections value shown in the connections graph (the **Connections Graph Scale**). |
-| `DownloadCapacity` | `300` | Maximum download speed (KiB/s) the download graph represents (the **Download graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
-| `UploadCapacity` | `100` | Maximum upload speed (KiB/s) the upload graph represents (the **Upload graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
+| `DownloadCapacity` | `12500` | Maximum download speed (KiB/s) the download graph represents (the **Download graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
+| `UploadCapacity` | `2500` | Maximum upload speed (KiB/s) the upload graph represents (the **Upload graph scale**). Also drives the tray-icon speed bar; does not throttle transfers. |
 | `statsInterval` | `30` | Statistics tree update interval in seconds. |
 | `StatsServerName` | `Shorty's ED2K stats` | Display name of the external ED2K stats server used for file lookups. |
 | `StatsServerURL` | `https://ed2k.shortypower.org/?hash=` | URL prefix for the external stats server. The file hash is appended. |
@@ -196,7 +219,8 @@ Settings behind the [Statistics](../../interfaces/gui/statistics.md) window's gr
 
 | Key | Default | Description |
 |---|---|---|
-| `AutoSortDownloads` | `0` | Continuously re-sort the download list (high CPU usage; not recommended). |
+| `LiveListSort` | `1` | Keep the list views (downloads, uploads and others) sorted live as rows update, not only when you click a column header. |
+| `SearchHistoryEnabled` | `1` | Remember the search history (past search terms) across restarts. |
 | `ShowInfoOnCatTabs` | `1` | Show file counts on category tabs. |
 | `ShowRatesOnTitle` | `0` | Show transfer speeds in the window title. `0` = off, `1` = after app name, `2` = before app name. |
 | `ShowVersionOnTitle` | `0` | Show the aMule version in the window title (release builds only). |
@@ -226,6 +250,8 @@ These keys are managed by aMule. Editing them manually is not recommended.
 | Key | Description |
 |---|---|
 | `SmartIdState` | Cached result of the Smart ID check (internal state). |
+| `FirstRunWizardDone` | Set to `1` after the first-run setup wizard has completed. Written by aMule. |
+| `MaxConPerFiveDefaultBumped` | One-shot migration marker, set after the `MaxConnectionsPerFiveSeconds` default was raised from 20 to 50. Written by aMule; do not edit. |
 | `TableOrdering<Name>`, `TableWidths<Name>` | Column sort order and widths for each list. `<Name>` is the list name: `Server`, `Download`, `Shared`, `Search`, `Sources`, `Peers`. |
 
 ## `[Browser]` section
@@ -237,6 +263,15 @@ Browser selection for opening web links from within aMule.
 | `OpenPageInTab` | `1` | Open links in a new tab when possible. |
 | `CustomBrowserString` | _(empty)_ | Command for a custom browser. On macOS the default is `/usr/bin/open`. |
 
+## `[MediaMetadata]` section
+
+Extraction of media metadata (duration, bitrate, codec, and tags such as artist, album and title) from media files, using `ffprobe`. The extracted fields appear as columns in the shared-files and search-result lists.
+
+| Key | Default | Description |
+|---|---|---|
+| `Enabled` | `1` | Extract media metadata with `ffprobe`. |
+| `FFProbePath` | _(empty)_ | Path to the `ffprobe` binary. Empty = auto-detect from the system `PATH`. |
+
 ## `[ExternalConnect]` section
 
 [External Connections (EC)](../../../developer/ec-protocol.md) settings used by remote tools ([`amulegui`](../../interfaces/gui/amulegui.md), [`amuleapi`](../../interfaces/amuleapi/index.md), [`amulecmd`](../../interfaces/amulecmd.md), [`amuleweb`](../../interfaces/amuleweb.md)), plus several display and security preferences.
@@ -244,9 +279,14 @@ Browser selection for opening web links from within aMule.
 | Key | Default | Description |
 |---|---|---|
 | `AcceptExternalConnections` | `0` | Enable the EC interface so that remote tools can connect. |
-| `ECAddress` | _(empty)_ | IP address on which aMule listens for EC connections. Empty = listen on all interfaces. |
+| `ECAddress` | `127.0.0.1` | IP address on which aMule listens for EC connections. Empty = listen on all interfaces. |
+| `ECNetworkInterface` | _(empty)_ | Bind the EC listener to a single interface, given as its IP address. Empty = all interfaces. |
 | `ECPort` | `4712` | TCP port for EC connections. |
 | `ECPassword` | _(empty)_ | MD5 hash of the EC password. |
+| `RequireEncryption` | `0` | Require EC connections to be encrypted; reject unencrypted clients. |
+| `AuthFailureWindowSeconds` | `60` | Sliding window, in seconds, over which failed EC authentications are counted. **Config-only** — no dialog field. |
+| `AuthFailureThreshold` | `10` | Number of failed EC authentications within the window that triggers a lockout. **Config-only** — no dialog field. |
+| `AuthLockoutSeconds` | `300` | Duration, in seconds, of the lockout after the failure threshold is reached. **Config-only** — no dialog field. |
 | `UPnPECEnabled` | `0` | Enable UPnP to automatically open the EC port (`ECPort`) on your router. |
 | `UseSecIdent` | `1` | Enable Secure User Identification. |
 | `UseSrcSeeds` | `0` | Save sources for rare files (corresponds to "Save 10 sources on rare files" in Files preferences). |
@@ -255,6 +295,10 @@ Browser selection for opening web links from within aMule.
 | `ShowPercent` | `1` | Show completion percentage in the download list. |
 | `ShowProgressBar` | `1` | Show the chunk availability progress bar in the download list. |
 | `TransmitOnlyUploadingClients` | `0` | Only transmit data for clients that are actively uploading to you. |
+
+:::note
+The three `AuthFailure*` / `AuthLockout*` keys throttle EC login attempts. [`amuleapi`](../../interfaces/amuleapi/index.md) has its own, separate equivalents in [`amuleapi.conf`](./amuleapi-conf.md).
+:::
 
 ## `[WebServer]` section
 
@@ -274,6 +318,21 @@ Browser selection for opening web links from within aMule.
 | `WebUPnPTCPPort` | `50001` | Internal UPnP TCP port used for web server UPnP communication. |
 | `UPnPTCPPort` | `50001` | Internal UPnP TCP port used by `amuleweb` when it runs as a standalone process (the web server embedded in aMule uses `WebUPnPTCPPort`). |
 | `Path` | `amuleweb` | Path or name of the `amuleweb` binary. |
+
+## `[AmuleApi]` section
+
+Controls the built-in [`amuleapi`](../../interfaces/amuleapi/index.md) daemon (REST API and Web UI), which aMule can auto-start as a child process. Everything else `amuleapi` needs lives in its own [`amuleapi.conf`](./amuleapi-conf.md); only the keys below are stored in `amule.conf`.
+
+| Key | Default | Description |
+|---|---|---|
+| `Enabled` | `0` | Auto-start `amuleapi` as a child process when aMule launches. Requires External Connections (`AcceptExternalConnections=1`). |
+| `HttpPort` | `4713` | HTTP port on which `amuleapi` serves the REST API and Web UI. Note the key is `HttpPort`, not `Port`. |
+| `BindAddress` | `127.0.0.1` | Address `amuleapi` listens on. `127.0.0.1` = loopback only. |
+| `Path` | `amuleapi` | Path or name of the `amuleapi` binary. |
+
+:::note
+The admin and guest passwords are **not** stored in `amule.conf`. They live in the shared [`amuleapi-passwords`](./index.md#amuleapi-passwords) credential store. The transient `[AmuleApi]` keys (the admin/guest password keys and `GuestEnabled`) are used only to relay a change and are removed from the file on load.
+:::
 
 ## `[Proxy]` section
 
@@ -371,7 +430,7 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 | `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Downloads window. |
 | `[GUI/SharedWnd] Splitter` | `463` | Vertical splitter position (pixels) in the Shared Files window. |
 | `[GUI/SharedWnd] ShowClientList` | `1` | Show the client list panel in the Shared Files window. |
-| `[GUI/SharedWnd] ClientShowMode` | `1` | Which clients the Shared Files client list shows. `0` = clients of all shared files, `1` = clients of the selected file only. |
+| `[GUI/SharedWnd] ClientShowMode` | `0` | Which clients the Shared Files client list shows. `0` = clients of all shared files, `1` = clients of the selected file only. |
 
 ## `[General]` section
 
@@ -463,9 +522,12 @@ wxFileConfig (the INI library used by aMule) escapes spaces in key names with a 
 | `Cat_Kademlia UDP Firewall Tester` | Kademlia UDP firewall/NAT detection. |
 | `Cat_Kademlia Packet Tracking` | Kademlia packet-level tracking (flood protection). |
 | `Cat_Kademlia Entry Tracking` | Kademlia entry tracking (publish throttling). |
+| `Cat_Kademlia Node Tracking` | Kademlia node tracking (per-node activity and flood protection). |
 | `Cat_External Connect` | External Connections (EC) protocol: all packet traffic. |
 | `Cat_HTTP` | HTTP download requests and responses (`server.met`, `nodes.dat`, IP filter, GeoIP). |
 | `Cat_Asio Sockets` | Boost.Asio networking layer (socket events, async I/O). |
+| `Cat_Media Probe` | Media metadata extraction via `ffprobe` (the `[MediaMetadata]` feature). |
+| `Cat_Verify Local Data` | The Verify Local Data operation (re-hashing on-disk data against known hashes). |
 
 The following keys existed in older versions of aMule and are automatically migrated or removed when an old `amule.conf` is loaded:
 
@@ -475,8 +537,7 @@ The following keys existed in older versions of aMule and are automatically migr
 | `ExecOnCompletion` | `[UserEvents/DownloadCompleted] CoreEnabled` | Migrated automatically on first load. |
 | `ExecOnCompletionCommand` | `[UserEvents/DownloadCompleted] CoreCommand` | Migrated automatically on first load. |
 | `[SkinGUIOptions] UseSkinFiles` | `[SkinGUIOptions] Skin` | Key renamed; empty string replaces the boolean disable state. |
-| `GeoIPUpdateUrl` | `GeoLiteCountryUpdateUrl` | Renamed after MaxMind changed their licensing model. |
-| `[FakeCheck] Browser` | `[Browser] OpenPageInTab` | Section renamed from `[FakeCheck]` to `[Browser]`. |
+| `GeoIPUpdateUrl` | `GeoLiteCountryUpdateUrl` | Old key removed on load (its value is not carried over); use `GeoLiteCountryUpdateUrl` instead. |
 
 ## Complete example
 
@@ -484,7 +545,7 @@ The following is a representative `amule.conf` with current defaults. Paths will
 
 ```ini
 [eMule]
-AppVersion=aMule 3.0.0
+AppVersion=aMule 3.1.0
 Nick=https://amule-org.github.io
 NewVersionCheck=1
 StartupMinimized=0
@@ -496,8 +557,8 @@ ToolTipDelay=1
 MaxDownload=0
 MaxUpload=0
 SlotAllocation=10
-DownloadCapacity=300
-UploadCapacity=100
+DownloadCapacity=12500
+UploadCapacity=2500
 Port=4662
 UDPPort=4672
 UDPEnable=1
@@ -505,11 +566,15 @@ MaxSourcesPerFile=300
 MaxConnections=500
 ConnectToED2K=1
 ConnectToKad=1
+KadMaxSourceSearches=30
+KadSourceReaskMinutes=30
+SourceReaskMinutes=15
 Autoconnect=1
 Reconnect=1
 ShowOverhead=0
 UPnPEnabled=0
 UPnPTCPPort=50000
+NetworkInterface=
 RemoveDeadServer=1
 DeadServerRetry=3
 Serverlist=0
@@ -524,6 +589,7 @@ ServerKeepAliveTimeout=0
 Ed2kServersUrl=https://upd.emule-security.org/server.met
 ICH=1
 AICHTrust=0
+Endgame=1
 AddNewFilesPaused=0
 DAPPref=1
 PreviewPrio=0
@@ -532,38 +598,46 @@ StartNextFile=0
 StartNextFileSameCat=0
 StartNextFileAlpha=0
 CheckDiskspace=1
-MinFreeDiskSpace=1
+MinFreeDiskSpace=500
 AllocateFullFile=0
 CreateSparseFiles=1
+MMapEnabled=0
 IncomingDir=/home/user/.aMule/Incoming
 TempDir=/home/user/.aMule/Temp
 ShareHiddenFiles=0
 AutoRescanSharedDirs=1
 FollowSymlinksInShares=1
+ExcludeSharePatterns=.DS_Store|._*|.Spotlight-V100|.Trashes|.fseventsd|.DocumentRevisions-V100|.TemporaryItems|.apdisk|Thumbs.db|ehthumbs.db|desktop.ini|.directory
+ExcludeSharePatternsUseRegex=0
 VideoPlayer=
 KadNodesUrl=https://upd.emule-security.org/nodes.dat
 StatGraphsInterval=3
 StatsAverageMinutes=5
 VariousStatisticsMaxValue=100
 statsInterval=30
-MaxConnectionsPerFiveSeconds=20
+MaxConnectionsPerFiveSeconds=50
 FileBufferSizePref=16
 QueueSizePref=50
 DropSlowSources=0
 3DDepth=10
-AutoSortDownloads=0
+LiveListSort=1
+SearchHistoryEnabled=1
 ShowInfoOnCatTabs=1
 ShowRatesOnTitle=0
 ShowVersionOnTitle=0
 VerticalToolbar=0
 SeeShare=2
-IPFilterAutoLoad=1
-IPFilterURL=
+IPFilterAutoLoad=0
+IPFilterURL=https://upd.emule-security.org/ipfilter.zip
 FilterLevel=127
 FilterLanIPs=1
 ParanoidFiltering=1
 IPFilterSystem=0
 GeoIPEnabled=1
+GeoIPSource=dbip
+GeoIPAutoUpdate=1
+GeoIPMaxMindLicense=
+GeoIPCustomUrl=
 GeoLiteCountryUpdateUrl=
 OnlineSignature=0
 OnlineSignatureUpdate=5
@@ -618,11 +692,20 @@ TableWidthsShared=250,100,50,70,220,100,100,120,120,120,220
 OpenPageInTab=1
 CustomBrowserString=
 
+[MediaMetadata]
+Enabled=1
+FFProbePath=
+
 [ExternalConnect]
 AcceptExternalConnections=0
-ECAddress=
+ECAddress=127.0.0.1
+ECNetworkInterface=
 ECPort=4712
 ECPassword=
+RequireEncryption=0
+AuthFailureWindowSeconds=60
+AuthFailureThreshold=10
+AuthLockoutSeconds=300
 UPnPECEnabled=0
 UseSecIdent=1
 UseSrcSeeds=0
@@ -645,6 +728,12 @@ UPnPWebServerEnabled=0
 WebUPnPTCPPort=50001
 UPnPTCPPort=50001
 Path=amuleweb
+
+[AmuleApi]
+Enabled=0
+HttpPort=4713
+BindAddress=127.0.0.1
+Path=amuleapi
 
 [Proxy]
 ProxyEnableProxy=0
@@ -723,6 +812,11 @@ AppImageIntegrationDeclined=0
 Splitter=463
 ShowClientList=1
 
+[GUI/SharedWnd]
+Splitter=463
+ShowClientList=1
+ClientShowMode=0
+
 # [Debug] section — only present and active in debug builds (__DEBUG__).
 # Requires VerboseDebug=1 in [eMule] to take effect.
 # All categories default to 0 (disabled).
@@ -764,7 +858,10 @@ Cat_Universal Plug and Play=0
 Cat_Kademlia UDP Firewall Tester=0
 Cat_Kademlia Packet Tracking=0
 Cat_Kademlia Entry Tracking=0
+Cat_Kademlia Node Tracking=0
 Cat_External Connect=0
 Cat_HTTP=0
 Cat_Asio Sockets=0
+Cat_Media Probe=0
+Cat_Verify Local Data=0
 ```

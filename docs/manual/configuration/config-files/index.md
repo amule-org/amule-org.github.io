@@ -32,10 +32,15 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`amule.conf`](#amuleconf) | Main configuration — stores all user preferences |
 | [`amule.conf.bak`](#amuleconf) | Automatic backup of `amule.conf` (written on shutdown) |
 | [`amule.conf.backup`](#amuleconf) | Backup of `amule.conf`, written only when started with `--reset-config` |
-| [`remote.conf`](#remoteconf) | Configuration for remote tools (`amulegui`, `amuleapi`, `amulecmd`, `amuleweb`) |
+| [`remote.conf`](#remoteconf) | Configuration for remote tools (`amulegui`, `amulecmd`, `amuleweb`). `amuleapi` does not utilize this file. |
 | [`preferences.dat`](#preferencesdat) | Stores the userhash and config file version |
 | [`preferencesKad.dat`](#preferenceskaddat) | Stores the client IP and Kademlia ClientID |
 | [`cryptkey.dat`](#cryptkeydat) | 384-bit RSA private key for Secure User Identification |
+| [`amuleapi.conf`](#amuleapiconf) | Configuration for the `amuleapi` daemon (REST API and Web UI) |
+| [`amuleapi-passwords`](#amuleapi-passwords) | Shared admin/guest credential store for `amuleapi` |
+| [`amuleapi-jwt-secret`](#amuleapi-jwt-secret) | Auto-generated JWT signing secret for `amuleapi` sessions |
+| [`amuleapi-ec-token`](#amuleapi-ec-token) | One-off EC login token dropped when aMule auto-starts `amuleapi` |
+| [`amuleapi-static/`](#amuleapi-static) | Installed Web UI assets served by `amuleapi` |
 | [`server.met`](#servermet) | eD2k server list (IP, port, name, statistics) |
 | [`server.met.bak`](#servermet) | Automatic backup of `server.met` |
 | [`server_auto.met`](#servermet) | Temporary file holding a server list during auto-update (deleted after merge) |
@@ -127,6 +132,48 @@ This file contains your private key. Never share it. If it is compromised, anyon
 :::
 
 For its storage format, see the [`cryptkey.dat` format reference](../../../developer/file-formats/index.md#cryptkeydat).
+
+## amuleapi files
+
+The [`amuleapi`](../../interfaces/amuleapi/index.md) daemon (REST API and Web UI) keeps its own configuration and credential files in the aMule config directory, alongside `amule.conf`.
+
+### `amuleapi.conf` {#amuleapiconf}
+
+**Location:** `~/.aMule/amuleapi.conf`
+
+`amuleapi`'s configuration file, in standard INI format. It has four sections: `[Server]` (bind address, HTTP port, CORS, static-asset root), `[EC]` (how it reaches the aMule core over External Connections), `[Auth]` (login rate-limiting), and `[Streaming]`. It is created with defaults on first run. This is the only config file `amuleapi` reads — it does **not** use [`remote.conf`](#remoteconf).
+
+See the [amuleapi.conf reference](./amuleapi-conf.md) for the complete key reference and a full example file.
+
+### `amuleapi-passwords` {#amuleapi-passwords}
+
+**Location:** `~/.aMule/amuleapi-passwords`
+
+Shared credential store for the `amuleapi` **admin** and **guest** accounts. Each password is kept as a salted PBKDF2-HMAC-SHA256 record in PHC string format (`pbkdf2-sha256$<iters>$<salt-hex>$<hash-hex>`); an empty value means the role is unset. The file is created with mode `0600`. It is written by `amuleapi`, [`amuled`](../../interfaces/amuled.md) and the monolithic [`amule`](../../interfaces/gui/amule.md) — but **not** by [`amulegui`](../../interfaces/gui/amulegui.md), which pushes password changes to the core over EC instead. A legacy bare-MD5 record is still accepted and is rewritten to PBKDF2 after the next successful login.
+
+To set or change these passwords, see [Changing Passwords](../../interfaces/amuleapi/index.md#changing-passwords) on the `amuleapi` page.
+
+:::warning
+This file holds your `amuleapi` login credentials. Keep its `0600` permissions; the daemon refuses to start if its secret files are group- or world-readable.
+:::
+
+### `amuleapi-jwt-secret` {#amuleapi-jwt-secret}
+
+**Location:** `~/.aMule/amuleapi-jwt-secret`
+
+Signing secret for the JWT session tokens `amuleapi` issues. It is auto-generated as 32 random bytes (stored as hex) on first launch, with mode `0600`. Delete the file and restart `amuleapi` to rotate the secret, which invalidates all existing sessions.
+
+### `amuleapi-ec-token` {#amuleapi-ec-token}
+
+**Location:** `~/.aMule/amuleapi-ec-token`
+
+A one-off External Connections login token. When aMule auto-starts `amuleapi` as a child process, it writes this short-lived token (mode `0600`) so the child can authenticate without a stored EC password. `amuleapi` reads and deletes it immediately, and aMule also removes it after a short deadline. It normally exists only for a moment.
+
+### `amuleapi-static/` {#amuleapi-static}
+
+**Location:** installed with aMule (for example `/usr/share/amule/amuleapi-static/`), not in the config directory.
+
+Directory holding the built Web UI assets that `amuleapi` serves. When the `[Server]/StaticRoot` key in `amuleapi.conf` is empty (the default), `amuleapi` auto-discovers this folder — next to its executable, inside the macOS app bundle, or in the shared-data directory. If no assets are found, the REST API still works but `/` returns `404`.
 
 ## Network data files
 

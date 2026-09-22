@@ -39,44 +39,14 @@ There is deliberately **no `--password` flag**: an EC password passed on the com
 
 ## Configuration File
 
-`amuleapi` reads `amuleapi.conf` from its configuration directory. The file is created on first run with mode `0600`, and every load re-enforces `0600` (it refuses to start otherwise). The keys and their defaults are:
+`amuleapi` reads [`amuleapi.conf`](../../configuration/config-files/amuleapi-conf.md) from its configuration directory. The file is created on first run with mode `0600`, and every load re-enforces `0600` (it refuses to start otherwise). It has four sections:
 
-### `[Server]`
+- **`[Server]`** — HTTP bind address, port, CORS, and the Web UI asset root.
+- **`[EC]`** — how `amuleapi` reaches the aMule core (host, port, password, encryption).
+- **`[Auth]`** — per-IP rate limiting for logins and rejected tokens.
+- **`[Streaming]`** — SSE ring-buffer size and the concurrent file-download limit.
 
-| Key | Default | Description |
-|---|---|---|
-| `BindAddress` | `127.0.0.1` | Address the HTTP server listens on (loopback by default) |
-| `Port` | `4713` | HTTP port for the API and Web UI |
-| `AllowCORS` | `0` | Enable Cross-Origin Resource Sharing |
-| `CorsOriginAllowlist` | *(empty)* | Comma-separated list of allowed origins when CORS is enabled |
-| `StaticRoot` | *(empty)* | Directory of Web UI assets; empty means auto-discover (see [Web UI](./web-ui.md)) |
-
-### `[EC]`
-
-| Key | Default | Description |
-|---|---|---|
-| `Host` | `127.0.0.1` | aMule EC host |
-| `Port` | `4712` | aMule EC port |
-| `Password` | *(empty)* | EC password (only needed when `amuleapi` is started by hand; see [Auto-Start](#auto-start)) |
-| `Encryption` | `1` | Use EC encryption |
-
-### `[Auth]`
-
-| Key | Default | Description |
-|---|---|---|
-| `LoginFailureWindowSeconds` | `60` | Sliding window for counting failed logins, per IP |
-| `LoginFailureThreshold` | `5` | Failed logins allowed within the window before lockout |
-| `LoginLockoutSeconds` | `300` | Lockout duration after too many failed logins |
-| `TokenFailureWindowSeconds` | `60` | Sliding window for counting rejected tokens (401s), per IP |
-| `TokenFailureThreshold` | `30` | Rejected tokens allowed within the window before lockout |
-| `TokenLockoutSeconds` | `300` | Lockout duration after too many rejected tokens |
-
-### `[Streaming]`
-
-| Key | Default | Description |
-|---|---|---|
-| `EventBusRingCapacity` | `16384` | Number of past SSE events retained for `Last-Event-ID` replay |
-| `MaxConcurrentFileResponses` | `6` | Maximum concurrent file downloads served to browsers |
+Most settings can also be set from [Preferences → Remote Controls](../gui/preferences.md#remote-controls) or the command-line options above. See the [`amuleapi.conf` reference](../../configuration/config-files/amuleapi-conf.md) for every key, its default, and a full example.
 
 ## Auto-Start
 
@@ -92,6 +62,29 @@ There are two roles:
 - **guest** — read-only, and available only when a guest password has been set.
 
 Log in with a password, not a username; the password you enter selects the role. The signing secret is 32 random bytes generated on first run and stored in `amuleapi-jwt-secret` (mode `0600`). Login attempts and rejected tokens are **rate-limited per IP** using the `[Auth]` knobs above; exceeding a threshold returns `429 Too Many Requests` with a `Retry-After` header.
+
+## Changing Passwords
+
+Set or change the **admin** and **guest** login passwords from the console with `amuleapi` itself:
+
+```sh
+amuleapi --set-admin-pass=<password>
+amuleapi --set-guest-pass=<password>
+```
+
+Each command hashes the password (salted PBKDF2-HMAC-SHA256), writes it to the [`amuleapi-passwords`](../../configuration/config-files/index.md#amuleapi-passwords) store (mode `0600`), and then **exits immediately** — it does not start the HTTP server or connect to aMule. No path is needed: `amuleapi` uses the same configuration directory as `amuled` (add `--config-dir=<path>` if it is non-standard). The change takes effect at the **next login**, with no restart, and the command returns a non-zero exit code on failure (so a chain like `amuleapi --set-admin-pass=… && systemctl restart amuleapi` fails loudly).
+
+An **empty** guest password turns guest access off:
+
+```sh
+amuleapi --set-guest-pass=
+```
+
+A stored password can never be read back, only replaced. The same passwords can also be set from [Preferences → Remote Controls](../gui/preferences.md#remote-controls) (in the monolithic [`amule`](../gui/amule.md), or pushed to the core by [`amulegui`](../gui/amulegui.md) over EC), or over REST with `PATCH /api/v1/auth/passwords`. Every route writes the same [`amuleapi-passwords`](../../configuration/config-files/index.md#amuleapi-passwords) file.
+
+:::note
+This is the Web UI **login** password (admin/guest). It is different from the `[EC] Password` in [`amuleapi.conf`](../../configuration/config-files/amuleapi-conf.md), which is the password `amuleapi` uses to connect to the aMule core over External Connections.
+:::
 
 ## Server-Sent Events
 

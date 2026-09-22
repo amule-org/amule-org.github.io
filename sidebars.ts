@@ -23,6 +23,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'manual/configuration/config-files/amule-conf',
                 'manual/configuration/config-files/remote-conf',
+                'manual/configuration/config-files/amuleapi-conf',
               ],
             },
             'manual/configuration/directories',
