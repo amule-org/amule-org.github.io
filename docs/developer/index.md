@@ -14,14 +14,15 @@ aMule is distributed as several binaries that share the same on-disk state in `~
 | [`amule`](../manual/interfaces/gui/amule.md) | All-in-one GUI client. The download engine and the UI run in the same process. |
 | [`amuled`](../manual/interfaces/amuled.md) | Headless daemon. Same engine as `amule`, without any UI. Intended for always-on servers, NAS, and VPS deployments. |
 | [`amulegui`](../manual/interfaces/gui/amulegui.md) | Remote GUI that connects to a running `amuled` via the [EC protocol](ec-protocol.md). |
-| [`amuleweb`](../manual/interfaces/amuleweb.md) | Small HTTP server that exposes a running `amuled` to a web browser. |
+| [`amuleapi`](../manual/interfaces/amuleapi/index.md) | Daemon that connects to `amuled` over EC and serves a REST API, an SSE stream, and the browser Web UI (replaces `amuleweb`). |
 | [`amulecmd`](../manual/interfaces/amulecmd.md) | Interactive CLI that connects to a running `amuled` via EC. |
+| [`amuleweb`](../manual/interfaces/amuleweb.md) | Small HTTP server that exposes a running `amuled` to a web browser. |
 | [`ed2k`](../manual/utilities/ed2k.md) | Tiny helper that hands `ed2k://` URLs from a browser to a running aMule instance. |
 | [`alc`](../manual/utilities/alc-alcc.md) / [`alcc`](../manual/utilities/alc-alcc.md) | GUI and console link creators — generate eD2k links from local files. |
 | [`cas`](../manual/utilities/wxcas-cas.md) / [`wxcas`](../manual/utilities/wxcas-cas.md) | C and wxWidgets statistics tools — read the `amulesig.dat` online signature file. |
 | [`fileview`](file-formats/fileview.md) | Diagnostic tool that dumps the contents of aMule's eD2k and Kad data files. |
 
-`amuled`, `amulegui`, `amuleweb`, and `amulecmd` communicate over the **External Connections (EC) protocol**, a custom binary protocol over a TCP connection. See [EC Protocol](ec-protocol.md) for the full specification.
+`amuled`, `amulegui`, `amuleapi`, `amulecmd`, and `amuleweb` communicate over the **External Connections (EC) protocol**, a custom binary protocol over a TCP connection. See [EC Protocol](ec-protocol.md) for the full specification.
 
 ## Source Tree Layout
 

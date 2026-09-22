@@ -24,12 +24,13 @@ For servers, NAS devices, or any machine without a desktop, run the headless cor
 |---|---|
 | [`amuled`](./amuled.md) | Headless daemon — the aMule core with no GUI; intended for servers and remote operation |
 | [`amulegui`](./gui/amulegui.md) | Graphical remote client (same interface as `amule`) |
-| [`amuleweb`](./amuleweb.md) | HTTP web interface accessible from any browser |
+| [`amuleapi`](./amuleapi/index.md) | REST API + Server-Sent Events daemon that also serves the new browser [Web UI](./amuleapi/web-ui.md); the modern replacement for `amuleweb` |
 | [`amulecmd`](./amulecmd.md) | Interactive command-line interface, also usable in scripts and cron jobs |
+| [`amuleweb`](./amuleweb.md) | HTTP web interface accessible from any browser (deprecated — see `amuleapi`) |
 
 ## External Connections (EC) Protocol
 
-The remote interfaces (`amulegui`, `amuleweb`, `amulecmd`) all communicate with a running `amuled` (or `amule`) instance through the **[External Connections (EC) protocol](../../developer/ec-protocol.md)**. EC is a TCP-based binary protocol that carries authentication, commands, and status updates between the core and any remote interface.
+The remote interfaces (`amulegui`, `amuleapi`, `amulecmd`, `amuleweb`) all communicate with a running `amuled` (or `amule`) instance through the **[External Connections (EC) protocol](../../developer/ec-protocol.md)**. EC is a TCP-based binary protocol that carries authentication, commands, and status updates between the core and any remote interface.
 
 To use any remote interface:
 

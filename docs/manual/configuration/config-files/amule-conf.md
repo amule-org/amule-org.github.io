@@ -239,7 +239,7 @@ Browser selection for opening web links from within aMule.
 
 ## `[ExternalConnect]` section
 
-[External Connections (EC)](../../../developer/ec-protocol.md) settings used by remote tools ([`amuleweb`](../../interfaces/amuleweb.md), [`amulecmd`](../../interfaces/amulecmd.md), [`amulegui`](../../interfaces/gui/amulegui.md)), plus several display and security preferences.
+[External Connections (EC)](../../../developer/ec-protocol.md) settings used by remote tools ([`amulegui`](../../interfaces/gui/amulegui.md), [`amuleapi`](../../interfaces/amuleapi/index.md), [`amulecmd`](../../interfaces/amulecmd.md), [`amuleweb`](../../interfaces/amuleweb.md)), plus several display and security preferences.
 
 | Key | Default | Description |
 |---|---|---|

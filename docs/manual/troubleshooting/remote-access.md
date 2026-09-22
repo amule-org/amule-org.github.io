@@ -3,7 +3,7 @@ id: remote-access
 title: Remote Access
 ---
 
-Problems connecting to aMule remotely via [`amulecmd`](../interfaces/amulecmd.md) or [`amuleweb`](../interfaces/amuleweb.md). For an overview of the remote-control tools, see the [Remote Access FAQ](../faq.md#remote-access).
+Problems connecting to aMule remotely via [`amuleapi`](../interfaces/amuleapi/index.md), [`amulecmd`](../interfaces/amulecmd.md) or [`amuleweb`](../interfaces/amuleweb.md). For an overview of the remote-control tools, see the [Remote Access FAQ](../faq.md#remote-access).
 
 ## `amulecmd`
 

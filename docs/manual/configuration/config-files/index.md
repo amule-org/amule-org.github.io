@@ -32,7 +32,7 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`amule.conf`](#amuleconf) | Main configuration — stores all user preferences |
 | [`amule.conf.bak`](#amuleconf) | Automatic backup of `amule.conf` (written on shutdown) |
 | [`amule.conf.backup`](#amuleconf) | Backup of `amule.conf`, written only when started with `--reset-config` |
-| [`remote.conf`](#remoteconf) | Configuration for remote tools (`amulecmd`, `amuleweb`, `amulegui`) |
+| [`remote.conf`](#remoteconf) | Configuration for remote tools (`amulegui`, `amuleapi`, `amulecmd`, `amuleweb`) |
 | [`preferences.dat`](#preferencesdat) | Stores the userhash and config file version |
 | [`preferencesKad.dat`](#preferenceskaddat) | Stores the client IP and Kademlia ClientID |
 | [`cryptkey.dat`](#cryptkeydat) | 384-bit RSA private key for Secure User Identification |
@@ -96,7 +96,7 @@ See the [amule.conf reference](./amule-conf.md) for the complete key reference a
 
 **Location:** `~/.aMule/remote.conf`
 
-Configuration file for the remote tools — `amulecmd`, `amuleweb`, and the Remote GUI (`amulegui`). It stores the External Connections host, port, and password, plus tool-specific settings. The format is a standard INI file.
+Configuration file for the remote tools — the Remote GUI (`amulegui`), `amulecmd`, and `amuleweb`. It stores the External Connections host, port, and password, plus tool-specific settings. The format is a standard INI file.
 
 See the [remote.conf reference](./remote-conf.md) for the complete key reference and a full example file.
 

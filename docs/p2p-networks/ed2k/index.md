@@ -72,7 +72,7 @@ aMule uses three configurable ports (all in **[Preferences → Connection](../..
 | 4665 | UDP | Incoming + Outgoing | Global searches, source queries, [Kademlia](../kademlia.md). Always TCP port + 3. |
 | 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad ["open" status](../kademlia.md#open-vs-firewalled-status). |
 | 4711 | TCP | Incoming | [`amuleweb`](../../manual/interfaces/amuleweb.md) listening port |
-| 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) port — for [`amulecmd`](../../manual/interfaces/amulecmd.md), [`amulegui`](../../manual/interfaces/gui/amulegui.md) |
+| 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) port — for [`amulegui`](../../manual/interfaces/gui/amulegui.md), [`amuleapi`](../../manual/interfaces/amuleapi/index.md), [`amulecmd`](../../manual/interfaces/amulecmd.md) |
 
 For details on each port, per-network requirements, and how to forward ports on your router, see **[Network Connectivity → Ports used by aMule](../../manual/configuration/network-connectivity.md#ports-used-by-amule)**.
 

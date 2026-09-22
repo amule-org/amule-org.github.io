@@ -37,7 +37,7 @@ The latest release is available on the [Downloads](/download) page, which links 
 - `aMule-<version>-src.tar.gz` — official source bundle (preferred over GitHub's auto-generated "Source code" archive; ships pre-rendered man pages)
 - **Source code** (`<version>.tar.gz` and `<version>.zip`) — automatically attached by GitHub to every release.
 
-Every official pre-built package bundles the **complete set of aMule executables**: the interface clients [`amule`](../interfaces/gui/amule.md), [`amuled`](../interfaces/amuled.md), [`amulegui`](../interfaces/gui/amulegui.md), [`amuleweb`](../interfaces/amuleweb.md) and [`amulecmd`](../interfaces/amulecmd.md), plus the standalone [utilities](../utilities/index.md) `ed2k`, `alc`, `alcc`, `wxcas` and `cas`. Each platform section below covers how to launch a specific component. (Distribution packages may instead split these across several packages, and the Linux [static binaries](#static-binaries) archive is a headless-only exception — it ships just `amuled`, `amulecmd` and `amuleapi`.)
+Every official pre-built package bundles the **complete set of aMule executables**: the interface clients [`amule`](../interfaces/gui/amule.md), [`amuled`](../interfaces/amuled.md), [`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md), [`amulecmd`](../interfaces/amulecmd.md) and [`amuleweb`](../interfaces/amuleweb.md), plus the standalone [utilities](../utilities/index.md) `ed2k`, `alc`, `alcc`, `wxcas` and `cas`. Each platform section below covers how to launch a specific component. (Distribution packages may instead split these across several packages, and the Linux [static binaries](#static-binaries) archive is a headless-only exception — it ships just `amuled`, `amuleapi` and `amulecmd`.)
 
 ## Windows
 
@@ -242,7 +242,7 @@ flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
 
 ### Static binaries
 
-The static binaries are a **fully static**, precompiled build (linked against musl libc) of aMule's **headless components** — [`amuled`](../interfaces/amuled.md), [`amulecmd`](../interfaces/amulecmd.md) and `amuleapi` (the REST + Web UI daemon). The binaries carry **no shared-library dependencies**, so they run on any x64 or ARM64 Linux system regardless of glibc version or installed libraries — well suited to servers, containers, minimal distributions, and systems too old for the AppImage.
+The static binaries are a **fully static**, precompiled build (linked against musl libc) of aMule's **headless components** — [`amuled`](../interfaces/amuled.md), [`amuleapi`](../interfaces/amuleapi/index.md) (the REST + Web UI daemon) and [`amulecmd`](../interfaces/amulecmd.md). The binaries carry **no shared-library dependencies**, so they run on any x64 or ARM64 Linux system regardless of glibc version or installed libraries — well suited to servers, containers, minimal distributions, and systems too old for the AppImage.
 
 It does **not** include the GUI (`amule`, [`amulegui`](../interfaces/gui/amulegui.md)); for a desktop install use the [AppImage](#appimage) or [Flatpak](#flatpak) instead.
 
@@ -260,7 +260,7 @@ cd aMule-<version>-Linux-x64-static
 ./amuled --ec-password yourpassword
 ```
 
-The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amulecmd` and `amuleapi` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder.
+The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder.
 
 ### Distribution Packages
 

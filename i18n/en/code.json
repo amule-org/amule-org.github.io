@@ -304,7 +304,7 @@
     "description": "Title of the 'Proxy Support' feature card"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Control aMule from anywhere: a native remote GUI (amulegui), a browser-based web interface (amuleweb), or a command-line tool (amulecmd).",
+    "message": "Control aMule from anywhere: a native remote GUI (amulegui), a REST API and modern browser Web UI (amuleapi), a command-line tool (amulecmd), or a web interface (amuleweb).",
     "description": "Body of the 'Remote Interfaces' feature card"
   },
   "homepage.features.remoteInterfaces.title": {
