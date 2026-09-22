@@ -3,7 +3,7 @@ id: ec-protocol
 title: EC Protocol
 ---
 
-The **External Connections (EC) protocol** is the binary protocol that [`amuled`](../manual/interfaces/amuled.md), [`amulegui`](../manual/interfaces/gui/amulegui.md), [`amuleweb`](../manual/interfaces/amuleweb.md), and [`amulecmd`](../manual/interfaces/amulecmd.md) use to communicate. It is a structured, efficient, and extensible binary protocol.
+The **External Connections (EC) protocol** is the binary protocol that [`amuled`](../manual/interfaces/amuled.md), [`amulegui`](../manual/interfaces/gui/amulegui.md), [`amuleapi`](../manual/interfaces/amuleapi/index.md), [`amulecmd`](../manual/interfaces/amulecmd.md), and [`amuleweb`](../manual/interfaces/amuleweb.md) use to communicate. It is a structured, efficient, and extensible binary protocol.
 
 The protocol is defined in the aMule source under `src/libs/ec/` and `src/ExternalConn.cpp` — those files are the canonical reference if anything on this page conflicts with them.
 

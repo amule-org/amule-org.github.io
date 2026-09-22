@@ -89,7 +89,7 @@ The lMule project is no longer maintained or supported.
 Key features that distinguish aMule (see the [full feature list](../../index.md#features)):
 - Full eD2k + Kademlia dual-network support.
 - Daemon mode ([`amuled`](../../manual/interfaces/amuled.md)) for headless/server operation.
-- Web interface ([`amuleweb`](../../manual/interfaces/amuleweb.md)), remote GUI ([`amulegui`](../../manual/interfaces/gui/amulegui.md)), and command-line interface ([`amulecmd`](../../manual/interfaces/amulecmd.md)).
+- Remote GUI ([`amulegui`](../../manual/interfaces/gui/amulegui.md)), REST API / Web UI ([`amuleapi`](../../manual/interfaces/amuleapi/index.md)), command-line interface ([`amulecmd`](../../manual/interfaces/amulecmd.md)), and web interface ([`amuleweb`](../../manual/interfaces/amuleweb.md)).
 - Cross-platform: Windows (via MinGW), macOS, Linux, FreeBSD.
 
 ### Lphant (~2005–2009)

@@ -27,6 +27,10 @@
     "message": "GUI — amule & amulegui",
     "description": "The label for category 'GUI — amule & amulegui' in sidebar 'docsSidebar'"
   },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — REST API & Web UI",
+    "description": "The label for category 'amuleapi — REST API & Web UI' in sidebar 'docsSidebar'"
+  },
   "sidebar.docsSidebar.category.Interfaces": {
     "message": "Interfaces",
     "description": "The label for category 'Interfaces' in sidebar 'docsSidebar'"

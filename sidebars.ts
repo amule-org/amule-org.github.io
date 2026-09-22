@@ -55,6 +55,7 @@ const sidebars: SidebarsConfig = {
                 'manual/interfaces/gui/searches',
                 'manual/interfaces/gui/downloads',
                 'manual/interfaces/gui/shared-files',
+                'manual/interfaces/gui/clients',
                 'manual/interfaces/gui/messages',
                 'manual/interfaces/gui/statistics',
                 'manual/interfaces/gui/file-details',
@@ -67,8 +68,16 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'manual/interfaces/amuled',
-            'manual/interfaces/amuleweb',
+            {
+              type: 'category',
+              label: 'amuleapi — REST API & Web UI',
+              link: {type: 'doc', id: 'manual/interfaces/amuleapi/index'},
+              items: [
+                'manual/interfaces/amuleapi/web-ui',
+              ],
+            },
             'manual/interfaces/amulecmd',
+            'manual/interfaces/amuleweb',
           ],
         },
         {

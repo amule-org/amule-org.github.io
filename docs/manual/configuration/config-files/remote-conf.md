@@ -3,7 +3,7 @@ id: remote-conf
 title: remote.conf
 ---
 
-`remote.conf` is the shared configuration file for all aMule remote tools: [`amulecmd`](../../interfaces/amulecmd.md), [`amuleweb`](../../interfaces/amuleweb.md), and the [`amulegui`](../../interfaces/gui/amulegui.md). It uses standard INI syntax and is read by each tool at startup.
+`remote.conf` is the shared configuration file for all aMule remote tools: the [`amulegui`](../../interfaces/gui/amulegui.md), [`amuleapi`](../../interfaces/amuleapi/index.md), [`amulecmd`](../../interfaces/amulecmd.md), and [`amuleweb`](../../interfaces/amuleweb.md). It uses standard INI syntax and is read by each tool at startup.
 
 ## Location and file name
 
