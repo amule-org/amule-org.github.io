@@ -106,5 +106,5 @@ You now have aMule configured, connected, downloading, and sharing. To go furthe
 - [Graphical interface reference](./manual/interfaces/gui/index.md) — every window, button and preference in detail.
 - [Configuration](./manual/configuration/index.md) — directories, firewall, UPnP, proxy and more.
 - [Troubleshooting](./manual/troubleshooting/index.md) and the [FAQ](./manual/faq.md) — for slow speeds, Low ID, and other common problems.
-- [Remote interfaces](./manual/interfaces/index.md) — run aMule headless ([`amuled`](./manual/interfaces/amuled.md)) and control it from a [web interface](./manual/interfaces/amuleweb.md) or the [command line](./manual/interfaces/amulecmd.md).
+- [Remote interfaces](./manual/interfaces/index.md) — run aMule headless ([`amuled`](./manual/interfaces/amuled.md)) and control it from the [WebUI](./manual/interfaces/amuleapi/web-ui.md) or the [command line](./manual/interfaces/amulecmd.md).
 - [P2P Networks](./p2p-networks/index.md) — how the eD2k and Kademlia networks actually work.

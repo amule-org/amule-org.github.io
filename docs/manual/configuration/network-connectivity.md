@@ -25,7 +25,7 @@ Additionally:
 | Port | Protocol | Direction | Purpose |
 |---|---|---|---|
 | 4661 | TCP | Outgoing only | Conventional eD2k server listening port. aMule connects to whatever port each [server](../../p2p-networks/ed2k/servers.md) in the server list defines — it is not hardcoded in aMule nor client-configurable. |
-| 4711 | TCP | Incoming | [`amuleweb`](../interfaces/amuleweb.md) web interface. |
+| 4711 | TCP | Incoming | [`amuleweb`](../interfaces/amuleweb.md) (legacy WebUI). |
 | 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) — used by [`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md) and [`amulecmd`](../interfaces/amulecmd.md). |
 | 4713 | TCP | Incoming | [`amuleapi`](../interfaces/amuleapi/index.md) HTTP interface (REST API + Web UI). Default port; configurable. |
 

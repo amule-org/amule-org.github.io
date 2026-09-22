@@ -31,17 +31,17 @@ If both binaries match, the failure is usually a wrong EC password, host, or por
 
 ### Why do I always get "No password specified, login will not be allowed."?
 
-This message means the **web interface has no admin password and no guest password set** — it is about the web server login, not the [EC password](../configuration/config-files/amule-conf.md#externalconnect-section) used to reach `amuled`. Without at least one password, `amuleweb` refuses every login.
+This message means the **legacy WebUI has no admin password and no guest password set** — it is about the web server login, not the [EC password](../configuration/config-files/amule-conf.md#externalconnect-section) used to reach `amuled`. Without at least one password, `amuleweb` refuses every login.
 
-To fix it, set the web interface admin password:
+To fix it, set the legacy WebUI admin password:
 
 - When running `amuleweb` standalone, pass `--admin-pass` (or write it to the config first with `--write-config`). See [Password Setup](../interfaces/amuleweb.md#password-setup) and the [Step-by-Step Setup](../interfaces/amuleweb.md#step-by-step-setup).
 - When `amuleweb` is launched automatically by the monolithic [`amule`](../interfaces/gui/amule.md), set it in [**Preferences → Remote Controls → Web server parameters**](../interfaces/gui/preferences.md#web-server-parameters).
 
 After saving, check the [`[WebServer]` section of `~/.aMule/remote.conf`](../configuration/config-files/remote-conf.md#webserver-section) and verify that `AdminPassword` (and `GuestPassword`, if you allow guest access) contain a **hashed 32-character hexadecimal string**, not a plaintext password and not an empty value.
 
-### Why does the web interface keep going back to the login page?
+### Why does the legacy WebUI keep going back to the login page?
 
 Try **deleting the cookies** for the `amuleweb` domain in your browser. `amuleweb` tracks logins with an `amuleweb_session_id` session cookie, and a stale or corrupted cookie from a previous session can cause this loop.
 
-If clearing cookies does not help and the loop happens from the very first login attempt, the cause is usually a missing web interface password rather than the cookie — see [the answer above](#why-do-i-always-get-no-password-specified-login-will-not-be-allowed). Refer to the [`amuleweb`](../interfaces/amuleweb.md) documentation for full setup details.
+If clearing cookies does not help and the loop happens from the very first login attempt, the cause is usually a missing legacy WebUI password rather than the cookie — see [the answer above](#why-do-i-always-get-no-password-specified-login-will-not-be-allowed). Refer to the [`amuleweb`](../interfaces/amuleweb.md) documentation for full setup details.

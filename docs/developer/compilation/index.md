@@ -69,7 +69,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_MONOLITHIC` | YES | [`amule`](../../manual/interfaces/gui/amule.md) — all-in-one GUI client |
 | `BUILD_DAEMON` | NO | [`amuled`](../../manual/interfaces/amuled.md) — headless daemon |
 | `BUILD_REMOTEGUI` | NO | [`amulegui`](../../manual/interfaces/gui/amulegui.md) — remote control GUI |
-| `BUILD_WEBSERVER` | NO | [`amuleweb`](../../manual/interfaces/amuleweb.md) — HTTP web interface |
+| `BUILD_WEBSERVER` | NO | [`amuleweb`](../../manual/interfaces/amuleweb.md) — legacy WebUI (HTTP web interface) |
 | `BUILD_AMULECMD` | NO | [`amulecmd`](../../manual/interfaces/amulecmd.md) — CLI client for the daemon |
 | `BUILD_ED2K` | YES | [`ed2k`](../../manual/utilities/ed2k.md) — eD2k link handler helper |
 | `BUILD_ALC` | NO | [`alc`](../../manual/utilities/alc-alcc.md) — aMuleLinkCreator GUI |

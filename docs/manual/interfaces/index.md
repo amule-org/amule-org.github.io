@@ -26,7 +26,7 @@ For servers, NAS devices, or any machine without a desktop, run the headless cor
 | [`amulegui`](./gui/amulegui.md) | Graphical remote client (same interface as `amule`) |
 | [`amuleapi`](./amuleapi/index.md) | REST API + Server-Sent Events daemon that also serves the new browser [Web UI](./amuleapi/web-ui.md); the modern replacement for `amuleweb` |
 | [`amulecmd`](./amulecmd.md) | Interactive command-line interface, also usable in scripts and cron jobs |
-| [`amuleweb`](./amuleweb.md) | HTTP web interface accessible from any browser (deprecated — see `amuleapi`) |
+| [`amuleweb`](./amuleweb.md) | Legacy WebUI — HTTP interface accessible from any browser (deprecated; superseded by `amuleapi`'s Web UI) |
 
 ## External Connections (EC) Protocol
 

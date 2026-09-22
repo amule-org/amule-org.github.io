@@ -274,7 +274,7 @@ Options for filtering incoming chat messages and file comments.
 
 ## Remote Controls
 
-Options for controlling aMule remotely via the web interface or external connections.
+Options for controlling aMule remotely via the WebUI or external connections.
 
 ![Remote Controls preferences tab](/img/docs/gui_preferences/preferences_remote_controls.png)
 
@@ -293,7 +293,7 @@ Options for controlling aMule remotely via the web interface or external connect
 | Setting | Description |
 |---|---|
 | **Run webserver on startup** | Start `amuleweb` automatically when aMule launches. |
-| **Web template** | Template (skin) to use for the web interface. |
+| **Web template** | Template (skin) to use for the legacy WebUI. |
 | **Full rights password** | Password for administration (full rights) access to `amuleweb`. |
 | **Enable Low rights User** | Enable a low-privilege account for `amuleweb` with view-only access. |
 | **Low rights password** | Password for the view-only account. |

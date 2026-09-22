@@ -1,21 +1,33 @@
 ---
 id: amuleweb
-title: amuleweb — Web Interface
+title: amuleweb — Legacy WebUI
 ---
 
+:::warning Deprecated
+`amuleweb` is the **legacy WebUI**, **deprecated as of aMule 3.1.0** and may be removed in a future release.
+
+Its replacement is [`amuleapi`](./amuleapi/index.md) together with the new browser [Web UI](./amuleapi/web-ui.md), which covers the same ground as the desktop GUI. See those pages to migrate.
+:::
+
 `amuleweb` is an HTTP server that acts as an intermediary between a running [`amuled`](./amuled.md) (or [`amule`](./gui/amule.md)) instance and a web browser. It connects to aMule via the [External Connections (EC) protocol](../../developer/ec-protocol.md) and exposes a browser-accessible interface for remote control.
+
+![The Downloads section of the Legacy Web UI](/img/docs/gui_amuleweb/amuleweb_downloads.png)
 
 ## Overview
 
 aMule itself does not speak HTTP. `amuleweb` bridges the gap: it listens for browser connections on one port (HTTP) and forwards commands to aMule on another port (EC). Once the link is established you can search for files, manage downloads, view queue status, and change certain settings from any web browser — from any location with internet access.
 
-Available functionality through the web interface:
+Available functionality through the legacy WebUI:
 
 - Search for files across [eD2k](../../p2p-networks/ed2k/index.md) and [Kademlia](../../p2p-networks/kademlia.md).
 - Start, pause, resume, and cancel downloads.
 - View the download and upload queue.
+- Set file priorities from the Shared page.
 - Monitor status information (speeds, connections, ID).
+- Add [eD2k links](../../p2p-networks/ed2k/links.md) directly via the footer **Download link** form.
 - Change some aMule options.
+
+The default template was modernized in aMule 3.0.1: an HTML5 doctype, UTF-8 encoding, presentational markup consolidated into `style.css`, and a refreshed favicon. Alongside the cleanup came select-all checkboxes on file tables, download and delete actions that confirm with a file count, and an auto-refresh that pauses while rows are selected.
 
 ## Command-Line Options
 
@@ -88,9 +100,9 @@ Or write it to the configuration file first (see [Step-by-Step Setup](#step-by-s
 
 This guide walks through setting up `amuleweb` from scratch.
 
-### 1. Install aMule with the web interface
+### 1. Install aMule with the legacy WebUI
 
-See [Installation](../installation/index.md) for pre-built packages, or [Compilation](../../developer/compilation/index.md) to build aMule with the web interface from source.
+See [Installation](../installation/index.md) for pre-built packages, or [Compilation](../../developer/compilation/index.md) to build aMule with the legacy WebUI from source.
 
 ### 2. Run amuled once to create the configuration
 
@@ -129,7 +141,7 @@ amuleweb \
 ```
 
 - `--password` — the EC password used to connect to `amuled` (plaintext; `amuleweb` hashes it internally).
-- `--admin-pass` — the password users enter in the browser to log in to the web interface.
+- `--admin-pass` — the password users enter in the browser to log in to the legacy WebUI.
 
 ### 5. Start the services
 

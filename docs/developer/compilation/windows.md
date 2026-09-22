@@ -55,6 +55,7 @@ cmake -B build \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
     -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULEAPI=YES \
     -DENABLE_UPNP=YES \
     -DENABLE_IP2COUNTRY=YES
 
@@ -100,10 +101,11 @@ The compiled `.exe` files are placed in `build/`. Run them directly from the MSY
 ```sh
 ./build/amule.exe
 ./build/amuled.exe
+./build/amuleapi.exe
 ./build/amulecmd.exe
 ```
 
-Which executables are produced depends on the `BUILD_*` options you enabled: [`amule`](../../manual/interfaces/gui/amule.md) (GUI), [`amuled`](../../manual/interfaces/amuled.md) (daemon), [`amulegui`](../../manual/interfaces/gui/amulegui.md) (remote GUI), [`amulecmd`](../../manual/interfaces/amulecmd.md) (CLI), [`amuleweb`](../../manual/interfaces/amuleweb.md) (web interface), and the [`ed2k`](../../manual/utilities/ed2k.md) link handler.
+Which executables are produced depends on the `BUILD_*` options you enabled: [`amule`](../../manual/interfaces/gui/amule.md) (GUI), [`amuled`](../../manual/interfaces/amuled.md) (daemon), [`amulegui`](../../manual/interfaces/gui/amulegui.md) (remote GUI), [`amuleapi`](../../manual/interfaces/amuleapi/index.md) (REST API & Web UI), [`amulecmd`](../../manual/interfaces/amulecmd.md) (CLI), [`amuleweb`](../../manual/interfaces/amuleweb.md) (legacy WebUI), and the [`ed2k`](../../manual/utilities/ed2k.md) link handler.
 
 To run binaries outside the MSYS2 terminal (e.g. by double-clicking in Windows Explorer), the MINGW64 DLLs must be available. Either:
 

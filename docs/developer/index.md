@@ -14,9 +14,9 @@ aMule is distributed as several binaries that share the same on-disk state in `~
 | [`amule`](../manual/interfaces/gui/amule.md) | All-in-one GUI client. The download engine and the UI run in the same process. |
 | [`amuled`](../manual/interfaces/amuled.md) | Headless daemon. Same engine as `amule`, without any UI. Intended for always-on servers, NAS, and VPS deployments. |
 | [`amulegui`](../manual/interfaces/gui/amulegui.md) | Remote GUI that connects to a running `amuled` via the [EC protocol](ec-protocol.md). |
-| [`amuleapi`](../manual/interfaces/amuleapi/index.md) | Daemon that connects to `amuled` over EC and serves a REST API, an SSE stream, and the browser Web UI (replaces `amuleweb`). |
+| [`amuleapi`](../manual/interfaces/amuleapi/index.md) | Daemon that connects to `amuled` over EC and serves a REST API, an SSE stream, and the browser [Web UI](../manual/interfaces/amuleapi/web-ui.md) (replaces `amuleweb`). |
 | [`amulecmd`](../manual/interfaces/amulecmd.md) | Interactive CLI that connects to a running `amuled` via EC. |
-| [`amuleweb`](../manual/interfaces/amuleweb.md) | Small HTTP server that exposes a running `amuled` to a web browser. |
+| [`amuleweb`](../manual/interfaces/amuleweb.md) | Legacy WebUI: small HTTP server that exposes a running `amuled` to a web browser. |
 | [`ed2k`](../manual/utilities/ed2k.md) | Tiny helper that hands `ed2k://` URLs from a browser to a running aMule instance. |
 | [`alc`](../manual/utilities/alc-alcc.md) / [`alcc`](../manual/utilities/alc-alcc.md) | GUI and console link creators — generate eD2k links from local files. |
 | [`cas`](../manual/utilities/wxcas-cas.md) / [`wxcas`](../manual/utilities/wxcas-cas.md) | C and wxWidgets statistics tools — read the `amulesig.dat` online signature file. |
