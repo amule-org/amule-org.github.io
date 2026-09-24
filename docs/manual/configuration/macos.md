@@ -3,7 +3,7 @@ id: macos
 title: macOS
 ---
 
-This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, configuring the built-in macOS firewall, handling [`ed2k://` links](../utilities/ed2k.md) from the browser, and setting up video preview.
+This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, the **Navigate** menu, configuring the built-in macOS firewall, handling [`ed2k://` links](../utilities/ed2k.md) from the browser, and setting up video preview.
 
 ## Right-Click / Context Menus
 
@@ -20,6 +20,10 @@ There are no visible indicators showing where context menus are available. Exper
 - The column header labels at the top of any list (e.g., "File Name", "Size").
 - The "All" bar at the top of the download window.
 
+## Menu Bar
+
+On macOS aMule adds a **Navigate** menu to the menu bar. It lists the main windows — **Networks**, **Searches**, **Downloads**, **Shared files**, **Clients**, **Messages**, **Statistics** and, after a separator, **Preferences** — each with its `⌥`+letter [window shortcut](../interfaces/gui/shortcuts.md#window-shortcuts) (`⌥N`, `⌥S`, `⌥T`, `⌥F`, `⌥C`, `⌥M`, `⌥G`, `⌥P`). Because these are real menu shortcuts, they keep working on every key press and can be reached with VoiceOver. `⌘Q` quits aMule.
+
 ## Setting Up Firewall Access
 
 What actually matters for incoming connections is **port forwarding on your router** (forward aMule's TCP and UDP ports — default **4662/TCP** and **4672/UDP**, configured in **Preferences → Connection**).
@@ -30,7 +34,7 @@ The macOS built-in firewall is **off by default**, and when enabled it works **p
 2. Click **Options…**.
 3. Add `aMule.app` to the list and set it to **Allow incoming connections**.
 
-You can verify the ports are reachable using the Test Port tool (see [Troubleshooting → Remote Access](../troubleshooting/remote-access.md)).
+You can verify the ports are reachable as described in [Testing your port status](./network-connectivity.md#testing-your-port-status).
 
 ## Handling ed2k Links
 
@@ -60,9 +64,7 @@ aMule monitors this file and automatically processes any links found in it. You 
 
 ## Setting Up Video Preview
 
-You can preview incomplete video downloads with a media player like VLC or MPlayer. To configure this:
-
-aMule's default video-player command is a Linux-style command (`xterm … mplayer`) that does **not** work on macOS, so on macOS you must fill this field in manually with an `open`-based command:
+With no video player configured (the default), completed files already open with their default application. To preview **incomplete** downloads you need a media player like VLC or IINA, because an unfinished `.part` file has no type macOS can open on its own. To configure one, use an `open`-based command:
 
 1. Open **[Preferences](../interfaces/gui/preferences.md) → General**.
 2. Under **Video Player**, enter the path to open your player with the `/usr/bin/open -a` command:
@@ -71,8 +73,5 @@ aMule's default video-player command is a Linux-style command (`xterm … mplaye
 |---|---|
 | VLC | `/usr/bin/open -a "/Applications/VLC.app"` |
 | IINA | `/usr/bin/open -a "/Applications/IINA.app"` |
-| Default app for file type | `/usr/bin/open` |
 
-Using just `/usr/bin/open` (without `-a`) tells macOS to open the file with whatever application is registered as the default for that file type in Finder.
-
-The command also supports the `%PARTFILE` and `%PARTNAME` placeholders, which aMule replaces with the path of the file being previewed; if neither is present, the file path is appended to the command.
+The command also supports the `%PARTFILE` and `%PARTNAME` placeholders, which aMule replaces with the full path and the file name of the file being previewed; if neither is present, the file path is appended to the command.

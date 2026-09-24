@@ -16,7 +16,7 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 
 | Page | Description |
 |---|---|
-| [Toolbar](./toolbar.md) | Connect/disconnect button, window-switching buttons, and access buttons |
+| [Toolbar](./toolbar.md) | Window-switching buttons and access buttons |
 | [Status Bar](./statusbar.md) | Network status, user/file counts, speed indicators, and globe icon |
 | [System Tray Icon](./tray-icon.md) | Tray icon colours, tooltip, and right-click menu |
 
@@ -58,3 +58,16 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 | Page | Description |
 |---|---|
 | [Keyboard & Mouse Shortcuts](./shortcuts.md) | Complete shortcut reference |
+
+## Working with lists
+
+Every major list in the interface — servers, search results, downloads and their sources, shared files, clients, friends and the file-names list in [File Details](./file-details.md) — is built on the same list control and behaves the same way:
+
+- **Sorting** — click a column header to sort by that column; click it again to reverse the order. Sorting is live: rows are re-sorted as their values change.
+- **Choosing columns** — right-click a column header to show or hide columns. Column widths, hidden columns and the sort order are remembered between sessions.
+- **Type to jump** — with the list focused, type the first letters of an entry to jump to it.
+- **Context menus** — right-click a row, or press `Shift+F10` or the `Menu` key, to open its context menu.
+
+See [Keyboard & Mouse Shortcuts](./shortcuts.md) for the full list.
+
+The interface follows the system's light or dark appearance, and the lists paint their colour-coded text (for example the [search result colours](./searches.md#result-row-colours)) in shades that stay readable on either background. On Windows this requires a build against wxWidgets 3.3 or later.
