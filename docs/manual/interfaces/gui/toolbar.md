@@ -3,39 +3,40 @@ id: toolbar
 title: Toolbar
 ---
 
-The toolbar provides one-click access to all major aMule windows and to the connect/disconnect action. It is normally positioned at the top of the main window but can be moved to the left side by enabling **[Preferences → Interface → Vertical toolbar orientation](./preferences.md#interface)**.
+The toolbar provides one-click access to all major aMule windows and dialogs. It is normally positioned at the top of the main window but can be moved to the left side by enabling **[Preferences → Interface → Vertical toolbar orientation](./preferences.md#interface)**.
 
 ![aMule toolbar](/img/docs/gui_toolbar/toolbar.png)
 
-## Connect / Disconnect
-
-The leftmost button connects and disconnects aMule from all enabled networks. The networks that aMule is allowed to connect to are configured in **[Preferences → Connection → Networks](./preferences.md#networks)**. The button has three states:
-
-| Icon | State | Description |
-|---|---|---|
-| ![Connect](/img/docs/gui_toolbar/toolbar_connect.png) | **Disconnected** | aMule is not connected to any network. Clicking the button starts a connection attempt to all allowed networks. If neither the eD2k nor the Kad network is enabled in [Preferences](./preferences.md#networks), the button is disabled. |
-| ![Cancel](/img/docs/gui_toolbar/toolbar_cancel.png) | **Connecting** | A connection attempt is in progress. Clicking **Cancel** aborts the attempt and returns aMule to the disconnected state. |
-| ![Disconnect](/img/docs/gui_toolbar/toolbar_disconnect.png) | **Connected** | aMule is connected to at least one network. Clicking **Disconnect** disconnects aMule from all networks immediately. |
+The icons are drawn from vector (SVG) artwork, so they stay sharp at any display scaling (hi-DPI). A [skin](./skins.md) can still replace them with its own bitmaps.
 
 ## Window Buttons
 
-The following buttons switch the main aMule window to the corresponding panel:
+The following buttons switch the main aMule window to the corresponding panel. Each one also has an `Alt`+letter [keyboard shortcut](./shortcuts.md#window-shortcuts), shown in its tooltip (`⌥`+letter on macOS):
 
-| Button | Opens |
-|---|---|
-| **Networks** | [Networks panel](./networks.md) — eD2k server list and Kademlia status |
-| **Searches** | [Searches panel](./searches.md) — search for files on the eD2k and Kad networks |
-| **Downloads** | [Downloads panel](./downloads.md) — active downloads and uploads |
-| **Shared Files** | [Shared Files panel](./shared-files.md) — files you are currently sharing |
-| **Messages** | [Messages panel](./messages.md) — chat and friends list |
-| **Statistics** | [Statistics panel](./statistics.md) — speed graphs and detailed statistics |
+| Button | Shortcut | Opens |
+|---|---|---|
+| **Networks** | `Alt+N` | [Networks panel](./networks.md) — eD2k server list and Kademlia status. Disabled when both networks are disabled in [Preferences](./preferences.md#networks) |
+| **Searches** | `Alt+S` | [Searches panel](./searches.md) — search for files on the eD2k and Kad networks |
+| **Downloads** | `Alt+T` | [Downloads panel](./downloads.md) — download queue and its sources |
+| **Shared files** | `Alt+F` | [Shared Files panel](./shared-files.md) — files you are currently sharing |
+| **Clients** | `Alt+C` | [Clients panel](./clients.md) — active clients and the known-clients history |
+| **Messages** | `Alt+M` | [Messages panel](./messages.md) — chat and friends list |
+| **Statistics** | `Alt+G` | [Statistics panel](./statistics.md) — speed graphs and detailed statistics |
+
+When a chat message arrives while the Messages panel is not visible, the **Messages** button blinks (see [Detecting Incoming Messages](./messages.md#detecting-incoming-messages)).
 
 ## Access Buttons
 
-The last three buttons open secondary windows:
+The last buttons, after the separator, open secondary windows:
 
-| Button | Opens |
-|---|---|
-| **Preferences** | [Preferences window](./preferences.md) — all aMule settings |
-| **Import** | [Part-file importer](../../migration/import.md) — import eDonkey2000 part files |
-| **About** | About window — aMule version, copyright, and contact information |
+| Button | Shortcut | Opens |
+|---|---|---|
+| **Preferences** | `Alt+P` | [Preferences window](./preferences.md) — all aMule settings |
+| **Import** | — | [Part-file importer](../../migration/import.md) — import eDonkey2000 part files. Not available in [`amulegui`](./amulegui.md). |
+| **About** | — | About window — aMule version, copyright, and links to the website, forum, documentation and issue tracker |
+
+In builds with the new-version check (the official release bundles; builds from OS package managers usually leave it out), the About window also has a **Check for updates** button that reports whether you are running the latest release or which newer version is available.
+
+## Connect / Disconnect
+
+Before aMule 3.1.0 the leftmost toolbar button connected and disconnected all networks at once. It has been removed: each network now has its own **Connect** / **Disconnect** button on its tab of the [Networks](./networks.md) window, and the [system tray menu](./tray-icon.md#context-menu) still offers **Connect** / **Disconnect** for all networks.

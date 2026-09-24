@@ -14,13 +14,13 @@ aMule supports two independent skinning systems:
 
 ### What can be skinned
 
-aMule bitmap skins replace the icons in the [toolbar](./toolbar.md) and the per-source [client icons](./downloads.md#client-icons) shown in the download queue. Toolbar images are **32×32 px** and client images are **16×16 px**. Any image not present in the skin falls back to the aMule default.
+aMule bitmap skins replace the icons in the [toolbar](./toolbar.md) and the [client icons](./downloads.md#client-icons) shown in the client lists (download sources, [Clients](./clients.md) page). Toolbar images are **32×32 px** and client images are **16×16 px**. Any image not present in the skin falls back to the aMule default.
 
 ### Enabling a skin
 
 1. Open **[Preferences → Interface](./preferences.md#interface)**.
 2. In the **Skin to use** dropdown, select the skin you want to apply.
-3. Click **OK** or **Apply**. The skin takes effect immediately.
+3. Click **OK**. The toolbar icons change immediately; the client icons change after restarting aMule.
 
 To disable skins, select **- default -** from the dropdown.
 
@@ -100,19 +100,19 @@ Each of these buttons is described in detail on the [Toolbar](./toolbar.md) page
 
 | File | Element |
 |---|---|
-| `Toolbar_Connect.png` | [Connect](./toolbar.md#connect--disconnect) button |
-| `Toolbar_Disconnect.png` | [Disconnect](./toolbar.md#connect--disconnect) button |
-| `Toolbar_Connecting.png` | [Connecting](./toolbar.md#connect--disconnect) (in-progress) button |
 | `Toolbar_Network.png` | [Networks](./networks.md) window button |
 | `Toolbar_Transfers.png` | [Downloads](./downloads.md) window button |
 | `Toolbar_Search.png` | [Searches](./searches.md) window button |
 | `Toolbar_Shared.png` | [Shared Files](./shared-files.md) window button |
+| `Toolbar_Clients.png` | [Clients](./clients.md) window button |
 | `Toolbar_Messages.png` | [Messages](./messages.md) window button |
 | `Toolbar_Stats.png` | [Statistics](./statistics.md) window button |
 | `Toolbar_Prefs.png` | [Preferences](./preferences.md) window button |
 | `Toolbar_Import.png` | [Import](../../migration/import.md) window button |
 | `Toolbar_About.png` | About window button |
 | `Toolbar_Blink.png` | Blink/notification indicator |
+
+Skins made for aMule 3.0 and earlier may also contain `Toolbar_Connect.png`, `Toolbar_Disconnect.png` and `Toolbar_Connecting.png`. aMule 3.1.0 ignores them, because the toolbar no longer has a Connect button (see [Toolbar](./toolbar.md)).
 
 #### Client images (16×16 px)
 
@@ -131,7 +131,7 @@ The meaning of each client icon is described in [Downloads → Client Icons](./d
 | `Client_eMule.png` | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) client |
 | `Client_Encrypted.png` | [Encrypted](./preferences.md#protocol-obfuscation) connection |
 | `Client_ExcellentRatingOnFile.png` | Client with excellent file [rating](./comments.md) |
-| `Client_ExtendedProtocol.png` | Client using extended protocol |
+| `Client_ExtendedProtocol.png` | Overlay for a client that does **not** support the extended protocol |
 | `Client_FairRatingOnFile.png` | Client with fair file [rating](./comments.md) |
 | `Client_Friend.png` | [Friend](../../../p2p-networks/concepts.md#friend) |
 | `Client_GoodRatingOnFile.png` | Client with good file [rating](./comments.md) |
