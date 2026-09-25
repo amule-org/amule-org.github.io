@@ -221,7 +221,7 @@ Settings behind the [Statistics](../../interfaces/gui/statistics.md) window's gr
 | Key | Default | Description |
 |---|---|---|
 | `LiveListSort` | `1` | Keep the list views (downloads, uploads and others) sorted live as rows update, not only when you click a column header. |
-| `SearchHistoryEnabled` | `1` | Remember the search history (past search terms) across restarts. |
+| `SearchHistoryEnabled` | `1` | Remember the search history across restarts: past search terms ([`searchhistory.dat`](./index.md#searchhistorydat)) and the results of the searches still open at exit ([`StoredSearches.met`](./index.md#storedsearchesmet)). |
 | `ShowInfoOnCatTabs` | `1` | Show file counts on category tabs. |
 | `ShowRatesOnTitle` | `0` | Show transfer speeds in the window title. `0` = off, `1` = after app name, `2` = before app name. |
 | `ShowVersionOnTitle` | `0` | Show the aMule version in the window title (release builds only). |

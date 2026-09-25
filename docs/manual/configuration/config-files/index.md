@@ -54,6 +54,8 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`emfriends.met`](#emfriendsmet) | Friends list with last known IP, port, and timestamps |
 | [`statistics.dat`](#statisticsdat) | Lifetime traffic totals (cumulative bytes uploaded/downloaded) |
 | [`canceled.met`](#canceledmet) | Hashes of cancelled downloads (highlights them in search results) |
+| [`searchhistory.dat`](#searchhistorydat) | Past search terms (search history of the GUI) |
+| [`StoredSearches.met`](#storedsearchesmet) | Results of the searches still open at exit, restored on the next start |
 | [`shareddir.dat`](#shareddirdat) | Union of all shared directories (regenerated automatically) |
 | [`shareddir-explicit.dat`](#shareddirdat) | Non-recursive shared directory roots (user-added) |
 | [`shareddir-recursive.dat`](#shareddirdat) | Recursive shared directory roots (contents shared including subdirectories) |
@@ -447,6 +449,18 @@ aMule's auto-updater only understands `.mmdb` or `.mmdb.gz` files. MaxMind's off
 :::
 
 The on-disk layout is the standard MaxMind DB format and is not aMule-specific; see the [GeoLite2 note](../../../developer/file-formats/index.md#geolite2-country-mmdb) in the File Formats reference.
+
+### `searchhistory.dat` {#searchhistorydat}
+
+**Location:** `~/.aMule/searchhistory.dat`
+
+Plain-text list of the last 100 search terms, one per line, newest first. The GUI rewrites it after every search and reads it to fill the **Name** drop-down of the [Searches](../../interfaces/gui/searches.md#search-history) window. In [`amulegui`](../../interfaces/gui/amulegui.md) it is written in the remote GUI's own configuration directory; `amuled` does not create it. It is only used while **Remember search history** is enabled (`SearchHistoryEnabled` in [`amule.conf`](./amule-conf.md)); disabling the option leaves the file in place, and **Clear Search History** deletes it.
+
+### `StoredSearches.met` {#storedsearchesmet}
+
+**Location:** `~/.aMule/StoredSearches.met`
+
+Binary file with the results of the searches still open when the core (`amule` or `amuled`) shuts down — at most the 20 most recent searches and 5000 results each; "View Files" listings are not saved. The core reads it on the next start to reopen those searches (see [Saved Searches](../../interfaces/gui/searches.md#saved-searches)). It is written only while **Remember search history** is enabled; with the option disabled, the file is deleted on the next start.
 
 ## Log files
 
