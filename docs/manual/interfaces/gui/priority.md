@@ -24,7 +24,7 @@ Set download priority by right-clicking a file in the [**Downloads**](./download
 
 Upload priority controls how willingly aMule serves a given shared file to clients in the upload queue.
 
-Set upload priority by right-clicking a file in the [**Shared Files**](./shared-files.md#setting-priority) window and choosing **Priority**, or from the [**Downloads**](./downloads.md) window upload queue.
+Set upload priority by right-clicking a file in the [**Shared Files**](./shared-files.md#setting-priority) window and choosing **Priority**.
 
 ![Upload priority context menu in the Shared Files window](/img/docs/priority/priority_shared_files_menu.png)
 
@@ -35,7 +35,7 @@ Set upload priority by right-clicking a file in the [**Shared Files**](./shared-
 | **High** | There is an urgency to upload this file to as many clients as possible. |
 | **Normal** | The default priority. No particular urgency. |
 | **Low** | No urgency; given lower precedence than Normal priority files. |
-| **Very Low** | No urgency at all; the lowest precedence. |
+| **Very low** | No urgency at all; the lowest precedence. |
 | **Auto** | aMule automatically adjusts the priority based on how many clients are waiting in the queue for the file. Files with **few or no** clients queued are promoted (to High), while heavily requested files are lowered (to Low), so your upload bandwidth is spread out instead of concentrated on the few files everyone already wants. |
 
 ### Release Priority
