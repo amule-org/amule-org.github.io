@@ -29,7 +29,7 @@ Options regarding general aspects of aMule.
 | **Hide application window when close button is pressed** | Instead of quitting, hide aMule to the tray icon when the window's close button is pressed. Requires **Enable Tray Icon**. |
 | **Minimize to Tray Icon** | When minimizing aMule, hide the window completely so it can only be restored from the tray icon. Requires **Enable Tray Icon**. Not available on Wayland, which does not report when a window is minimized; launch aMule with `GDK_BACKEND=x11` to use XWayland instead. |
 | **Show notifications when finished downloading** | Display a desktop notification each time a download completes. |
-| **Remember search history** | Persist past search terms across restarts so they can be reused (`SearchHistoryEnabled`). |
+| **Remember search history** | Persist past search terms (in [`searchhistory.dat`](../../configuration/config-files/index.md#searchhistorydat)) and the results of the searches still open at exit (in [`StoredSearches.met`](../../configuration/config-files/index.md#storedsearchesmet)) across restarts (`SearchHistoryEnabled`). Turning it off stops recording new terms and deletes the saved results on the next start; the saved terms are kept until you clear them. See [Searches](./searches.md#search-history). |
 | **Tooltip delay time** | Number of seconds (0–9, default 1) before tooltips appear. Applies to every tooltip in aMule. |
 | **Browser Selection** | Command used to start the browser aMule opens web sites with. Leave it empty to use the system default browser (on macOS the default is `/usr/bin/open`). Use the **Browse** button to locate the browser executable. |
 | **Open in new tab if possible** | Open web sites in a new browser tab rather than the current page. Disabled on Windows. |

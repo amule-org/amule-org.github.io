@@ -321,7 +321,7 @@ See [Network Connectivity — Kademlia connectivity](configuration/network-conne
 
 #### In the search window, what filter corresponds to which file type?
 
-The **File Type** filter classifies results by their **filename extension**, not by actual content — so a file named `Birthday.zip` appears under *Archives*, never under *Videos*, regardless of what it really contains. The complete extension-to-category mapping (Archives, Audio, CD-Images, Pictures, Programs, Texts, Videos) is documented in [Searches → File Type](interfaces/gui/searches.md#file-type).
+The **File Type** filter classifies results by their **filename extension**, not by actual content — so a file named `Birthday.zip` appears under *Archives*, never under *Videos*, regardless of what it really contains. The complete extension-to-category mapping (Archives, Audio, Disc images, Pictures, Programs, Texts, Videos) is documented in [Searches → File Type](interfaces/gui/searches.md#file-type).
 
 #### What is a source?
 

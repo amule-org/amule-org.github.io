@@ -7,27 +7,30 @@ The Searches window lets you search for files across the [eD2k](../../../p2p-net
 
 ## Overview
 
-![Search window overview](/img/docs/usage/window_search1.jpg)
+![Search window overview](/img/docs/gui_searches/searches.png)
 
-The window is divided into two main areas. The **upper area** (highlighted in red) contains the search controls:
+The window is divided into two main areas:
 
-![Search controls area](/img/docs/usage/window_search2.jpg)
+- The **upper area** holds the search controls: the search field and type, the optional [extended parameters](#extended-parameters) and [filtering](#filtering) rows, and the action buttons.
+- The **lower area** shows the results, one [tab](#tabs) per search.
 
-The **lower area** displays search results:
-
-![Search results area](/img/docs/usage/window_search3.jpg)
+![Search controls](/img/docs/gui_searches/searches_controls.png)
 
 ## Basic Searching
 
 ### Starting a Search
 
-Type what you want to find in the **Name** field and click **Start**:
-
-![Name field and Start button](/img/docs/usage/window_search4.jpg)
+Type what you want to find in the **Name** field and click **Start** (or press **Enter**).
 
 Search queries are matched against file names. For example:
 - `amule` — finds files whose name contains "amule"
 - `debian iso` — finds files whose name contains both "debian" and "iso"
+
+### Search History
+
+When **Remember search history** is enabled in [Preferences → General](./preferences.md#general) (the default), the **Name** field is a drop-down that keeps your last 100 searches, newest first, and completes what you type from it. The history is saved in `searchhistory.dat` in the [configuration directory](../../configuration/config-files/index.md) and survives restarts.
+
+To empty it, click **Clear Search History** or choose **Clear Search History** from the **Name** field's right-click menu; aMule asks for confirmation first. With the option disabled, the **Name** field is a plain text box, no new searches are recorded and the **Clear Search History** button is hidden. The existing `searchhistory.dat` is kept, and its terms come back if you enable the option again — clear the history first if you want it gone.
 
 ### Search Logic (Boolean Operators)
 
@@ -39,62 +42,53 @@ aMule supports Boolean search expressions using the `AND`, `OR`, and `NOT` opera
 
 ### Getting Results
 
-Once a search starts, a results tab appears:
+Once a search starts, a results tab appears and fills as results arrive:
 
-![Results tab](/img/docs/usage/window_search5.jpg)
+![Search results](/img/docs/gui_searches/searches_results.png)
 
-The results list shows, for each file: **filename**, **size**, **sources** (total sources, followed by the sources holding the complete file in parentheses, and an optional client count in square brackets), **type**, **file ID** (hash), **status** (download status) and **directories** (only populated for results obtained from a "view [shared files](./shared-files.md)" request):
+The results list has the following columns:
 
-![Results list with columns](/img/docs/usage/window_search6.jpg)
+| Column | Description |
+|---|---|
+| **File Name** | Name of the file |
+| **Size** | File size |
+| **Sources** | Total sources, followed (when not zero) by the sources holding the complete file in parentheses, and an optional client count in square brackets |
+| **Type** | File type, from the extension (see [File Type](#file-type)) |
+| **Rating** | Average [rating](./comments.md) reported for the file, shown as an icon and text (**Invalid / Corrupt / Fake**, **Poor**, **Fair**, **Good**, **Excellent**); empty when the file has not been rated |
+| **FileID** | The file's [eD2k hash](../../../p2p-networks/concepts.md#md4-hash-ed2k-hash) |
+| **Status** | **New**, **Downloaded**, **Queued** or **Canceled** (see [Result Row Colours](#result-row-colours)) |
+| **Length**, **Bitrate**, **Codec** | Playing time, bitrate (e.g. `128 kbps`) and codec of audio and video files, when the network reports them |
+| **Artist**, **Album**, **Title** | Tags of audio files, when the network reports them |
+| **Directories** | Only populated for results obtained from a [View Files](#browsing-a-clients-shared-files) request |
 
-When no files are found for the query, the results tab is empty.
+Every column can be sorted by clicking its header, and hidden or shown by right-clicking it (see [Working with lists](./index.md#working-with-lists)).
 
-For **global searches**, a progress bar appears showing how far the search has progressed:
-
-![Global search progress bar](/img/docs/usage/window_search35.jpg)
+When no files are found for the query, the results tab is empty. A progress bar below the results tracks the search of the visible tab: how far a global or Kad search has progressed, or how much of a [View Files](#browsing-a-clients-shared-files) list has been received.
 
 ### Stopping a Search
 
-Click the **Stop** button to halt an active search:
+Click the **Stop** button to halt an active search, or close its tab (described in [Tabs](#tabs) below).
 
-![Stop button](/img/docs/usage/window_search18.jpg)
+The eD2k protocol allows only one **Local** or **Global** search at a time. If you start one while another is still running, aMule asks before stopping the running search; results already found are kept, only new ones stop arriving. [Kad](#search-type) searches run in parallel and do not trigger this question.
 
-Alternatively, close the active tab (described in [Tabs](#tabs) below).
+### Extending a Kad Search
+
+For a Kad search, the **Extend** button asks the Kad peers that already answered to widen the search: each click queries the next-closest peer for more contacts, surfacing additional matches the initial search missed. The button is enabled only while the visible tab's Kad search is still running. A search can be widened at most four times; once no further widening is possible (or no peer is left to ask), the button greys out. It works in [`amulegui`](./amulegui.md) as well.
 
 ## Downloading from Results
 
-Once results appear there are three ways to start a download.
+Once results appear there are several ways to start a download:
 
-### Download Button
-
-Select one or more files in the results list and click the **Download** button:
-
-![Download button](/img/docs/usage/window_search7.jpg)
-
-This method supports downloading multiple files in a single click.
-
-### Double-Click or Enter Key
-
-Double-click a single file, or select it and press **Enter**:
-
-![Double-click to download](/img/docs/usage/window_search8.jpg)
+- Select one or more files and click the **Download** button. The files are added to the category chosen in the **Download in category** selector next to it (**Main** by default).
+- Double-click a file, or select it and press **Enter** (see [Keyboard & Mouse Shortcuts](./shortcuts.md)).
+- Right-click the selection and choose **Download**, or **Download in category** to pick a [category](./downloads.md#categories) for just these files.
 
 :::note
 Double-clicking or pressing Enter downloads **all currently selected files** (the selection is not cleared), the same as the **Download** button. The only exception is a result with grouped variants (see below): double-clicking it expands or collapses its variants instead of downloading.
 :::
 
-### Right-Click Menu (Extended Options)
-
-Right-click on one or more selected files and choose **Download** or **Download in category**:
-
-![Right-click download menu](/img/docs/usage/window_search21.jpg)
-
-Using **Download in category** lets you assign the file(s) to a specific download [category](./downloads.md#categories) at the moment of queuing:
-
-![Download in category submenu](/img/docs/usage/window_search22.jpg)
-
 :::note
-This method is not available to macOS users with a single-button mouse (no right-click). Use [Ctrl+Click](../../configuration/macos.md) as an alternative.
+Right-click menus require a secondary click; on macOS with a single-button mouse use [Control-click](../../configuration/macos.md) instead.
 :::
 
 ### Result Row Colours
@@ -103,61 +97,38 @@ Files in the results list are colour-coded:
 
 | Colour | Meaning |
 |---|---|
-| ![Green](/img/docs/usage/window_search45.jpg) Green | Already downloaded or currently shared by you |
-| ![Red](/img/docs/usage/window_search43.jpg) Red | Already in the download queue |
-| Dark blue / black | Not downloaded and not in queue; fewer sources |
-| ![Light blue](/img/docs/usage/window_search44.jpg) Light blue | Not downloaded and not in queue; more sources |
+| Green | Already downloaded or currently shared by you |
+| Red | Already in the download queue |
+| Blue | Not downloaded and not in the queue. The shade goes from the normal text colour (few sources) to strong blue (many sources) |
 | Magenta | Previously queued for download but cancelled |
 
-The brighter/more vivid the blue, the more sources the file has. Some search results may also display an **average rating** (when the server provides it). [Comments](./comments.md) are never shown in search results, only average ratings.
+The shades are adjusted to stay readable in both light and dark themes.
 
 ### Grouped Variants
 
-When several results share the same file (identical hash) but differ in name, they are grouped under a single parent row. A grouped row can be expanded to reveal its variants and collapsed again. Double-clicking a grouped row expands or collapses it instead of starting a download. The **Directories** column shows the source directory for variants that come from a "view shared files" request.
+When several results share the same file (identical hash) but differ in name, they are grouped under a single parent row. A grouped row can be expanded to reveal its variants and collapsed again. Double-clicking a grouped row expands or collapses it instead of starting a download. To download the file under one of the variant names, select that variant row and download it. The **Directories** column shows the source directory for variants that come from a [View Files](#browsing-a-clients-shared-files) request.
 
 ## Tabs
 
-Each search opens its own **results tab**:
+Each search opens its own **results tab**. Starting a new search adds another tab; previous tabs remain accessible, so you can switch between searches and compare them.
 
-![Single search tab](/img/docs/usage/window_search10.jpg)
+The tab label shows the search text followed by the result count in brackets, e.g. `debian iso (42)`. While a Kad search is running its label starts with `!`. When a [filter](#filtering) hides some results, the count appears as `N/M`, where `M` is the total number of results received and `N` is the number currently passing through the filter.
 
-Starting a new search creates an additional tab; previous tabs remain accessible in the background:
+Searches started from another interface connected to the same core — [`amulegui`](./amulegui.md), [`amulecmd`](../amulecmd.md) or the [`amuleapi` Web UI](../amuleapi/web-ui.md) — also appear as tabs, without taking the focus away from the tab you are on.
 
-![Multiple search tabs](/img/docs/usage/window_search11.jpg)
+### Saved Searches
 
-The tab label shows the search text you entered:
-
-![Tab label with search text](/img/docs/usage/window_search12.jpg)
-
-Clicking any tab shows the results for that particular search, allowing you to compare multiple searches simultaneously:
-
-![Switching between tabs](/img/docs/usage/window_search13.jpg)
-
-The number in brackets next to the search text is the result count:
-
-![Result count in tab](/img/docs/usage/window_search14.jpg)
-
-When a **filter** is active (see [Filtering](#filtering) below), the count appears as `N/M`, where `M` is the total number of results received and `N` is the number currently passing through the filter:
-
-![Filtered result count N/M](/img/docs/usage/window_search41.jpg)
+With **Remember search history** enabled, the results of the searches still open when aMule exits (the 20 most recent, up to 5000 results each) are saved in `StoredSearches.met` and reopened, unselected, the next time aMule starts. "View Files" tabs are not saved. After disabling the option, the saved results are deleted the next time aMule starts.
 
 ### Closing a Tab
 
-Click the **X** button on the left side of a tab to close it. Closing a tab also stops its search if it is still running:
-
-![Close tab X button](/img/docs/usage/window_search15.jpg)
-
-### Scrolling Tabs
-
-When there are more tabs than fit in the window, scroll arrows appear on both ends of the tab bar:
-
-![Tab scroll arrows](/img/docs/usage/window_search20.jpg)
+Click the close icon on the tab, or middle-click the tab label, to close it. Closing a tab also stops its search if it is still running. When there are more tabs than fit in the window, scroll arrows appear at the ends of the tab bar.
 
 ### Tab Right-Click Menu
 
-Right-clicking a tab reveals three options:
+Right-clicking a tab opens a menu titled **Close** with three options:
 
-![Tab right-click menu](/img/docs/usage/window_search38.jpg)
+![Tab right-click menu](/img/docs/gui_searches/searches_tab_menu.png)
 
 | Option | Action |
 |---|---|
@@ -169,9 +140,7 @@ Right-clicking a tab reveals three options:
 
 ### Search Type
 
-The **Type** dropdown selects the search method:
-
-![Search type dropdown](/img/docs/usage/window_search23.jpg)
+The **Type** drop-down selects the search method:
 
 | Type | Description |
 |---|---|
@@ -179,120 +148,93 @@ The **Type** dropdown selects the search method:
 | **Global** | Broadcast the query to all known [servers](../../../p2p-networks/ed2k/servers.md); slower but broader results |
 | **Kad** | Search across the [Kademlia](../../../p2p-networks/kademlia.md) network; slower, results trickle in over time |
 
+**Local** and **Global** are offered whenever the eD2k network is enabled, and **Kad** whenever Kademlia is enabled. With both networks disabled no search is possible.
+
 :::note
 When the same file is reported more than once, aMule merges the source counts differently depending on the network: for **Kad** results it takes the **maximum** of the reported counts, whereas for **eD2k** it **sums** the counts reported by each server.
 :::
 
 ### Extended Parameters
 
-Click **Extended parameters** to reveal additional search filters:
-
-![Extended parameters panel](/img/docs/usage/window_search24.jpg)
+Tick **Extended Parameters** to reveal a row of additional search restrictions.
 
 #### File Type
 
-Restrict results to a specific media category (Any, Archives, Audio, CD-Images, Pictures, Programs, Texts, Videos):
+Restrict results to a specific media category: **Any**, **Archives**, **Audio**, **Disc images**, **Pictures**, **Programs**, **Texts** or **Videos**.
 
-![File type filter](/img/docs/usage/window_search29.jpg)
-
-The category of a file is determined by its **filename extension**, not by its actual content — a file named `Birthday.zip` is classified as an Archive regardless of what it really contains. The complete extension-to-category mapping is:
+The category of a file is determined by its **filename extension**, not by its actual content — a file named `Birthday.zip` is classified as an Archive regardless of what it really contains. Extensions not listed below count as **Any**. The complete extension-to-category mapping is:
 
 | Category | Extensions |
 |---|---|
-| Archives | `.7z` `.ace` `.alz` `.arc` `.arj` `.bz2` `.cab` `.cbr` `.cbt` `.cbz` `.gz` `.hqx` `.lha` `.lzh` `.msi` `.pak` `.par` `.par2` `.rar` `.sea` `.sit` `.sitx` `.tar` `.tbz2` `.tgz` `.uc2` `.xpi` `.z` `.zip` `.zoo` |
-| Audio | `.669` `.aac` `.ac3` `.aif` `.aifc` `.aiff` `.amf` `.amr` `.ams` `.ape` `.au` `.aud` `.audio` `.cda` `.dbm` `.dmf` `.dsm` `.dts` `.far` `.flac` `.it` `.m1a` `.m2a` `.m4a` `.mdl` `.med` `.mid` `.midi` `.mka` `.mod` `.mol` `.mp1` `.mp2` `.mp3` `.mpa` `.mpc` `.mpp` `.mtm` `.nst` `.ogg` `.okt` `.psm` `.ptm` `.ra` `.rmi` `.s3m` `.snd` `.stm` `.ult` `.umx` `.wav` `.wma` `.wow` `.xm` |
-| CD-Images | `.bin` `.bwa` `.bwi` `.bws` `.bwt` `.ccd` `.cue` `.dmg` `.dmz` `.img` `.iso` `.mdf` `.mds` `.nrg` `.sub` `.toast` |
-| Pictures | `.bmp` `.dcx` `.emf` `.gif` `.ico` `.jfif` `.jpe` `.jpeg` `.jpg` `.pct` `.pcx` `.pic` `.pict` `.png` `.psd` `.psp` `.tga` `.tif` `.tiff` `.wbmp` `.webp` `.wmf` `.wmp` `.xif` `.xpm` |
-| Programs | `.bat` `.cmd` `.com` `.exe` `.hta` `.js` `.jse` `.msc` `.vbe` `.vbs` `.wsf` `.wsh` |
-| Texts | `.azw` `.chm` `.css` `.diz` `.doc` `.dot` `.epub` `.hlp` `.htm` `.html` `.mobi` `.nfo` `.odp` `.ods` `.odt` `.otp` `.ott` `.ots` `.pdf` `.pps` `.ppt` `.ps` `.rtf` `.stc` `.sti` `.stw` `.sxc` `.sxi` `.sxw` `.text` `.txt` `.wri` `.xls` `.xlt` `.xml` |
-| Videos | `.3g2` `.3gp` `.3gp2` `.3gpp` `.amv` `.asf` `.avi` `.bik` `.divx` `.dvr-ms` `.flc` `.fli` `.flic` `.flv` `.hdmov` `.ifo` `.m1v` `.m2t` `.m2ts` `.m2v` `.m4b` `.m4v` `.mkv` `.mov` `.movie` `.mp1v` `.mp2v` `.mp4` `.mpe` `.mpeg` `.mpg` `.mps` `.mpv` `.mpv1` `.mpv2` `.ogm` `.ogv` `.pva` `.qt` `.ram` `.ratdvd` `.rm` `.rmm` `.rmvb` `.rv` `.rv9` `.smil` `.smk` `.swf` `.tp` `.ts` `.vid` `.video` `.vivo` `.vob` `.vp6` `.webm` `.wm` `.wmv` `.xvid` |
-
-#### Category
-
-Automatically assign queued downloads to a specific [category](./downloads.md#categories) instead of the default "Main" category:
-
-![Category selector](/img/docs/usage/window_search30.jpg)
+| Archives | `.7z` `.ace` `.alz` `.arc` `.arj` `.bz2` `.cab` `.cb7` `.cba` `.cbr` `.cbt` `.cbz` `.gz` `.hqx` `.lha` `.lz` `.lz4` `.lzh` `.lzma` `.pak` `.par` `.par2` `.rar` `.sea` `.sit` `.sitx` `.tar` `.tbz2` `.tgz` `.tlz` `.txz` `.uc2` `.xz` `.z` `.zip` `.zoo` `.zst` |
+| Audio | `.669` `.aa` `.aac` `.aax` `.ac3` `.aif` `.aifc` `.aiff` `.amf` `.amr` `.ams` `.ape` `.au` `.aud` `.audio` `.caf` `.cda` `.dbm` `.dff` `.dmf` `.dsf` `.dsm` `.dts` `.far` `.flac` `.it` `.m1a` `.m2a` `.m4a` `.m4b` `.mdl` `.med` `.mid` `.midi` `.mka` `.mod` `.mol` `.mp1` `.mp2` `.mp3` `.mpa` `.mpc` `.mpp` `.mtm` `.nst` `.oga` `.ogg` `.okt` `.opus` `.psm` `.ptm` `.ra` `.rmi` `.s3m` `.snd` `.stm` `.ult` `.umx` `.wav` `.weba` `.wma` `.wow` `.wv` `.xm` |
+| Disc images | `.b5t` `.b6t` `.bin` `.bwa` `.bwi` `.bws` `.bwt` `.ccd` `.cdi` `.cue` `.daa` `.dmg` `.img` `.iso` `.isz` `.mdf` `.mds` `.mdx` `.nrg` `.qcow2` `.sub` `.toast` `.uif` `.vcd` `.vdi` `.vhd` `.vhdx` `.vmdk` `.wim` |
+| Pictures | `.apng` `.arw` `.avif` `.bmp` `.cr2` `.cr3` `.dcx` `.dng` `.emf` `.gif` `.heic` `.heif` `.ico` `.j2k` `.jfif` `.jp2` `.jpe` `.jpeg` `.jpg` `.jxl` `.nef` `.orf` `.pct` `.pcx` `.pic` `.pict` `.png` `.psd` `.psp` `.raf` `.rw2` `.svg` `.tga` `.tif` `.tiff` `.wbmp` `.webp` `.wmf` `.wmp` `.xcf` `.xif` `.xpm` |
+| Programs | `.apk` `.app` `.appimage` `.appx` `.bat` `.cmd` `.com` `.cpl` `.deb` `.exe` `.flatpak` `.hta` `.jar` `.js` `.jse` `.msc` `.msi` `.msix` `.ps1` `.psd1` `.psm1` `.rpm` `.scr` `.sh` `.snap` `.vbe` `.vbs` `.wsf` `.wsh` `.xpi` |
+| Texts | `.azw` `.azw3` `.chm` `.css` `.csv` `.diz` `.djvu` `.doc` `.docm` `.docx` `.dot` `.dotx` `.epub` `.fb2` `.hlp` `.htm` `.html` `.json` `.key` `.kfx` `.markdown` `.md` `.mobi` `.nfo` `.numbers` `.odp` `.ods` `.odt` `.otp` `.ots` `.ott` `.oxps` `.pages` `.pdf` `.potx` `.pps` `.ppsx` `.ppt` `.pptm` `.pptx` `.ps` `.rtf` `.stc` `.sti` `.stw` `.sxc` `.sxi` `.sxw` `.tex` `.text` `.txt` `.wri` `.xls` `.xlsm` `.xlsx` `.xlt` `.xltx` `.xml` `.xps` `.yaml` `.yml` |
+| Videos | `.3g2` `.3gp` `.3gp2` `.3gpp` `.amv` `.asf` `.avi` `.bik` `.divx` `.dvr-ms` `.f4v` `.flc` `.fli` `.flic` `.flv` `.h264` `.h265` `.hdmov` `.hevc` `.ifo` `.m1v` `.m2t` `.m2ts` `.m2v` `.m4v` `.mkv` `.mov` `.movie` `.mp1v` `.mp2v` `.mp4` `.mpe` `.mpeg` `.mpg` `.mps` `.mpv` `.mpv1` `.mpv2` `.mts` `.mxf` `.ogm` `.ogv` `.pva` `.qt` `.ram` `.ratdvd` `.rm` `.rmm` `.rmvb` `.rv` `.rv9` `.smil` `.smk` `.swf` `.tp` `.ts` `.vid` `.video` `.vivo` `.vob` `.vp6` `.webm` `.wm` `.wmv` `.xvid` |
 
 #### Extension
 
-Show only files with a specific file extension (e.g., `avi`, `mp3`, `iso`):
+Show only files with a specific file extension (e.g., `avi`, `mp3`, `iso`).
 
-![Extension filter](/img/docs/usage/window_search31.jpg)
+#### Min Size and Max Size
 
-#### Minimum Size
-
-Discard results smaller than the specified size. Select the unit (Bytes, KB, MB, GB):
-
-![Minimum size filter](/img/docs/usage/window_search32.jpg)
-
-#### Maximum Size
-
-Discard results larger than the specified size. Select the unit (Bytes, KB, MB, GB):
-
-![Maximum size filter](/img/docs/usage/window_search33.jpg)
+Discard results smaller than **Min Size** or larger than **Max Size**. Each takes a number (0–4096) and a unit (**Bytes**, **KiB**, **MiB** or **GiB**; MiB by default). `0` means no limit.
 
 #### Availability
 
-Discard results with fewer sources than the specified minimum:
-
-![Availability filter](/img/docs/usage/window_search34.jpg)
+Discard results with fewer sources than the specified minimum (0–1000).
 
 ### Filtering
 
-Click the **Filtering** checkbox to reveal post-search filtering controls. Filters apply to all open result tabs simultaneously:
-
-![Filtering controls](/img/docs/usage/window_search25.jpg)
+Tick **Filtering** to reveal a row of post-search filtering controls below the action buttons. Filters apply to all open result tabs simultaneously and take effect as you type. Unticking **Filtering** switches them off and shows every result again, while keeping their settings for the next time.
 
 #### Filter
 
-Type a [wxRegEx](https://docs.wxwidgets.org/stable/overview_resyntax.html) expression in the **Filter** box and click **Filter results**. Files whose name matches the expression are displayed; all others are hidden. The match is case-insensitive. A plain word (e.g. `linux`) matches any filename containing that word:
-
-![Filter input and button](/img/docs/usage/window_search26.jpg)
+Type a [wxRegEx](https://docs.wxwidgets.org/stable/overview_resyntax.html) expression in the **Filter** box. Files whose name matches the expression are displayed; all others are hidden. The match is case-insensitive, and a plain word (e.g. `linux`) matches any filename containing that word. The list is refiltered a quarter of a second after you stop typing, or immediately when you press **Enter**. While the expression is not a valid regular expression, the previous filter stays in effect.
 
 #### Invert Result
 
-Check **Invert result** to reverse the filter: only files whose name does *not* contain the filter string are displayed:
-
-![Invert result checkbox](/img/docs/usage/window_search27.jpg)
+Check **Invert Result** to reverse the filter: only files whose name does *not* match the expression are displayed.
 
 #### Hide Known Files
 
-Click **Hide known files** to remove from the results list any file that is already in your download queue or has already been completed:
+Check **Hide Known Files** to remove from the results list every result that is not *New* — already downloaded, shared, queued or cancelled files. Files you queue while the filter is on stay visible until it is reapplied.
 
-![Hide known files button](/img/docs/usage/window_search28.jpg)
+#### Reset Filters
+
+Click **Reset Filters** to clear the expression and untick both checkboxes, showing every result again.
 
 ## Clearing Searches
 
-### Clear Search Parameters
-
-Click the **Reset Fields** button to clear the search text and reset all extended parameters to their defaults:
-
-![Reset button](/img/docs/usage/window_search16.jpg)
-
-### Clear All Tabs
-
-Click the **Clear** button to close all open tabs at once:
-
-![Clear button](/img/docs/usage/window_search17.jpg)
-
-You can also right-click any tab and choose **Close all tabs**:
-
-![Close all tabs via right-click](/img/docs/usage/window_search39.jpg)
+- **Reset Fields** clears the search text and resets all extended parameters to their defaults. The search type and the **Download in category** selection are kept.
+- **Clear Search Results** stops the running search and closes all open tabs at once. You can also right-click any tab and choose **Close all tabs**.
+- **Clear Search History** empties the [search history](#search-history).
 
 ## Results Right-Click Menu
 
 Right-clicking on a result row opens this menu:
 
-![Results right-click menu](/img/docs/usage/window_search37.jpg)
+![Results right-click menu](/img/docs/gui_searches/searches_results_menu.png)
 
 | Option | Action |
 |---|---|
 | Download | Add selected file(s) to the download queue |
-| Download in category | Add selected file(s) to a specific category |
-| Get *&lt;stats server&gt;* for this file | Open a browser with the configured statistics server for the file (last selected file if multiple are selected). The label shows the configured server name (default: "Shorty's ED2K stats"); this entry only appears when a statistics server is configured |
-| Search related files (eD2k, local server) | Start a new search for files related to the selected file |
-| Copy eD2k link to clipboard | Copy the [ed2k link(s)](../../../p2p-networks/ed2k/links.md) as plain text (single selection only) |
+| Download in category | Add selected file(s) to a specific category (**Main** or one of your categories); disabled when you have no user-defined categories |
+| Get *&lt;stats server&gt;* for this file | Open a browser with the configured statistics server for the file (the first selected file if several are selected). The label shows the configured server name (default: "Shorty's ED2K stats"); this entry only appears when a statistics server is configured |
+| Search related files (eD2k, local server) | Start a new **Local** search for files related to the selected file(s). Requires a connection to a server that supports related-file searches |
+| Show all comments | Open the [Comments](./comments.md) window for the file, where comments and ratings can also be fetched from Kad. Single selection only |
+| Copy eD2k link(s) to clipboard | Copy the [eD2k link(s)](../../../p2p-networks/ed2k/links.md) of the selection as plain text |
+
+## Browsing a Client's Shared Files
+
+Choosing **View Files** on a client (in the [Downloads](./downloads.md#source-list) source list, the [Clients](./clients.md) page or the [friends list](./messages.md#viewing-a-friends-shared-files)) opens a tab named after that client listing the files it shares. The label shows `name (N...)` while the list is arriving, `name (N)` when it is complete, and `name (Failed)` if the client refused or could not be reached.
+
+![A client's shared files shown as a folder tree](/img/docs/gui_searches/searches_browse_tree.png)
+
+The files are shown as a folder tree built from the directories the client reports: folder rows are **bold** and always sort before files. Right-click a folder to **Expand all** or **Collapse all**. Clients that do not report directories are shown as a flat list.
 
 ## Miscellaneous
 
-The **Fast ED2K links handler** bar at the bottom of the search window lets you paste [ed2k links](../../../p2p-networks/ed2k/links.md) to add them directly to the download queue. It is always visible in the Searches panel, regardless of whether it is enabled in **[Preferences → Interface → Show "Fast eD2k Links Handler" in every window](./preferences.md#interface)**. To hide it in the search window as well, click the **[Search](./toolbar.md#window-buttons)** button in the toolbar twice.
+The Fast eD2k Links Handler bar at the bottom of the Searches window lets you paste [eD2k links](../../../p2p-networks/ed2k/links.md) or magnet links (placeholder *Paste eD2k or magnet links here*) and click **Add links** to add them directly to the download queue. It is always visible in the Searches window; enable **[Preferences → Interface → Show "Fast eD2k Links Handler" in every window](./preferences.md#interface)** to show it in the other windows too.
