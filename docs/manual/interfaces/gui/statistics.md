@@ -9,7 +9,7 @@ The Statistics window shows detailed data about the current aMule session: speed
 
 The window is divided into two main areas:
 
-- **Graphs** (top portion) — visual speed and connection history for the last few minutes.
+- **Graphs** — download speed (top left), upload speed (top right) and connections (bottom left): visual history for the last few minutes.
 - **Statistics tree** (bottom right) — a hierarchical breakdown of all numeric statistics.
 
 ## Graphs
@@ -20,7 +20,13 @@ The three graphs each update in real time.
 Make sure you understand how to read the graphs: the X axis represents time (newest data on the right), and the Y axis is the measured value. The "average" lines smooth out short-term spikes.
 :::
 
-Each graph has a legend below it with three labelled colour swatches identifying its lines.
+Each graph has a legend below it with three labelled colour swatches identifying its lines. The curves are drawn anti-aliased, and the **Current** curve of every graph except **Connections** has a shaded fill underneath. The speed graphs are scaled in KiB/s. The colours can be changed in [Preferences → Statistics](./preferences.md#statistics).
+
+### Reading a Value
+
+Hover the mouse over a graph to read its exact values: a vertical crosshair snaps to the nearest sample, a marker highlights each line at that point, and a box shows how far back the sample is (for example `-2:30 mins`) followed by the value of each line with its colour. Speeds are shown in the most readable unit, e.g. `2.13 MiB/s`. The [Kad nodes graph](./networks.md#nodes-stats-graph) in the Networks window works the same way.
+
+In [`amulegui`](./amulegui.md) the graphs show the history kept by the connected core, so they are already filled when the remote GUI connects and stay filled when you switch tabs.
 
 ### Download Speed
 
@@ -55,7 +61,7 @@ The bottom-left graph shows the number of active connections:
 | Legend | Colour | Meaning |
 |---|---|---|
 | **Active downloads** | Magenta | Connections actively downloading (clients uploading to you) |
-| **Active connections** | Light blue | All active connections combined |
+| **Active connections** | Lavender | All active connections combined |
 | **Active uploads** | Yellow | Connections actively uploading (you uploading to clients) |
 
 The **Active connections** legend label includes a scale factor such as `(1:3)`. This is the vertical (Y axis) scale of the graph, not a usage ratio: it indicates the axis has been scaled 3× because the peak number of connections exceeded the configured graph scale ([Preferences → Statistics → Connections Graph Scale](./preferences.md#graphs), default 100). The label stays at `(1:1)` until the peak rises above that scale.
@@ -75,6 +81,14 @@ Items whose value is not yet known may be hidden until a valid value is availabl
 | **Uptime** | How long aMule has been running |
 
 ### Transfer
+
+The **Transfer** branch lists the session ratio first, then the **Uploads** and **Downloads** sub-trees.
+
+#### Session UL:DL Ratio (Total)
+
+| Item | Description |
+|---|---|
+| **Session UL:DL Ratio (Total)** | Normalized upload-to-download ratio for the session (the smaller side reduced to 1), with the all-time ratio in brackets. Shows "Not available" until data has been transferred in both directions |
 
 #### Uploads
 
@@ -123,12 +137,6 @@ The **Found Sources** item expands into a sub-tree counting sources by origin (e
 | **Search Result** | Sources found from a search result |
 | **Unknown** | Sources found through unclassified methods |
 
-#### Session UL:DL Ratio (Total)
-
-| Item | Description |
-|---|---|
-| **Session UL:DL Ratio (Total)** | Normalized upload-to-download ratio for the session (the smaller side reduced to 1), with the all-time ratio in brackets. Shows "Not available" until data has been transferred in both directions |
-
 ### Connection
 
 | Item | Description |
@@ -152,6 +160,7 @@ The **Found Sources** item expands into a sub-tree counting sources by origin (e
 | **Unknown** | Clients whose application is unknown |
 | **Filtered** | Clients rejected by the [IP filter](./preferences.md#ip-filtering) |
 | **Banned** | Clients currently [banned](../../../p2p-networks/concepts.md#ban) |
+| **Kad banned addresses** | Number of addresses banned by Kad node protection. Only present in builds compiled with Kad node protection, which is off by default |
 | **Total / Known** | Total number of clients and how many of them are of a known application |
 | *(per-application list)* | Number of clients per [application](../../../p2p-networks/ed2k/clients.md) (aMule, eMule, etc.), sorted by popularity. Percentage of total shown in brackets |
 | *(per-version list)* | Number of clients per version per application. aMule, Hydranode and MLDonkey also break down into **Version** and **Operating System** sub-trees |

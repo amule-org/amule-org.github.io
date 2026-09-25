@@ -38,7 +38,7 @@ These are third-party services unaffiliated with the aMule project. Their availa
 
 ### Downloading from the aMule interface
 
-The **Networks → Kad** tab contains a URL input field next to the Bootstrap controls. Enter a URL there and press Enter (or click the play button beside the field) to trigger an immediate download. aMule replaces the existing file once the download completes successfully.
+The **Networks → Kad** tab has a URL field to download a fresh `nodes.dat` on demand; see [Updating the Nodes List from a URL](../../manual/interfaces/gui/networks.md#updating-the-nodes-list-from-a-url) in the User Manual. aMule replaces the existing file once the download completes successfully.
 
 Once connected to Kad, aMule keeps `nodes.dat` up to date automatically while running, so manual downloads are only needed on first use or after a long period of inactivity.
 

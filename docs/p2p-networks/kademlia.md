@@ -53,9 +53,8 @@ aMule stores previously seen Kademlia contacts in [`nodes.dat`](../developer/fil
 
 If `nodes.dat` is empty, outdated, or missing, you can bootstrap manually:
 
-**Option 1 — From known clients already in your transfer list:**
-- In the aMule interface, go to the **Networks → [Kad](../manual/interfaces/gui/networks.md#kademlia-kad)** tab.
-- Click **Bootstrap from known clients** in the toolbar **Network** menu.
+**Option 1 — Restart Kademlia:**
+- Stop and start the Kademlia connection so the client retries the contacts it already knows. This only helps if some of them are still reachable; with an empty or missing `nodes.dat`, use one of the options below. For how to do it in aMule, see [Connecting to Kad](../manual/interfaces/gui/networks.md#connecting-kad) in the User Manual.
 
 **Option 2 — Download a fresh nodes.dat:**
 - Download a current [`nodes.dat`](../developer/file-formats/nodes-dat.md) file from a trusted source and place it in `~/.aMule/`.
@@ -67,7 +66,7 @@ If `nodes.dat` is empty, outdated, or missing, you can bootstrap manually:
 - Cancel the test download and optionally disconnect from eD2k afterwards.
 
 **Option 4 — Manual IP entry:**
-- In the **Kad** tab, enter the IP address and port of a known Kademlia-compatible client in the input boxes in the upper-right corner. See **[Bootstrapping from a Specific Node](../manual/interfaces/gui/networks.md#bootstrapping-from-a-specific-node)** in the User Manual.
+- In the **Kad** tab, enter the IP address and port of a known Kademlia-compatible client. See **[Bootstrapping from a Specific Node](../manual/interfaces/gui/networks.md#bootstrapping-from-a-specific-node)** in the User Manual.
 
 ## Contact Types (Trust Levels)
 
