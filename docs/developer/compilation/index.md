@@ -85,7 +85,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
 | `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
 | `ENABLE_CCACHE` | AUTO | Use [ccache](https://ccache.dev/) as compiler launcher when found (`AUTO`/`ON`/`OFF`). Set `OFF` for distro builds that wrap the compiler themselves; set `ON` to hard-fail when ccache is missing |
-| `DEFAULT_VERSION_CHECK` | ON | Initial state of the in-app "Check for new aMule version" preference on fresh installs. Set `OFF` for OS-package builds where the distro's own update mechanism owns version notifications |
+| `ENABLE_VERSION_CHECK` | ON | Compile in the [in-app new-version check](../../quickstart-guide.md#version-check): the startup and daily check with its notification, the **Periodically check for a new version** preference and the About window's **Check for updates** button. Set `OFF` for OS-package builds: the whole feature is compiled out, nothing contacts GitHub, and the distro's package manager owns updates |
 
 To list all available options with descriptions:
 

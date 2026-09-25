@@ -246,12 +246,12 @@ Settings behind the [Statistics](../../interfaces/gui/statistics.md) window's gr
 
 ### Internal / layout
 
-These keys are managed by aMule. Editing them manually is not recommended.
+These keys are managed by aMule. Editing them manually is not recommended, except where a key's description says otherwise.
 
 | Key | Description |
 |---|---|
 | `SmartIdState` | Cached result of the Smart ID check (internal state). |
-| `FirstRunWizardDone` | Set to `1` after the first-run setup wizard has completed. Written by aMule. |
+| `FirstRunWizardDone` | Whether the [first-run setup wizard](../../../quickstart-guide.md#setup-wizard) is done. Written by aMule: set to `1` when the wizard is finished, when it is cancelled and the user chooses not to see it again, and on installs upgraded from a version without this key. Set it to `0` while aMule is closed to run the wizard again on the next start. |
 | `MaxConPerFiveDefaultBumped` | One-shot migration marker, set after the `MaxConnectionsPerFiveSeconds` default was raised from 20 to 50. Written by aMule; do not edit. |
 | `TableOrdering<Name>`, `TableWidths<Name>` | Column sort order and widths for each list. `<Name>` is the list name: `Server`, `Download`, `Shared`, `Search`, `Sources`, `Peers`, `ClientsDown`, `ClientsUp`, `ClientHistory`, `Friend`, `FileDetail`. `TableOrdering` is a comma-separated list of `<column>:<descending 0/1>:<alternate 0/1>` entries; `TableWidths` is a comma-separated list of `<column>:<width>` entries, where a zero or negative width marks a hidden column. `<column>` is the column's short internal code (e.g. `S`). |
 

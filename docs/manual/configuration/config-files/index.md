@@ -73,6 +73,7 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`lastversion`](#lastversion) | History of the 10 most recently launched aMule versions |
 | [`last_version_check`](#last_version_check) | Latest release info fetched from GitHub (Releases API JSON) |
 | [`last_version`](#last_version_check) | Rename destination of a successful version-check download |
+| [`last_version_notified`](#last_version_notified) | Release version muted with **Don't ask again** in the new-version dialog |
 | [`key_index.dat`](#kad-index-files) | Kademlia keyword data this client publishes to the network |
 | [`src_index.dat`](#kad-index-files) | Kademlia source data this client publishes to the network |
 | [`load_index.dat`](#kad-index-files) | Kademlia client keyIDs and last-seen timestamps |
@@ -214,7 +215,7 @@ For its line format, see the [`staticservers.dat` format reference](../../../dev
 
 **Location:** `~/.aMule/addresses.dat`
 
-A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the "Update server list on startup" preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
+A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the **Auto-update server list at startup** preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
 
 For its format, see the [`addresses.dat` format reference](../../../developer/file-formats/index.md#addressesdat).
 
@@ -487,6 +488,12 @@ Plain-text file recording the last 10 aMule versions launched on this machine, i
 File holding the response of aMule's update check. aMule queries the GitHub Releases API (`https://api.github.com/repos/amule-org/amule/releases/latest`) and stores the returned JSON here; it then extracts the `tag_name` field and compares it with the running version to notify the user of updates. On a successful download the file is renamed to `last_version`.
 
 This replaces the legacy single-line `lastversion` text file that was fetched from SourceForge, which has been unmaintained since the project moved to GitHub.
+
+### `last_version_notified`
+
+**Location:** `~/.aMule/last_version_notified`
+
+Single-line plain-text file holding the release version for which the user ticked **Don't ask again** in the [New version available](../../../quickstart-guide.md#version-check) dialog. aMule does not show the dialog for that version again, but a newer release shows it once more. The file is written only when the checkbox is ticked; delete it to be reminded of the muted version again.
 
 ## Kademlia index files
 

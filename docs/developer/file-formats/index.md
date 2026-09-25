@@ -129,7 +129,7 @@ Lines beginning with `/` or `#` are treated as comments and ignored. Any line th
 
 ## `addresses.dat` {#addressesdat}
 
-A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the "Update server list on startup" preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
+A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the **Auto-update server list at startup** preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
 
 ### Format
 
