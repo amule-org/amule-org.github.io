@@ -172,7 +172,7 @@ The base of the score is simply how long you have waited (in seconds); it is the
 
 ### Queue Rank (QR)
 
-The **Queue Rank (QR)** is your position in another client's upload queue. A QR of 0 means you are currently being served (receiving data). Higher QR values mean a longer wait. aMule shows the rank and score of each queued client in the [client details](../manual/interfaces/gui/client-details.md#queue-rank) panel.
+The **Queue Rank (QR)** is your position in another client's upload queue. A QR of 0 means you are currently being served (receiving data). Higher QR values mean a longer wait. aMule shows your queue rank for each source in the **Download Status** column of the [source list](../manual/interfaces/gui/downloads.md#source-list), and the rank and score of each client waiting in *your* upload queue in the [client details](../manual/interfaces/gui/client-details.md#scores) window.
 
 If the remote client's queue is full when you try to join, you receive a **"Queue is full"** response and are dropped immediately. Your client will retry later.
 
