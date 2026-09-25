@@ -9,15 +9,21 @@ The status bar is located at the bottom of the main aMule window. It gives a con
 
 ## Log
 
-The leftmost section displays the last line printed to the aMule log:
+The leftmost section displays the latest important message of the aMule log (the lines shown in bold in the [log](./networks.md#amule-log); routine messages do not reach the status bar):
 
 ![Status bar log section](/img/docs/gui_statusbar/statusbar_logs.png)
 
-If the line is longer than the available space it is truncated. The **info button** next to the text to shows a tooltip with the complete line when you hover the mouse.
+Only the first line of a multi-line message is shown, and a line longer than the available space is truncated; hover the text to see the complete message in a tooltip.
+
+## Core Version (`amulegui`)
+
+In [`amulegui`](./amulegui.md) only, the next section shows the version of the connected core as **Core: &lt;version&gt;**. It is shown in red when the core runs a different version than `amulegui`, and hidden if the core does not report its version. Click it to open a **Version** window listing the core's address, whether the connection is encrypted, the core version and the `amulegui` version, with a line saying whether the two match.
+
+![The Core version field in the amulegui status bar](/img/docs/gui_statusbar/statusbar_core_version.png)
 
 ## Users & Files
 
-The second section shows aMule's estimate of the number of users connected to, and files available on, each network it is participating in. When both networks are enabled, the field reads:
+The next section shows aMule's estimate of the number of users connected to, and files available on, each network it is participating in. When both networks are enabled, the field reads:
 
 ![Status bar users & files section](/img/docs/gui_statusbar/statusbar_users_files.png)
 
@@ -40,7 +46,7 @@ Users: <count> | Files: <count>
 
 If no network is enabled, the field reads **No networks selected**.
 
-All counts use SI suffixes:
+All counts use decimal (SI) suffixes:
 
 | Letter | Multiplier |
 |---|---|
@@ -66,10 +72,12 @@ The downward arrow is green when aMule is downloading and red when it is not. Th
 | ![Uploading only](/img/docs/gui_statusbar/statusbar_icon_transfer_upload.png) | Uploading but not downloading |
 | ![Both](/img/docs/gui_statusbar/statusbar_icon_transfer_both.png) | Both downloading and uploading |
 
-To the right of the icon:
+To the right of the icon, the field reads `Up: <speed> | Down: <speed>`:
 
 - **Up** — current upload speed.
 - **Down** — current download speed.
+
+Speeds are shown in binary (IEC) units: **KiB/s** (1 KiB = 1024 bytes), switching to **MiB/s** for higher rates; a speed of zero is shown as a bare `0.0`, without a unit. Sizes throughout the interface use the matching **KiB**, **MiB**, **GiB** and **TiB** units, and dates and times follow your system's locale settings.
 
 If **"Show overhead bandwidth"** is enabled in [Preferences → Interface](preferences.md#interface), a bracketed number appears alongside each speed value showing the bandwidth consumed by overhead traffic (connection management, pings, protocol control packets):
 
@@ -77,9 +85,9 @@ If **"Show overhead bandwidth"** is enabled in [Preferences → Interface](prefe
 
 ## Networks
 
-The rightmost section shows connection status for both networks. Each status is prefixed with its network name (`eD2k:` and `Kad:`) and the two are joined by a `|` separator:
+The rightmost section shows connection status for both networks. Each status is prefixed with its network name (`eD2k:` and `Kad:`); when both networks are enabled the two are joined by a `|` separator, and a disabled network is not shown:
 
-![Status bar spnetwork section](/img/docs/gui_statusbar/statusbar_networks.png)
+![Status bar networks section](/img/docs/gui_statusbar/statusbar_networks.png)
 
 For the **eD2k network**, the name (or IP address) of the currently connected server is displayed after the `eD2k:` label.
 
@@ -106,7 +114,7 @@ Arrow colour meanings:
 | Colour | Meaning |
 |---|---|
 | Red | Offline / not connected |
-| Orange | Connecting |
+| Orange | Connecting (eD2k; a connecting Kad shows the yellow arrow) |
 | Yellow | Connected but firewalled — [Low ID](../../../p2p-networks/ed2k/high-id.md) on eD2k, [firewalled](../../../p2p-networks/kademlia.md#open-vs-firewalled-status) on Kademlia |
 | Green | Connected — [High ID](../../../p2p-networks/ed2k/high-id.md) on eD2k, [open](../../../p2p-networks/kademlia.md#open-vs-firewalled-status) on Kademlia |
 
