@@ -31,7 +31,7 @@ Other clients that share the same file can attach short comments and quality rat
 
 #### 2. File details inspection
 
-Right-click a download and select **File Details**. The [**File Names**](../interfaces/gui/file-details.md#file-names) list shows every name that other sources have reported for the same hash, sorted by how many sources use each one. If the most-reported names suggest different content from what you expect, the file may be a fake.
+Right-click a download and select **Show file details**. The [**File Names**](../interfaces/gui/file-details.md#file-names) list shows every name that other sources have reported for the same hash, sorted by how many sources use each one. If the most-reported names suggest different content from what you expect, the file may be a fake.
 
 ### Practical tips for avoiding fake files
 

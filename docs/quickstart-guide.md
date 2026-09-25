@@ -81,7 +81,7 @@ Click the **Downloads** button to open the [Downloads](./manual/interfaces/gui/d
 
 ![Transfer queue](/img/docs/transfers_queue.png)
 
-A quick way to read the progress bar: dark blue means many sources have the file, while **red segments mean no known source has that part** — those downloads are unlikely to complete. Double-click any file to inspect its sources.
+A quick way to read the progress bar: dark blue means many sources have the file, while **red segments mean no known source has that part** — those downloads are unlikely to complete. Click any file to see its sources in the list below.
 
 The Downloads page documents the [columns](./manual/interfaces/gui/downloads.md), source [icons](./manual/interfaces/gui/downloads.md), and [categories](./manual/interfaces/gui/downloads.md#categories) — named groups, each with its own colour and save folder — in full.
 
