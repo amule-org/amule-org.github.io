@@ -31,7 +31,7 @@ Launch from a terminal:
 amule
 ```
 
-On first run, aMule creates its [configuration directory](../../configuration/config-files/index.md) (`~/.aMule/`) and presents a first-run wizard for basic setup (nickname, bandwidth, networks and ports, download and temporary directories).
+On first run, aMule creates its [configuration directory](../../configuration/config-files/index.md) (`~/.aMule/`) and presents a [first-run setup wizard](../../../quickstart-guide.md#setup-wizard) for basic setup (nickname, bandwidth, networks and ports, bootstrap files, desktop integration, download and temporary directories).
 
 Command-line flags:
 
@@ -63,6 +63,6 @@ The aMule interface is divided into several panels, switched with the [toolbar](
 
 ## ED2K Link Integration
 
-aMule can register itself with the operating system as the handler for `ed2k://` and `magnet:` links and for `.emulecollection` files, so clicking one in a browser or file manager queues it in aMule. Turn this on in the first-run wizard, with the **Register aMule for ed2k:// links**, **Register aMule for magnet: links** and **Open .emulecollection files with aMule** options in [Preferences → General](./preferences.md#general), or from the command line with `--configure-protocols` and `--configure-file-assoc` (see above). A link opened this way is passed to the running aMule instance through the ED2KLinks file.
+aMule can register itself with the operating system as the handler for `ed2k://` and `magnet:` links and for `.emulecollection` files, so clicking one in a browser or file manager queues it in aMule. Turn this on in the [first-run wizard](../../../quickstart-guide.md#setup-wizard), with the **Register aMule for ed2k:// links**, **Register aMule for magnet: links** and **Open .emulecollection files with aMule** options in [Preferences → General](./preferences.md#general), or from the command line with `--configure-protocols` and `--configure-file-assoc` (see above). A link opened this way is passed to the running aMule instance through the ED2KLinks file.
 
 For the separate `ed2k` command-line helper, how the ED2KLinks file works, and handling links for a remote core, see [ed2k — ED2K Link Handler](../../utilities/ed2k.md).

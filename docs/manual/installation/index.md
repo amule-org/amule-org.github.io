@@ -397,6 +397,6 @@ Once aMule is installed, the first launch creates the configuration directory:
 
 See the [aMule Files Reference](../configuration/config-files/index.md) for a complete description of every file and directory created by aMule.
 
-aMule ships with reasonable defaults and can be used as-is. To connect to the [eD2k network](../../p2p-networks/ed2k/index.md) and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the initial bandwidth configuration, eD2k server / [Kademlia](../../p2p-networks/kademlia.md) connection, and your first search.
+aMule ships with reasonable defaults and can be used as-is. To connect to the [eD2k network](../../p2p-networks/ed2k/index.md) and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the [first-run setup wizard](../../quickstart-guide.md#setup-wizard) (nickname, bandwidth, networks and ports, bootstrap files, desktop integration and folders), connecting to eD2k and [Kademlia](../../p2p-networks/kademlia.md), and your first search.
 
 To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.

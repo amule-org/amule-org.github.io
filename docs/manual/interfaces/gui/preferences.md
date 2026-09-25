@@ -132,7 +132,7 @@ Options for connecting aMule to eD2k servers. This page is removed from the dial
 | Setting | Description |
 |---|---|
 | **Remove dead server after _n_ retries** | Number of times a server may fail before it is removed from the server list. Failed connection attempts and failed UDP pings add to one counter: the periodic ping sweep removes a server once it reaches _n_, and the sweep after a successful server connection removes servers above _n_. Servers marked **static** are never removed, even when unreachable. Range 1–10, default 3; the number field is enabled only while the checkbox is ticked. |
-| **Auto-update server list at startup** | Download the server list from one or more URLs at startup. Click the **List** button to edit URLs (stored in `addresses.dat`); the checkbox cannot be ticked while that list is empty. |
+| **Auto-update server list at startup** | Download the server list from one or more URLs at startup. Click the **List** button to edit URLs (stored in `addresses.dat`). The checkbox cannot be ticked while `addresses.dat` exists but is empty. A fresh install has no `addresses.dat` at all: the checkbox can then be ticked, but nothing is downloaded and aMule only logs that no address was found at every start. |
 | **Update server list when connecting to a server** | After connecting to a server, request its full list of known servers and add any new entries. |
 | **Update server list when a client connects** | When connecting to a client, request its server ID and add it if not already known. |
 | **Use priority system** | Assign Low/Normal/High priority to servers via right-click. aMule contacts servers in priority order. |
