@@ -47,10 +47,7 @@ The primary section. Contains the majority of user-facing preferences.
 | `ToolTipDelay` | `1` | Seconds (0–9) before tooltips appear; applies to every tooltip in the GUI. |
 | `Address` | _(empty)_ | Local IP address (or hostname) aMule binds its sockets to — the TCP listen socket, the UDP sockets and outgoing eD2k connections to clients and servers (the **Bind local address to IP** preference). Empty = bind to any local address. Distinct from `NetworkInterface` (which binds by interface name) and from `YourHostname` (the public hostname used in source links). |
 | `YourHostname` | _(empty)_ | Hostname used when building eD2k source links for this client. |
-| `DateTimeFormat` | `%A, %x, %X` | `strftime`-style format string for dates and times. Stored but currently not used by aMule. |
 | `AllcatType` | `0` | Category display mode for the "All" category tab. |
-| `ShowAllNotCats` | `0` | Show uncategorised files when a category tab is selected. Stored but currently not used by aMule. |
-| `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Downloads window. Stored but currently not used by aMule (the splitter is saved in `[GUI/TransferWnd] Splitter`). |
 | `DefaultSearchType` | `0` | Search type last selected in the Searches window, restored on the next start: `0` = Local, `1` = Global, `2` = Kad. If that network is disabled, the first available type is used. Written by the GUI. |
 
 The **Start aMule automatically when I log in** preference is deliberately not stored in `amule.conf` — the state lives in the OS autostart store (Windows registry Run key, macOS LaunchAgent, Linux XDG `.desktop` autostart entry) and is managed via the [Preferences checkbox](../../interfaces/gui/preferences.md#general) or the `--configure-autostart=on|off` command-line option (see [Starting aMule Automatically](../autostart.md)).
@@ -670,11 +667,8 @@ CommentFilter=
 VerboseDebug=0
 VerboseDebugLogfile=0
 Language=
-SplitterbarPosition=75
 YourHostname=
-DateTimeFormat=%A, %x, %X
 AllcatType=0
-ShowAllNotCats=0
 Address=
 StatsServerName=Shorty's ED2K stats
 StatsServerURL=https://ed2k.shortypower.org/?hash=
