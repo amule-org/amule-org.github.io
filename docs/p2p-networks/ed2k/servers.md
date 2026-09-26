@@ -70,7 +70,7 @@ The server list is stored in the binary [`server.met`](../../developer/file-form
 
 In aMule, the server list is visible in the **Networks** panel, **[eD2k](../../manual/interfaces/gui/networks.md#ed2k)** tab:
 
-![eD2k server list in aMule](/img/docs/Serverlist-ed2k.png)
+![eD2k server list in aMule](/img/docs/gui_networks/networks_upper_ed2k.png)
 
 aMule connects to one server at a time. With the *Score system* enabled (the default — see [Preferences → Servers](../../manual/interfaces/gui/preferences.md#servers)), it sorts the list by priority and tries servers in priority order (High → Normal → Low). Ping time and failure count are recorded and shown per server, but they do not determine the connection order.
 

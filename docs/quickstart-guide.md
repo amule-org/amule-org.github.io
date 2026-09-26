@@ -144,7 +144,7 @@ The Searches page also supports [Boolean expressions](./manual/interfaces/gui/se
 
 Click the **Downloads** button to open the [Downloads](./manual/interfaces/gui/downloads.md) window and watch your queued files:
 
-![Transfer queue](/img/docs/transfers_queue.png)
+![Downloads window](/img/docs/gui_downloads/downloads.png)
 
 A quick way to read the progress bar: dark blue means many sources have the file, while **red segments mean no known source has that part** — those downloads are unlikely to complete. Click any file to see its sources in the list below.
 
