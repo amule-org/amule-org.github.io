@@ -142,35 +142,35 @@ Each source row shows a small icon indicating the client software and connection
 
 | Icon | Client |
 |---|---|
-| aMule icon | aMule |
-| eMule icon | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) |
-| eDonkey2000 icon | Original [eDonkey2000](../../../p2p-networks/ed2k/clients.md#edonkey2000-20002005) client |
-| lphant icon | [lphant](../../../p2p-networks/ed2k/clients.md#lphant-20052009) |
-| mlDonkey icon | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) |
-| Shareaza icon | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) |
-| xMule icon | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) |
-| Friend icon | A client you have marked as a [friend](../../../p2p-networks/concepts.md#friend) |
-| Unknown icon | Unrecognised client |
+| ![aMule](/img/docs/gui_downloads/downloads_icon_client_amule.png) | aMule |
+| ![eMule](/img/docs/gui_downloads/downloads_icon_client_emule.png) | [eMule](../../../p2p-networks/ed2k/clients.md#emule-2002present) |
+| ![eDonkey2000](/img/docs/gui_downloads/downloads_icon_client_edonkeyhybrid.png) | Original [eDonkey2000](../../../p2p-networks/ed2k/clients.md#edonkey2000-20002005) client |
+| ![lphant](/img/docs/gui_downloads/downloads_icon_client_lphant.png) | [lphant](../../../p2p-networks/ed2k/clients.md#lphant-20052009) |
+| ![mlDonkey](/img/docs/gui_downloads/downloads_icon_client_mldonkey.png) | [mlDonkey](../../../p2p-networks/ed2k/clients.md#mldonkey-2001present) |
+| ![Shareaza](/img/docs/gui_downloads/downloads_icon_client_shareaza.png) | [Shareaza](../../../p2p-networks/ed2k/clients.md#shareaza-20022017) |
+| ![xMule](/img/docs/gui_downloads/downloads_icon_client_xmule.png) | [xMule](../../../p2p-networks/ed2k/clients.md#xmule-20032009) |
+| ![Friend](/img/docs/gui_downloads/downloads_icon_client_friend.png) | A client you have marked as a [friend](../../../p2p-networks/concepts.md#friend) |
+| ![Unknown](/img/docs/gui_downloads/downloads_icon_client_unknown.png) | Unrecognised client |
 
 Overlay badges on the base icon indicate additional attributes:
 
 | Overlay | Meaning |
 |---|---|
-| Good credit | Client has a good [credit rating](../../../p2p-networks/ed2k/index.md#credits-and-scoring) with you (it has uploaded more to you than you to it, so it earns a better position in your upload queue). |
-| No extended protocol | Client does **not** support the extended eMule protocol extensions (source sharing, etc.). |
-| Secure ID (good) | Client identity has been [securely verified](../../../p2p-networks/ed2k/secure-user-identification.md). |
-| Secure ID (bad) | Client failed [secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) and has been flagged as a [bad actor](../../../p2p-networks/concepts.md#bad-guy). Shown only when the client is not identified. |
-| Encrypted | The connection to this client is [obfuscated/encrypted](./preferences.md#protocol-obfuscation). |
+| ![Good credit](/img/docs/gui_downloads/downloads_icon_client_creditsyellow.png) | Client has a good [credit rating](../../../p2p-networks/ed2k/index.md#credits-and-scoring) with you (it has uploaded more to you than you to it, so it earns a better position in your upload queue). |
+| ![No extended protocol](/img/docs/gui_downloads/downloads_icon_client_extendedprotocol.png) | Client does **not** support the extended eMule protocol extensions (source sharing, etc.). |
+| ![Secure ID (good)](/img/docs/gui_downloads/downloads_icon_client_secident.png) | Client identity has been [securely verified](../../../p2p-networks/ed2k/secure-user-identification.md). |
+| ![Secure ID (bad)](/img/docs/gui_downloads/downloads_icon_client_badguy.png) | Client failed [secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) and has been flagged as a [bad actor](../../../p2p-networks/concepts.md#bad-guy). Shown only when the client is not identified. |
+| ![Encrypted](/img/docs/gui_downloads/downloads_icon_client_encryption.png) | The connection to this client is [obfuscated/encrypted](./preferences.md#protocol-obfuscation). |
 
 A small status icon to the left of the client icon shows the **source status**:
 
 | State | Meaning |
 |---|---|
-| Sending | Client is uploading data or a hashset to you right now. |
-| Queued | You are in this client's upload queue (and its queue is not full). |
-| Connecting / Asking | A connection attempt to this client is in progress, or you are currently requesting a file from it. |
-| Unavailable | Client is asked for another file, has no needed parts, has a full upload queue, or cannot be reached ([Low ID](../../../p2p-networks/ed2k/high-id.md) behind a firewall). |
-| Unknown | State has not yet been determined. |
+| ![Sending](/img/docs/gui_downloads/downloads_icon_client_green.png) | Client is uploading data or a hashset to you right now. |
+| ![Queued](/img/docs/gui_downloads/downloads_icon_client_yellow.png) | You are in this client's upload queue (and its queue is not full). |
+| ![Connecting / Asking](/img/docs/gui_downloads/downloads_icon_client_red.png) | A connection attempt to this client is in progress, or you are currently requesting a file from it. |
+| ![Unavailable](/img/docs/gui_downloads/downloads_icon_client_grey.png) | Client is asked for another file, has no needed parts, has a full upload queue, or cannot be reached ([Low ID](../../../p2p-networks/ed2k/high-id.md) behind a firewall). |
+| ![Unknown](/img/docs/gui_downloads/downloads_icon_client_white.png) | State has not yet been determined. |
 
 Double-clicking a source (or middle-clicking) opens the [Client Details](./client-details.md) dialog.
 
