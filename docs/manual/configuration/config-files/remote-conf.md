@@ -52,7 +52,7 @@ A single key written at the top of the file, before any section header. It selec
 | `Password` | _(empty)_ | `-P` / `--password` | MD5 hash of the EC password. The connection is rejected unless this matches the core's `ECPassword` (or both are empty). The CLI flag **accepts a plain-text password, not an MD5 hash**; passing an empty value clears the stored hash. |
 | `ZLIB` | `1` | _(none)_ | Enable zlib compression on the EC connection. Reduces bandwidth at the cost of CPU. |
 | `ForceZLIB` | `0` | `--force-zlib` | Force ZLIB compression regardless of the locality of the destination IP. Useful when the core is reachable over a VPN tunnel that resolves to a LAN IP (compression is otherwise skipped for local addresses). |
-| `Encryption` | `1` | `--disable-ec-encryption` | Enable authenticated encryption of the EC session (`0` = off, `1` = on). The `--disable-ec-encryption` flag turns it off for a single run. |
+| `Encryption` | `1` | `--disable-ec-encryption` | Enable authenticated encryption of the EC session (`0` = off, `1` = on). The `--disable-ec-encryption` flag turns it off for that run; combined with `-w` it saves `0`. |
 
 ## `[WebServer]` section
 
@@ -109,7 +109,7 @@ Reads and writes the `[EC]` keys `Host`, `Port`, `Password`, `Encryption`, and `
 
 ### amulecmd
 
-Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `--force-zlib` (force ZLIB compression — sets `/EC/ForceZLIB`), `--disable-ec-encryption` (disable EC session encryption for the run — sets `/EC/Encryption=0`), `-q` / `--quiet`, and `-v` / `--verbose`.
+Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `--force-zlib` (force ZLIB compression — saved to `/EC/ForceZLIB` by `-w`), `--disable-ec-encryption` (disable EC session encryption for the run — saved as `/EC/Encryption=0` by `-w`), `-q` / `--quiet`, and `-v` / `--verbose`.
 
 ### amuleweb
 

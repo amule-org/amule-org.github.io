@@ -5,10 +5,10 @@ title: amuleapi.conf
 
 `amuleapi.conf` is the configuration file for the [`amuleapi`](../../interfaces/amuleapi/index.md) daemon (REST API and Web UI). It is the **only** configuration file `amuleapi` reads — it does **not** use [`remote.conf`](./remote-conf.md). It uses standard INI syntax and is read once at startup.
 
-`amuleapi` creates the file from defaults on first run, so in most setups it needs no manual editing: the HTTP bind address and port, the EC connection, and the Web UI login passwords can all be set from [Preferences → Remote Controls](../../interfaces/gui/preferences.md#remote-controls) or with the `amuleapi` command-line options. Edit this file directly to tune the settings that have no GUI field (the `[Auth]` and `[Streaming]` knobs).
+`amuleapi` creates the file from defaults on first run, so in most setups it needs no manual editing: the HTTP bind address and port, the EC connection, and the Web UI login passwords can all be set from [Preferences → Remote Controls](../../interfaces/gui/preferences.md#remote-controls); the login passwords can also be set with `amuleapi --set-admin-pass` / `--set-guest-pass`, and the other [command-line options](../../interfaces/amuleapi/index.md#command-line-options) override the file for a single run without saving to it. Edit this file directly to tune the settings that have no GUI field (the `[Auth]` and `[Streaming]` knobs).
 
 :::warning
-`amuleapi.conf` is created with permissions `0600` (owner read/write only), and `amuleapi` re-enforces `0600` on every load — on POSIX systems it **refuses to start** if the file is group- or world-readable. Keep these permissions if you edit the file.
+`amuleapi.conf` is created with permissions `0600` (owner read/write only), and `amuleapi` checks it on every load — on POSIX systems it **refuses to start** if the file has any group or other permission bit set (it does not fix the permissions itself; it prints the `chmod 600` command to run). Keep these permissions if you edit the file.
 :::
 
 ## Location and file name

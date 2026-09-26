@@ -31,12 +31,14 @@ All remote interfaces communicate with `amuled` through the **[External Connecti
 | `-f` | `--full-daemon` | Fork to background (daemonize). Without this flag `amuled` stays in the foreground. |
 | `-p <file>` | `--pid-file=<file>` | After forking, write the daemon's PID to `<file>` so a service manager can track it. |
 | `-w <path>` | `--use-amuleweb=<path>` | Specify the location of the `amuleweb` binary. |
-| `-i` | `--enable-stdin` | Do not close stdin (closed by default). |
-| `-d` | `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). |
+| `-i` | `--enable-stdin` | Do not close stdin (closed by default). Not available on Windows. |
+| `-d` | `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). Not available on Windows. |
 | `-t <n>` | `--category=<n>` | Set the category for passed eD2k links. |
-| | `--configure-autostart=on\|off` | Enable or disable starting `amuled` on user login, then exit. |
+| | `--configure-autostart=on\|off` | Enable or disable starting `amuled` on user login, then exit. The OS-specific store is selected automatically: Windows registry Run key, macOS LaunchAgent, Linux/BSD XDG `.desktop` autostart entry. On a headless server, use a [system service](#running-as-a-system-service) instead. |
+| | `--configure-protocols=<value>` | Enable or disable aMule as the current user's default handler for `ed2k://` and `magnet:` links, then exit. `<value>` is `on` or `off` for both schemes, or `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off` for one of them. The OS-specific store is selected automatically: Windows registry, macOS LaunchServices, Linux/BSD XDG `mimeapps.list`. |
+| | `--configure-file-assoc=on\|off` | Enable or disable aMule as the current user's handler for `.emulecollection` files, then exit. Uses the same OS-specific stores as `--configure-protocols`. |
 
-One or more eD2k links may be passed as positional arguments to add them to the download queue.
+One or more links may be passed as positional arguments: an [eD2k file link](../../p2p-networks/ed2k/links.md) is added to the download queue, an eD2k server or serverlist link to the server list, and a magnet link (it must contain the eD2k hash and file length) to the download queue. The argument can also be the path to an `.emulecollection` file, or a `file://` URL naming one, in which case every link it contains is added to the download queue.
 
 :::note
 Do not set an excessively high `MaxConnections` value in [`amule.conf`](../configuration/config-files/amule-conf.md). The default is around **500** and `amuled` adapts the recommended maximum to your operating system's capabilities. Setting it far too high wastes resources and can degrade performance.
@@ -77,10 +79,10 @@ echo -n yourpassword | md5sum | cut -d ' ' -f 1
 
 Copy the output (without trailing whitespace) into `ECPassword`.
 
-To restrict connections to the local machine only, also set:
+Since 3.1.0, a freshly created configuration listens for EC connections on the local machine only (`ECAddress=127.0.0.1`). An existing `amule.conf` keeps the value it already had. To accept EC connections from other machines, clear the address (empty = listen on all interfaces) or set it to the IP address of one local interface:
 
 ```ini
-ECAddress=127.0.0.1
+ECAddress=
 ```
 
 ## Starting amuled
@@ -100,6 +102,15 @@ amuled -f -p /run/amuled/amuled.pid
 :::note
 aMule creates a single-instance lock at `~/.aMule/muleLock` to prevent a second instance from starting with the same configuration. This is **not** a manageable PID file — use `-p` if you need one.
 :::
+
+## Verify Local Data
+
+**Verify Local Data** re-hashes a shared file's on-disk data against the MD4 (and, when a hashset is available, [AICH](../../p2p-networks/ed2k/aich.md)) hashes aMule has stored for it, to detect data that no longer matches. `amuled` has no interface of its own, so the operation is requested by a remote interface and run by the daemon:
+
+- [`amulegui`](./gui/amulegui.md) — right-click the file in [Shared Files → Verify Local Data](./gui/shared-files.md#other-menu-options). While the file is being re-hashed, its **Source Availability** bar shows the progress.
+- [`amuleapi`](./amuleapi/index.md) — `POST /api/v1/shared/{hash}/verify`, also available from the Web UI.
+
+The result is written to the daemon log (read it with `amulecmd -c "show log"`), as `Verify Local Data (MD4 & AICH): Result OK for <path>` or `Verify Local Data (MD4 & AICH): ERRORS FOUND! <path> Failed blocks: …` (`(MD4)` instead of `(MD4 & AICH)` when no AICH hashset was checked). A file that cannot be checked (for example, one that is still downloading) is skipped with a log line explaining why. `amulecmd` has no command for this operation.
 
 ## Running as a System Service
 
