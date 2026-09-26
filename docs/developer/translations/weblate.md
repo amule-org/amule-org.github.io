@@ -21,11 +21,7 @@ Everything lives in a single Weblate project, [aMule](https://hosted.weblate.org
 
 **Adding a language is an administrator action.** Translators cannot create one: Weblate's *Start new translation* button sends a request to the maintainers instead (this is the *Contact maintainers* setting described below), because the locale must also be registered in the repository before the translation files make sense there. An administrator handles both steps.
 
-**Translating is open to everyone.** Any Weblate account can edit any string of any existing language — there is no per-language permission for translators, and no membership to request. What a translator saves is a real translation, not a suggestion, but it is stored as *waiting for review* until somebody approves it.
-
-**Approval is what publishes a translation.** Only administrators and members of the **Review** team can mark a translation approved. Each reviewer is normally restricted to one or more languages and can only approve those — see [Adding reviewers](#adding-reviewers) for how administrators grant that.
-
-**Only approved translations leave Weblate.** The project's translation quality filter is set to *Only include approved translations*, so anything still waiting for review stays inside Weblate: it is not written to the translation files, and it is not part of the pull request Weblate opens against the repository. This is why a saved translation can be visible in Weblate and still absent from aMule.
+**Translating is open to everyone; approval is not.** Any Weblate account can edit any string of any existing language that is not yet approved (approved strings can only be changed by reviewers; others can add suggestions), but what it saves is stored as *waiting for review*. Only administrators and members of the **Review** team can approve it, and only approved translations are written to the files and included in Weblate's pull requests (see the workflow settings [below](#for-weblate-administrators)). The contributor-facing explanation — translation states, *Save* versus *Suggest*, and how to become a reviewer — is in [Translating aMule](../../contributing/translating.md).
 
 End to end:
 
@@ -56,12 +52,12 @@ Also enable the **Squash Git commits** add-on, with **Commit squashing** set to 
 
 Also at the project level, under **aMule → Settings → Workflow**:
 
-- **Enable reviews** is turned on: anyone on Weblate can change a translation, but the change stays *waiting for review* until a reviewer or an administrator approves it.
+- **Enable reviews** is turned on: anyone on Weblate can change a translation that is not yet approved (approved strings can only be changed by reviewers), but the change stays *waiting for review* until a reviewer or an administrator approves it.
 - **Translation quality filter** is set to *Only include approved translations*: only reviewer-approved translations are written to the files and included in Weblate's pull requests.
 
 ### Adding reviewers
 
-Reviewers are added in **aMule → Operations → Users → Teams → Review**. A reviewer can be *global* (able to approve every language) or restricted to *specific languages*. Prefer restricting each reviewer to specific languages: Weblate then lists them in the UI for those languages, so contributors can see and contact the reviewer responsible for a given language.
+Contributors ask to become reviewers by opening an issue, as described in [Becoming a Reviewer](../../contributing/translating.md#becoming-a-reviewer). Reviewers are added in **aMule → Operations → Users → Teams → Review**. A reviewer can be *global* (able to approve every language) or restricted to *specific languages*. Prefer restricting each reviewer to specific languages: Weblate then lists them in the UI for those languages, so contributors can see and contact the reviewer responsible for a given language.
 
 ### Synchronizing with git
 

@@ -190,6 +190,7 @@ const sidebars: SidebarsConfig = {
       link: {type: 'doc', id: 'contributing/index'},
       items: [
         'contributing/bug-report',
+        'contributing/translating',
       ],
     },
   ],
