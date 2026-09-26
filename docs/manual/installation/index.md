@@ -5,6 +5,10 @@ title: Installation
 
 aMule is a multi-platform eD2k / Kad client, officially supported on **Windows, macOS, Linux, FreeBSD and OpenBSD** (x86\_64 and ARM64). As portable C++/wxWidgets code it can usually be compiled on other Unix-like systems and CPU architectures too, though those are not officially supported.
 
+:::tip
+Reinstalling aMule or moving it to a new computer? See [Backup and Restore](../migration/backup-restore.md) to keep your settings, credits and downloads.
+:::
+
 ## Supported Platforms
 
 The project publishes **official pre-built binaries** only for Windows, macOS and Linux; on the other supported platforms aMule is installed through the system package manager or [built from source](#building-from-source). Version and architecture requirements for the official binaries are listed in each platform's section below.
@@ -70,7 +74,7 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
 
 The last four are per-user settings that can be changed later in [Preferences → General](../interfaces/gui/preferences.md#general); see [eD2k and Magnet Links](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) for the link and file associations.
 
-The installer creates Start menu shortcuts — in a folder you choose on its **Choose Start Menu Folder** page — for **aMule**, **aMule Daemon** ([`amuled`](../interfaces/amuled.md)), **aMuleGUI (remote)** ([`amulegui`](../interfaces/gui/amulegui.md)) and **Uninstall aMule**, and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`). The uninstaller keeps this folder, so your settings and downloads are preserved, unless you tick **Remove user data (config, ED2K servers, Kad nodes, partfiles)** (off by default). When you upgrade, your configuration is kept, but the components are applied again as selected: tick **Start aMule when I log in** and **Register aMule for magnet: links** again if you use them.
+The installer creates Start menu shortcuts — in a folder you choose on its **Choose Start Menu Folder** page — for **aMule**, **aMule Daemon** ([`amuled`](../interfaces/amuled.md)), **aMuleGUI (remote)** ([`amulegui`](../interfaces/gui/amulegui.md)) and **Uninstall aMule**, and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`). The uninstaller keeps this folder, so your settings and downloads are preserved, unless you tick **Remove user data (config, ED2K servers, Kad nodes, partfiles)** (off by default); to keep a copy anyway, see [Backup and Restore](../migration/backup-restore.md). When you upgrade, your configuration is kept, but the components are applied again as selected: tick **Start aMule when I log in** and **Register aMule for magnet: links** again if you use them.
 
 ### Portable
 

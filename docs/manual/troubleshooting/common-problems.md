@@ -124,6 +124,8 @@ rm ~/.aMule/preferences.dat
 
 Start aMule fresh and begin rebuilding credits. For how credits work, see [FAQ → Credits, bandwidth and upload](/docs/manual/faq#credits-bandwidth-and-upload).
 
+To avoid this, keep a backup of your configuration directory — see [Backup and Restore](../migration/backup-restore.md).
+
 ## Why is aMule ignoring the bandwidth I set per slot?
 
 aMule does not give each slot exactly the value you configured. The number of upload slots is derived from your upload limit and the slot allocation:

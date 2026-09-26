@@ -197,7 +197,11 @@ These files contain the current **online signature** — the current aMule statu
 
 #### How can I switch from eMule to aMule without losing my credits?
 
-Credits are stored in a handful of `.dat` and `.met` files (starting with [`cryptkey.dat`](configuration/config-files/index.md#cryptkeydat)). Copying them from eMule's config directory into `~/.aMule` preserves your credits. The [Migrate from eMule to aMule](migration/migrate-from-emule.md) guide lists every file and walks through the full process.
+Your credits are kept by other clients and tied to your identity files, [`cryptkey.dat`](configuration/config-files/index.md#cryptkeydat) and [`preferences.dat`](configuration/config-files/index.md#preferencesdat) (see [Backup and Restore → Credits](migration/backup-restore.md#credits)). Copying them, along with the other `.dat` and `.met` files, from eMule's config directory into `~/.aMule` preserves your credits. The [Migrate from eMule to aMule](migration/migrate-from-emule.md) guide lists every file and walks through the full process.
+
+#### How do I back up aMule or move it to a new computer?
+
+Close aMule and copy its whole [configuration directory](configuration/config-files/index.md#platform-paths) (`%APPDATA%\aMule\` on Windows, `~/Library/Application Support/aMule/` on macOS, `~/.aMule/` on Linux / BSD), plus any download directory stored outside it. To restore, copy the folder back to the same place before starting aMule. Restoring [`cryptkey.dat`](configuration/config-files/index.md#cryptkeydat) and [`preferences.dat`](configuration/config-files/index.md#preferencesdat) keeps your credits. The [Backup and Restore](migration/backup-restore.md) guide covers the full process.
 
 ### Credits, bandwidth and upload
 

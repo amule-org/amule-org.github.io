@@ -115,6 +115,6 @@ Two things confirm it is working:
 - `cryptkey.dat` exists in the [configuration directory](../../manual/configuration/config-files/index.md). It holds the private key and is created on the first start that finds it missing, which is also logged as `No 'cryptkey.dat' file found, creating.`
 - The **Client Details** dialog of a connected peer shows an identification line, which reads **Verified - OK** once that peer's signature has been checked.
 
-Keep the key file: deleting `cryptkey.dat` generates a new identity, and every peer that had credited your old one no longer recognises you. Back it up along with `preferences.dat` when moving to a new machine, as described in [Migration](../../manual/migration/index.md).
+Keep the key file: deleting `cryptkey.dat` generates a new identity, and every peer that had credited your old one no longer recognises you. Back it up along with `preferences.dat` when moving to a new machine, as described in [Backup and Restore](../../manual/migration/backup-restore.md#credits).
 
 Disabling the option stops your client from signing challenges, so peers stop crediting your uploads. There is no good reason to turn it off.

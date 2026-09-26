@@ -515,7 +515,7 @@ wxFileConfig (the INI library used by aMule) escapes spaces in key names with a 
 | `Cat_Kademlia Indexing` | Kademlia indexing: publish and store operations. |
 | `Cat_Kademlia Main Thread` | Kademlia main thread coordination. |
 | `Cat_Kademlia Preferences` | Kademlia configuration and preference handling. |
-| `Cat_PartFileConvert` | Part-file import/conversion tool. |
+| `Cat_PartFileConvert` | Part-file [import tool](../../migration/import-tool.md). |
 | `Cat_MuleUDPSocket` | Base UDP socket class used by all UDP subsystems. |
 | `Cat_ThreadScheduler` | Thread scheduler: task queue and worker threads. |
 | `Cat_Universal Plug and Play` | UPnP port mapping requests and responses. |

@@ -108,7 +108,7 @@ Each of these buttons is described in detail on the [Toolbar](./toolbar.md) page
 | `Toolbar_Messages.png` | [Messages](./messages.md) window button |
 | `Toolbar_Stats.png` | [Statistics](./statistics.md) window button |
 | `Toolbar_Prefs.png` | [Preferences](./preferences.md) window button |
-| `Toolbar_Import.png` | [Import](../../migration/import.md) window button |
+| `Toolbar_Import.png` | [Import Tool](../../migration/import-tool.md) window button |
 | `Toolbar_About.png` | About window button |
 | `Toolbar_Blink.png` | Blink/notification indicator |
 

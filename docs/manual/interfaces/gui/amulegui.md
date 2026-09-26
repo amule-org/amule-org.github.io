@@ -14,7 +14,7 @@ If your connection to the `amuled` host is slow or unreliable, consider using [`
 ### Known Limitations
 
 - Feature parity with the local `amule` GUI is the design goal but may lag behind in practice. Settings the remote GUI cannot apply to the core are hidden in its [Preferences](#preferences-in-amulegui).
-- The **Import** [toolbar](./toolbar.md) button is not available.
+- The **Import** [toolbar](./toolbar.md) button is not available (see [Import Tool](../../migration/import-tool.md)).
 
 ## Installation
 

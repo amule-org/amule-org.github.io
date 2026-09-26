@@ -32,7 +32,7 @@ The last buttons, after the separator, open secondary windows:
 | Button | Shortcut | Opens |
 |---|---|---|
 | **Preferences** | `Alt+P` | [Preferences window](./preferences.md) — all aMule settings |
-| **Import** | — | [Part-file importer](../../migration/import.md) — import eDonkey2000 part files. Not available in [`amulegui`](./amulegui.md). |
+| **Import** | — | [Import Tool](../../migration/import-tool.md) — import eDonkey2000 part files. Not available in [`amulegui`](./amulegui.md). |
 | **About** | — | About window — aMule version, copyright, and links to the website, forum, documentation and issue tracker |
 
 In builds with the new-version check (the official release bundles; builds from OS package managers usually leave it out), the About window also has a **Check for updates** button that reports whether you are running the latest release or which newer version is available.

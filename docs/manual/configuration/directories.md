@@ -11,6 +11,10 @@ All three are configured in [**Preferences → Directories**](../interfaces/gui/
 This page explains the directories related to **downloading files**. aMule's own configuration lives in a separate directory, described in [Configuration Files](./config-files/index.md).
 :::
 
+:::tip
+When you back up aMule or move it to a new computer, any download directory outside the configuration directory needs its own backup. See [Backup and Restore](../migration/backup-restore.md#downloads).
+:::
+
 ## Incoming Directory
 
 Completed files are moved here when the download finishes and all [chunks](../../p2p-networks/ed2k/index.md#chunks) have been hash-verified. This is the folder you open to find your downloaded files.
@@ -65,7 +69,7 @@ Each in-progress download is represented by a group of files in the Temp directo
 | `<NNN>.part.met.seeds` | Up to 10 known source addresses for the file. Only created when *Save sources for rare files* is enabled, and only for rare files (those with 20 sources or fewer). |
 
 :::tip
-If you have in-progress downloads from eMule, copy their `.part` and `.part.met` files into aMule's Temp directory. aMule will re-hash them and resume the downloads automatically on the next start. See [Migrate from eMule](../migration/migrate-from-emule.md) for the full migration guide.
+If you have in-progress downloads from eMule, copy their `.part` and `.part.met` files into aMule's Temp directory. aMule will re-hash them and resume the downloads automatically on the next start. See [Migrate from eMule](../migration/migrate-from-emule.md) for the full migration guide. For other clients (mlDonkey, eDonkey2000, xMule), see [Migrate from Other Clients](../migration/migrate-from-other-clients.md).
 :::
 
 ## Per-Category Incoming Folders

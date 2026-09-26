@@ -21,6 +21,10 @@ On macOS, whenever this reference writes `~/.aMule/`, it means `~/Library/Applic
 These are aMule's **configuration** paths. For the **download** directories (Incoming, Temporary, and shared folders), see [Directories](../directories.md).
 :::
 
+:::tip
+To back up aMule or move it to a new computer, copy this whole directory. See [Backup and Restore](../../migration/backup-restore.md).
+:::
+
 ### Portable configuration (running from a USB drive)
 
 If a directory named `config` exists next to the aMule executable (in its working directory) and already contains an `amule.conf`, aMule reads and writes its configuration there instead of the platform path above. This makes it possible to run a fully self-contained, portable aMule — for example from a USB drive — without touching the host machine's user profile.
@@ -133,6 +137,8 @@ Contains the client's **384-bit RSA private key**, used for [Secure User Identif
 :::warning
 This file contains your private key. Never share it. If it is compromised, anyone can impersonate your client on the eD2k network.
 :::
+
+Keep a backup of this file together with [`preferences.dat`](#preferencesdat): the credits other clients have granted you are tied to both, and losing `cryptkey.dat` loses them. See [Backup and Restore](../../migration/backup-restore.md#credits).
 
 For its storage format, see the [`cryptkey.dat` format reference](../../../developer/file-formats/index.md#cryptkeydat).
 

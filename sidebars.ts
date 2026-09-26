@@ -99,9 +99,10 @@ const sidebars: SidebarsConfig = {
           label: 'Migration',
           link: {type: 'doc', id: 'manual/migration/index'},
           items: [
-            'manual/migration/import',
+            'manual/migration/import-tool',
+            'manual/migration/backup-restore',
             'manual/migration/migrate-from-emule',
-            'manual/migration/import-export',
+            'manual/migration/migrate-from-other-clients',
           ],
         },
         {

@@ -1,14 +1,14 @@
 ---
-id: import-export
-title: Import/Export Files
+id: migrate-from-other-clients
+title: Migrate from Other Clients
 ---
 
-If you are switching to aMule from another [eD2k](../../p2p-networks/ed2k/index.md) client and the two clients use incompatible temporary file formats, you cannot simply copy the [`.part`](../configuration/config-files/index.md#temporary-download-files) files from one client's temp directory to the other. This guide describes a universal method to transfer in-progress downloads between any two eD2k clients using a local connection.
+If you are switching to aMule from another [eD2k](../../p2p-networks/ed2k/index.md) client and the two clients use incompatible temporary file formats, you cannot simply copy the [`.part`](../configuration/config-files/index.md#temporary-download-files) files from one client's temp directory to the other. This guide describes a universal method that moves in-progress downloads to aMule over a local eD2k connection, plus direct-conversion alternatives for eDonkey2000 and mlDonkey.
 
 :::note
 This issue primarily affects migrations from [**mlDonkey**](../../p2p-networks/ed2k/clients.md#mldonkey-2001present), [**eDonkey2000**](../../p2p-networks/ed2k/clients.md#edonkey2000-20002005), and certain [**xMule**](../../p2p-networks/ed2k/clients.md#xmule-20032009) versions. eMule's format is directly compatible with aMule; see [Migrate from eMule](./migrate-from-emule.md) instead.
 
-For eDonkey2000 specifically, aMule also includes a built-in import tool — see [Import](./import.md).
+For eDonkey2000, aMule also includes a built-in import tool — see [Import Tool](./import-tool.md). For mlDonkey, see the [mlDonkey importer script](#alternative-mldonkey-importer-script).
 :::
 
 ## When This Is Needed
@@ -58,11 +58,11 @@ Once all files have been fully downloaded to aMule, remove the old client from y
 
 - **Chunk boundary losses**: the eD2k protocol shares data in whole parts (a *part*, or chunk, is 9.28 MB), and a peer only offers a part to others once that part is fully complete. Any partially completed part must therefore be re-downloaded. For large files this means losing at most one part (~9.28 MB), which is typically 5% or less of the already-downloaded data.
 - **Worst case for small files**: if you have many files smaller than ~9.28 MB (one eD2k part), an incomplete part can represent most of the file's data — up to 100% if the file's single part was never completed. In such cases it may be faster to finish downloading those specific files in the old client before switching to aMule.
-- **Temporary disk space**: you need free disk space for both the original temporary files and the new aMule temporary files simultaneously. To minimise this, import one file at a time and delete the old temporary file after each successful import.
+- **Temporary disk space**: you need free disk space for both the original temporary files and the new aMule temporary files simultaneously. To minimise this, transfer one file at a time and delete the old temporary file after each file completes in aMule.
 
-## Alternative: aMule's Import Tool
+## Alternative for eDonkey2000: Import Tool
 
-aMule includes an optimised **Import** tool that can directly read some clients' temporary file formats without a peer-to-peer transfer. See [Import](./import.md) for details.
+aMule's built-in **Import** tool reads eDonkey2000 temporary files directly, without a peer-to-peer transfer. See [Import Tool](./import-tool.md) for details.
 
 ## Alternative: mlDonkey Importer Script
 

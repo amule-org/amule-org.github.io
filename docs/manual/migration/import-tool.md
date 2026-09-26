@@ -1,6 +1,6 @@
 ---
-id: import
-title: Import
+id: import-tool
+title: Import Tool
 ---
 
 The Import tool integrates [eDonkey2000](../../p2p-networks/ed2k/index.md) part files into aMule so you can continue downloads that were in progress in eDonkey2000 without starting over. aMule detects the part files, converts them to its own format, and adds them to the [download queue](../interfaces/gui/downloads.md#download-queue).
@@ -12,7 +12,7 @@ Open the Import tool by clicking the **Import** button in the [toolbar](../inter
 :::note
 If you are migrating from **eMule**, the temporary file format is directly compatible — no import needed. See [Migrate from eMule](./migrate-from-emule.md) for the full migration guide.
 
-If you are migrating from a client other than eDonkey2000 (e.g., mlDonkey or xMule), see [Import/Export Files](./import-export.md) for an alternative approach.
+If you are migrating from a client other than eDonkey2000 (e.g., mlDonkey or xMule), see [Migrate from Other Clients](./migrate-from-other-clients.md) for an alternative approach.
 :::
 
 ## Adding Files
