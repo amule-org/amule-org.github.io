@@ -14,13 +14,10 @@ aMule uses **CMake** (minimum version 3.10) as its build system. This page cover
 | CMake | 3.10 | Build system |
 | zlib | 1.2.3 | Compression |
 | wxWidgets | 3.2.0 | GUI toolkit (3.2 branch or newer) |
-| Crypto++ | 5.6 | Cryptographic functions — classic or cryptopp-modern |
+| Crypto++ | 8.1 | Hashing (MD4, MD5, SHA-1), RSA and [EC encryption](../ec-protocol.md#transport-encryption) — classic or cryptopp-modern |
 | Boost | 1.70 | Headers only; only `asio` is used |
 
-The Crypto++ row accepts either the classic
-[weidai11/cryptopp](https://github.com/weidai11/cryptopp) library (minimum
-5.6) or the [cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern)
-fork (any release). The cmake check disambiguates the two by `CRYPTOPP_VERSION`.
+The Crypto++ row accepts either the classic [weidai11/cryptopp](https://github.com/weidai11/cryptopp) library (minimum 8.1, the first release with the ChaCha20-Poly1305 cipher used by EC encryption) or the [cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork (any release). The cmake check disambiguates the two by `CRYPTOPP_VERSION`: cryptopp-modern uses a calendar-style version number and is accepted without a minimum check. Since aMule 3.1.0, Crypto++ also provides SHA-1 and MD5 — aMule no longer ships its own implementations.
 
 wxWidgets must be built with Unicode support (the default since wx 3.0). aMule is Unicode-only.
 
@@ -70,6 +67,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_DAEMON` | NO | [`amuled`](../../manual/interfaces/amuled.md) — headless daemon |
 | `BUILD_REMOTEGUI` | NO | [`amulegui`](../../manual/interfaces/gui/amulegui.md) — remote control GUI |
 | `BUILD_WEBSERVER` | NO | [`amuleweb`](../../manual/interfaces/amuleweb.md) — legacy WebUI (HTTP web interface) |
+| `BUILD_AMULEAPI` | NO | [`amuleapi`](../../manual/interfaces/amuleapi/index.md) — REST API daemon and [Web UI](../../manual/interfaces/amuleapi/web-ui.md) |
 | `BUILD_AMULECMD` | NO | [`amulecmd`](../../manual/interfaces/amulecmd.md) — CLI client for the daemon |
 | `BUILD_ED2K` | YES | [`ed2k`](../../manual/utilities/ed2k.md) — eD2k link handler helper |
 | `BUILD_ALC` | NO | [`alc`](../../manual/utilities/alc-alcc.md) — aMuleLinkCreator GUI |
@@ -77,12 +75,14 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `BUILD_CAS` | NO | [`cas`](../../manual/utilities/wxcas-cas.md) — C statistics tool (Unix only) |
 | `BUILD_WXCAS` | NO | [`wxcas`](../../manual/utilities/wxcas-cas.md) — GUI statistics tool |
 | `BUILD_FILEVIEW` | NO | [`fileview`](../file-formats/fileview.md) — console file viewer (experimental) |
-| `BUILD_TESTING` | YES | [Unit test suite](../testing.md) |
+| `BUILD_TESTING` | NO | [Unit test suite](../testing.md) |
 | `ENABLE_NLS` | YES | [Native-language support](../translations/index.md) (gettext) |
 | `TRANSLATED_MANPAGES` | YES | [Translated man pages](#translated-man-pages) rendered via po4a (requires `ENABLE_NLS`; skipped with a notice if po4a is not found) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `ENABLE_IP2COUNTRY` | YES | IP→country mapping (libmaxminddb) |
-| `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
+| `ENABLE_MMAP` | YES | Compile the memory-mapped file I/O path where the platform supports it. Whether it is used is the runtime preference [`MMapEnabled`](../../manual/configuration/config-files/amule-conf.md) (off by default); set this option `NO` only to leave the mmap code out entirely (e.g. sanitizer builds) |
+| `ENABLE_BFD` | YES | Use `libbfd` for in-process backtrace symbol resolution in crash reports; `NO` falls back to `backtrace_symbols()` plus an external `addr2line` |
+| `USE_SYSTEM_PICOJSON` | NO | Build `amuleapi` against a system-installed picojson instead of the bundled copy |
 | `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
 | `ENABLE_CCACHE` | AUTO | Use [ccache](https://ccache.dev/) as compiler launcher when found (`AUTO`/`ON`/`OFF`). Set `OFF` for distro builds that wrap the compiler themselves; set `ON` to hard-fail when ccache is missing |
 | `ENABLE_VERSION_CHECK` | ON | Compile in the [in-app new-version check](../../quickstart-guide.md#version-check): the startup and daily check with its notification, the **Periodically check for a new version** preference and the About window's **Check for updates** button. Set `OFF` for OS-package builds: the whole feature is compiled out, nothing contacts GitHub, and the distro's package manager owns updates |
@@ -101,12 +101,14 @@ cmake -B build \
     -DBUILD_DAEMON=YES \
     -DBUILD_REMOTEGUI=YES \
     -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULEAPI=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
     -DBUILD_ALC=YES \
     -DBUILD_ALCC=YES \
     -DBUILD_CAS=YES \
     -DBUILD_WXCAS=YES \
+    -DBUILD_FILEVIEW=YES \
     -DBUILD_TESTING=YES \
     -DENABLE_NLS=YES \
     -DENABLE_UPNP=YES \
@@ -119,7 +121,23 @@ Or, using the `BUILD_EVERYTHING` shorthand:
 cmake -B build -DBUILD_EVERYTHING=YES
 ```
 
-`BUILD_EVERYTHING` turns on every build target (`BUILD_*`). It does not touch the `ENABLE_*` toggles, but `ENABLE_NLS`, `ENABLE_UPNP`, and `ENABLE_IP2COUNTRY` are all `YES` by default, so a default `BUILD_EVERYTHING` invocation produces a full-feature build provided their respective libraries (`gettext`, `libupnp`, `libmaxminddb`) are installed.
+`BUILD_EVERYTHING` turns on every program target (`BUILD_*`; `cas` on Unix only), except `BUILD_TESTING`, which must still be enabled separately. It does not touch the `ENABLE_*` toggles, but `ENABLE_NLS`, `ENABLE_UPNP`, and `ENABLE_IP2COUNTRY` are all `YES` by default, so a default `BUILD_EVERYTHING` invocation produces a full-feature build provided their respective libraries (`gettext`, `libupnp`, `libmaxminddb`) are installed.
+
+### Experimental Options
+
+These switches compile in unfinished features. They are all `NO` by default, a build without them behaves exactly like the upstream release, and nothing they enable is exposed as a user preference. See [Experimental Groundwork](../index.md#experimental-groundwork).
+
+| Option | Default | Enables |
+|---|---|---|
+| `ENABLE_UTP` | NO | Experimental IPv4 uTP transport in `amule`/`amuled`: datagram framing, inbound streams and dialing peers that advertise it (vendored libutp; requires CMake ≥ 3.12). aMule does not advertise uTP itself |
+| `ENABLE_IPV6` | NO | Experimental native IPv6 TCP admission (the IPv6 identity migration is still incomplete) |
+| `ENABLE_KAD_PROTOCOL_10` | NO | Advertise Kademlia protocol version `0x0a` (instead of `0x08`) and the AICH hashes on keyword storage introduced by Kad `0x09` |
+| `ENABLE_KAD_NODE_PROTECTION` | NO | Local Kad node-protection heuristics: adaptive request timeouts and Kad identity protections (no wire-protocol change) |
+| `ENABLE_ALL_EXPERIMENTAL` | NO | Turn on every switch above at once. It overrides the individual switches, so `-DENABLE_X=NO` cannot exclude one while it is on — to build all but one, name the others individually |
+
+:::warning
+Experimental options are for development and testing only. Do not enable them in release or distribution packages.
+:::
 
 ### Debug Build
 

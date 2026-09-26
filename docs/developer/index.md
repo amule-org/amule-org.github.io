@@ -22,7 +22,7 @@ aMule is distributed as several binaries that share the same on-disk state in `~
 | [`cas`](../manual/utilities/wxcas-cas.md) / [`wxcas`](../manual/utilities/wxcas-cas.md) | C and wxWidgets statistics tools — read the `amulesig.dat` online signature file. |
 | [`fileview`](file-formats/fileview.md) | Diagnostic tool that dumps the contents of aMule's eD2k and Kad data files. |
 
-`amuled`, `amulegui`, `amuleapi`, `amulecmd`, and `amuleweb` communicate over the **External Connections (EC) protocol**, a custom binary protocol over a TCP connection. See [EC Protocol](ec-protocol.md) for the full specification.
+`amuled`, `amulegui`, `amuleapi`, `amulecmd`, and `amuleweb` communicate over the **External Connections (EC) protocol**, a custom binary protocol over a TCP connection. See [EC Protocol](ec-protocol.md) for an overview. To build applications or scripts on top of aMule, use the [`amuleapi` REST API](../manual/interfaces/amuleapi/index.md) instead.
 
 ## Source Tree Layout
 
@@ -45,14 +45,21 @@ amule/
 │   │   └── utils/          # UInt128, KadUDPKey, KadClientSearcher
 │   ├── utils/              # Standalone utilities (alc, alcc, cas, wxcas, fileview)
 │   ├── webserver/          # amuleweb HTTP server
+│   ├── webapi/             # amuleapi REST/SSE daemon and the Web UI (static/)
+│   ├── libwebcommon/       # amuleapi support library (credential store, …), also linked by the core
+│   ├── extern/             # Vendored third-party libraries
 │   └── libs/
 │       ├── common/         # Shared helpers: Path, Format, MD5Sum, StringFunctions, etc.
-│       └── ec/             # EC protocol client library (used by amulegui, amulecmd)
-├── unittests/              # MuleUnit-based test suite
+│       └── ec/             # EC protocol library (core and every EC client)
+├── unittests/              # Test suites
+│   ├── muleunit/           # MuleUnit test framework
+│   ├── tests/              # Unit tests
+│   └── curl-tests/         # amuleapi (and amuleweb smoke) HTTP tests
 ├── cmake/                  # CMake find-modules and build options
 ├── docs/
 │   ├── INSTALL.md          # Build instructions (authoritative)
 │   ├── EC_Protocol.md      # EC protocol specification
+│   ├── api/                # amuleapi REST (REFERENCE.md) and SSE (EVENTS.md) contracts
 │   ├── translations.md     # Translation workflow
 │   └── man/                # Man pages + po4a translation infrastructure
 ├── po/                     # UI translation .po files
@@ -77,13 +84,16 @@ The GUI is built with **wxWidgets** (minimum version 3.2.0). It is completely se
 
 ### Remote Control (EC Protocol)
 
-`amuled` listens on a configurable TCP port (default: 4712) for External Connections. Clients authenticate with a salted MD5 challenge-response (the server sends a random salt, the client replies with `MD5(MD5(password) + MD5(salt))`), then exchange structured binary packets to query state and issue commands. The protocol is documented in [EC Protocol](ec-protocol.md).
+`amuled` listens on a configurable TCP port (default: 4712) for External Connections. Clients authenticate with a salted challenge-response (the server sends a random salt, the client replies with a hash of the password and the salt) and, since aMule 3.1.0, negotiate authenticated encryption of the session (X25519 key exchange, AES-128-GCM or ChaCha20-Poly1305). They then exchange structured binary packets to query state and issue commands. See [EC Protocol](ec-protocol.md) for an overview and links to the specification.
+
+[`amuleapi`](../manual/interfaces/amuleapi/index.md) is itself an EC client: it translates EC into a JSON REST API and an SSE event stream, and is the recommended interface for applications and scripts.
 
 ### File Transfer
 
 - Files in progress are stored as [`<NNN>.part` + `<NNN>.part.met`](file-formats/part-met.md) — sequentially numbered (e.g. `001.part`) — in the Temp directory (see [Directories](../manual/configuration/directories.md#temporary-directory)).
 - Completed files are moved to the Incoming directory.
 - File integrity is verified using [**AICH**](../p2p-networks/ed2k/aich.md) (Advanced Intelligent Corruption Handling) — a Merkle-tree-like hash structure that allows per-chunk verification and selective re-download of corrupted parts.
+- The core's hashing (MD4, MD5, SHA-1) and the RSA/[Secure User Identification](../p2p-networks/ed2k/secure-user-identification.md) code use **Crypto++**. Since aMule 3.1.0 aMule no longer carries its own SHA-1 and MD5 implementations: `src/SHA.*` and `src/libs/common/MD5Sum.*` are thin wrappers around Crypto++, which uses hardware SHA instructions where the CPU provides them.
 
 ### Kademlia
 
@@ -92,6 +102,18 @@ aMule includes a full implementation of the **[Kademlia DHT](../p2p-networks/kad
 - `CUInt128` — 128-bit unsigned integer used as node/file identifiers.
 - `CRoutingZone` — the routing table, organized as a binary tree of zones; each zone is either an internal node (with two sub-zones) or a leaf node holding a *bin* of contacts.
 - `CContact` — a single Kad peer (IP, port, type, last-seen time).
+
+### Experimental Groundwork
+
+aMule 3.1.0 contains groundwork for future networking features that is **not switched on**: a stock build behaves exactly as before, and none of it is exposed as a preference or config key. It is compiled in only with the build switches listed under [Experimental Options](compilation/index.md#experimental-options), which are meant for development and testing only.
+
+- **Addressing** — an IPv6-capable network address type (`NetworkAddress.*`), typed peer identity (`PeerIdentity.h`, `PeerAddressing.h`) and address-aware security and filtering. Inbound IPv6 connections are refused unless the build enables `ENABLE_IPV6`.
+- **uTP transport** — a uTP (µTorrent Transport Protocol) transport for peer connections (`Utp*`, vendored libutp in `src/extern/libutp/`), compiled in only with `ENABLE_UTP`.
+- **Kademlia** — Kad protocol 0x0a (`ENABLE_KAD_PROTOCOL_10`) and adaptive timeouts/identity protections (`ENABLE_KAD_NODE_PROTECTION`).
+
+### Peer Protocol Extensions
+
+Independently of the groundwork above, every aMule 3.1.0 build recognises the vendor capability bits sent by eMuleAI-based clients (extended source exchange, NAT traversal over uTP or QUIC, IPv6, serving buddy pull). They are decoded and shown read-only as **Protocol extensions** in [Client Details](../manual/interfaces/gui/client-details.md), and exposed over EC and the REST API; reserved protocol frames from those clients are recognised and dropped. aMule does not advertise any of these capabilities itself.
 
 ## Code Documentation
 
@@ -174,7 +196,7 @@ See [Debugging](debugging.md) for instructions on:
 
 - [Compilation](compilation/index.md) — build system, dependencies, and platform-specific notes
 - [Debugging](debugging.md) — GDB backtraces and valgrind usage
-- [Testing](testing.md) — unit tests and virtual test network
+- [Testing](testing.md) — unit tests, `amuleapi` integration tests and virtual test network
 - [Translations](./translations/index.md) — gettext workflow and po4a for man pages
 - [Documentation](./documentation.md) — documentation website structure, writing guidelines, and PR workflow
 - [Coding Style](./code-style.md) — formatting, naming, and forbidden patterns

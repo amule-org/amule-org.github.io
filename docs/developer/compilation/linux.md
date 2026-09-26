@@ -137,6 +137,7 @@ cmake -B build \
     -DBUILD_DAEMON=YES \
     -DBUILD_REMOTEGUI=YES \
     -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULEAPI=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
     -DBUILD_CAS=YES \
@@ -232,14 +233,10 @@ This is a warning, not an error — aMule still builds and runs, but the [tray i
 ### `crypto++` version too old
 
 ```
-CMake Error: crypto++ version <X.Y> is too old
+CMake Error: crypto++ version <X.Y.Z> is too old
 ```
 
-CMake requires classic Crypto++ ≥ 5.6 *or* any release of the
-[cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork.
-Some older distributions (Ubuntu 18.04 LTS, RHEL 7) ship an older classic
-version. Either build Crypto++ from source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)),
-install cryptopp-modern instead, or upgrade to a supported distribution release.
+CMake requires classic Crypto++ ≥ 8.1 *or* any release of the [cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork. Some older distributions ship an older classic version. Either build Crypto++ from source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)), install cryptopp-modern instead, or upgrade to a supported distribution release.
 
 ### `libupnp` not found
 
