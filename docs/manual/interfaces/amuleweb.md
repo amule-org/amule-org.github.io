@@ -27,7 +27,9 @@ Available functionality through the legacy WebUI:
 - Add [eD2k links](../../p2p-networks/ed2k/links.md) directly via the footer **Download link** form.
 - Change some aMule options.
 
-The default template was modernized in aMule 3.0.1: an HTML5 doctype, UTF-8 encoding, presentational markup consolidated into `style.css`, and a refreshed favicon. Alongside the cleanup came select-all checkboxes on file tables, download and delete actions that confirm with a file count, and an auto-refresh that pauses while rows are selected.
+The default template was modernized in aMule 3.0.1: an HTML5 doctype, UTF-8 encoding, presentational markup consolidated into `style.css`, and a refreshed favicon. Alongside the cleanup came select-all checkboxes on file tables, download and delete actions that confirm with a file count, an auto-refresh that pauses while rows are selected and no longer triggers the browser's form-resubmission prompt, button tooltips, and consistent button styles and size/speed units.
+
+The same release hardened it against cross-site scripting (remote-controlled strings are escaped and the search sort parameter is whitelisted), and its embedded web server now parses HTTP requests more robustly.
 
 ## Command-Line Options
 

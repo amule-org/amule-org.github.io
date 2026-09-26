@@ -431,7 +431,7 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 | `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Downloads window. |
 | `[GUI/SharedWnd] Splitter` | `463` | Vertical splitter position (pixels) in the Shared Files window. |
 | `[GUI/SharedWnd] ShowClientList` | `1` | Show the client list panel in the Shared Files window. |
-| `[GUI/SharedWnd] ClientShowMode` | `0` | Which clients the Shared Files client list shows. `0` = clients of all shared files, `1` = clients of the selected file only. |
+| `[GUI/SharedWnd] ClientShowMode` | `0` | Which clients the Shared Files client list shows. `0` = clients of all shared files, `1` = clients of the selected file only, `2` = active uploads only. |
 
 ## `[General]` section
 

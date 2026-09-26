@@ -96,7 +96,7 @@ Options for aMule's file system paths. For full details — default locations on
 | | **Normal font** — directory is not shared. **Bold font** — directory is shared. **Yellow folder** — no subdirectories marked as shared. **Red folder** — subdirectories are marked as shared. |
 | | In `amulegui` the tree is replaced by a list of the folders shared by the core: type an absolute path on the core's machine, tick **Recursive** to also share every sub-folder (including ones created later), and click **Add**; select an entry and click **Remove** to stop sharing it. |
 | **Share hidden files** | Include hidden files from shared directories. |
-| **Automatically rescan shared folders for changes** | Periodically rescan the shared folders so files added or removed outside aMule are picked up automatically. |
+| **Automatically rescan shared folders for changes** | Watch the shared folders so files added, changed, removed or renamed outside aMule are picked up automatically. |
 | **Follow symbolic links in shared folders** | Follow symbolic links (to files or directories) when scanning shared folders. Enabled by default; disable it to skip symlinked entries. |
 | **Exclude files matching** | Names to exclude from sharing, given as `\|`-separated wildcard patterns (e.g. `.DS_Store\|Thumbs.db\|*.tmp`). Matching is case-insensitive, and files whose name matches are not shared. Maps to `ExcludeSharePatterns` in [`amule.conf`](../../configuration/config-files/amule-conf.md#directories), which ships with a default list of common OS junk files. |
 | **Patterns are regular expressions** | Treat the whole **Exclude files matching** field as a single regular expression instead of a `\|`-separated list of wildcards (`ExcludeSharePatternsUseRegex`). |

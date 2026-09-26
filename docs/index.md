@@ -32,12 +32,20 @@ aMule supports the features eMule users will already recognize:
 - **[Preview](./manual/interfaces/gui/downloads.md)** — watch a video or open an archive before the download finishes (using your preferred media player; MPlayer by default).
 - **Boolean search** — refine your searches with `AND`, `OR`, and `NOT`.
 - **Compressed transfers** — data is compressed on the fly for faster transfers and less load on servers.
-- **IP filtering** — block connections from known-bad or unwanted address ranges.
+- **[IP filtering](./manual/interfaces/gui/preferences.md#ip-filtering)** — block connections from known-bad or unwanted address ranges, using a list that can be downloaded (emule-security's by default) and, optionally, refreshed at every start.
 - **[Secure identification](./p2p-networks/ed2k/secure-user-identification.md)** — protects your identity so no one can impersonate you or steal your upload credits.
 - **Misbehaving-client detection** — spots and blocks peers that try to cheat the sharing rules.
 - **[Release Priority](./manual/interfaces/gui/priority.md#release-priority)** (known as PowerShare in eMule) — give your own shared files top priority so others can grab them quickly.
 - **[Automatic server-list updates](./p2p-networks/ed2k/servers.md)** — keep your server list current automatically, or refresh it whenever you like.
 - **[System tray](./manual/interfaces/gui/tray-icon.md)** — keep aMule running quietly in the system tray (or notification area) on all major desktops.
+- **[Media metadata](./manual/interfaces/gui/preferences.md#media-metadata-extraction)** — reads the length, bitrate, codec and tags of shared media with `ffprobe` and publishes them so they show in other users' search results.
+- **[Clients page](./manual/interfaces/gui/clients.md)** — see the peers you are downloading from and uploading to, plus a history of the clients you have exchanged data with.
+- **[Comments and ratings](./manual/interfaces/gui/comments.md)** — read and leave comments and ratings on files, including the notes published on Kad.
+- **[Collections](./manual/interfaces/gui/shared-files.md#collections)** — queue every file of an `.emulecollection` at once, or export your own selection of shared files to one.
+- **[Guided first run](./quickstart-guide.md#setup-wizard)** — a setup wizard on first launch sets up your nickname, bandwidth, networks, ports, folders and desktop integration, and offers to download the server list and Kad nodes.
+- **Searches that survive a restart** — your [last 100 searches](./manual/interfaces/gui/searches.md#search-history) and the [results of up to 20 open tabs](./manual/interfaces/gui/searches.md#saved-searches) are restored the next time aMule starts.
+- **[Update notifications](./quickstart-guide.md#version-check)** — aMule lets you know when a new version is available.
+- **[Proxy support](./manual/configuration/proxy.md)** — route your connection through a proxy server.
 - **[Friends and messaging](./manual/interfaces/gui/messages.md)** — keep a friends list and exchange messages with other users.
 - **[Online signature](./manual/utilities/wxcas-cas.md)** — publish your current status, such as speed and active downloads, on a website or forum signature.
 - **Flexible progress display** — show download progress as a chunk bar, a percentage, or both.
@@ -49,21 +57,28 @@ aMule supports the features eMule users will already recognize:
 On top of that, aMule adds capabilities of its own:
 
 - **[Runs everywhere](./manual/installation/index.md)** — native support for Windows, macOS, Linux, and BSD.
-- **[Native packages](./manual/installation/index.md)** — ready-to-use builds for every platform: installer and portable `.zip` on Windows, a Universal2 `.dmg` on macOS, AppImage and Flatpak on Linux, for both x64 and ARM64.
+- **[Native packages](./manual/installation/index.md)** — ready-to-use builds for every platform: installer and portable `.zip` on Windows, a Universal2 `.dmg` on macOS, AppImage and Flatpak on Linux, for both x64 and ARM64, plus [fully static headless binaries](./manual/installation/index.md#static-binaries) for Linux servers.
 - **Free and open source** — released under the GPL-2.0 license with no telemetry, no advertisements, and no vendor lock-in; the full source code is open to inspect and contribute to.
 - **Full remote control** — run aMule in the background and manage it remotely from a [remote GUI](./manual/interfaces/gui/amulegui.md), a [REST API and browser Web UI](./manual/interfaces/amuleapi/index.md), a [command-line interface](./manual/interfaces/amulecmd.md), or the [legacy WebUI](./manual/interfaces/amuleweb.md), all built on its [External Connections (EC)](./developer/ec-protocol.md) system.
-- **[Search-result filtering](./manual/interfaces/gui/searches.md)** — hide unwanted results so you find what you want faster.
+- **[Remote path mappings](./manual/interfaces/gui/preferences.md#path-mappings)** — map the folders of a core running on another machine to where they are mounted locally, so `amulegui` can open files and show them in the file manager.
+- **[Encrypted remote control](./manual/interfaces/gui/preferences.md#remote-controls)** — remote interfaces encrypt their connection to the core, new installations accept it only from the local machine, and failed logins are throttled.
+- **[Search-result filtering](./manual/interfaces/gui/searches.md#filtering)** — hide unwanted results as you type, so you find what you want faster.
+- **[Endgame mode](./manual/interfaces/gui/downloads.md#finishing-downloads)** — near the end of a download, a fast source takes over the blocks held by a much slower one, so files do not stall at 99% behind one slow peer.
+- **[Adaptive request depth](./manual/interfaces/gui/downloads.md#transfer-behavior)** — how many blocks aMule requests ahead from each source adapts to its speed and latency, keeping fast and distant links busy.
 - **Upload slot control** — set a minimum speed per upload so you share with a sensible number of people at once, instead of spreading too thin.
+- **[Share exclusion patterns](./manual/interfaces/gui/preferences.md#directories)** — keep files such as `.DS_Store` or `Thumbs.db` out of your shares with wildcard or regular-expression patterns.
+- **[Verify local data](./manual/interfaces/gui/shared-files.md#other-menu-options)** — re-hash shared files on demand to check that the data on disk is still intact.
 - **Automatic folder rescan** — aMule notices when files are added, changed, or removed in your [shared and Incoming folders](./manual/configuration/directories.md), with no manual refresh.
 - **Remembers sources for rare files** — saves where to find hard-to-get files so your downloads pick up again quickly after a restart.
-- **Quick ed2k link bar** — paste `ed2k://` links straight into a bar at the bottom of every window (can be turned off).
+- **[Quick link bar](./manual/interfaces/gui/searches.md#miscellaneous)** — paste `ed2k://` or `magnet:` links straight into a bar at the bottom of every window (or only the Searches window, if you prefer).
+- **[One-click links](./manual/configuration/ed2k-magnet-links.md)** — aMule registers itself with the operating system for `ed2k://` and `magnet:` links and `.emulecollection` files on Windows, macOS, Linux, and BSD.
 - **[Run a command on completion](./manual/configuration/events.md)** — automatically launch a script or program when a download finishes.
 - **Works across filesystems** — keep downloads and shared files on different drives or filesystems.
 - **Secure (HTTPS) updates** — server lists and filter lists can be downloaded over secure HTTPS connections.
-- **[Proxy support](./manual/configuration/proxy.md)** — route your connection through a proxy server.
-- **Country lookup** — shows the country of the servers and users you connect to (a free country database download is required).
-- **Update notifications** — aMule lets you know when a new version is available.
-- **Start on login** — have aMule launch automatically when you sign in.
+- **[Network interface binding](./manual/configuration/network-connectivity.md#binding-amule-to-a-network-interface-vpn)** — pin aMule's traffic to one network interface, such as a VPN, so it does not leave through the default route while that interface exists (not available on BSD).
+- **[Country lookup](./manual/interfaces/gui/preferences.md#ip2country)** — shows the country flag of the servers and users you connect to, using a free country database that aMule downloads and keeps up to date.
+- **[Start on login](./manual/configuration/autostart.md)** — have aMule launch automatically when you sign in.
+- **[Light and dark appearance](./manual/interfaces/gui/index.md#working-with-lists)** — the interface follows your system's light or dark theme, with [sharp icons](./manual/interfaces/gui/toolbar.md) on high-resolution displays.
 - **Default file permissions** — choose the access permissions applied to completed downloads.
 
 ## Quick Start
