@@ -122,34 +122,30 @@ ed2k://|serverlist|ADDRESS|/
 
 If you already have a server list, the remote servers are merged into it. If you have no existing server list, the imported list replaces it. For guidance on keeping a trustworthy list, see [Maintaining a safe server list](servers.md#maintaining-a-safe-server-list).
 
-## The `ed2k` Command
+## Magnet Links
 
-aMule installs a small utility called **`ed2k`** that allows you to add downloads from the command line or from a web browser. It communicates with aMule by writing to the **ED2KLinks file** (`~/.aMule/ED2KLinks`) — **not** through the External Connections interface. For full details on the command and the ED2KLinks file format, see [ed2k — ED2K Link Handler](../../manual/utilities/ed2k.md).
+A **magnet link** is a generic URI (`magnet:?…`) that identifies a file by one or more hashes instead of by its location. It is shared by several P2P networks; a magnet link can be used on the eD2k network only if it carries the file's eD2k identity — its MD4 hash and its size, the same two fields that identify a [file link](#file-links).
 
-### Usage
-
-```bash
-ed2k "ed2k://|file|NAME|SIZE|HASH|/"
+```
+magnet:?PARAM=VALUE&PARAM=VALUE&...
 ```
 
-The double quotes are required so the shell does not interpret the pipe characters (`|`) and ampersands (`&`) as special commands.
+Parameters are `name=value` pairs separated by `&`. The ones relevant to eD2k are:
 
-### Finding the `ed2k` binary
-
-| Installation method | Typical path |
+| Parameter | Meaning |
 |---|---|
-| Self-compiled aMule | `/usr/local/bin/ed2k` |
-| Package-installed (most distros) | `/usr/bin/ed2k` |
-| SuSE packages | `/usr/local/bin/ed2k` |
-| Windows | `C:\Program Files\aMule\ed2k.exe` |
+| `xt=urn:ed2k:HASH` | "Exact topic": the file's MD4 hash (32 hex characters). Also written `xt=urn:ed2khash:HASH`; many clients include both forms |
+| `xl=SIZE` | "Exact length": the file size in bytes |
+| `dn=NAME` | "Display name": the suggested file name, percent-encoded |
+| `xt=urn:aich:HASH` | The file's [AICH](aich.md) root hash (Base32) |
 
-To find it on your system:
-```bash
-which ed2k
+`xt` may appear more than once, so the same magnet link can also carry hashes for other networks (for example `xt=urn:btih:…` for BitTorrent); a client uses the ones it understands. A magnet link without the MD4 hash and the size does not identify an eD2k file. An eD2k-compatible magnet link and the equivalent [`ed2k://|file|` link](#file-links):
+
+```
+magnet:?dn=ubuntu-26.04-desktop-amd64.iso&xt=urn:ed2k:26dfb3060428acece9ec8864de7126ae&xt=urn:ed2khash:26dfb3060428acece9ec8864de7126ae&xl=6518974464
+ed2k://|file|ubuntu-26.04-desktop-amd64.iso|6518974464|26DFB3060428ACECE9EC8864DE7126AE|/
 ```
 
-On Debian/Ubuntu you must install the **`amule-utils`** package (and also **`amule-ed2k`** on Debian) to get the `ed2k` utility.
+## Using Links in aMule
 
-## Browser Configuration
-
-For instructions on configuring Firefox, Opera, Konqueror, Windows, macOS, and remote handling via [`amulecmd`](../../manual/interfaces/amulecmd.md), see [ed2k — ED2K Link Handler](../../manual/utilities/ed2k.md).
+How aMule accepts these links — clicking them in a browser, pasting them into the GUI, the `ed2k` command-line tool, `amulecmd`, and registering aMule as the handler for `ed2k://` and `magnet:` links — is described in the User Manual under [eD2k and Magnet Links](../../manual/configuration/ed2k-magnet-links.md).

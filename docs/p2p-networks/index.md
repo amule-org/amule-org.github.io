@@ -35,7 +35,7 @@ Both networks use the same **[MD4-based file hashes](concepts.md#hashing)** and 
 | [eD2k Network](ed2k/index.md) | Architecture, servers, ports, network limitations |
 | [eD2k Servers](ed2k/servers.md) | Server software, server list management, static servers, fake servers |
 | [eD2k Clients](ed2k/clients.md) | Compatible client applications |
-| [eD2k Links](ed2k/links.md) | Link format specification and browser configuration |
+| [eD2k Links](ed2k/links.md) | eD2k and magnet link format specification |
 | [Kademlia Network](kademlia.md) | DHT algorithm, bootstrapping, contact types, firewalled status |
 | [High ID and Low ID](ed2k/high-id.md) | eD2k client ID system: High ID / Low ID concept, formula, and consequences |
 | [AICH & ICH](ed2k/aich.md) | Advanced Intelligent Corruption Handler and chunk recovery |

@@ -44,6 +44,8 @@ interface DownloadFormat {
   label: React.ReactNode;
   // One entry per downloadable artifact (architecture)
   files: DownloadFile[];
+  // Footnote numbers (see the notes under the panels) that apply to this format
+  notes?: number[];
 }
 
 interface DownloadOs {
@@ -52,11 +54,48 @@ interface DownloadOs {
   // Supported platforms / minimum version line
   platform: React.ReactNode;
   formats: DownloadFormat[];
+  // Footnote numbers (see the notes under the panels) that apply to the whole OS panel
+  notes?: number[];
 }
 
 // Reusable architecture labels (technical terms, repeated across artifacts).
 const ARCH_X64 = <Translate id="homepage.download.arch.x64" description="Architecture label for an x64 download artifact">x64</Translate>;
 const ARCH_ARM64 = <Translate id="homepage.download.arch.arm64" description="Architecture label for an ARM64 download artifact">ARM64</Translate>;
+
+// Superscript links to the numbered notes under the panels (ids "dl-note-<n>").
+function NoteRefs({notes}: {notes?: number[]}): React.JSX.Element | null {
+  if (!notes || notes.length === 0) {
+    return null;
+  }
+  return (
+    <sup className={styles.noteRefs}>
+      {notes.map((n, i) => (
+        <React.Fragment key={n}>
+          {i > 0 && ','}
+          <a
+            href={`#dl-note-${n}`}
+            aria-label={translate(
+              {id: 'homepage.download.noteRef', message: 'Note {number}', description: 'Accessible label of a superscript link to a numbered note under the download panels; {number} is the note number'},
+              {number: n},
+            )}
+          >
+            {n}
+          </a>
+        </React.Fragment>
+      ))}
+    </sup>
+  );
+}
+
+// A numbered note under the download panels, the target of NoteRefs.
+function Note({n, children}: {n: number; children: React.ReactNode}): React.JSX.Element {
+  return (
+    <p id={`dl-note-${n}`} className={`${styles.dlFoot} ${styles.dlNote}`}>
+      <sup className={styles.noteNumber}>{n}</sup>
+      {children}
+    </p>
+  );
+}
 
 const DOWNLOAD_OSES: DownloadOs[] = [
   {
@@ -100,6 +139,7 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     svg: LINUX_SVG,
     name: <Translate id="homepage.download.linux.os" description="Linux OS name in the download page">Linux</Translate>,
     platform: <Translate id="homepage.download.linux.platform" description="Supported-platform line under the Linux download heading">glibc ≥ 2.35 · x64 · ARM64</Translate>,
+    notes: [1, 2],
     formats: [
       {
         label: <Translate id="homepage.download.linux.appimage.label" description="Label for the Linux AppImage download format">AppImage</Translate>,
@@ -121,6 +161,7 @@ const DOWNLOAD_OSES: DownloadOs[] = [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64-static.tar.gz`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64-static.tar.gz`},
         ],
+        notes: [3],
       },
     ],
   },
@@ -128,6 +169,7 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     svg: SOURCE_SVG,
     name: <Translate id="homepage.download.source.os" description="Source-code option name in the download page">Source code</Translate>,
     platform: <Translate id="homepage.download.source.platform" description="Subtitle under the Source download heading">Build it yourself</Translate>,
+    notes: [4],
     formats: [
       {
         label: <Translate id="homepage.download.source.label" description="Label for the source-code download format">Source code</Translate>,
@@ -200,14 +242,20 @@ export default function DownloadPage(): React.JSX.Element {
                     <path fill="currentColor" d={os.svg} />
                   </svg>
                   <div className={styles.osHeaderText}>
-                    <div className={styles.osName}>{os.name}</div>
+                    <div className={styles.osName}>
+                      {os.name}
+                      <NoteRefs notes={os.notes} />
+                    </div>
                     <div className={styles.osPlatform}>{os.platform}</div>
                   </div>
                 </div>
                 <div className={styles.formatList}>
                   {os.formats.map((fmt, j) => (
                     <div key={j} className={styles.formatRow}>
-                      <span className={styles.formatLabel}>{fmt.label}</span>
+                      <span className={styles.formatLabel}>
+                        {fmt.label}
+                        <NoteRefs notes={fmt.notes} />
+                      </span>
                       <span className={styles.formatMeta}>
                         {fmt.files.map((file, k) => (
                           <Link key={k} className={styles.formatArchLink} to={file.href}>
@@ -225,46 +273,6 @@ export default function DownloadPage(): React.JSX.Element {
             ))}
           </div>
 
-          <p className={styles.dlFoot}>
-            <Translate
-              id="homepage.download.foot"
-              description="Footer note under the download panels; {release} and {distros} are links"
-              values={{
-                release: (
-                  <Link to={RELEASES_URL}>
-                    <Translate id="homepage.download.foot.link" description="Link text for the latest release page in the download footer note">latest release page</Translate>
-                  </Link>
-                ),
-                distros: (
-                  <Link to="/docs/manual/installation#distribution-packages">
-                    <Translate id="homepage.download.distros.link" description="Link text for Linux distribution packages in the download footer note">major Linux distributions</Translate>
-                  </Link>
-                ),
-              }}
-            >
-              {'All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated.'}
-            </Translate>
-          </p>
-          <p className={styles.dlFoot}>
-            <Translate
-              id="homepage.download.docker"
-              description="Footer note about the unofficial Docker image; {repo} and {guide} are links"
-              values={{
-                repo: (
-                  <Link to="https://github.com/ngosang/docker-amule">
-                    <Translate id="homepage.download.docker.repo.link" description="Link text for the Docker image repository in the download footer note">unofficial Docker image</Translate>
-                  </Link>
-                ),
-                guide: (
-                  <Link to="/docs/manual/installation#docker">
-                    <Translate id="homepage.download.docker.guide.link" description="Link text for the Docker section of the installation guide in the download footer note">Docker section of the installation guide</Translate>
-                  </Link>
-                ),
-              }}
-            >
-              {'For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.'}
-            </Translate>
-          </p>
           <p className={styles.dlFoot}>
             <Translate
               id="homepage.download.install"
@@ -285,7 +293,65 @@ export default function DownloadPage(): React.JSX.Element {
               {'The {install} covers every platform, and the {quickstart} walks you through setup and your first download.'}
             </Translate>
           </p>
-          <p className={styles.dlFoot}>
+          <Note n={1}>
+            <Translate
+              id="homepage.download.foot"
+              description="Footer note under the download panels; {release} and {distros} are links"
+              values={{
+                release: (
+                  <Link to={RELEASES_URL}>
+                    <Translate id="homepage.download.foot.link" description="Link text for the latest release page in the download footer note">latest release page</Translate>
+                  </Link>
+                ),
+                distros: (
+                  <Link to="/docs/manual/installation#distribution-packages">
+                    <Translate id="homepage.download.distros.link" description="Link text for Linux distribution packages in the download footer note">major Linux distributions</Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {'All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated.'}
+            </Translate>
+          </Note>
+          <Note n={2}>
+            <Translate
+              id="homepage.download.docker"
+              description="Footer note about the unofficial Docker image; {repo} and {guide} are links"
+              values={{
+                repo: (
+                  <Link to="https://github.com/ngosang/docker-amule">
+                    <Translate id="homepage.download.docker.repo.link" description="Link text for the Docker image repository in the download footer note">unofficial Docker image</Translate>
+                  </Link>
+                ),
+                guide: (
+                  <Link to="/docs/manual/installation#docker">
+                    <Translate id="homepage.download.docker.guide.link" description="Link text for the Docker section of the installation guide in the download footer note">Docker section of the installation guide</Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {'For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.'}
+            </Translate>
+          </Note>
+          <Note n={3}>
+            <Translate
+              id="homepage.download.static"
+              description="Footer note about the Linux static binaries; {link} is a link, {amuled}, {amuleapi} and {amulecmd} are module names in code format"
+              values={{
+                link: (
+                  <Link to="/docs/manual/installation#static-binaries">
+                    <Translate id="homepage.download.static.link" description="Link text for the static binaries section of the installation guide in the download footer note">Linux static binaries</Translate>
+                  </Link>
+                ),
+                amuled: <code>amuled</code>,
+                amuleapi: <code>amuleapi</code>,
+                amulecmd: <code>amulecmd</code>,
+              }}
+            >
+              {'The {link} are headless: they contain only {amuled}, {amuleapi} (REST API and Web UI) and {amulecmd}, with no shared-library dependencies.'}
+            </Translate>
+          </Note>
+          <Note n={4}>
             <Translate
               id="homepage.download.compile"
               description="Footer note pointing to the compilation guide; {link} is a link"
@@ -299,7 +365,7 @@ export default function DownloadPage(): React.JSX.Element {
             >
               {'The {link} has instructions for building aMule from source.'}
             </Translate>
-          </p>
+          </Note>
 
           <section className={styles.prevReleases}>
             <h3>

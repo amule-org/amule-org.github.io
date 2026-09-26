@@ -387,7 +387,7 @@ See [Network Connectivity](configuration/network-connectivity.md) for binding an
 
 ### Browser configuration for ed2k:// links
 
-See [ed2k — Browser Configuration](utilities/ed2k.md#browser-configuration--local-handling) for instructions on configuring Firefox, Chrome, Edge, Safari, and other browsers to handle `ed2k://` URIs.
+See [eD2k and Magnet Links](configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) for registering aMule as the handler for `ed2k://` and `magnet:` links, so that every browser (Firefox, Chrome, Edge, Safari, …) opens them in aMule.
 
 ## Remote access
 

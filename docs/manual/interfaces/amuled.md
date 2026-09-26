@@ -34,7 +34,7 @@ All remote interfaces communicate with `amuled` through the **[External Connecti
 | `-i` | `--enable-stdin` | Do not close stdin (closed by default). Not available on Windows. |
 | `-d` | `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). Not available on Windows. |
 | `-t <n>` | `--category=<n>` | Set the category for passed eD2k links. |
-| | `--configure-autostart=on\|off` | Enable or disable starting `amuled` on user login, then exit. The OS-specific store is selected automatically: Windows registry Run key, macOS LaunchAgent, Linux/BSD XDG `.desktop` autostart entry. On a headless server, use a [system service](#running-as-a-system-service) instead. |
+| | `--configure-autostart=on\|off` | Enable or disable starting `amuled` on user login, then exit. The OS-specific store is selected automatically: Windows registry Run key, macOS LaunchAgent, Linux/BSD XDG `.desktop` autostart entry. On a headless server, use a [system service](#running-as-a-system-service) instead. See [Starting aMule Automatically](../configuration/autostart.md). |
 | | `--configure-protocols=<value>` | Enable or disable aMule as the current user's default handler for `ed2k://` and `magnet:` links, then exit. `<value>` is `on` or `off` for both schemes, or `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off` for one of them. The OS-specific store is selected automatically: Windows registry, macOS LaunchServices, Linux/BSD XDG `mimeapps.list`. |
 | | `--configure-file-assoc=on\|off` | Enable or disable aMule as the current user's handler for `.emulecollection` files, then exit. Uses the same OS-specific stores as `--configure-protocols`. |
 

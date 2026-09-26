@@ -40,7 +40,7 @@ With both clients running on the local network, use one of these approaches:
 **Option B — Copy ed2k links:**
 
 1. In the old client, copy the [`ed2k://` link](../../p2p-networks/ed2k/links.md) for each file in the download queue.
-2. Paste each link into aMule's [**ED2K-Link Handler**](../interfaces/gui/searches.md) or write it into the [`ED2KLinks`](../configuration/config-files/index.md#ed2klinks) file (located in aMule's configuration directory, e.g. `~/.aMule/ED2KLinks` on Linux).
+2. Paste the links, one per line, into aMule's [**Fast eD2k Links Handler**](../interfaces/gui/searches.md#miscellaneous) or write them into the [`ED2KLinks`](../configuration/config-files/index.md#ed2klinks) file (located in aMule's configuration directory, e.g. `~/.aMule/ED2KLinks` on Linux).
 3. aMule adds them to its queue and downloads from the old client.
 
 Because both clients are on the same machine or LAN, the transfer happens at disk/LAN speed rather than internet speed.

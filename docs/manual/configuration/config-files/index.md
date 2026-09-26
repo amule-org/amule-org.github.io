@@ -376,7 +376,7 @@ Separately, the private LAN ranges below are blocked **only** when **Always filt
 
 **Location:** `~/.aMule/ED2KLinks`
 
-A plain-text interface for sending commands to a running aMule instance. As soon as aMule detects that this file exists, it reads it, processes each entry, and **deletes the file**. The interface is one-directional (write-only from the user's perspective). It is used by browser plugins and the [`ed2k`](../../utilities/ed2k.md) command-line tool to pass links to a running aMule session.
+A plain-text interface for sending commands to a running aMule instance. As soon as aMule detects that this file exists, it reads it, processes each entry, and **deletes the file**. The interface is one-directional (write-only from the user's perspective). It is used by aMule itself to hand [links clicked in a browser or passed on the command line](../ed2k-magnet-links.md#what-happens-when-you-click-a-link) to the running instance, and by the [`ed2k`](../../utilities/ed2k.md) command-line tool.
 
 For its format, see the [`ED2KLinks` format reference](../../../developer/file-formats/index.md#ed2klinks).
 
