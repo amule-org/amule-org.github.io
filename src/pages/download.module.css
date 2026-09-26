@@ -209,6 +209,41 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+/* ---- Numbered notes and their superscript references ---- */
+
+.noteRefs,
+.noteNumber {
+  line-height: 0;
+}
+
+.noteRefs {
+  margin-left: 0.15em;
+  font-weight: 600;
+}
+
+.noteRefs a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.noteRefs a:hover {
+  text-decoration: underline;
+}
+
+.dlNote {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+.dlNote:target {
+  color: var(--ifm-font-color-base);
+}
+
+.noteNumber {
+  margin-right: 0.3em;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
 /* ---- Previous releases ---- */
 
 .prevReleases {

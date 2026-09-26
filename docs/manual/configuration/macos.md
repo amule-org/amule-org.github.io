@@ -3,7 +3,7 @@ id: macos
 title: macOS
 ---
 
-This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, the **Navigate** menu, configuring the built-in macOS firewall, handling [`ed2k://` links](../utilities/ed2k.md) from the browser, and setting up video preview.
+This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, the **Navigate** menu, configuring the built-in macOS firewall, handling [`ed2k://` and `magnet:` links](./ed2k-magnet-links.md) from the browser, and setting up video preview.
 
 ## Right-Click / Context Menus
 
@@ -36,31 +36,11 @@ The macOS built-in firewall is **off by default**, and when enabled it works **p
 
 You can verify the ports are reachable as described in [Testing your port status](./network-connectivity.md#testing-your-port-status).
 
-## Handling ed2k Links
+## Handling eD2k and Magnet Links
 
-Current macOS builds of aMule do **not** register themselves as the handler for the `ed2k://` URL scheme, so clicking an `ed2k://` link in your browser will not open aMule directly (see the [`ed2k` link handler reference](../utilities/ed2k.md#macos) for details). Instead, use one of these three ways to add files:
+`aMule.app` and `aMuleGUI.app` can be registered as the handler for `ed2k://` and eD2k-compatible `magnet:` links and for `.emulecollection` files, so clicking a link in any browser, or double-clicking a collection in the Finder, queues it in aMule. Register `aMule.app` in the [first-run wizard](../../quickstart-guide.md#integrations-optional), or either app in [Preferences → General](../interfaces/gui/preferences.md#general). macOS cannot remove a default handler: once aMule is the handler, the Preferences checkbox is hidden, and you hand the scheme back by making another application the default.
 
-### 1. Search Inside aMule
-
-Use aMule's built-in [Searches](../interfaces/gui/searches.md) window to find files directly. No browser integration needed.
-
-### 2. Paste into the ED2K-Link Handler
-
-Copy an `ed2k://` link from a web page and paste it into the **ED2K-Link Handler** field at the bottom of the Searches window, then press the commit button.
-
-:::note
-If the link is longer than the input field, make the aMule window wider until the full link fits (you can widen it beyond the screen edge if necessary). Partial links are not accepted.
-:::
-
-### 3. Use the ED2KLinks File
-
-Open a text editor (e.g., TextEdit) and paste `ed2k://` links — one per line — into the file:
-
-```
-~/Library/Application Support/aMule/ED2KLinks
-```
-
-aMule monitors this file and automatically processes any links found in it. You can also queue links from a terminal with the bundled [`ed2k` command-line tool](../utilities/ed2k.md).
+Without registering aMule, you can still paste links into the **Fast eD2k Links Handler** field at the bottom of the [Searches](../interfaces/gui/searches.md#miscellaneous) window, write them to `~/Library/Application Support/aMule/ED2KLinks`, or use the bundled [`ed2k`](../utilities/ed2k.md) tool (`/Applications/aMule.app/Contents/MacOS/ed2k`). See [eD2k and Magnet Links](./ed2k-magnet-links.md) for every method and the accepted link formats.
 
 ## Setting Up Video Preview
 

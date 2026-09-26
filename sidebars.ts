@@ -33,6 +33,8 @@ const sidebars: SidebarsConfig = {
             'manual/configuration/upnp',
             'manual/configuration/proxy',
             'manual/configuration/events',
+            'manual/configuration/ed2k-magnet-links',
+            'manual/configuration/autostart',
             'manual/configuration/macos',
           ],
         },

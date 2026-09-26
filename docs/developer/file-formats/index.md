@@ -261,7 +261,7 @@ A plain-text interface for sending commands to a running aMule instance. As soon
 
 ### Format
 
-One `ed2k://` link per line. The file must end with a newline after the last entry.
+One entry per line: an `ed2k://` link or an eD2k-compatible `magnet:` link, optionally followed by `:<n>` to add it to category number `<n>`. Empty lines are skipped. The file must end with a newline after the last entry.
 
 A line containing only `RAISE_DIALOG` tells aMule to raise its window if it is minimized.
 
@@ -273,7 +273,7 @@ ed2k://|file|Knoppix%20v3.6-2004-08-16-En.iso|733499392|E1A848648CF99A2295909799
 ed2k://|file|debian-30r1-i386-binary-2.iso|676495360|557B59750976519476DA071BDF79A014|/
 ```
 
-This mechanism is used by browser plugins and the [`ed2k`](../../manual/utilities/ed2k.md) command-line tool to pass links to a running aMule session.
+This mechanism is used by aMule's own link handler (a second `amule`/`amulegui` process started by a browser or file manager, or from the command line) and by the [`ed2k`](../../manual/utilities/ed2k.md) command-line tool to pass links to a running aMule session.
 
 ## `amulesig.dat` {#amulesigdat}
 

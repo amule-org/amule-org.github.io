@@ -53,7 +53,7 @@ The primary section. Contains the majority of user-facing preferences.
 | `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Downloads window. Stored but currently not used by aMule (the splitter is saved in `[GUI/TransferWnd] Splitter`). |
 | `DefaultSearchType` | `0` | Search type last selected in the Searches window, restored on the next start: `0` = Local, `1` = Global, `2` = Kad. If that network is disabled, the first available type is used. Written by the GUI. |
 
-The **Start aMule automatically when I log in** preference is deliberately not stored in `amule.conf` — the state lives in the OS autostart store (Windows registry Run key, macOS LaunchAgent, Linux XDG `.desktop` autostart entry) and is managed via the [Preferences checkbox](../../interfaces/gui/preferences.md#general) or the `--configure-autostart=on|off` command-line option.
+The **Start aMule automatically when I log in** preference is deliberately not stored in `amule.conf` — the state lives in the OS autostart store (Windows registry Run key, macOS LaunchAgent, Linux XDG `.desktop` autostart entry) and is managed via the [Preferences checkbox](../../interfaces/gui/preferences.md#general) or the `--configure-autostart=on|off` command-line option (see [Starting aMule Automatically](../autostart.md)).
 
 ### Connection
 

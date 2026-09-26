@@ -65,4 +65,4 @@ The aMule interface is divided into several panels, switched with the [toolbar](
 
 aMule can register itself with the operating system as the handler for `ed2k://` and `magnet:` links and for `.emulecollection` files, so clicking one in a browser or file manager queues it in aMule. Turn this on in the [first-run wizard](../../../quickstart-guide.md#setup-wizard), with the **Register aMule for ed2k:// links**, **Register aMule for magnet: links** and **Open .emulecollection files with aMule** options in [Preferences → General](./preferences.md#general), or from the command line with `--configure-protocols` and `--configure-file-assoc` (see above). A link opened this way is passed to the running aMule instance through the ED2KLinks file.
 
-For the separate `ed2k` command-line helper, how the ED2KLinks file works, and handling links for a remote core, see [ed2k — ED2K Link Handler](../../utilities/ed2k.md).
+See [eD2k and Magnet Links](../../configuration/ed2k-magnet-links.md) for the accepted link formats, every way to add a link, how the registration works on each operating system, and handling links for a remote core.

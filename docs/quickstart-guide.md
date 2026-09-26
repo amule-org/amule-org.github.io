@@ -79,7 +79,7 @@ This page connects aMule to your desktop:
 
 ![Integrations page of the setup wizard](/img/docs/quickstart/wizard_integrations.png)
 
-You can change these later in [Preferences → General](./manual/interfaces/gui/preferences.md#general).
+You can change these later in [Preferences → General](./manual/interfaces/gui/preferences.md#general). See [Starting aMule Automatically](./manual/configuration/autostart.md) and [eD2k and Magnet Links](./manual/configuration/ed2k-magnet-links.md) for details.
 
 ### Folders (optional)
 

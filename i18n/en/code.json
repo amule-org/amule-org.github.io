@@ -884,5 +884,17 @@
   "homepage.download.linux.static.label": {
     "message": "Static binaries (.tar.gz)",
     "description": "Label for the Linux fully-static precompiled (headless) binaries download format"
+  },
+  "homepage.download.static": {
+    "message": "The {link} are headless: they contain only {amuled}, {amuleapi} (REST API and Web UI) and {amulecmd}, with no shared-library dependencies.",
+    "description": "Footer note about the Linux static binaries; {link} is a link, {amuled}, {amuleapi} and {amulecmd} are module names in code format"
+  },
+  "homepage.download.static.link": {
+    "message": "Linux static binaries",
+    "description": "Link text for the static binaries section of the installation guide in the download footer note"
+  },
+  "homepage.download.noteRef": {
+    "message": "Note {number}",
+    "description": "Accessible label of a superscript link to a numbered note under the download panels; {number} is the note number"
   }
 }

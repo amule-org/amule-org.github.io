@@ -19,4 +19,6 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | [UPnP (Universal Plug and Play)](./upnp.md) | Automatic port forwarding via UPnP |
 | [Proxy](./proxy.md) | Routing aMule connections through a proxy server |
 | [Events](./events.md) | Automating actions on download completion, disk-full alerts, and more |
-| [macOS](./macos.md) | macOS-specific notes: firewall setup, ed2k-link handling, and video preview |
+| [eD2k and Magnet Links](./ed2k-magnet-links.md) | Accepted link types, every way to add a link, and registering aMule as the handler for `ed2k://`, `magnet:` and `.emulecollection` |
+| [Starting aMule Automatically](./autostart.md) | Starting aMule when you log in, and running `amuled` as a service |
+| [macOS](./macos.md) | macOS-specific notes: context menus, firewall setup, link handling, and video preview |

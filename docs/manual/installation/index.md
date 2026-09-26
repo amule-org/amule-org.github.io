@@ -54,10 +54,23 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
 2. Download the installer that matches your architecture:
    - `aMule-<version>-Windows-Setup-x64.exe` for most PCs (Intel/AMD)
    - `aMule-<version>-Windows-Setup-arm64.exe` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
-3. Run the downloaded `.exe` and follow the on-screen steps.
-4. Optionally enable **Start aMule when I log in** during setup to launch aMule automatically on login. You can change this later from [Preferences → General](../interfaces/gui/preferences.md#general).
+3. Run the downloaded `.exe` and follow the on-screen steps. The installer needs administrator rights and installs aMule into `C:\Program Files\aMule\` by default (the executables are in its `bin\` subfolder).
+4. On the **Choose Components** page, choose the optional components:
 
-The installer creates Start menu shortcuts and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`); uninstalling does not delete this folder, so your settings and downloads are preserved.
+   ![Components page of the Windows installer](/img/docs/installation/windows_installer_components.png)
+
+   | Component | Default | Effect |
+   |---|---|---|
+   | **aMule (required)** | Always installed | The aMule program files, Start menu shortcuts and the uninstaller. |
+   | **Desktop shortcut** | On | An aMule shortcut on the desktop. |
+   | **Start aMule when I log in** | Off | Starts aMule automatically when you log in — see [Starting aMule Automatically](../configuration/autostart.md). |
+   | **Register aMule for ed2k:// links** | On | Makes aMule the handler for `ed2k://` links clicked in a browser. |
+   | **Register aMule for magnet: links** | Off | Makes aMule the handler for `magnet:` links. Leave it off if you use a BitTorrent client: aMule only handles eD2k-compatible magnet links. |
+   | **Associate .emulecollection files** | On | Opens `.emulecollection` files with aMule. |
+
+The last four are per-user settings that can be changed later in [Preferences → General](../interfaces/gui/preferences.md#general); see [eD2k and Magnet Links](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) for the link and file associations.
+
+The installer creates Start menu shortcuts — in a folder you choose on its **Choose Start Menu Folder** page — for **aMule**, **aMule Daemon** ([`amuled`](../interfaces/amuled.md)), **aMuleGUI (remote)** ([`amulegui`](../interfaces/gui/amulegui.md)) and **Uninstall aMule**, and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`). The uninstaller keeps this folder, so your settings and downloads are preserved, unless you tick **Remove user data (config, ED2K servers, Kad nodes, partfiles)** (off by default). When you upgrade, your configuration is kept, but the components are applied again as selected: tick **Start aMule when I log in** and **Register aMule for magnet: links** again if you use them.
 
 ### Portable
 
@@ -65,10 +78,10 @@ The installer creates Start menu shortcuts and an entry in **Add or Remove Progr
 2. Download the `.zip` file that matches your architecture:
    - `aMule-<version>-Windows-x64.zip` for most PCs (Intel/AMD)
    - `aMule-<version>-Windows-arm64.zip` for ARM-based Windows devices (Snapdragon X Elite, Surface Pro X, etc.)
-3. Extract the `.zip` file to a folder of your choice (e.g. `C:\Users\<you>\aMule`).
-4. Open the extracted folder and run `amule.exe`.
+3. Extract the `.zip` file to a folder of your choice (e.g. `C:\Users\<you>\aMule`). It contains a single `amule-portable-<arch>` folder.
+4. Open its `bin` subfolder and run `amule.exe`.
 
-The portable build requires **no installer**. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`) and can be moved or deleted by simply moving or deleting the extracted folder.
+The portable build requires **no installer**; the link and file associations and autostart can be turned on from [Preferences → General](../interfaces/gui/preferences.md#general). aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`) and can be moved or deleted by simply moving or deleting the extracted folder.
 
 ### SmartScreen Warning
 
@@ -93,7 +106,7 @@ Windows Defender SmartScreen may show a warning when you run the installer or `a
 5. Eject the disk image.
 6. Open `aMule.app` from `/Applications` or Launchpad.
 
-After installing, see the [macOS configuration guide](../configuration/macos.md) for macOS-specific considerations such as context menus, firewall access, and handling `ed2k://` links.
+After installing, see the [macOS configuration guide](../configuration/macos.md) for macOS-specific considerations such as context menus, firewall access, and handling `ed2k://` and `magnet:` links.
 
 ### Gatekeeper Warning
 
@@ -122,11 +135,13 @@ xattr -d com.apple.quarantine /Applications/aMule.app
 
 ### Additional binaries
 
-The `aMule.app` bundle also includes the command-line components inside `aMule.app/Contents/MacOS/`, which can be run directly from the terminal:
+The `aMule.app` bundle also includes the other components inside `aMule.app/Contents/MacOS/` — `amuled`, `amuleapi`, `amulecmd`, `amuleweb`, `ed2k`, `alc`, `alcc`, `wxcas` and `cas` — which can be run directly from the terminal:
 
 ```sh
 /Applications/aMule.app/Contents/MacOS/amuled --version
 ```
+
+The [Web UI](../interfaces/amuleapi/web-ui.md) assets served by `amuleapi` are in `aMule.app/Contents/Resources/amuleapi-static/`.
 
 ## Linux
 
@@ -163,27 +178,35 @@ chmod +x aMule-<version>-Linux-x64.AppImage
 
 The AppImage is fully self-contained — it bundles wxWidgets and all required shared libraries. No system libraries need to be installed. To uninstall, delete the `.AppImage` file.
 
-:::tip AppImage desktop integration
-To integrate the AppImage into your application menu, you can use [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher), which registers the `.AppImage` as a desktop application and handles updates.
-:::
+#### Desktop integration
+
+On its first launch the AppImage asks **Add aMule to your application menu?**. Click **Install** to:
+
+- add **aMule** and **aMuleGUI** (the [remote GUI](../interfaces/gui/amulegui.md)) entries to your application menu, with their icons;
+- install the `.emulecollection` file type and the desktop entries that the [link and file associations](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) rely on;
+- create a symlink in `~/.local/bin` for each bundled command (`amuled`, `amuleapi`, `amulecmd`, `ed2k`, …), so you can run them by name if `~/.local/bin` is in your `PATH`.
+
+Click **Not now** to skip it for this launch, or tick **Don't ask again** to stop the prompt. The entries point at the AppImage's location; after moving the file, delete `~/.local/share/applications/org.amule.aMule.desktop` so that the prompt appears again.
+
+Tools such as [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) can add a menu entry too, but the [link and file associations](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) need aMule's own desktop integration.
 
 :::caution Known issues in the AppImage
 
-**System tray icon is transparent.** The [system tray icon](../interfaces/gui/tray-icon.md) appears without a logo on the first launch. Accept the popup that aMule shows on startup to fix it.
+**System tray icon is transparent.** The [system tray icon](../interfaces/gui/tray-icon.md) appears without a logo until the aMule icons are installed. Click **Install** in the *Add aMule to your application menu?* prompt to fix it.
 
 **GTK theme is not applied.** The AppImage bundles its own GTK libraries and does not use the GTK theme installed on the system. The application is functional but may not match the desktop theme.
 :::
 
 #### Running other components from the AppImage
 
-The AppImage bundles every aMule executable in a single file. Invoking the AppImage directly runs `amule` (the GUI); the component that runs is otherwise selected by the name used to invoke the AppImage.
+The AppImage bundles every aMule executable in a single file. Invoking the AppImage directly runs `amule` (the GUI); the component that runs is otherwise selected by the **name** used to invoke the AppImage — `amuled`, `amulegui`, `amuleapi`, `amulecmd`, `amuleweb`, `ed2k`, `alc`, `alcc`, `wxcas` or `cas`. Passing the component name as an argument (`./aMule-<version>-Linux-x64.AppImage amuled`) does **not** work: it starts the GUI.
 
-Create one symlink per component you want to use. The `.AppImage` suffix is stripped automatically, so you can name the symlinks after the binaries:
+The [desktop integration](#desktop-integration) prompt creates these symlinks in `~/.local/bin` for you. To create them by hand, make one symlink per component you want to use, named after the binary:
 
 ```sh
 # one symlink per component you want — for example:
 ln -s aMule-<version>-Linux-x64.AppImage amuled
-ln -s aMule-<version>-Linux-x64.AppImage amuleweb
+ln -s aMule-<version>-Linux-x64.AppImage amuleapi
 ln -s aMule-<version>-Linux-x64.AppImage amulecmd
 ln -s aMule-<version>-Linux-x64.AppImage ed2k
 ```
@@ -191,8 +214,9 @@ ln -s aMule-<version>-Linux-x64.AppImage ed2k
 Then invoke each symlink directly:
 
 ```sh
-./amuled --ec-password yourpassword
-./amuleweb --webpassword yourpassword
+./amuled
+./amuleapi --set-admin-pass=yourpassword   # store the Web UI admin password, then exit
+./amuleapi
 ./amulecmd
 ./ed2k "ed2k://|file|..."
 ```
@@ -201,7 +225,7 @@ Then invoke each symlink directly:
 
 The Flatpak bundle runs in a sandboxed environment and is suitable for distributions that ship Flatpak support.
 
-**Requirements:** Flatpak. The bundle targets the GNOME 49 runtime (`org.gnome.Platform`), which Flatpak installs automatically when you install the bundle.
+**Requirements:** Flatpak. The bundle targets the GNOME 50 runtime (`org.gnome.Platform`), which Flatpak installs automatically when you install the bundle.
 
 **Installation:**
 
@@ -234,8 +258,9 @@ flatpak run --filesystem=/mnt/data --command=amuled org.amule.aMule
 The Flatpak bundle also includes every aMule executable. Use the `--command` flag with `flatpak run` to select which binary to execute:
 
 ```sh
-flatpak run --command=amuled org.amule.aMule --ec-password yourpassword
-flatpak run --command=amuleweb org.amule.aMule --webpassword yourpassword
+flatpak run --command=amuled org.amule.aMule
+flatpak run --command=amuleapi org.amule.aMule --set-admin-pass=yourpassword   # store the password, then exit
+flatpak run --command=amuleapi org.amule.aMule
 flatpak run --command=amulecmd org.amule.aMule
 flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
 ```
@@ -257,10 +282,12 @@ It does **not** include the GUI (`amule`, [`amulegui`](../interfaces/gui/amulegu
 ```sh
 tar xzf aMule-<version>-Linux-x64-static.tar.gz
 cd aMule-<version>-Linux-x64-static
-./amuled --ec-password yourpassword
+./amuled
 ```
 
-The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder.
+See [`amuled` → Configuration](../interfaces/amuled.md#configuration) to set up External Connections before connecting [`amulecmd`](../interfaces/amulecmd.md) or [`amuleapi`](../interfaces/amuleapi/index.md) to it.
+
+The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder. HTTPS downloads (IP filter, IP2Country database, server lists) use the host's CA certificate bundle, so install your distribution's `ca-certificates` package on minimal systems.
 
 ### Distribution Packages
 
@@ -398,5 +425,7 @@ Once aMule is installed, the first launch creates the configuration directory:
 See the [aMule Files Reference](../configuration/config-files/index.md) for a complete description of every file and directory created by aMule.
 
 aMule ships with reasonable defaults and can be used as-is. To connect to the [eD2k network](../../p2p-networks/ed2k/index.md) and start downloading, follow the [Quick Start Guide](../../quickstart-guide.md), which walks through the [first-run setup wizard](../../quickstart-guide.md#setup-wizard) (nickname, bandwidth, networks and ports, bootstrap files, desktop integration and folders), connecting to eD2k and [Kademlia](../../p2p-networks/kademlia.md), and your first search.
+
+aMule can also be set up to [start automatically when you log in](../configuration/autostart.md) and to [open `ed2k://` and `magnet:` links](../configuration/ed2k-magnet-links.md) clicked in your browser; the first-run wizard offers both.
 
 To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.
