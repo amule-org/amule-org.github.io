@@ -38,6 +38,10 @@ With the main UPnP toggle enabled, aMule maps the following ports on the router 
 
 The **UPnP TCP Port** field on the Connection tab (`UPnPTCPPort`, default `50000`) is **not** a port that gets forwarded. It is the local port the UPnP stack uses to communicate with the router (SSDP / control point). The ports actually opened on the router are the service ports listed above.
 
+## How aMule finds your router
+
+aMule searches the local network for an **Internet Gateway Device** (IGD) — the UPnP service a router uses to accept port-forwarding requests — and supports both IGD version 1 and version 2 routers. Large router description documents (up to 1 MB) are accepted, which some routers (e.g. certain ZTE and Sagemcom models) need.
+
 ## UPnP and personal firewalls
 
 If your computer runs a software firewall (e.g. iptables), UPnP also requires opening two extra ports on the local firewall: the local UPnP control port (`UPnPTCPPort`, default TCP 50000) and the SSDP advertisements from your router (UDP 1900). See the [Firewall — UPnP through the firewall section](./firewall.md#kademlia-and-upnp) for the exact rules.
@@ -46,6 +50,7 @@ If your computer runs a software firewall (e.g. iptables), UPnP also requires op
 
 - UPnP requires the router to support and enable the UPnP protocol. Not all routers support it, and some require UPnP to be enabled explicitly in the router's settings.
 - Some routers remap the source UDP port on outgoing packets even with UPnP active. If Kademlia still shows "firewalled" after enabling UPnP, see the [Firewall](./firewall.md#kademlia-and-upnp) page for the `no nat` pf rule (OpenBSD) or the equivalent for your router.
+- UPnP traffic is not bound to the [network interface](./network-connectivity.md#binding-amule-to-a-network-interface-vpn) aMule is bound to: the UPnP library chooses its own network interface.
 - If UPnP does not work for your setup, fall back to manual port forwarding as described in [Firewall and Router Configuration](./firewall.md).
 
 ## Related Pages

@@ -14,7 +14,7 @@ Two consequences follow from this design:
 - Slot allocation is a **target, not a hard cap**. The total upload bandwidth is shared among all open slots, so the actual speed of a given slot can be higher (when other slots are idle or the remote client is the only fast one) or lower (see [the caveats below](#how-it-works-internally)) than the configured value.
 - Changing the slot allocation does not change how much you upload in total — that is what the **Upload** limit is for. It only changes how the same total is split up.
 
-The default is **10 kB/s** per slot. aMule versions before 3.0.0 defaulted to 2 kB/s, a value chosen when dial-up and early ADSL lines were the norm; existing installations keep whatever value is stored in their configuration.
+The default is **10 kB/s** per slot. A configuration created by an older version keeps the value stored in it, which may be the old default of 2 kB/s.
 
 ## Configuring it
 

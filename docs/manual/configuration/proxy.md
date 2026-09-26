@@ -4,7 +4,7 @@ title: Proxy
 ---
 
 :::warning
-For privacy, prefer a **VPN** over aMule's built-in proxy. The proxy is easy to misconfigure, and some traffic can leak around it: only **SOCKS5** can tunnel UDP, so when SOCKS4, SOCKS4a, or HTTP is used the Kademlia (UDP) traffic still goes out directly, exposing your real IP address. A properly configured VPN routes *all* traffic and avoids these leaks.
+For privacy, prefer a **VPN** over aMule's built-in proxy. The proxy is easy to misconfigure, and some traffic can leak around it: only **SOCKS5** can tunnel UDP, so when SOCKS4, SOCKS4a, or HTTP is used the Kademlia (UDP) traffic still goes out directly, exposing your real IP address. A properly configured VPN routes *all* traffic and avoids these leaks. To make sure aMule only uses the VPN, [bind aMule to the VPN interface](./network-connectivity.md#binding-amule-to-a-network-interface-vpn).
 :::
 
 A proxy is an intermediate node in the network through which other nodes route their connections to reach a given destination. In most cases, it is a server that clients connect to in order to gain internet access: the proxy forwards requests to the internet and returns the responses to the client. In some cases it serves data from its cache or modifies packets in transit.
@@ -28,6 +28,10 @@ The following are **not** routed through the proxy and remain direct:
 - **Incoming** connections from other clients. The proxy only handles outgoing connections; incoming connections still rely on your real address and port forwarding, so the proxy does not hide you from peers that connect to you.
 - Any **UDP** traffic when the proxy is not SOCKS5 (SOCKS4, SOCKS4a, and HTTP cannot tunnel UDP).
 - Auxiliary HTTP downloads when the proxy is not an HTTP proxy.
+
+If aMule is [bound to a network interface](./network-connectivity.md#binding-amule-to-a-network-interface-vpn), the connections to the proxy server are bound to that interface too.
+
+A SOCKS5 proxy must answer with an IPv4 (or, except for the UDP relay, domain-name) address; aMule rejects malformed replies and drops relayed UDP datagrams that do not come from the proxy's relay.
 
 ## Configuring the proxy in aMule
 

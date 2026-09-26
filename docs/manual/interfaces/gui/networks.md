@@ -35,7 +35,7 @@ The button is disabled while the eD2k network is disabled in **[Preferences → 
 To connect to a specific server instead, double-click its row in the server list (or select it and press **Enter**). aMule disconnects from the current server first if necessary.
 
 :::note
-aMule 3.1.0 removed the global Connect button from the [toolbar](./toolbar.md): each network now has its own button on its tab. **Autoconnect on startup** in [Preferences → Connection](./preferences.md#networks) still connects both enabled networks at startup, and the [system tray menu](./tray-icon.md#context-menu) still has a **Connect** / **Disconnect** entry for both networks at once.
+The [toolbar](./toolbar.md) has no Connect button since aMule 3.1.0: each network has its own button on its tab. **Autoconnect on startup** in [Preferences → Connection](./preferences.md#networks) connects both enabled networks at startup, and the [system tray menu](./tray-icon.md#context-menu) has a **Connect** / **Disconnect** entry for both networks at once.
 :::
 
 ### Updating the Server List from a URL

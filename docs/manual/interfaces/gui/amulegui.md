@@ -43,7 +43,7 @@ Before `amulegui` can connect, the core (`amuled` or `amule`) must have External
 
    Paste the result (without trailing whitespace) as the value of `ECPassword`.
 
-3. Since aMule 3.1.0, a fresh configuration makes the core listen only on the local machine (`ECAddress=127.0.0.1`); an upgraded configuration keeps its previous value. To connect `amulegui` from another computer, set `ECAddress` to the core's LAN IP address, or leave it empty to listen on all interfaces:
+3. By default, a new configuration makes the core listen only on the local machine (`ECAddress=127.0.0.1`); a configuration created by an older version keeps its previous value (usually empty = all interfaces). To connect `amulegui` from another computer, set `ECAddress` to the core's LAN IP address, or leave it empty to listen on all interfaces:
 
    ```ini
    ECAddress=
@@ -75,7 +75,7 @@ The [status bar](./statusbar.md#core-version-amulegui) shows the version of the 
 
 ### Losing the connection
 
-If the connection to the core drops, `amulegui` does not exit. The interface is paused and a **Connection lost** window shows the reconnection progress: `amulegui` retries every 5 seconds until the core is reachable again, then resumes where it left off (it reloads everything if the core was restarted meanwhile). Click **Abort and exit** to give up and close `amulegui`.
+If the connection to the core drops (or the core sends no reply for 30 seconds while requests are pending), `amulegui` does not exit. The interface is paused and a **Connection lost** window shows the reconnection progress: `amulegui` retries every 5 seconds until the core is reachable again, then resumes where it left off (it reloads everything if the core was restarted meanwhile). Click **Abort and exit** to give up and close `amulegui`.
 
 While the window is minimized or hidden in the [system tray](./tray-icon.md), the reconnection runs silently, without the dialog; it appears if you restore the window before the connection is back. Each step is also logged.
 

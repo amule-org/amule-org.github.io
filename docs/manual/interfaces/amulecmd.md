@@ -185,7 +185,7 @@ A plain filename (no directory part) given to `-f`/`--config-file` is taken rela
 
 ### Output Format
 
-Since 3.1.0, the list commands (`show dl`, `show ul`, `show shared`, `show servers`) separate the fields of each row with **tabs** instead of spaces. Client names and file names may contain spaces, so the tab lets a script split a row back into its fields (for example with `cut -f` or `awk -F '\t'`). Every line of a command's reply is prefixed with ` > ` (the banner lines and the `results` table are not), each download or shared file still takes two lines (the second one starts with ` > ` followed by a tab), and status and priority strings follow the program locale. In tab mode, tabs inside names are replaced with spaces. Scripts written against the older space-separated output can pass `--space-separated` to get it back.
+The list commands (`show dl`, `show ul`, `show shared`, `show servers`) separate the fields of each row with **tabs**. Client names and file names may contain spaces, so the tab lets a script split a row back into its fields (for example with `cut -f` or `awk -F '\t'`). Every line of a command's reply is prefixed with ` > ` (the banner lines and the `results` table are not), each download or shared file takes two lines (the second one starts with ` > ` followed by a tab), and status and priority strings follow the program locale. In tab mode, tabs inside names are replaced with spaces. Scripts written against the older space-separated output can pass `--space-separated` to get it back.
 
 ## Scheduling with Cron
 

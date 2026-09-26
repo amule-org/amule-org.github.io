@@ -37,6 +37,6 @@ The last buttons, after the separator, open secondary windows:
 
 In builds with the new-version check (the official release bundles; builds from OS package managers usually leave it out), the About window also has a **Check for updates** button that reports whether you are running the latest release or which newer version is available.
 
-## Connect / Disconnect
+## Connecting to Networks
 
-Before aMule 3.1.0 the leftmost toolbar button connected and disconnected all networks at once. It has been removed: each network now has its own **Connect** / **Disconnect** button on its tab of the [Networks](./networks.md) window, and the [system tray menu](./tray-icon.md#context-menu) still offers **Connect** / **Disconnect** for all networks.
+The toolbar has no Connect / Disconnect button since aMule 3.1.0: each network has its own **Connect** / **Disconnect** button on its tab of the [Networks](./networks.md) window, and the [system tray menu](./tray-icon.md#context-menu) offers **Connect** / **Disconnect** for all networks at once.

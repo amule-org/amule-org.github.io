@@ -112,7 +112,7 @@ Each of these buttons is described in detail on the [Toolbar](./toolbar.md) page
 | `Toolbar_About.png` | About window button |
 | `Toolbar_Blink.png` | Blink/notification indicator |
 
-Skins made for aMule 3.0 and earlier may also contain `Toolbar_Connect.png`, `Toolbar_Disconnect.png` and `Toolbar_Connecting.png`. aMule 3.1.0 ignores them, because the toolbar no longer has a Connect button (see [Toolbar](./toolbar.md)).
+Older skins may also contain `Toolbar_Connect.png`, `Toolbar_Disconnect.png` and `Toolbar_Connecting.png`. aMule ignores them, because the toolbar has no Connect button (see [Toolbar](./toolbar.md)).
 
 #### Client images (16×16 px)
 

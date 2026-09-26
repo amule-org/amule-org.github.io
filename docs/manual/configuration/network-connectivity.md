@@ -85,6 +85,31 @@ After configuring, verify the ports are reachable using [Testing your port statu
 > - [portforward.com](https://portforward.com/) provides walkthroughs for hundreds of consumer router models.
 > - aMule supports [UPnP](./upnp.md), which can configure the router ports automatically if your router supports it.
 
+## Binding aMule to a network interface (VPN)
+
+If you run aMule over a VPN, set **[Preferences → Connection → Limits → Bind to network interface](../interfaces/gui/preferences.md#limits)** (the [`NetworkInterface`](./config-files/amule-conf.md#connection) key) to the VPN interface name (e.g. `tun0`, `wg0`, `en0`) or index; on Windows use the adapter's friendly name (e.g. `Ethernet`). Unlike **Bind local address to IP**, which only chooses the source address, this pins the traffic to the interface so it does not leave through the default route while the interface exists. Changing it requires restarting aMule. Not supported on BSD.
+
+The binding covers all eD2k and Kademlia traffic (including connections through a [proxy](./proxy.md)) and, on macOS and Linux where wxWidgets' curl backend is available, the HTTP downloads (server list, IP filter, GeoIP database, version check). It does not cover the [UPnP](./upnp.md) traffic or the External Connections listener, which has its own setting in [Preferences → Remote Controls](../interfaces/gui/preferences.md#external-connection-parameters).
+
+If the interface does not exist, aMule logs `WARNING: configured network interface '<name>' was not found …` at startup. On some Linux kernels the binding needs the `CAP_NET_RAW` capability: grant it to the binary (e.g. `sudo setcap cap_net_raw+ep /usr/bin/amule`) instead of running aMule as root.
+
+:::warning Not a kill switch
+The binding **fails open**: if the interface does not exist or disappears later (for example, the VPN drops), aMule keeps working through the default route instead of stopping. If traffic must never leave outside the VPN, add a firewall rule that blocks aMule's traffic on every other interface, or use your VPN client's kill-switch feature.
+:::
+
+## IPv4 only
+
+aMule's network stack is IPv4 only: the hostnames it connects to (servers, the proxy, the External Connections host) are resolved to IPv4 addresses, so a name with only an IPv6 (AAAA) record cannot be used. `localhost` always means `127.0.0.1`.
+
+## Server connection failures
+
+With **[Remove dead server after _n_ retries](../interfaces/gui/preferences.md#servers)** enabled (the [`RemoveDeadServer` and `DeadServerRetry`](./config-files/amule-conf.md#server) keys), servers that fail too often are removed from the list. aMule tries to count only the failures that are the server's fault:
+
+- **Counted:** the server refuses the connection, the operating system reports a connection timeout, the server's hostname does not resolve while other servers' hostnames do, and unanswered UDP pings (sent to the servers in the list while aMule is connected to one).
+- **Not counted:** errors that point to your own connection, such as network or host unreachable; aMule's own 25-second connection timeout; and a hostname that does not resolve when no other server's hostname resolves either (DNS is probably down).
+- Static servers are never removed.
+- When a whole pass over the server list fails, aMule waits **30 seconds** before trying again, if **Reconnect on loss** is enabled in [Preferences → Connection](../interfaces/gui/preferences.md#networks).
+
 ## Kademlia connectivity (open vs firewalled)
 
 [Kademlia](../../p2p-networks/kademlia.md) uses **"open"** and **"firewalled"** instead of [High ID / Low ID](../../p2p-networks/ed2k/high-id.md). Kad tracks the TCP port (4662) and the UDP port (4672) as **separate** states — the GUI shows them as **Connection State** (TCP) and **UDP Connection State** (UDP) in the [Kad Info panel](../interfaces/gui/networks.md#kad-info):
