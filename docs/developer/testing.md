@@ -3,7 +3,7 @@ id: testing
 title: Testing
 ---
 
-aMule has two complementary testing mechanisms: an automated **unit test suite** that runs in CI and can be run locally, and a **virtual eD2k test network** for integration testing of network behaviour without connecting to the real [eD2k](../p2p-networks/ed2k/index.md) / [Kademlia](../p2p-networks/kademlia.md) network.
+aMule has three complementary testing mechanisms: an automated **unit test suite** that runs in CI and can be run locally, an **[`amuleapi` integration test suite](#amuleapi-integration-tests)** that exercises the REST API against a running core, and a **virtual eD2k test network** for integration testing of network behaviour without connecting to the real [eD2k](../p2p-networks/ed2k/index.md) / [Kademlia](../p2p-networks/kademlia.md) network.
 
 ## Unit Tests
 
@@ -47,18 +47,23 @@ unittests/
 │   ├── testcase.h          # DECLARE() / END_DECLARE() macros
 │   ├── testregistry.h      # Test registration
 │   └── main.cpp            # Test runner entry point
-└── tests/                  # Individual test files
-    ├── CTagTest.cpp         # EC tag serialisation
-    ├── CUInt128Test.cpp     # 128-bit integer operations (Kademlia)
-    ├── FileDataIOTest.cpp   # Binary file I/O
-    ├── FormatTest.cpp       # wxString formatting
-    ├── NetworkFunctionsTest.cpp  # IP/network utility functions
-    ├── PathTest.cpp         # File path manipulation
-    ├── PhpArrayTest.cpp     # PHP array parsing (amuleweb template engine)
-    ├── RangeMapTest.cpp     # RangeMap (used for partial-file tracking)
-    ├── StringFunctionsTest.cpp   # String utility functions
-    └── TextFileTest.cpp     # Text file reading and line-ending handling
+├── tests/                  # Unit tests, one <Name>Test.cpp per suite
+│   └── CMakeLists.txt      # Registers every suite with CTest
+└── curl-tests/             # HTTP tests against a running daemon
+    ├── amuleapi/           # amuleapi REST/SSE suite (see below)
+    └── amuleweb-smoke/     # Smoke test for the legacy amuleweb
 ```
+
+`unittests/tests/` holds some 75 suites. They cover, among others:
+
+- **Core data and file I/O** — tags (`CTagTest`), 128-bit Kad IDs (`CUInt128Test`), binary file I/O (`FileDataIOTest`), `RangeMap`, paths, string formatting, text files, `.emulecollection` and magnet URIs.
+- **Credits and peers** — `clients.met` credits (`ClientCreditsTest`), secure identification (`SecIdentTest`), bans, client version strings, peer capabilities and reserved protocol frames.
+- **EC protocol** — encryption (`ECCryptTest`), socket flags, client capabilities and incremental-update diffs.
+- **`amuleapi`** — config, authentication, JWT, credentials, rate limiting, the SSE event bus and diff engine, JSON writer, ETags, static file serving and range requests.
+- **Networking** — network functions, proxies, the IPv6-capable address type, peer addressing and the uTP dial policy/stream/transport.
+- **Kademlia** — AICH hash lists, entry tag lists and the node-protection heuristics (`FastKadTest`, `SafeKadTest`).
+
+Three uTP suites (`UtpContextTest`, `UtpLibraryAdapterTest`, `UtpAdmissionTest`) are built only when the [experimental](./compilation/index.md#experimental-options) `ENABLE_UTP` option is on; every other suite always builds.
 
 ### Writing a New Test
 
@@ -175,8 +180,51 @@ Running test-collection "CUInt128Test" with 12 test-cases:
 `ctest` reports the per-executable pass/fail summary. With `--output-on-failure`, the full output above is shown only for executables that fail:
 
 ```
-100% tests passed, 0 tests failed out of 10
+100% tests passed, 0 tests failed out of <N>
 ```
+
+## `amuleapi` Integration Tests {#amuleapi-integration-tests}
+
+`unittests/curl-tests/amuleapi/` is an end-to-end suite for [`amuleapi`](../manual/interfaces/amuleapi/index.md): shell scripts that drive the REST API and the SSE stream with `curl` (and `jq`) and check the responses. The scripts are numbered in the order they run, roughly one per endpoint group — version and errors, authentication and lockout, read endpoints, downloads, servers, preferences, networks, shared files, categories, search, ETags, SSE heartbeat/diff/replay/resync, CORS, the static Web UI, pagination, known clients, friends, IP filter, chat, media metadata and HTTP conformance. `00-peer-fixture.sh` searches the live network and queues a real download so source-dependent checks have a peer, and `99-peer-fixture-teardown.sh` removes it (without network access the fixture only prints a notice and those checks are skipped).
+
+The suite is **not** run in CI. It needs:
+
+- A running [`amuled`](../manual/interfaces/amuled.md) (or `amule`) with [External Connections enabled](../manual/interfaces/gui/preferences.md#remote-controls).
+- An `amuleapi` binary built from the same tree (`-DBUILD_AMULEAPI=YES`). By default the newest `src/webapi/amuleapi` in the source tree or under a `build*/`, `_build/` or `cmake-build-*/` directory is used; the `PATH` is deliberately not searched.
+- `curl` and `jq`. `python3` is optional; without it, some checks in `25-cors.sh` and `40-http-conformance.sh` are skipped.
+
+Run it with `run-all.sh`:
+
+```sh
+cd unittests/curl-tests/amuleapi
+
+# Run every script in order
+./run-all.sh
+
+# Run a subset
+./run-all.sh 12-downloads-add-patch.sh 13-downloads-delete-clear.sh
+```
+
+A subset runs only the scripts you name: add `00-peer-fixture.sh` and `99-peer-fixture-teardown.sh` if the scripts you pick need a real peer.
+
+For each script, `run-all.sh` stops the `amuleapi` instance it started for the previous script (only processes running with `--config-dir=/tmp/amuleapi-regtest`), recreates that scratch config directory, sets the test admin/guest passwords, starts a fresh `amuleapi` on port 4713 (log in `/tmp/amuleapi.log`) and then runs the script. A fresh daemon per script is needed because the authentication tests trip the login lockout. It then prints each script's exit status.
+
+:::warning
+The suite needs HTTP port 4713 to be free (stop any other `amuleapi` using it first), and it wipes `/tmp/amuleapi-regtest` and `/tmp/amuleapi-static-frontend` on every run.
+:::
+
+It reads these environment variables:
+
+| Variable | Default | Description |
+|---|---|---|
+| `EC_HOST` | `127.0.0.1` | Host of the aMule core |
+| `EC_PORT` | `4712` | EC port of the aMule core |
+| `EC_PASSWORD` | `amule` | EC password of the aMule core |
+| `AMULEAPI_BIN` | newest build output | Path to the `amuleapi` binary under test |
+| `AMULEAPI_ROOT` | the repository root | Source tree to test, for unusual layouts |
+| `AMULE_SHARED_DIR` | *(unset)* | A directory the core shares, for the shared-files checks |
+
+`unittests/curl-tests/amuleweb-smoke/phase0.sh` is a small smoke test for the legacy [`amuleweb`](../manual/interfaces/amuleweb.md).
 
 ## Virtual eD2k Test Network
 
@@ -226,13 +274,14 @@ If aMule refuses to connect to your local server, try disabling **["Always filte
 
 The CI pipeline runs on every push and pull request via GitHub Actions (`.github/workflows/ccpp.yml`). It runs the full build matrix:
 
-- Ubuntu (Debug + Release)
+- Windows MSYS2 CLANG64 (Debug + Release; the Debug job also sets `-DENABLE_UTP=YES`)
 - macOS (Debug + Release)
-- Windows MSYS2 MINGW64 (Debug + Release)
+- Ubuntu (Debug + Release)
+- Ubuntu Experimental (Debug + Release) — the same build with `-DENABLE_ALL_EXPERIMENTAL=YES` (see [Experimental Options](./compilation/index.md#experimental-options))
 
 Each job:
 1. Installs the platform-specific dependencies.
-2. Configures CMake with all optional components enabled (`-DBUILD_ALC=YES -DBUILD_ALCC=YES -DBUILD_AMULECMD=YES -DBUILD_CAS=YES -DBUILD_DAEMON=YES -DBUILD_WXCAS=YES -DBUILD_ED2K=YES -DBUILD_MONOLITHIC=YES -DBUILD_REMOTEGUI=YES -DBUILD_TESTING=YES -DBUILD_WEBSERVER=YES -DENABLE_NLS=YES -DENABLE_UPNP=YES`).
+2. Configures CMake with all optional components enabled (`-DBUILD_ALC=YES -DBUILD_ALCC=YES -DBUILD_AMULECMD=YES -DBUILD_AMULEAPI=YES -DBUILD_CAS=YES -DBUILD_DAEMON=YES -DBUILD_WXCAS=YES -DBUILD_ED2K=YES -DBUILD_MONOLITHIC=YES -DBUILD_REMOTEGUI=YES -DBUILD_TESTING=YES -DBUILD_WEBSERVER=YES -DENABLE_NLS=YES -DENABLE_UPNP=YES`, plus `-DENABLE_IP2COUNTRY=YES`).
 3. Builds everything.
 4. Runs `ctest --test-dir build --output-on-failure --timeout 10`.
 

@@ -7,7 +7,7 @@ title: amulecmd — Command-Line Interface
 
 ## Overview
 
-`amulecmd` connects to aMule through the External Connections (EC) protocol (TCP, default port 4712; see the [EC Protocol](../../developer/ec-protocol.md) reference). It provides a subset of aMule functionality:
+`amulecmd` connects to aMule through the External Connections (EC) protocol (TCP, default port 4712; see the [EC Protocol](../../developer/ec-protocol.md) overview). It provides a subset of aMule functionality:
 
 - Search for files on [eD2k](../../p2p-networks/ed2k/index.md) and [Kademlia](../../p2p-networks/kademlia.md).
 - Start, pause, resume, and cancel downloads, and change their priority.

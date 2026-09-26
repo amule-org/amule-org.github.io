@@ -13,7 +13,7 @@ Download and install MSYS2 from [https://www.msys2.org/](https://www.msys2.org/)
 
 After the base installation, open the **MSYS2 MINGW64** terminal (not MSYS2 MSYS or UCRT64) for all subsequent steps.
 
-The Windows build requires CMake ≥ 3.10, wxWidgets ≥ 3.2.0, Boost ≥ 1.70, and crypto++ ≥ 5.6 — the MSYS2 packages below already satisfy these.
+The Windows build requires CMake ≥ 3.10, wxWidgets ≥ 3.2.0, Boost ≥ 1.70, and crypto++ ≥ 8.1 — the MSYS2 packages below already satisfy these.
 
 ## Install Dependencies
 

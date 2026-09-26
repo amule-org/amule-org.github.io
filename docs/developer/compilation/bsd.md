@@ -84,6 +84,7 @@ cmake -B build \
     -DBUILD_DAEMON=YES \
     -DBUILD_REMOTEGUI=YES \
     -DBUILD_WEBSERVER=YES \
+    -DBUILD_AMULEAPI=YES \
     -DBUILD_AMULECMD=YES \
     -DBUILD_ED2K=YES \
     -DENABLE_NLS=YES \
@@ -204,8 +205,4 @@ Either disable UPnP (`-DENABLE_UPNP=NO`) or let CMake build it from source (`-DD
 
 ### Crypto++ version too old
 
-CMake requires classic Crypto++ ≥ 5.6 *or* any release of the
-[cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork.
-Verify with `pkg info cryptopp` (FreeBSD). If too old, build Crypto++ from
-source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp))
-or install cryptopp-modern instead.
+CMake requires classic Crypto++ ≥ 8.1 *or* any release of the [cryptopp-modern](https://github.com/cryptopp-modern/cryptopp-modern) fork. Verify with `pkg info cryptopp` (FreeBSD). If too old, build Crypto++ from source ([github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)) or install cryptopp-modern instead.
