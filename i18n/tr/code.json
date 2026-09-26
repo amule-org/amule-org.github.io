@@ -41,9 +41,6 @@
   "homepage.download.install.link": {
     "message": "Hızlı başlangıç kılavuzu"
   },
-  "homepage.download.lead": {
-    "message": "aMule, hatırı sayılır masaüstü platformlarının çoğu için mevcuttur."
-  },
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
@@ -106,9 +103,6 @@
   },
   "homepage.download.version.date": {
     "message": "Yayınlanma tarihi: {date}"
-  },
-  "homepage.download.version.label": {
-    "message": "En yeni sürüm"
   },
   "homepage.download.windows.installer.label": {
     "message": "Kurulum Programı (.exe)"

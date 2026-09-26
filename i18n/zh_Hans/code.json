@@ -11,9 +11,6 @@
   "homepage.download.title": {
     "message": "下载"
   },
-  "homepage.download.lead": {
-    "message": "aMule 适用于大多数主流桌面平台。"
-  },
   "homepage.download.arch.x64": {
     "message": "x64"
   },
@@ -163,9 +160,6 @@
   },
   "homepage.tagline": {
     "message": "跨平台兼容 eMule 的 eD2k/Kad 客户端"
-  },
-  "homepage.download.version.label": {
-    "message": "最新版本"
   },
   "homepage.features.categories.title": {
     "message": "下载分类"

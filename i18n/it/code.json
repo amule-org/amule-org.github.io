@@ -56,17 +56,11 @@
   "homepage.download.pageDescription": {
     "message": "Scarica aMule per Windows, macOS, Linux o compilalo dai sorgenti."
   },
-  "homepage.download.version.label": {
-    "message": "Ultima versione"
-  },
   "homepage.download.version.date": {
     "message": "Rilasciata il {date}"
   },
   "homepage.download.version.changelog": {
     "message": "Changelog"
-  },
-  "homepage.download.lead": {
-    "message": "aMule è disponibile per la maggior parte delle principali piattaforme desktop."
   },
   "homepage.download.foot": {
     "message": "Tutti gli artefatti sono disponibili nella {release}. aMule è disponibile anche nei repository delle {distros}, anche se i pacchetti potrebbero essere obsoleti."

@@ -41,9 +41,6 @@
   "homepage.download.install.link": {
     "message": "guía de inicio rápido"
   },
-  "homepage.download.lead": {
-    "message": "aMule está disponible para las principales plataformas de escritorio."
-  },
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
@@ -106,9 +103,6 @@
   },
   "homepage.download.version.date": {
     "message": "Publicado el {date}"
-  },
-  "homepage.download.version.label": {
-    "message": "Última versión"
   },
   "homepage.download.windows.installer.label": {
     "message": "Instalador (.exe)"

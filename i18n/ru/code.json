@@ -104,9 +104,6 @@
   "theme.SearchBar.seeAll": {
     "message": "Показать все результаты"
   },
-  "homepage.download.lead": {
-    "message": "aMule доступен для большинства основных настольных платформ."
-  },
   "homepage.download.arch.x64": {
     "message": "x64"
   },
@@ -292,9 +289,6 @@
   },
   "theme.blog.author.noPosts": {
     "message": "Этот автор ещё не написал ни одной статьи."
-  },
-  "homepage.download.version.label": {
-    "message": "Последняя версия"
   },
   "homepage.features.corruptionHandling.title": {
     "message": "Обработка повреждений"

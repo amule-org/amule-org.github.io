@@ -43,10 +43,6 @@
     "message": "Quick Start guide",
     "description": "Name of the Quick Start guide on the download page (bold text and button label)"
   },
-  "homepage.download.lead": {
-    "message": "aMule is available for most major desktop platforms.",
-    "description": "Intro line above the per-OS download panels"
-  },
   "homepage.download.linux.appimage.label": {
     "message": "AppImage",
     "description": "Label for the Linux AppImage download format"
@@ -130,10 +126,6 @@
   "homepage.download.version.date": {
     "message": "Released {date}",
     "description": "Release date line on the download page; {date} is the localized release date"
-  },
-  "homepage.download.version.label": {
-    "message": "Latest version",
-    "description": "Badge next to the version number marking it as the latest release"
   },
   "homepage.download.windows.installer.label": {
     "message": "Installer (.exe)",

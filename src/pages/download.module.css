@@ -27,33 +27,41 @@
 /* ---- Hero: title and latest version ---- */
 
 .hero {
-  padding: 4rem 0 2.5rem;
+  padding: 2.5rem 0 2rem;
   text-align: center;
 }
 
 .title {
-  font-size: 3.25rem;
+  font-size: 2.75rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--ifm-heading-color);
-  margin-bottom: 1rem;
-}
-
-.versionRow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
   margin-bottom: 0.5rem;
 }
 
-.versionNumber {
-  font-size: 2rem;
+.versionMeta {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.versionMeta a {
+  font-weight: 600;
+}
+
+.versionMeta .versionNumber {
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.2;
   background: linear-gradient(90deg, var(--ifm-color-primary-darker), var(--ifm-color-primary-lighter));
   background-clip: text;
   color: transparent;
@@ -62,37 +70,6 @@
 .versionNumber:hover {
   text-decoration: none;
   opacity: 0.85;
-}
-
-.versionBadge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ifm-color-primary) 15%, transparent);
-  color: var(--dl-accent);
-}
-
-.versionMeta {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.5rem;
-  color: var(--ifm-color-emphasis-700);
-  margin-bottom: 1.25rem;
-}
-
-.versionMeta a {
-  font-weight: 600;
-}
-
-.lead {
-  font-size: 1.1rem;
-  color: var(--ifm-color-emphasis-700);
-  margin: 0 auto;
-  max-width: 600px;
 }
 
 /* ---- Cards (shared by OS panels, "other ways" and previous releases) ---- */
@@ -426,10 +403,6 @@
 }
 
 @media (max-width: 600px) {
-  .hero {
-    padding-top: 2.5rem;
-  }
-
   .osList {
     grid-template-columns: 1fr;
     grid-template-areas: 'win' 'mac' 'linux' 'src';
@@ -441,11 +414,20 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
-  .versionNumber {
-    font-size: 1.6rem;
+  .versionMeta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nowrap {
+    display: block;
+  }
+
+  .separator {
+    display: none;
   }
 
   .blockTitle {

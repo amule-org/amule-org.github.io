@@ -23,9 +23,6 @@
   "homepage.download.previous.body": {
     "message": "As versões anteriores estão arquivadas no {github} e na {sourceforge}."
   },
-  "homepage.download.lead": {
-    "message": "O aMule está disponível para a maioria das principais plataformas de desktop."
-  },
   "homepage.download.macos.dmg.label": {
     "message": "Imagem de disco (.dmg)"
   },
@@ -52,9 +49,6 @@
   },
   "homepage.download.compile": {
     "message": "O {link} tem instruções para compilar o aMule a partir do código fonte."
-  },
-  "homepage.download.version.label": {
-    "message": "Versão mais recente"
   },
   "homepage.download.windows.os": {
     "message": "Windows"

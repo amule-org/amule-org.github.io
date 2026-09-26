@@ -199,33 +199,29 @@ export default function DownloadPage(): React.JSX.Element {
           <h1 className={styles.title}>
             <Translate id="homepage.download.title" description="Download page title and main heading">Download</Translate>
           </h1>
-          <div className={styles.versionRow}>
+          {/* Version, date and changelog on one line: this page is for acting, keep the downloads above the fold */}
+          <p className={styles.versionMeta}>
             <Link className={styles.versionNumber} to={RELEASES_URL}>
               aMule {LATEST_VERSION}
             </Link>
-            <span className={styles.versionBadge}>
-              <Translate id="homepage.download.version.label" description="Badge next to the version number marking it as the latest release">Latest version</Translate>
-            </span>
-          </div>
-          <p className={styles.versionMeta}>
+            {/* The "·" stays glued to the changelog link; on phones the three parts stack and the "·" is hidden */}
             <span>
-              <Translate
-                id="homepage.download.version.date"
-                description="Release date line on the download page; {date} is the localized release date"
-                values={{date: formatDate(LATEST_DATE, currentLocale)}}
-              >
-                {'Released {date}'}
-              </Translate>
+              <span>
+                <Translate
+                  id="homepage.download.version.date"
+                  description="Release date line on the download page; {date} is the localized release date"
+                  values={{date: formatDate(LATEST_DATE, currentLocale)}}
+                >
+                  {'Released {date}'}
+                </Translate>
+              </span>{' '}
+              <span className={styles.nowrap}>
+                <span className={styles.separator} aria-hidden="true">·</span>{' '}
+                <Link to={CHANGELOG_URL}>
+                  <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
+                </Link>
+              </span>
             </span>
-            <span aria-hidden="true">·</span>
-            <Link to={CHANGELOG_URL}>
-              <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
-            </Link>
-          </p>
-          <p className={styles.lead}>
-            <Translate id="homepage.download.lead" description="Intro line above the per-OS download panels">
-              aMule is available for most major desktop platforms.
-            </Translate>
           </p>
         </header>
 

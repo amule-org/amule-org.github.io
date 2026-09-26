@@ -41,9 +41,6 @@
   "homepage.download.install.link": {
     "message": "Guide de démarrage rapide"
   },
-  "homepage.download.lead": {
-    "message": "aMule est disponible pour la plupart des plateformes de bureau majeures."
-  },
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
   },
@@ -106,9 +103,6 @@
   },
   "homepage.download.version.date": {
     "message": "Publiée le {date}"
-  },
-  "homepage.download.version.label": {
-    "message": "Version la plus récente"
   },
   "homepage.download.windows.installer.label": {
     "message": "Installeur (.exe)"

@@ -62,9 +62,6 @@
   "homepage.download.install.link": {
     "message": "Guia d'inici ràpid"
   },
-  "homepage.download.lead": {
-    "message": "aMule està disponible per a la majoria de plataformes d'escriptori principals."
-  },
   "homepage.download.macos.dmg.label": {
     "message": "Imatge de disc (.dmg)"
   },
@@ -85,9 +82,6 @@
   },
   "homepage.download.version.date": {
     "message": "Publicat {date}"
-  },
-  "homepage.download.version.label": {
-    "message": "Última versió"
   },
   "homepage.download.windows.installer.label": {
     "message": "Instal·lador (.exe)"
