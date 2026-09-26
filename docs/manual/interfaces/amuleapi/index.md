@@ -113,7 +113,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 
 ## Security Model
 
-- **HTTP only by design** — put a reverse proxy in front to terminate TLS.
+- **HTTP only by design** — put a reverse proxy in front to terminate TLS. To serve it under a path of a shared hostname (e.g. `/amule/`), set [`BasePath`](../../configuration/config-files/amuleapi-conf.md#serving-under-a-sub-path).
 - Listens on **loopback** (`127.0.0.1`) unless `BindAddress` is changed.
 - The config file and the generated secret/token files are restricted to `0600`.
 

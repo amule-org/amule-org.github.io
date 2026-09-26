@@ -17,7 +17,7 @@ This functionality is available from aMule 3.1.0 onwards.
 http://127.0.0.1:4713/
 ```
 
-Replace `127.0.0.1` with the server's hostname or IP for [remote access](../../troubleshooting/remote-access.md) (put a reverse proxy in front to add TLS — see the [`amuleapi` security model](./index.md#security-model)).
+Replace `127.0.0.1` with the server's hostname or IP for [remote access](../../troubleshooting/remote-access.md) (put a reverse proxy in front to add TLS — see the [`amuleapi` security model](./index.md#security-model)). To serve it under a path of a shared hostname (e.g. `https://home.example.com/amule/`), set [`BasePath`](../../configuration/config-files/amuleapi-conf.md#serving-under-a-sub-path).
 
 The interface assets are found automatically when `[Server] StaticRoot` is empty: `amuleapi` discovers the installed `amuleapi-static` directory (searching the app bundle, the directory beside the binary, `AMULEAPI_STATIC_DIR`, and the resources directory). Set `StaticRoot` only to serve assets from a custom location.
 
