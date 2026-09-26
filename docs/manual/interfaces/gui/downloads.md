@@ -7,7 +7,7 @@ The Downloads window is the central place to manage your downloads. It shows eve
 
 ## Overview
 
-![Transfer queue](/img/docs/transfers_queue.png)
+![Downloads window](/img/docs/gui_downloads/downloads.png)
 
 The window is split into two areas by a movable divider:
 
