@@ -58,5 +58,8 @@
   },
   "sidebar.docsSidebar.category.File Formats": {
     "message": "Formats de fitxer"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — API REST i interfície web"
   }
 }

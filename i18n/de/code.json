@@ -1,1 +1,8 @@
-{}
+{
+  "homepage.features.folderRescan.title": {
+    "message": "Automatisches erneutes Scannen von Ordnern"
+  },
+  "homepage.download.source.platform": {
+    "message": "Selbst kompilieren"
+  }
+}

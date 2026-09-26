@@ -58,5 +58,8 @@
   },
   "sidebar.docsSidebar.category.Translations": {
     "message": "Traductions"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — API REST et Interface Web"
   }
 }

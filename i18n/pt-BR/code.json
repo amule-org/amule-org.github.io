@@ -474,7 +474,7 @@
     "message": "Transferências Comprimidas"
   },
   "homepage.features.corruptionHandling.desc": {
-    "message": "O manipulador de corrupção inteligente (ICH) e AICH detectam e reparam automaticamente pedaços de download corrompidos, assegurando arquivos completos e intactos sem reiniciar."
+    "message": "Os manipuladores de corrupção inteligente ICH e AICH detectam e reparam automaticamente pedaços de download corrompidos, assegurando arquivos completos e intactos sem reiniciar."
   },
   "homepage.features.corruptionHandling.title": {
     "message": "Lidando com Corrupção"
@@ -618,7 +618,7 @@
     "message": "Suporte a Proxy"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Controle o aMule de qualquer lugar: uma GUI de controle remoto nagiva (amulegui), uma interface web baseada em navegador (amuleweb) ou uma ferramenta de linha de comando (amulecmd)."
+    "message": "Controle o aMule de qualquer lugar: uma GUI de controle remoto nativa (amulegui), uma API REST e um navegador moderno, uma ferramenta de linha de comando (amulecmd) ou a interface WebUI legada (amuleweb)."
   },
   "homepage.features.remoteInterfaces.title": {
     "message": "Interfaces Remotas"

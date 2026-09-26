@@ -58,5 +58,8 @@
   },
   "sidebar.docsSidebar.category.File Formats": {
     "message": "Форматы файлов"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — REST API и веб-интерфейс"
   }
 }

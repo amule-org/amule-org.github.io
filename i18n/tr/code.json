@@ -237,7 +237,7 @@
     "message": "Vekil Sunucu Desteği"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "aMule'ü her yerden kontrol edin: yerel bir uzak grafik arayüz (amulegui), tarayıcı tabanlı web arayüzü (amuleweb) veya bir komut satırı aracı (amulecmd)."
+    "message": "aMule'ü her yerden kontrol edin: yerel bir uzak grafik arayüz (amulegui), REST API ve çağdaş tarayıcı Web arayüzü (amuleapi), veya bir komut satırı aracı (amulecmd) veya eski WebUI (amuleweb)."
   },
   "homepage.features.remoteInterfaces.title": {
     "message": "Uzak Arayüzler"
