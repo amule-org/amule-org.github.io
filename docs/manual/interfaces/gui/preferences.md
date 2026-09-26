@@ -257,7 +257,7 @@ Options for aMule's graphical interface.
 
 ## IP2Country
 
-Options for the GeoIP country database that provides the country flags shown next to clients and servers.
+Options for the GeoIP country database that provides the country flags shown next to clients and servers. For an overview of the feature, its database providers and how updates work, see [IP2Country (Country Flags)](../../configuration/ip2country.md).
 
 :::note
 This panel appears only in builds compiled with GeoIP support (the standard release builds) and in `amulegui`; in `amulegui` it is also removed when the connected core has no GeoIP support. Country flags require a valid GeoIP country database — use **Update now** to download one.
@@ -277,7 +277,7 @@ The keys behind this panel are documented in the [GeoIP section](../../configura
 | **Update now** | Download the database from the selected source immediately. In `amule`, a failed update shows an *IP2Country update failed* message; in `amulegui` the result appears in the status line. |
 | **Auto-update on startup** | At every startup (and, in `amule`, when you enable **Show country flags for clients**), check for a newer GeoIP database and download it if there is one (`GeoIPAutoUpdate`). Only while **Show country flags for clients** is enabled. |
 
-In `amule`, clicking **OK** after changing the source, or the selected source's license key or download URL (with GeoIP enabled), downloads the database from the new source automatically.
+In `amule` and `amulegui`, clicking **OK** after changing the source, or the selected source's license key or download URL (with GeoIP enabled), downloads the database from the new source automatically.
 
 ## Statistics
 

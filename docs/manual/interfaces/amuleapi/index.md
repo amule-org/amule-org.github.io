@@ -108,7 +108,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 - **Friends**, **Categories**.
 - **Preferences** — read (`GET`) and update (`PATCH`).
 - **Network control** — networks and Kad control.
-- **IP filter**, **GeoIP**.
+- **IP filter**, **GeoIP** (database update; see [IP2Country](../../configuration/ip2country.md)).
 - **Logs**, **Statistics**, **Search**, **Assets**, **Chat**.
 
 ## Security Model

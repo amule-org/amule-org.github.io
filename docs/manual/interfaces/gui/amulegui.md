@@ -99,7 +99,7 @@ Kad searches can be widened with **Extend**, searches started from other interfa
 
 ### Preferences in `amulegui`
 
-The Preferences window only offers settings the core can apply over EC. It adds the [Path Mappings](./preferences.md#path-mappings) page, which is specific to `amulegui`, and hides or disables, among others, the External Connections settings of the core, the web server and External Connections UPnP options (always), the P2P UPnP options when the core has no UPnP support, the online-signature and `ffprobe` **Browse** buttons, the `ffprobe` **Detect** button, and the **IP2Country** page when the core has no GeoIP support.
+The Preferences window only offers settings the core can apply over EC. It adds the [Path Mappings](./preferences.md#path-mappings) page, which is specific to `amulegui`, and hides or disables, among others, the External Connections settings of the core, the web server and External Connections UPnP options (always), the P2P UPnP options when the core has no UPnP support, the online-signature and `ffprobe` **Browse** buttons, the `ffprobe` **Detect** button, and the [**IP2Country**](../../configuration/ip2country.md) page when the core has no GeoIP support.
 
 ## Command-Line Options
 

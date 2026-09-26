@@ -76,7 +76,7 @@ On top of that, aMule adds capabilities of its own:
 - **Works across filesystems** — keep downloads and shared files on different drives or filesystems.
 - **Secure (HTTPS) updates** — server lists and filter lists can be downloaded over secure HTTPS connections.
 - **[Network interface binding](./manual/configuration/network-connectivity.md#binding-amule-to-a-network-interface-vpn)** — pin aMule's traffic to one network interface, such as a VPN, so it does not leave through the default route while that interface exists (not available on BSD).
-- **[Country lookup](./manual/interfaces/gui/preferences.md#ip2country)** — shows the country flag of the servers and users you connect to, using a free country database that aMule downloads and keeps up to date.
+- **[Country lookup](./manual/configuration/ip2country.md)** — shows the country flag of the servers and users you connect to, using a free country database that aMule downloads and keeps up to date.
 - **[Start on login](./manual/configuration/autostart.md)** — have aMule launch automatically when you sign in.
 - **[Light and dark appearance](./manual/interfaces/gui/index.md#working-with-lists)** — the interface follows your system's light or dark theme, with [sharp icons](./manual/interfaces/gui/toolbar.md) on high-resolution displays.
 - **Default file permissions** — choose the access permissions applied to completed downloads.
