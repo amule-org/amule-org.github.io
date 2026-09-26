@@ -237,7 +237,7 @@
     "message": "Soporte para proxy"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd)."
+    "message": "Controle aMule desde cualquier lugar: una interfaz gráfica nativa remota (amulegui), una API REST y una interfaz web moderna para el navegador (amuleapi), una herramienta de línea de comandos (amulecmd) o la interfaz web clásica (amuleweb)."
   },
   "homepage.features.remoteInterfaces.title": {
     "message": "Interfaces remotas"

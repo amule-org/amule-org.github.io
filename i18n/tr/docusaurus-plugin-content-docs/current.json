@@ -58,5 +58,8 @@
   },
   "sidebar.docsSidebar.category.Translations": {
     "message": "Çeviriler"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — REST API ve Web Arayüzü"
   }
 }

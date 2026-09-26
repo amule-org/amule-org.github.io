@@ -58,5 +58,8 @@
   },
   "sidebar.docsSidebar.category.File Formats": {
     "message": "Formáty souborů"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — REST API & Web UI"
   }
 }

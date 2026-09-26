@@ -180,7 +180,7 @@
     "message": "Encamineu les connexions mitjançant servidors intermediaris SOCKS4, SOCKS5 o HTTP per a la privadesa o per evitar les restriccions de la xarxa."
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Controleu aMule des de qualsevol lloc: una GUI remota nativa (amulegui), una interfície web basada en navegador (amuleweb) o una eina de línia d'ordres (amulecmd)."
+    "message": "Controleu aMule des de qualsevol lloc: una GUI remota nativa (amulegui), una API REST i una interfície web moderna per al navegador (amuleapi), una eina de línia d'ordres (amulecmd) o la WebUI antiga (amuleweb)."
   },
   "homepage.features.search.desc": {
     "message": "Cerca entre servidors eD2k (locals i globals) i nodes de Kademlia. Filtreu per tipus, mida i disponibilitat. S'admeten operadors booleans (AND, OR, NOT)."

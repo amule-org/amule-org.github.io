@@ -32,9 +32,6 @@
   "homepage.download.previous.title": {
     "message": "历史版本"
   },
-  "homepage.download.source.zip": {
-    "message": ".zip"
-  },
   "homepage.download.source.label": {
     "message": "源代码"
   },
@@ -58,5 +55,248 @@
   },
   "homepage.download.previous.github.link": {
     "message": "GitHub"
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "原生软件包"
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "安全身份验证"
+  },
+  "homepage.features.messaging.title": {
+    "message": "消息与好友"
+  },
+  "homepage.features.search.title": {
+    "message": "强力搜索"
+  },
+  "homepage.features.daemon.title": {
+    "message": "aMule 守护进程"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "加密安全的用户身份验证，防止客户端哈希值被网络上的其他节点窃取或伪造。"
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "提供 Windows 的安装程序及便携版 .zip、macOS 的 Universal2 .dmg、Linux 的 AppImage 和 Flatpak。同时支持 x64 和 ARM64 架构。"
+  },
+  "homepage.download.foot": {
+    "message": "所有构建产物均可在 {release} 获取。aMule 也可在 {distros} 的仓库中找到，不过其中的软件包版本可能已过时。"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "共享文件"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "积分系统"
+  },
+  "homepage.features.languages.desc": {
+    "message": "aMule 支持 37 种语言的界面。用你的母语下载和分享文件——UI 将根据系统所在区域自动适配。"
+  },
+  "homepage.features.languages.title": {
+    "message": "37 种界面语言"
+  },
+  "homepage.highlights.buildSystem.tag": {
+    "message": "CMake"
+  },
+  "homepage.download.previous.body": {
+    "message": "之前的版本已归档于 {github} 和 {sourceforge}。"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "关闭"
+  },
+  "homepage.highlights.packages.detail": {
+    "message": "Windows 安装程序及便携版 .zip、macOS Universal2 .dmg、AppImage、Flatpak — 支持 x64 和 ARM64 架构。"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "滚动并返回到顶部"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "通过 SOCKS4、SOCKS5 或 HTTP 代理路由连接，以保护隐私，或绕过网络限制。"
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "IP 过滤"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "查看所有结果"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "复制代码至剪贴板"
+  },
+  "theme.NotFound.p2": {
+    "message": "请联系向你提供原始 URL 的网站管理员，并告知他们该链接已失效。"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "此页面已崩溃。"
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "磁盘映像（.dmg）"
+  },
+  "homepage.download.install.link": {
+    "message": "快速开始指南"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.pageDescription": {
+    "message": "下载适用于 Windows、macOS、Linux 的 aMule，或从源代码构建。"
+  },
+  "theme.SearchBar.label": {
+    "message": "搜索"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "查看 \"{context}\" 中的所有结果"
+  },
+  "homepage.screenshots.title": {
+    "message": "截图"
+  },
+  "homepage.features.docsLink": {
+    "message": "浏览完整文档→"
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "带宽控制"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "系统托盘"
+  },
+  "homepage.download.foot.link": {
+    "message": "最新发布页面"
+  },
+  "homepage.hero.cta.download": {
+    "message": "下载"
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "自动重新扫描文件夹"
+  },
+  "homepage.features.proxy.title": {
+    "message": "代理支持"
+  },
+  "homepage.screenshots.lightbox.close": {
+    "message": "关闭（Esc）"
+  },
+  "homepage.screenshots.lightbox.prev": {
+    "message": "上一张（←）"
+  },
+  "homepage.download.install": {
+    "message": "{install} 涵盖了所有平台，{quickstart} 则将引导你完成设置，并进行首次下载。"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "重试"
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "与eMule 兼容"
+  },
+  "homepage.screenshots.lightbox.next": {
+    "message": "下一张（→）"
+  },
+  "homepage.tagline": {
+    "message": "跨平台兼容 eMule 的 eD2k/Kad 客户端"
+  },
+  "homepage.whatisamule.title": {
+    "message": "什么是 aMule？"
+  },
+  "homepage.download.version.label": {
+    "message": "最新版本"
+  },
+  "homepage.features.categories.title": {
+    "message": "下载分类"
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "aMule 下载选项卡"
+  },
+  "homepage.features.openSource.desc": {
+    "message": "采用 GPL-2.0 许可，无遥测、广告和供应商锁定。你的数据归你所有——欢迎审查并贡献源代码。"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "使用标准 IP 过滤列表屏蔽不需要的 IP 地址。阻止攻击性、恶意或间谍节点连接到客户端。"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.features.title": {
+    "message": "功能特性"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "设置严格的上下行限速，由精准的令牌桶算法严格把控。既能限制 aMule 速度、避免挤占网速，也能在你离开时开启全速下载。"
+  },
+  "homepage.highlights.changelog": {
+    "message": "完整更新日志 →"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "安装程序（.exe）"
+  },
+  "homepage.features.openSource.title": {
+    "message": "自由&开源"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "aMule logo"
+  },
+  "homepage.download.source.platform": {
+    "message": "自行构建"
+  },
+  "homepage.highlights.packages.label": {
+    "message": "适用于所有桌面平台的二进制文件"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "便携版（.zip）"
+  },
+  "homepage.features.powerShare.title": {
+    "message": "发布优先级"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "复制"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "查看 \"{context}\" 之外的所有结果"
+  },
+  "homepage.highlights.packages.tag": {
+    "message": "软件包"
+  },
+  "homepage.download.install.guide.link": {
+    "message": "安装指南"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到你要找的内容。"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "已复制"
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "ed2k:// 链接集成"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "切换自动换行"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "网络选项卡——服务器列表与 Kademlia 状态"
+  },
+  "homepage.download.version.date": {
+    "message": "发布于 {date}"
+  },
+  "homepage.download.source.os": {
+    "message": "源代码"
+  },
+  "homepage.highlights.bandwidth.tag": {
+    "message": "带宽"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "无结果"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "快速入门"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "（在新标签页中打开）"
+  },
+  "theme.NotFound.title": {
+    "message": "页面未找到"
   }
 }

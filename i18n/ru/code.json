@@ -78,7 +78,7 @@
     "message": "Черновик страницы"
   },
   "homepage.download.previous.body": {
-    "message": "Архив предыдущих выпусков доступен в {github} и {sourceforge}."
+    "message": "Архив прошлых выпусков доступен в {github} и {sourceforge}."
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Закрыть"
@@ -330,7 +330,7 @@
     "message": "Это документация для {siteTitle} {versionLabel}, которая больше не поддерживается активно."
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Управляйте aMule откуда угодно: через нативный удалённый графический интерфейс (amulegui), веб-интерфейс в браузере (amuleweb) или командную строку (amulecmd)."
+    "message": "Управляйте aMule откуда угодно: через нативный удалённый графический интерфейс (amulegui), REST API и современный веб-интерфейс в браузере (amuleapi), инструмент командной строки (amulecmd) или устаревший веб-интерфейс (amuleweb)."
   },
   "theme.docs.breadcrumbs.home": {
     "message": "Главная страница"
