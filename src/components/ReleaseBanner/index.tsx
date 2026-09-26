@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 export default function ReleaseBanner(): React.JSX.Element {
   return (
-    <div className={styles.banner} role="banner">
+    <div className={styles.banner}>
       <span className={styles.content}>
         <Translate
           id="homepage.banner.text"

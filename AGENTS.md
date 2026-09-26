@@ -22,7 +22,7 @@
 **Key files**:
 - `docusaurus.config.ts` — site config, navbar, footer, i18n locales, theme, plugins (changelog blog instance)
 - `sidebars.ts` — docs sidebar definition
-- `src/pages/index.tsx` — homepage, composes section components (Hero/What-is/screenshot inlined here)
+- `src/pages/index.tsx` — homepage, composes section components (Hero and closing CTA inlined here)
 - `src/pages/download.tsx` — Download page (`/download`)
 - `src/components/<Name>/index.tsx` — one component per homepage section
 - `src/components/<Name>/styles.module.css` — scoped styles per component
@@ -43,13 +43,14 @@
 
 ## Homepage Components
 
-The Hero (logo, tagline, CTA buttons), "What is aMule?" description and the full-width transfers screenshot are inlined in `src/pages/index.tsx`. The remaining sections are components:
+Inlined in `src/pages/index.tsx`: split Hero (logo, tagline, intro, CTA buttons + desktop GUI screenshot with the phone Web UI overlaid) and the closing CTA box. `ReleaseBanner` (top) reads `src/releaseInfo.ts`. Keep the homepage evergreen — no per-release content.
 
 | Component | Section |
 |---|---|
-| `HighlightsSection` | 3.0.0 release highlights grid |
-| `FeaturesSection` | Bulleted feature list |
-| `ScreenshotsSection` | Screenshot grid with lightbox |
+| `FeaturesSection` | Alternating screenshot/feature rows + "And much more" card grid |
+
+- Screenshots: `static/img/screenshots/*.png`, cropped from `static/img/docs/` (the up-to-date captures). Class `home-zoom` enables click-to-zoom (`zoom.selector` in `docusaurus.config.ts`).
+- Motion: CSS only (`animation-timeline: view()` scroll reveal), guarded by `prefers-reduced-motion`.
 
 ## i18n
 

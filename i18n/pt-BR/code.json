@@ -116,56 +116,11 @@
   "homepage.download.previous.github.link": {
     "message": "GitHub"
   },
-  "homepage.screenshots.lead": {
-    "message": "aMule GUI — mesmo visual em Windows, macOS e Linux. Clique em qualquer captura de tela para aumentar; use {left} {right} para navegar, {esc} para fechar."
-  },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Fechar (Esc)"
-  },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Próximo (→)"
-  },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Anterior (←)"
-  },
-  "homepage.screenshots.networks.alt": {
-    "message": "Aba de Redes — estado da lista de servidores e da rede Kademlia"
-  },
-  "homepage.screenshots.networks.caption": {
-    "message": "Redes — estado dos servidores eD2k e da rede Kad"
-  },
-  "homepage.screenshots.search.alt": {
-    "message": "Aba de procura com resultados"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "Downloads — progresso por arquivo com barras de disponibilidade"
-  },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Aba de download com downloads ativos"
-  },
-  "homepage.screenshots.search.caption": {
-    "message": "Busca — resuldados da busca eD2k + Kad"
-  },
-  "homepage.screenshots.shared.alt": {
-    "message": "Aba de arquivos compartilhados"
-  },
-  "homepage.screenshots.shared.caption": {
-    "message": "Arquivos compartilhados"
-  },
-  "homepage.screenshots.title": {
-    "message": "Capturas de tela"
-  },
   "homepage.tagline": {
     "message": "Cliente eD2k/Kad compatível com eMule e para todas as plataformas"
   },
   "homepage.whatisamule.p1": {
     "message": "O aMule é um cliente de compartilhamento de arquivos p2p para as redes {ed2k} and {kad}, software livre e com licensa GPL. É compatível com o eMule e roda nativamente em Windows, macOS e Linux. O mesmo estado em disco, o mesmo protocolo, um binário por plataforma."
-  },
-  "homepage.whatisamule.p2": {
-    "message": "Depois de anos quieto, o projeto está de volta com manutenção ativa. O aMule 3.0 traz melhorias dramáticas de taxa de transferência, um sistema de compilação modernizado, pacotes fescos e nativos para todas as principais distribuições de desktop e uma base de código atualizada e pronta para sistemas atuais — sem quebrar a compatibilidade de protocolo que permite que o aMule funcione junto com qualquer cliente baseado em eMule."
-  },
-  "homepage.whatisamule.title": {
-    "message": "O que é o aMule?"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Fechar"
@@ -449,9 +404,6 @@
   "homepage.download.arch.x64": {
     "message": "x64"
   },
-  "homepage.download.source.label": {
-    "message": "Código fonte"
-  },
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
@@ -495,10 +447,10 @@
     "message": "Folhear a documentação completa →"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Clicque ed2k:// links em seu navegador para iniciar downloads instantâneamente no aMule. O manipulador dos links integra com seu desktop para uma experiência natural de um único click."
+    "message": "Clique em links ed2k:// e magnet: no navegador, ou abra arquivos .emulecollection, para iniciar downloads instantaneamente. O aMule se registra como o manipulador deles no Windows, macOS, Linux e BSD."
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "Integração de Links ed2k://"
+    "message": "Links com um clique"
   },
   "homepage.features.emuleCompatible.desc": {
     "message": "Totalmente compatível com eMule e todos os clientes *Mule. Compartilhe arquivos com as mesmas fontes, conecte-se aos mesmos servidores e abra links ed2k:// padronizados."
@@ -531,7 +483,7 @@
     "message": "Mensagens e Amigos"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Instalador e .zip portátil para Windows, Universal2 .dmg para macOS, AppImage e Flatpak no Linux. Disponível para ambos x64 e ARM64."
+    "message": "Instalador e .zip portátil para Windows, Universal2 .dmg para macOS, AppImage e Flatpak no Linux, para x64 e ARM64, além de binários headless totalmente estáticos para servidores Linux."
   },
   "homepage.features.nativePackages.title": {
     "message": "Pacotes Nativos"
@@ -562,48 +514,6 @@
   },
   "homepage.hero.screenshot.alt": {
     "message": "Aba de downloads do aMule"
-  },
-  "homepage.highlights.bandwidth.detail": {
-    "message": "Limitadores de upload e download reescritos como limitadores \"token-bucket\" próprios. {code} significa literalmente ilimitado."
-  },
-  "homepage.highlights.bandwidth.label": {
-    "message": "Limitação de banda que funciona"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Largura de banda"
-  },
-  "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools removido completamente. Compilação apenas com CMake, mínimo CMake 3.10, mínimo wxWidgets 3.2.0."
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Sistema de compilação moderno"
-  },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
-  },
-  "homepage.highlights.changelog": {
-    "message": "Changelog completo →"
-  },
-  "homepage.highlights.packages.detail": {
-    "message": "Instalador Windows e .zip portátil, macOS Universal2 .dmg, AppImage, Flatpak — x64 e ARM64 onde suportados."
-  },
-  "homepage.highlights.packages.label": {
-    "message": "Binários para todos os desktops"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Pacotes"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "E/S de disco movida para fora da thread principal e camada de rede revisada. Downloads par-a-par vêem aceleração de ~100–380× sobre 2.3.3 em macOS, Linux, e Windows."
-  },
-  "homepage.highlights.performance.label": {
-    "message": "Transferências dramaticamente mais rápidas"
-  },
-  "homepage.highlights.performance.tag": {
-    "message": "Desempenho"
-  },
-  "homepage.highlights.title": {
-    "message": "O que há de novo no aMule 3.0"
   },
   "homepage.features.preview.desc": {
     "message": "Toca vídeos e arquivos de audio antes de terminar um download. Compatível com MPlayer, VLC e outros tocadores de midia."
@@ -653,9 +563,6 @@
   "homepage.features.systemTray.title": {
     "message": "Bandeija do Sistema"
   },
-  "homepage.features.title": {
-    "message": "Características"
-  },
   "homepage.download.docker": {
     "message": "Para servidores e dispositivos NAS, uma {repo}, mantida por um membro do time aMule, também está disponível — veja a {guide}."
   },
@@ -667,5 +574,113 @@
   },
   "homepage.download.linux.static.label": {
     "message": "Binários estáticos (.tar.gz)"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "Web UI do amuleapi em um smartphone"
+  },
+  "homepage.cta.title": {
+    "message": "Pronto para começar?"
+  },
+  "homepage.cta.text": {
+    "message": "Baixe o aMule para a sua plataforma e siga o guia de início rápido para fazer o seu primeiro download."
+  },
+  "homepage.showcase.networks.title": {
+    "message": "Duas redes, um cliente"
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "O aMule usa eD2k e Kademlia ao mesmo tempo, então cada download aproveita tanto peers baseados em servidores quanto peers sem servidor."
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "Aba Redes com a lista de servidores eD2k"
+  },
+  "homepage.showcase.search.title": {
+    "message": "Encontre o que você procura"
+  },
+  "homepage.showcase.search.lead": {
+    "message": "Pesquise em servidores eD2k e na rede Kad de uma só vez e envie os resultados diretamente para a sua fila de downloads."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Aba Pesquisas com resultados"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Downloads em que você pode confiar"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Cada chunk é verificado pelo seu hash, então dados corrompidos são detectados e baixados novamente de forma automática."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Aba Downloads com o progresso de cada arquivo"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Controle de qualquer lugar"
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "Execute o aMule em um servidor ou NAS e gerencie-o pelo seu desktop, pelo seu navegador ou pelo seu celular."
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "Web UI do amuleapi mostrando a lista de downloads"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "Sua banda, suas regras"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "Decida exatamente quanto da sua conexão o aMule usa e quem recebe o seu upload."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "Aba Estatísticas com o gráfico de velocidade de download"
+  },
+  "homepage.showcase.security.title": {
+    "message": "Segurança e privacidade integradas"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "Mantenha peers indesejados afastados e sua identidade segura com filtros de IP, identificação criptográfica e suporte a proxy."
+  },
+  "homepage.showcase.security.alt": {
+    "message": "Preferências de segurança com as opções de filtragem de IP"
+  },
+  "homepage.more.title": {
+    "message": "E muito mais"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Modo endgame"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Perto do fim de um download, uma fonte rápida assume os blocos atribuídos a uma fonte muito mais lenta, para que os arquivos não fiquem travados em 99% por causa de um único peer lento."
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Verificar dados locais"
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Recalcule sob demanda o hash dos arquivos compartilhados para verificar se os dados no disco continuam íntegros."
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Controle remoto criptografado"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "As interfaces remotas criptografam a conexão com o núcleo, novas instalações só a aceitam a partir da máquina local e tentativas de login com falha são limitadas."
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Vinculação a uma interface de rede"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "Fixe o tráfego do aMule em uma interface de rede, como uma VPN, para que ele não saia pela rota padrão enquanto essa interface existir (não disponível no BSD)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Aparência clara e escura"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "A interface segue o tema claro ou escuro do sistema, com ícones nítidos em telas de alta resolução."
+  },
+  "homepage.download.other.title": {
+    "message": "Outras formas de obter o aMule"
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Página da versão e pacotes das distribuições"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.download.next.title": {
+    "message": "Próximos passos"
   }
 }

@@ -16,8 +16,10 @@
   background-color: color-mix(in srgb, var(--ifm-color-primary) 28%, var(--ifm-background-color));
 }
 
+/* inline-block makes it a block container, which text-wrap: balance needs */
 .content {
   display: inline-block;
+  text-wrap: balance;
 }
 
 .link {
@@ -25,9 +27,17 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
+  white-space: nowrap;
 }
 
 .link:hover {
   color: var(--ifm-color-primary-darker);
   text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
 }

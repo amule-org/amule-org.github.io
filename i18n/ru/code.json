@@ -29,9 +29,6 @@
   "homepage.download.source.targz": {
     "message": ".tar.gz"
   },
-  "homepage.screenshots.shared.caption": {
-    "message": "Общие файлы"
-  },
   "homepage.features.creditSystem.title": {
     "message": "Система кредитов"
   },
@@ -71,9 +68,6 @@
   "homepage.download.title": {
     "message": "Скачать"
   },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
-  },
   "theme.contentVisibility.draftBanner.title": {
     "message": "Черновик страницы"
   },
@@ -83,20 +77,11 @@
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Закрыть"
   },
-  "homepage.highlights.packages.detail": {
-    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux. Доступны сборки x64 и ARM64."
-  },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "Прокрутить вверх"
   },
-  "homepage.highlights.performance.tag": {
-    "message": "Производительность"
-  },
   "theme.blog.post.paginator.newerPost": {
     "message": "Следующая запись"
-  },
-  "homepage.screenshots.lead": {
-    "message": "Интерфейс aMule — одинаковый вид на Windows, macOS и Linux. Нажмите на любой снимок экрана, чтобы увеличить; используйте {left} {right} для навигации, {esc} для закрытия."
   },
   "homepage.banner.download": {
     "message": "скачайте"
@@ -115,12 +100,6 @@
   },
   "theme.SearchPage.noResultsText": {
     "message": "Документы не найдены"
-  },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Вкладка скачиваний с активными загрузками"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "Дисковые операции вынесены из основного потока, переработан сетевой уровень. Скорость пирингового обмена выросла в 100–380 раз на macOS, Linux и Windows по сравнению с 2.3.3."
   },
   "theme.SearchBar.seeAll": {
     "message": "Показать все результаты"
@@ -146,9 +125,6 @@
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
     "message": "Закрыть панель навигации"
   },
-  "homepage.highlights.title": {
-    "message": "Что нового в aMule 3.0"
-  },
   "theme.ErrorPageContent.title": {
     "message": "Эта страница аварийно завершила работу."
   },
@@ -166,9 +142,6 @@
   },
   "homepage.features.preview.title": {
     "message": "Предпросмотр до завершения"
-  },
-  "homepage.screenshots.shared.alt": {
-    "message": "Вкладка общих файлов"
   },
   "theme.SearchBar.label": {
     "message": "Поиск"
@@ -206,9 +179,6 @@
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
     "message": "Переключить панель навигации"
   },
-  "homepage.highlights.performance.label": {
-    "message": "Значительно более быстрые передачи"
-  },
   "theme.lastUpdated.atDate": {
     "message": " {date}"
   },
@@ -229,12 +199,6 @@
   },
   "theme.blog.author.pageTitle": {
     "message": "{authorName} - {nPosts}"
-  },
-  "homepage.screenshots.title": {
-    "message": "Снимки экрана"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "Скачивания — прогресс по каждому файлу с индикаторами доступности"
   },
   "homepage.features.docsLink": {
     "message": "См. полную документацию →"
@@ -263,9 +227,6 @@
   "homepage.download.linux.os": {
     "message": "Linux"
   },
-  "homepage.screenshots.search.caption": {
-    "message": "Поиск — результаты поиска eD2k + Kad"
-  },
   "homepage.hero.cta.download": {
     "message": "Скачать"
   },
@@ -287,12 +248,6 @@
   "homepage.features.proxy.title": {
     "message": "Поддержка прокси"
   },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Закрыть (Esc)"
-  },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Назад (←)"
-  },
   "homepage.features.remoteInterfaces.title": {
     "message": "Дистанционные интерфейсы"
   },
@@ -309,7 +264,7 @@
     "message": "Попробовать снова"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Нажимайте ссылки ed2k:// в вашем браузере, чтобы мгновенно начать загрузку в aMule. Обработчик ссылок интегрируется с вашим рабочим столом для бесшовного взаимодействия одним щелчком."
+    "message": "Нажимайте ссылки ed2k:// и magnet: в браузере или открывайте файлы .emulecollection, чтобы мгновенно начать загрузку. aMule регистрируется как их обработчик в Windows, macOS, Linux и BSD."
   },
   "homepage.features.emuleCompatible.title": {
     "message": "Совместимость с eMule"
@@ -319,12 +274,6 @@
   },
   "homepage.download.compile": {
     "message": "{link} содержит инструкции по сборке aMule из исходных кодов."
-  },
-  "homepage.screenshots.networks.caption": {
-    "message": "Сети — серверы eD2k и статус Kad"
-  },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Далее (→)"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
     "message": "Это документация для {siteTitle} {versionLabel}, которая больше не поддерживается активно."
@@ -340,9 +289,6 @@
   },
   "theme.blog.paginator.navAriaLabel": {
     "message": "Навигация по страницам списка блога"
-  },
-  "homepage.whatisamule.title": {
-    "message": "Что такое aMule?"
   },
   "theme.blog.author.noPosts": {
     "message": "Этот автор ещё не написал ни одной статьи."
@@ -407,17 +353,11 @@
   "homepage.download.macos.platform": {
     "message": "macOS 11.0+ · Apple Silicon · Intel"
   },
-  "homepage.features.title": {
-    "message": "Возможности"
-  },
   "homepage.features.slotAllocation.title": {
     "message": "Выделение слотов"
   },
   "homepage.features.bandwidthControl.desc": {
     "message": "Устанавливайте жёсткие ограничения скорости отдачи и загрузки, обеспечиваемые точными ограничителями на основе «токен-бакета». Ограничьте aMule, чтобы он никогда не забивал ваше соединение, или позвольте ему работать на полную мощность, когда вас нет."
-  },
-  "homepage.highlights.changelog": {
-    "message": "Полный журнал изменений →"
   },
   "theme.docs.tagDocListPageTitle": {
     "message": "{nDocsTagged} с меткой «{tagName}»"
@@ -452,9 +392,6 @@
   "homepage.download.docker.guide.link": {
     "message": "раздел Docker в руководстве по установке"
   },
-  "homepage.highlights.packages.label": {
-    "message": "Сборки для разных платформ"
-  },
   "homepage.download.windows.portable.label": {
     "message": "Переносимая версия (.zip)"
   },
@@ -463,9 +400,6 @@
   },
   "theme.blog.paginator.olderEntries": {
     "message": "Старее"
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Современная сборка"
   },
   "theme.docs.sidebar.navAriaLabel": {
     "message": "Боковая панель документации"
@@ -479,17 +413,11 @@
   "homepage.whatisamule.p1": {
     "message": "aMule — это бесплатный клиент для обмена файлами в пиринговых сетях {ed2k} и {kad}, распространяемый под лицензией GPL. Он совместим с eMule и работает нативно в Windows, macOS и Linux. Одинаковая работа с диском, одинаковый протокол, один исполняемый файл для каждой основной платформы."
   },
-  "homepage.whatisamule.p2": {
-    "message": "После многих лет затишья проект снова активно развивается. aMule 3.0 приносит значительные улучшения передачи по сети, модернизированную систему сборки, свежие нативные пакеты для каждой основной платформы и обновлённую кодовую базу, готовую для современных систем — с сохранением совместимости с любыми клиентами на базе eMule."
-  },
   "homepage.download.macos.os": {
     "message": "macOS"
   },
   "homepage.features.sourceExchange.desc": {
     "message": "Автоматически обменивайтесь списками источников с подключёнными пирами, чтобы находить больше источников для ваших загрузок без повторных запросов к серверу."
-  },
-  "homepage.download.source.label": {
-    "message": "Исходный код"
   },
   "homepage.download.linux.appimage.label": {
     "message": "AppImage"
@@ -518,14 +446,8 @@
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Найден 1 документ|Найдено {count} документа|Найдено {count} документов"
   },
-  "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools удалены. Единая сборка на CMake, минимальная версия CMake 3.10, минимальная версия wxWidgets 3.2.0."
-  },
   "theme.CodeBlock.copy": {
     "message": "Копировать"
-  },
-  "homepage.highlights.bandwidth.detail": {
-    "message": "Ограничители скорости передачи переделаны с использованием алгоритма «токен-бакета». {code} означает полное отсутствие ограничений."
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
     "message": "1 документ с меткой|{count} документа с меткой|{count} документов с меткой"
@@ -535,9 +457,6 @@
   },
   "theme.blog.post.paginator.olderPost": {
     "message": "Предыдущая запись"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Пакеты"
   },
   "theme.tags.tagsPageLink": {
     "message": "Показать все метки"
@@ -570,7 +489,7 @@
     "message": "Демон aMule"
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "Интеграция ссылок ed2k://"
+    "message": "Ссылки в один щелчок"
   },
   "theme.CodeBlock.wordWrapToggle": {
     "message": "Переключить перенос строк"
@@ -578,17 +497,11 @@
   "theme.DocSidebarItem.collapseCategoryAriaLabel": {
     "message": "Свернуть категорию боковой панели «{label}»"
   },
-  "homepage.screenshots.search.alt": {
-    "message": "Вкладка поиска с результатами"
-  },
   "homepage.download.windows.platform": {
     "message": "Windows 10 / 11 · x64 · ARM64"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "Свернуть боковую панель"
-  },
-  "homepage.screenshots.networks.alt": {
-    "message": "Вкладка Сети — список серверов и статус Kademlia"
   },
   "homepage.download.version.date": {
     "message": "Выпущена {date}"
@@ -596,17 +509,11 @@
   "homepage.download.distros.link": {
     "message": "основных дистрибутивов Linux"
   },
-  "homepage.highlights.bandwidth.label": {
-    "message": "Работающее ограничение скорости передачи"
-  },
   "theme.admonition.info": {
     "message": "информация"
   },
   "homepage.download.source.os": {
     "message": "Исходный код"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Скорость передачи"
   },
   "theme.common.skipToMainContent": {
     "message": "Перейти к основному содержанию"
@@ -651,7 +558,7 @@
     "message": "Развернуть раскрывающийся список"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux. Доступно как для x64, так и для ARM64."
+    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux, для x64 и ARM64, а также полностью статические headless-бинарники для Linux-серверов."
   },
   "theme.docs.paginator.previous": {
     "message": "Назад"
@@ -667,5 +574,113 @@
   },
   "homepage.download.linux.static.label": {
     "message": "Статические двоичные файлы (.tar.gz)"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "Web UI amuleapi на смартфоне"
+  },
+  "homepage.cta.title": {
+    "message": "Готовы начать?"
+  },
+  "homepage.cta.text": {
+    "message": "Скачайте aMule для своей платформы и следуйте руководству по быстрому старту, чтобы выполнить первую загрузку."
+  },
+  "homepage.showcase.networks.title": {
+    "message": "Две сети, один клиент"
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "aMule работает с eD2k и Kademlia одновременно, поэтому каждая загрузка использует как пиров, найденных через серверы, так и пиров без серверов."
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "Вкладка «Сети» со списком серверов eD2k"
+  },
+  "homepage.showcase.search.title": {
+    "message": "Найдите то, что ищете"
+  },
+  "homepage.showcase.search.lead": {
+    "message": "Ищите на серверах eD2k и в сети Kad одновременно, а затем отправляйте результаты прямо в очередь загрузок."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Вкладка «Поиск» с результатами"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Загрузки, которым можно доверять"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Каждый chunk проверяется по hash, поэтому повреждённые данные обнаруживаются и загружаются повторно автоматически."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Вкладка «Загрузки» с ходом загрузки каждого файла"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Управляйте откуда угодно"
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "Запустите aMule на сервере или NAS и управляйте им с компьютера, из браузера или с телефона."
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "Web UI amuleapi со списком загрузок"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "Ваш канал — ваши правила"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "Точно определите, какую часть соединения использует aMule и кто получает вашу отдачу."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "Вкладка «Статистика» с графиком скорости загрузки"
+  },
+  "homepage.showcase.security.title": {
+    "message": "Встроенная безопасность и приватность"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "Не допускайте нежелательных пиров и защитите свою идентичность с помощью IP-фильтров, криптографической идентификации и поддержки прокси."
+  },
+  "homepage.showcase.security.alt": {
+    "message": "Настройки безопасности с параметрами IP-фильтрации"
+  },
+  "homepage.more.title": {
+    "message": "И многое другое"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Режим endgame"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Ближе к концу загрузки быстрый источник забирает блоки, закреплённые за гораздо более медленным, чтобы файлы не зависали на 99% из-за одного медленного пира."
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Проверка локальных данных"
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Пересчитывайте hash общих файлов по запросу, чтобы убедиться, что данные на диске по-прежнему целы."
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Зашифрованное удалённое управление"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "Удалённые интерфейсы шифруют соединение с ядром, новые установки принимают его только с локальной машины, а неудачные попытки входа ограничиваются."
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Привязка к сетевому интерфейсу"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "Привяжите трафик aMule к одному сетевому интерфейсу, например VPN, чтобы он не уходил через маршрут по умолчанию, пока этот интерфейс существует (недоступно в BSD)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Светлое и тёмное оформление"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "Интерфейс следует светлой или тёмной теме системы, с чёткими значками на экранах высокого разрешения."
+  },
+  "homepage.download.other.title": {
+    "message": "Другие способы получить aMule"
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Страница выпуска и пакеты дистрибутивов"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.download.next.title": {
+    "message": "Следующие шаги"
   }
 }

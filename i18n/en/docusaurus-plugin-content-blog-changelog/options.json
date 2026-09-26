@@ -4,7 +4,7 @@
     "description": "The title for the changelog used in SEO"
   },
   "description": {
-    "message": "Changelog",
+    "message": "Release notes for every aMule version: new features, improvements and bug fixes.",
     "description": "The description for the changelog used in SEO"
   },
   "sidebar.title": {

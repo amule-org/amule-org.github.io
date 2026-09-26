@@ -12,6 +12,8 @@ import {
   PREV_RELEASES,
 } from '@site/src/releaseInfo';
 import styles from './download.module.css';
+// Primary/secondary buttons shared with the homepage CTA
+import homeStyles from './index.module.css';
 
 // Format an ISO date (YYYY-MM-DD) for the active locale, e.g. "1 de junio de 2026".
 function formatDate(iso: string, locale: string): string {
@@ -31,6 +33,9 @@ const MACOS_SVG =
 const WINDOWS_SVG = 'M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623';
 const SOURCE_SVG = 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z';
 const DOWNLOAD_SVG = 'M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z';
+// Icons for the "Other ways to get aMule" cards (Material Design)
+const PACKAGE_SVG = 'M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z';
+const SERVER_SVG = 'M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z';
 
 interface DownloadFile {
   // Architecture label, e.g. "x64"
@@ -40,12 +45,10 @@ interface DownloadFile {
 }
 
 interface DownloadFormat {
-  // Binary type, e.g. "Installer (.exe)"
-  label: React.ReactNode;
+  // Binary type, e.g. "Installer (.exe)"; omitted when the OS name already says it
+  label?: React.ReactNode;
   // One entry per downloadable artifact (architecture)
   files: DownloadFile[];
-  // Footnote numbers (see the notes under the panels) that apply to this format
-  notes?: number[];
 }
 
 interface DownloadOs {
@@ -54,48 +57,13 @@ interface DownloadOs {
   // Supported platforms / minimum version line
   platform: React.ReactNode;
   formats: DownloadFormat[];
-  // Footnote numbers (see the notes under the panels) that apply to the whole OS panel
-  notes?: number[];
+  // Short note shown at the bottom of the card
+  note?: React.ReactNode;
 }
 
 // Reusable architecture labels (technical terms, repeated across artifacts).
 const ARCH_X64 = <Translate id="homepage.download.arch.x64" description="Architecture label for an x64 download artifact">x64</Translate>;
 const ARCH_ARM64 = <Translate id="homepage.download.arch.arm64" description="Architecture label for an ARM64 download artifact">ARM64</Translate>;
-
-// Superscript links to the numbered notes under the panels (ids "dl-note-<n>").
-function NoteRefs({notes}: {notes?: number[]}): React.JSX.Element | null {
-  if (!notes || notes.length === 0) {
-    return null;
-  }
-  return (
-    <sup className={styles.noteRefs}>
-      {notes.map((n, i) => (
-        <React.Fragment key={n}>
-          {i > 0 && ','}
-          <a
-            href={`#dl-note-${n}`}
-            aria-label={translate(
-              {id: 'homepage.download.noteRef', message: 'Note {number}', description: 'Accessible label of a superscript link to a numbered note under the download panels; {number} is the note number'},
-              {number: n},
-            )}
-          >
-            {n}
-          </a>
-        </React.Fragment>
-      ))}
-    </sup>
-  );
-}
-
-// A numbered note under the download panels, the target of NoteRefs.
-function Note({n, children}: {n: number; children: React.ReactNode}): React.JSX.Element {
-  return (
-    <p id={`dl-note-${n}`} className={`${styles.dlFoot} ${styles.dlNote}`}>
-      <sup className={styles.noteNumber}>{n}</sup>
-      {children}
-    </p>
-  );
-}
 
 const DOWNLOAD_OSES: DownloadOs[] = [
   {
@@ -139,7 +107,6 @@ const DOWNLOAD_OSES: DownloadOs[] = [
     svg: LINUX_SVG,
     name: <Translate id="homepage.download.linux.os" description="Linux OS name in the download page">Linux</Translate>,
     platform: <Translate id="homepage.download.linux.platform" description="Supported-platform line under the Linux download heading">glibc ≥ 2.35 · x64 · ARM64</Translate>,
-    notes: [1, 2],
     formats: [
       {
         label: <Translate id="homepage.download.linux.appimage.label" description="Label for the Linux AppImage download format">AppImage</Translate>,
@@ -161,18 +128,33 @@ const DOWNLOAD_OSES: DownloadOs[] = [
           {arch: ARCH_X64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-x64-static.tar.gz`},
           {arch: ARCH_ARM64, href: `${ASSET_BASE}/aMule-${LATEST_VERSION}-Linux-arm64-static.tar.gz`},
         ],
-        notes: [3],
       },
     ],
+    note: (
+      <Translate
+        id="homepage.download.static"
+        description="Note in the Linux download card about the static binaries; {link} is a link, {amuled}, {amuleapi} and {amulecmd} are module names in code format"
+        values={{
+          link: (
+            <Link to="/docs/manual/installation#static-binaries">
+              <Translate id="homepage.download.static.link" description="Link text for the static binaries section of the installation guide on the download page">Linux static binaries</Translate>
+            </Link>
+          ),
+          amuled: <code>amuled</code>,
+          amuleapi: <code>amuleapi</code>,
+          amulecmd: <code>amulecmd</code>,
+        }}
+      >
+        {'The {link} are headless: they contain only {amuled}, {amuleapi} (REST API and Web UI) and {amulecmd}, with no shared-library dependencies.'}
+      </Translate>
+    ),
   },
   {
     svg: SOURCE_SVG,
     name: <Translate id="homepage.download.source.os" description="Source-code option name in the download page">Source code</Translate>,
     platform: <Translate id="homepage.download.source.platform" description="Subtitle under the Source download heading">Build it yourself</Translate>,
-    notes: [4],
     formats: [
       {
-        label: <Translate id="homepage.download.source.label" description="Label for the source-code download format">Source code</Translate>,
         files: [
           {
             arch: <Translate id="homepage.download.source.targz" description="Label for the .tar.gz source archive">.tar.gz</Translate>,
@@ -181,6 +163,21 @@ const DOWNLOAD_OSES: DownloadOs[] = [
         ],
       },
     ],
+    note: (
+      <Translate
+        id="homepage.download.compile"
+        description="Note in the Source code download card pointing to the compilation guide; {link} is a link"
+        values={{
+          link: (
+            <Link to="/docs/developer/compilation">
+              <Translate id="homepage.download.compile.link" description="Link text for the compilation guide on the download page">Compilation guide</Translate>
+            </Link>
+          ),
+        }}
+      >
+        {'The {link} has instructions for building aMule from source.'}
+      </Translate>
+    ),
   },
 ];
 
@@ -197,226 +194,231 @@ export default function DownloadPage(): React.JSX.Element {
         description: 'Download page SEO meta description (HTML description tag)',
       })}
     >
-      <main>
-        <section className={styles.section} id="download">
-          <h2>
+      <main className={styles.page}>
+        <header className={styles.hero}>
+          <h1 className={styles.title}>
             <Translate id="homepage.download.title" description="Download page title and main heading">Download</Translate>
-          </h2>
-
-          <div className={styles.versionHeader}>
-            <div className={styles.versionRow}>
-              <Link className={styles.versionNumber} to={RELEASES_URL}>
-                aMule {LATEST_VERSION}
-              </Link>
-              <span className={styles.versionBadge}>
-                <Translate id="homepage.download.version.label" description="Badge next to the version number marking it as the latest release">Latest version</Translate>
-              </span>
-            </div>
-            <div className={styles.versionMeta}>
-              <span className={styles.versionDate}>
-                <Translate
-                  id="homepage.download.version.date"
-                  description="Release date line on the download page; {date} is the localized release date"
-                  values={{date: formatDate(LATEST_DATE, currentLocale)}}
-                >
-                  {'Released {date}'}
-                </Translate>
-              </span>
-              <Link className={styles.changelogLink} to={CHANGELOG_URL}>
-                <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
-              </Link>
-            </div>
+          </h1>
+          <div className={styles.versionRow}>
+            <Link className={styles.versionNumber} to={RELEASES_URL}>
+              aMule {LATEST_VERSION}
+            </Link>
+            <span className={styles.versionBadge}>
+              <Translate id="homepage.download.version.label" description="Badge next to the version number marking it as the latest release">Latest version</Translate>
+            </span>
           </div>
-
-          <p className={styles.dlLead}>
+          <p className={styles.versionMeta}>
+            <span>
+              <Translate
+                id="homepage.download.version.date"
+                description="Release date line on the download page; {date} is the localized release date"
+                values={{date: formatDate(LATEST_DATE, currentLocale)}}
+              >
+                {'Released {date}'}
+              </Translate>
+            </span>
+            <span aria-hidden="true">·</span>
+            <Link to={CHANGELOG_URL}>
+              <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
+            </Link>
+          </p>
+          <p className={styles.lead}>
             <Translate id="homepage.download.lead" description="Intro line above the per-OS download panels">
               aMule is available for most major desktop platforms.
             </Translate>
           </p>
+        </header>
 
-          <div className={styles.osList}>
-            {DOWNLOAD_OSES.map((os, i) => (
-              <div key={i} className={styles.osPanel}>
-                <div className={styles.osHeader}>
-                  <svg className={styles.osIcon} viewBox="0 0 24 24" aria-hidden="true">
+        {/* Windows, macOS and Linux side by side; the last card (source code) spans the full width */}
+        <div className={styles.osList}>
+          {DOWNLOAD_OSES.map((os, i) => (
+            <div key={i} className={styles.card}>
+              <div className={styles.osHeader}>
+                <span className={styles.iconTile} aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
                     <path fill="currentColor" d={os.svg} />
                   </svg>
-                  <div className={styles.osHeaderText}>
-                    <div className={styles.osName}>
-                      {os.name}
-                      <NoteRefs notes={os.notes} />
-                    </div>
-                    <div className={styles.osPlatform}>{os.platform}</div>
-                  </div>
-                </div>
-                <div className={styles.formatList}>
-                  {os.formats.map((fmt, j) => (
-                    <div key={j} className={styles.formatRow}>
-                      <span className={styles.formatLabel}>
-                        {fmt.label}
-                        <NoteRefs notes={fmt.notes} />
-                      </span>
-                      <span className={styles.formatMeta}>
-                        {fmt.files.map((file, k) => (
-                          <Link key={k} className={styles.formatArchLink} to={file.href}>
-                            <span className={styles.formatArch}>{file.arch}</span>
-                            <svg className={styles.dlIcon} viewBox="0 0 24 24" aria-hidden="true">
-                              <path fill="currentColor" d={DOWNLOAD_SVG} />
-                            </svg>
-                          </Link>
-                        ))}
-                      </span>
-                    </div>
-                  ))}
+                </span>
+                <div>
+                  <h2 className={styles.osName}>{os.name}</h2>
+                  <div className={styles.osPlatform}>{os.platform}</div>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className={styles.formatList}>
+                {os.formats.map((fmt, j) => (
+                  <div key={j} className={styles.formatRow}>
+                    {fmt.label && <span className={styles.formatLabel}>{fmt.label}</span>}
+                    <span className={styles.formatFiles}>
+                      {fmt.files.map((file, k) => (
+                        <Link key={k} className={styles.fileButton} to={file.href}>
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d={DOWNLOAD_SVG} />
+                          </svg>
+                          {/* Screen readers hear "Installer (.exe) x64", not a bare "x64" */}
+                          <span className={styles.srOnly}>{fmt.label ?? os.name} </span>
+                          {file.arch}
+                        </Link>
+                      ))}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {os.note && <p className={styles.osNote}>{os.note}</p>}
+            </div>
+          ))}
+        </div>
 
-          <p className={styles.dlFoot}>
+        <section className={styles.block}>
+          <h2 className={styles.blockTitle}>
+            <Translate id="homepage.download.other.title" description="Heading of the section on the download page listing other ways to get aMule (release page, distribution packages, Docker, static binaries, building from source)">Other ways to get aMule</Translate>
+          </h2>
+          <div className={styles.otherGrid}>
+            <div className={styles.card}>
+              <div className={styles.otherHeader}>
+                <span className={styles.iconTile} aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d={PACKAGE_SVG} /></svg>
+                </span>
+                <h3 className={styles.otherTitle}>
+                <Translate id="homepage.download.other.packages.title" description="Title of the download page card about the release page and Linux distribution packages">Release page and distribution packages</Translate>
+                </h3>
+              </div>
+              <p className={styles.otherText}>
+                <Translate
+                  id="homepage.download.foot"
+                  description="Text of the download page card about the release page and Linux distribution packages; {release} and {distros} are links"
+                  values={{
+                    release: (
+                      <Link to={RELEASES_URL}>
+                        <Translate id="homepage.download.foot.link" description="Link text for the latest release page on the download page">latest release page</Translate>
+                      </Link>
+                    ),
+                    distros: (
+                      <Link to="/docs/manual/installation#distribution-packages">
+                        <Translate id="homepage.download.distros.link" description="Link text for Linux distribution packages on the download page">major Linux distributions</Translate>
+                      </Link>
+                    ),
+                  }}
+                >
+                  {'All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated.'}
+                </Translate>
+              </p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.otherHeader}>
+                <span className={styles.iconTile} aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d={SERVER_SVG} /></svg>
+                </span>
+                <h3 className={styles.otherTitle}>
+                <Translate id="homepage.download.other.docker.title" description="Title of the download page card about the unofficial Docker image">Docker</Translate>
+                </h3>
+              </div>
+              <p className={styles.otherText}>
+                <Translate
+                  id="homepage.download.docker"
+                  description="Text of the download page card about the unofficial Docker image; {repo} and {guide} are links"
+                  values={{
+                    repo: (
+                      <Link to="https://github.com/ngosang/docker-amule">
+                        <Translate id="homepage.download.docker.repo.link" description="Link text for the Docker image repository on the download page">unofficial Docker image</Translate>
+                      </Link>
+                    ),
+                    guide: (
+                      <Link to="/docs/manual/installation#docker">
+                        <Translate id="homepage.download.docker.guide.link" description="Link text for the Docker section of the installation guide on the download page">Docker section of the installation guide</Translate>
+                      </Link>
+                    ),
+                  }}
+                >
+                  {'For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.'}
+                </Translate>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.nextSteps}>
+          <h2 className={styles.blockTitle}>
+            <Translate id="homepage.download.next.title" description="Heading of the box on the download page pointing to the installation and quick-start guides">Next steps</Translate>
+          </h2>
+          <p className={styles.nextText}>
             <Translate
               id="homepage.download.install"
-              description="Footer note pointing to the install and quick-start guides; {install} and {quickstart} are links"
+              description="Text of the Next steps box on the download page, above buttons to both guides; {install} and {quickstart} are the guide names in bold"
               values={{
                 install: (
-                  <Link to="/docs/manual/installation">
-                    <Translate id="homepage.download.install.guide.link" description="Link text for the installation guide in the download footer note">Installation guide</Translate>
-                  </Link>
+                  <strong>
+                    <Translate id="homepage.download.install.guide.link" description="Name of the installation guide on the download page (bold text and button label)">Installation guide</Translate>
+                  </strong>
                 ),
                 quickstart: (
-                  <Link to="/docs/quickstart-guide">
-                    <Translate id="homepage.download.install.link" description="Link text for the Quick Start guide in the download footer note">Quick Start guide</Translate>
-                  </Link>
+                  <strong>
+                    <Translate id="homepage.download.install.link" description="Name of the Quick Start guide on the download page (bold text and button label)">Quick Start guide</Translate>
+                  </strong>
                 ),
               }}
             >
               {'The {install} covers every platform, and the {quickstart} walks you through setup and your first download.'}
             </Translate>
           </p>
-          <Note n={1}>
-            <Translate
-              id="homepage.download.foot"
-              description="Footer note under the download panels; {release} and {distros} are links"
-              values={{
-                release: (
-                  <Link to={RELEASES_URL}>
-                    <Translate id="homepage.download.foot.link" description="Link text for the latest release page in the download footer note">latest release page</Translate>
-                  </Link>
-                ),
-                distros: (
-                  <Link to="/docs/manual/installation#distribution-packages">
-                    <Translate id="homepage.download.distros.link" description="Link text for Linux distribution packages in the download footer note">major Linux distributions</Translate>
-                  </Link>
-                ),
-              }}
-            >
-              {'All artifacts are available on the {release}. aMule is also available in the repositories of the {distros}, though the packages may be outdated.'}
-            </Translate>
-          </Note>
-          <Note n={2}>
-            <Translate
-              id="homepage.download.docker"
-              description="Footer note about the unofficial Docker image; {repo} and {guide} are links"
-              values={{
-                repo: (
-                  <Link to="https://github.com/ngosang/docker-amule">
-                    <Translate id="homepage.download.docker.repo.link" description="Link text for the Docker image repository in the download footer note">unofficial Docker image</Translate>
-                  </Link>
-                ),
-                guide: (
-                  <Link to="/docs/manual/installation#docker">
-                    <Translate id="homepage.download.docker.guide.link" description="Link text for the Docker section of the installation guide in the download footer note">Docker section of the installation guide</Translate>
-                  </Link>
-                ),
-              }}
-            >
-              {'For servers and NAS devices, an {repo}, maintained by a member of the aMule Team, is also available — see the {guide}.'}
-            </Translate>
-          </Note>
-          <Note n={3}>
-            <Translate
-              id="homepage.download.static"
-              description="Footer note about the Linux static binaries; {link} is a link, {amuled}, {amuleapi} and {amulecmd} are module names in code format"
-              values={{
-                link: (
-                  <Link to="/docs/manual/installation#static-binaries">
-                    <Translate id="homepage.download.static.link" description="Link text for the static binaries section of the installation guide in the download footer note">Linux static binaries</Translate>
-                  </Link>
-                ),
-                amuled: <code>amuled</code>,
-                amuleapi: <code>amuleapi</code>,
-                amulecmd: <code>amulecmd</code>,
-              }}
-            >
-              {'The {link} are headless: they contain only {amuled}, {amuleapi} (REST API and Web UI) and {amulecmd}, with no shared-library dependencies.'}
-            </Translate>
-          </Note>
-          <Note n={4}>
-            <Translate
-              id="homepage.download.compile"
-              description="Footer note pointing to the compilation guide; {link} is a link"
-              values={{
-                link: (
-                  <Link to="/docs/developer/compilation">
-                    <Translate id="homepage.download.compile.link" description="Link text for the compilation guide in the download footer note">Compilation guide</Translate>
-                  </Link>
-                ),
-              }}
-            >
-              {'The {link} has instructions for building aMule from source.'}
-            </Translate>
-          </Note>
+          <div className={`${homeStyles.ctaRow} ${styles.nextButtons}`}>
+            <Link className={`button button--lg ${homeStyles.buttonDownload}`} to="/docs/manual/installation">
+              <Translate id="homepage.download.install.guide.link" description="Name of the installation guide on the download page (bold text and button label)">Installation guide</Translate>
+            </Link>
+            <Link className={`button button--lg ${homeStyles.buttonQuickstart}`} to="/docs/quickstart-guide">
+              <Translate id="homepage.download.install.link" description="Name of the Quick Start guide on the download page (bold text and button label)">Quick Start guide</Translate>
+            </Link>
+          </div>
+        </section>
 
-          <section className={styles.prevReleases}>
-            <h3>
-              <Translate id="homepage.download.previous.title" description="Heading of the previous-releases section on the download page">Previous releases</Translate>
-            </h3>
-            <p className={styles.dlFoot}>
-              <Translate
-                id="homepage.download.previous.body"
-                description="Intro text of the previous-releases section; {github} and {sourceforge} are links"
-                values={{
-                  sourceforge: (
-                    <Link to="https://sourceforge.net/projects/amule/files/aMule/">
-                      <Translate id="homepage.download.previous.link" description="SourceForge link text in the previous-releases intro">SourceForge</Translate>
-                    </Link>
-                  ),
-                  github: (
-                    <Link to="https://github.com/amule-org/amule/releases">
-                      <Translate id="homepage.download.previous.github.link" description="GitHub link text in the previous-releases intro">GitHub</Translate>
-                    </Link>
-                  ),
-                }}
-              >
-                {'The previous releases are archived on {github} and {sourceforge}.'}
-              </Translate>
-            </p>
-            <ul className={styles.prevList}>
-              {PREV_RELEASES.map((r) => (
-                <li key={r.version}>
-                  <span className={styles.prevVersion}>{r.version}</span>
-                  <span className={styles.prevDate}>{formatDate(r.date, currentLocale)}</span>
-                  <span className={styles.prevLinks}>
-                    <Link to={`https://github.com/amule-org/amule/releases/tag/${r.version}`}>
-                      <svg className={styles.prevDlIcon} viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor" d={DOWNLOAD_SVG} />
-                      </svg>
-                      <Translate id="homepage.download.previous.entry.github" description="GitHub download link for a previous release entry">GitHub</Translate>
-                    </Link>
-                    <Link to={`https://sourceforge.net/projects/amule/files/${r.version}/`}>
-                      <svg className={styles.prevDlIcon} viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor" d={DOWNLOAD_SVG} />
-                      </svg>
-                      <Translate id="homepage.download.previous.entry.sourceforge" description="SourceForge download link for a previous release entry">SourceForge</Translate>
-                    </Link>
-                    <Link to={`/changelog/${r.version}`}>
-                      <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
-                    </Link>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
+        <section className={styles.block}>
+          <h2 className={styles.blockTitle}>
+            <Translate id="homepage.download.previous.title" description="Heading of the previous-releases section on the download page">Previous releases</Translate>
+          </h2>
+          <p className={styles.blockLead}>
+            <Translate
+              id="homepage.download.previous.body"
+              description="Intro text of the previous-releases section; {github} and {sourceforge} are links"
+              values={{
+                sourceforge: (
+                  <Link to="https://sourceforge.net/projects/amule/files/aMule/">
+                    <Translate id="homepage.download.previous.link" description="SourceForge link text in the previous-releases intro">SourceForge</Translate>
+                  </Link>
+                ),
+                github: (
+                  <Link to="https://github.com/amule-org/amule/releases">
+                    <Translate id="homepage.download.previous.github.link" description="GitHub link text in the previous-releases intro">GitHub</Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {'The previous releases are archived on {github} and {sourceforge}.'}
+            </Translate>
+          </p>
+          <ul className={`${styles.card} ${styles.prevList}`}>
+            {PREV_RELEASES.map((r) => (
+              <li key={r.version}>
+                <span className={styles.prevVersion}>{r.version}</span>
+                <span className={styles.prevDate}>{formatDate(r.date, currentLocale)}</span>
+                <span className={styles.prevLinks}>
+                  <Link className={styles.ghostButton} to={`https://github.com/amule-org/amule/releases/tag/${r.version}`}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor" d={DOWNLOAD_SVG} />
+                    </svg>
+                    <Translate id="homepage.download.previous.entry.github" description="GitHub download link for a previous release entry">GitHub</Translate>
+                  </Link>
+                  <Link className={styles.ghostButton} to={`https://sourceforge.net/projects/amule/files/${r.version}/`}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor" d={DOWNLOAD_SVG} />
+                    </svg>
+                    <Translate id="homepage.download.previous.entry.sourceforge" description="SourceForge download link for a previous release entry">SourceForge</Translate>
+                  </Link>
+                  <Link className={styles.ghostButton} to={`/changelog/${r.version}`}>
+                    <Translate id="homepage.download.version.changelog" description="Link to a release's changelog on the download page">Changelog</Translate>
+                  </Link>
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
     </Layout>

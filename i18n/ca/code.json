@@ -77,9 +77,6 @@
   "homepage.download.previous.title": {
     "message": "Estrenes anteriors"
   },
-  "homepage.download.source.label": {
-    "message": "Codi font"
-  },
   "homepage.download.source.os": {
     "message": "Codi font"
   },
@@ -120,10 +117,10 @@
     "message": "Consulta la documentació completa →"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Feu clic als enllaços ed2k:// al vostre navegador per iniciar les baixades a l'instant a aMule. El gestor d'enllaços s'integra amb el vostre escriptori per a una experiència perfecta amb un sol clic."
+    "message": "Feu clic als enllaços ed2k:// i magnet: al navegador, o obriu fitxers .emulecollection, per iniciar les baixades a l'instant. aMule es registra com el seu gestor a Windows, macOS, Linux i BSD."
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "ed2k:// Integració d'enllaços"
+    "message": "Enllaços amb un clic"
   },
   "homepage.features.emuleCompatible.desc": {
     "message": "Totalment compatible amb eMule i tots els clients *Mule. Compartiu fitxers amb les mateixes fonts, connecteu-vos als mateixos servidors i obriu enllaços estàndard ed2k://."
@@ -156,7 +153,7 @@
     "message": "Missatgeria i amics"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Instal·lador i .zip portàtil per a Windows, Universal2 .dmg per a macOS, AppImage i Flatpak a Linux. Disponible tant per a x64 com per a ARM64."
+    "message": "Instal·lador i .zip portàtil per a Windows, Universal2 .dmg per a macOS, AppImage i Flatpak a Linux, per a x64 i ARM64, a més de binaris headless totalment estàtics per a servidors Linux."
   },
   "homepage.features.networks.desc": {
     "message": "Connecteu-vos tant a la xarxa de servidors tradicional eD2k com a Kademlia DHT sense servidor simultàniament, maximitzant el vostre abast i la disponibilitat de fitxers."
@@ -203,83 +200,11 @@
   "homepage.hero.screenshot.alt": {
     "message": "Pestanya de descàrregues d'aMule"
   },
-  "homepage.highlights.bandwidth.detail": {
-    "message": "Carregueu i descarregueu acceleradors reescrits com a limitadors de butxaca adequats. {code} significa literalment il·limitat."
-  },
-  "homepage.highlights.bandwidth.label": {
-    "message": "Limitació d'amplada de banda que funciona"
-  },
-  "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools eliminat completament. Única compilació CMake, mínim CMake 3.10, mínim wxWidgets 3.2.0."
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Sistema de construcció modern"
-  },
-  "homepage.highlights.changelog": {
-    "message": "Registre de canvis complet →"
-  },
-  "homepage.highlights.packages.detail": {
-    "message": "Instal·lador de Windows i .zip portàtil, macOS Universal2 .dmg, AppImage, Flatpak — x64 i ARM64 on són compatibles."
-  },
-  "homepage.highlights.packages.label": {
-    "message": "Binaris per a cada escriptori"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "L'E/S de disc es va desplaçar del fil principal i la capa de xarxa es va revisar. Les descàrregues peer-to-peer veuen ~100–380× acceleracions més de 2.3.3 a macOS, Linux i Windows."
-  },
-  "homepage.highlights.performance.label": {
-    "message": "Transferències espectacularment més ràpides"
-  },
-  "homepage.highlights.title": {
-    "message": "Novetats a l'aMule 3.0"
-  },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Pestanya de descàrregues amb descàrregues actives"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "Descàrregues: progrés per fitxer amb barres de disponibilitat"
-  },
-  "homepage.screenshots.lead": {
-    "message": "aMule GUI: mateix aspecte a Windows, macOS i Linux. Feu clic a qualsevol captura de pantalla per ampliar-la; utilitza {left} {right} per navegar, {esc} per tancar."
-  },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Tancar (Esc)"
-  },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Següent (→)"
-  },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Anterior (←)"
-  },
-  "homepage.screenshots.networks.alt": {
-    "message": "Pestanya Xarxes: llista de servidors i estat de Kademlia"
-  },
-  "homepage.screenshots.networks.caption": {
-    "message": "Xarxes: servidors eD2k i estat Kad"
-  },
-  "homepage.screenshots.search.alt": {
-    "message": "Pestanya de cerca amb resultats"
-  },
-  "homepage.screenshots.search.caption": {
-    "message": "Cerca — Resultats de la cerca eD2k + Kad"
-  },
-  "homepage.screenshots.shared.alt": {
-    "message": "Pestanya Fitxers compartits"
-  },
-  "homepage.screenshots.shared.caption": {
-    "message": "Fitxers compartits"
-  },
   "homepage.tagline": {
     "message": "Client eD2k/Kad compatible amb eMule per a totes les plataformes"
   },
   "homepage.whatisamule.p1": {
     "message": "aMule és un client gratuït per compartir fitxers entre iguals i amb llicència GPL per a les xarxes {ed2k} i {kad}. És compatible amb eMule i s'executa de manera nativa a Windows, macOS i Linux. El mateix estat al disc, el mateix protocol, un binari per escriptori principal."
-  },
-  "homepage.whatisamule.p2": {
-    "message": "Després d'anys de silenci, el projecte torna a estar en manteniment actiu. L'aMule 3.0 aporta millores espectaculars del rendiment, un sistema de construcció modernitzat, paquets natius nous per a tots els escriptoris principals i una base de codi actualitzada preparada per als sistemes actuals, sense trencar la compatibilitat del protocol que permet a aMule treballar juntament amb qualsevol client basat en eMule."
-  },
-  "homepage.whatisamule.title": {
-    "message": "Què és aMule?"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "Desplaceu-vos cap a dalt"
@@ -584,29 +509,11 @@
   "homepage.features.systemTray.title": {
     "message": "Barra de sistema"
   },
-  "homepage.features.title": {
-    "message": "Característiques"
-  },
   "homepage.hero.cta.download": {
     "message": "Descàrrega"
   },
   "homepage.hero.cta.quickstart": {
     "message": "Inici ràpid"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Ample de banda"
-  },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Paquets"
-  },
-  "homepage.highlights.performance.tag": {
-    "message": "Rendiment"
-  },
-  "homepage.screenshots.title": {
-    "message": "Captures de pantalla"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Tancar"
@@ -667,5 +574,113 @@
   },
   "homepage.download.linux.static.label": {
     "message": "Binaris estàtics (.tar.gz)"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "Web UI d'amuleapi en un smartphone"
+  },
+  "homepage.cta.title": {
+    "message": "A punt per començar?"
+  },
+  "homepage.cta.text": {
+    "message": "Descarrega aMule per a la teva plataforma i segueix la guia d'inici ràpid per fer la teva primera descàrrega."
+  },
+  "homepage.showcase.networks.title": {
+    "message": "Dues xarxes, un client"
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "aMule utilitza eD2k i Kademlia alhora, de manera que cada descàrrega aprofita tant peers basats en servidors com peers sense servidor."
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "Pestanya Xarxes amb la llista de servidors eD2k"
+  },
+  "homepage.showcase.search.title": {
+    "message": "Troba el que busques"
+  },
+  "homepage.showcase.search.lead": {
+    "message": "Cerca als servidors eD2k i a la xarxa Kad alhora, i envia els resultats directament a la teva cua de descàrregues."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Pestanya Cerques amb resultats"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Descàrregues de confiança"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Cada chunk es verifica mitjançant el seu hash, de manera que les dades corruptes es detecten i es tornen a descarregar automàticament."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Pestanya Baixades amb el progrés de cada fitxer"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Controla'l des de qualsevol lloc"
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "Executa aMule en un servidor o NAS i gestiona'l des del teu escriptori, el teu navegador o el teu telèfon."
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "Web UI d'amuleapi mostrant la llista de descàrregues"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "La teva amplada de banda, les teves regles"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "Decideix exactament quina part de la teva connexió utilitza aMule i qui rep la teva pujada."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "Pestanya Estadístiques amb el gràfic de velocitat de descàrrega"
+  },
+  "homepage.showcase.security.title": {
+    "message": "Seguretat i privadesa integrades"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "Mantén fora els peers no desitjats i la teva identitat protegida amb filtres IP, identificació criptogràfica i suport de proxy."
+  },
+  "homepage.showcase.security.alt": {
+    "message": "Preferències de seguretat amb les opcions de filtratge IP"
+  },
+  "homepage.more.title": {
+    "message": "I molt més"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Mode endgame"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Prop del final d'una baixada, una font ràpida pren els blocs que té assignats una altra de molt més lenta, perquè els fitxers no s'encallin al 99% per culpa d'un únic peer lent."
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Verificar les dades locals"
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Torneu a calcular el hash dels fitxers compartits a demanda per comprovar que les dades del disc continuen intactes."
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Control remot xifrat"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "Les interfícies remotes xifren la connexió amb el nucli, les instal·lacions noves només l'accepten des de la màquina local i els inicis de sessió fallits es limiten."
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Vinculació a una interfície de xarxa"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "Fixeu el trànsit d'aMule a una interfície de xarxa, com una VPN, perquè no surti per la ruta per defecte mentre aquesta interfície existeixi (no disponible a BSD)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Aparença clara i fosca"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "La interfície segueix el tema clar o fosc del sistema, amb icones nítides en pantalles d'alta resolució."
+  },
+  "homepage.download.other.title": {
+    "message": "Altres maneres d'obtenir aMule"
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Pàgina del llançament i paquets de distribucions"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.download.next.title": {
+    "message": "Propers passos"
   }
 }

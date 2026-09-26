@@ -101,8 +101,20 @@
   }
 }
 
-/* Footer: centered wrapping row */
+/* Footer: faint brand-tinted surface with a hairline border, like the homepage
+   cards and CTA box, in both themes */
+.footer {
+  --ifm-footer-background-color: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-background-surface-color));
+  --ifm-footer-color: var(--ifm-color-emphasis-700);
+  --ifm-footer-link-color: var(--ifm-color-emphasis-800);
+  --ifm-footer-link-hover-color: var(--ifm-color-primary);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Footer: centered wrapping row. margin-inline: 0 drops .row's negative
+   margins, which pushed the links to the screen edges on mobile. */
 .footer__links.row {
+  margin-inline: 0;
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center;
@@ -136,10 +148,11 @@
 }
 
 
-/* Copyright / legal disclaimer — muted */
+/* Copyright / legal disclaimer — muted (color, not opacity, to keep AA contrast) */
 .footer__copyright {
-  font-size: 1rem;
-  opacity: 0.5;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+  text-wrap: balance;
   margin: 0 auto;
   line-height: 1.6;
   max-width: 880px;

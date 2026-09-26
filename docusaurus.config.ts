@@ -62,6 +62,11 @@ const config: Config = {
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: `${baseUrl}img/favicon-16x16.png`}},
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: `${baseUrl}img/favicon-32x32.png`}},
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '48x48', href: `${baseUrl}img/favicon-48x48.png`}},
+    {tagName: 'link', attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: `${baseUrl}img/apple-touch-icon.png`}},
+    {tagName: 'link', attributes: {rel: 'manifest', href: `${baseUrl}manifest.webmanifest`}},
+    // Browser UI color, matching the navbar background in each color mode
+    {tagName: 'meta', attributes: {name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#ffffff'}},
+    {tagName: 'meta', attributes: {name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#242526'}},
   ],
 
   i18n: {
@@ -91,6 +96,7 @@ const config: Config = {
         },
         blog: {
           blogTitle: 'Blog',
+          blogDescription: 'News and announcements from the aMule project.',
           blogSidebarTitle: 'Recent posts',
           blogSidebarCount: 'ALL',
           postsPerPage: 5,
@@ -116,7 +122,7 @@ const config: Config = {
         path: './changelog',
         routeBasePath: '/changelog',
         blogTitle: 'Changelog',
-        blogDescription: 'Changelog',
+        blogDescription: 'Release notes for every aMule version: new features, improvements and bug fixes.',
         blogSidebarTitle: 'Versions',
         blogSidebarCount: 'ALL',
         postsPerPage: 5,
@@ -159,7 +165,8 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
     zoom: {
-      selector: '.markdown img.enable-zoom',
+      // home-zoom: homepage feature screenshots (src/components/FeaturesSection)
+      selector: '.markdown img.enable-zoom, img.home-zoom',
       background: {
         light: 'rgb(255, 255, 255)',
         dark: 'rgb(36, 37, 38)',
@@ -198,7 +205,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {items: [{label: 'Source code', href: 'https://github.com/amule-org/amule'}]},
         {items: [{label: 'Releases', href: 'https://github.com/amule-org/amule/releases'}]},

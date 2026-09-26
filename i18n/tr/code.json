@@ -89,9 +89,6 @@
   "homepage.download.previous.title": {
     "message": "Önceki sürümler"
   },
-  "homepage.download.source.label": {
-    "message": "Kaynak Kodu"
-  },
   "homepage.download.source.os": {
     "message": "Kaynak Kod"
   },
@@ -165,10 +162,10 @@
     "message": "Belgelendirmenin tamamını tarayın →"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "İndirmeleri aMule üzerinde anında başlatmak için tarayıcınızda ed2k:// bağlantılarına tıklayın. Bağlantı yöneticisi, sorunsuz tek tıklamalık bir deneyim için masaüstünüzle entegre olur."
+    "message": "İndirmeleri anında başlatmak için tarayıcınızda ed2k:// ve magnet: bağlantılarına tıklayın veya .emulecollection dosyalarını açın. aMule, Windows, macOS, Linux ve BSD üzerinde kendini bunların işleyicisi olarak kaydeder."
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "ed2k:// Bağlantı Birleşimi"
+    "message": "Tek Tıkla Bağlantılar"
   },
   "homepage.features.emuleCompatible.desc": {
     "message": "eMule ve tüm *Mule istemcileriyle tamamen uyumludur. Aynı kaynaklarla dosya paylaşın, aynı sunuculara bağlanın ve standart ed2k:// bağlantılarını açın."
@@ -201,7 +198,7 @@
     "message": "Mesajlaşma ve Arkadaşlar"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, GNU/Linux üzerinde AppImage and Flatpak. Hem x64 hem de ARM64 için mevcuttur."
+    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, Linux üzerinde AppImage ve Flatpak; hem x64 hem de ARM64 için. Ayrıca Linux sunucuları için tamamen statik headless ikili dosyalar."
   },
   "homepage.features.nativePackages.title": {
     "message": "Yerel Paketler"
@@ -272,9 +269,6 @@
   "homepage.features.systemTray.title": {
     "message": "Sistem Tepsisi"
   },
-  "homepage.features.title": {
-    "message": "İşlevler"
-  },
   "homepage.hero.cta.download": {
     "message": "İndir"
   },
@@ -287,98 +281,11 @@
   "homepage.hero.screenshot.alt": {
     "message": "aMule indirmeler sekmesi"
   },
-  "homepage.highlights.bandwidth.detail": {
-    "message": "Yükleme ve indirme hız sınırlayıcıları, uygun jeton kova sınırlayıcıları olarak yeniden yazılmıştır. {code} tam anlamıyla sınırsız anlamına gelir."
-  },
-  "homepage.highlights.bandwidth.label": {
-    "message": "Hakikaten işleyen bant genişliği sınırlaması"
-  },
-  "homepage.highlights.bandwidth.tag": {
-    "message": "Bant genişliği"
-  },
-  "homepage.highlights.buildSystem.detail": {
-    "message": "Autotools tamamen kaldırılmıştır. Tek CMake derlemesi, asgari CMake 3.10, asgari wxWidgets 3.2.0."
-  },
-  "homepage.highlights.buildSystem.label": {
-    "message": "Modern derleme sistemi"
-  },
-  "homepage.highlights.buildSystem.tag": {
-    "message": "CMake"
-  },
-  "homepage.highlights.changelog": {
-    "message": "Tam değişiklik listesi →"
-  },
-  "homepage.highlights.packages.detail": {
-    "message": "Windows kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, AppImage, Flatpak — desteklendiğinde x64 ve ARM64."
-  },
-  "homepage.highlights.packages.label": {
-    "message": "Her masaüstü için ikili dosyalar"
-  },
-  "homepage.highlights.packages.tag": {
-    "message": "Paketler"
-  },
-  "homepage.highlights.performance.detail": {
-    "message": "Disk G/Ç işlemleri ana iş parçacığından ayrılmıştır ve ağ katmanı tamamen yeniden düzenlenmiştir. Eşten eşe indirmeler, 2.3.3'e nazaran macOS, GNU/Linux ve Windows üzerinde ~100–380× hızlanmıştır."
-  },
-  "homepage.highlights.performance.label": {
-    "message": "Çok daha hızlı aktarımlar"
-  },
-  "homepage.highlights.performance.tag": {
-    "message": "Performans"
-  },
-  "homepage.highlights.title": {
-    "message": "aMule 3.0 sürümündeki yenilikler"
-  },
-  "homepage.screenshots.downloads.alt": {
-    "message": "Faal indirmeler bulunan indirme sekmesi"
-  },
-  "homepage.screenshots.downloads.caption": {
-    "message": "İndirmeler — bulunabilirlik çubuklarıyla dosya başı ilerleme"
-  },
-  "homepage.screenshots.lead": {
-    "message": "aMule Grafik Arayüzü (GUI) — Windows, macOS ve and GNU/Linux üzerinde aynı görünüm. Büyütmek için herhangi bir ekran fotoğrafının üzerine tıklayın; gezinmek için {left} {right} kullanın, kaptmak için {esc} kullanın."
-  },
-  "homepage.screenshots.lightbox.close": {
-    "message": "Kapat (Esc)"
-  },
-  "homepage.screenshots.lightbox.next": {
-    "message": "Sonraki (→)"
-  },
-  "homepage.screenshots.lightbox.prev": {
-    "message": "Önceki (←)"
-  },
-  "homepage.screenshots.networks.alt": {
-    "message": "Ağlar sekmesi — sunucu listesi ve Kademlia durumu"
-  },
-  "homepage.screenshots.networks.caption": {
-    "message": "Ağlar — eD2k sunucuları ve Kad durumu"
-  },
-  "homepage.screenshots.search.alt": {
-    "message": "Sonuçlar gösteren arama sekmesi"
-  },
-  "homepage.screenshots.search.caption": {
-    "message": "Arama — eD2k + Kad arama sonuçları"
-  },
-  "homepage.screenshots.shared.alt": {
-    "message": "Paylaşılan dosyalar sekmesi"
-  },
-  "homepage.screenshots.shared.caption": {
-    "message": "Paylaşılan dosyalar"
-  },
-  "homepage.screenshots.title": {
-    "message": "Ekran fotoğrafları"
-  },
   "homepage.tagline": {
     "message": "Her platforma uygun eMule ile uyumlu eD2k/Kad istemcisi"
   },
   "homepage.whatisamule.p1": {
     "message": "aMule, özgür, GPL kapsamında lisanslanmış {ed2k} ve {kad} ağları için eşten eşe dosya paylaşım istemcisidir. eMule ile uyumludur ve Windows, macOS ve GNU/Linux üzerinde yerel olarak çalışır. Aynı disk üzerinde durum, aynı protokol, her ana masaüstü için bir ikili çalıştırılabilir dosya."
-  },
-  "homepage.whatisamule.p2": {
-    "message": "Seneler süren sessizliğin ardından proje yeniden etkin bakıma alınmıştır. aMule 3.0, veri aktarım hızında son derece büyük iyileştirmeler, güncellenmiş bir derleme sistemi, her hatırı sayılır platform için yeni yerel paketler ve çağdaş sistemler için güncellenmiş kaynak kod tabanı sağlar — tüm bunlar, aMule'ün eMule temelli istemcilerle çalışmasını sağlayan protokol uyumluluğunu bozmadan yapılmıştır."
-  },
-  "homepage.whatisamule.title": {
-    "message": "aMule Nedir?"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Kapat"
@@ -667,5 +574,113 @@
   },
   "homepage.download.linux.static.label": {
     "message": "Statik ikili dosyalar (.tar.gz)"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "Akıllı telefonda amuleapi Web UI"
+  },
+  "homepage.cta.title": {
+    "message": "Başlamaya hazır mısınız?"
+  },
+  "homepage.cta.text": {
+    "message": "Platformunuz için aMule'u indirin ve ilk indirmenizi yapmak için Hızlı Başlangıç kılavuzunu izleyin."
+  },
+  "homepage.showcase.networks.title": {
+    "message": "İki ağ, tek istemci"
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "aMule eD2k ve Kademlia'yı aynı anda kullanır; böylece her indirme hem sunucu tabanlı hem de sunucusuz peer'lardan yararlanır."
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "eD2k sunucu listesiyle Ağlar sekmesi"
+  },
+  "homepage.showcase.search.title": {
+    "message": "Aradığınızı bulun"
+  },
+  "homepage.showcase.search.lead": {
+    "message": "eD2k sunucularında ve Kad ağında tek seferde arama yapın, ardından sonuçları doğrudan indirme kuyruğunuza gönderin."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Sonuçlarla Aramalar sekmesi"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Güvenebileceğiniz indirmeler"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Her chunk hash ile doğrulanır; bozuk veriler otomatik olarak algılanır ve yeniden indirilir."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Her dosyanın ilerlemesiyle İndirmeler sekmesi"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Her yerden kontrol edin"
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "aMule'u bir sunucuda veya NAS'ta çalıştırın ve masaüstünüzden, tarayıcınızdan ya da telefonunuzdan yönetin."
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "İndirme listesini gösteren amuleapi Web UI"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "Bant genişliğiniz, kurallarınız"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "aMule'un bağlantınızın ne kadarını kullanacağına ve yüklemenizi kimin alacağına tam olarak siz karar verin."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "İndirme hızı grafiğiyle İstatistikler sekmesi"
+  },
+  "homepage.showcase.security.title": {
+    "message": "Yerleşik güvenlik ve gizlilik"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "IP filtreleri, kriptografik kimlik doğrulama ve proxy desteğiyle istenmeyen peer'ları uzak tutun ve kimliğinizi güvende tutun."
+  },
+  "homepage.showcase.security.alt": {
+    "message": "IP filtreleme seçenekleriyle güvenlik tercihleri"
+  },
+  "homepage.more.title": {
+    "message": "Ve çok daha fazlası"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Endgame Modu"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Bir indirmenin sonuna doğru hızlı bir kaynak, çok daha yavaş bir kaynağın elindeki blokları devralır; böylece dosyalar tek bir yavaş peer yüzünden %99'da takılı kalmaz."
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Yerel Verileri Doğrula"
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Diskteki verilerin hâlâ sağlam olduğunu kontrol etmek için paylaşılan dosyaların hash değerini istediğiniz zaman yeniden hesaplayın."
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Şifreli Uzaktan Kontrol"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "Uzak arayüzler çekirdeğe olan bağlantılarını şifreler, yeni kurulumlar bu bağlantıyı yalnızca yerel makineden kabul eder ve başarısız oturum açma denemeleri sınırlandırılır."
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Ağ Arayüzüne Bağlama"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "aMule trafiğini VPN gibi tek bir ağ arayüzüne sabitleyin; böylece bu arayüz var olduğu sürece trafik varsayılan rota üzerinden çıkmaz (BSD'de kullanılamaz)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Açık ve Koyu Görünüm"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "Arayüz, sisteminizin açık veya koyu temasını izler; yüksek çözünürlüklü ekranlarda keskin simgeler sunar."
+  },
+  "homepage.download.other.title": {
+    "message": "aMule edinmenin diğer yolları"
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Sürüm sayfası ve dağıtım paketleri"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.download.next.title": {
+    "message": "Sonraki adımlar"
   }
 }

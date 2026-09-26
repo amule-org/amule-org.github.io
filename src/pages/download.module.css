@@ -1,305 +1,470 @@
-.section {
-  max-width: 960px;
+/* Same content width and visual language as the homepage (src/pages/index.module.css,
+   src/components/FeaturesSection): tinted icon tiles, rounded cards, CTA-style box. */
+.page {
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 0 1rem 5rem;
+  /* Brand-colored small text: the plain primary fails AA contrast on light tints */
+  --dl-accent: var(--ifm-color-primary-darkest);
+  --dl-accent-strong: var(--ifm-color-primary-darker);
 }
 
-/* ---- Latest version header ---- */
+[data-theme='dark'] .page {
+  --dl-accent: var(--ifm-color-primary);
+  --dl-accent-strong: var(--ifm-color-primary);
+}
 
-.versionHeader {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.75rem 1.5rem;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--ifm-card-border-radius, 8px);
-  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+/* Visually hidden, still read by screen readers */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- Hero: title and latest version ---- */
+
+.hero {
+  padding: 4rem 0 2.5rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ifm-heading-color);
+  margin-bottom: 1rem;
 }
 
 .versionRow {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .versionNumber {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  background: linear-gradient(90deg, var(--ifm-color-primary-darker), var(--ifm-color-primary-lighter));
+  background-clip: text;
+  color: transparent;
 }
 
 .versionNumber:hover {
-  color: var(--ifm-color-primary-dark);
   text-decoration: none;
+  opacity: 0.85;
 }
 
 .versionBadge {
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-700);
+  background: color-mix(in srgb, var(--ifm-color-primary) 15%, transparent);
+  color: var(--dl-accent);
 }
 
 .versionMeta {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-left: auto;
-}
-
-.versionDate {
-  font-size: 0.95rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
   color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1.25rem;
 }
 
-.changelogLink {
-  font-size: 0.95rem;
+.versionMeta a {
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .versionHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .versionMeta {
-    margin-left: 0;
-  }
+.lead {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 auto;
+  max-width: 600px;
 }
 
-.dlLead {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
+/* ---- Cards (shared by OS panels, "other ways" and previous releases) ---- */
+
+.card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* ---- Per-OS sections ---- */
+/* Cards aren't links: highlight on hover without moving the buttons inside */
+.card:hover {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 50%, transparent);
+  box-shadow: var(--amule-card-hover-shadow);
+}
 
+.iconTile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 15%, transparent);
+  color: var(--ifm-color-primary);
+}
+
+.iconTile svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ---- Per-OS panels ---- */
+
+/* Windows and macOS stacked on the left, Linux (tallest) spanning both rows on the
+   right, source code full width below. Relies on the DOWNLOAD_OSES order. */
 .osList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-areas:
+    'win linux'
+    'mac linux'
+    'src src';
+  gap: 1.25rem;
 }
 
-@media (max-width: 768px) {
-  .osList {
-    grid-template-columns: 1fr;
-  }
-}
+.osList > :nth-child(1) { grid-area: win; }
+.osList > :nth-child(2) { grid-area: mac; }
+.osList > :nth-child(3) { grid-area: linux; }
+.osList > :nth-child(4) { grid-area: src; }
 
-.osPanel {
+.osList > .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--ifm-card-border-radius, 8px);
-  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
-  overflow: hidden;
 }
 
 .osHeader {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.osIcon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  color: var(--ifm-color-primary);
-}
-
-.osHeaderText {
-  display: flex;
-  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .osName {
+  font-size: 1.25rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  margin: 0;
 }
 
 .osPlatform {
-  font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.osNote {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .formatList {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .formatRow {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  color: var(--ifm-font-color-base);
-  border-top: 1px solid var(--ifm-color-emphasis-100);
-}
-
-.formatRow:first-child {
-  border-top: none;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .formatLabel {
   font-weight: 600;
-  font-size: 1rem;
 }
 
-.formatMeta {
+.formatFiles {
   display: flex;
-  align-items: center;
-  gap: 0.4rem 1rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
-.formatArchLink {
+/* Download pill: architecture + icon */
+.fileButton {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  color: var(--ifm-color-emphasis-700);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
-.formatArchLink:hover {
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
-.formatArch {
-  font-size: 0.8rem;
-  text-align: right;
-}
-
-.dlIcon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  color: var(--ifm-color-emphasis-500);
-  transition: color 0.15s;
-}
-
-.formatArchLink:hover .dlIcon {
-  color: var(--ifm-color-primary);
-}
-
-.dlFoot {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--ifm-color-emphasis-700);
-}
-
-/* ---- Numbered notes and their superscript references ---- */
-
-.noteRefs,
-.noteNumber {
-  line-height: 0;
-}
-
-.noteRefs {
-  margin-left: 0.15em;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 35%, transparent);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--dl-accent);
+  font-size: 0.875rem;
   font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.noteRefs a {
-  color: var(--ifm-color-primary);
+.fileButton:hover {
+  background: var(--dl-accent-strong);
+  color: var(--ifm-font-color-base-inverse);
   text-decoration: none;
 }
 
-.noteRefs a:hover {
-  text-decoration: underline;
+.fileButton svg {
+  width: 1rem;
+  height: 1rem;
 }
 
-.dlNote {
-  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+/* The last panel (source code) is a slim horizontal card */
+.osList > .card:last-child {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.dlNote:target {
-  color: var(--ifm-font-color-base);
+.osList > .card:last-child .osHeader {
+  margin-bottom: 0;
 }
 
-.noteNumber {
-  margin-right: 0.3em;
-  font-weight: 600;
-  color: var(--ifm-color-primary);
+.osList > .card:last-child .osNote {
+  flex-basis: 100%;
+  margin-top: 0;
+}
+
+/* ---- Sections below the panels ---- */
+
+.block {
+  margin-top: 5rem;
+}
+
+.blockTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--ifm-heading-color);
+  margin-bottom: 1rem;
+}
+
+.blockLead {
+  text-align: center;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.otherHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.otherTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.otherText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+/* "Next steps" box, styled like the homepage's closing CTA */
+.nextSteps {
+  margin-top: 5rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 30%, transparent);
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--ifm-color-primary) 18%, transparent), transparent 70%),
+    var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .nextSteps {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 40%, transparent);
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 0%, color-mix(in srgb, var(--ifm-color-primary) 14%, transparent), transparent 75%),
+    color-mix(in srgb, var(--ifm-color-primary) 6%, var(--ifm-background-color));
+}
+
+.nextText {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.nextButtons {
+  justify-content: center;
+  margin-top: 1.75rem;
 }
 
 /* ---- Previous releases ---- */
 
-.prevReleases {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--ifm-color-emphasis-300);
-}
-
 .prevList {
   list-style: none;
-  padding: 0;
-  margin: 0.5rem 0 0;
+  padding: 0.5rem 0;
+  margin: 0;
 }
 
 .prevList li {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
-  padding: 0.4rem 0;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  transition: background 0.15s ease;
+}
+
+.prevList li:first-child {
+  border-top: none;
+}
+
+.prevList li:hover {
+  background: var(--ifm-color-emphasis-100);
 }
 
 .prevVersion {
-  font-weight: 600;
+  font-weight: 700;
+  min-width: 3rem;
 }
 
 .prevDate {
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .prevLinks {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 0.4rem 0.5rem;
+  gap: 0.5rem;
   margin-left: auto;
 }
 
-.prevLinks a {
+.ghostButton {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.85rem;
   font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.prevLinks a:not(:first-child)::before {
-  content: '·';
-  margin-right: 0.5rem;
-  color: var(--ifm-color-emphasis-500);
-  font-weight: 400;
+.ghostButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
-.prevDlIcon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+.ghostButton svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* ---- Motion (same entrance as the homepage hero) ---- */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero,
+  .osList {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .osList {
+    animation-delay: 0.15s;
+  }
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .otherGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .osList {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'win' 'mac' 'linux' 'src';
+  }
+
+  .block,
+  .nextSteps {
+    margin-top: 3rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .versionNumber {
+    font-size: 1.6rem;
+  }
+
+  .blockTitle {
+    font-size: 1.6rem;
+  }
+
+  .prevList li {
+    padding: 0.75rem 1rem;
+  }
+
+  .prevLinks {
+    margin-left: 0;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  /* Compact enough for the three links to share one line on phones */
+  .ghostButton {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+  }
 }
