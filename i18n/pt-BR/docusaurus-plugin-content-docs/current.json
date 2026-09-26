@@ -58,5 +58,8 @@
   },
   "version.label": {
     "message": "Próximo"
+  },
+  "sidebar.docsSidebar.category.amuleapi — REST API & Web UI": {
+    "message": "amuleapi — REST API & Web UI"
   }
 }

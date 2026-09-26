@@ -237,7 +237,7 @@
     "message": "Prise en charge des serveurs mandataires"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Contrôlez aMule de n'importe où : une interface graphique distante native (amulegui), une interface web basé sur un navigateur (amuleweb) ou bien un outil en ligne de commande (amulecmd)."
+    "message": "Contrôlez aMule de n'importe où : une interface graphique distante native (amulegui), une API REST et une interface de navigateur Web moderne (amuleapi), un outil en ligne de commande (amulecmd) ou bien l'ancienne interface WebUI (amuleweb)."
   },
   "homepage.features.remoteInterfaces.title": {
     "message": "Interfaces distantes"
