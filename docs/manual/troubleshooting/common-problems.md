@@ -33,6 +33,8 @@ This typically happens when both of these options are enabled simultaneously:
 
 If your internet connection was lost briefly, aMule detected the disconnection, tried to reconnect to each server, and removed them one by one after X failed attempts until the list was empty.
 
+aMule does not count errors that point to your own connection against the servers (see [Server connection failures](../configuration/network-connectivity.md#server-connection-failures)), but connection refusals and timeouts reported by the operating system still count, so on systems whose connection timeout is shorter than aMule's own 25 seconds (e.g. Windows) an outage can still empty the list.
+
 **Solution**: disable **"Remove dead server after X retries"**. It is safe to leave "Reconnect on loss" enabled.
 
 To repopulate the list, see [Server List](../../p2p-networks/ed2k/index.md#server-list). When re-adding servers, be careful with untrusted sources — see [Fake Servers](./fake-files-and-servers.md#fake-servers).

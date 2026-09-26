@@ -79,7 +79,7 @@ echo -n yourpassword | md5sum | cut -d ' ' -f 1
 
 Copy the output (without trailing whitespace) into `ECPassword`.
 
-Since 3.1.0, a freshly created configuration listens for EC connections on the local machine only (`ECAddress=127.0.0.1`). An existing `amule.conf` keeps the value it already had. To accept EC connections from other machines, clear the address (empty = listen on all interfaces) or set it to the IP address of one local interface:
+By default, a new configuration listens for EC connections on the local machine only (`ECAddress=127.0.0.1`); an `amule.conf` created by an older version keeps the value it already had (usually empty = all interfaces). To accept EC connections from other machines, clear the address (empty = listen on all interfaces) or set it to the IP address of one local interface:
 
 ```ini
 ECAddress=

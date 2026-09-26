@@ -285,7 +285,7 @@ For its format, see the [`canceled.met` format reference](../../../developer/fil
 
 **Location:** `~/.aMule/statistics.dat`
 
-Small binary file storing aMule's **lifetime traffic totals** — the cumulative number of bytes ever uploaded and downloaded across all sessions. aMule has stored these totals in this file since 2.3.1; earlier versions kept them in the `[Statistics]` section of `amule.conf`.
+Small binary file storing aMule's **lifetime traffic totals** — the cumulative number of bytes ever uploaded and downloaded across all sessions.
 
 For its format, see the [`statistics.dat` format reference](../../../developer/file-formats/index.md#statisticsdat).
 
@@ -408,8 +408,6 @@ aMule does not verify that the running process is actually another aMule. Any pr
 
 The Remote GUI (`amulegui`) uses its own lock file, `muleLockRGUI`, with the same mechanism, so a local aMule instance and the Remote GUI do not block each other.
 
-This file replaces the old `muleconn` socket file used in versions before 2.1.0.
-
 ### `GeoLite2-Country.mmdb` {#geolite2-country-mmdb}
 
 **Location:** `~/.aMule/GeoLite2-Country.mmdb`
@@ -419,7 +417,7 @@ Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country 
 The feature requires the `libmaxminddb` library at compile time (`ENABLE_IP2COUNTRY` CMake option).
 
 :::note
-Since aMule 3.0.0 the legacy GeoIP system (libGeoIP v1 / `GeoIP.dat`) is **no longer used**; it has been replaced by MaxMindDB. MaxMind discontinued the legacy `.dat` databases in 2019.
+Since aMule 3.0.0 the legacy GeoIP system (libGeoIP v1 / `GeoIP.dat`) is **not used**; aMule uses MaxMindDB databases instead.
 :::
 
 The configuration key `GeoIPEnabled` (in `[eMule]`) controls whether the feature is active. Country flag display can be disabled without deleting the file.

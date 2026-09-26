@@ -332,7 +332,7 @@ Controls the built-in [`amuleapi`](../../interfaces/amuleapi/index.md) daemon (R
 | `Path` | `amuleapi` | Path or name of the `amuleapi` binary. |
 
 :::note
-The admin and guest passwords are **not** stored in `amule.conf`. They live in the shared [`amuleapi-passwords`](./index.md#amuleapi-passwords) credential store. None of the `Password`, `GuestPassword` or `GuestEnabled` keys is read from or written to `amule.conf`; they exist only in memory, to relay a change from the Preferences dialog. Leftover `Password`/`GuestPassword` entries written by early 3.1.0 development builds are deleted on load.
+The admin and guest passwords are **not** stored in `amule.conf`. They live in the shared [`amuleapi-passwords`](./index.md#amuleapi-passwords) credential store. None of the `Password`, `GuestPassword` or `GuestEnabled` keys is read from or written to `amule.conf`; they exist only in memory, to relay a change from the Preferences dialog. Leftover `Password`/`GuestPassword` entries are deleted on load.
 :::
 
 ## `[Proxy]` section

@@ -19,7 +19,13 @@ echo -n 'yourpassword' | md5sum | cut -d ' ' -f 1
 
 Paste the resulting MD5 hash as the value of `ECPassword` in `~/.aMule/amule.conf`. See [`amulecmd` → Configuration](../interfaces/amulecmd.md#configuration) for the full setup.
 
-**Connecting from another machine?** Since aMule 3.1.0, a fresh configuration listens for EC connections only on the local machine (`ECAddress=127.0.0.1`), so only local tools can connect. For remote access, set `ECAddress` to the machine's LAN IP address, or leave it empty to listen on all interfaces. Also make sure the EC port (`4712` by default) is reachable: see [Ports used by aMule](../configuration/network-connectivity.md#ports-used-by-amule) and the [Firewall](../configuration/firewall.md) guide.
+**Connecting from another machine?** By default, a new configuration listens for EC connections only on the local machine (`ECAddress=127.0.0.1`), so only local tools can connect; a configuration created by an older version keeps its previous value (usually empty = all interfaces). For remote access, set `ECAddress` to the machine's LAN IP address, or leave it empty to listen on all interfaces. Also make sure the EC port (`4712` by default) is reachable: see [Ports used by aMule](../configuration/network-connectivity.md#ports-used-by-amule) and the [Firewall](../configuration/firewall.md) guide.
+
+## Remote connections
+
+### Why does connecting fail with "Could not resolve … to an IPv4 address."?
+
+The host you gave has no IPv4 (A) record: the remote tools ([`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md), [`amulecmd`](../interfaces/amulecmd.md), [`amuleweb`](../interfaces/amuleweb.md)) resolve the core's hostname to IPv4 only (see [IPv4 only](../configuration/network-connectivity.md#ipv4-only)). Use the core's IPv4 address instead, or a hostname that resolves to it. `localhost` always works: it resolves to `127.0.0.1`.
 
 ## `amuleweb`
 

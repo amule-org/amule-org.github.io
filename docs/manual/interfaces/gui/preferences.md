@@ -59,7 +59,7 @@ These values are in **kibibytes per second** (KiB/s, 1 KiB = 1024 bytes), while 
 | **UDP port for server requests (TCP+3)** | Read-only display. This port is always the standard TCP port + 3 (default 4665). Shows *disabled* when the ED2K network is disabled. |
 | **Extended UDP port (Kad / global search)** | Enable and set the [extended client UDP port](../../../p2p-networks/ed2k/index.md) used for Kad and global searches. Default: 4672. Unchecking it frees a UDP port but reduces aMule's performance. While **Kademlia** is enabled the checkbox is forced on and greyed out, so it can only be unchecked with Kad disabled. |
 | **Enable UPnP for router port forwarding** | Ask a UPnP-capable router to forward aMule's ports automatically. The UPnP controls are disabled in builds without UPnP support and, in `amulegui`, when the connected core lacks it. |
-| **UPnP TCP Port (Optional)** | External TCP port to request from the router via UPnP. Default: 50000. |
+| **UPnP TCP Port (Optional)** | Local TCP port aMule's UPnP stack listens on to talk to the router (`UPnPTCPPort`). It is not forwarded on the router — see [UPnP](../../configuration/upnp.md#the-upnp-tcp-port-setting). Default: 50000. |
 
 ### Limits
 

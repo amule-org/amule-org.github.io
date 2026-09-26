@@ -178,7 +178,13 @@ Right-clicking a source opens the same client context menu used in the [Clients]
 
 ![The source list context menu](/img/docs/gui_downloads/downloads_lower_menu.png)
 
-## Finishing Downloads
+## Transfer Behavior
+
+aMule requests the data of a file from each source in blocks of 180 KiB, asking for several blocks ahead so the data keeps flowing. The number of blocks in flight adapts automatically to each source's speed and latency, between 3 and 24; it is not configurable.
+
+Each [part](../../../p2p-networks/ed2k/index.md#chunks) (9.28 MB) is verified against its hash as soon as it completes, and the whole file is hashed again when the download finishes. A corrupted part is repaired through [AICH](../../../p2p-networks/ed2k/aich.md): when a trusted AICH hash set is available, only the damaged 180 KiB blocks are downloaded again instead of the whole part.
+
+### Finishing Downloads
 
 Near the end of a download, **endgame mode** lets a source that has run out of blocks to request take over blocks from a much slower source, so a file does not stall at 99% behind one slow peer. It has no indicator in the lists; it is controlled by the **Endgame mode: rotate to faster sources for the final blocks** option in [Preferences → Files](./preferences.md#downloads) and enabled by default.
 
