@@ -21,25 +21,26 @@ Where `amuleweb` renders HTML server-side from templates, `amuleapi` serves a cl
 
 | Option | Description |
 |---|---|
-| `-h`, `--host=<host>` | Host where aMule is running, for the EC connection (default: `127.0.0.1`) |
-| `-p`, `--port=<port>` | aMule's EC port (default: `4712`) |
-| `--bind=<address>` | Address the HTTP server listens on (overrides `[Server] BindAddress`) |
-| `--http-port=<port>` | HTTP port the browser and API clients connect to (default: `4713`) |
-| `--config-dir=<path>` | Use the given configuration directory |
-| `--set-admin-pass=<password>` | Store the admin password, then exit |
-| `--set-guest-pass=<password>` | Store the guest password, then exit |
+| `-h`, `--host=<host>` | Host where aMule is running, for the EC connection (default: `127.0.0.1`; overrides `[EC] Host`). `-h` is the host, not help — use `--help` |
+| `-p`, `--port=<port>` | aMule's EC port (default: `4712`; overrides `[EC] Port`) |
+| `--disable-ec-encryption` | Connect to aMule without EC encryption for this run (overrides `[EC] Encryption`) |
+| `--bind=<address>` | Address the HTTP server listens on (default: `127.0.0.1`; overrides `[Server] BindAddress`). With any address other than `127.0.0.1`, `::1` or `localhost`, `amuleapi` refuses to start until an admin or guest password is set |
+| `--http-port=<port>` | HTTP port the browser and API clients connect to (default: `4713`; overrides `[Server] Port`; a value outside 1–65535 is ignored) |
+| `--config-dir=<path>` | Use the given configuration directory for `amuleapi.conf`, `amuleapi-passwords`, `amuleapi-jwt-secret` and the default log file (default: the aMule configuration directory, e.g. `~/.aMule/` on Linux; created with mode `0700` if missing) |
+| `--set-admin-pass=<password>` | Store the admin password in `amuleapi-passwords`, then exit without connecting to aMule or starting the HTTP server (non-zero exit code on failure) |
+| `--set-guest-pass=<password>` | Store the guest password the same way, then exit; an empty value (`--set-guest-pass=`) disables guest access. If given together with `--set-admin-pass`, only the admin password is set |
+| `--log-file=<path>` | Write the log to `<path>` instead of the default `<config-dir>/amuleapi.log`. The log is a timestamped copy of the console output, capped at 10 MiB and rotated to `<path>.1` |
+| `--no-log-file` | Do not write a log file; print to the console only (takes precedence over `--log-file`) |
+| `-q`, `--quiet` | Suppress `amuleapi`'s normal output, including error messages, on the console and in the log file; only a few warnings on stderr still appear |
 | `--foreground` | Stay in the foreground (the default; `amuleapi` never detaches — use systemd/launchd or `nohup` to run it as a service) |
-| `--disable-ec-encryption` | Connect to aMule without EC encryption |
-| `--log-file=<path>` | Write the log to the given file |
-| `--no-log-file` | Do not write a log file |
-| `--version` | Display the version number |
-| `--help` | Print a short usage description |
+| `--version` | Print the version number and exit |
+| `--help` | Print a short usage description and exit |
 
 There is deliberately **no `--password` flag**: an EC password passed on the command line would be visible to any local user via `ps`. An auto-started `amuleapi` uses a one-off token (see [Auto-Start](#auto-start)); a hand-started one reads `[EC] Password` from its config file. Use `--set-admin-pass` / `--set-guest-pass` (or [Preferences → Remote Controls](../gui/preferences.md#remote-controls) in the GUI) to set the Web UI login passwords.
 
 ## Configuration File
 
-`amuleapi` reads [`amuleapi.conf`](../../configuration/config-files/amuleapi-conf.md) from its configuration directory. The file is created on first run with mode `0600`, and every load re-enforces `0600` (it refuses to start otherwise). It has four sections:
+`amuleapi` reads [`amuleapi.conf`](../../configuration/config-files/amuleapi-conf.md) from its configuration directory. The file is created on first run with mode `0600`. On every load, `amuleapi` checks that no group or other permission bits are set and refuses to start otherwise (it prints the `chmod 600` command to fix it); this check does not apply on Windows. It has four sections:
 
 - **`[Server]`** — HTTP bind address, port, CORS, and the Web UI asset root.
 - **`[EC]`** — how `amuleapi` reaches the aMule core (host, port, password, encryption).

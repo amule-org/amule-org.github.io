@@ -106,15 +106,17 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `search global <term>` | Search all servers (global search) |
 | `search local <term>` | Search the currently connected server (local search) |
 | `search kad <term>` | Search the Kademlia network |
-| `results` | Show the results of the last search |
-| `progress` | Show the progress of an on-going search |
+| `results [id]` | Show the results of a search; without an id, of the most recently started search |
+| `progress [id]` | Show the progress of a search; without an id, of the most recently started search |
 | `set bwlimit up <kB/s>` | Set upload bandwidth limit in kB/s (0 = unlimited) |
 | `set bwlimit down <kB/s>` | Set download bandwidth limit in kB/s (0 = unlimited) |
 | `set ipfilter on \| off` | Enable/disable [IP filtering](gui/preferences.md#ip-filtering) for both clients and servers |
 | `set ipfilter clients on \| off` | Enable/disable IP filtering for clients |
 | `set ipfilter servers on \| off` | Enable/disable IP filtering for servers |
 | `set ipfilter level <0-255>` | Set the IP filtering level (default 127) |
+| `set endgame <1\|on\|0\|off>` | Enable or disable [endgame source rotation](gui/preferences.md#downloads) (rotate to faster sources for the final blocks of a file; enabled by default) |
 | `get bwlimits` | Show the current bandwidth limits |
+| `get endgame` | Show whether endgame source rotation is enabled |
 | `get ipfilter` | Show IP filtering state and level (subcommands: `get ipfilter state [clients\|servers]`, `get ipfilter level`) |
 | `show dl` | Show the download queue |
 | `show ul` | Show the upload queue |
@@ -122,7 +124,7 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `show servers` | Show the server list |
 | `show shared` | Show shared files |
 | `reload shared` | Reload the shared files list from disk |
-| `reload ipfilter` | Reload the IP filter table (use `reload ipfilter net [URL]` to update it from a URL) |
+| `reload ipfilter` | Reload the IP filter table from the current file (same as `reload ipfilter file`); use `reload ipfilter net [URL]` to update it from a URL (the URL from Preferences if omitted) |
 | `reset` | Reset (clear) the log |
 | `statistics [number]` | Show the statistics tree; the optional `number` (0-255) limits how many client versions are shown per type (0 = unlimited) |
 | `status` | Show connection status, current up/download speeds, etc. |
@@ -130,6 +132,8 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `help [command]` | Show the list of commands, or detailed help for one command |
 | `exit` | Exit `amulecmd` (does not stop `amuled`) |
 | `quit` | Alias for `exit` |
+
+Every `search` prints a search id (with a 3.1.0 or later core). Several searches can be kept on the core at once, each addressed by its id, but starting an eD2k (local or global) search stops an eD2k search that is still running.
 
 For the full and current list, run `help` from within `amulecmd`.
 
@@ -171,11 +175,17 @@ Command-line flags:
 | `-c, --command "<command>"` | Execute a single command and exit |
 | `-w, --write-config` | Write the connection settings to `remote.conf` and exit |
 | `--create-config-from=<path>` | Create `remote.conf` from a valid aMule config file and exit |
-| `--force-zlib` | Force ZLIB compression even when the core resolves to a local/LAN IP; useful over a VPN tunnel that resolves to a LAN IP. Sets [`/EC/ForceZLIB`](../configuration/config-files/remote-conf.md#ec-section) |
+| `--force-zlib` | Force ZLIB compression even when the core resolves to a local/LAN IP; useful over a VPN tunnel that resolves to a LAN IP. Saved to [`/EC/ForceZLIB`](../configuration/config-files/remote-conf.md#ec-section) by `-w` |
+| `--disable-ec-encryption` | Do not encrypt the External Connections session. Encryption is negotiated automatically whenever the core supports it and is on by default; turning it off leaves everything after the login readable and modifiable by anyone on the network path. Saved to [`/EC/Encryption`](../configuration/config-files/remote-conf.md#ec-section) by `-w` |
+| `--space-separated` | Separate the fields of list output with spaces, as versions before 3.1.0 did, instead of tabs (see [Output Format](#output-format)) |
 | `--version` | Print the program version |
 | `--help` | Show the usage description |
 
 A plain filename (no directory part) given to `-f`/`--config-file` is taken relative to the aMule configuration directory (`~/.aMule`).
+
+### Output Format
+
+Since 3.1.0, the list commands (`show dl`, `show ul`, `show shared`, `show servers`) separate the fields of each row with **tabs** instead of spaces. Client names and file names may contain spaces, so the tab lets a script split a row back into its fields (for example with `cut -f` or `awk -F '\t'`). Every line of a command's reply is prefixed with ` > ` (the banner lines and the `results` table are not), each download or shared file still takes two lines (the second one starts with ` > ` followed by a tab), and status and priority strings follow the program locale. In tab mode, tabs inside names are replaced with spaces. Scripts written against the older space-separated output can pass `--space-separated` to get it back.
 
 ## Scheduling with Cron
 
@@ -201,10 +211,9 @@ Example — reduce upload speed at 06:00 and restore it at 22:00:
 ```bash
 #!/bin/sh
 
-amulecmd -c "show dl" | \
-    grep '.' | \
-    sed "1,/Succeeded/d" | \
-    sed -n "N;s/^ > .*[0-9A-F]\{32\} \(.*\)\n >.*\[\(.*%\)\].*]\(.*\)/\2 \1\3/p" | \
+amulecmd --space-separated -c "show dl" | \
+    grep '^ > ' | \
+    sed -n "N;s/^ > .*[0-9A-F]\{32\} \(.*\)\n >.*\[\(.*%\)\]\(.*\)/\2 \1\3/p" | \
     sort -n
 ```
 

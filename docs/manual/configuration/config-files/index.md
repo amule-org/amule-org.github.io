@@ -157,7 +157,7 @@ Shared credential store for the `amuleapi` **admin** and **guest** accounts. Eac
 To set or change these passwords, see [Changing Passwords](../../interfaces/amuleapi/index.md#changing-passwords) on the `amuleapi` page.
 
 :::warning
-This file holds your `amuleapi` login credentials. Keep its `0600` permissions; the daemon refuses to start if its secret files are group- or world-readable.
+This file holds your `amuleapi` login credentials. Keep its `0600` permissions; on POSIX systems `amuleapi` refuses to start if `amuleapi.conf`, `amuleapi-jwt-secret` or `amuleapi-passwords` has any group or other permission bit set.
 :::
 
 ### `amuleapi-jwt-secret` {#amuleapi-jwt-secret}
