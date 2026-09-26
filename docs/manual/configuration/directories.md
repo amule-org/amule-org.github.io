@@ -107,7 +107,7 @@ A directory inside a recursive share cannot be un-shared on its own. To remove i
 A few related options control how shared directories are scanned:
 
 - **Share hidden files** — include hidden files from shared directories.
-- **Automatically rescan shared folders for changes** — periodically rescan the shared folders so files added or removed outside aMule are picked up automatically, without pressing **Reload**.
+- **Automatically rescan shared folders for changes** — watch the shared folders so files added, changed, removed or renamed outside aMule are picked up automatically, without pressing **Reload**.
 - **Follow symbolic links in shared folders** — follow symbolic links (to files or directories) when scanning shared folders. Enabled by default; disable it to skip symlinked entries.
 
 :::warning

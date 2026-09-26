@@ -101,7 +101,7 @@ Once the download completes:
 
 ### Storing the AICH Hashset
 
-After a file is downloaded completely, aMule builds and stores the complete AICH Hashset in the [`known2_64.met`](../../manual/configuration/config-files/index.md#known2_64met) file (under `~/.aMule/`; older versions used `known2.met`, the `_64` file being the current 64-bit format). This means future requests for the Hashset are served from disk without re-computing the tree each time.
+After a file is downloaded completely, aMule builds and stores the complete AICH Hashset in the [`known2_64.met`](../../manual/configuration/config-files/index.md#known2_64met) file (under `~/.aMule/`; older versions used `known2.met`, the `_64` file being the current 64-bit format). This means future requests for the Hashset are served from disk without re-computing the tree each time. aMule keeps an in-memory index of where each Root Hash sits in that file, so a request is answered without rescanning it, and a peer that floods AICH requests is treated like any other aggressive client and eventually banned.
 
 ### Enabling AICH
 

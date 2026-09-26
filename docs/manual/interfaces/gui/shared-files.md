@@ -144,7 +144,7 @@ The toggle button at the left of the panel shows or hides the list of clients (p
 
 | Option | Clients shown |
 |---|---|
-| **All files** | Clients for any of the files shown in the list (after the **Filter:**) |
+| **All files** (default) | Clients for any of the files shown in the list (after the **Filter:**) |
 | **Selected files** | Clients for the file(s) selected in the list |
 | **Active uploads only** | Only the clients you are currently uploading to |
 
