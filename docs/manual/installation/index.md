@@ -287,7 +287,7 @@ cd aMule-<version>-Linux-x64-static
 
 See [`amuled` → Configuration](../interfaces/amuled.md#configuration) to set up External Connections before connecting [`amulecmd`](../interfaces/amulecmd.md) or [`amuleapi`](../interfaces/amuleapi/index.md) to it.
 
-The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder. HTTPS downloads (IP filter, IP2Country database, server lists) use the host's CA certificate bundle, so install your distribution's `ca-certificates` package on minimal systems.
+The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder. HTTPS downloads (IP filter, [IP2Country](../configuration/ip2country.md) database, server lists) use the host's CA certificate bundle, so install your distribution's `ca-certificates` package on minimal systems.
 
 ### Distribution Packages
 

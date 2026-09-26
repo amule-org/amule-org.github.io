@@ -418,9 +418,13 @@ Offline:
 0.0|0.0|0
 ```
 
-## `GeoLite2-Country.mmdb` {#geolite2-country-mmdb}
+## `geoip.mmdb` {#geoip-mmdb}
 
-Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address. The on-disk layout is the standard MaxMind DB format and is not aMule-specific. For how to obtain and configure the database, see the [aMule Files Reference](../../manual/configuration/config-files/index.md#geolite2-country-mmdb).
+Binary database in **MaxMind DB format** (`.mmdb`), used to look up the country of any IP address. The on-disk layout is the standard MaxMind DB format and is not aMule-specific. For how aMule obtains and updates the database, see [IP2Country](../../manual/configuration/ip2country.md).
+
+:::note
+aMule 2.x used the legacy libGeoIP v1 format (`GeoIP.dat`), which aMule 3.0.0 replaced with MaxMind DB; `GeoIP.dat` files are not read. aMule 3.0.0 stored the MaxMind DB file as `GeoLite2-Country.mmdb`; since 3.0.1 it is `geoip.mmdb`, and an existing `GeoLite2-Country.mmdb` is renamed automatically on startup.
+:::
 
 ## `key_index.dat`, `src_index.dat` and `load_index.dat` {#key_indexdat-and-load_indexdat}
 

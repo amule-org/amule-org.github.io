@@ -75,7 +75,7 @@ Each row in the server list represents one known eD2k server:
 | **TCP Flags** | Supported TCP capabilities (hidden by default) |
 | **UDP Flags** | Supported UDP capabilities (hidden by default) |
 
-The currently connected server is highlighted. When [IP2Country](./preferences.md#ip2country) is enabled, the **Server Name** column shows the flag of the server's country; servers whose country cannot be resolved show no flag.
+The currently connected server is highlighted. When [IP2Country](../../configuration/ip2country.md) is enabled, the **Server Name** column shows the flag of the server's country; servers whose country cannot be resolved show no flag.
 
 Like every list in aMule, the server list can be sorted by clicking a column header, and right-clicking the header lets you show or hide columns (for example the hidden **TCP Flags** and **UDP Flags**). See [Working with lists](./index.md#working-with-lists).
 

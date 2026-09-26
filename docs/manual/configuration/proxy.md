@@ -21,7 +21,7 @@ When a proxy is enabled, aMule sends its **outgoing** connections through it:
 | UDP to eD2k servers | Yes, only with **SOCKS5** (UDP requires `UDP ASSOCIATE`); otherwise direct. |
 | TCP to other eD2k clients (your outgoing downloads and uploads) | Yes (any proxy type). |
 | UDP for the extended eD2k protocol and the [Kademlia network](../../p2p-networks/kademlia.md) | Yes, only with **SOCKS5**; otherwise direct. |
-| Auxiliary HTTP downloads (version check, `server.met`, IP filter, `nodes.dat`, GeoIP database) | Yes, only with an **HTTP** proxy; with a SOCKS proxy these requests are made directly. |
+| Auxiliary HTTP downloads (version check, `server.met`, IP filter, `nodes.dat`, [GeoIP database](./ip2country.md)) | Yes, only with an **HTTP** proxy; with a SOCKS proxy these requests are made directly. |
 
 The following are **not** routed through the proxy and remain direct:
 

@@ -121,7 +121,7 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `show dl` | Show the download queue |
 | `show ul` | Show the upload queue |
 | `show log` | Show the aMule log |
-| `show servers` | Show the server list |
+| `show servers` | Show the server list (with each server's country code, e.g. `[de]`, when [IP2Country](../configuration/ip2country.md) is enabled on the core) |
 | `show shared` | Show shared files |
 | `reload shared` | Reload the shared files list from disk |
 | `reload ipfilter` | Reload the IP filter table from the current file (same as `reload ipfilter file`); use `reload ipfilter net [URL]` to update it from a URL (the URL from Preferences if omitted) |

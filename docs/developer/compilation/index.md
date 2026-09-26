@@ -79,7 +79,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `ENABLE_NLS` | YES | [Native-language support](../translations/index.md) (gettext) |
 | `TRANSLATED_MANPAGES` | YES | [Translated man pages](#translated-man-pages) rendered via po4a (requires `ENABLE_NLS`; skipped with a notice if po4a is not found) |
 | `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
-| `ENABLE_IP2COUNTRY` | YES | IP→country mapping (libmaxminddb) |
+| `ENABLE_IP2COUNTRY` | YES | IP→country mapping (libmaxminddb), see [IP2Country](../../manual/configuration/ip2country.md) |
 | `ENABLE_MMAP` | YES | Compile the memory-mapped file I/O path where the platform supports it. Whether it is used is the runtime preference [`MMapEnabled`](../../manual/configuration/config-files/amule-conf.md) (off by default); set this option `NO` only to leave the mmap code out entirely (e.g. sanitizer builds) |
 | `ENABLE_BFD` | YES | Use `libbfd` for in-process backtrace symbol resolution in crash reports; `NO` falls back to `backtrace_symbols()` plus an external `addr2line` |
 | `USE_SYSTEM_PICOJSON` | NO | Build `amuleapi` against a system-installed picojson instead of the bundled copy |

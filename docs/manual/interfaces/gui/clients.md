@@ -12,7 +12,7 @@ The **Active** tab splits the peers by direction into two lists:
 - **Downloading from** — peers holding a file you are downloading.
 - **Uploading to** — peers that requested one of your files, both those you are uploading to and those waiting in your upload queue.
 
-A peer you exchange data with in both directions appears in both lists.
+A peer you exchange data with in both directions appears in both lists. When [IP2Country](../../configuration/ip2country.md) is enabled, every list on this page shows the peer's country flag next to its name.
 
 ![Active clients on the Clients page, split by direction](/img/docs/gui_clients/clients_active.png)
 

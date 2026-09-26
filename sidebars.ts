@@ -32,6 +32,7 @@ const sidebars: SidebarsConfig = {
             'manual/configuration/firewall',
             'manual/configuration/upnp',
             'manual/configuration/proxy',
+            'manual/configuration/ip2country',
             'manual/configuration/events',
             'manual/configuration/ed2k-magnet-links',
             'manual/configuration/autostart',

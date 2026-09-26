@@ -148,7 +148,7 @@ The toggle button at the left of the panel shows or hides the list of clients (p
 | **Selected files** | Clients for the file(s) selected in the list |
 | **Active uploads only** | Only the clients you are currently uploading to |
 
-Its columns are **User Name**, **Downloaded**, **Download Speed**, **Uploaded**, **Upload Speed**, **Parts on Peer**, **Version**, **Upload Status**, **Download Status**, **Origin**, **Local File Name** and **Shares File List**. It uses the same client context menu as the [Clients](./clients.md) page (plus **Colour legend** for the **Parts on Peer** bar while that column is shown), and double-clicking or middle-clicking a client opens the [Client Details](./client-details.md) window.
+When [IP2Country](../../configuration/ip2country.md) is enabled, the **User Name** column shows each client's country flag. Its columns are **User Name**, **Downloaded**, **Download Speed**, **Uploaded**, **Upload Speed**, **Parts on Peer**, **Version**, **Upload Status**, **Download Status**, **Origin**, **Local File Name** and **Shares File List**. It uses the same client context menu as the [Clients](./clients.md) page (plus **Colour legend** for the **Parts on Peer** bar while that column is shown), and double-clicking or middle-clicking a client opens the [Client Details](./client-details.md) window.
 
 ![The client list context menu](/img/docs/gui_shared_files/shared_files_lower_menu.png)
 

@@ -70,7 +70,7 @@ The navigation bar exposes the following sections:
 - **Live, without polling.** The interface is driven by the [SSE stream](./index.md#server-sent-events); bursty deltas are coalesced so re-renders stay smooth. It falls back to periodic requests only if the stream fails repeatedly.
 - **Themes.** System, light and dark — it follows the operating system by default and can be forced either way.
 - **Download to your browser.** Finished shared files have a download button that streams the file straight to the browser, with the correct filename.
-- **Country flags** on peers and servers, as the desktop lists show them.
+- **[Country flags](../../configuration/ip2country.md)** on peers and servers, as the desktop lists show them.
 - **Comments over SSE.** Kad notes and source comments appear on a file's Comments tab as they arrive, without polling.
 - **Languages.** Internationalized, with support for multiple languages.
 - **Responsive.** Usable down to phone width.

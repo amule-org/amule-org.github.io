@@ -188,6 +188,8 @@ These keys control the signature files read by the [`cas` / `wxcas`](../../utili
 
 ### GeoIP
 
+Settings for [IP2Country](../ip2country.md), the country flags shown next to clients and servers.
+
 | Key | Default | Description |
 |---|---|---|
 | `GeoIPEnabled` | `1` | Show country flags next to clients and servers (requires a GeoIP country database). Only written by builds compiled with GeoIP support (`ENABLE_IP2COUNTRY`). aMule sets it to `0` itself when no download URL can be built for the selected source (e.g. MaxMind without a license key), or when a download fails and no database file exists. |

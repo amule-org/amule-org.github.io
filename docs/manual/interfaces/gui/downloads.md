@@ -116,7 +116,7 @@ Right-click menus are not available on macOS with a single-button mouse. Use [Co
 
 ## Source List
 
-Clicking a file in the download queue populates the source list below with all known clients for that file. Selecting multiple files shows the union of their sources.
+Clicking a file in the download queue populates the source list below with all known clients for that file. Selecting multiple files shows the union of their sources. When [IP2Country](../../configuration/ip2country.md) is enabled, each source shows its country flag next to the user name.
 
 ![The source list](/img/docs/gui_downloads/downloads_lower.png)
 
