@@ -53,11 +53,12 @@
   background-size: 100% 400px;
 }
 
-/* Navbar: at tablet widths (between the mobile hamburger breakpoint and full
-   desktop) the items are cramped, which truncates the title to "a..." and wraps
-   the external-link icons. Hide the title (the logo still identifies the brand)
-   and tighten item spacing so everything fits on one line. */
-@media (min-width: 997px) and (max-width: 1199px) {
+/* Navbar: between the mobile hamburger breakpoint (996px, fixed by Docusaurus)
+   and full desktop the items are cramped, which truncates the title to "a...",
+   wraps long labels onto two lines or makes them overlap. The ranges are sized
+   for the longest translation (French): hide the title (the logo still
+   identifies the brand), keep labels on one line and tighten item spacing... */
+@media (min-width: 997px) and (max-width: 1339px) {
   .navbar__title {
     display: none;
   }
@@ -70,6 +71,33 @@
   .navbar .navbar__item {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+}
+
+/* ...and at narrower widths collapse the search box to its icon (as the search
+   plugin does on phones); on focus it expands over the items to its left. */
+@media (min-width: 997px) and (max-width: 1239px) {
+  .navbar__search {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* The input, or the span the search plugin wraps it in (with an inline
+     position) once it initializes. Anchored right so it grows leftwards. */
+  .navbar__search > :first-child {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+  }
+
+  .navbar__search-input:not(:focus) {
+    width: 2rem;
+  }
+
+  .navbar__search [class*='searchHintContainer'],
+  .navbar__search:not([class*='focused']) [class*='searchClearButton'] {
+    display: none;
   }
 }
 
