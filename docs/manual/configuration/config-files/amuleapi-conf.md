@@ -44,6 +44,35 @@ The HTTP server that serves the REST API and the Web UI.
 | `AllowCORS` | `0` | _(none)_ | Enable Cross-Origin Resource Sharing (CORS) response headers. |
 | `CorsOriginAllowlist` | _(empty)_ | _(none)_ | Comma-separated list of allowed origins, used only when `AllowCORS=1`. |
 | `StaticRoot` | _(empty)_ | _(none)_ | Filesystem directory of the Web UI assets. Empty (the default) = auto-discover the installed [`amuleapi-static/`](./index.md#amuleapi-static) folder; when nothing is found the daemon runs API-only and non-`/api/` paths return `404`. Set a path to serve a specific asset directory. |
+| `BasePath` | _(empty)_ | _(none)_ | URL path prefix when a reverse proxy serves `amuleapi` under a path of a shared hostname, e.g. `/amule` for `https://home.example.com/amule/`. Empty = served at the root. Letters, digits, `-`, `.`, `_`, `~` and `/` only; any other value stops `amuleapi` from starting. See [Serving under a sub-path](#serving-under-a-sub-path). |
+
+
+### Serving under a sub-path
+
+Set `BasePath` when a reverse proxy shares one hostname between `amuleapi` and other apps, e.g. `BasePath=/amule` for `https://home.example.com/amule/`:
+
+- The REST API, the SSE event stream and the Web UI all work under the prefix.
+- Requests without the prefix are still accepted, so the proxy can either forward the prefix or strip it. No cookie or header rewriting is needed in the proxy.
+- `/amule` (no trailing slash) redirects to `/amule/`.
+- The session cookie path becomes `<BasePath>/api/v1`.
+
+Caddy:
+
+```
+home.example.com {
+    redir /amule /amule/
+    reverse_proxy /amule/* 127.0.0.1:4713
+}
+```
+
+nginx:
+
+```nginx
+location /amule/ {
+    proxy_pass http://127.0.0.1:4713;
+    proxy_http_version 1.1;
+}
+```
 
 ## `[EC]` section
 
@@ -89,6 +118,7 @@ Port=4713
 AllowCORS=0
 CorsOriginAllowlist=
 StaticRoot=
+BasePath=
 
 [EC]
 Host=127.0.0.1
