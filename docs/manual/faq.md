@@ -423,11 +423,39 @@ Yes. `amulegui` provides the same interface as the monolithic `amule` client and
 
 See the [`amulegui` documentation](/docs/manual/interfaces/gui/amulegui) for compilation, setup, and connection instructions.
 
-### `amuleweb`
+### `amuleapi`
+
+#### What is `amuleapi`?
+
+`amuleapi` is the recommended way to control aMule or `amuled` from a web browser, available from aMule 3.1.0 onwards. It serves a complete [Web UI](interfaces/amuleapi/web-ui.md) that covers the same ground as the desktop GUI (searches, downloads, shared files, statistics, preferences…), plus a REST API for your own scripts and tools. It replaces the legacy [`amuleweb`](#amuleweb-legacy).
+
+See the [`amuleapi` documentation](interfaces/amuleapi/index.md) for details.
+
+#### How do I open the Web UI?
+
+In **Preferences → Remote Controls**, enable **Accept external connections** (with a password), tick **Run amuleapi (REST API) on startup**, set an **Admin password**, and restart aMule. Then open `http://127.0.0.1:4713/` in your browser and log in with the admin password.
+
+`amuled` has no Preferences dialog: set the same options in the [`[AmuleApi]` section of `amule.conf`](configuration/config-files/amule-conf.md#amuleapi-section), or start `amuleapi` by hand.
+
+See [Preferences → aMule API server parameters](interfaces/gui/preferences.md#amule-api-server-parameters), [Auto-Start](interfaces/amuleapi/index.md#auto-start) and [Accessing the Web UI](interfaces/amuleapi/web-ui.md#accessing-the-web-ui).
+
+#### How do I set or change the Web UI password?
+
+Set it in **Preferences → Remote Controls**, or from a terminal with `amuleapi --set-admin-pass=<password>`. You can also tick **Enable guest access** and set a **guest** password, which gives read-only access. Changes apply at the next login, without a restart. See [Changing Passwords](interfaces/amuleapi/index.md#changing-passwords).
+
+#### Can I use the Web UI from another computer?
+
+Yes. By default `amuleapi` only accepts connections from the same machine. To reach it from elsewhere, change its listening address (a password is then mandatory) and, if it is exposed beyond your local network, put it behind a reverse proxy that provides HTTPS. See the [`amuleapi` security model](interfaces/amuleapi/index.md#security-model) and [Preferences → aMule API server parameters](interfaces/gui/preferences.md#amule-api-server-parameters).
+
+### `amuleweb` (legacy)
+
+:::warning Deprecated
+`amuleweb` is deprecated as of aMule 3.1.0. For new setups use [`amuleapi`](#amuleapi) and its Web UI instead.
+:::
 
 #### What is `amuleweb`?
 
-`amuleweb` is the **legacy WebUI** — a built-in web server that provides a browser-based interface for controlling aMule or amuled remotely. It listens for HTTP connections on port 4711 (default) and communicates with aMule over the EC protocol on port 4712. It is deprecated as of aMule 3.1.0; its replacement is [`amuleapi`](/docs/manual/interfaces/amuleapi) and its Web UI.
+`amuleweb` is the **legacy WebUI** — a built-in web server that provides a browser-based interface for controlling aMule or amuled remotely. It listens for HTTP connections on port 4711 (default) and communicates with aMule over the EC protocol on port 4712.
 
 See the [`amuleweb` documentation](/docs/manual/interfaces/amuleweb) for detailed setup instructions.
 
