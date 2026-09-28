@@ -261,7 +261,7 @@
     "message": "Попробовать снова"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Нажимайте ссылки ed2k:// и magnet: в браузере или открывайте файлы .emulecollection, чтобы мгновенно начать загрузку. aMule регистрируется как их обработчик в Windows, macOS, Linux и BSD."
+    "message": "Нажимайте ссылки ed2k:// и magnet: в браузере или открывайте файлы .emulecollection, чтобы мгновенно начать загрузку. aMule регистрирует себя как их обработчик в Windows, macOS, Linux и BSD."
   },
   "homepage.features.emuleCompatible.title": {
     "message": "Совместимость с eMule"
@@ -483,7 +483,7 @@
     "message": "Демон aMule"
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "Ссылки в один щелчок"
+    "message": "Ссылки в один клик"
   },
   "theme.CodeBlock.wordWrapToggle": {
     "message": "Переключить перенос строк"
@@ -552,7 +552,7 @@
     "message": "Развернуть раскрывающийся список"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux, для x64 и ARM64, а также полностью статические headless-бинарники для Linux-серверов."
+    "message": "Установщик и переносимая .zip-версия для Windows, Universal2 .dmg для macOS, AppImage и Flatpak для Linux — как для x64, так и для ARM64, а также полностью статические сборки без графического интерфейса для серверов Linux."
   },
   "theme.docs.paginator.previous": {
     "message": "Назад"
@@ -570,7 +570,7 @@
     "message": "Статические двоичные файлы (.tar.gz)"
   },
   "homepage.hero.mobile.alt": {
-    "message": "Web UI amuleapi на смартфоне"
+    "message": "Веб-интерфейс amuleapi на смартфоне"
   },
   "homepage.cta.title": {
     "message": "Готовы начать?"
@@ -588,7 +588,7 @@
     "message": "Вкладка «Сети» со списком серверов eD2k"
   },
   "homepage.showcase.search.title": {
-    "message": "Найдите то, что ищете"
+    "message": "Найдите то, что вам нужно"
   },
   "homepage.showcase.search.lead": {
     "message": "Ищите на серверах eD2k и в сети Kad одновременно, а затем отправляйте результаты прямо в очередь загрузок."
@@ -597,10 +597,10 @@
     "message": "Вкладка «Поиск» с результатами"
   },
   "homepage.showcase.integrity.title": {
-    "message": "Загрузки, которым можно доверять"
+    "message": "Надёжные загрузки"
   },
   "homepage.showcase.integrity.lead": {
-    "message": "Каждый chunk проверяется по hash, поэтому повреждённые данные обнаруживаются и загружаются повторно автоматически."
+    "message": "Каждый фрагмент проверяется по хешу, поэтому повреждённые данные обнаруживаются и загружаются повторно автоматически."
   },
   "homepage.showcase.integrity.alt": {
     "message": "Вкладка «Загрузки» с ходом загрузки каждого файла"
@@ -612,10 +612,10 @@
     "message": "Запустите aMule на сервере или NAS и управляйте им с компьютера, из браузера или с телефона."
   },
   "homepage.showcase.remote.alt": {
-    "message": "Web UI amuleapi со списком загрузок"
+    "message": "Веб-интерфейс amuleapi со списком загрузок"
   },
   "homepage.showcase.bandwidth.title": {
-    "message": "Ваш канал — ваши правила"
+    "message": "Ваш трафик — ваши правила"
   },
   "homepage.showcase.bandwidth.lead": {
     "message": "Точно определите, какую часть соединения использует aMule и кто получает вашу отдачу."
@@ -636,7 +636,7 @@
     "message": "И многое другое"
   },
   "homepage.features.endgame.title": {
-    "message": "Режим endgame"
+    "message": "Режим завершения"
   },
   "homepage.features.endgame.desc": {
     "message": "Ближе к концу загрузки быстрый источник забирает блоки, закреплённые за гораздо более медленным, чтобы файлы не зависали на 99% из-за одного медленного пира."
@@ -645,7 +645,7 @@
     "message": "Проверка локальных данных"
   },
   "homepage.features.verifyLocalData.desc": {
-    "message": "Пересчитывайте hash общих файлов по запросу, чтобы убедиться, что данные на диске по-прежнему целы."
+    "message": "Пересчитывайте хеш общих файлов по запросу, чтобы убедиться, что данные на диске по-прежнему целы."
   },
   "homepage.features.encryptedRemote.title": {
     "message": "Зашифрованное удалённое управление"
@@ -676,5 +676,11 @@
   },
   "homepage.download.next.title": {
     "message": "Следующие шаги"
+  },
+  "homepage.download.static": {
+    "message": "{link} — это сборки без графического интерфейса: они содержат только {amuled}, {amuleapi} (REST API и веб-интерфейс) и {amulecmd} и не зависят от разделяемых библиотек."
+  },
+  "homepage.download.static.link": {
+    "message": "статические сборки для Linux"
   }
 }
