@@ -676,5 +676,11 @@
   },
   "homepage.download.next.title": {
     "message": "Próximos passos"
+  },
+  "homepage.download.static": {
+    "message": "Os {link} são \"sem cabeça\": eles contém apenas {amuled}, {amuleapi} (REST API e Web UI) e {amulecmd}, sem dependências de bibliotecas compartilhadas."
+  },
+  "homepage.download.static.link": {
+    "message": "Executáveis estáticos do Linux"
   }
 }

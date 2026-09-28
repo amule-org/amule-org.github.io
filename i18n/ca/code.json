@@ -111,10 +111,10 @@
     "message": "Consulta la documentació completa →"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Feu clic als enllaços ed2k:// i magnet: al navegador, o obriu fitxers .emulecollection, per iniciar les baixades a l'instant. aMule es registra com el seu gestor a Windows, macOS, Linux i BSD."
+    "message": "Feu clic als enllaços ed2k:// i magnet: al vostre navegador, o obriu fitxers .emulecollection, per iniciar les baixades a l'instant. aMule es registra com a gestor d'aquests enllaços i fitxers a Windows, macOS, Linux i BSD."
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "Enllaços amb un clic"
+    "message": "Enllaços amb un sol clic"
   },
   "homepage.features.emuleCompatible.desc": {
     "message": "Totalment compatible amb eMule i tots els clients *Mule. Compartiu fitxers amb les mateixes fonts, connecteu-vos als mateixos servidors i obriu enllaços estàndard ed2k://."
@@ -147,7 +147,7 @@
     "message": "Missatgeria i amics"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Instal·lador i .zip portàtil per a Windows, Universal2 .dmg per a macOS, AppImage i Flatpak a Linux, per a x64 i ARM64, a més de binaris headless totalment estàtics per a servidors Linux."
+    "message": "Instal·lador i .zip portàtil per a Windows, Universal2 .dmg per a macOS, AppImage i Flatpak a Linux, tant per a x64 com per a ARM64 — i també binaris completament estàtics sense interfície gràfica per a servidors Linux."
   },
   "homepage.features.networks.desc": {
     "message": "Connecteu-vos tant a la xarxa de servidors tradicional eD2k com a Kademlia DHT sense servidor simultàniament, maximitzant el vostre abast i la disponibilitat de fitxers."
@@ -676,5 +676,11 @@
   },
   "homepage.download.next.title": {
     "message": "Propers passos"
+  },
+  "homepage.download.static": {
+    "message": "Els {link} no tenen interfície gràfica: només contenen {amuled}, {amuleapi} (API REST i interfície web) i {amulecmd}, sense dependències de biblioteques compartides."
+  },
+  "homepage.download.static.link": {
+    "message": "binaris estàtics per a Linux"
   }
 }

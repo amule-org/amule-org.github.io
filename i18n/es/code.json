@@ -676,5 +676,11 @@
   },
   "homepage.download.next.title": {
     "message": "Próximos pasos"
+  },
+  "homepage.download.static": {
+    "message": "Los {link} no tienen interfaz gráfica: solo contienen {amuled}, {amuleapi} (API REST e interfaz web) y {amulecmd}, sin dependencias de bibliotecas compartidas."
+  },
+  "homepage.download.static.link": {
+    "message": "Binarios estáticos de Linux"
   }
 }
