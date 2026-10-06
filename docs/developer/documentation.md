@@ -19,10 +19,7 @@ amule-org.github.io/
 ├── blog/                        # Blog posts
 ├── changelog/                   # Changelog (per-version release notes)
 ├── i18n/
-│   └── es/                      # Spanish translations
-│       ├── code.json            # UI strings (navbar, sidebar labels, etc.)
-│       └── docusaurus-plugin-content-docs/current/
-│           └── ...              # Mirrors docs/ structure with translated content
+│   └── <locale>/                # UI string translations (code.json, navbar, footer, blog/changelog titles)
 ├── static/
 │   └── img/
 │       └── docs/                # Images used in documentation pages
@@ -222,75 +219,9 @@ Use consistent terminology throughout the documentation:
 
 ## Translations
 
-This section covers translating the **website documentation** into another language. To translate the aMule application interface or the man pages, see the [Translations](./translations/index.md) guide instead.
+The documentation is **English-only**: its pages and sidebar are not translated, and every locale of the site serves the English content. The site search indexes this English content in every locale.
 
-The default locale is English (`en`). The additional locales are Spanish (`es`), French (`fr`), and Turkish (`tr`).
-
-### Adding or Updating a Translation
-
-Documentation translations live in `i18n/es/docusaurus-plugin-content-docs/current/`. The folder structure mirrors `docs/`.
-
-After adding a new English page, run:
-
-```sh
-npm run write-translations -- --locale es
-```
-
-This adds any new translation keys and preserves existing ones. Then translate the new content.
-
-### Adding a New Locale
-
-To add a language beyond the existing ones:
-
-1. Register the locale in `docusaurus.config.ts` (`i18n.locales` and `localeConfigs`):
-
-   ```ts
-   i18n: {
-     defaultLocale: 'en',
-     locales: ['en', 'es', 'fr'],   // add your locale code here
-     localeConfigs: {
-       fr: {label: 'Français'},
-     },
-   },
-   ```
-
-2. Add the same locale code to the `language` array of the `@easyops-cn/docusaurus-search-local` theme in the same file:
-
-   ```ts
-   themes: [
-     [
-       require.resolve('@easyops-cn/docusaurus-search-local'),
-       {
-         language: ['en', 'es', 'fr'],   // add your locale code here
-         // ...
-       },
-     ],
-   ],
-   ```
-
-   :::note
-   The search plugin uses the language code for tokenization. Check its [supported languages](https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#supported-languages) list — if your locale is not supported, omit it from the `language` array and the search index falls back to basic tokenization.
-   :::
-
-3. Generate the translation files and translate them as described above.
-
-4. Preview the new locale locally:
-
-   ```sh
-   npm run start -- --locale fr
-   ```
-
-### UI Strings
-
-React component strings (navbar, sidebar labels, homepage text) are in `i18n/es/code.json`. Each entry has a `message` field (translate this) and a `description` field (context for the translator — do not translate this).
-
-### Translation Fidelity
-
-Translations must faithfully reflect the English original. Do not paraphrase or simplify. Technical terms (hash, changelog, peer, release, etc.) should remain in English when a translated equivalent would be less precise or less commonly used.
-
-### Translating with Weblate
-
-Website translations are managed with Weblate. See the [Weblate](./translations/weblate.md#website) guide for the base files, components, and workflow.
+Only the website UI strings (navbar, footer, homepage and Download page text, blog and changelog titles and descriptions) are translated. See the [Weblate](./translations/weblate.md#website) guide for the base files, components, and workflow.
 
 ## Submitting a Contribution
 

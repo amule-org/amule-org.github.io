@@ -14,14 +14,14 @@
 - **React**: `^18`
 - **Syntax highlighting**: `prism-react-renderer`
 - **Image zoom**: `docusaurus-plugin-image-zoom` (`themeConfig.zoom.selector`)
-- **Search**: `@easyops-cn/docusaurus-search-local` — client-side, index built at compile time. Configured in `docusaurus.config.ts` (`themes` array). Add new locales to its `language` array when adding a new i18n locale, only if lunr has a stemmer for it (use the base language code for regional variants). Search only works in the production build (`npm run build` + `npm run serve`), not in the dev server (`npm run start`, which serves only `en`; other locales: `npm run start -- --locale <code>`).
+- **Search**: `@easyops-cn/docusaurus-search-local` — client-side, index built at compile time. Configured in `docusaurus.config.ts` (`themes` array). `language: ['en']` only — docs are English in every locale; don't add locales. Search only works in the production build (`npm run build` + `npm run serve`), not in the dev server (`npm run start`, which serves only `en`; other locales: `npm run start -- --locale <code>`).
 
 ## Architecture
 
 **Static site**: `src/pages/index.tsx` (orchestrator) → `src/components/` (section components) → Docusaurus build → GitHub Pages.
 
 **Key files**:
-- `docusaurus.config.ts` — site config, navbar, footer, i18n locales, theme, plugins (changelog blog instance)
+- `docusaurus.config.ts` — site config, navbar, footer, i18n locales, theme, plugins (docs via `plugins/docs-untranslated.js`, changelog blog instance)
 - `sidebars.ts` — docs sidebar definition
 - `src/pages/index.tsx` — homepage, composes section components (Hero and closing CTA inlined here)
 - `src/pages/download.tsx` — Download page (`/download`)
@@ -30,10 +30,10 @@
 - `src/components/<Name>/styles.module.css` — scoped styles per component
 - `src/css/custom.css` — global CSS variable overrides (color palette)
 - `src/theme/Footer/LinkItem/` — swizzled footer link (adds icons)
-- `plugins/` — `blog-changelog.js` (changelog blog wrapper: rewords translator context in `options.json`), `remark-zoom-large-images.js`
+- `plugins/` — `docs-untranslated.js` (docs plugin wrapper: strips its i18n translation files), `blog-changelog.js` (changelog blog wrapper: rewords translator context in `options.json`), `remark-zoom-large-images.js`
 - `docs/` — English documentation (Markdown)
 - `blog/` — Blog posts (`/blog`); `changelog/` — Changelog posts (`/changelog`, second blog plugin instance)
-- `i18n/<locale>/` — translations (`code.json` for UI strings; mirrored `docs/`, `blog/`, `changelog/` for content)
+- `i18n/<locale>/` — UI string translations (`code.json`, `docusaurus-theme-classic/` navbar/footer, blog/changelog `options.json`)
 - `static/img/` — images (`amule-logo.svg`, `social-card.png`, favicons, `screenshots/`, `docs/`); `static/manifest.webmanifest`; `static/skins/` (downloadable GUI skins)
 
 ## Documentation
@@ -60,12 +60,11 @@ Inlined in `src/pages/index.tsx`: split Hero (logo, tagline, intro, CTA buttons 
 
 - Default locale: `en`. The enabled locales are defined in `docusaurus.config.ts` (`i18n.locales`) — that array is the source of truth; don't duplicate the list here. `i18n/` also holds Weblate-synced locales not yet in that array; they are not built.
 - UI strings (React components): `i18n/<locale>/code.json` — each entry has `message` (translate this) and `description` (context, do not translate).
-- **Translated JSON files contain only `message`** — the `description` is translator context and belongs **only** in the English base (`i18n/en/`). Never write `description` into any non-`en` locale file (`code.json`, `navbar.json`, `footer.json`, `current.json`, blog/changelog `options.json`). `write-translations -- --locale <code>` re-adds them and Docusaurus has no option to disable this, so strip them before committing (Weblate keeps the translated files `message`-only via the WebExtension JSON format).
-- Docs content: `i18n/<locale>/docusaurus-plugin-content-docs/current/` mirrors `docs/`.
-- Blog/changelog content: `i18n/<locale>/docusaurus-plugin-content-blog/` mirrors `blog/`; `i18n/<locale>/docusaurus-plugin-content-blog-changelog/` mirrors `changelog/`.
-- Sidebar labels: `i18n/<locale>/docusaurus-plugin-content-docs/current/current.json`.
+- **Translated JSON files contain only `message`** — the `description` is translator context and belongs **only** in the English base (`i18n/en/`). Never write `description` into any non-`en` locale file (`code.json`, `navbar.json`, `footer.json`, blog/changelog `options.json`). `write-translations -- --locale <code>` re-adds them and Docusaurus has no option to disable this, so strip them before committing (Weblate keeps the translated files `message`-only via the WebExtension JSON format).
+- **Docs are English-only** (content and sidebar) — no `i18n/<locale>/docusaurus-plugin-content-docs/`; `plugins/docs-untranslated.js` keeps `write-translations` from generating it.
+- Blog/changelog: only title, description and sidebar title are translated (`i18n/<locale>/docusaurus-plugin-content-blog{,-changelog}/options.json`); posts stay English.
 - Add a new locale: register in `docusaurus.config.ts`, run `npm run write-translations -- --locale <code>`, then translate generated files.
-- Update translations after English changes: run `npm run write-translations -- --locale <code>` (adds new keys, preserves existing ones), then translate new entries in `code.json` and update changed docs files manually.
+- Update translations after English changes: run `npm run write-translations -- --locale <code>` (adds new keys, preserves existing ones), then translate new entries in `code.json`.
 - **Weblate base files**: `i18n/en/` holds the English source files for Weblate, generated by `npm run write-translations` (no `--locale`). After adding/changing any `<Translate>`/`translate()` string, run it and commit `i18n/en/` — the `Build Check` CI runs the same command and **fails if `i18n/en/` drifts**.
 - **All page/component text must be translatable**: wrap visible text in `<Translate id="...">text</Translate>` (JSX) or `translate({id, message})` (attributes). ID convention: `homepage.<section>.<key>`. The `id` and text **must be static string literals** — never `<Translate id={variable}>` nor `translate({id: variable})`, as `write-translations` extracts via static analysis and errors on dynamic values. In data-driven lists (`SHOWCASES`, `DOWNLOAD_OSES`, …) store the content as `<Translate>` nodes (typed `React.ReactNode`) or `translate({...})` calls **inside** the array, not as `*Id`/`*Default` fields.
 - **Interpolation in `<Translate>`**: Docusaurus only supports `{varName}` placeholders — **not** `<tag>chunks</tag>` (FormatJS/react-intl syntax). For inline markup (`<strong>`, `<code>`, `<kbd>`) or links use `values`, e.g. `values={{ code: <code>flag</code> }}` or `values={{ link: <Link to="..."><Translate id="...">text</Translate></Link> }}` with `{code}` / `{link}` in the message. Prefer this over `dangerouslySetInnerHTML`.

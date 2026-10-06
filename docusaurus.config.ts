@@ -1,4 +1,3 @@
-import path from 'path';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -31,30 +30,7 @@ const config: Config = {
   },
   markdown: {
     hooks: {
-      // When a relative link in a translated page points to a page that hasn't
-      // been translated yet, redirect to the English version instead of failing
-      // the build. This also handles English fallback docs processed during a
-      // non-English build. Links in the English build still throw as normal.
-      onBrokenMarkdownLinks: ({sourceFilePath, url}) => {
-        const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'en';
-        if (currentLocale === 'en') {
-          throw new Error(`Broken markdown link: "${url}" in ${sourceFilePath}`);
-        }
-        const normalized = sourceFilePath.replace(/\\/g, '/');
-        const i18nMatch = normalized.match(
-          /i18n\/[^/]+\/docusaurus-plugin-content-docs\/[^/]+\/(.*)/
-        );
-        const docsMatch = normalized.match(/(?:^|\/)docs\/(.*)/);
-        const relativeDocPath = i18nMatch?.[1] ?? docsMatch?.[1];
-        if (!relativeDocPath) {
-          throw new Error(`Broken markdown link: "${url}" in ${sourceFilePath}`);
-        }
-        const [urlWithoutHash, hash] = url.split('#');
-        const cleanUrl = urlWithoutHash.replace(/\.mdx?$/, '');
-        const sourceDir = path.posix.dirname(relativeDocPath);
-        const targetPath = path.posix.normalize(path.posix.join(sourceDir, cleanUrl));
-        return `pathname:///docs/${targetPath}${hash ? `#${hash}` : ''}`;
-      },
+      onBrokenMarkdownLinks: 'throw',
     },
   },
   favicon: 'img/favicon.ico',
@@ -89,11 +65,8 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/amule-org/amule-org.github.io/edit/main/',
-          remarkPlugins: [remarkZoomLargeImages],
-        },
+        // Registered below through plugins/docs-untranslated (English-only docs).
+        docs: false,
         blog: {
           blogTitle: 'Blog',
           blogDescription: 'News and announcements from the aMule project.',
@@ -115,6 +88,14 @@ const config: Config = {
   ],
 
   plugins: [
+    [
+      require.resolve('./plugins/docs-untranslated'),
+      {
+        sidebarPath: './sidebars.ts',
+        editUrl: 'https://github.com/amule-org/amule-org.github.io/edit/main/',
+        remarkPlugins: [remarkZoomLargeImages],
+      },
+    ],
     [
       require.resolve('./plugins/blog-changelog'),
       {
@@ -142,11 +123,8 @@ const config: Config = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
-        // Lunr stemmer languages. 'pt' covers the pt-BR locale. Catalan (ca) and
-        // Latvian (lv) have no lunr-languages stemmer, so they are omitted — their
-        // index falls back to the multi-language tokenizer rather than failing the
-        // build.
-        language: ['en', 'es', 'fr', 'it', 'pt', 'tr'],
+        // Docs are English-only, so every locale's index uses the English stemmer.
+        language: ['en'],
         indexDocs: true,
         indexBlog: false,
         indexPages: false,

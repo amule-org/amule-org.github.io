@@ -3,9 +3,9 @@ id: index
 title: Translations
 ---
 
-This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations) (which also cover the [Windows installer](#windows-installer-strings)), the [man pages](#man-page-translations), and the [website documentation](#documentation-translations).
+This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations) (which also cover the [Windows installer](#windows-installer-strings)), the [man pages](#man-page-translations), and the [website interface](#website-translations).
 
-Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website documentation](#documentation-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
+Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website interface](#website-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
 
 There are two equally valid ways to contribute a translation: open a pull request to the relevant repository, or use [Weblate](https://hosted.weblate.org/projects/amule/) — a translation tool that stays in sync with git. Both edit the same files and either is accepted — pick whichever you prefer. [Translating aMule](../../contributing/translating.md) explains how to translate on Weblate and how translations are reviewed, and the [Weblate](./weblate.md) guide documents how each component is connected; the sections below describe the underlying file formats and the manual (pull request) workflow.
 
@@ -506,8 +506,6 @@ Open a pull request with:
 
 Do not include rendered `*.<lang>.1.in` pages — they are generated at build time and are no longer tracked in git.
 
-## Documentation Translations
+## Website Translations
 
-The website documentation (this site) is internationalized through Docusaurus's i18n system. Translations cover two areas: UI strings (navbar, sidebar labels, homepage text) stored in `i18n/<locale>/code.json`, and documentation pages stored as Markdown files under `i18n/<locale>/docusaurus-plugin-content-docs/current/`.
-
-The step-by-step instructions for adding or updating a documentation translation live in the [Documentation guide](../documentation.md#translations), alongside the rest of the documentation workflow. The website translations are managed on Weblate — see the [Weblate](./weblate.md#website) guide for the base files, components, and workflow.
+The website (this site) is internationalized through Docusaurus's i18n system. Only the UI strings (navbar, footer, homepage and Download page text, blog and changelog titles and descriptions) are translated, stored in `i18n/<locale>/code.json`, `i18n/<locale>/docusaurus-theme-classic/` and the blog/changelog `options.json` files. The documentation — including its sidebar — is English-only. The website translations are managed on Weblate — see the [Weblate](./weblate.md#website) guide for the base files, components, and workflow.

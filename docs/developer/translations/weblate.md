@@ -9,17 +9,17 @@ Using Weblate is optional: translations can also be contributed by opening a pul
 
 Weblate components follow one of two models, matching how each part of the project stores its translations. The application and man-page components are *bilingual*: each gettext `.po` file contains both the English source string and its translation, and the `.pot` template lists the source strings. The website components are *monolingual*: an English **base file** lists the source strings, plus one translation file per language.
 
-The components span two repositories — the application and man pages are in [amule-org/amule](https://github.com/amule-org/amule), and the website and its documentation are in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io) — and are grouped in the sections below by the part of the project they cover:
+The components span two repositories — the application and man pages are in [amule-org/amule](https://github.com/amule-org/amule), and the website is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io) — and are grouped in the sections below by the part of the project they cover:
 
 - **[aMule application](#amule-application)** — the application interface strings, including the Windows installer strings.
 - **[Man pages](#man-pages)** — the command-line manual pages.
-- **[Website](#website)** — the project website (UI strings and documentation).
+- **[Website](#website)** — the project website (UI strings only; the documentation is English-only).
 
 ## How Weblate is organized
 
 Everything lives in a single Weblate project, [aMule](https://hosted.weblate.org/projects/amule/), which holds one **component** per translatable file in the repositories. Each component keeps one translation per language enabled on it, so a language exists in a component only after it has been added there. Components can therefore support different sets of languages — in practice a new language is enabled on every component at once, but nothing enforces it, and a component may lag behind the others.
 
-**Adding a language is an administrator action.** Translators cannot create one: Weblate's *Start new translation* button sends a request to the maintainers instead (this is the *Contact maintainers* setting described below), because the locale must also be registered in the repository before the translation files make sense there. An administrator handles both steps.
+**Adding a language is an administrator action.** Translators cannot create one: Weblate's *Start new translation* button sends a request to the maintainers instead (this is the *Contact maintainers* setting described below), because the locale must also be registered in the repository before the translation files make sense there. An administrator handles both steps (for the website, see [Adding a language](#adding-a-language)).
 
 **Translating is open to everyone; approval is not.** Any Weblate account can edit any string of any existing language that is not yet approved (approved strings can only be changed by reviewers; others can add suggestions), but what it saves is stored as *waiting for review*. Only administrators and members of the **Review** team can approve it, and only approved translations are written to the files and included in Weblate's pull requests (see the workflow settings [below](#for-weblate-administrators)). The contributor-facing explanation — translation states, *Save* versus *Suggest*, and how to become a reviewer — is in [Translating aMule](../../contributing/translating.md).
 
@@ -39,7 +39,6 @@ Set up **one Weblate component per file** in the git repository. Every component
 - **Settings → Files → File format**:
   - *gettext PO file* for the application and man-page catalogs. This is the bilingual variant — do **not** use *gettext PO file (monolingual)*, which does not match how aMule's `.po` files are laid out.
   - *WebExtension JSON file* for the Docusaurus JSON files. Docusaurus stores each entry as `{"key": {"message": "…", "description": "…"}}`, which is exactly the WebExtension `messages.json` shape: Weblate translates the `message` value and uses `description` as the source context.
-  - *Markdown* for the documentation pages.
 - **Workspace → Settings → Adding new translation**: *Contact maintainers* — translators cannot create new languages directly; they request them from the maintainers, who register the locale in the repository first.
 
 For each JSON component, set **Settings → Files → JSON indentation** to `2`, matching the indentation Docusaurus uses so Weblate does not reformat the files.
@@ -92,7 +91,7 @@ The rendered translated man pages are not tracked in git — the build renders t
 
 ## Website
 
-The website (this site) covers two kinds of content: the UI strings of the React components and the documentation pages. Both are managed in Weblate.
+Only the website's UI strings (React components, navbar, footer, blog and changelog titles and descriptions) are translated in Weblate. The documentation — including its sidebar — is English-only: do not add files under `i18n/<locale>/docusaurus-plugin-content-docs/`, as the docs plugin would still serve them.
 
 The English UI strings live in code (`<Translate>` / `translate()` defaults) and in `docusaurus.config.ts`, not in a JSON file, so the base files are generated into `i18n/en/` with:
 
@@ -100,7 +99,7 @@ The English UI strings live in code (`<Translate>` / `translate()` defaults) and
 npm run write-translations
 ```
 
-This writes `i18n/en/code.json` and the matching `docusaurus-theme-classic/`, `docusaurus-plugin-content-docs/`, and blog/changelog JSON files. These files are committed so Weblate has a stable base to read from. They are safe for the site — Docusaurus uses them for the `en` locale and their values equal the in-code defaults, so the rendered output is unchanged.
+This writes `i18n/en/code.json` and the matching `docusaurus-theme-classic/` and blog/changelog JSON files. These files are committed so Weblate has a stable base to read from. They are safe for the site — Docusaurus uses them for the `en` locale and their values equal the in-code defaults, so the rendered output is unchanged.
 
 :::warning
 The `i18n/en/` base files must stay in sync with the source strings. After adding or changing any `<Translate>` string, regenerate them with `npm run write-translations` and commit the result. The `Build Check` CI workflow runs the same command and fails the pull request if `i18n/en/` is out of date.
@@ -117,13 +116,48 @@ Configure one Weblate component per source file. All component names are prefixe
 | `Website: Footer` | `i18n/*/docusaurus-theme-classic/footer.json` | `i18n/en/docusaurus-theme-classic/footer.json` | WebExtension JSON file |
 | `Website: Blog Sidebar` | `i18n/*/docusaurus-plugin-content-blog/options.json` | `i18n/en/docusaurus-plugin-content-blog/options.json` | WebExtension JSON file |
 | `Website: Changelog Sidebar` | `i18n/*/docusaurus-plugin-content-blog-changelog/options.json` | `i18n/en/docusaurus-plugin-content-blog-changelog/options.json` | WebExtension JSON file |
-| `Website: Docs Sidebar` | `i18n/*/docusaurus-plugin-content-docs/current.json` | `i18n/en/docusaurus-plugin-content-docs/current.json` | WebExtension JSON file |
-| `Website: Docs` | `i18n/*/docusaurus-plugin-content-docs/current/**.md` | corresponding `docs/**.md` | Markdown |
 
-Each Docusaurus JSON entry is an object (`{"message": "...", "description": "..."}`), which matches the **WebExtension JSON file** format: Weblate translates the `message` value and shows `description` as its context. The `Website: Docs` component covers many Markdown files — use Weblate's **component discovery** add-on to create them automatically from the file mask.
+Each Docusaurus JSON entry is an object (`{"message": "...", "description": "..."}`), which matches the **WebExtension JSON file** format: Weblate translates the `message` value and shows `description` as its context.
 
 ### Conventions
 
 - **Descriptions are context, not translated.** With the WebExtension JSON format, each `description` is presented to translators as the source string's context and is never written into the locale files (which only contain `message`).
 - **Git stays editable.** Components track the repository in both directions: Weblate proposes translations via GitHub pull requests, and changes committed to git are imported into Weblate.
-- **Markdown caveat.** Weblate's Markdown support is still under development. Edits made directly in git to a translated `.md` file may not be imported back into Weblate reliably — for the `Website: Docs` component, prefer editing translations in Weblate.
+
+### Adding a language
+
+A website language has two parts: its translation files under `i18n/<code>/`, managed by Weblate, and its registration in `docusaurus.config.ts`, which makes Docusaurus build and publish it. Locales present in `i18n/` but not registered are kept in sync by Weblate but are not built.
+
+1. **Add the language in Weblate** to every `Website:` component. Weblate creates the translation files under `i18n/<code>/` and proposes them in its next pull request.
+
+2. **Register the locale** in `docusaurus.config.ts`, in `i18n.locales` and `i18n.localeConfigs`, with the language's own name as `label`:
+
+   ```ts
+   i18n: {
+     defaultLocale: 'en',
+     locales: ['en', /* … */ 'de'],   // add your locale code here
+     localeConfigs: {
+       // …
+       de: {label: 'Deutsch'},
+     },
+   },
+   ```
+
+   The locale code is used in the URL (`/de/…`) and must match the folder name under `i18n/`. If Weblate's folder name is not a valid BCP 47 tag (e.g. `zh_Hans`), use a valid code as the locale and point it at the folder with `path` and `htmlLang`, e.g. `'zh-Hans': {label: '简体中文', path: 'zh_Hans', htmlLang: 'zh-Hans'}`.
+
+   Do not add the locale to the `language` array of the `@easyops-cn/docusaurus-search-local` theme: the documentation is English-only, so the search index uses English in every locale.
+
+3. **Fill in missing keys** (only needed when the files were not created by Weblate, or are outdated):
+
+   ```sh
+   npm run write-translations -- --locale <code>
+   ```
+
+   This adds any missing keys and preserves existing ones. It also writes `description` fields, which must be removed from the locale files before committing — only the English base files in `i18n/en/` contain them.
+
+4. **Build and preview** the new locale:
+
+   ```sh
+   npm run build -- --locale <code>
+   npm run start -- --locale <code>
+   ```
