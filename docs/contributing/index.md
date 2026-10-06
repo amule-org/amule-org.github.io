@@ -26,7 +26,7 @@ If you write code, submit a pull request on [GitHub](https://github.com/amule-or
 
 ### Translations
 
-aMule can be translated in three areas: the application interface, the man pages, and this website's interface. All of them are translated on Weblate, directly in the browser — see [Translating aMule](translating.md) for how it works, how translations are reviewed, and how to become a reviewer. To work with the translation files directly and submit a pull request instead, see the [Translations](../developer/translations/index.md) guide.
+aMule can be translated in four areas: the application interface, the man pages, the Web UI, and this website's interface. All of them are translated on Weblate, directly in the browser — see [Translating aMule](translating.md) for how it works, how translations are reviewed, and how to become a reviewer. To work with the translation files directly and submit a pull request instead, see the [Translations](../developer/translations/index.md) guide.
 
 ### Documentation
 
