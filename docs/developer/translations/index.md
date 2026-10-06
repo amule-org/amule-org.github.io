@@ -3,9 +3,9 @@ id: index
 title: Translations
 ---
 
-This guide is the single starting point for everything related to translating aMule. There are three areas that can be translated: the [application interface strings](#code-translations) (which also cover the [Windows installer](#windows-installer-strings)), the [man pages](#man-page-translations), and the [website interface](#website-translations).
+This guide is the single starting point for everything related to translating aMule. There are four areas that can be translated: the [application interface strings](#code-translations) (which also cover the [Windows installer](#windows-installer-strings)), the [man pages](#man-page-translations), the [Web UI](#web-ui-translations), and the [website interface](#website-translations).
 
-Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations) and the [man pages](#man-page-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website interface](#website-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
+Git is the source of truth for all translations, which live across two repositories: the [application interface strings](#code-translations), the [man pages](#man-page-translations) and the [Web UI](#web-ui-translations) are in [amule-org/amule](https://github.com/amule-org/amule), and the [website interface](#website-translations) is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io).
 
 There are two equally valid ways to contribute a translation: open a pull request to the relevant repository, or use [Weblate](https://hosted.weblate.org/projects/amule/) — a translation tool that stays in sync with git. Both edit the same files and either is accepted — pick whichever you prefer. [Translating aMule](../../contributing/translating.md) explains how to translate on Weblate and how translations are reviewed, and the [Weblate](./weblate.md) guide documents how each component is connected; the sections below describe the underlying file formats and the manual (pull request) workflow.
 
@@ -505,6 +505,31 @@ Open a pull request with:
 - For a new language, the updated `docs/man/po4a.config.in`.
 
 Do not include rendered `*.<lang>.1.in` pages — they are generated at build time and are no longer tracked in git.
+
+## Web UI Translations
+
+The [`amuleapi` Web UI](../../manual/interfaces/amuleapi/web-ui.md) has its own dictionaries, separate from the gettext catalogs: flat `key → string` JSON files in `src/webapi/static/i18n/`, one per language, with `en.json` as the English source.
+
+```json
+{
+  "common_cancel": "Cancelar",
+  "common_err_forbidden": "Prohibido: {message}",
+  "comments_count_one": "{n} comentario",
+  "comments_count_other": "{n} comentarios"
+}
+```
+
+- **Placeholders** such as `{message}` or `{n}` are replaced at runtime and must be kept unchanged. The one exception is `{n}` in a plural form whose wording already states the number (e.g. `"Un comentario"` for `_one`).
+- **Plurals** are separate keys with a [CLDR plural form](https://cldr.unicode.org/index/cldr-spec/plural-rules) suffix. English only has `_one` and `_other`; add `_few`, `_many`, … when your language needs them.
+- **Missing keys** are allowed: the Web UI shows the English text for any key a translation lacks, and a missing extra plural form (`_few`, `_many`, …) uses the translation's own `_other`.
+
+To add a language, create `src/webapi/static/i18n/<code>.json` (`<code>` is a canonical BCP 47 code such as `de` or `pt-BR`; see [deprecated codes](./weblate.md#web-ui)), add the code to `LANGS` in `src/webapi/static/js/i18n.js`, and run the consistency check that the `i18n` CI workflow also runs:
+
+```sh
+node src/webapi/tools/check-i18n.mjs
+```
+
+The Web UI translations are also managed on Weblate — see the [Weblate](./weblate.md#web-ui) guide.
 
 ## Website Translations
 

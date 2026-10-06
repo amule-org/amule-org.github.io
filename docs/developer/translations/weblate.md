@@ -7,19 +7,20 @@ aMule translations live in git — the repository is the source of truth. [Webla
 
 Using Weblate is optional: translations can also be contributed by opening a pull request to the relevant repository. Both options are equally valid and edit the same files — see the [Translations](./index.md) guide for the manual workflow.
 
-Weblate components follow one of two models, matching how each part of the project stores its translations. The application and man-page components are *bilingual*: each gettext `.po` file contains both the English source string and its translation, and the `.pot` template lists the source strings. The website components are *monolingual*: an English **base file** lists the source strings, plus one translation file per language.
+Weblate components follow one of two models, matching how each part of the project stores its translations. The application and man-page components are *bilingual*: each gettext `.po` file contains both the English source string and its translation, and the `.pot` template lists the source strings. The Web UI and website components are *monolingual*: an English **base file** lists the source strings, plus one translation file per language.
 
-The components span two repositories — the application and man pages are in [amule-org/amule](https://github.com/amule-org/amule), and the website is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io) — and are grouped in the sections below by the part of the project they cover:
+The components span two repositories — the application, man pages and Web UI are in [amule-org/amule](https://github.com/amule-org/amule), and the website is in [amule-org/amule-org.github.io](https://github.com/amule-org/amule-org.github.io) — and are grouped in the sections below by the part of the project they cover:
 
 - **[aMule application](#amule-application)** — the application interface strings, including the Windows installer strings.
 - **[Man pages](#man-pages)** — the command-line manual pages.
+- **[Web UI](#web-ui)** — the browser interface served by `amuleapi`.
 - **[Website](#website)** — the project website (UI strings only; the documentation is English-only).
 
 ## How Weblate is organized
 
 Everything lives in a single Weblate project, [aMule](https://hosted.weblate.org/projects/amule/), which holds one **component** per translatable file in the repositories. Each component keeps one translation per language enabled on it, so a language exists in a component only after it has been added there. Components can therefore support different sets of languages — in practice a new language is enabled on every component at once, but nothing enforces it, and a component may lag behind the others.
 
-**Adding a language is an administrator action.** Translators cannot create one: Weblate's *Start new translation* button sends a request to the maintainers instead (this is the *Contact maintainers* setting described below), because the locale must also be registered in the repository before the translation files make sense there. An administrator handles both steps (for the website, see [Adding a language](#adding-a-language)).
+**Adding a language is an administrator action.** Translators cannot create one: Weblate's *Start new translation* button sends a request to the maintainers instead (this is the *Contact maintainers* setting described below), because the locale must also be registered in the repository before the translation files make sense there. An administrator handles both steps (see Adding a language for the [Web UI](#webui-adding-a-language) and the [website](#adding-a-language)).
 
 **Translating is open to everyone; approval is not.** Any Weblate account can edit any string of any existing language that is not yet approved (approved strings can only be changed by reviewers; others can add suggestions), but what it saves is stored as *waiting for review*. Only administrators and members of the **Review** team can approve it, and only approved translations are written to the files and included in Weblate's pull requests (see the workflow settings [below](#for-weblate-administrators)). The contributor-facing explanation — translation states, *Save* versus *Suggest*, and how to become a reviewer — is in [Translating aMule](../../contributing/translating.md).
 
@@ -38,14 +39,15 @@ Set up **one Weblate component per file** in the git repository. Every component
 - **Settings → Version control → Version control system**: *GitHub pull request* — Weblate proposes its changes as pull requests instead of committing directly to the branch.
 - **Settings → Files → File format**:
   - *gettext PO file* for the application and man-page catalogs. This is the bilingual variant — do **not** use *gettext PO file (monolingual)*, which does not match how aMule's `.po` files are laid out.
+  - *i18next JSON file v4* for the Web UI dictionaries (see [Web UI](#web-ui)).
   - *WebExtension JSON file* for the Docusaurus JSON files. Docusaurus stores each entry as `{"key": {"message": "…", "description": "…"}}`, which is exactly the WebExtension `messages.json` shape: Weblate translates the `message` value and uses `description` as the source context.
 - **Workspace → Settings → Adding new translation**: *Contact maintainers* — translators cannot create new languages directly; they request them from the maintainers, who register the locale in the repository first.
 
-For each JSON component, set **Settings → Files → JSON indentation** to `2`, matching the indentation Docusaurus uses so Weblate does not reformat the files.
+For each JSON component, set **Settings → Files → JSON indentation** to `2`, matching the 2-space indentation of the files in git so Weblate does not reformat them (Weblate defaults to 4).
 
 For each gettext component, set **Settings → Files → Long lines wrapping** to *Only wrap lines at newlines (like 'xgettext --no-wrap')* — the `.po` files in git are stored unwrapped, and any other value would make Weblate re-wrap every file it touches.
 
-At the project level, enable the **Remove blank strings** add-on. It removes untranslated (blank) strings from the translation files, so the Docusaurus JSON files never end up with empty `message` values.
+At the project level, enable the **Remove blank strings** add-on. It removes untranslated (blank) strings from the translation files, so the Docusaurus JSON files never end up with empty `message` values and the Web UI dictionaries only keep the blank forms of partly translated plurals (see [Web UI](#web-ui)).
 
 Also enable the **Squash Git commits** add-on, with **Commit squashing** set to *All commits into one* and **Append trailers to squashed commit message** enabled. This keeps each Weblate pull request to a single, clean commit while preserving the per-translator attribution trailers.
 
@@ -88,6 +90,27 @@ The man pages are translated with po4a (`.po` files in `docs/man/po/`). See [Man
 The template `docs/man/po/manpages.pot` is regenerated in git by [`./scripts/update-manpages-po.sh`](./index.md#updating-the-template-after-editing-an-english-master), which also merges the new and changed strings into every `manpages-*.po` file; Weblate imports the result when it pulls from git. The po4a addenda (`docs/man/po/manpages-*.add`, the translator-credit blocks) are not managed by Weblate — they are edited directly in git.
 
 The rendered translated man pages are not tracked in git — the build renders them from the `.po` files at build time — so a Weblate pull request touching only the `manpages-*.po` files is complete by itself.
+
+## Web UI
+
+The [`amuleapi` Web UI](../../manual/interfaces/amuleapi/web-ui.md) loads its strings from flat `key → string` JSON dictionaries in `src/webapi/static/i18n/`, with `en.json` as the English source. See [Web UI Translations](./index.md#web-ui-translations) for the manual workflow.
+
+| Component name | File mask | Monolingual base file | Format |
+|---|---|---|---|
+| `Application WebUI` | `src/webapi/static/i18n/*.json` | `src/webapi/static/i18n/en.json` | i18next JSON file v4 |
+
+Besides the common settings above, set **Settings → Translation → Translation flags** to `placeholders:r"\{[a-z_]+\}"`. The Web UI uses `{name}` placeholders, not i18next's `{{name}}`, so this flag is what makes Weblate highlight them and check that each translation keeps them. Leave **Template for new translations** empty: a new language then starts as an empty file instead of one with every key blank. Leave **Language code style** at its default, which names the files with BCP 47 codes such as `pt-BR`: the Web UI passes the code to the browser's `Intl` APIs, which reject POSIX codes such as `pt_BR`. For the same reason, pick the current code when Weblate offers a deprecated one — `fil`, not `tl`; `sr-Latn`, not `sh` — as the CI check rejects codes that `Intl` replaces with an alias.
+
+The *i18next JSON file v4* format is used for its plural handling: the Web UI resolves plurals as `<key>_one` / `<key>_other` with the CLDR plural rules, the same suffixes i18next v4 uses. Weblate therefore groups each pair as one plural string and offers the extra forms a language needs (`_few`, `_many`, …). Note that some languages, e.g. Spanish, French, Italian, Portuguese and Catalan, also have a `_many` form, used for large round numbers such as 1 000 000, so their existing plurals show up in Weblate with that form missing.
+
+Translation files may lack keys or hold blank ones — untranslated and unapproved strings are not written, and Weblate writes the untranslated forms of a partly translated plural as `""`. The Web UI falls back per key to English, and a plural form English does not have (`_few`, `_many`, …) to the translation's `_other`. The `i18n` CI workflow (`src/webapi/tools/check-i18n.mjs`) rejects translation keys that are not in `en.json`, translations whose `{placeholders}` differ from the English source (plural forms may drop `{n}`, so Weblate's placeholder warning on such a form can be dismissed), and file names that are not canonical BCP 47 codes.
+
+The format is hierarchical, so `en.json` keys must not contain `.` or `[]` (Weblate would nest them), and a `_one`/`_other`… suffix is reserved for plural pairs. The CI check enforces both.
+
+### Adding a language {#webui-adding-a-language}
+
+1. **Add the language in Weblate** to the `Application WebUI` component. Weblate creates `src/webapi/static/i18n/<code>.json`, with a BCP 47 code such as `pt-BR`, and proposes it in its next pull request.
+2. **Register the language** by adding the same code to `LANGS` in `src/webapi/static/js/i18n.js`. Until then the file is kept in sync by Weblate but the Web UI does not offer it. The Web UI picks it from the browser's preferred languages, in order, by exact code and then by language and script (a `zh-CN` browser gets `zh-Hans`, a `zh-TW` one `zh-Hant`).
 
 ## Website
 

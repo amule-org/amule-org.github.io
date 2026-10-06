@@ -5,7 +5,7 @@ title: Translating aMule
 
 aMule is translated by volunteers on [Weblate](https://hosted.weblate.org/projects/amule/), a web-based translation tool. All you need is a Weblate account and a web browser — no programming knowledge and no git. This page explains how translating on Weblate works, why a translation you saved may not appear in aMule yet, and how to reach the developers.
 
-Three parts of the project can be translated, each a group of *components* in Weblate: the application interface (`Application`, which also covers the Windows installer), the man pages (`Application Man Pages`), and this website (the `Website: …` components).
+Four parts of the project can be translated, each a group of *components* in Weblate: the application interface (`Application`, which also covers the Windows installer), the man pages (`Application Man Pages`), the `amuleapi` Web UI (`Application WebUI`), and this website (the `Website: …` components).
 
 :::tip Prefer git?
 Translations can also be submitted as a pull request, without Weblate. See the [Translations](../developer/translations/index.md) guide for the file formats and the manual workflow.
@@ -18,7 +18,7 @@ Every translation is reviewed before it is used. Saving a string in Weblate is o
 1. **You translate** a string and save it. It is stored as *Waiting for review*.
 2. **A reviewer approves it.** Each language can have its own reviewers — fluent speakers who check the translations of other contributors. The maintainers can approve translations too.
 3. **The maintainers export it.** Approved translations are sent from Weblate to the repository on GitHub as a pull request, which the maintainers merge.
-4. **It ships** with the next aMule release (application and man pages) or the next website update.
+4. **It ships** with the next aMule release (application, man pages and Web UI) or the next website update.
 
 Only **approved** translations leave Weblate. A translation that is still waiting for review stays inside Weblate: it is visible there, but aMule does not use it.
 
@@ -54,7 +54,7 @@ The most common reasons, in order:
 - **It is a suggestion**, not a translation. See [Save or Suggest](#save-or-suggest).
 - **It was approved recently.** Approved translations are exported when a maintainer pushes them from Weblate, not instantly.
 - **The man page is not translated enough.** A translated man page is only built when at least 80% of its strings are approved; below that, the English man page is installed.
-- **No release has shipped since.** Application and man-page translations reach users with the next aMule release; website translations appear with the next website update.
+- **No release has shipped since.** Application, man-page and Web UI translations reach users with the next aMule release; website translations appear with the next website update.
 
 To see what is pending for your language, open the language in Weblate and filter the strings waiting for review.
 
@@ -76,7 +76,7 @@ Translators cannot create a new language by themselves, because the language mus
 - **Application strings: keep placeholders exactly as they are.** Format specifiers (`%s`, `%d`, `%u`, …) must appear unchanged and in the same order as in the English text — swapping `%s` and `%d` crashes aMule. Escape codes (`\n`, `\t`) must be preserved too. Weblate flags mismatches; do not ignore those warnings. The full rules are in the [Format Specifiers Reference](../developer/translations/index.md#format-specifiers-reference).
 - **Application strings: keep the `&` accelerator** before the same letter as in the English text (when your script has no such letter, keep it before a suitable one), and keep leading and trailing spaces.
 - **Man pages: keep the formatting markers** such as `B<…>` (bold) and `I<…>` (italic); translate only the text inside them. See [po4a Formatting Codes](../developer/translations/index.md#po4a-formatting-codes).
-- **Website: keep `{name}` placeholders** (e.g. `{link}`, `{release}`) untranslated — they are replaced by links or values when the page is built.
+- **Web UI and website: keep `{name}` placeholders** (e.g. `{message}`, `{n}`, `{link}`) untranslated — they are replaced by values or links when the text is shown. In Web UI plural forms, `{n}` may be left out when the wording already states the number (e.g. "Un comentario").
 - **Translate faithfully.** Do not add or remove information. If the English text is wrong or unclear, [report it](#contacting-the-developers) instead of working around it.
 - **Prefer precision over naturalness.** aMule users are familiar with technical terminology: keep English terms (e.g. "hash", "peer", "eD2k") when a translated equivalent would be less precise or less common in your language.
 
