@@ -36,7 +36,7 @@
     "message": "{nPosts} se štítkem \"{tagName}\""
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Klikněte na odkazy ed2k:// ve svém prohlížeči, pro okamžité zahájení stahování v aMule. Ovladač odkazu je integrován s vaší plochou pro snadné ovládání jedním kliknutím."
+    "message": "Klikněte na odkazy ed2k:// a magnet: v prohlížeči, nebo otevřete soubory .emulecollection, pro okamžité zahájení stahování. aMule se registruje jako jejich handler v systému Windows, macOS, Linux a BSD."
   },
   "theme.docs.tagDocListPageTitle": {
     "message": "{nDocsTagged} s \"{tagName}\""
@@ -46,5 +46,641 @@
   },
   "theme.tags.tagsPageLink": {
     "message": "Zobrazit všechny štítky"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Systém kreditů"
+  },
+  "homepage.features.languages.desc": {
+    "message": "aMule rozhraní je přeloženo do 37 jazyků. Stahujte a sdílejte soubory ve svém rodném jazyce - uživatelské rozhraní se automaticky přizpůsobí vašim místním podmínkám."
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Nativní balíčky"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "homepage.features.languages.title": {
+    "message": "37 jazyků rozhraní"
+  },
+  "homepage.download.title": {
+    "message": "Stažení"
+  },
+  "homepage.download.previous.body": {
+    "message": "Předchozí vydání jsou archivována na {github} a {sourceforge}."
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Směrovat spojení skrze SOCKS4, SOCKS5, nebo HTTP proxy kvůli soukromí, nebo kvůli obejití síťových omezení."
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "Filtrování IP"
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Obraz disku (.dmg)"
+  },
+  "homepage.download.install.link": {
+    "message": "Průvodce rychlým startem"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Stáhněte si aMule pro Windows, MacOS, Linux nebo sestavte ze zdrojového kódu."
+  },
+  "homepage.features.preview.title": {
+    "message": "Náhled před dokončením"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule sleduje vaše sdílené a složky pro stahování a používá nové, změněné nebo odstraněné soubory automaticky - není potřeba manuálního obnovení po změně v knihovně."
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Vyměňujte si zprávy přímo s ostatními uživateli aMule a spravujte svůj seznam kamarádů, abyste zůstali ve spojení s obvyklými partnery pro sdílení."
+  },
+  "homepage.features.networks.desc": {
+    "message": "Připojte se k tradiční síti eD2k serverů a ke Kademlia DHT (bez serverů) zároveň, což maximalizuje váš dosah a dostupnost souborů."
+  },
+  "homepage.features.categories.desc": {
+    "message": "Organizujte stahování do kategorií s rozdílnými cestami uložení a prioritami. Použijte pravidla na kategorie, aby byla vaše knihovna automaticky uspořádaná."
+  },
+  "homepage.features.preview.desc": {
+    "message": "Přehrávejte videa a zvukové soubory před kompletním stažením. Kompatibilní s MPlayer, VLC a dalšími přehrávači médií."
+  },
+  "homepage.features.docsLink": {
+    "message": "Procházet celou dokumentaci →"
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Ovládání šířky pásma"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Spustit aMule jako lehký proces bez GUI (amuled) na serverech, zařízeních NAS, nebo VPS instancích - není vyžadován žádný grafický displej."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Bezpečná identifikace"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Automatické prohledávání složky"
+  },
+  "homepage.features.proxy.title": {
+    "message": "Podpora proxy"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Vzdálená rozhraní"
+  },
+  "homepage.download.install": {
+    "message": "{install} pokrývá každou platformu a {quickstart} vás provede nastavením a prvním stahováním."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Kompatibilní s eMule"
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Ovládejte aMule odkudkoli: nativní grafické rozhraní (GUI) pro vzdálenou správu (amulegui), REST API a moderní webové rozhraní pro prohlížeče (amuleapi), nástroj příkazového řádku (amulecmd), nebo zastaralé WebUI (amuleweb)."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Nakládání se závadami"
+  },
+  "homepage.features.categories.title": {
+    "message": "Kategorie stahování"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Vestavěný kreditní a bodovací systém odmění uživatele, kteří aktivně nahrávají. Čím více sdílíte, tím vyšší je vaše skóre — což vede k rychlejšímu stahování."
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Ve vaší frontě nahrávání dejte nejvyšší prioritu vámi vydaným souborům, aby mohly být šířeny sítí co nejrychleji - ideální pro sdílení nového obsahu. V eMule je tato funkce známá jako PowerShare."
+  },
+  "homepage.features.openSource.desc": {
+    "message": "GPL-2.0 licencováno bez telemetrie, bez reklam a bez vendor lock-in. Vaše data jsou vaše — prozkoumejte zdrojový kód a přispějte do něj."
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.download.previous.title": {
+    "message": "Předchozí vydání"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Blokovat nechtěné IP adresy pomocí standardních seznamů IP filtrů. Braňte agresivním, škodlivým, nebo špionážním peerům v připojení k vašemu klientovi."
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Nastavte pevné omezení rychlosti nahrávání a stahování, vynucené přesnými omezeními tokenů. Omezte aMule, aby nezahlcoval síťové připojení - a nebo zrušte omezení v době kdy jste mimo počítač."
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Data souborů a serverová komunikace jsou komprimovány pomocí zlib, což snižuje datový přenos u souborů, které jsou komprimovatelné a dochází i k nižší zátěži serverů eD2k."
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Plně kompatibilní s eMule a všemi *Mule klienty. Sdílejte soubory se stejnými zdroji, připojte se ke stejným serverům a otevírejte běžné odkazy ed2k://."
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Instalátor (.exe)"
+  },
+  "homepage.features.openSource.title": {
+    "message": "Zdarma a s otevřeným kódem"
+  },
+  "homepage.download.source.platform": {
+    "message": "Sestavte si sami"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Přenosný (.zip)"
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Priorita vydání"
+  },
+  "homepage.features.messaging.title": {
+    "message": "Zprávy & Kamarádi"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Komprimované přenosy"
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Průvodce instalací"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "homepage.features.search.title": {
+    "message": "Výkonné vyhledávání"
+  },
+  "homepage.features.daemon.title": {
+    "message": "aMule daemon"
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Odkazy na jedno kliknutí"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "homepage.download.version.date": {
+    "message": "Vydáno {date}"
+  },
+  "homepage.download.source.os": {
+    "message": "Zdrojový kód"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Cryptograficky zabezpečená identifikace uživatele brání krádeži hashe vašeho klienta a jeho podvržení ostatními peery v síti."
+  },
+  "homepage.download.version.changelog": {
+    "message": "Seznam změn"
+  },
+  "homepage.features.search.desc": {
+    "message": "Vyhledávejte napříč eD2k servery (lokální a globální) a Kademlia uzly. Filtrujte podle typu, velikosti a dostupnosti. Boolean operátory (AND, OR, NOT) jsou podporovány."
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Instalátor a přenosný .zip pro Windows, Universal2 .dmg pro MacOS, AppImage a Flatpak na Linuxu, pro x64 a ARM64 - plus plně statické headless binární soubory pro Linux servery."
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "Výměna zdrojů"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimalizovat aMule do systémové lišty pro tichý běh na pozadí. Funguje v systému Windows, MacOS a ve všech hlavních Linux desktopech."
+  },
+  "theme.admonition.caution": {
+    "message": "pozor"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Na této stránce"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Rozbalit kategorii bočního sloupce '{label}'"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Zavřít"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Rolovat zpět nahoru"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Nebyly nalezeny žádné dokumenty"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Zobrazit všechny výsledky"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Kopírovat kód do schránky"
+  },
+  "theme.NotFound.p2": {
+    "message": "Kontaktujte prosím majitele stránky, který vás odkázal na originální URL a dejte jim vědět, že jimi poskytnutý odkaz je nefunkční."
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Tato stránka spadla."
+  },
+  "theme.SearchBar.label": {
+    "message": "Hledání"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Zobrazit všechny výsledky v \"{context}\""
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Vyhledávání dokumentace"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Systémová lišta"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Stažení"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Hlavní"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Všude"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Zkusit znovu"
+  },
+  "homepage.tagline": {
+    "message": "Multi-platformní eD2k/Kad klient kompatibilní s eMule"
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "aMule karta stahování"
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Přiřazení slotů"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "aMule logo"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule je bezplatný klient pro sdílení souborů typu peer-to-peer pod licencí GPL pro sítě {ed2k} a {kad}. Je kompatibilní s eMule a nativně běží na systémech Windows, macOS a Linux. Stejný stav na disku, stejný protokol, jeden binární soubor pro každou hlavní platformu."
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Automaticky vyměňujte seznamy zdrojů s připojenými peery, abyste zjistili více zdrojů pro stahování bez opakovaného dotazování serveru."
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Ovládejte přesně, ke kolika klientům nahráváte zároveň a nastavte každému slotu šířku pásma, což vám umožní přesně nastavit vaší kapacitu nahrávání."
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 dokument nalezen|{count} dokumentů nalezeno"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Kopírovat"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Zobrazit všechny výsledky mimo \"{context}\""
+  },
+  "theme.NotFound.p1": {
+    "message": "Nemohli jsme najít to, co jste hledali."
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Výsledky vyhledávání pro \"{query}\""
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Zkopírováno"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Přepnout zalamování textu"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Sbalit kategorii bočního sloupce '{label}'"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Žádné výsledky"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Rychlý start"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(otevře se v nové kartě)"
+  },
+  "theme.NotFound.title": {
+    "message": "Stránka nenalezena"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 položka|{count} položek"
+  },
+  "homepage.download.docker": {
+    "message": "Pro servery a zařízení NAS, je také k dispozici {repo}, spravované členem týmu aMule, viz {guide}."
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "režim systému"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "světlý režim"
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "neoficiální obraz Docker"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Návrh stránky"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Novější příspěvek"
+  },
+  "homepage.banner.download": {
+    "message": "stáhněte si"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Sbalit boční panel"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Stránka není na seznamu"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Drobečková navigace"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Zavřít navigační panel"
+  },
+  "theme.admonition.warning": {
+    "message": "varování"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Poslední příspěvky blogu (navigace)"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Poslední aktualizace {atDate}{byUser}"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Přepnout navigační panel"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " v {date}"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autoři"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Novější položky"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Rozbalit boční panel"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Další"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "homepage.banner.changelog": {
+    "message": "seznam změn →"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "tmavý režim"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Tato stránka je návrhem. Bude vidět pouze ve vývoji a bude vyřazena z produkčního sestavení."
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Číst dál {title}"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {version} je k dispozici — {download} nebo čtěte {changelog}"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Přepnout mezi tmavým a světlým režimem (nyní {mode})"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Verze"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Toto je dokumentace pro {siteTitle} {versionLabel}, která již není udržována."
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Domovská stránka"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Navigace stránky seznamu blogů"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Tento autor dosud nenapsal žádné příspěvky."
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Stránky dokumentů"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Jeden příspěvek|{count} příspěvků"
+  },
+  "theme.admonition.note": {
+    "message": "poznámka"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Navigace na stránce blogového příspěvku"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Rozbalit boční panel"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " od {user}"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Tato stránka není na seznamu. Vyhledávače jí nebudou indexovat a budou k ní tedy přistupovat jen uživatelé, kteří znají přímý odkaz."
+  },
+  "theme.blog.archive.description": {
+    "message": "Archiv"
+  },
+  "theme.admonition.tip": {
+    "message": "doporučení"
+  },
+  "theme.admonition.danger": {
+    "message": "nebezpečí"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Zpět do hlavní nabídky"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Docker sekce průvodce instalace"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Starší položky"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Boční panel dokumentů"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archiv"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Zobrazit všechny autory"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Sbalit roletovou nabídku"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Jazyky"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Starší příspěvek"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Toto je nevydaná dokumentace pro {siteTitle} verzi {versionLabel}."
+  },
+  "theme.blog.post.readMore": {
+    "message": "Číst více"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Sbalit boční panel"
+  },
+  "theme.admonition.info": {
+    "message": "informace"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Přeskočit na hlavní obsah"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Přímý odkaz na {heading}"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Pro aktuální dokumentaci viz {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Verze: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "nejnovější verze"
+  },
+  "theme.common.editThisPage": {
+    "message": "Upravit tuto stránku"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Rozbalit roletovou nabídku"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Předchozí"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Jednominutové čtení|{readingTime} minutové čtení"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Statické binární soubory (.tar.gz)"
+  },
+  "homepage.download.static": {
+    "message": "{link} jsou headless: obsahují jen {amuled}, {amuleapi} (REST API a Web UI) a {amulecmd}, bez závislostí na sdílených knihovnách."
+  },
+  "homepage.download.static.link": {
+    "message": "Linuxové statické binární soubory"
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Vázání síťového rozhraní"
+  },
+  "homepage.showcase.networks.title": {
+    "message": "Dvě sítě, jeden klient"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "Rozhodněte se, jakou velkou část vašeho připojení aMule použije a kdo použije vaší odesílací kapacitu."
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "aMule komunikuje s eD2k a Kademlia zároveň, takže každé stahování spoléhá na peerech získaných od serverů i decentralizované sítě."
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Stránka vydání a softwarové balíčky distribucí"
+  },
+  "homepage.showcase.security.alt": {
+    "message": "Bezpečnostní předvolby s možností filtrování IP"
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "amuleapi Web UI zobrazuje seznam stahování"
+  },
+  "homepage.more.title": {
+    "message": "A mnohem více"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "Udržujte nechtěné peery mimo dosah a chraňte svou identitu pomocí IP filtrů, kryptografické identifikace a proxy."
+  },
+  "homepage.showcase.search.lead": {
+    "message": "Dotažte se eD2k serverů a sítě Kad zároveň, poté odešle výsledky přímo do fronty stahování."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Karta hledání s výsledky"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Stahování, kterému můžete věřit"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Režim koncovka"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "Vzdálená rozhraní šifrují své připojení k jádru, nové instalace přijímají připojení pouze z místního počítače a neúspěšné pokusy o přihlášení jsou omezeny."
+  },
+  "homepage.showcase.search.title": {
+    "message": "Najděte to, co hledáte"
+  },
+  "homepage.download.next.title": {
+    "message": "Další kroky"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Ovládání odkudkoliv"
+  },
+  "homepage.cta.title": {
+    "message": "Jste připraveni začít?"
+  },
+  "homepage.cta.text": {
+    "message": "Stáhněte si aMule pro vaši platformu a postupujte podle Průvodce rychlým startem pro zahájení prvních stahování."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Karta stahování s průběhem každého souboru"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "amuleapi Web UI na smartphone"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "Karta sítě se seznamem eD2k serverů"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "Rozhraní je přizpůsobeno světlému nebo tmavému vzhledu vašeho systému, s ostrými ikonami na displejích s vysokým rozlišením."
+  },
+  "homepage.showcase.security.title": {
+    "message": "Vestavěné zabezpečení a soukromí"
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Ověřit místní data"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Blízko konce stahování, získá rychlý peer bloky dat od mnohem pomalejšího peera, díky čemuž se sníží riziko zastavení stahování na 99% kvůli jednomu pomalému peerovi."
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Sdílené soubory podle potřeby znovu zkontrolovat pro ověření, že data na disku jsou stále neporušená."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "Karta statistik s grafem rychlosti stahování"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "Vaše šířka pásma, vaše pravidla"
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Šifrované dálkové ovládání"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "Svázat provoz aplikace aMule s jedním síťovým rozhraním, například s VPN, aby provoz neprocházel výchozí trasou, zatímco je toto rozhraní aktivní (tato funkce není k dispozici v systému BSD)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Světlý a tmavý vzhled"
+  },
+  "homepage.download.other.title": {
+    "message": "Další způsoby, jak získat aMule"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Každá část je hashována a ověřena, porušená data jsou tedy rozpoznána a stahování znovu zahájeno automaticky."
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "Spusťte aMule na serveru nebo NAS a spravujte jej ze stolního počítače, prohlížeče nebo telefonu."
   }
 }

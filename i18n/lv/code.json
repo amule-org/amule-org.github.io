@@ -135,13 +135,13 @@
     "message": "eD2k/Kad klients, kas saderīgs ar eMule un pieejams jebkurai operētājsistēmai"
   },
   "homepage.whatisamule.p1": {
-    "message": "aMule — brīvs, ar GPL licenci aizsargāts vienādranga (P2P) datņu koplietošanas klients, kas paredzēts {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena izpildāmā datne katrai nozīmīgai darbvirsmas operētājsistēmai."
+    "message": "aMule — brīvs, GPL licencēts vienādranga (P2P) datņu apmaiņas klients {ed2k} un {kad} tīkliem. Tas saderīgs ar eMule un darbojas vietēji Windows, macOS un Linux operētājsistēmās bez papildprogrammatūras — emulatora, virtualizācijas utt. Tas pats stāvoklis diskā, tas pats protokols un viena izpilddatne katrai nozīmīgai darbvirsmas operētājsistēmai."
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "1 vienums|{count} vienumi(-s)"
   },
   "homepage.download.previous.body": {
-    "message": "Iepriekšējās izlaiduma versijas pieejamas {github} un {sourceforge}."
+    "message": "Iepriekšējo izlaidumu versiju arhīvs pieejams {github} un {sourceforge}."
   },
   "homepage.download.compile.link": {
     "message": "Kompilēšanas rokasgrāmatā"
@@ -207,10 +207,10 @@
     "message": "nozīmīgāko Linux distribūciju"
   },
   "homepage.download.install.link": {
-    "message": "ātrā uzsākšanas rokasgrāmata"
+    "message": "Ātrā uzsākšanas rokasgrāmata"
   },
   "homepage.download.install": {
-    "message": "{install} aptver visas operētājsistēmu saimes, un {quickstart} tevi viegli un raiti aiz rociņas izvedīs cauri visam uzstādīšanas un iestatīšanas murgam un parādīs, kā lejupielādēt tavu pašu pirmo datni."
+    "message": "{install} aptver visas operētājsistēmu saimes, un {quickstart} tevi viegli un raiti aiz rociņas izvedīs cauri visam uzstādīšanas un iestatīšanas murgam un parādīs, kā lejupielādēt jūsu pašu pirmo datni."
   },
   "homepage.features.daemon.desc": {
     "message": "Darbiniet aMule kā vieglu fona procesu (amuled) bez grafiskās saskarnes serveros, tīkla krātuves (NAS) ierīcēs vai virtuālos privātos serveros (VPS) — monitors nav nepieciešams."
@@ -339,7 +339,7 @@
     "message": "Iespēja apmainīties ar ziņojumiem tieši ar citiem aMule dalībniekiem un uzturēt draugu sarakstu, lai saglabātu saikni ar saviem iecienītākajiem un regulārajiem kopīgošanas dalībniekiem."
   },
   "homepage.features.networks.desc": {
-    "message": "Variet vienlaikus pieslēgties gan tradicionālajam eD2k serveru tīklam, gan bezservera Kademlia DHT tīklam, maksimāli palielinot savu sasniedzamību un datņu pieejamību."
+    "message": "Variet vienlaikus pieslēgties gan tradicionālajam eD2k serveru tīklam, gan decentralizētajam Kademlia DHT tīklam, maksimāli palielinot savu sasniedzamību un datņu pieejamību."
   },
   "homepage.features.bandwidthControl.title": {
     "message": "Datu pārraides caurlaides kontrole"
@@ -393,7 +393,7 @@
     "message": "Mēs nevarējām atrast konkrēto lapu."
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Uzstādīšanas programma un pārnēsājamā .zip versija Windows, Universal2 .dmg macOS, AppImage un Flatpak Linux, gan x64, gan ARM64 arhitektūrām, kā arī pilnībā statiski headless binārie faili Linux serveriem."
+    "message": "Uzstādīšanas programma un pārnēsājama .zip versija sistēmai Windows, Universal2 .dmg sistēmai macOS, AppImage un Flatpak sistēmai Linux, gan x64, gan ARM64 arhitektūrai — kā arī pilnībā statiskas binārās datnes bez grafiskās saskarnes Linux serveriem."
   },
   "theme.NotFound.title": {
     "message": "Konkrētā lapa neeksistē"
@@ -468,7 +468,7 @@
     "message": "Droša atpazīšanas aizsardzība"
   },
   "theme.NavBar.navAriaLabel": {
-    "message": "Galvenais lapas saturs"
+    "message": "Vietnes galvenā navigācijas/izvēlnes josla"
   },
   "theme.blog.post.readMoreLabel": {
     "message": "Lasīt visu {title} emuārrakstu"
@@ -477,10 +477,10 @@
     "message": "Attālās vadības saskarnes"
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "Pārslēgties starp tumšo un gaišo motīvu (pašlaik izmanto {mode})"
+    "message": "Pārslēgties starp tumšo un gaišo motīvu (tiek izmantos {mode})"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Noklikšķini uz ed2k:// un magnet: saitēm pārlūkā vai atver .emulecollection failus, lai uzreiz sāktu lejupielādes. aMule reģistrējas kā to apstrādātājs Windows, macOS, Linux un BSD."
+    "message": "Noklikšķini uz ed2k:// un magnet: saitēm pārlūkā vai atver .emulecollection datnes, lai uzreiz sāktu lejupielādes. aMule reģistrē sevi kā to apstrādātāju sistēmās Windows, macOS, Linux un BSD."
   },
   "theme.docs.paginator.navAriaLabel": {
     "message": "Dokumentu lapas"
@@ -531,25 +531,25 @@
     "message": "Izvērst atlases izvēlni"
   },
   "homepage.download.linux.static.label": {
-    "message": "Statiskie binārie faili (.tar.gz)"
+    "message": "Statiski kompilētās izpilddatnes (.tar.gz)"
   },
   "homepage.hero.mobile.alt": {
-    "message": "amuleapi Web UI viedtālrunī"
+    "message": "amuleapi tīmekļa saskarne viedtālrunī"
   },
   "homepage.cta.title": {
     "message": "Gatavs sākt?"
   },
   "homepage.cta.text": {
-    "message": "Lejupielādē aMule savai platformai un seko ātrās sākšanas ceļvedim, lai veiktu savu pirmo lejupielādi."
+    "message": "Lejupielādējiet savai operētājsistēmai atbilstošo aMule pakotni un sekojiet ātrās uzsākšanas rokasgrāmatas norādījumiem, lai lejupielādētu jūsu pirmo datni."
   },
   "homepage.showcase.networks.title": {
-    "message": "Divi tīkli, viens klients"
+    "message": "Divi tīkli — eD2k un Kademlia, viens klients"
   },
   "homepage.showcase.networks.lead": {
-    "message": "aMule vienlaikus izmanto eD2k un Kademlia, tāpēc katra lejupielāde izmanto gan uz serveriem balstītus, gan bezservera peer."
+    "message": "aMule atbalsta gan eD2k, gan Kademlia tīklus un ļauj vienlaikus lejupielādēt datnes no vienādranga dalībniekiem, kas atrasti gan ar serveru palīdzību, gan decentralizēti."
   },
   "homepage.showcase.networks.alt": {
-    "message": "Cilne Tīkli ar eD2k serveru sarakstu"
+    "message": "\"Tīkli\" cilne ar eD2k serveru sarakstu"
   },
   "homepage.showcase.search.title": {
     "message": "Atrodi to, ko meklē"
@@ -558,16 +558,16 @@
     "message": "Meklē eD2k serveros un Kad tīklā vienlaikus, pēc tam nosūti rezultātus tieši uz savu lejupielāžu rindu."
   },
   "homepage.showcase.search.alt": {
-    "message": "Cilne Meklēšana ar rezultātiem"
+    "message": "\"Meklēt / Meklējumi\" cilne ar meklēšanas vaicājumiem un to rezultātiem"
   },
   "homepage.showcase.integrity.title": {
     "message": "Lejupielādes, kurām var uzticēties"
   },
   "homepage.showcase.integrity.lead": {
-    "message": "Katrs chunk tiek pārbaudīts ar hash, tāpēc bojāti dati tiek atklāti un automātiski lejupielādēti atkārtoti."
+    "message": "Katra daļa tiek pārbaudīta pēc kontrolsummas, tāpēc bojāti dati tiek atklāti un automātiski lejupielādēti atkārtoti."
   },
   "homepage.showcase.integrity.alt": {
-    "message": "Cilne Lejupielādes ar katra faila progresu"
+    "message": "\"Lejupielādes\" cilne, kurā redzama katras datnes lejupielādes gaita"
   },
   "homepage.showcase.remote.title": {
     "message": "Pārvaldi no jebkuras vietas"
@@ -576,7 +576,7 @@
     "message": "Palaid aMule serverī vai NAS un pārvaldi to no sava datora, pārlūka vai tālruņa."
   },
   "homepage.showcase.remote.alt": {
-    "message": "amuleapi Web UI ar lejupielāžu sarakstu"
+    "message": "amuleapi tīmekļa saskarne ar datņu lejupielāžu sarakstu"
   },
   "homepage.showcase.bandwidth.title": {
     "message": "Tavs joslas platums, tavi noteikumi"
@@ -585,43 +585,43 @@
     "message": "Precīzi nosaki, cik lielu daļu no tava savienojuma izmanto aMule un kurš saņem tavu augšupielādi."
   },
   "homepage.showcase.bandwidth.alt": {
-    "message": "Cilne Statistika ar lejupielādes ātruma grafiku"
+    "message": "\"Statistika\" cilne ar lejupielādes ātruma grafiku"
   },
   "homepage.showcase.security.title": {
     "message": "Iebūvēta drošība un privātums"
   },
   "homepage.showcase.security.lead": {
-    "message": "Neļauj nevēlamiem peer piekļūt un sargā savu identitāti ar IP filtriem, kriptogrāfisku identifikāciju un proxy atbalstu."
+    "message": "Neļauj nevēlamiem dalībniekiem piekļūt un sargā savu identitāti ar IP filtriem, kriptogrāfisku identifikāciju un starpniekservera atbalstu."
   },
   "homepage.showcase.security.alt": {
-    "message": "Drošības iestatījumi ar IP filtrēšanas opcijām"
+    "message": "Drošības iestatījumi, tostarp IP adrešu filtrēšanas iestatījumi"
   },
   "homepage.more.title": {
     "message": "Un vēl daudz kas"
   },
   "homepage.features.endgame.title": {
-    "message": "Endgame režīms"
+    "message": "Nobeiguma režīms"
   },
   "homepage.features.endgame.desc": {
-    "message": "Lejupielādes beigās ātrs avots pārņem blokus, kas piešķirti daudz lēnākam avotam, lai faili neiestrēgtu pie 99% viena lēna peer dēļ."
+    "message": "Lejupielādes beigās ātrs avots pārņem blokus, kas piešķirti daudz lēnākam avotam, lai datnes neiestrēgtu pie 99% viena lēna dalībnieka dēļ."
   },
   "homepage.features.verifyLocalData.title": {
-    "message": "Pārbaudīt lokālos datus"
+    "message": "Pārbaudīt vietējos datus"
   },
   "homepage.features.verifyLocalData.desc": {
-    "message": "Pēc pieprasījuma atkārtoti aprēķini koplietoto failu hash, lai pārbaudītu, vai dati diskā joprojām ir neskarti."
+    "message": "Pēc pieprasījuma atkārtoti aprēķini kopīgoto datņu kontrolsummas, lai pārbaudītu, vai dati diskā joprojām ir neskarti."
   },
   "homepage.features.encryptedRemote.title": {
-    "message": "Šifrēta attālā vadība"
+    "message": "Šifrēta attālinātā vadība"
   },
   "homepage.features.encryptedRemote.desc": {
-    "message": "Attālās saskarnes šifrē savienojumu ar kodolu, jaunas instalācijas to pieņem tikai no lokālās mašīnas, un neveiksmīgi pieteikšanās mēģinājumi tiek ierobežoti."
+    "message": "Attālinātās saskarnes šifrē savienojumu ar kodolu, pēc jaunas uzstādīšanas savienojumi tiek pieņemti tikai no vietējā datora, un neveiksmīgi pieteikšanās mēģinājumi tiek ierobežoti."
   },
   "homepage.features.interfaceBinding.title": {
     "message": "Piesaiste tīkla saskarnei"
   },
   "homepage.features.interfaceBinding.desc": {
-    "message": "Piesaisti aMule datplūsmu vienai tīkla saskarnei, piemēram, VPN, lai tā neizietu caur noklusējuma maršrutu, kamēr šī saskarne pastāv (nav pieejams BSD)."
+    "message": "Piesaisti aMule trafiku vienai tīkla saskarnei, piemēram, VPN, lai tas neizplūstu caur noklusējuma maršrutu, kamēr šī saskarne pastāv (nav pieejams BSD)."
   },
   "homepage.features.appearance.title": {
     "message": "Gaišais un tumšais izskats"
@@ -630,7 +630,7 @@
     "message": "Saskarne seko sistēmas gaišajai vai tumšajai tēmai, ar asām ikonām augstas izšķirtspējas displejos."
   },
   "homepage.download.other.title": {
-    "message": "Citi veidi, kā iegūt aMule"
+    "message": "Citi aMule iegūšanas veidi"
   },
   "homepage.download.other.packages.title": {
     "message": "Izlaiduma lapa un distribūciju pakotnes"
@@ -640,5 +640,35 @@
   },
   "homepage.download.next.title": {
     "message": "Nākamie soļi"
+  },
+  "homepage.download.static": {
+    "message": "{link} ir paredzētas darbam bez grafiskās saskarnes: tās ietver tikai {amuled}, {amuleapi} (REST API un tīmekļa saskarne) un {amulecmd} datnes, kas nav atkarīgas no koplietojamām bibliotēkām."
+  },
+  "homepage.download.static.link": {
+    "message": "Linux statiski kompilētās izpilddatnes"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Nesen publicēto emuārrakstu navigācija"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Šī lapa ir melnraksta uzmetums. Tā būs pieejama tikai izstrādes laikā un nebūs galīgā lapas versija."
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Pāriet uz galveno saturu"
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Pārvaldiet aMule attālināti no jebkuras vietas pasaulē, lai kur jūs atrastos: ar attālās vadības grafisko saskarni (amulegui), REST API un mūsdienīgo pārlūka tīmekļa saskarni (amuleapi), komandrindas rīku (amulecmd) vai novecojušo, iepriekšējo paaudžu tīmekļa saskarni (amuleweb)."
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "Inteliģentais bojājumu apstrādes mehānisms (ICH — Intelligent Corruption Handling) un tā uzlabotā versija (AICH — Advanced Intelligent Corruption Handling) automātiski atrod un labo bojātos lejupielādes blokus, nodrošinot pilnīgas un nebojātas datnes bez nepieciešamības sākt lejupielādi no jauna."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Lejupielādes bojājumu apstrāde"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Piešķiriet kopīgotām datnēm visaugstāko prioritāti augšupielādes rindā, lai tās pēc iespējas ātrāk izplatītos starp tīkla dalībniekiem — šī funkcija ir īpaši noderīga, kopīgojot jaunu, ekskluzīvu saturu. eMule šo funkciju sauc par PowerShare."
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Kopīgoto datņu izplatīšanas prioritāte"
   }
 }

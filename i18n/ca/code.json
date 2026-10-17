@@ -570,64 +570,64 @@
     "message": "Binaris estàtics (.tar.gz)"
   },
   "homepage.hero.mobile.alt": {
-    "message": "Web UI d'amuleapi en un smartphone"
+    "message": "Interfície web d'amuleapi en un telèfon intel·ligent"
   },
   "homepage.cta.title": {
     "message": "A punt per començar?"
   },
   "homepage.cta.text": {
-    "message": "Descarrega aMule per a la teva plataforma i segueix la guia d'inici ràpid per fer la teva primera descàrrega."
+    "message": "Baixeu aMule per a la vostra plataforma i seguiu la guia d'inici ràpid per fer la vostra primera baixada."
   },
   "homepage.showcase.networks.title": {
     "message": "Dues xarxes, un client"
   },
   "homepage.showcase.networks.lead": {
-    "message": "aMule utilitza eD2k i Kademlia alhora, de manera que cada descàrrega aprofita tant peers basats en servidors com peers sense servidor."
+    "message": "aMule utilitza eD2k i Kademlia alhora, de manera que cada baixada aprofita tant parells basats en servidors com parells sense servidor."
   },
   "homepage.showcase.networks.alt": {
     "message": "Pestanya Xarxes amb la llista de servidors eD2k"
   },
   "homepage.showcase.search.title": {
-    "message": "Troba el que busques"
+    "message": "Trobeu el que busqueu"
   },
   "homepage.showcase.search.lead": {
-    "message": "Cerca als servidors eD2k i a la xarxa Kad alhora, i envia els resultats directament a la teva cua de descàrregues."
+    "message": "Cerqueu als servidors eD2k i a la xarxa Kad alhora, i envieu els resultats directament a la vostra cua de baixades."
   },
   "homepage.showcase.search.alt": {
     "message": "Pestanya Cerques amb resultats"
   },
   "homepage.showcase.integrity.title": {
-    "message": "Descàrregues de confiança"
+    "message": "Baixades de confiança"
   },
   "homepage.showcase.integrity.lead": {
-    "message": "Cada chunk es verifica mitjançant el seu hash, de manera que les dades corruptes es detecten i es tornen a descarregar automàticament."
+    "message": "Cada part es verifica mitjançant el seu hash, de manera que les dades corruptes es detecten i es tornen a baixar automàticament."
   },
   "homepage.showcase.integrity.alt": {
     "message": "Pestanya Baixades amb el progrés de cada fitxer"
   },
   "homepage.showcase.remote.title": {
-    "message": "Controla'l des de qualsevol lloc"
+    "message": "Controleu-lo des de qualsevol lloc"
   },
   "homepage.showcase.remote.lead": {
-    "message": "Executa aMule en un servidor o NAS i gestiona'l des del teu escriptori, el teu navegador o el teu telèfon."
+    "message": "Executeu aMule en un servidor o NAS i gestioneu-lo des del vostre escriptori, el vostre navegador o el vostre telèfon."
   },
   "homepage.showcase.remote.alt": {
-    "message": "Web UI d'amuleapi mostrant la llista de descàrregues"
+    "message": "Interfície web d'amuleapi amb la llista de baixades"
   },
   "homepage.showcase.bandwidth.title": {
-    "message": "La teva amplada de banda, les teves regles"
+    "message": "La vostra amplada de banda, les vostres regles"
   },
   "homepage.showcase.bandwidth.lead": {
-    "message": "Decideix exactament quina part de la teva connexió utilitza aMule i qui rep la teva pujada."
+    "message": "Decidiu exactament quina part de la vostra connexió utilitza aMule i qui rep la vostra pujada."
   },
   "homepage.showcase.bandwidth.alt": {
-    "message": "Pestanya Estadístiques amb el gràfic de velocitat de descàrrega"
+    "message": "Pestanya Estadístiques amb el gràfic de velocitat de baixada"
   },
   "homepage.showcase.security.title": {
     "message": "Seguretat i privadesa integrades"
   },
   "homepage.showcase.security.lead": {
-    "message": "Mantén fora els peers no desitjats i la teva identitat protegida amb filtres IP, identificació criptogràfica i suport de proxy."
+    "message": "Manteniu fora els parells no desitjats i la vostra identitat protegida amb filtres IP, identificació criptogràfica i suport de proxy."
   },
   "homepage.showcase.security.alt": {
     "message": "Preferències de seguretat amb les opcions de filtratge IP"
@@ -639,10 +639,10 @@
     "message": "Mode endgame"
   },
   "homepage.features.endgame.desc": {
-    "message": "Prop del final d'una baixada, una font ràpida pren els blocs que té assignats una altra de molt més lenta, perquè els fitxers no s'encallin al 99% per culpa d'un únic peer lent."
+    "message": "Prop del final d'una baixada, una font ràpida pren els blocs que té assignats una altra de molt més lenta, perquè els fitxers no s'encallin al 99% per culpa d'un únic parell lent."
   },
   "homepage.features.verifyLocalData.title": {
-    "message": "Verificar les dades locals"
+    "message": "Verificació de les dades locals"
   },
   "homepage.features.verifyLocalData.desc": {
     "message": "Torneu a calcular el hash dels fitxers compartits a demanda per comprovar que les dades del disc continuen intactes."

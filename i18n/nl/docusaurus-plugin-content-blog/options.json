@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "Blog"
+  },
+  "description": {
+    "message": "Nieuws en aankondigingen over het aMule-project."
+  },
+  "sidebar.title": {
+    "message": "Recente posts"
+  }
+}

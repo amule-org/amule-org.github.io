@@ -192,7 +192,7 @@
     "message": "Mesajlaşma ve Arkadaşlar"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, Linux üzerinde AppImage ve Flatpak; hem x64 hem de ARM64 için. Ayrıca Linux sunucuları için tamamen statik headless ikili dosyalar."
+    "message": "Windows için kurulum programı ve taşınabilir .zip, macOS için Universal2 .dmg, Linux üzerinde AppImage ve Flatpak; hem x64 hem de ARM64 için. Ayrıca Linux sunucuları için tamamen statik, grafik arayüzsüz (headless) ikili dosyalar."
   },
   "homepage.features.nativePackages.title": {
     "message": "Yerel Paketler"
@@ -576,16 +576,16 @@
     "message": "Başlamaya hazır mısınız?"
   },
   "homepage.cta.text": {
-    "message": "Platformunuz için aMule'u indirin ve ilk indirmenizi yapmak için Hızlı Başlangıç kılavuzunu izleyin."
+    "message": "Platformunuz için aMule'ü indirin ve ilk indirmenizi yapmak için Hızlı Başlangıç kılavuzunu izleyin."
   },
   "homepage.showcase.networks.title": {
     "message": "İki ağ, tek istemci"
   },
   "homepage.showcase.networks.lead": {
-    "message": "aMule eD2k ve Kademlia'yı aynı anda kullanır; böylece her indirme hem sunucu tabanlı hem de sunucusuz peer'lardan yararlanır."
+    "message": "aMule eD2k ve Kademlia'yı aynı anda kullanır; böylece her indirme hem sunucu tabanlı hem de sunucusuz eşlerden yararlanır."
   },
   "homepage.showcase.networks.alt": {
-    "message": "eD2k sunucu listesiyle Ağlar sekmesi"
+    "message": "eD2k sunucu listesini gösteren Ağlar sekmesi"
   },
   "homepage.showcase.search.title": {
     "message": "Aradığınızı bulun"
@@ -594,22 +594,22 @@
     "message": "eD2k sunucularında ve Kad ağında tek seferde arama yapın, ardından sonuçları doğrudan indirme kuyruğunuza gönderin."
   },
   "homepage.showcase.search.alt": {
-    "message": "Sonuçlarla Aramalar sekmesi"
+    "message": "Sonuçları gösteren Aramalar sekmesi"
   },
   "homepage.showcase.integrity.title": {
     "message": "Güvenebileceğiniz indirmeler"
   },
   "homepage.showcase.integrity.lead": {
-    "message": "Her chunk hash ile doğrulanır; bozuk veriler otomatik olarak algılanır ve yeniden indirilir."
+    "message": "Her parçanın karma değeri hesaplanır ve doğrulanır; böylece bozuk veriler otomatik olarak algılanır ve yeniden indirilir."
   },
   "homepage.showcase.integrity.alt": {
-    "message": "Her dosyanın ilerlemesiyle İndirmeler sekmesi"
+    "message": "Her dosyanın ilerlemesini gösteren İndirmeler sekmesi"
   },
   "homepage.showcase.remote.title": {
     "message": "Her yerden kontrol edin"
   },
   "homepage.showcase.remote.lead": {
-    "message": "aMule'u bir sunucuda veya NAS'ta çalıştırın ve masaüstünüzden, tarayıcınızdan ya da telefonunuzdan yönetin."
+    "message": "aMule'ü bir sunucuda veya NAS'ta çalıştırın ve masaüstünüzden, tarayıcınızdan ya da telefonunuzdan yönetin."
   },
   "homepage.showcase.remote.alt": {
     "message": "İndirme listesini gösteren amuleapi Web UI"
@@ -618,34 +618,34 @@
     "message": "Bant genişliğiniz, kurallarınız"
   },
   "homepage.showcase.bandwidth.lead": {
-    "message": "aMule'un bağlantınızın ne kadarını kullanacağına ve yüklemenizi kimin alacağına tam olarak siz karar verin."
+    "message": "aMule'ün bağlantınızın ne kadarını kullanacağına ve yüklemenizi kimin alacağına tam olarak siz karar verin."
   },
   "homepage.showcase.bandwidth.alt": {
-    "message": "İndirme hızı grafiğiyle İstatistikler sekmesi"
+    "message": "İndirme hızı grafiğini gösteren İstatistikler sekmesi"
   },
   "homepage.showcase.security.title": {
     "message": "Yerleşik güvenlik ve gizlilik"
   },
   "homepage.showcase.security.lead": {
-    "message": "IP filtreleri, kriptografik kimlik doğrulama ve proxy desteğiyle istenmeyen peer'ları uzak tutun ve kimliğinizi güvende tutun."
+    "message": "IP filtreleri, kriptografik kimlik doğrulama ve proxy desteğiyle istenmeyen eşleri uzak tutun ve kimliğinizi güvende tutun."
   },
   "homepage.showcase.security.alt": {
-    "message": "IP filtreleme seçenekleriyle güvenlik tercihleri"
+    "message": "IP filtreleme seçeneklerini içeren güvenlik tercihleri"
   },
   "homepage.more.title": {
     "message": "Ve çok daha fazlası"
   },
   "homepage.features.endgame.title": {
-    "message": "Endgame Modu"
+    "message": "Endgame Kipi"
   },
   "homepage.features.endgame.desc": {
-    "message": "Bir indirmenin sonuna doğru hızlı bir kaynak, çok daha yavaş bir kaynağın elindeki blokları devralır; böylece dosyalar tek bir yavaş peer yüzünden %99'da takılı kalmaz."
+    "message": "Bir indirmenin sonuna doğru hızlı bir kaynak, çok daha yavaş bir kaynağın elindeki blokları devralır; böylece dosyalar tek bir yavaş eş yüzünden %99'da takılı kalmaz."
   },
   "homepage.features.verifyLocalData.title": {
-    "message": "Yerel Verileri Doğrula"
+    "message": "Yerel Verileri Kontrol Et"
   },
   "homepage.features.verifyLocalData.desc": {
-    "message": "Diskteki verilerin hâlâ sağlam olduğunu kontrol etmek için paylaşılan dosyaların hash değerini istediğiniz zaman yeniden hesaplayın."
+    "message": "Diskteki verilerin hâlâ sağlam olduğunu kontrol etmek için paylaşılan dosyaların karma değerlerini istediğiniz zaman yeniden hesaplayın."
   },
   "homepage.features.encryptedRemote.title": {
     "message": "Şifreli Uzaktan Kontrol"
@@ -657,7 +657,7 @@
     "message": "Ağ Arayüzüne Bağlama"
   },
   "homepage.features.interfaceBinding.desc": {
-    "message": "aMule trafiğini VPN gibi tek bir ağ arayüzüne sabitleyin; böylece bu arayüz var olduğu sürece trafik varsayılan rota üzerinden çıkmaz (BSD'de kullanılamaz)."
+    "message": "aMule trafiğini VPN gibi tek bir ağ arayüzüne sabitleyin; böylece bu arayüz var olduğu sürece trafik varsayılan yol üzerinden çıkmaz (BSD'de kullanılamaz)."
   },
   "homepage.features.appearance.title": {
     "message": "Açık ve Koyu Görünüm"

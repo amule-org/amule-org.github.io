@@ -69,7 +69,7 @@
     "message": "加密安全的用户身份验证，防止客户端哈希值被网络上的其他节点窃取或伪造。"
   },
   "homepage.features.nativePackages.desc": {
-    "message": "提供 Windows 的安装程序及便携版 .zip、macOS 的 Universal2 .dmg、Linux 的 AppImage 和 Flatpak。同时支持 x64 和 ARM64 架构。"
+    "message": "提供 Windows 的安装程序及便携版 .zip、macOS 的 Universal2 .dmg、Linux 的 AppImage 和 Flatpak，同时支持 x64 和 ARM64 架构，另外还有为Linux服务器设计的全静态无头二进制文件。"
   },
   "homepage.download.foot": {
     "message": "所有构建产物均可在 {release} 获取。aMule 也可在 {distros} 的仓库中找到，不过其中的软件包版本可能已过时。"
@@ -222,7 +222,7 @@
     "message": "已复制"
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "ed2k:// 链接集成"
+    "message": "一键链接"
   },
   "theme.CodeBlock.wordWrapToggle": {
     "message": "切换自动换行"
@@ -247,5 +247,92 @@
   },
   "theme.NotFound.title": {
     "message": "页面未找到"
+  },
+  "homepage.features.sourceExchange.title": {
+    "message": "来源交换"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "将 aMule 最小化到系统托盘，让它在后台静默运行。支持 Windows、macOS 以及所有主流 Linux 桌面环境。"
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "theme.admonition.caution": {
+    "message": "注意"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "本页内容"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "展开侧边栏分类 '{label}'"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "较新文章"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "未找到任何文件"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule 会监测你的共享和接收文件夹，并自动识别新增、修改或移除的文件——当资料库发生变化时，无需手动重新加载。"
+  },
+  "homepage.features.categories.desc": {
+    "message": "支持按分类管理下载，可自定义每个类别的保存路径与优先级。还可以为不同分类配置自动化规则，让下载库始终井井有条。"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "作者"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主导航"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "所有位置"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "远程界面"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博客列表页面导航"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "该作者尚未撰写任何文章。"
+  },
+  "theme.admonition.note": {
+    "message": "备注"
+  },
+  "theme.blog.archive.description": {
+    "message": "归档"
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "文件数据和服务器连接均采用zlib压缩，以减少压缩文件的带宽占用，也可以减轻ed2k服务器的压力。"
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "与 eMule 及所有 *Mule 客户端完全兼容。可以共享相同的下载源，连接相同服务器，并支持打开标准 ed2k:// 链接。"
+  },
+  "theme.admonition.danger": {
+    "message": "危险"
+  },
+  "theme.blog.archive.title": {
+    "message": "归档"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule 是一款基于 GPL 许可的免费 P2P 文件分享客户端，适用于 {ed2k} 和 {kad} 网络。它与 eMule 兼容，并原生支持 Windows、macOS 和 Linux 系统。统一的磁盘状态，统一的协议，每个主流桌面系统仅需一个二进制程序。"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "查看所有作者"
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "传输压缩"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "收起侧边栏分类 '{label}'"
+  },
+  "theme.admonition.info": {
+    "message": "信息"
+  },
+  "homepage.features.search.desc": {
+    "message": "在 eD2k 服务器（本地和全局）和 Kademlia 节点中搜索。按类型、大小和可用性进行筛选。支持布尔运算符（AND、OR、NOT）。"
   }
 }

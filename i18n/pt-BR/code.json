@@ -441,10 +441,10 @@
     "message": "Folhear a documentação completa →"
   },
   "homepage.features.ed2kLinks.desc": {
-    "message": "Clique em links ed2k:// e magnet: no navegador, ou abra arquivos .emulecollection, para iniciar downloads instantaneamente. O aMule se registra como o manipulador deles no Windows, macOS, Linux e BSD."
+    "message": "Clique em links ed2k:// e magnet: no seu navegador, ou abra arquivos .emulecollection, para iniciar downloads instantaneamente. O aMule se registra como o manipulador deles no Windows, macOS, Linux e BSD."
   },
   "homepage.features.ed2kLinks.title": {
-    "message": "Links com um clique"
+    "message": "Links de um clique"
   },
   "homepage.features.emuleCompatible.desc": {
     "message": "Totalmente compatível com eMule e todos os clientes *Mule. Compartilhe arquivos com as mesmas fontes, conecte-se aos mesmos servidores e abra links ed2k:// padronizados."
@@ -588,25 +588,25 @@
     "message": "Aba Redes com a lista de servidores eD2k"
   },
   "homepage.showcase.search.title": {
-    "message": "Encontre o que você procura"
+    "message": "Encontre o que você está procurando"
   },
   "homepage.showcase.search.lead": {
     "message": "Pesquise em servidores eD2k e na rede Kad de uma só vez e envie os resultados diretamente para a sua fila de downloads."
   },
   "homepage.showcase.search.alt": {
-    "message": "Aba Pesquisas com resultados"
+    "message": "Aba de pesquisas com resultados"
   },
   "homepage.showcase.integrity.title": {
-    "message": "Downloads em que você pode confiar"
+    "message": "Downloads os quais você pode confiar"
   },
   "homepage.showcase.integrity.lead": {
-    "message": "Cada chunk é verificado pelo seu hash, então dados corrompidos são detectados e baixados novamente de forma automática."
+    "message": "Cada pedaço é verificado pelo seu hash, então dados corrompidos são detectados e baixados novamente de forma automática."
   },
   "homepage.showcase.integrity.alt": {
-    "message": "Aba Downloads com o progresso de cada arquivo"
+    "message": "Aba de downloads com o progresso de cada arquivo"
   },
   "homepage.showcase.remote.title": {
-    "message": "Controle de qualquer lugar"
+    "message": "Controle-o de qualquer lugar"
   },
   "homepage.showcase.remote.lead": {
     "message": "Execute o aMule em um servidor ou NAS e gerencie-o pelo seu desktop, pelo seu navegador ou pelo seu celular."
@@ -621,13 +621,13 @@
     "message": "Decida exatamente quanto da sua conexão o aMule usa e quem recebe o seu upload."
   },
   "homepage.showcase.bandwidth.alt": {
-    "message": "Aba Estatísticas com o gráfico de velocidade de download"
+    "message": "Aba de estatísticas com o gráfico de velocidade de download"
   },
   "homepage.showcase.security.title": {
     "message": "Segurança e privacidade integradas"
   },
   "homepage.showcase.security.lead": {
-    "message": "Mantenha peers indesejados afastados e sua identidade segura com filtros de IP, identificação criptográfica e suporte a proxy."
+    "message": "Mantenha pares indesejados afastados e sua identidade segura com filtros de IP, identificação criptográfica e suporte a proxy."
   },
   "homepage.showcase.security.alt": {
     "message": "Preferências de segurança com as opções de filtragem de IP"
@@ -636,16 +636,16 @@
     "message": "E muito mais"
   },
   "homepage.features.endgame.title": {
-    "message": "Modo endgame"
+    "message": "Modo \"fim de jogo\""
   },
   "homepage.features.endgame.desc": {
     "message": "Perto do fim de um download, uma fonte rápida assume os blocos atribuídos a uma fonte muito mais lenta, para que os arquivos não fiquem travados em 99% por causa de um único peer lento."
   },
   "homepage.features.verifyLocalData.title": {
-    "message": "Verificar dados locais"
+    "message": "Verifica dados locais"
   },
   "homepage.features.verifyLocalData.desc": {
-    "message": "Recalcule sob demanda o hash dos arquivos compartilhados para verificar se os dados no disco continuam íntegros."
+    "message": "Recalcula sob demanda o hash dos arquivos compartilhados para verificar se os dados no disco continuam íntegros."
   },
   "homepage.features.encryptedRemote.title": {
     "message": "Controle remoto criptografado"
@@ -657,7 +657,7 @@
     "message": "Vinculação a uma interface de rede"
   },
   "homepage.features.interfaceBinding.desc": {
-    "message": "Fixe o tráfego do aMule em uma interface de rede, como uma VPN, para que ele não saia pela rota padrão enquanto essa interface existir (não disponível no BSD)."
+    "message": "Fixe o tráfego do aMule a uma interface de rede, como uma VPN, para que ele não saia pela rota padrão enquanto essa interface existir (não disponível no BSD)."
   },
   "homepage.features.appearance.title": {
     "message": "Aparência clara e escura"

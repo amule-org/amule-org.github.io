@@ -1,1 +1,17 @@
-{}
+{
+  "link.item.label.Blog RSS": {
+    "message": "Blog RSS"
+  },
+  "link.item.label.Releases": {
+    "message": "Uitgaven"
+  },
+  "link.item.label.Changelog RSS": {
+    "message": "Changelog RSS"
+  },
+  "copyright": {
+    "message": "aMule is vrije software uitgebracht onder de GNU GPL v2. De ontwikkelaars van aMule hebben geen controle over wat andere peers delen via eD2k/Kad en kunnen niet aansprakelijk worden gesteld voor niet-persoonlijke inbreuk op het auteursrecht of andere illegale activiteit door derden. Deel met verantwoordelijkheid."
+  },
+  "link.item.label.Source code": {
+    "message": "Broncode"
+  }
+}
