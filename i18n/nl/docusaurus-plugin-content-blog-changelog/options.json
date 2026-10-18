@@ -1,1 +1,11 @@
-{}
+{
+  "title": {
+    "message": "Changelog"
+  },
+  "description": {
+    "message": "Release-opmerkingen voor elke versie van aMule: nieuwe functies, verbeteringen en opgeloste problemen."
+  },
+  "sidebar.title": {
+    "message": "Versies"
+  }
+}

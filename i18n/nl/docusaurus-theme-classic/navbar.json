@@ -1,1 +1,26 @@
-{}
+{
+  "title": {
+    "message": "aMule"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "item.label.Changelog": {
+    "message": "Changelog"
+  },
+  "item.label.Blog": {
+    "message": "Blog"
+  },
+  "item.label.Documentation": {
+    "message": "Documentatie"
+  },
+  "item.label.Download": {
+    "message": "Download"
+  },
+  "item.label.Discussions": {
+    "message": "Discussies"
+  },
+  "logo.alt": {
+    "message": "aMule logo"
+  }
+}

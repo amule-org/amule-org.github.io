@@ -1,1 +1,686 @@
-{}
+{
+  "homepage.features.sourceExchange.title": {
+    "message": "Uitwisseling van Bronnen"
+  },
+  "homepage.download.previous.entry.sourceforge": {
+    "message": "SourceForge"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 item|{count} items"
+  },
+  "homepage.features.systemTray.desc": {
+    "message": "Minimalizeer aMule naar het systeemvak en laat het stil in de achtergrond lopen. Werkt in Windows, macOS en alle belangrijke Linux desktops."
+  },
+  "homepage.features.networks.title": {
+    "message": "eD2k + Kademlia"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Labels"
+  },
+  "theme.admonition.caution": {
+    "message": "waarschuwing"
+  },
+  "homepage.download.foot": {
+    "message": "Alle artefacten zijn beschikbaar op de {release}. aMule is ook beschikbaar in de opslagruimten van de {distros}, alhoewel de pakketten verouderd kunnen zijn."
+  },
+  "homepage.download.source.targz": {
+    "message": ".tar.gz"
+  },
+  "homepage.features.creditSystem.title": {
+    "message": "Creditsysteem"
+  },
+  "homepage.features.languages.desc": {
+    "message": "De volledige aMule interface is vertaald in 37 talen. Download en deel bestanden in uw eigen taal — de interface past zich automatisch aan uw locatie aan."
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Op deze pagina"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Labels:"
+  },
+  "homepage.features.nativePackages.title": {
+    "message": "Native Pakketten"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "systeemmodus"
+  },
+  "homepage.download.previous.link": {
+    "message": "SourceForge"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "lichte modus"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Zijbalkcategorie '{label}' uitvouwen"
+  },
+  "homepage.features.languages.title": {
+    "message": "37 Interfacetalen"
+  },
+  "homepage.features.corruptionHandling.desc": {
+    "message": "De intelligente corruptieafhandelaar (Intelligent Corruption Handler (ICH)) en AICH detecteren en repareren automatisch corrupte delen van bestanden, wat verzekert dat bestanden volledig en intact zijn zonder te hoeven herstarten."
+  },
+  "homepage.download.title": {
+    "message": "Download"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Conceptpagina"
+  },
+  "homepage.download.previous.body": {
+    "message": "De vorige versies zijn gearchiveerd op {github} en {sourceforge}."
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Sluiten"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Terug naar boven"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Nieuwere post"
+  },
+  "homepage.features.proxy.desc": {
+    "message": "Leid verbindingen door SOCKS4, SOCKS5 of HTTP-proxies voor privacy of om netwerkrestricties heen te werken."
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Zijbalk invouwen"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Onvermelde pagina"
+  },
+  "homepage.features.ipFiltering.title": {
+    "message": "IP Filteren"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Geen documenten gevonden"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Zie alle resultaten"
+  },
+  "homepage.download.arch.x64": {
+    "message": "x64"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} gelabeld met \"{tagName}\""
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Kopieer code naar het klembord"
+  },
+  "theme.NotFound.p2": {
+    "message": "Neem contact op met de eigenaar van de site die u naar de oorspronkelijke URL heeft gelinkt en laat hen weten dat hun koppeling niet meer werkt."
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Broodkruimels"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Sluit navigatiebalk"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Deze pagina is gecrashed."
+  },
+  "homepage.download.macos.dmg.label": {
+    "message": "Schijf image (.dmg)"
+  },
+  "homepage.download.install.link": {
+    "message": "Snelle Start gids"
+  },
+  "homepage.download.linux.platform": {
+    "message": "glibc ≥ 2.35 · x64 · ARM64"
+  },
+  "homepage.download.pageDescription": {
+    "message": "Download aMule voor Windows, macOS, Linux of compileer het vanuit de broncode."
+  },
+  "homepage.features.preview.title": {
+    "message": "Weergave Voor Voltooiing"
+  },
+  "theme.SearchBar.label": {
+    "message": "Zoeken"
+  },
+  "homepage.features.folderRescan.desc": {
+    "message": "aMule houdt uw gedeelde en Binnenkomende mappen in de gaten en pikt nieuwe, veranderde, of verwijderde bestanden automatisch op — u hoeft niet handmatig te herladen wanneer uw bibliotheek verandert."
+  },
+  "homepage.download.compile.link": {
+    "message": "Compilatiegids"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Zie alle resultaten in \"{context}\""
+  },
+  "theme.admonition.warning": {
+    "message": "waarschuwing"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Doorzoek de documentatie"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Laatst geüpdate {atDate}{byUser}"
+  },
+  "homepage.features.messaging.desc": {
+    "message": "Wissel direct berichten uit met andere aMule-gebruikers en onderhoud een vriendelijst om verbonden te blijven met uw regelmatige deelpartners."
+  },
+  "homepage.features.networks.desc": {
+    "message": "Verbind tegelijkertijd met zowel het traditionele eD2k-servernetwerk als met het serverloze Kademlia DHT, waardoor uw bereik en bestandsbeschikbaarheid gemaximalizeerd wordt."
+  },
+  "homepage.features.categories.desc": {
+    "message": "Organizeer downloads in categorieën met aangepaste opslagpaden en prioriteiten. Pas regels toe per categorie om uw bibliotheek automatisch netjes te houden."
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Navigatiebalk omschakelen"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " op {date}"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Auteurs"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Nieuwere items"
+  },
+  "homepage.features.preview.desc": {
+    "message": "Speel video's en audiobestanden af voordat een download is voltooid. Compatibel met MPlayer, VLC en andere mediaspelers."
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Zijbalk uitvouwen"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Volgende"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}"
+  },
+  "homepage.features.docsLink": {
+    "message": "Blader door de gehele documentatie →"
+  },
+  "homepage.features.bandwidthControl.title": {
+    "message": "Controle over Bandbreedte"
+  },
+  "homepage.features.systemTray.title": {
+    "message": "Systeemvak"
+  },
+  "homepage.features.daemon.desc": {
+    "message": "Voer aMule uit als lichtgewicht en headless proces (amuled) op servers, NAS appraten of VPS instanties — geen grafische weergave nodig."
+  },
+  "homepage.features.secureIdentification.title": {
+    "message": "Veilige Identificatie"
+  },
+  "homepage.download.foot.link": {
+    "message": "pagina van de recentste versie"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "donkere modus"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Download"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Deze pagina is een conceptversie. Het zal alleen zichtbaar zijn in ontwikkeling en zal uitgesloten worden van productieversies."
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Hoofdpagina"
+  },
+  "homepage.features.folderRescan.title": {
+    "message": "Automatische Herscannen van Mappen"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Lees meer over {title}"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Overal"
+  },
+  "homepage.features.proxy.title": {
+    "message": "Proxy-ondersteuning"
+  },
+  "homepage.features.remoteInterfaces.title": {
+    "message": "Interfaces op Afstand"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Wissel tussen donkere en lichte modus (nu {mode})"
+  },
+  "homepage.download.install": {
+    "message": "De {install} dekt elk platform en de {quickstart} loopt u door de installatie en uw eerste download heen."
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Probeer opnieuw"
+  },
+  "homepage.features.ed2kLinks.desc": {
+    "message": "Klik op ed2K://- en magnet:-koppelingen in uw browser of open .emulecollection-bestanden om downloads automatisch te beginnen. aMule registreert zichzelf als de afhandelaar hiervan op Windows, macOS, Linux en BSD."
+  },
+  "homepage.features.emuleCompatible.title": {
+    "message": "Compatibel met eMule"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versies"
+  },
+  "homepage.download.compile": {
+    "message": "De {link} bevat instructies om aMule te compileren vanuit de broncode."
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Dit is documentatie voor {siteTitle} {versionLabel}, die niet langer actief onderhouden wordt."
+  },
+  "homepage.features.remoteInterfaces.desc": {
+    "message": "Bestuur aMule overal: een native GUI voor werken op afstand (amulegui), een REST API en moderne browser Web UI (amuleapi), een hulpmiddel voor de commandoregel (amulecmd) of met de oudere WebUI (amuleweb)."
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Thuispagina"
+  },
+  "homepage.tagline": {
+    "message": "eD2k/Kad client met eMule compabiliteit voor alle platformen"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Deze auteur heeft nog niets gepost."
+  },
+  "homepage.features.corruptionHandling.title": {
+    "message": "Corruptie Afhandelaar"
+  },
+  "homepage.features.categories.title": {
+    "message": "Downloadcategorieën"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Documentatiepagina's"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Één post|{count} posts"
+  },
+  "homepage.features.creditSystem.desc": {
+    "message": "Een ingebouwd credit- en scoresysteem dat gebruikers beloont die actief uploaden. Hoe meer u deelt, hoe hoger uw score — wat resulteert in snellere downloads."
+  },
+  "homepage.hero.screenshot.alt": {
+    "message": "aMule downloads tabblad"
+  },
+  "theme.admonition.note": {
+    "message": "opmerking"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Zijbalk uitvouwen"
+  },
+  "homepage.features.powerShare.desc": {
+    "message": "Geef de distributie van uw bestanden de hoogste prioriteit in de uploadwachtrij zodat ze zo snel mogelijk over het netwerk verspreiden — ideaal voor het delen van nieuwe inhoud. In eMule staat deze functie bekend als PowerShare."
+  },
+  "homepage.features.openSource.desc": {
+    "message": "GPL-2.0 licientie zonder telemetrie, zonder reclame en zonder leveranciersafhankelijkheid. Uw gegevens zijn van u — inspecteer de broncode en draag eraan bij."
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows"
+  },
+  "homepage.description": {
+    "message": "aMule is een vrije en multi-platform eD2k/Kad client met eMule compatibiliteit voor Windows, macOS en Linux."
+  },
+  "homepage.download.previous.title": {
+    "message": "Vorige versies"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " per {user}"
+  },
+  "homepage.features.ipFiltering.desc": {
+    "message": "Blokkeer ongewenste IP-adressen met standaard IP-filterlijsten. Voorkom dat aggressieve, schadelijke of spionnen-peers verbinden met uw client."
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Deze pagina wordt niet vermeld. Zoekmachines zullen het niet indexeren en alleen gebruikers die een directe koppeling hebben kunnen er toegang tot krijgen."
+  },
+  "theme.blog.archive.description": {
+    "message": "Archief"
+  },
+  "homepage.download.macos.platform": {
+    "message": "macOS 11.0+ · Apple Silicon · Intel"
+  },
+  "homepage.features.slotAllocation.title": {
+    "message": "Tijblokken Toewijzen"
+  },
+  "homepage.features.bandwidthControl.desc": {
+    "message": "Stel harde grenzen in voor upload- en downloadsnelheid, gehandhaafd door precieze toekn-bucket limiters. Top aMule af zodat het nooit uw verbinding opvult — of laat het met volle kracht draaien als u weg bent."
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} met \"{tagName}\""
+  },
+  "homepage.features.compressedTransfers.desc": {
+    "message": "Bestandsgegevens en servercommunicatie zijn gecomprimeerd met zlib, wat bandbreedtegebruik bespaart voor comprimeerbare bestanden en wat de druk op eD2k-servers verlaagt."
+  },
+  "homepage.features.emuleCompatible.desc": {
+    "message": "Volledig draad-compatibel met eMule en alle *Mule-clients. Deel bestanden met dezelfde bronnen, verbind met dezelfde servers en open standaard ed2k://-koppelingen."
+  },
+  "theme.admonition.tip": {
+    "message": "tip"
+  },
+  "theme.admonition.danger": {
+    "message": "gevaar"
+  },
+  "homepage.download.windows.installer.label": {
+    "message": "Installer (.exe)"
+  },
+  "homepage.features.openSource.title": {
+    "message": "Vrij & Open Source"
+  },
+  "homepage.hero.logo.alt": {
+    "message": "aMule logo"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Terug naar hoofdmenu"
+  },
+  "homepage.download.source.platform": {
+    "message": "Compileer het zelf"
+  },
+  "homepage.download.windows.portable.label": {
+    "message": "Portable (.zip)"
+  },
+  "homepage.features.powerShare.title": {
+    "message": "Distributieprioriteit"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Oudere items"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Zijbalk documenten"
+  },
+  "homepage.features.messaging.title": {
+    "message": "Berichten & Vrienden"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archief"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule is een vrije, peer-to-peer bestandsdelingsclient voor de {ed2k} en {kad} netwerken met een GPL licentie. Het is compatibel met eMule en kan native worden uitgevoerd op Windows, macOS en Linux. Dezelfde status op de schijf, hetzelfde protocol, één binair bestand per belangrijke desktop."
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS"
+  },
+  "homepage.features.sourceExchange.desc": {
+    "message": "Wissel automatisch bronnenlijsten uit met verbonden peers om meer bronnen te ontdekken voor uw downloads zonder meermalig de server te raadplegen."
+  },
+  "homepage.download.linux.appimage.label": {
+    "message": "AppImage"
+  },
+  "homepage.download.linux.flatpak.label": {
+    "message": "Flatpak"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Bekijk alle auteurs"
+  },
+  "homepage.features.slotAllocation.desc": {
+    "message": "Controleer precies met hoeveel cleints u tegelijkertijd upload en stel bandbreedtedoelen in per tijdblok, zodat u gedetailleerde controle krijgt over uw uploadcapaciteit."
+  },
+  "homepage.download.macos.dmg.arch": {
+    "message": "Universal2"
+  },
+  "homepage.features.compressedTransfers.title": {
+    "message": "Gecomprimeerde Overdrachten"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Talen"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 document gevonden|{{count} documenten gevonden"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Kopiëren"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Één document gelabeld|{count} documenten gelabeld"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Zie alle resultaten buiten \"{context}\""
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Oudere post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Bekijk alle labels"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Dit is niet uitgegeven documentatie voor {siteTitle} versie {versionLabel}."
+  },
+  "homepage.download.install.guide.link": {
+    "message": "Installatiegids"
+  },
+  "homepage.download.previous.entry.github": {
+    "message": "GitHub"
+  },
+  "theme.NotFound.p1": {
+    "message": "We konden niet vinden waar u naar zocht."
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Doorzoek resultaten voor \"{query}\""
+  },
+  "theme.blog.post.readMore": {
+    "message": "Lees meer"
+  },
+  "homepage.features.search.title": {
+    "message": "Krachtige Zoekfuncties"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Gekopieerd"
+  },
+  "homepage.features.daemon.title": {
+    "message": "aMule Daemon"
+  },
+  "homepage.features.ed2kLinks.title": {
+    "message": "Één-Klik Koppelingen"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Woordafbreking omschakelen"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Zijbalkcategorie '{label}' invouwen"
+  },
+  "homepage.download.windows.platform": {
+    "message": "Windows 10 / 11 · x64 · ARM64"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Zijbalk invouwen"
+  },
+  "homepage.download.version.date": {
+    "message": "Uitgegeven {date}"
+  },
+  "homepage.download.distros.link": {
+    "message": "belangrijke Linux distributions"
+  },
+  "theme.admonition.info": {
+    "message": "info"
+  },
+  "homepage.download.source.os": {
+    "message": "Broncode"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Overslaan naar hoofdinhoud"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Geen resultaten"
+  },
+  "homepage.features.secureIdentification.desc": {
+    "message": "Cryptografisch beveiligde gebruikersidentificatie voorkomt dat uw client-hash wordt gestolen of gespoofd door andere peers op het netwerk."
+  },
+  "homepage.download.version.changelog": {
+    "message": "Changelog"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Directe koppeling naar {heading}"
+  },
+  "homepage.hero.cta.quickstart": {
+    "message": "Snelle Start"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Voor up-to-date documentatie ziet u {latestVersionLink} ({versionLabel})."
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versie: {versionLabel}"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "laatste versie"
+  },
+  "theme.common.editThisPage": {
+    "message": "Pas deze pagina aan"
+  },
+  "homepage.download.arch.arm64": {
+    "message": "ARM64"
+  },
+  "homepage.features.search.desc": {
+    "message": "Doorzoek verschillende eD2k-servers (lokaal en wereldwijd) en Kademlia-nodes. Filter op type, maat en beschikbaarheid. Booleanse operators (AND, OR, NOT) worden ondersteund."
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(opent in nieuw tabblad)"
+  },
+  "homepage.showcase.integrity.lead": {
+    "message": "Elk stuk wordt gehashed en geverifiëerd zodat gecorrupte gegevens worden gevonden en automatisch opnieuw worden gedownload."
+  },
+  "homepage.features.nativePackages.desc": {
+    "message": "Installatiebestand en portable .zip voor Windows, Universal2 .dmg voor macOS, AppImage en Flatpack op Linux voor zowel x64 als ARM64 — plus volledig statische headless binaire bestanden voor Linux-servers."
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Vorige"
+  },
+  "homepage.download.previous.github.link": {
+    "message": "GitHub"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Één min. lezen|{readingTime} min. lezen"
+  },
+  "theme.NotFound.title": {
+    "message": "Pagina Niet Gevonden"
+  },
+  "homepage.download.docker": {
+    "message": "Voor servers en NAS-apparaten is ook een {repo}, die wordt onderhouden door een lid van het aMule Team, beschikbaar — zie ook de {gids}."
+  },
+  "homepage.download.docker.repo.link": {
+    "message": "onofficiële Docker image"
+  },
+  "homepage.banner.download": {
+    "message": "download"
+  },
+  "homepage.download.linux.static.label": {
+    "message": "Statische binaire bestanden (.tar.gz)"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recente posts navigatie"
+  },
+  "homepage.banner.changelog": {
+    "message": "changelog →"
+  },
+  "homepage.banner.text": {
+    "message": "aMule {versie} is beschikbaar — {download} of lees de {changelog}"
+  },
+  "homepage.download.docker.guide.link": {
+    "message": "Docker-sectie van de installatiegids"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Dropdown invouwen"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Dropdown uitvouwen"
+  },
+  "homepage.download.static": {
+    "message": "De {link} is headless: ze bevatten alleen {amuled}, {amuleapi} (REST API en Web UI) en {amulecmd}, zonder gedeelde bibliotheekafhankelijkheden."
+  },
+  "homepage.download.static.link": {
+    "message": "Linux statische binaire bestanden"
+  },
+  "homepage.features.interfaceBinding.title": {
+    "message": "Binden van Netwerkinterfaces"
+  },
+  "homepage.showcase.networks.title": {
+    "message": "Twee netwerken, één client"
+  },
+  "homepage.showcase.bandwidth.lead": {
+    "message": "Beslis hoe veel van uw verbinding aMule precies kan gebruiken en wie uw uploads mag ontvangen."
+  },
+  "homepage.showcase.networks.lead": {
+    "message": "aMule spreekt aD2k en Kademlia tegelijkertijd aan zodat elke download zowel op server gebaseerde als serverless peers aantrekt."
+  },
+  "homepage.download.other.packages.title": {
+    "message": "Publicatiepagina en distributiepakketten"
+  },
+  "homepage.showcase.security.alt": {
+    "message": "Veiligheidsvoorkeuren met IP-filteropties"
+  },
+  "homepage.showcase.remote.alt": {
+    "message": "amuleapi Web UI die de downloadlijst toont"
+  },
+  "homepage.more.title": {
+    "message": "En nog veel meer"
+  },
+  "homepage.showcase.security.lead": {
+    "message": "Houd ongewenste peers buiten en uw identiteit veilig met IP-filters, cryptografische identificatie en proxy-ondersteuning."
+  },
+  "homepage.showcase.search.lead": {
+    "message": "Verzoekt tegelijkertijd informatie van eD2k-servers en het Kad netwerk en stuurt de resultaten direct naar uw downloadwachtrij."
+  },
+  "homepage.showcase.search.alt": {
+    "message": "Zoekopdrachten-tabblad met resultaten"
+  },
+  "homepage.showcase.integrity.title": {
+    "message": "Downloads waarop u kan vertrouwen"
+  },
+  "homepage.features.endgame.title": {
+    "message": "Eindspel Modus"
+  },
+  "homepage.features.encryptedRemote.desc": {
+    "message": "Externe interfaces versleutelen hun verbinding met de kern, nieuwe installaties accepteren het alleen vanaf het lokale apparaat en mislukte aanmeldingspogingen worden beperkt."
+  },
+  "homepage.showcase.search.title": {
+    "message": "Vind waar u naar zoekt"
+  },
+  "homepage.download.next.title": {
+    "message": "Volgende stappen"
+  },
+  "homepage.showcase.remote.title": {
+    "message": "Controle – overal"
+  },
+  "homepage.cta.title": {
+    "message": "Klaar om te beginnen?"
+  },
+  "homepage.cta.text": {
+    "message": "Download aMule voor uw platform en volg de Snelle Start-gids om uw eerste download te laten plaatsvinden."
+  },
+  "homepage.showcase.integrity.alt": {
+    "message": "Downloads-tabblad met de voortgang van elk bestand"
+  },
+  "homepage.hero.mobile.alt": {
+    "message": "amuleapi Web UI op een smartphone"
+  },
+  "homepage.download.other.docker.title": {
+    "message": "Docker"
+  },
+  "homepage.showcase.networks.alt": {
+    "message": "Netwerken-tabblad met de eD2k-serverlijst"
+  },
+  "homepage.features.appearance.desc": {
+    "message": "De interface volgt het lichte of donkere thema van uw systeem, met scherpe pictogrammen op schermen met hoge resolutie."
+  },
+  "homepage.showcase.security.title": {
+    "message": "Veiligheid en privacy ingebouwd"
+  },
+  "homepage.features.verifyLocalData.title": {
+    "message": "Verifiëer Lokale Gegevens"
+  },
+  "homepage.features.endgame.desc": {
+    "message": "Aan het einde van een download neemt een snelle bron de blokken over die werden vastgehouden door een tragere bron zodat bestanden niet vastlopen op 99% door een trage peer."
+  },
+  "homepage.features.verifyLocalData.desc": {
+    "message": "Her-hash gedeelde bestanden op aanvraag om te controleren dat de gegevens op de schijf nog intact zijn."
+  },
+  "homepage.showcase.bandwidth.alt": {
+    "message": "Statistieken-tabblad met de downloadsnelheid-grafiek"
+  },
+  "homepage.showcase.bandwidth.title": {
+    "message": "Uw bandbreedte, uw regels"
+  },
+  "homepage.features.encryptedRemote.title": {
+    "message": "Versleutelde Afstandsbesturing"
+  },
+  "homepage.features.interfaceBinding.desc": {
+    "message": "Bind aMule's verkeer aan één netwerkinterface, zoals een VPN, zodat het niet via de standaardroute verloopt terwijl die interface bestaat (niet beschikbaar op BSD)."
+  },
+  "homepage.features.appearance.title": {
+    "message": "Licht en Donker Uiterlijk"
+  },
+  "homepage.download.other.title": {
+    "message": "Andere manieren om aMule te krijgen"
+  },
+  "homepage.showcase.remote.lead": {
+    "message": "Voer aMule uit op een server of NAS en beheer het vanaf uw desktop, uw browser of uw telefoon."
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Bloglijst paginanavigatie"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Blogpost paginanavigatie"
+  }
+}

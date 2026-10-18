@@ -201,7 +201,7 @@
     "message": "Interfacce remote"
   },
   "homepage.features.remoteInterfaces.desc": {
-    "message": "Controlla aMule da ovunque: una GUI remota nativa (amulegui), un'interfaccia web da browser (amuleweb) o uno strumento a riga di comando (amulecmd)."
+    "message": "Controlla aMule da ovunque: una GUI remota nativa (amulegui), un'API REST e una moderna Web UI da browser (amuleapi), uno strumento a riga di comando (amulecmd) o la vecchia WebUI (amuleweb)."
   },
   "homepage.features.daemon.title": {
     "message": "Demone aMule"
@@ -676,5 +676,11 @@
   },
   "homepage.download.next.title": {
     "message": "Prossimi passi"
+  },
+  "homepage.download.static": {
+    "message": "I {link} sono headless: contengono solo {amuled}, {amuleapi} (API REST e Web UI) e {amulecmd}, senza dipendenze da librerie condivise."
+  },
+  "homepage.download.static.link": {
+    "message": "binari statici per Linux"
   }
 }
