@@ -153,10 +153,10 @@
     "message": "Kategorie stahování"
   },
   "homepage.features.creditSystem.desc": {
-    "message": "Vestavěný kreditní a bodovací systém odmění uživatele, kteří aktivně nahrávají. Čím více sdílíte, tím vyšší je vaše skóre — což vede k rychlejšímu stahování."
+    "message": "Vestavěný kreditní a bodovací systém odmění uživatele, kteří aktivně odesílají. Čím více sdílíte, tím vyšší je vaše skóre — což vede k rychlejšímu stahování."
   },
   "homepage.features.powerShare.desc": {
-    "message": "Ve vaší frontě nahrávání dejte nejvyšší prioritu vámi vydaným souborům, aby mohly být šířeny sítí co nejrychleji - ideální pro sdílení nového obsahu. V eMule je tato funkce známá jako PowerShare."
+    "message": "Ve vaší frontě odesílání dejte nejvyšší prioritu vámi vydaným souborům, aby mohly být šířeny sítí co nejrychleji - ideální pro sdílení nového obsahu. V eMule je tato funkce známá jako PowerShare."
   },
   "homepage.features.openSource.desc": {
     "message": "GPL-2.0 licencováno bez telemetrie, bez reklam a bez vendor lock-in. Vaše data jsou vaše — prozkoumejte zdrojový kód a přispějte do něj."
@@ -174,7 +174,7 @@
     "message": "macOS 11.0+ · Apple Silicon · Intel"
   },
   "homepage.features.bandwidthControl.desc": {
-    "message": "Nastavte pevné omezení rychlosti nahrávání a stahování, vynucené přesnými omezeními tokenů. Omezte aMule, aby nezahlcoval síťové připojení - a nebo zrušte omezení v době kdy jste mimo počítač."
+    "message": "Nastavte pevné omezení rychlosti odesílání a stahování, vynucené přesnými omezeními tokenů. Omezte aMule, aby nezahlcoval síťové připojení - a nebo zrušte omezení v době kdy jste mimo počítač."
   },
   "homepage.features.compressedTransfers.desc": {
     "message": "Data souborů a serverová komunikace jsou komprimovány pomocí zlib, což snižuje datový přenos u souborů, které jsou komprimovatelné a dochází i k nižší zátěži serverů eD2k."
@@ -333,7 +333,7 @@
     "message": "Automaticky vyměňujte seznamy zdrojů s připojenými peery, abyste zjistili více zdrojů pro stahování bez opakovaného dotazování serveru."
   },
   "homepage.features.slotAllocation.desc": {
-    "message": "Ovládejte přesně, ke kolika klientům nahráváte zároveň a nastavte každému slotu šířku pásma, což vám umožní přesně nastavit vaší kapacitu nahrávání."
+    "message": "Ovládejte přesně, ke kolika klientům odesíláte zároveň a nastavte každému slotu šířku pásma, což vám umožní přesně nastavit vaší kapacitu odesílání."
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "1 dokument nalezen|{count} dokumentů nalezeno"
