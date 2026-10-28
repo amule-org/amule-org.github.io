@@ -5,8 +5,8 @@
 //   2. Update LATEST_VERSION and LATEST_DATE with the new release.
 // Consumed by the homepage (release banner) and the download page.
 
-export const LATEST_VERSION = '3.1.0';
-export const LATEST_DATE = '2026-09-21';
+export const LATEST_VERSION = '3.2.0';
+export const LATEST_DATE = '2026-10-28';
 export const CHANGELOG_URL = `/changelog/${LATEST_VERSION}`;
 
 // Generic releases page (version-number link, footer links).
@@ -16,6 +16,7 @@ export const ASSET_BASE = `https://github.com/amule-org/amule/releases/download/
 
 // Archived releases (most recent first). URLs are derived from the version number.
 export const PREV_RELEASES = [
+  {version: '3.1.0', date: '2026-09-21'},
   {version: '3.0.1', date: '2026-06-24'},
   {version: '3.0.0', date: '2026-06-08'},
   {version: '2.3.3', date: '2021-02-07'},
