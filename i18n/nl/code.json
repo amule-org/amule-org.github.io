@@ -573,7 +573,7 @@
     "message": "Linux statische binaire bestanden"
   },
   "homepage.features.interfaceBinding.title": {
-    "message": "Binden van Netwerkinterfaces"
+    "message": "Koppelen van Netwerkinterfaces"
   },
   "homepage.showcase.networks.title": {
     "message": "Twee netwerken, één client"
