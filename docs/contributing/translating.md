@@ -53,7 +53,7 @@ The most common reasons, in order:
 - **It is waiting for review.** No reviewer has approved it yet. Some languages have no reviewer at all — if yours is one of them, consider [becoming a reviewer](#becoming-a-reviewer).
 - **It is a suggestion**, not a translation. See [Save or Suggest](#save-or-suggest).
 - **It was approved recently.** Approved translations are exported when a maintainer pushes them from Weblate, not instantly.
-- **The man page is not translated enough.** A translated man page is only built when at least 80% of its strings are approved; below that, the English man page is installed.
+- **The man page is not translated enough.** A translated man page is only built when at least 70% of its strings are approved; below that, the English man page is installed.
 - **No release has shipped since.** Application, man-page and Web UI translations reach users with the next aMule release; website translations appear with the next website update.
 
 To see what is pending for your language, open the language in Weblate and filter the strings waiting for review.

@@ -25,6 +25,7 @@ All remote interfaces communicate with `amuled` through the **[External Connecti
 | `-v` | `--version` | Display the current version number and exit. |
 | `-h` | `--help` | Display the list of options and exit. |
 | `-c <dir>` | `--config-dir=<dir>` | Read the configuration from `<dir>` instead of the default `~/.aMule/`. |
+| | `--log-file=<file>` | Write the log to `<file>` for this run only (overrides `LogFilePath`; see [Log File](#log-file)) |
 | `-o` | `--log-stdout` | Print log messages to stdout (ignored when the daemon forks to background). |
 | `-r` | `--reset-config` | Reset the configuration to default values (the old config is backed up with a `.backup` suffix). |
 | `-e` | `--ec-config` | Configure [External Connections (EC)](../../developer/ec-protocol.md) interactively. |
@@ -38,7 +39,9 @@ All remote interfaces communicate with `amuled` through the **[External Connecti
 | | `--configure-protocols=<value>` | Enable or disable aMule as the current user's default handler for `ed2k://` and `magnet:` links, then exit. `<value>` is `on` or `off` for both schemes, or `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off` for one of them. The OS-specific store is selected automatically: Windows registry, macOS LaunchServices, Linux/BSD XDG `mimeapps.list`. |
 | | `--configure-file-assoc=on\|off` | Enable or disable aMule as the current user's handler for `.emulecollection` files, then exit. Uses the same OS-specific stores as `--configure-protocols`. |
 
-One or more links may be passed as positional arguments: an [eD2k file link](../../p2p-networks/ed2k/links.md) is added to the download queue, an eD2k server or serverlist link to the server list, and a magnet link (it must contain the eD2k hash and file length) to the download queue. The argument can also be the path to an `.emulecollection` file, or a `file://` URL naming one, in which case every link it contains is added to the download queue.
+The `--configure-*` options exit with status `0` on success and `1` on failure (including an unknown value), so scripts and installers can check the result.
+
+One or more links may be passed as positional arguments: an [eD2k file link](../../p2p-networks/ed2k/links.md) is added to the download queue, an eD2k server or serverlist link to the server list, and a magnet link (it must contain the eD2k hash and file length) to the download queue. The argument can also be the path to an `.emulecollection` file, or a `file://` URL naming one, in which case every link it contains is added to the download queue. If an `amuled` is already running with the same configuration, the links are handed to it and the new process exits quietly.
 
 :::note
 Do not set an excessively high `MaxConnections` value in [`amule.conf`](../configuration/config-files/amule-conf.md). The default is around **500** and `amuled` adapts the recommended maximum to your operating system's capabilities. Setting it far too high wastes resources and can degrade performance.
@@ -59,6 +62,8 @@ amuled --ec-config
 ```
 
 Alternatively, run `amuled` once normally — it will create [`~/.aMule/amule.conf`](../configuration/config-files/amule-conf.md) with defaults — then quit and edit the file manually.
+
+`amuled` cannot run without External Connections: if `AcceptExternalConnections` is off or no `ECPassword` is set, it logs an error explaining how to fix it and exits.
 
 ### Key [`amule.conf`](../configuration/config-files/amule-conf.md) Settings
 
@@ -93,7 +98,7 @@ By default `amuled` runs in the **foreground**. Add `-o` to print log messages t
 amuled -o
 ```
 
-Use `-f` to **fork to the background** (daemonize). When it forks, `amuled` detaches from the controlling terminal and closes stdin/stdout/stderr, so logging to stdout is disabled automatically. Combine it with `-p` to write a PID file that a service manager can track:
+Use `-f` to **fork to the background** (daemonize). When it forks, `amuled` detaches from the controlling terminal and closes stdin/stdout/stderr, so logging to stdout is disabled automatically. If startup fails, `amuled -f` prints the reason and exits with status `1`. Combine it with `-p` to write a PID file that a service manager can track:
 
 ```bash
 amuled -f -p /run/amuled/amuled.pid
@@ -102,6 +107,21 @@ amuled -f -p /run/amuled/amuled.pid
 :::note
 aMule creates a single-instance lock at `~/.aMule/muleLock` to prevent a second instance from starting with the same configuration. This is **not** a manageable PID file — use `-p` if you need one.
 :::
+
+## Log File
+
+`amuled` writes its log to `logfile` in the configuration directory; the previous run's log is kept as `logfile.bak`. To keep the log elsewhere (for example on a RAM-backed filesystem), set `LogFilePath` under `[eMule]` in [`amule.conf`](../configuration/config-files/amule-conf.md), or pass `--log-file=<file>` for a single run. A relative path is resolved against the configuration directory, and the parent directory must already exist; changes to `LogFilePath` take effect after a restart.
+
+## Settings Reserved to the Daemon Host
+
+Remote interfaces administer aMule, not the machine it runs on, so some settings can only be changed on the host that runs `amuled`, by editing its configuration files:
+
+- **Folders remote clients may use.** A remote interface ([`amulegui`](./gui/amulegui.md), [`amuleapi`](./amuleapi/index.md), EC scripts) can set the incoming, temporary, shared and category download folders only at or below a folder listed in `allowed-remote-dirs.dat` in the configuration directory (one absolute path per line). The file is **empty or absent by default**, so every remote folder change is refused; folders already configured keep working. In the monolithic [`amule`](./gui/amule.md), edit the list under [Preferences → Remote Controls](./gui/preferences.md#remote-controls) (**Folders remote clients may use**); on a daemon-only install (such as a container), edit the file and restart `amuled`.
+- **Daemon-local paths and policies.** The `ffprobe` path (`FFProbePath`), the online-signature folder (`OSDirectory`) and **Follow symbolic links in shared folders** (`FollowSymlinksInShares`) cannot be changed over EC or `amuleapi`; remote interfaces show them read-only. Likewise, a remote client can set the [`amuleweb`](./amuleweb.md) template only to a template name, not to a path.
+
+## Chat Spam Protection
+
+`amuled` applies the chat spam filter and the chat CAPTCHA to incoming messages, like the monolithic `amule`. Both are on by default (`AdvancedSpamFilter=1` and `MessageUseCaptchas=1` under `[eMule]` in [`amule.conf`](../configuration/config-files/amule-conf.md)). Switch them with **Enable advanced spam filter** and **Require a CAPTCHA for first messages from non-friends** under [Preferences → Filters](./gui/preferences.md#filters) from `amulegui` or the [Web UI](./amuleapi/web-ui.md). CAPTCHAs that other peers send can be answered from `amulegui`, `amuleapi` and the Web UI.
 
 ## Verify Local Data
 

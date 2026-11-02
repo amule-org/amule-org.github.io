@@ -51,7 +51,7 @@ The `KadNodesUrl` key in the `[eMule]` section of [`amule.conf`](../../manual/co
 KadNodesUrl=https://upd.emule-security.org/nodes.dat
 ```
 
-The download is triggered from the Kad tab in the interface. Supported URL schemes are `http://`, `https://`, and `ftp://`.
+The download is triggered from the Kad tab in the interface. Only `http://` and `https://` URLs are accepted.
 
 ### A note on byte order
 

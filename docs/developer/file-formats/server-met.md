@@ -19,8 +19,7 @@ For background on what eD2k servers are, how the server list works, fake servers
 |---|---|
 | `server.met.bak` | Backup written each time `server.met` is saved (replaces any previous backup) |
 | `server.met.new` | Transient write target; renamed to `server.met` on success, otherwise discarded |
-| `server.met.download` | Temporary destination for a downloaded server list; renamed to `server.met` on success |
-| `server_auto.met` | Staging area where downloaded lists are held before being merged into `server.met` |
+| `server.met.download` | Temporary destination for a downloaded server list; merged into the server list and deleted once processed |
 
 ## Obtaining server.met online
 
@@ -41,21 +40,13 @@ These are third-party services unaffiliated with the aMule project. Their availa
 
 ### Downloading from the aMule interface
 
-The **Networks → eD2k** tab contains a URL input field next to the server list controls. Enter a URL there and press Enter (or click the play button beside the field) to trigger an immediate download. aMule merges the downloaded list into the existing `server.met`.
+The **Networks → eD2k** tab has an **Update server list** button, which downloads every saved source and merges each list into the existing `server.met`, and an **Edit sources...** button to edit those sources. To download a list once without saving its URL, enter it in the **One-off URL** field and press Enter or click **Download once**.
 
-### Automatic download via `amule.conf`
+### Automatic download at startup
 
-The `Ed2kServersUrl` key in the `[eMule]` section of [`amule.conf`](../../manual/configuration/config-files/amule-conf.md) sets the URL used for automatic updates at startup:
+The `Serverlist` key in the `[eMule]` section of [`amule.conf`](../../manual/configuration/config-files/amule-conf.md) (**Auto-update server list at startup**) downloads every saved source at startup; `Serverlist=0` (the default) disables it. The sources are kept in [`addresses.dat`](./index.md#addressesdat).
 
-```ini
-[eMule]
-Serverlist=1
-Ed2kServersUrl=https://upd.emule-security.org/server.met
-```
-
-`Serverlist=1` enables the automatic download at startup. `Serverlist=0` (the default) disables it. Supported URL schemes are `http://`, `https://`, and `ftp://`.
-
-The `addresses.dat` file in the same directory provides an additional list of URLs that are also checked at startup when auto-update is enabled (one URL per line).
+A downloaded list is imported only if it reads to the end without errors; a source that fails is skipped.
 
 ## Format
 
@@ -76,6 +67,8 @@ Each record consists of a fixed 10-byte prefix followed by a variable number of 
 | 2 | TCP port | Standard eD2k TCP port (uint16, little-endian) |
 | 4 | Tag count | Number of tags that follow (uint32, little-endian) |
 | variable | Tags | Key-value pairs in eD2k tag format (see below) |
+
+Files written by aMule 3.1.0 or earlier declare one tag too many for a server without a version (`ST_VERSION`); aMule detects this and reads them correctly. Unknown tags are skipped.
 
 ### Tag format
 

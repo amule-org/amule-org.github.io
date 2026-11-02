@@ -5,7 +5,7 @@ title: amuleapi.conf
 
 `amuleapi.conf` is the configuration file for the [`amuleapi`](../../interfaces/amuleapi/index.md) daemon (REST API and Web UI). It is the **only** configuration file `amuleapi` reads — it does **not** use [`remote.conf`](./remote-conf.md). It uses standard INI syntax and is read once at startup.
 
-`amuleapi` creates the file from defaults on first run, so in most setups it needs no manual editing: the HTTP bind address and port, the EC connection, and the Web UI login passwords can all be set from [Preferences → Remote Controls](../../interfaces/gui/preferences.md#remote-controls); the login passwords can also be set with `amuleapi --set-admin-pass` / `--set-guest-pass`, and the other [command-line options](../../interfaces/amuleapi/index.md#command-line-options) override the file for a single run without saving to it. Edit this file directly to tune the settings that have no GUI field (the `[Auth]` and `[Streaming]` knobs).
+`amuleapi` creates the file from defaults on first run, so in most setups it needs no manual editing: the HTTP bind address and port, the EC connection, and the Web UI login passwords can all be set from [Preferences → Remote Controls](../../interfaces/gui/preferences.md#remote-controls); the login passwords can also be set with `amuleapi --set-admin-pass-stdin` / `--set-guest-pass-stdin`, and the other [command-line options](../../interfaces/amuleapi/index.md#command-line-options) override the file for a single run without saving to it. Edit this file directly to tune the settings that have no GUI field (the `[Auth]` and `[Streaming]` knobs).
 
 :::warning
 `amuleapi.conf` is created with permissions `0600` (owner read/write only), and `amuleapi` checks it on every load — on POSIX systems it **refuses to start** if the file has any group or other permission bit set (it does not fix the permissions itself; it prints the `chmod 600` command to run). Keep these permissions if you edit the file.
@@ -55,6 +55,7 @@ Set `BasePath` when a reverse proxy shares one hostname between `amuleapi` and o
 - Requests without the prefix are still accepted, so the proxy can either forward the prefix or strip it. No cookie or header rewriting is needed in the proxy.
 - `/amule` (no trailing slash) redirects to `/amule/`.
 - The session cookie path becomes `<BasePath>/api/v1`.
+- Any reverse proxy (with or without `BasePath`) that rewrites `Host`, as nginx does by default, must pass the browser's host name in `X-Forwarded-Host`. Otherwise some browsers get `403` on every change.
 
 Caddy:
 
@@ -71,6 +72,7 @@ nginx:
 location /amule/ {
     proxy_pass http://127.0.0.1:4713;
     proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-Host $http_host;
 }
 ```
 
@@ -80,9 +82,10 @@ How `amuleapi` reaches the aMule core over [External Connections (EC)](../../../
 
 | Key | Default | CLI override | Description |
 |---|---|---|---|
-| `Host` | `127.0.0.1` | `-h` / `--host` | Hostname or IP address of the machine running [`amule`](../../interfaces/gui/amule.md) or [`amuled`](../../interfaces/amuled.md). |
+| `Host` | `127.0.0.1` | `-h` / `--host` | Hostname or IP address of the machine running [`amule`](../../interfaces/gui/amule.md) or [`amuled`](../../interfaces/amuled.md). `Host` and `Port` matter only for a hand-started `amuleapi`; an auto-started one is given the core's address. |
 | `Port` | `4712` | `-p` / `--port` | The core's EC port (matches `ECPort` in [`amule.conf`](./amule-conf.md)). |
-| `Password` | _(empty)_ | _(none)_ | Plain-text EC password. Must match the core's `ECPassword`. Needed only for a hand-started `amuleapi`; an auto-started one uses a one-off token instead (see [Auto-Start](../../interfaces/amuleapi/index.md#auto-start)). There is deliberately no `--password` flag. |
+| `Password` | _(empty)_ | _(none)_ | Plain-text EC password. Must match the core's `ECPassword`. Needed only for a hand-started `amuleapi`; an auto-started one uses a one-off token instead (see [Auto-Start](../../interfaces/amuleapi/index.md#auto-start)). There is deliberately no `--password` flag. Prefer `PasswordMD5`. Not written to a new file. |
+| `PasswordMD5` | _(empty)_ | _(none)_ | MD5 digest of the EC password (32 hexadecimal characters), an alternative to the plain-text `Password`. Set it with `amuleapi --set-ec-pass-stdin`, which also removes `Password`. `amuleapi` refuses to start if both keys are set or the digest is malformed. |
 | `Encryption` | `1` | `--disable-ec-encryption` | Use authenticated EC encryption (`0` = off, `1` = on). The `--disable-ec-encryption` flag turns it off for a single run. |
 
 ## `[Auth]` section
@@ -123,7 +126,7 @@ BasePath=
 [EC]
 Host=127.0.0.1
 Port=4712
-Password=
+PasswordMD5=
 Encryption=1
 
 [Auth]

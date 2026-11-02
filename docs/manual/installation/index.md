@@ -74,7 +74,7 @@ aMule is distributed for Windows in two formats: an **installer** (`.exe`) that 
 
 The last four are per-user settings that can be changed later in [Preferences → General](../interfaces/gui/preferences.md#general); see [eD2k and Magnet Links](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) for the link and file associations.
 
-The installer creates Start menu shortcuts — in a folder you choose on its **Choose Start Menu Folder** page — for **aMule**, **aMule Daemon** ([`amuled`](../interfaces/amuled.md)), **aMuleGUI (remote)** ([`amulegui`](../interfaces/gui/amulegui.md)) and **Uninstall aMule**, and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`). The uninstaller keeps this folder, so your settings and downloads are preserved, unless you tick **Remove user data (config, ED2K servers, Kad nodes, partfiles)** (off by default); to keep a copy anyway, see [Backup and Restore](../migration/backup-restore.md). When you upgrade, your configuration is kept, but the components are applied again as selected: tick **Start aMule when I log in** and **Register aMule for magnet: links** again if you use them.
+The installer creates Start menu shortcuts — in a folder you choose on its **Choose Start Menu Folder** page — for **aMule**, **aMule Daemon** ([`amuled`](../interfaces/amuled.md)), **aMuleGUI (remote)** ([`amulegui`](../interfaces/gui/amulegui.md)) and **Uninstall aMule**, and an entry in **Add or Remove Programs** for clean uninstallation. aMule stores its configuration in `%APPDATA%\aMule\` (`C:\Users\<you>\AppData\Roaming\aMule\`). The uninstaller keeps this folder, so your settings and downloads are preserved, unless you tick **Remove user data (config, ED2K servers, Kad nodes, partfiles)** (off by default); to keep a copy anyway, see [Backup and Restore](../migration/backup-restore.md). When you upgrade, your configuration is kept, and autostart and the link and file associations stay as they were unless you change them on the **Choose Components** page.
 
 ### Portable
 
@@ -109,6 +109,8 @@ Windows Defender SmartScreen may show a warning when you run the installer or `a
 4. Drag `aMule.app` (and `aMuleGUI.app`, if you want the remote GUI) into the `/Applications` folder.
 5. Eject the disk image.
 6. Open `aMule.app` from `/Applications` or Launchpad.
+
+On macOS 15 and later, the first time aMule reaches your local network macOS asks whether to allow it. Click **Allow**: without it, [UPnP](../configuration/upnp.md) cannot open ports on your router, and aMule or `aMuleGUI.app` cannot reach other computers on your network. If you denied it, turn aMule on again under **System Settings → Privacy & Security → Local Network**.
 
 After installing, see the [macOS configuration guide](../configuration/macos.md) for macOS-specific considerations such as context menus, firewall access, and handling `ed2k://` and `magnet:` links.
 
@@ -194,9 +196,7 @@ Click **Not now** to skip it for this launch, or tick **Don't ask again** to sto
 
 Tools such as [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) can add a menu entry too, but the [link and file associations](../configuration/ed2k-magnet-links.md#registering-amule-as-the-link-handler) need aMule's own desktop integration.
 
-:::caution Known issues in the AppImage
-
-**System tray icon is transparent.** The [system tray icon](../interfaces/gui/tray-icon.md) appears without a logo until the aMule icons are installed. Click **Install** in the *Add aMule to your application menu?* prompt to fix it.
+:::caution Known issue in the AppImage
 
 **GTK theme is not applied.** The AppImage bundles its own GTK libraries and does not use the GTK theme installed on the system. The application is functional but may not match the desktop theme.
 :::
@@ -219,7 +219,7 @@ Then invoke each symlink directly:
 
 ```sh
 ./amuled
-./amuleapi --set-admin-pass=yourpassword   # store the Web UI admin password, then exit
+./amuleapi --set-admin-pass-stdin   # ask for the Web UI admin password, store it, then exit
 ./amuleapi
 ./amulecmd
 ./ed2k "ed2k://|file|..."
@@ -255,6 +255,8 @@ The Flatpak runs in a sandboxed environment. Network access is granted by defaul
 ```sh
 flatpak run --filesystem=/mnt/data --command=amuled org.amule.aMule
 ```
+
+Programs installed on the host, such as a video player, are not available inside the sandbox. Completed files still open with the desktop's default application, but [previewing](../interfaces/gui/downloads.md) an unfinished download needs a player the sandbox can run, such as a self-contained player saved in your home folder.
 :::
 
 #### Running other components from the Flatpak
@@ -263,7 +265,7 @@ The Flatpak bundle also includes every aMule executable. Use the `--command` fla
 
 ```sh
 flatpak run --command=amuled org.amule.aMule
-flatpak run --command=amuleapi org.amule.aMule --set-admin-pass=yourpassword   # store the password, then exit
+flatpak run --command=amuleapi org.amule.aMule --set-admin-pass-stdin   # ask for the password, store it, then exit
 flatpak run --command=amuleapi org.amule.aMule
 flatpak run --command=amulecmd org.amule.aMule
 flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
@@ -291,7 +293,7 @@ cd aMule-<version>-Linux-x64-static
 
 See [`amuled` → Configuration](../interfaces/amuled.md#configuration) to set up External Connections before connecting [`amulecmd`](../interfaces/amulecmd.md) or [`amuleapi`](../interfaces/amuleapi/index.md) to it.
 
-The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets). Nothing is installed system-wide; to uninstall, delete the folder. HTTPS downloads (IP filter, [IP2Country](../configuration/ip2country.md) database, server lists) use the host's CA certificate bundle, so install your distribution's `ca-certificates` package on minimal systems.
+The archive extracts to a single `aMule-<version>-Linux-x64-static/` folder containing the `amuled`, `amuleapi` and `amulecmd` binaries (plus the `amuleapi-static/` folder with the bundled Web UI assets, and the license notices). Nothing is installed system-wide; to uninstall, delete the folder. HTTPS downloads (IP filter, [IP2Country](../configuration/ip2country.md) database, server lists) use the host's CA certificate bundle, so install your distribution's `ca-certificates` package on minimal systems.
 
 ### Distribution Packages
 

@@ -96,13 +96,13 @@ Any file in the Incoming directory is also automatically [shared](#shared-file) 
 
 ### Seed
 
-aMule can optionally store a small number of known **sources** for rare files in `NNN.part.met.seeds` files. This helps re-locate sources for files with very few peers across sessions. Only **rare files (fewer than 20 known sources)** get seeds saved.
+aMule can optionally store a small number of known **sources** for rare files in `NNN.part.met.seeds` files. This helps re-locate sources for files with very few peers across sessions. Only **rare files (20 or fewer known sources)** get seeds saved.
 
 **Priority for stored seeds:**
 1. Sources that are currently actively uploading to you (you likely have more [credits](#credits) with them).
 2. Most recently found sources (most likely still active next session).
 
-aMule stores up to **10 sources** per file. Enable in **Preferences → Files → Save 10 sources on rare files (< 20 sources)**.
+aMule stores up to **10 sources** per file. Enable in **Preferences → Files → Save up to 10 HighID sources of rare files (20 or fewer sources) on exit**.
 
 ## File Sharing
 

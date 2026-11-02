@@ -18,7 +18,7 @@ aMule's interface strings are managed with [GNU gettext](https://www.gnu.org/sof
 | File | Purpose |
 |---|---|
 | `po/amule.pot` | Template with all translatable strings extracted from source. Empty translations. Committed to git. |
-| `po/xx.po` | One file per language. Contains the actual translations. Committed to git. |
+| `po/xx.po` | One file per language. Contains the actual translations. Committed to git; [Weblate](./weblate.md#amule-application) merges template changes into it. |
 | `build/po/xx.gmo` | Compiled binary catalog, generated at build time. Not committed. |
 
 At runtime, the program loads the installed `amule.mo` catalog for the user's locale. The catalog is always named `amule.mo`, but its install location depends on the platform: Windows uses `bin/locale/xx/LC_MESSAGES/`, macOS bundles it inside the app at `Contents/Resources/locale/xx/LC_MESSAGES/`, and Linux/BSD use `share/locale/xx/LC_MESSAGES/`.
@@ -83,7 +83,7 @@ msgattrib --only-fuzzy po/pt_BR.po
 
 ### Updating an Existing Translation
 
-After source code changes, the `.pot` template and all `.po` files must be refreshed. Run this from the repository root:
+After adding or changing translatable strings in the source code, regenerate the template. Run this from the repository root:
 
 ```sh
 ./scripts/update-po.sh
@@ -92,12 +92,20 @@ After source code changes, the `.pot` template and all `.po` files must be refre
 This script:
 
 1. Runs `xgettext` over all files listed in `po/POTFILES.in` to regenerate `po/amule.pot`.
-2. Updates the copyright year in the `.pot` header.
-3. Runs `msgmerge --update` on every `po/*.po` so each language file receives new and changed strings.
+2. Fills in the copyright year in the `.pot` header.
+3. Writes source references without line numbers and keeps `POT-Creation-Date` unchanged, so pull requests that change strings do not conflict on them.
 
-CI runs the same script on every pull request and fails if the committed catalogs are out of sync with the source; it also checks that every `.po` file compiles.
+A pull request commits only `po/amule.pot`, not the language catalogs: [Weblate](./weblate.md#amule-application) merges the template into every `po/*.po` file afterwards. CI fails if the committed template does not match the source, or if a catalog no longer compiles once the template is merged into it.
 
-After running `update-po.sh`, each `.po` file may contain:
+To work on a catalog offline, merge the template into the `.po` files as Weblate does:
+
+```sh
+./scripts/update-po.sh --all
+```
+
+This also runs `msgmerge` on every `po/*.po` file, and updates `POT-Creation-Date` only when the template content changed. Commit only the catalog you worked on. A release requires every catalog to be merged: merge the open Weblate pull request first, or run `--all` and commit the result.
+
+After the template is merged into it, each `.po` file may contain:
 
 - **Untranslated entries** — `msgstr ""` is empty; the string is new and has not yet been translated.
 - **Fuzzy entries** — marked `#, fuzzy`; `msgmerge` found a similar existing translation as a starting point, but it requires human review. The program falls back to the English original until the fuzzy marker is removed.
@@ -189,7 +197,7 @@ Use the standard gettext macros:
 | `wxTRANSLATE("text")` | Marks a string for extraction without translating it at that point |
 | `wxPLURAL("one item", "%d items", n)` | Plural forms |
 
-After adding new uses of these macros, run `./scripts/update-po.sh` to pull the new strings into the `.pot` and all `.po` files.
+After adding new uses of these macros, run `./scripts/update-po.sh` to pull the new strings into `po/amule.pot`, and commit it.
 
 When adding a new `.cpp` source file with translatable strings, add it to `po/POTFILES.in`. `xgettext` only scans files listed there — the omission is completely silent. New source changes should also follow the project [Coding Style](../code-style.md).
 
@@ -404,12 +412,12 @@ sudo dnf install po4a
 - Do not add or remove information compared to the English original. If you believe the English text is wrong or incomplete, fix the English source first.
 - Your editor must produce UTF-8 files.
 - Do not remove special characters (`B<...>`, `I<...>`, etc.) — they are formatting markers.
-- po4a ignores files where fewer than 80% of strings are translated.
+- po4a skips a man page that is less than 70% translated: that page is not installed, and `man` shows the English page instead.
 - Do not remove trailing spaces.
 
 ### Updating the Template After Editing an English Master
 
-After editing any `*.1.in` English master, the template and all `.po` files must be refreshed. Run this from the repository root (requires po4a and gettext):
+After editing any `*.1.in` English master, the template and all `.po` files must be refreshed. Unlike the application catalogs, the man-page catalogs are merged in git. Run this from the repository root (requires po4a and gettext):
 
 ```sh
 ./scripts/update-manpages-po.sh
@@ -421,17 +429,17 @@ CI runs the same script on every pull request and fails if the committed catalog
 
 ### Starting a New Man Page Translation
 
-1. Add your language code to the `[po4a_langs]` line in `docs/man/po4a.config.in` (alphabetically). For example, to add Dutch, change `de es fr hu it pt_BR ro ru tr zh_TW` to `de es fr hu it nl pt_BR ro ru tr zh_TW`.
+1. Add your language code (alphabetically) to the `[po4a_langs]` line in `docs/man/po4a.config.in` and to `AMULE_MANPAGE_LANGUAGES` in `docs/man/CMakeLists.txt`. For example, to add Polish, change `ca de es fr hu it nl pt_BR ro ru tr zh_TW` to `ca de es fr hu it nl pl pt_BR ro ru tr zh_TW` in both files.
 
 2. Create the initial `.po` file from the template:
 
    ```sh
-   msginit --input=docs/man/po/manpages.pot --locale=nl --output=docs/man/po/manpages-nl.po
+   msginit --input=docs/man/po/manpages.pot --locale=pl --output=docs/man/po/manpages-pl.po
    ```
 
-3. Translate the strings in `docs/man/po/manpages-nl.po`.
+3. Translate the strings in `docs/man/po/manpages-pl.po`.
 
-4. Commit both `docs/man/po/manpages-nl.po` and the updated `po4a.config.in`.
+4. Commit `docs/man/po/manpages-pl.po` together with the updated `po4a.config.in` and `CMakeLists.txt`.
 
 ### po4a Formatting Codes
 
@@ -502,7 +510,7 @@ Open a pull request with:
 
 - `docs/man/po/manpages-<lang>.po` — the translation file.
 - `docs/man/po/manpages-<lang>.add` — the addendum (optional but encouraged).
-- For a new language, the updated `docs/man/po4a.config.in`.
+- For a new language, the updated `docs/man/po4a.config.in` and `docs/man/CMakeLists.txt`.
 
 Do not include rendered `*.<lang>.1.in` pages — they are generated at build time and are no longer tracked in git.
 
@@ -522,6 +530,8 @@ The [`amuleapi` Web UI](../../manual/interfaces/amuleapi/web-ui.md) has its own 
 - **Placeholders** such as `{message}` or `{n}` are replaced at runtime and must be kept unchanged. The one exception is `{n}` in a plural form whose wording already states the number (e.g. `"Un comentario"` for `_one`).
 - **Plurals** are separate keys with a [CLDR plural form](https://cldr.unicode.org/index/cldr-spec/plural-rules) suffix. English only has `_one` and `_other`; add `_few`, `_many`, … when your language needs them.
 - **Missing keys** are allowed: the Web UI shows the English text for any key a translation lacks, and a missing extra plural form (`_few`, `_many`, …) uses the translation's own `_other`.
+
+New strings go into `en.json` only. On a pull request (other than Weblate's own), the CI check rejects a key added to a translation file with the English text as its value: Weblate would read it as a translation.
 
 To add a language, create `src/webapi/static/i18n/<code>.json` (`<code>` is a canonical BCP 47 code such as `de` or `pt-BR`; see [deprecated codes](./weblate.md#web-ui)), add the code to `LANGS` in `src/webapi/static/js/i18n.js`, and run the consistency check that the `i18n` CI workflow also runs:
 

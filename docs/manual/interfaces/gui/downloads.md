@@ -31,7 +31,7 @@ aMule itself can pause downloads when free space runs low — see **Stop downloa
 
 | Column | Description |
 |---|---|
-| **Part** | The internal part-file number (e.g. `000`). Empty when the file is complete. |
+| **Part** | The internal part-file number (e.g. `000`). Empty when the file is complete. Hidden by default; show it from the column header menu. |
 | **File Name** | Name of the file. A smiley icon to the left indicates [ratings or comments](./comments.md) from other users. |
 | **Size** | Total file size. The [eD2k network](../../../p2p-networks/ed2k/index.md) supports [files up to 256 GB](../../../p2p-networks/ed2k/index.md#file-size-limit). |
 | **Transferred** | Total bytes received so far (including parts later found to be corrupt). |
@@ -84,11 +84,12 @@ Right-click a file (or a selection of files) to open the context menu:
 | Option | Action |
 |---|---|
 | **Priority → Low / Normal / High / Auto** | Set the download [priority](./priority.md). *Auto* lets aMule manage allocation automatically based on file rarity. |
-| **Cancel** | Remove the file from the queue and delete the partial download. |
+| **Cancel** | Remove the file from the queue and delete the partial download. A download in a hash check (status **Hashing**) can only be cancelled once hashing has finished. |
 | **Stop** | Stop the download; sources are no longer searched. |
 | **Pause** | Pause the download; can be resumed later. |
 | **Resume** | Resume a paused, stopped, or errored download. |
-| **Clear completed** | Remove the completed files of the current category from the list. |
+| **Clear completed** | Remove the completed files of the current category from the list. The files stay on disk and shared. |
+| **Delete file from disk** | For completed files only: after a confirmation, delete the selected files from disk, stop sharing them and remove them from the list. If a file cannot be deleted, aMule asks whether to remove it from the shares and the list anyway. |
 | **Extended Options** | Submenu with the three A4AF actions below. Enabled only while the file can be paused (it is downloading or waiting). |
 | **Extended Options → Swap every A4AF to this file now** | Immediately move all sources assigned to other files (*Asked For Another File*) to this file. |
 | **Extended Options → Swap every A4AF to this file (Auto)** | Automatically swap A4AF sources to this file whenever they become available. |
@@ -159,7 +160,7 @@ Overlay badges on the base icon indicate additional attributes:
 | ![Good credit](/img/docs/gui_downloads/downloads_icon_client_creditsyellow.png) | Client has a good [credit rating](../../../p2p-networks/ed2k/index.md#credits-and-scoring) with you (it has uploaded more to you than you to it, so it earns a better position in your upload queue). |
 | ![No extended protocol](/img/docs/gui_downloads/downloads_icon_client_extendedprotocol.png) | Client does **not** support the extended eMule protocol extensions (source sharing, etc.). |
 | ![Secure ID (good)](/img/docs/gui_downloads/downloads_icon_client_secident.png) | Client identity has been [securely verified](../../../p2p-networks/ed2k/secure-user-identification.md). |
-| ![Secure ID (bad)](/img/docs/gui_downloads/downloads_icon_client_badguy.png) | Client failed [secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) and has been flagged as a [bad actor](../../../p2p-networks/concepts.md#bad-guy). Shown only when the client is not identified. |
+| ![Secure ID (bad)](/img/docs/gui_downloads/downloads_icon_client_badguy.png) | Client failed [secure identification](../../../p2p-networks/ed2k/secure-user-identification.md) or used its userhash from a different IP address, and has been flagged as a [bad actor](../../../p2p-networks/concepts.md#bad-guy). |
 | ![Encrypted](/img/docs/gui_downloads/downloads_icon_client_encryption.png) | The connection to this client is [obfuscated/encrypted](./preferences.md#protocol-obfuscation). |
 
 A small status icon to the left of the client icon shows the **source status**:

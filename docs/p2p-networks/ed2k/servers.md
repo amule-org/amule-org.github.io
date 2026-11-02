@@ -162,7 +162,7 @@ After the **seizure of Razorback 2** on **21 February 2006** (by the Belgian Fed
 
 Versions of aMule **before 2.2.0** were configured by default to automatically add servers from two sources:
 
-- **"Update serverlist when connecting to a server"** — adds servers announced by the server you connect to
+- **"Update server list when connecting to a server"** — adds servers announced by the server you connect to
 - **"Update server list when a client connects"** — adds servers advertised by connecting clients
 
 If either option is enabled and you connect to a fake server, fake servers flood into your list. The common belief that *"more servers in the list = better"* is incorrect and dangerous.
@@ -178,9 +178,9 @@ Follow these steps **in order**:
 
 ### Step 1 — Disable automatic server list updates
 
-In **Preferences → Server**, disable both:
+In **Preferences → Servers**, disable both:
 
-- *Update serverlist when connecting to a server*
+- *Update server list when connecting to a server*
 - *Update server list when a client connects*
 
 This prevents your list from being polluted by servers that advertise fake entries.
@@ -193,7 +193,7 @@ If you are certain that all your current servers are legitimate, you may skip th
 
 ### Step 3 — Download a trusted server list
 
-Enter a trusted `server.met` URL in the URL field at the top of the **Networks → eD2k** tab, then click the play button (▶) next to it. aMule downloads the list and **merges** it into your existing `server.met` (it does not replace your list outright).
+Enter a trusted `server.met` URL in the **One-off URL** field at the top of the **Networks → eD2k** tab, then click **Download once** next to it. aMule downloads the list and **merges** it into your existing `server.met` (it does not replace your list outright).
 
 Known trusted sources:
 
@@ -208,13 +208,13 @@ These are third-party services unaffiliated with the aMule project. Their availa
 
 ### Step 4 — (Optional) Enable automatic updates with a trusted URL
 
-In **Preferences → Server**, enable *Autoupdate serverlist at startup*, then set the URL to one of the trusted sources above. aMule will refresh the list each time it starts.
+In **Preferences → Servers**, enable *Auto-update server list at startup*, then click **Edit sources...** and keep only trusted sources from the list above (one URL per line). aMule will download and merge every source each time it starts.
 
-You can also add URLs to `~/.aMule/addresses.dat` (one per line) to have them checked at startup when auto-update is enabled — see the [`addresses.dat`](../../manual/configuration/config-files/index.md#addressesdat) reference.
+The sources are stored in `~/.aMule/addresses.dat` — see the [`addresses.dat`](../../manual/configuration/config-files/index.md#addressesdat) reference.
 
 ### If your server list becomes empty
 
-Click the play button (▶) next to the URL field in the **Networks → eD2k** tab to re-fetch the list from the configured URL.
+Click **Update server list** in the **Networks → eD2k** tab to re-fetch the list from every saved source.
 
 ## Kademlia: no servers required
 

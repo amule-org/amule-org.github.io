@@ -19,9 +19,9 @@ aMule exposes **three independent UPnP toggles**, each forwarding a different po
 | Enable UPnP port forwarding on the EC port | [**Preferences → Remote Controls**](../interfaces/gui/preferences.md#remote-controls) | [`UPnPECEnabled`](./config-files/amule-conf.md#externalconnect-section) | off | The External Connections (EC) port |
 | Enable UPnP port forwarding of the web server port | [**Preferences → Remote Controls**](../interfaces/gui/preferences.md#remote-controls) | [`UPnPWebServerEnabled`](./config-files/amule-conf.md#webserver-section) | off | The `amuleweb` web server port |
 
-The main toggle (**Connection** tab) is the master switch: the EC mapping is only added when both `UPnPEnabled` and `UPnPECEnabled` are on. The web server mapping is handled separately by the web server.
+The main toggle (**Connection** tab) is the master switch: the EC mapping is only added when both `UPnPEnabled` and `UPnPECEnabled` are on. The web server mapping is handled separately by `amuleweb`, which uses its own UPnP control port, **Web server UPnP TCP port (Optional)** in Preferences → Remote Controls (`WebUPnPTCPPort`, default `50001`).
 
-When UPnP succeeds, aMule registers the port mappings on your router automatically. You can verify connectivity by [testing your port status](./network-connectivity.md#testing-your-port-status).
+When UPnP succeeds, aMule registers the port mappings on your router automatically. Changing a port in Preferences updates the mappings without restarting aMule. You can verify connectivity by [testing your port status](./network-connectivity.md#testing-your-port-status).
 
 For the full list of UPnP-related keys and their defaults, see the [`amule.conf` reference](./config-files/amule-conf.md).
 

@@ -82,9 +82,9 @@ Click the **Close** button next to **Send**, or close the chat tab.
 
 ### Chat Tabs
 
-Each conversation opens in its own tab, labelled with the username of the client. Starting a new conversation adds a new tab; previous conversations remain accessible. Click any tab to switch to that conversation. A tab opened by an incoming message from a new client is brought to the front; sessions started from another interface connected to the same core open in the background.
+Each conversation opens in its own tab, labelled with the username of the client. Starting a new conversation adds a new tab; previous conversations remain accessible. Click any tab to switch to that conversation. Tabs opened by an incoming message, or from another interface connected to the same core, open in the background, so a reply you are typing still goes to the tab you are on.
 
-To close a tab, click its close icon or middle-click its label. When more tabs are open than can fit in the window, scroll arrows appear at each end of the tab bar.
+To close a tab, click its close icon or middle-click anywhere on the tab. When more tabs are open than can fit in the window, scroll arrows appear at each end of the tab bar.
 
 #### Tab Right-Click Menu
 
@@ -97,7 +97,7 @@ Right-clicking a tab opens a menu titled **Chat** with these options:
 | Close tab | Close this tab |
 | Close all tabs | Close all open tabs |
 | Close other tabs | Close every tab except this one |
-| Add to Friends | Add the client of this tab to your friends list (disabled if it already is a friend) |
+| Add to Friends | Add the client of this tab to your friends list, even when it is no longer connected (disabled if it already is a friend) |
 
 ### Detecting Incoming Messages
 
@@ -107,12 +107,16 @@ When a message arrives while you are not on the Messages window:
 - The **status bar** log displays a notification message.
 
 :::note
-Incoming messages can be filtered before they ever reach the Messages window. The [Filters preferences tab](./preferences.md#messages) lets you ignore messages from people not on your friend list, from unknown clients, or containing specific words, as well as include the text of received messages in the log. Independently, an advanced spam filter may require a client that is not your friend to solve a CAPTCHA before its first message gets through; clients that send URLs in a first message or keep messaging without a reply are flagged as spammers and their session is closed automatically.
+Incoming messages can be filtered before they ever reach the Messages window. The [Filters preferences tab](./preferences.md#messages) lets you ignore messages from people not on your friend list, from unknown clients, or containing specific words, as well as include the text of received messages in the log. Independently, the **Enable advanced spam filter** and **Require a CAPTCHA for first messages from non-friends** options on the same tab (both on by default) block unsolicited links and repeated unanswered messages from clients that are not your friends, and make such a client solve a CAPTCHA before its first message gets through. Friends and clients you have already written to skip the CAPTCHA; clients without CAPTCHA support cannot start a chat.
 :::
+
+### Answering a CAPTCHA
+
+When you write to a client that requires a CAPTCHA, aMule opens an **Enter Captcha** window with the challenge image; your answer is sent as a normal message, and the chat tab reports whether it was accepted. This also works in `amulegui` and in the [`amuleapi` Web UI](../amuleapi/web-ui.md).
 
 ### Chat in `amulegui`
 
-In [`amulegui`](./amulegui.md) the chat sessions live in the connected core, which keeps the last 200 messages of up to 50 sessions in memory. The remote GUI shows the conversations already in progress when it connects and follows new messages as they arrive, and messages you send go out through the core. Messages replayed when `amulegui` connects are stamped with the time they were shown, not the time they were originally sent or received. The CAPTCHA/URL spam filter described above exists only in the all-in-one `amule`; with `amuled`, only the message filters of the Filters preferences apply. The same sessions are available over the [`amuleapi` REST API](../amuleapi/index.md) and in its [Web UI](../amuleapi/web-ui.md); the friends list is exposed there too.
+In [`amulegui`](./amulegui.md) the chat sessions live in the connected core, which keeps the last 200 messages of up to 50 sessions in memory. The remote GUI shows the conversations already in progress when it connects and follows new messages as they arrive, and messages you send go out through the core. Messages replayed when `amulegui` connects are stamped with the time they were shown, not the time they were originally sent or received. The advanced spam filter and CAPTCHA described above are also applied by `amuled`, and `amulegui` can change them in its Filters preferences. The same sessions are available over the [`amuleapi` REST API](../amuleapi/index.md) and in its [Web UI](../amuleapi/web-ui.md); the friends list is exposed there too.
 
 ## Miscellaneous
 

@@ -150,7 +150,7 @@ Example with all recognized options:
 # cas config file
 
 # font - full path to a TrueType font file
-font /usr/share/fonts/corefonts/times.ttf
+font /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
 
 # font_size - font size in points
 font_size 10.5
@@ -174,13 +174,13 @@ template /usr/share/cas/tmp.html
 img_type 0
 ```
 
-**Default system paths** that `cas` uses when creating a new `casrc`:
+**Default paths** that `cas` writes when creating a new `casrc`:
 
 | Resource | Default path |
 |---|---|
-| Font | `/usr/share/fonts/corefonts/times.ttf` |
-| Background image | `/usr/share/cas/stat.png` |
-| HTML template | `/usr/share/cas/tmp.html` |
+| Font | Windows and macOS: Arial; Linux/BSD: DejaVu Sans (e.g. `/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf`), or `/usr/share/fonts/corefonts/times.ttf` if DejaVu Sans is not installed |
+| Background image | `stat.png` in the `cas` data directory (e.g. `/usr/share/cas/stat.png` on Linux) |
+| HTML template | `tmp.html` in the same data directory |
 
 ### HTML Statistics Page
 

@@ -38,26 +38,26 @@ Choose where the database comes from with **Source** (`GeoIPSource`). All three 
 | Source | `GeoIPSource` | What you need | Notes |
 |---|---|---|---|
 | **DB-IP** (default) | `dbip` | Nothing | Free *IP to Country Lite* database from [DB-IP](https://db-ip.com/), licensed under CC BY 4.0. DB-IP publishes a new edition every month; early in a month, before the new edition is out, aMule falls back to the previous month's. |
-| **MaxMind GeoLite2** | `maxmind` | A free MaxMind account and a **license key** (`GeoIPMaxMindLicense`) | Free *GeoLite2 Country* database from [MaxMind](https://www.maxmind.com/). Create the license key in your MaxMind account and paste it into **License key**. MaxMind's terms require the database to be refreshed at least every 30 days, so keep **Auto-update on startup** enabled. |
-| **Custom URL** | `custom` | A **Download URL** (`GeoIPCustomUrl`) | Any URL that serves a MaxMind DB country database: a plain `.mmdb` file, or a `.gz` / `.tar.gz` archive containing one. Credentials can be embedded in the URL (`https://user:pass@host/...`). Licensing and attribution are the responsibility of whoever publishes the file. If you host your own copy, make the web server send `Last-Modified` so that auto-update only downloads it when it changes. |
+| **MaxMind GeoLite2** | `maxmind` | A free MaxMind account and a **license key** (`GeoIPMaxMindLicense`) | Free *GeoLite2 Country* database from [MaxMind](https://www.maxmind.com/). Create the license key in your MaxMind account and paste it into **License key**. MaxMind's terms require the database to be refreshed at least every 30 days, so keep **Auto-update on startup and weekly** enabled. |
+| **Custom URL** | `custom` | A **Download URL** (`GeoIPCustomUrl`) | Any `http://` or `https://` URL that serves a MaxMind DB country database: a plain `.mmdb` file, or a `.gz` / `.tar.gz` archive containing one. Credentials can be embedded in the URL (`https://user:pass@host/...`). Licensing and attribution are the responsibility of whoever publishes the file. If you host your own copy, make the web server send `Last-Modified` so that auto-update only downloads it when it changes. |
 
-If MaxMind is selected without a license key, or Custom URL without a URL, aMule cannot download anything: it logs an error and turns **Show country flags for clients** off. Fill in the missing field, enable **Show country flags for clients** again and click **OK**; if no flags appear, click **Update now**.
+If MaxMind is selected without a license key, or Custom URL without a URL, aMule cannot download anything and logs an error. Fill in the missing field and click **OK**; if no flags appear, click **Update now**. A failed download does not turn **Show country flags for clients** off: the next start or **Update now** tries again.
 
 :::caution
-The license key and any credentials in a custom URL are stored in plain text in `amule.conf`, and the log records the full download URL, including them. Remove them before sharing your `amule.conf` or log, for example in a bug report.
+The license key and any credentials in a custom URL are stored in plain text in `amule.conf`. Remove them before sharing your `amule.conf`, for example in a bug report. The log shows only the host of the download URL, not the credentials.
 :::
 
 ## Updating the database
 
 Country assignments change over time, so aMule refreshes the database on its own:
 
-- **Auto-update on startup** (`GeoIPAutoUpdate`, enabled by default) — at every start (and, in `amule`, when you enable **Show country flags for clients**), aMule checks the selected source for a newer database and downloads it only if it has changed (see the [`[HTTPDownload]` section](./config-files/amule-conf.md#httpdownload-section) of `amule.conf`). The check runs in the background and does not delay startup.
+- **Auto-update on startup and weekly** (`GeoIPAutoUpdate`, enabled by default) — at every start (and, in `amule`, when you enable **Show country flags for clients**), aMule checks the selected source for a newer database and downloads it only if it has changed (see the [`[HTTPDownload]` section](./config-files/amule-conf.md#httpdownload-section) of `amule.conf`). While aMule keeps running, it checks again one week after the last update attempt. The check runs in the background and does not delay startup.
 - **Update now** — downloads the database from the selected source immediately, even if the server reports it as unchanged. Use it after a failed update or to replace a damaged file.
 - **Changing the source** — in `amule` and `amulegui`, clicking **OK** after changing the source, the license key or the download URL downloads the database from the new source automatically.
 
 In `amulegui`, **Update now** tells the core to refresh its database; the result appears in the status line. With `amuleapi`, send `POST /api/v1/geoip/update` (see [below](#configuring-a-headless-amuled)).
 
-The download goes through an HTTP [proxy](./proxy.md) when one is configured (not a SOCKS proxy) and, on macOS and Linux, respects [network interface binding](./network-connectivity.md#binding-amule-to-a-network-interface-vpn). A failed download leaves the current database file in place.
+The download goes through an HTTP [proxy](./proxy.md) when one is configured (not a SOCKS proxy) and, on macOS and Linux, respects [network interface binding](./network-connectivity.md#binding-amule-to-a-network-interface-vpn). A failed or invalid download leaves the current database in place, and country flags keep working.
 
 ## The database file
 
@@ -65,10 +65,10 @@ aMule keeps the database in its [configuration directory](./config-files/index.m
 
 1. Obtain a country database in MaxMind DB (`.mmdb`) format and decompress it if needed.
 2. Stop aMule and copy the file to the configuration directory as `geoip.mmdb`.
-3. Disable **Auto-update on startup** (`GeoIPAutoUpdate=0`) if you do not want aMule to replace it.
+3. Disable **Auto-update on startup and weekly** (`GeoIPAutoUpdate=0`) if you do not want aMule to replace it.
 4. Start aMule.
 
-If the file cannot be read, aMule logs a message, deletes it and downloads a fresh copy on the next start (or when you click **Update now**).
+If the file cannot be read or is not a working country database, aMule logs a message, deletes it and downloads a fresh copy on the next start (or when you click **Update now**).
 
 :::note
 Older aMule versions stored the database as `GeoLite2-Country.mmdb`; aMule renames it to `geoip.mmdb` automatically. The legacy `GeoIP.dat` format used by aMule 2.x is no longer supported. A download URL set in an older version is carried over once as a **Custom URL**, unless it points to a `GeoIP.dat` file, in which case aMule switches to DB-IP (see [`amule.conf` → GeoIP](./config-files/amule-conf.md#geoip)).
@@ -97,9 +97,9 @@ Changing the source through `amule.conf` or `PATCH /api/v1/preferences` does not
 
 ### No flags are shown
 
-1. Check that **Show country flags for clients** is enabled. aMule turns it off by itself when the selected source is missing its license key or URL, or when a download fails and no database is present.
+1. Check that **Show country flags for clients** is enabled.
 2. Look at the status line on the **IP2Country** preferences page. *Not found* or *Failed to load* means there is no usable database: click **Update now**.
-3. Check the log for the result of the last download: *Download new geoip.mmdb from…* is followed by *Successfully updated geoip.mmdb* or by an error. *Skipped download of geoip.mmdb, because requested file is not newer* is normal. Lines starting with *IP2Country:* report a missing license key or URL; *Failed to download geoip.mmdb from…* means the source could not be reached; *Error updating geoip.mmdb* or *geoip.mmdb is not a readable MaxMindDB file* mean the downloaded file is not a country database (check the custom URL).
+3. Check the log for the result of the last download: *Download new geoip.mmdb from…* is followed by *Successfully updated geoip.mmdb* or by an error. *Skipped download of geoip.mmdb, because requested file is not newer* is normal. Lines starting with *IP2Country:* report a missing license key or URL; *Failed to download geoip.mmdb from…* means the source could not be reached; *Download of geoip.mmdb file failed, aborting update.*, *Error updating geoip.mmdb* or *geoip.mmdb is not a readable MaxMindDB file* mean the downloaded file could not be unpacked or is not a country database (check the custom URL).
 4. If downloads keep failing, check that the machine can reach the source, including through any [proxy](./proxy.md) or [VPN interface binding](./network-connectivity.md#binding-amule-to-a-network-interface-vpn), and that a MaxMind license key or custom URL is correct. On minimal systems and with the [static binaries](../installation/index.md#static-binaries), install your distribution's `ca-certificates` package: the download uses HTTPS.
 
 ### The IP2Country page is missing

@@ -30,7 +30,7 @@ Completed files are moved here when the download finishes and all [chunks](../..
 
 ### Changing the Incoming Directory
 
-Open **Preferences → Directories** and change the path in the **Incoming Directory** field.
+Open **Preferences → Directories** and change the path in the **Destination folder for downloads** field.
 
 :::note
 On Linux, `.aMule` is a hidden directory. Enable *Show hidden files* in your file manager to see it.
@@ -55,7 +55,7 @@ Keep the Temporary and Incoming directories on the **same partition (filesystem)
 
 ### Changing the Temporary Directory
 
-Open **Preferences → Directories** and change the path in the **Temporary Directory** field.
+Open **Preferences → Directories** and change the path in the **Folder for temporary download files** field.
 
 ### Temporary Files
 
@@ -112,7 +112,16 @@ A few related options control how shared directories are scanned:
 
 - **Share hidden files** — include hidden files from shared directories.
 - **Automatically rescan shared folders for changes** — watch the shared folders so files added, changed, removed or renamed outside aMule are picked up automatically, without pressing **Reload**.
-- **Follow symbolic links in shared folders** — follow symbolic links (to files or directories) when scanning shared folders. Enabled by default; disable it to skip symlinked entries.
+- **Follow symbolic links in shared folders** — follow symbolic links (to files or directories) when scanning shared folders. Enabled by default; disable it to skip symlinked entries. It cannot be changed from a remote client.
+- **Exclude files and folders matching** — `|`-separated wildcard patterns, case-insensitive (or a regular expression, with **Patterns are regular expressions**). Matching files and subfolders are not shared, but a folder you share yourself always is. A download whose name matches stays shared until it completes. See [Preferences → Directories](../interfaces/gui/preferences.md#directories).
+
+:::note Office documents
+The default patterns also exclude office documents (Word, Excel, PowerPoint, OpenDocument, RTF, CSV and TSV files), which often hold private data. Preferences saved by aMule 3.1.0 keep their old list; to exclude these files there too, append this to **Exclude files and folders matching** (add a `|` first if the list is not empty):
+
+```
+*.doc|*.docx|*.docm|*.dot|*.dotx|*.dotm|*.xls|*.xlsx|*.xlsm|*.xlsb|*.xlt|*.xltx|*.xltm|*.xlam|*.ppt|*.pptx|*.pptm|*.pot|*.potx|*.potm|*.pps|*.ppsx|*.ppsm|*.odt|*.ott|*.ods|*.ots|*.odp|*.otp|*.odg|*.otg|*.odf|*.odb|*.rtf|*.csv|*.tsv
+```
+:::
 
 :::warning
 Be careful which directories you share. Sharing your home directory, documents folder, or any directory containing passwords, address books, or sensitive personal data will make that data available to every client on the network.
@@ -137,6 +146,16 @@ See [`shareddir.dat` and related files](./config-files/index.md#shareddirdat) fo
 :::warning
 Stop aMule before editing these files. Any changes made while aMule is running will be overwritten when aMule exits.
 :::
+
+## Changing Folders from a Remote Client
+
+A remote client — [`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md) and its Web UI, or another [External Connections](../../developer/ec-protocol.md) client — can only set the incoming, temporary, shared and [category](#per-category-incoming-folders) folders to a folder **inside an allowed list** kept on the aMule machine. This way a leaked remote password does not expose the whole disk. Changes made in aMule's own Preferences are never restricted.
+
+- The list is **empty by default**, so every remote folder change is refused until you add folders to it.
+- In the monolithic `amule`, edit it under [Preferences → Remote Controls → Folders remote clients may use](../interfaces/gui/preferences.md#folders-remote-clients-may-use).
+- On a daemon-only install, edit [`allowed-remote-dirs.dat`](./config-files/index.md#allowed-remote-dirsdat) (one absolute path per line) and restart [`amuled`](../interfaces/amuled.md).
+
+Folders that are already configured keep working even if they are outside the list, and removing a shared folder is always allowed. A refused change keeps the previous folder and reports an error.
 
 ## Disk Space Protection
 

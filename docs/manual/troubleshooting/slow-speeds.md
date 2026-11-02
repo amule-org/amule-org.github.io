@@ -75,6 +75,10 @@ Not all slowness is due to misconfiguration. The following are inherent characte
 
 eMule and its derivatives (including aMule) use upload queues of up to **5,000 clients** by default (configurable under [Preferences → Advanced → Upload Queue Size](../interfaces/gui/preferences.md#advanced)). This prevents clients from cutting in line by repeatedly re-asking for a slot — an exploit common in the early days of eDonkey. As a new client with no [credits](../../p2p-networks/ed2k/index.md#credits-and-scoring), you may need to wait days or even **weeks** before reaching the top of a queue for a file with very few sources. See [Concepts & Glossary](../../p2p-networks/concepts.md) for how queues, queue rank and slots work.
 
+#### Several downloaders behind one address
+
+aMule [limits the upload slots one IP address can hold](../configuration/bandwidth-slots.md), so one machine posing as many users cannot take most of an uploader's slots. The limit also applies to honest clients that share one public address, such as two aMule installations in the same home or users behind the same carrier-grade NAT. Friend slots are not limited.
+
 #### Rare and old files
 
 Files with only one or two [sources](../../p2p-networks/concepts.md) can take weeks or months to complete, regardless of configuration. A file is only downloaded as fast as the sources upload it, and sources can go offline at any time.

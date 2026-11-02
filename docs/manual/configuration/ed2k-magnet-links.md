@@ -7,7 +7,7 @@ aMule adds files, servers and server lists from **links**. This page explains wh
 
 aMule accepts:
 
-- **eD2k links** — `ed2k://|file|…|/` (queued for download), `ed2k://|server|…|/` (added to the server list) and `ed2k://|serverlist|…|/` (the server list at that URL is downloaded and merged). No other eD2k link type is recognised. The syntax of each type is described in [eD2k Links](../../p2p-networks/ed2k/links.md).
+- **eD2k links** — `ed2k://|file|…|/` (queued for download), `ed2k://|server|…|/` (added to the server list) and `ed2k://|serverlist|…|/` (the server list at that URL is downloaded and merged; only `http://` and `https://` addresses are accepted). No other eD2k link type is recognised. The syntax of each type is described in [eD2k Links](../../p2p-networks/ed2k/links.md).
 - **Magnet links** — only [eD2k-compatible](#magnet-links) ones (`magnet:?…`). aMule converts them to an eD2k file link before queuing them.
 - **eMule collections** — [`.emulecollection` files](#emulecollection-files), which bundle several eD2k file links; opening one queues every link it contains.
 
@@ -21,9 +21,9 @@ aMule is not a BitTorrent client: it can only use a magnet link that identifies 
 The other parameters are optional:
 
 - `dn=<name>` — the file name (percent-encoded). Without it the download is named `FileName.ext`.
-- `xt=urn:aich:<hash>` — the file's [AICH](../../p2p-networks/ed2k/aich.md) root hash (32 upper-case Base32 characters), used to verify and repair the download. A malformed value is ignored.
+- `xt=urn:aich:<hash>` — the file's [AICH](../../p2p-networks/ed2k/aich.md) root hash (32 Base32 characters, upper or lower case), used to verify and repair the download. A malformed value is ignored.
 
-Every other parameter (`tr`, `xs`, `ws`, `xt=urn:btih:…`, …) is ignored. A magnet link that only carries a BitTorrent hash (`btih`) or lacks `xl` cannot be converted and is rejected with *Cannot convert magnet link to eD2k* in the log. The `magnet:` prefix and the parameter names are case-sensitive.
+Every other parameter (`tr`, `xs`, `ws`, `xt=urn:btih:…`, …) is ignored. A magnet link that only carries a BitTorrent hash (`btih`) or lacks `xl` cannot be converted and is rejected with *Cannot convert magnet link to eD2k* in the log. Parameter names (`xt`, `xl`, `dn`) are case-sensitive.
 
 An eD2k-compatible magnet link looks like this:
 
@@ -44,7 +44,7 @@ The general structure of magnet URIs on the eD2k network is described in [eD2k L
 | Command-line arguments of [`amule`](../interfaces/gui/amule.md#starting-amule), [`amulegui`](../interfaces/gui/amulegui.md) and [`amuled`](../interfaces/amuled.md) | eD2k, magnet, `.emulecollection` | Default, or `-t <n>` |
 | The [`ed2k`](../utilities/ed2k.md) command-line tool | eD2k, magnet, `.emulecollection` (`-e`) | Default, or `-t <n>` (not for `-e`) |
 | [`amulecmd`](../interfaces/amulecmd.md): `add <link>` | eD2k, magnet | Default |
-| The [Web UI](../interfaces/amuleapi/web-ui.md) link field and the REST endpoint `POST /api/v1/downloads` | eD2k | Default, or `category_index` in the REST API |
+| The [Web UI](../interfaces/amuleapi/web-ui.md) link field and the REST endpoint `POST /api/v1/downloads` | eD2k, magnet | Default, or `category_index` in the REST API |
 | The legacy [`amuleweb`](../interfaces/amuleweb.md) **Download link** form | eD2k | Chosen in its drop-down |
 | The [`ED2KLinks` file](../utilities/ed2k.md#ed2klinks-file) | eD2k, magnet; one link per line | Default, or a `:<n>` suffix |
 
@@ -59,9 +59,9 @@ aMule registers itself **per user**: no administrator rights are needed, and the
 - the Windows installer's [components](../installation/index.md#installer);
 - the *Integrations (optional)* page of the [first-run wizard](../../quickstart-guide.md#integrations-optional);
 - the **Register aMule for ed2k:// links**, **Register aMule for magnet: links** and **Open .emulecollection files with aMule** checkboxes in [Preferences → General](../interfaces/gui/preferences.md#general), which take effect immediately and ask before replacing another application's handler;
-- the command line: `--configure-protocols=<value>` (`on`, `off`, `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off`) and `--configure-file-assoc=on|off`, accepted by `amule` and `amulegui`.
+- the command line: `--configure-protocols=<value>` (`on`, `off`, `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off`) and `--configure-file-assoc=on|off`, accepted by `amule`, `amulegui` and `amuled`.
 
-The handler is the program that registered it: `amule`, or `amulegui` when registered from [`amulegui`](../interfaces/gui/amulegui.md), which then sends the clicked links to the connected core. If you run [`amuled`](../interfaces/amuled.md), register `amulegui` connected to it. With the [AppImage](../installation/index.md#desktop-integration), click **Install** in its *Add aMule to your application menu?* prompt first: registering needs the desktop entries it installs.
+The handler is the program that registered it: `amule`, or `amulegui` when registered from [`amulegui`](../interfaces/gui/amulegui.md), which then sends the clicked links to the connected core. [`amuled`](../interfaces/amuled.md) registers `amule`. If you run `amuled` on another computer, register `amulegui` connected to it. With the [AppImage](../installation/index.md#desktop-integration), click **Install** in its *Add aMule to your application menu?* prompt first: registering needs the desktop entries it installs.
 
 :::warning Magnet links and BitTorrent clients
 Only one application can handle `magnet:` links. If you also use a BitTorrent client (qBittorrent, Transmission, …), leave **Register aMule for magnet: links** off: aMule cannot download BitTorrent content, so BitTorrent magnet links clicked in the browser would fail.
@@ -76,8 +76,8 @@ xdg-mime query default x-scheme-handler/ed2k
 xdg-mime query default x-scheme-handler/magnet
 ```
 
-:::caution Flatpak
-The [Flatpak](../installation/index.md#flatpak) cannot register itself from inside its sandbox: leave the aMule checkboxes off, which have no effect there, and register it from a host terminal instead:
+:::note Flatpak
+The [Flatpak](../installation/index.md#flatpak) registers itself on the host, so the checkboxes work there too. You can also register it from a host terminal:
 
 ```bash
 xdg-mime default org.amule.aMule.desktop x-scheme-handler/ed2k
@@ -88,7 +88,7 @@ xdg-mime default org.amule.aMule.desktop application/x-emule-collection
 
 ### What Happens When You Click a Link
 
-On Windows, Linux and BSD, the OS starts the registered program with the link as its argument. That new process validates the link (converting a magnet link to an eD2k link), writes it to the [`ED2KLinks` file](../utilities/ed2k.md#ed2klinks-file) in the configuration directory and, if aMule is already running, tells it to raise its window and exits. The running instance reads the file about once a second and queues the links; if aMule was not running, the new process becomes the running instance. On macOS the link is sent to the app (starting it if needed), which writes it to the same file.
+On Windows, Linux and BSD, the OS starts the registered program with the link as its argument. That new process validates the link (converting a magnet link to an eD2k link), writes it to the [`ED2KLinks` file](../utilities/ed2k.md#ed2klinks-file) in the configuration directory and, if aMule is already running, tells it to raise its window and exits. The running instance reads the file about once a second and queues the links; if aMule was not running, the new process becomes the running instance. If the running instance is [`amuled`](../interfaces/amuled.md), which reads the same file, the new process just exits. On macOS the link is sent to the app (starting it if needed), which writes it to the same file.
 
 ## `.emulecollection` Files
 

@@ -26,6 +26,8 @@ The default is **10 kB/s** per slot. A configuration created by an older version
 
 Values below 1 kB/s are not accepted — aMule silently raises them to 1.
 
+The **Upload** limit is set in the same **Bandwidth limits** box; unticking **Enable upload limit** means unlimited (`0`). The **Bandwidth calculator...** button converts limits entered in Mbit/s.
+
 ## How it works internally
 
 ### Number of slots
@@ -44,6 +46,8 @@ The result is clamped to a **minimum of 2** and a **maximum of 250** slots, rega
 ### Opening and rotating slots
 
 Slots are not handed out all at once. Whenever fewer than `max_slots` are open and someone is waiting, aMule opens **at most one new slot per second**, giving it to the waiting client with the highest [queue score](../../p2p-networks/concepts.md#queue). Once all slots are taken, aMule rotates them so the queue keeps moving: a client is dropped — at most one per cycle — after uploading **10 MB** or holding the slot for **1 hour**, whichever comes first, and the freed slot goes to the best waiting client. Clients with a [friend slot](../interfaces/gui/messages.md#establishing-a-friend-slot) are never dropped, and slots serving [Release-priority](../interfaces/gui/priority.md#release-priority) files are protected unless such "VIP" slots already occupy more than half of all slots.
+
+One IP address can hold at most **2** upload slots while other clients are waiting, so one machine posing as many users cannot take most of your slots. When nobody else is waiting, it may get up to **10**, so several users behind one shared address (CGNAT) are still served. Friend slots are not capped.
 
 ### Bandwidth distribution
 

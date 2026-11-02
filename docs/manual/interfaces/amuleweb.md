@@ -59,12 +59,12 @@ Options can be given on the command line or written to the configuration file (w
 | `-t`, `--template=<name>` | Load the template (skin) named `<name>` (default: `default`) |
 | `-s`, `--server-port=<port>` | Web server HTTP port — the port the browser connects to (default: `4711`) |
 | `-u`, `--enable-upnp` | Use [UPnP](../configuration/upnp.md) port forwarding on the web server port |
-| `-U`, `--upnp-port=<port>` | UPnP port (default: `50001`) |
+| `-U`, `--upnp-port=<port>` | UPnP port (default: `50001`). When aMule starts `amuleweb`, the port set in [Preferences → Remote Controls](./gui/preferences.md#web-server-parameters) is used |
 | `-z`, `--enable-gzip` | Enable gzip compression of HTTP traffic to save bandwidth |
 | `-Z`, `--disable-gzip` | Disable gzip compression (this is the default) |
 | `-A`, `--admin-pass=<passwd>` | Full access password for the web server |
-| `-G`, `--guest-pass=<passwd>` | Guest password for the web server |
-| `-a`, `--allow-guest` | Allow guest access |
+| `-G`, `--guest-pass=<passwd>` | Guest password for the web server (needs `--allow-guest`) |
+| `-a`, `--allow-guest` | Allow guest access (read-only) |
 | `-d`, `--deny-guest` | Deny guest access (this is the default) |
 | `-L`, `--load-settings` | Load/save web server settings from/to the remote aMule, ignoring command-line and config-file settings |
 | `-N`, `--no-script-cache` | Recompile PHP pages on each request (for template development) |
@@ -97,6 +97,13 @@ amuleweb --admin-pass=yourpassword
 ```
 
 Or write it to the configuration file first (see [Step-by-Step Setup](#step-by-step-setup)).
+
+### Guest access
+
+A **guest** logs in with the guest password and gets **read-only** access. A guest password alone is not enough; guest access must also be enabled:
+
+- When aMule starts `amuleweb` (**Run webserver on startup (deprecated)**), check **Enable Low rights User** in [Preferences → Remote Controls](./gui/preferences.md#web-server-parameters) and set the **Low rights password**.
+- When you start `amuleweb` yourself, pass `--allow-guest` together with `--guest-pass` (or write both to the configuration file with `--write-config`).
 
 ## Step-by-Step Setup
 
@@ -166,7 +173,7 @@ Open `http://127.0.0.1:4711` (replace `127.0.0.1` with the server's hostname or 
 1. `$HOME/.aMule/webserver/<skin-name>/`
 2. The installation prefix: `/usr/local/share/amule/webserver/` (compiled) or `/usr/share/amule/webserver/` (package-installed).
 
-The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/config-files/amule-conf.md) (`[WebServer]` section) or the `/WebServer/Template` key in [`remote.conf`](../configuration/config-files/remote-conf.md).
+The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/config-files/amule-conf.md) (`[WebServer]` section) or the `/WebServer/Template` key in [`remote.conf`](../configuration/config-files/remote-conf.md). A remote interface ([`amulegui`](./gui/amulegui.md), [`amuleapi`](./amuleapi/index.md)) can set the template only to a template name, not to a path.
 
 If `amuleweb` fails to start because it cannot load the template, create the directory manually and copy the template files:
 
@@ -289,7 +296,7 @@ aMuleWeb PHP is similar to PHP 5 in syntax but has significant differences and l
 
 | Variable | Description |
 |---|---|
-| `$_SESSION["guest_login"]` | `1` if the current user authenticated with the guest password |
+| `$_SESSION["guest_login"]` | `1` if the current user authenticated with the guest password. Functions that change aMule's state refuse guest sessions regardless |
 | `$_SESSION["login_error"]` | Set to a message string when authentication fails |
 | `$_SESSION["auto_refresh"]` | Auto-refresh interval in seconds (user-configurable; `0` disables) |
 | `$HTTP_GET_VARS` | Hash of GET/POST parameters from the browser |

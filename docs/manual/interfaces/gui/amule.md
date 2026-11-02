@@ -33,6 +33,10 @@ amule
 
 On first run, aMule creates its [configuration directory](../../configuration/config-files/index.md) (`~/.aMule/`) and presents a [first-run setup wizard](../../../quickstart-guide.md#setup-wizard) for basic setup (nickname, bandwidth, networks and ports, bootstrap files, desktop integration, download and temporary directories).
 
+While aMule starts, a splash window shows its progress. When you quit, the same window, titled **Closing aMule**, stays open until aMule has finished saving.
+
+The automatic GeoIP and IP-filter updates at startup run in the background and report in the log; a progress window opens only for updates you start yourself.
+
 Command-line flags:
 
 | Flag | Description |
@@ -40,10 +44,11 @@ Command-line flags:
 | `-h`, `--help` | Display help and exit |
 | `-v`, `--version` | Print version and exit |
 | `-c`, `--config-dir <dir>` | Use an alternative configuration directory instead of `~/.aMule/` |
+| `--log-file <file>` | Write the log to `<file>` for this run only (overrides `LogFilePath` in `amule.conf`). A relative path is resolved against the configuration directory; the file's directory must already exist. |
 | `-geometry <geom>` | Set the window geometry, using the standard X11 format `[=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]` |
 | `-o`, `--log-stdout` | Print log messages to stdout |
 | `-r`, `--reset-config` | Reset config to default values (the old config is backed up as `.backup`) |
-| `--configure-autostart=on\|off` | Enable or disable starting `amule` on user login, then exit |
+| `--configure-autostart=on\|off` | Enable or disable starting `amule` on user login, then exit (status 1 on failure; the same for the two options below) |
 | `--configure-protocols=<value>` | Register or unregister aMule as the default handler for `ed2k://` and `magnet:` links, then exit. `on`\|`off` sets both schemes; `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off` sets one |
 | `--configure-file-assoc=on\|off` | Register or unregister aMule as the handler for `.emulecollection` files, then exit |
 | `-w`, `--use-amuleweb <path>` | Specify the location of the `amuleweb` binary |

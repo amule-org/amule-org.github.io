@@ -21,7 +21,7 @@ A useful bug report contains at minimum:
 
 | Field | How to obtain |
 |---|---|
-| **aMule version** | Run `amule --version` in a terminal. It prints something like `aMule 3.0.0 (OS: Linux)`. |
+| **aMule version** | Run `amule --version` in a terminal. It prints something like `aMule 3.2.0 (OS: Linux)`. |
 | **Operating system and version** | e.g. Windows 11, macOS 14.5, Ubuntu 24.04, Fedora 40 |
 | **Steps to reproduce** | The exact sequence of actions that triggers the bug |
 | **Expected behaviour** | What you expected to happen |
@@ -29,7 +29,7 @@ A useful bug report contains at minimum:
 | **Log file** | Relevant lines from the aMule log — see [Finding the Log File](#finding-the-log-file) |
 | **Crash backtrace** | For crashes and freezes — see [If aMule Crashes](#if-amule-crashes-copy-the-automatic-backtrace) |
 
-Be as specific as possible. "aMule crashed" is not a useful report. "aMule crashed reproducibly when clicking the search button while connected to Kad, after approximately 20 seconds of searching, on Ubuntu 24.04 with aMule 3.0.0" is.
+Be as specific as possible. "aMule crashed" is not a useful report. "aMule crashed reproducibly when clicking the search button while connected to Kad, after approximately 20 seconds of searching, on Ubuntu 24.04 with aMule 3.2.0" is.
 
 ## Finding the Log File
 
@@ -45,6 +45,7 @@ A few useful notes:
 
 - The remote GUI ([`amulegui`](../manual/interfaces/gui/amulegui.md)) uses a separate file named `remotelogfile` in the same folder.
 - Each time aMule starts, it renames the previous log to `logfile.bak`, so the log from the session that crashed may be in the `.bak` file.
+- If `LogFilePath` is set in [`amule.conf`](../manual/configuration/config-files/amule-conf.md), or aMule was started with `--log-file=<path>`, the log (and its `.bak` copy) is at that path instead.
 - When reviewing the log, the lines that matter most are those containing `ERROR`, `FATAL`, or `ASSERT`, especially the ones immediately before the problem occurred. Copy those lines (with a bit of surrounding context) into your report.
 
 ## If aMule Crashes: Copy the Automatic Backtrace
@@ -61,7 +62,7 @@ GitHub issue, including as much information as possible regarding the
 circumstances of this crash. Issue tracker:
     https://github.com/amule-org/amule/issues
 ----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
-Current version is: aMule 3.0.0
+Current version is: aMule 3.2.0
 Running on: Linux ...
 
 [the backtrace lines]

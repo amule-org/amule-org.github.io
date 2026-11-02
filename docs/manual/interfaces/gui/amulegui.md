@@ -83,7 +83,7 @@ While the window is minimized or hidden in the [system tray](./tray-icon.md), th
 
 The **Server Info** tab of the Networks window is filled with the core's server messages, and `amulegui` remembers its window size and position and the column layout of every list between sessions.
 
-The [Networks](./networks.md#amule-log) window's **aMule Log** tab shows the core's log, while a separate [**aMuleGUI Log**](./networks.md#amulegui-log) tab holds the messages of `amulegui` itself — connection, reconnection and local errors. `amulegui` also writes its own log to `remotelogfile` in its configuration directory, next to [`remote.conf`](../../configuration/config-files/remote-conf.md).
+The [Networks](./networks.md#amule-log) window's **aMule Log** tab shows the core's log, while a separate [**aMuleGUI Log**](./networks.md#amulegui-log) tab holds the messages of `amulegui` itself — connection, reconnection and local errors. `amulegui` also writes its own log to `remotelogfile` in its configuration directory, next to [`remote.conf`](../../configuration/config-files/remote-conf.md); another file can be chosen with `--log-file` (see below).
 
 ### Shared folders
 
@@ -95,11 +95,17 @@ In **[Preferences → Directories](./preferences.md#directories)**, the local di
 
 ### Searches and chat
 
-Kad searches can be widened with **Extend**, searches started from other interfaces appear as tabs, and **View Files** shows a client's shares as a [folder tree](./searches.md#browsing-a-clients-shared-files), the same as in `amule` (see [Searches](./searches.md)). Chat sessions are held by the core, so conversations continue across `amulegui` sessions (see [Chat in `amulegui`](./messages.md#chat-in-amulegui)).
+Kad searches can be widened with **Extend**, searches started from other interfaces appear as tabs, and **View Files** shows a client's shares as a [folder tree](./searches.md#browsing-a-clients-shared-files), the same as in `amule` (see [Searches](./searches.md)). Chat sessions are held by the core, so conversations continue across `amulegui` sessions (see [Chat in `amulegui`](./messages.md#chat-in-amulegui)). `amulegui` can also answer the [CAPTCHAs](./messages.md#answering-a-captcha) other clients send, and add a chat partner to the friends list from the chat tab.
+
+### Deleting files and running commands
+
+**Delete file from disk** in [Downloads](./downloads.md#controlling-downloads) and [Shared Files](./shared-files.md#deleting-a-file-from-disk) deletes complete files on the core's machine. The **Download completed** [GUI command](./preferences.md#events) runs on the `amulegui` machine, only for downloads that complete while `amulegui` is connected.
 
 ### Preferences in `amulegui`
 
-The Preferences window only offers settings the core can apply over EC. It adds the [Path Mappings](./preferences.md#path-mappings) page, which is specific to `amulegui`, and hides or disables, among others, the External Connections settings of the core, the web server and External Connections UPnP options (always), the P2P UPnP options when the core has no UPnP support, the online-signature and `ffprobe` **Browse** buttons, the `ffprobe` **Detect** button, and the [**IP2Country**](../../configuration/ip2country.md) page when the core has no GeoIP support.
+The Preferences window only offers settings the core can apply over EC. It adds the [Path Mappings](./preferences.md#path-mappings) page, which is specific to `amulegui`, and hides or disables, among others, the External Connections settings of the core and its [list of folders remote clients may use](./preferences.md#folders-remote-clients-may-use), the web server and External Connections UPnP options (always), the P2P UPnP options when the core has no UPnP support, the online-signature and `ffprobe` **Browse** buttons, the `ffprobe` **Detect** button, the core commands of the [Events](./preferences.md#events) page, and the [**IP2Country**](../../configuration/ip2country.md) page when the core has no GeoIP support. Settings that can only be set on the core's machine are shown read-only, and folders outside those the core allows are refused (see [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host)). Options the core is too old to support are greyed out.
+
+The preferences are reloaded from the core each time the window opens, and **OK** sends only the settings you changed, so changes made meanwhile from another client are kept. The **Appearance** setting is stored locally in `remote.conf`.
 
 ## Command-Line Options
 
@@ -108,11 +114,12 @@ The Preferences window only offers settings the core can apply over EC. It adds 
 | `-h`, `--help` | Display usage information and exit. |
 | `-v`, `--version` | Display the current version number and exit. |
 | `-c`, `--config-dir <dir>` | Read config from `<dir>` instead of `~/.aMule`. |
+| `--log-file <file>` | Write the log to `<file>` instead of `remotelogfile` for this run only (overrides `LogFilePath` in `remote.conf`). A relative path is resolved against the configuration directory; the file's directory must already exist. |
 | `-o`, `--log-stdout` | Print log messages to stdout. |
 | `-r`, `--reset-config` | Reset config to default values (the old config is backed up as `.backup`). |
 | `-s`, `--skip` | Skip the connection dialog and connect using the saved settings. |
 | `-geometry <geom>` | Set the window geometry, using the standard X11 format `[=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]`. |
-| `--configure-autostart=on\|off` | Enable or disable starting `amulegui` on user login, then exit. |
+| `--configure-autostart=on\|off` | Enable or disable starting `amulegui` on user login, then exit (status 1 on failure; the same for the two options below). |
 | `--configure-protocols=<value>` | Register or unregister aMule as the default handler for `ed2k://` and `magnet:` links, then exit. `on`\|`off` sets both schemes; `ed2k:on`, `ed2k:off`, `magnet:on` or `magnet:off` sets one. |
 | `--configure-file-assoc=on\|off` | Register or unregister aMule as the handler for `.emulecollection` files, then exit. |
 | `-d`, `--disable-fatal` | Don't catch fatal exceptions or block exit on assertions (useful under systemd / watchdog scripts). Not available on Windows. |

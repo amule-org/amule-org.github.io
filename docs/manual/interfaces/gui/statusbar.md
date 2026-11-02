@@ -77,6 +77,8 @@ To the right of the icon, the field reads `Up: <speed> | Down: <speed>`:
 - **Up** — current upload speed.
 - **Down** — current download speed.
 
+All speed displays (here, in the window title, the tray icon and the speed columns) show the average over the last second, so they agree.
+
 Speeds are shown in binary (IEC) units: **KiB/s** (1 KiB = 1024 bytes), switching to **MiB/s** for higher rates; a speed of zero is shown as a bare `0.0`, without a unit. Sizes throughout the interface use the matching **KiB**, **MiB**, **GiB** and **TiB** units, and dates and times follow your system's locale settings.
 
 If **"Show overhead bandwidth"** is enabled in [Preferences → Interface](preferences.md#interface), a bracketed number appears alongside each speed value showing the bandwidth consumed by overhead traffic (connection management, pings, protocol control packets):

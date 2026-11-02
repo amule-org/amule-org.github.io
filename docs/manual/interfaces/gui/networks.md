@@ -38,11 +38,17 @@ To connect to a specific server instead, double-click its row in the server list
 The [toolbar](./toolbar.md) has no Connect button since aMule 3.1.0: each network has its own button on its tab. **Autoconnect on startup** in [Preferences → Connection](./preferences.md#networks) connects both enabled networks at startup, and the [system tray menu](./tray-icon.md#context-menu) has a **Connect** / **Disconnect** entry for both networks at once.
 :::
 
-### Updating the Server List from a URL
+### Updating the Server List {#updating-the-server-list-from-a-url}
 
-The URL field next to the **Servers (N)** label contains the address of a remote [`server.met`](../../configuration/config-files/index.md#servermet) file. Click the reload button to the left of the label (or press **Enter** while the URL field is focused) to download a fresh list of servers from that address.
+The row at the top of the ED2K tab starts with the **Servers (N)** label, the number of servers in the list, followed by the controls that download [`server.met`](../../configuration/config-files/index.md#servermet) files and merge their servers into the list:
 
-aMule pre-populates this field with a known working URL on first run and remembers whatever you last entered.
+| Control | Action |
+|---|---|
+| **Update server list** | Download the `server.met` of every saved source, in order, and merge them; a source that fails is skipped. |
+| **Edit sources...** | Edit the saved sources, one `http://` or `https://` URL per line. The same editor opens from [Preferences → Servers](./preferences.md#servers). |
+| **One-off URL** | The address of a single `server.met` file to download once, without saving it. Click **Download once** or press **Enter** in the field. |
+
+A new profile starts with `https://upd.emule-security.org/server.met` as its only source. **Auto-update server list at startup** in [Preferences → Servers](./preferences.md#servers) runs the same update at every start.
 
 :::note
 You only need to update the server list occasionally. Once you have a populated list, aMule keeps track of which servers are reachable.
@@ -123,6 +129,10 @@ The button at the top right of the Kad tab starts and stops Kademlia, using the 
 
 The button is disabled while the Kademlia network is disabled in **[Preferences → Connection → Networks](./preferences.md#networks)**.
 
+### Lookup Diagnostics
+
+The **Lookup diagnostics** button next to the connect button opens the **Kad lookup diagnostics** window, a snapshot of the active Kad lookups and the last 16 finished ones: each lookup's target and state, and the peers it contacted with their replies and round-trip times. Click the button again to take a new snapshot.
+
 ### Updating the Nodes List from a URL
 
 The URL field next to the **Nodes (N)** label contains the address of a remote [`nodes.dat`](../../configuration/config-files/index.md#nodesdat) file. Click the reload button to the left of the label (or press **Enter** in the URL field) to download a fresh list.
@@ -146,6 +156,10 @@ The graph displays the number of Kad nodes known to your client over time. Three
 The graph auto-scales upward as the node count grows. The **Nodes (N)** label at the top of the tab shows the current number of known Kad nodes at a glance.
 
 Hover the mouse over the graph to show a crosshair and a readout of the values at that point in time, the same as in the [Statistics](./statistics.md#reading-a-value) graphs.
+
+### Contact Distribution
+
+Below the nodes graph, a chart shows how the contacts in your Kad routing table are spread over the ID space: all contacts in blue and those with a verified address in green, with a marker at your own Kad ID — contacts clustering near it is expected. The line below it counts the **Routing-table contacts**, how many are **verified**, and the **distinct /24s** (subnets) they come from.
 
 ### Bootstrapping from a Specific Node
 

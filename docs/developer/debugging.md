@@ -7,7 +7,7 @@ GDB and Valgrind are the two main tools for diagnosing crashes and memory errors
 
 ## aMule's Built-in Crash Backtrace
 
-Before reaching for GDB, check what aMule already gives you. When aMule hits a fatal error (a crash) or a failed assertion, it **automatically writes a symbolized backtrace** to its `logfile` and to stderr — no debugger required. This is often enough to identify the faulty function, and it is the trace to paste when [filing a bug report](../contributing/bug-report.md).
+Before reaching for GDB, check what aMule already gives you. When aMule hits a fatal error (a crash) or a failed assertion, it **automatically writes a symbolized backtrace** to its `logfile` and to stderr — no debugger required (`logfile` is in the configuration directory unless `LogFilePath` in `amule.conf` or `--log-file` sets another path). This is often enough to identify the faulty function, and it is the trace to paste when [filing a bug report](../contributing/bug-report.md).
 
 The output looks like this:
 

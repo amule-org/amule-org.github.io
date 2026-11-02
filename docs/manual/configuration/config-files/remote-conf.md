@@ -9,7 +9,9 @@ title: remote.conf
 
 **Default location:** `~/.aMule/remote.conf`
 
-Unlike all other aMule configuration files, the name and path of `remote.conf` can be changed with the `-f` / `--config-file` command-line parameter.
+Unlike all other aMule configuration files, the name and path of `remote.conf` can be changed with the `-f` / `--config-file` command-line parameter. A bare file name is looked up in the configuration directory; anything else is used as a path (`~/` expands to the home directory).
+
+`remote.conf` holds the EC password hash, so the tools keep it owner-only (mode `0600` on POSIX systems).
 
 :::note
 The connection-override parameters (`-f` / `--config-file`, `-h` / `--host`, `-p` / `--port`, `-P` / `--password`) apply to `amulecmd` and `amuleweb` only. The [`amulegui`](../../interfaces/gui/amulegui.md) uses a different command-line parser and does not implement them; it accepts `-c` / `--config-dir` (to choose the config directory) and `-s` / `--skip` (to skip the connection dialog) instead. See [Tool-specific behavior](#tool-specific-behavior) below.
@@ -81,6 +83,9 @@ When `amulegui` uses `remote.conf` as its configuration file, it stores preferen
 | Key | Default | Description |
 |---|---|---|
 | `Language` | _(empty)_ | UI language code used by `amulegui` (e.g. `de`, `en_GB`). This is `amulegui`'s language setting — it does **not** use the top-level `Locale` key. Empty = system default. |
+| `LogFilePath` | _(empty)_ | Location of `amulegui`'s own log. Empty = `remotelogfile` in the configuration directory; a relative path is resolved against it. `--log-file=<file>` overrides it for a single run. |
+
+`amulegui` also stores its **Appearance** choice as `Appearance` under `[GUI]` (`0` = Follow system, `1` = Light, `2` = Dark; wxWidgets 3.3 or later builds only).
 
 ## `[PathMappings]` section
 

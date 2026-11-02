@@ -82,6 +82,8 @@ The data types aMule can read and write are:
 
 aMule reads all of these types (the compact integer and fixed-string variants exist for eMule compatibility), but when writing a `.part.met` it only emits `uint32` for integers — except in a **large-file** `.part.met` (version `0xE2`), where the file size and transferred-bytes tags are written as `uint64` (`0x0B`).
 
+aMule writes only string, integer, float and blob tags: hash (`0x01`), bool (`0x05`), bool array (`0x06`) and bsob (`0x0A`) tags read from a `.part.met` are dropped on save. Files written by aMule 3.1.0 or earlier still count such tags, so their tag count is too high.
+
 ### Python 3 parsing script
 
 The following script reads a `.part.met` file and prints its header fields and tags. Pass the path to a `.part.met` file as the only argument. For a quick decode without writing any code, aMule's [`fileview`](./fileview.md) tool dumps the same data.
@@ -189,17 +191,17 @@ if __name__ == "__main__":
 
 ## `*.part.met.bak`
 
-A recovery backup of the `.part.met` file. On every save, aMule promotes the previous `.part.met` to `.part.met.bak` (by renaming it) before installing the new one, so that if the `.part.met` file is lost or corrupted (e.g. after a crash), you can recover the download state by renaming `.part.met.bak` to `.part.met`.
+A recovery backup of the `.part.met` file. On every save, aMule copies the previous `.part.met` to `.part.met.bak` before installing the new one, so that if the `.part.met` file is lost or corrupted (e.g. after a crash), you can recover the download state by renaming `.part.met.bak` to `.part.met`.
 
 ## `*.part.met.tmp`
 
-A transient write-in-progress file. aMule saves a `.part.met` atomically: it first writes the new content to `.part.met.tmp`, then renames the existing `.part.met` to `.part.met.bak`, and finally renames `.part.met.tmp` over `.part.met`. Because the live `.part.met` is replaced by a single atomic rename, it is never left in a half-written state if the process is interrupted. Under normal operation, `.part.met.tmp` files are very short-lived and should not appear in the Temp directory.
+A transient write-in-progress file. aMule saves a `.part.met` atomically: it first writes the new content to `.part.met.tmp`, then copies the existing `.part.met` to `.part.met.bak.tmp` and renames that over `.part.met.bak`, and finally renames `.part.met.tmp` over `.part.met`. Because the live `.part.met` is replaced by a single atomic rename (also on Windows), it is never left half-written if the process is interrupted, and if any step fails the existing `.part.met` is kept. Under normal operation, `.part.met.tmp` and `.part.met.bak.tmp` files are very short-lived and should not appear in the Temp directory.
 
 ## `*.part.met.seeds`
 
 Stores up to 10 known source addresses for the corresponding download. This allows aMule to reconnect to sources for **rare files** (files with very few sources) immediately after a restart, without having to re-discover them from scratch.
 
-This file is only created when the **"Store sources for rare files"** preference is enabled.
+This file is only created when the **"Save up to 10 HighID sources of rare files (20 or fewer sources) on exit"** preference is enabled.
 
 ### Format
 

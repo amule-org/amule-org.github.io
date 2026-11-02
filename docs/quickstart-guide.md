@@ -47,7 +47,7 @@ Setting a realistic upload limit is **strongly recommended**: an uncapped upload
 The eD2k network rewards sharing: your maximum download speed is tied to your upload limit. See [Slow Download Speeds](./manual/troubleshooting/slow-speeds.md) for the details.
 :::
 
-You can change the limits later in [Preferences → Connection](./manual/interfaces/gui/preferences.md#bandwidth-limits).
+You can change the limits later in [Preferences → Connection](./manual/interfaces/gui/preferences.md#bandwidth-limits), whose **Bandwidth calculator...** button converts limits typed in Mbit/s for you.
 
 ### Networks & ports
 
@@ -66,7 +66,7 @@ To find its first peers, aMule needs an eD2k server list ([`server.met`](./manua
 
 ![Bootstrap files page of the setup wizard](/img/docs/quickstart/wizard_bootstrap.png)
 
-**Auto-update server list at startup** only takes effect once you add at least one server list URL with the **List** button in [Preferences → Servers](./manual/interfaces/gui/preferences.md#servers); the one-time download above does not depend on it.
+**Auto-update server list at startup** downloads the server list from every source in your list each time aMule starts. A new installation lists `https://upd.emule-security.org/server.met`; add or remove sources later with the **Edit sources...** button in [Preferences → Servers](./manual/interfaces/gui/preferences.md#servers).
 
 ### Integrations (optional)
 
@@ -83,7 +83,7 @@ You can change these later in [Preferences → General](./manual/interfaces/gui/
 
 ### Folders (optional)
 
-The last page sets the **Destination folder for downloads** (the *Incoming* directory, where finished files go) and the **Folder for temporary download files** (the *Temporary* directory, where in-progress downloads live). The defaults are fine for most people; change them if you want downloads on a different, larger disk. Remember that **every file in the Incoming folder is shared** with other peers.
+The last page sets the **Destination folder for downloads** (the *Incoming* directory, where finished files go) and the **Folder for temporary download files** (the *Temporary* directory, where in-progress downloads live). The defaults are fine for most people; change them if you want downloads on a different, larger disk. Remember that **every file in the Incoming folder is shared** with other peers, except files matching the [exclusion patterns](./manual/interfaces/gui/preferences.md#directories).
 
 ![Folders page of the setup wizard](/img/docs/quickstart/wizard_folders.png)
 
@@ -107,7 +107,7 @@ Wait until aMule reports a successful connection before searching; the status ba
 
 To connect or disconnect by hand, open the [Networks](./manual/interfaces/gui/networks.md) window: each network has its own button at the top right of its tab — **Connect ED2K** on the [ED2K tab](./manual/interfaces/gui/networks.md#connecting) and **Connect Kad** on the [Kad tab](./manual/interfaces/gui/networks.md#connecting-kad). The **Connect** entry of the [system tray menu](./manual/interfaces/gui/tray-icon.md#context-menu) connects both enabled networks at once.
 
-If you skipped the server list download, click the URL text field at the top of the ED2K tab (e.g. `https://upd.emule-security.org/server.met`) and press Enter to [populate the server list](./manual/interfaces/gui/networks.md#updating-the-server-list-from-a-url); aMule connects once the list has downloaded:
+If you skipped the server list download, click **Update server list** at the top of the ED2K tab to download it from your server list sources, or paste a server list URL into the **One-off URL** field and click **Download once** to [populate the server list](./manual/interfaces/gui/networks.md#updating-the-server-list-from-a-url); aMule connects once the list has downloaded:
 
 ![Server list populated via ED2K](/img/docs/gui_networks/networks_upper_ed2k.png)
 
@@ -128,9 +128,10 @@ Once connected, click the **Searches** button to open the [Searches](./manual/in
 
 ![Search dialog](/img/docs/gui_searches/searches.png)
 
-- **Local** — asks only the server you are currently connected to. Fast and usually enough.
-- **Global** — asks every server in your list. Slower, but broader.
+- **eD2k: Current server** — asks only the server you are currently connected to. Fast and usually enough.
+- **eD2k: All servers** — asks the connected server and the other servers in your list. Slower, but broader.
 - **Kad** — searches the Kademlia network.
+- **All networks** — searches the eD2k servers and Kad at once. It is offered when both networks are enabled.
 
 Double-click a result (or select it and click **Download**) to queue it:
 

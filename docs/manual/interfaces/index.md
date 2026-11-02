@@ -42,6 +42,8 @@ To use any remote interface:
 3. Optionally restrict the listening interface to `127.0.0.1` if you only need local access.
 4. The default EC port is **4712**.
 
+Remote interfaces can change download and shared folders only inside the folders the core allows (none by default), and a few settings can only be changed on the machine that runs the core. See [`amuled` → Settings Reserved to the Daemon Host](./amuled.md#settings-reserved-to-the-daemon-host).
+
 ## See also
 
 aMule also ships several standalone **[Utilities](../utilities/ed2k.md)** (`ed2k`, `alc`/`alcc`, `wxcas`/`cas`) for tasks such as adding eD2k links, generating links for local files, and displaying statistics.

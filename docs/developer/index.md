@@ -93,6 +93,7 @@ The GUI is built with **wxWidgets** (minimum version 3.2.0). It is completely se
 - Files in progress are stored as [`<NNN>.part` + `<NNN>.part.met`](file-formats/part-met.md) — sequentially numbered (e.g. `001.part`) — in the Temp directory (see [Directories](../manual/configuration/directories.md#temporary-directory)).
 - Completed files are moved to the Incoming directory.
 - File integrity is verified using [**AICH**](../p2p-networks/ed2k/aich.md) (Advanced Intelligent Corruption Handling) — a Merkle-tree-like hash structure that allows per-chunk verification and selective re-download of corrupted parts.
+- Download writes and upload reads run on worker threads, so a slow disk does not block the main thread. Received data not yet written to the `.part` files shares one 16 MiB budget; when it is full, aMule stops requesting new blocks, so a stalled disk cannot fill memory (see [`docs/WriteBufferLimits.md`](https://github.com/amule-org/amule/blob/master/docs/WriteBufferLimits.md)).
 - The core's hashing (MD4, MD5, SHA-1) and the RSA/[Secure User Identification](../p2p-networks/ed2k/secure-user-identification.md) code use **Crypto++**. Since aMule 3.1.0 aMule no longer carries its own SHA-1 and MD5 implementations: `src/SHA.*` and `src/libs/common/MD5Sum.*` are thin wrappers around Crypto++, which uses hardware SHA instructions where the CPU provides them.
 
 ### Kademlia
@@ -105,15 +106,17 @@ aMule includes a full implementation of the **[Kademlia DHT](../p2p-networks/kad
 
 ### Experimental Groundwork
 
-aMule 3.1.0 contains groundwork for future networking features that is **not switched on**: a stock build behaves exactly as before, and none of it is exposed as a preference or config key. It is compiled in only with the build switches listed under [Experimental Options](compilation/index.md#experimental-options), which are meant for development and testing only.
+aMule contains groundwork for future networking features that is **not switched on**: a stock build does not use it, and apart from the IPv6 controls described below, none of it is exposed as a preference. It is compiled in only with the build switches listed under [Experimental Options](compilation/index.md#experimental-options), which are meant for development and testing only. Even then, the server-coordinated NAT traversal and QUIC send no traffic until their `amule.conf` runtime setting is turned on (all off by default, with no GUI control).
 
-- **Addressing** — an IPv6-capable network address type (`NetworkAddress.*`), typed peer identity (`PeerIdentity.h`, `PeerAddressing.h`) and address-aware security and filtering. Inbound IPv6 connections are refused unless the build enables `ENABLE_IPV6`.
-- **uTP transport** — a uTP (µTorrent Transport Protocol) transport for peer connections (`Utp*`, vendored libutp in `src/extern/libutp/`), compiled in only with `ENABLE_UTP`.
-- **Kademlia** — Kad protocol 0x0a (`ENABLE_KAD_PROTOCOL_10`) and adaptive timeouts/identity protections (`ENABLE_KAD_NODE_PROTECTION`).
+- **Addressing** (`ENABLE_IPV6`) — an IPv6-capable network address type (`NetworkAddress.*`), typed peer identity (`PeerIdentity.h`, `PeerAddressing.h`) and address-aware security and filtering. Such a build adds two Connection preferences: `AddressFamilies=1` opens a dual-stack eD2k TCP listener and dials IPv6 peers and Kad sources; `AdvertiseIPv6` announces the own IPv6 address to peers and in the eD2k server login (updated with `OP_IPV6_UPDATE`) and accepts IPv6 sources from servers that support it (see [`docs/IPv6_Server_Sources.md`](https://github.com/amule-org/amule/blob/master/docs/IPv6_Server_Sources.md)). Server connections over IPv6 are out of scope, and the IPv6 identity work is not complete.
+- **uTP transport** (`ENABLE_UTP`) — a uTP (µTorrent Transport Protocol) transport for peer connections (`Utp*`, vendored libutp in `src/extern/libutp/`).
+- **Server-coordinated NAT traversal** (`ENABLE_NATT_SERVER_COORDINATION`) — connections between two LowID clients on the same server: Lugdunum's NAT callback (`LugdunumNatCallback`) and ed2k-server's LowID hole punch (`LowIdHolePunch`). Both complete over uTP, so they also need `ENABLE_UTP`. See [`docs/NAT_T_Protocol.md`](https://github.com/amule-org/amule/blob/master/docs/NAT_T_Protocol.md).
+- **QUIC transport** (`ENABLE_QUIC`) — a QUIC transport for NAT-traversed connections (system ngtcp2 with GnuTLS). With `QuicNatT`, it answers the eMuleAI capability probe (EAQC CAPS), accepts inbound QUIC and dials QUIC for server-coordinated LowID connections, falling back to uTP.
+- **Kademlia** (`ENABLE_KAD_NODE_PROTECTION`) — adaptive timeouts and identity protections. Kad protocol `0x0a` (AICH hashes on keyword storage) is not experimental: it is the preference `KadProtocol10`, on by default.
 
 ### Peer Protocol Extensions
 
-Independently of the groundwork above, every aMule 3.1.0 build recognises the vendor capability bits sent by eMuleAI-based clients (extended source exchange, NAT traversal over uTP or QUIC, IPv6, serving buddy pull). They are decoded and shown read-only as **Protocol extensions** in [Client Details](../manual/interfaces/gui/client-details.md), and exposed over EC and the REST API; reserved protocol frames from those clients are recognised and dropped. aMule does not advertise any of these capabilities itself.
+Independently of the groundwork above, every aMule build recognises the vendor capability bits sent by eMuleAI-based clients (extended source exchange, NAT traversal over uTP or QUIC, IPv6, serving buddy pull). They are decoded and shown read-only as **Protocol extensions** in [Client Details](../manual/interfaces/gui/client-details.md), and exposed over EC and the REST API; in a default build, reserved protocol frames from those clients are recognised and dropped. aMule does not advertise any of these capabilities itself.
 
 ## Code Documentation
 

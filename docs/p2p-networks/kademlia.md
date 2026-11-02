@@ -106,6 +106,14 @@ Unlike eD2k where a search goes to a centralised server, Kademlia distributes se
 - Each Kad node still returns up to 300 results per query, but because the lookup queries many nodes there is no single point that caps the total — unlike eD2k, where [one server limits the result set](ed2k/index.md#search-results-cap). The distributed nature does mean some rare files may be harder to find.
 - The search is slower to return results but is not limited by server availability.
 
+### AICH hashes in keyword storage
+
+Kad protocol version `0x09` (eMule 0.50a) added [AICH](ed2k/aich.md) root hashes to keyword storage. A publisher includes its file's AICH root hash when it sends a keyword entry to a node that speaks `0x09` or later (tag `TAG_KADAICHHASHPUB`, `0x36`). The indexing node counts how many publishers reported each hash and returns the hashes in keyword search results (tag `TAG_KADAICHHASHRESULT`, `0x37`). Older nodes store the entry without a hash.
+
+This lets a searching client learn the file's AICH root hash before it has any source. A file has exactly one AICH hash, so one hash reported by many publishers is a strong signal, while competing hashes are a warning. A hash from a node that advertises a Kad version below `0x09` should not be trusted. Kad version `0x0a`, advertised by current eMule clients, adds nothing to the wire format.
+
+aMule shares and uses these hashes by default; see [Preferences → Files](../manual/interfaces/gui/preferences.md#files) in the User Manual.
+
 ## Open vs. Firewalled Status
 
 Kademlia uses the terms **Open** and **Firewalled** (analogous to eD2k's [High ID / Low ID](ed2k/high-id.md)). Unlike eD2k — where a single ID summarises your reachability — Kad checks two ports **independently** and reports a state for each:
@@ -119,7 +127,9 @@ A fully **Open** node has both ports reachable and participates as a query targe
 
 Being firewalled does **not** remove you from the network. You stay connected, you can keep searching and downloading, and you can still be found as a source — your participation is simply less efficient because other nodes cannot reach you directly.
 
-To remain reachable, a firewalled node finds a **buddy**: an *open* Kad node that agrees to relay incoming connection requests (callbacks) on its behalf. When the firewalled node publishes itself as a source, it advertises its buddy's address; an interested peer then contacts the buddy, which forwards the request so the firewalled node can call back and open the transfer. This callback mechanism is what lets a firewalled node serve files at all, and it is the Kad equivalent of the eD2k server-assisted callback used for Low ID clients. The buddy connection status is also visible in the **[Kad Info panel](../manual/interfaces/gui/networks.md#kad-info)**.
+A node that is firewalled on TCP but has a verified open UDP port needs no intermediary: since Kad version `0x06` it publishes itself as a **direct callback** source, and an interested peer asks it over UDP to connect back over TCP. Such a node publishes sources, keywords and notes like an open one.
+
+Otherwise, to remain reachable, a firewalled node finds a **buddy**: an *open* Kad node that agrees to relay incoming connection requests (callbacks) on its behalf. When the firewalled node publishes itself as a source, it advertises its buddy's address; an interested peer then contacts the buddy, which forwards the request so the firewalled node can call back and open the transfer. This callback mechanism is what lets a firewalled node serve files at all, and it is the Kad equivalent of the eD2k server-assisted callback used for Low ID clients. The buddy connection status is also visible in the **[Kad Info panel](../manual/interfaces/gui/networks.md#kad-info)**.
 
 A common case is being [High ID](ed2k/high-id.md) on eD2k yet Firewalled on Kademlia, usually caused by the router remapping the source port of outgoing UDP packets. For the practical steps to reach **open** status — including the NAT-remapping workaround — see **[Network Connectivity](../manual/configuration/network-connectivity.md)** in the User Manual.
 

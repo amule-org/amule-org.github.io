@@ -130,10 +130,10 @@ See [What is a source?](#what-is-a-source) and [eD2k Network — Credits and Sco
 
 #### What is the difference between Transferred and Completed in the Downloads window?
 
-- **Transferred**: the total amount of raw data received for the file. Data arrives in compressed form.
+- **Transferred**: the total amount of raw data received for the file. Data may arrive in compressed form.
 - **Completed**: the amount of useful, decompressed file data extracted from the received data — i.e., actual file content excluding protocol headers and compression overhead.
 
-It is normal and expected for Transferred to be **smaller** than Completed. See [GUI → File Details → Transfer](interfaces/gui/file-details.md#transfer) for where these values are shown.
+For files that compress well, it is normal and expected for Transferred to be **smaller** than Completed; for videos, archives and other already-compressed files the two stay close. See [GUI → File Details → Transfer](interfaces/gui/file-details.md#transfer) for where these values are shown.
 
 #### What is the difference between pausing and stopping a transfer?
 
@@ -153,6 +153,8 @@ aMule allows preview of **video and audio files only**. Two conditions must be m
 
 If aMule refuses to preview a file that you believe is previewable, navigate to your [Temp directory](configuration/directories.md#temporary-directory) manually and open the `NNN.part` file with a media player directly.
 
+In the Flatpak, video players installed on the host system are not available; see [Flatpak sandbox](installation/index.md#flatpak).
+
 #### aMule slows down my computer whenever a download completes. Is this normal?
 
 Yes. When a download completes, aMule performs a **full file hash verification**: it hashes all downloaded chunks and verifies them against the expected values. Even though chunk integrity is checked incrementally while downloading, this final pass ensures no chunk was corrupted by the user or an external application after it was written. This is CPU-intensive for large files and is expected behavior. See [Concepts & Glossary — Chunks and Data Integrity](../p2p-networks/concepts.md#chunks-and-data-integrity) and the [part.met file format](../developer/file-formats/part-met.md) for how chunk hashing works.
@@ -168,6 +170,10 @@ See [ED2KLinks file](configuration/config-files/index.md) for more information.
 #### Is there a way to recursively select a whole directory and its contents in Preferences?
 
 Yes. In **Preferences → Directories**, **right-click** the directory in the Shared Directories tree to share it recursively, including all its subdirectories (**double-click** shares only that single directory). The full reference — the directory tree and its font/icon states, the rescan options, and the editable `shareddir-explicit.dat` / `shareddir-recursive.dat` files — is in [Directories → Shared Directories](configuration/directories.md#shared-directories).
+
+#### Why are some of my files not shared?
+
+Files and folders whose names match the patterns in **Preferences → Directories → Exclude files and folders matching** are left out of your shares; a matching folder is left out with everything in it. In a new installation, the default patterns also exclude office documents (Word, Excel, PowerPoint, OpenDocument, RTF, CSV and TSV files). To share such files, remove the matching pattern. See [Directories → Configuring Shared Directories](configuration/directories.md#configuring-shared-directories).
 
 #### What are all those files aMule creates the first time it is run?
 
@@ -250,13 +256,13 @@ A **friend slot** is a dedicated upload slot permanently reserved for a client i
 
 While the friend is not downloading, the reserved slot reverts to the client with the highest score in your regular upload queue. See [eD2k Network — Credits and Scoring](../p2p-networks/ed2k/index.md#credits-and-scoring) for how upload priority and score are determined.
 
-#### What is the real point of the download and upload graph scales in Preferences?
+#### What is the real point of the line capacities in Preferences?
 
-aMule only uses **Bandwidth Limits** (in the **Connection** tab) to control actual network usage. The **Download graph scale** and **Upload graph scale** (in the **Statistics** tab, formerly called **Line Capacities**) exist purely to give the **Statistics graphs** a meaningful scale.
+aMule only uses **Bandwidth limits** (in the **Connection** tab) to control actual network usage. The **Line capacities** (also in the **Connection** tab) do not throttle anything: they give the **Statistics graphs** a meaningful scale and set the range of the bandwidth limit sliders.
 
-Example: if you have a 100 KBps connection but your downloads never exceed 5 KBps (rare Indonesian free music), setting the graph scale to 100 KBps makes the graph show an almost flat line with no visual information. Setting it to 5–10 KBps makes the graph readable and useful.
+Example: if you have a 100 KBps connection but your downloads never exceed 5 KBps (rare Indonesian free music), setting the line capacity to 100 KBps makes the graph show an almost flat line with no visual information. Setting it to 5–10 KBps makes the graph readable and useful.
 
-See [GUI → Statistics → Graphs](interfaces/gui/statistics.md#graphs) and [Preferences → Statistics](interfaces/gui/preferences.md#statistics).
+See [GUI → Statistics → Graphs](interfaces/gui/statistics.md#graphs) and [Preferences → Connection → Line capacities](interfaces/gui/preferences.md#line-capacities).
 
 ### Running aMule
 
@@ -370,7 +376,7 @@ For IPv4 TCP/IP: each packet carries a minimum of 20 bytes IPv4 header + 20 byte
 
 TCP requires the receiver to send **ACK** packets back for every segment received. If aMule saturates your uplink with uploads and connection overhead, outgoing ACKs for your **downloads** may be delayed or dropped — causing the remote sender to slow down, which directly reduces your download speed.
 
-**Never use more than 80% of your upload capacity for aMule.** Set realistic rate limits in **Preferences → Connection → Bandwidth Limits**. This applies to any connection — especially asymmetric ones (cable, DSL) where the uplink is the bottleneck — so always leave headroom for ACKs and other traffic rather than running the link at 100%. See [aMule Is Slow](/docs/manual/troubleshooting/slow-speeds) for specific values.
+**Never use more than 80% of your upload capacity for aMule.** Set realistic rate limits in **Preferences → Connection → Bandwidth limits**. This applies to any connection — especially asymmetric ones (cable, DSL) where the uplink is the bottleneck — so always leave headroom for ACKs and other traffic rather than running the link at 100%. See [aMule Is Slow](/docs/manual/troubleshooting/slow-speeds) for specific values.
 
 #### How do routers and SOHO devices cope with P2P load?
 
@@ -445,7 +451,7 @@ See [Preferences → aMule API server parameters](interfaces/gui/preferences.md#
 
 #### How do I set or change the Web UI password?
 
-Set it in **Preferences → Remote Controls**, or from a terminal with `amuleapi --set-admin-pass=<password>`. You can also tick **Enable guest access** and set a **guest** password, which gives read-only access. Changes apply at the next login, without a restart. See [Changing Passwords](interfaces/amuleapi/index.md#changing-passwords).
+Set it in **Preferences → Remote Controls**, or from a terminal with `amuleapi --set-admin-pass-stdin`, which asks for the password without showing it. You can also tick **Enable guest access** and set a **guest** password, which gives read-only access. Changes apply at the next login, without a restart. See [Changing Passwords](interfaces/amuleapi/index.md#changing-passwords).
 
 #### Can I use the Web UI from another computer?
 

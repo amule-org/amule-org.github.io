@@ -3,7 +3,7 @@ id: macos
 title: macOS
 ---
 
-This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, the **Navigate** menu, configuring the built-in macOS firewall, handling [`ed2k://` and `magnet:` links](./ed2k-magnet-links.md) from the browser, and setting up video preview.
+This guide covers macOS-specific considerations when using aMule: activating context menus with a single-button mouse, the **Navigate** menu, configuring the built-in macOS firewall, local network access, handling [`ed2k://` and `magnet:` links](./ed2k-magnet-links.md) from the browser, and setting up video preview.
 
 ## Right-Click / Context Menus
 
@@ -35,6 +35,10 @@ The macOS built-in firewall is **off by default**, and when enabled it works **p
 3. Add `aMule.app` to the list and set it to **Allow incoming connections**.
 
 You can verify the ports are reachable as described in [Testing your port status](./network-connectivity.md#testing-your-port-status).
+
+## Local Network Access
+
+On macOS 15 (Sequoia) and later, macOS asks before an app reaches devices on your local network. Allow it when prompted: `aMule.app` needs it for [UPnP](./upnp.md) and for peers on your LAN, and `aMuleGUI.app` to connect to an `amuled` on another computer of your network. If you denied it, turn it back on in **System Settings → Privacy & Security → Local Network**.
 
 ## Handling eD2k and Magnet Links
 
