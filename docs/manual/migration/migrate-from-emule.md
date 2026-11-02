@@ -32,7 +32,7 @@ The following eMule files are read and correctly imported by aMule without any m
 | File | Contents |
 |---|---|
 | [`clients.met`](../configuration/config-files/index.md#clientsmet) | Other clients' credit information |
-| [`known.met`](../configuration/config-files/index.md#knownmet) | Details about downloaded files (shown in green when searched again) |
+| [`known.met`](../configuration/config-files/index.md#knownmet) | Details about downloaded files (shown in green when searched again). aMule keeps full records only for files found in your shared folders in the last 30 days; it moves the hashes of the others to `knownhistory.met`, so those files stay green |
 | `known2.met` | AICH hashes of shared files (converted to `known2_64.met` on first run) |
 | [`server.met`](../configuration/config-files/index.md#servermet) | Saved server list |
 | [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) | Static servers |
