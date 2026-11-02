@@ -9,3 +9,6 @@ node_modules/
 
 # Workspace
 .hidden/
+
+# Local Claude Code instructions
+CLAUDE.local.md
