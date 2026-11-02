@@ -147,7 +147,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 - Behind a reverse proxy that rewrites `Host` (as nginx does by default), have the proxy pass the original host in `X-Forwarded-Host` (for nginx: `proxy_set_header X-Forwarded-Host $http_host;`), or older browsers get `403` on their own changes.
 - Listens on **loopback** (`127.0.0.1`) unless `BindAddress` is changed.
 - The config file and the generated secret/token files are restricted to `0600`.
-- **Folder changes need the daemon's permission.** The incoming, temporary, shared and category folders can only be set inside the folders the core allows. The list is empty by default, so such changes are refused with `403 path_not_allowed` until it is filled in. A few daemon-local settings are read-only (`400 read_only_field`). See [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host).
+- **Folder changes need the daemon's permission.** The incoming, temporary, shared and category folders can only be set inside the folders the core allows. The list is empty by default, so such changes are refused with `403 path_not_allowed` until it is filled in. The API exposes the list read-only as the `directories.allowed_remote_roots` preference. A few daemon-local settings are read-only too (`400 read_only_field`): `files.ffprobe_path`, `online_signature.directory` and `directories.follow_symlinks`. See [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host).
 
 ## Reference
 
