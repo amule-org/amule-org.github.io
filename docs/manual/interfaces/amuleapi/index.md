@@ -134,7 +134,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 - **Downloads** — the download queue, plus per-file comments, filenames, clients and clear-completed. New downloads can be added from eD2k links or magnet links (with the eD2k hash and file size).
 - **Clients** and **Known clients** — active peers and the credit-store history.
 - **Shared files** — shared files, share directories, verify, media refresh, and deleting a complete file from disk.
-- **Servers** — the eD2k server list, plus the server-list update (`servers_update`).
+- **Servers** — the eD2k server list, plus the server-list update (`POST /api/v1/servers_update`): without a body it downloads every source in the `servers.update_urls` preference, in order; with a `url` it downloads that one list without saving it.
 - **Friends**, **Categories**.
 - **Preferences** — read (`GET`) and update (`PATCH`).
 - **Network control** — networks and Kad control.
