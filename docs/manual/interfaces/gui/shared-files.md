@@ -48,6 +48,7 @@ Each row represents one file and has the following columns:
 | **Directory Path** | Full path to the file's folder on your system; for files still being downloaded, the [Temporary directory](../../configuration/directories.md#temporary-directory) |
 | **Length**, **Bitrate**, **Codec** | Playing time, bitrate and codec of audio and video files. Hidden by default |
 | **Artist**, **Album**, **Title** | Tags of audio files. Hidden by default |
+| **Verify Local Data** | Result of the last [Verify Local Data](#verifying-local-data) check, as **OK** or **Failed** with its date and time; empty if the file has never been checked |
 
 For **Requests**, **Accepted Requests** and **Transferred Data**, the first two clicks on the header sort by the session value (ascending, then descending) and the next two by the all-time value.
 
@@ -55,7 +56,7 @@ The six media columns are filled by [media metadata extraction](./preferences.md
 
 Double-clicking a file (or pressing **Enter**) opens it, as **Open the file** in the menu below does; if it cannot be opened (for example a partial file without a preview), [File Details](./file-details.md) opens instead. See [Keyboard & Mouse Shortcuts](./shortcuts.md) for the other shortcuts.
 
-Files whose name matches the **Exclude files matching** patterns in [Preferences → Directories](./preferences.md#directories) (by default common OS junk such as `.DS_Store` or `Thumbs.db`) are never shared and do not appear in the list.
+Files whose name matches the **Exclude files and folders matching** patterns in [Preferences → Directories](./preferences.md#directories) (by default common OS junk such as `.DS_Store` or `Thumbs.db` and, in new profiles, office documents) are never shared and do not appear in the list. This also applies to matching folders inside a recursive share and to matching completed downloads.
 
 ## Managing Files
 
@@ -86,6 +87,14 @@ Select **Rename** (or press **F2**) to rename the file on your local storage. A 
 - Type the new name and click **OK** to confirm.
 - Click **Cancel** to keep the existing name.
 
+### Deleting a File from Disk
+
+Select **Delete file from disk** to delete complete files: after a confirmation, each file is deleted from disk, stops being shared, and its completed row in [Downloads](./downloads.md#controlling-downloads) is cleared. If a file cannot be deleted, aMule asks whether to stop sharing it anyway. The entry is disabled for files that are still downloading.
+
+### Verifying Local Data
+
+Select **Verify Local Data** to re-hash the selected complete file(s) in the background and check that the data on disk still matches the file's MD4 and [AICH](../../../p2p-networks/ed2k/aich.md) hashes. The result is logged, kept across restarts, and shown in the **Verify Local Data** column and in [File Details](./file-details.md#verify-local-data). aMule stops sending corrupt parts to other clients; if another file in your shared folders may be an intact copy, the log names it. [Preferences → Files](./preferences.md#uploads) can also re-check requested files automatically every few days.
+
 ### Collections
 
 For files with the `.emulecollection` extension, the menu shows **Add files in collection to transfer list**, which queues every file listed in the collection for download.
@@ -99,7 +108,7 @@ To create a collection, select the files and choose **Export selected files to a
 | **Open the file** | Open the file: media files in the configured [video player](./preferences.md#general), anything else with the system's default application. Labelled **Preview** for a file that is still downloading, and then enabled only if a preview is possible. Enabled only when the file is on this computer (see [Path Mappings](./preferences.md#path-mappings) for `amulegui`) |
 | **Show in file manager** | Open the folder containing the file in the system file manager. Not available for files that are still downloading |
 | **Show file details** | Open the [File Details](./file-details.md) window, with the file's sharing statistics and media information. The down/up arrow buttons in that window step through the shared files list |
-| **Verify Local Data** | Re-hash the selected file(s) to check that the data on disk still matches the file's hash. Not available for files that are still downloading |
+| **Verify Local Data** | Re-hash the selected file(s) to check that the data on disk still matches the file's hash (see [Verifying Local Data](#verifying-local-data)). Not available for files that are still downloading |
 | **Re-extract media metadata** | Read the media information (length, bitrate, codec, tags) of the selected audio and video files again, for example after editing their tags. When more than one file is eligible, aMule asks for confirmation first. It then runs in the background and reports progress, and any skipped files, in the log. Disabled when none of the selected files is a complete audio or video file, or when media metadata extraction is turned off in [Preferences](./preferences.md#media-metadata-extraction) |
 | **Copy magnet URI to clipboard** | Copies a magnet link for the file as plain text |
 | **Copy eD2k link to clipboard** | Copies the file's [eD2k link](../../../p2p-networks/ed2k/links.md) as plain text |

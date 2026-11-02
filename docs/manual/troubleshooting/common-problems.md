@@ -15,14 +15,15 @@ If aMule is **always** consuming heavy CPU at startup even when no new files hav
 rm ~/.aMule/known.met
 ```
 
-## "No valid servers to connect in serverlist found" — what does this mean?
+## "No valid servers to which to connect found in server list" — what does this mean?
 
-This message appears when the option **"Auto connect to servers in the static list only"** is enabled but the static server list is empty. See [Static Servers](../../p2p-networks/ed2k/index.md#static-servers) for background and [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) for the file that stores this list.
+This message appears when the server list is empty, or when the option **"Autoconnect to servers in static list only"** is enabled but the static server list is empty. See [Static Servers](../../p2p-networks/ed2k/index.md#static-servers) for background and [`staticservers.dat`](../configuration/config-files/index.md#staticserversdat) for the file that stores this list.
 
 **Solutions:**
 
-1. **Disable the option**: Preferences → Servers → uncheck "Auto connect to servers in the static list only".
+1. **Disable the option**: Preferences → Servers → uncheck "Autoconnect to servers in static list only".
 2. **Add a server to the static list**: in the Servers window, right-click a server and select "Add to static". Repeat for all servers you want to keep.
+3. **If the server list itself is empty**, see [Why does aMule suddenly have no servers in the server list?](#why-does-amule-suddenly-have-no-servers-in-the-server-list).
 
 ## Why does aMule suddenly have no servers in the server list?
 
@@ -104,12 +105,32 @@ On next startup, aMule will rehash all shared files from scratch.
 ## I always get a message about addresses.dat when I start aMule. What's wrong?
 
 This happens when:
-- The option **Preferences → Servers → "Auto-update serverlist at startup"** is enabled, **and**
+- The option **Preferences → Servers → "Auto-update server list at startup"** is enabled, **and**
 - There are no server list URLs in [`~/.aMule/addresses.dat`](../configuration/config-files/index.md#addressesdat).
 
+The log then says *No server list sources configured*. A new installation starts with `https://upd.emule-security.org/server.met` in the list, so this only happens if the list was emptied.
+
 **Solutions:**
-- Add server list URLs in **Preferences → Servers → "List"**.
-- Or disable **"Auto-update serverlist at startup"** if you don't need automatic updates.
+- Add server list URLs with **Preferences → Servers → "Edit sources..."**.
+- Or disable **"Auto-update server list at startup"** if you don't need automatic updates.
+
+## Why does aMule refuse to download a server list, IP filter or other update?
+
+aMule only downloads server lists, the IP filter, `nodes.dat` and the GeoIP database from `http://` and `https://` addresses. For any other address the log says *Refusing to download … only http and https URLs are supported.* Replace it with an `http://` or `https://` address.
+
+## Why can't aMule connect to an eD2k server on my own computer or my local network?
+
+aMule only contacts an eD2k server at a loopback (`127.0.0.1`) or private LAN address while **Always filter LAN IPs** is off in [Preferences → Security → IP-Filtering](../interfaces/gui/preferences.md#ip-filtering). This also applies to servers added by host name, such as `localhost`. Turn the option off to use such a server.
+
+## Why don't my event commands run anymore?
+
+Event values (`%FILE`, `%NAME`, `%HASH`, …) are passed to the command as literal arguments, and aMule refuses a command that puts a value inside code run by an interpreter, such as `sh -c "… %NAME"`. The log then says *Command '…' was not run on '…' event: …* with the reason.
+
+Rewrite the command so the values are separate arguments: call your script with the placeholders as arguments, or put the fixed code after `sh -c` and pass the values as positional arguments, for example `sh -c 'mv -- "$1" /archive/' _ %FILE`. See [Events → Command syntax](../configuration/events.md#command-syntax).
+
+## Why do people who message me have to solve a CAPTCHA?
+
+aMule filters chat spam and, by default, asks someone who is not on your friends list to solve a CAPTCHA before their first message reaches you. To turn either off, untick **Enable advanced spam filter** or **Require a CAPTCHA for first messages from non-friends** in [Preferences → Filters → Messages](../interfaces/gui/preferences.md#messages).
 
 ## What should I do if I lose my cryptkey.dat file?
 
@@ -172,7 +193,7 @@ This works because aMule verifies each chunk against its expected hash, so it ca
 
 If any of your [Shared Directories](../configuration/directories.md#shared-directories) or [Temp/Incoming directories](../configuration/directories.md#incoming-directory) are on NFS mounts, make sure to **unmount those NFS shares from any computer being shut down** before the shutdown happens.
 
-If an NFS mount becomes unavailable while aMule is running, aMule will hang indefinitely waiting for the mount to come back. Symptoms: the Statistics window shows flat non-zero lines for Download/Upload/Connections that drop to zero only after the NFS mounts are restored.
+If an NFS mount becomes unavailable while aMule is running, the transfers that use it stall until the mount comes back, and shutting down aMule can wait for them; the interface and uploads from other disks keep working.
 
 After unmounting NFS shares from any machine, also click **Reload** in the Shared Files window.
 

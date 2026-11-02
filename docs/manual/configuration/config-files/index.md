@@ -47,7 +47,7 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`amuleapi-static/`](#amuleapi-static) | Installed Web UI assets served by `amuleapi` |
 | [`server.met`](#servermet) | eD2k server list (IP, port, name, statistics) |
 | [`server.met.bak`](#servermet) | Automatic backup of `server.met` |
-| [`server_auto.met`](#servermet) | Temporary file holding a server list during auto-update (deleted after merge) |
+| [`server.met.download`](#servermet) | Temporary file holding a downloaded server list until it is merged |
 | [`staticservers.dat`](#staticserversdat) | Static eD2k servers that override `server.met` entries |
 | [`addresses.dat`](#addressesdat) | URLs to download `server.met` updates from |
 | [`nodes.dat`](#nodesdat) | Known Kademlia contacts for network bootstrap |
@@ -58,11 +58,13 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`emfriends.met`](#emfriendsmet) | Friends list with last known IP, port, and timestamps |
 | [`statistics.dat`](#statisticsdat) | Lifetime traffic totals (cumulative bytes uploaded/downloaded) |
 | [`canceled.met`](#canceledmet) | Hashes of cancelled downloads (highlights them in search results) |
+| [`knownhistory.met`](#knownhistorymet) | Hashes of completed files no longer in `known.met` (still marked as downloaded in search results) |
 | [`searchhistory.dat`](#searchhistorydat) | Past search terms (search history of the GUI) |
 | [`StoredSearches.met`](#storedsearchesmet) | Results of the searches still open at exit, restored on the next start |
 | [`shareddir.dat`](#shareddirdat) | Union of all shared directories (regenerated automatically) |
 | [`shareddir-explicit.dat`](#shareddirdat) | Non-recursive shared directory roots (user-added) |
 | [`shareddir-recursive.dat`](#shareddirdat) | Recursive shared directory roots (contents shared including subdirectories) |
+| [`allowed-remote-dirs.dat`](#allowed-remote-dirsdat) | Folders inside which remote clients may set download and shared folders |
 | [`ipfilter.dat`](#ipfilterdat) | IP range block/allow list (auto-updated) |
 | [`ipfilter_static.dat`](#ipfilter_staticdat) | Static IP range overrides (never modified by aMule) |
 | [`ED2KLinks`](#ed2klinks) | One-way interface for adding downloads to aMule |
@@ -71,7 +73,7 @@ If a directory named `config` exists next to the aMule executable (in its workin
 | [`muleLock`](#mulelock) | PID file that prevents two simultaneous aMule instances |
 | [`muleLockRGUI`](#mulelock) | PID file for the Remote GUI (`amulegui`) instance |
 | [`geoip.mmdb`](#geoip-mmdb) | GeoIP country database for [IP2Country](../ip2country.md) flags (auto-updated) |
-| [`logfile`](#logfile) | Log of the current aMule session |
+| [`logfile`](#logfile) | Log of the current aMule session (location configurable) |
 | [`logfile.bak`](#logfile) | Log of the previous aMule session |
 | [`remotelogfile`](#logfile) | Log written by `amulegui` (Remote GUI) for its own session |
 | [`lastversion`](#lastversion) | History of the 10 most recently launched aMule versions |
@@ -190,7 +192,7 @@ Directory holding the built Web UI assets that `amuleapi` serves. When the `[Ser
 
 **Location:** `~/.aMule/server.met`
 
-Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here. `server.met.bak` is an automatic backup. During an automatic server-list update, the downloaded list is written to `server_auto.met` first, then merged into `server.met` and deleted on success.
+Binary database of known eD2k servers. Each entry records the server's IP address, TCP port, name, description, ping time, failure count, user count, and capability flags. The format is compatible with eMule's `server.met`. Servers listed in `staticservers.dat` override matching entries here. `server.met.bak` is an automatic backup. A downloaded server list is written to `server.met.download`, merged into `server.met` only if it reads completely, and then deleted.
 
 #### Obtaining server.met online
 
@@ -205,7 +207,7 @@ A current `server.met` can be downloaded on first run, when the local list is em
 These are third-party services unaffiliated with the aMule project. Their availability may change over time.
 :::
 
-Enter a URL in the **Networks → eD2k** tab to download immediately, or set `Ed2kServersUrl` in [`amule.conf`](./amule-conf.md) for automatic updates at startup.
+Enter a URL in the **Networks → eD2k** tab to download it once, or add it to the server-list sources in [`addresses.dat`](#addressesdat) (**Edit sources...**) to have it downloaded on every update.
 
 For the complete binary format and tag reference, see the [server.met reference](../../../developer/file-formats/server-met.md).
 
@@ -221,7 +223,9 @@ For its line format, see the [`staticservers.dat` format reference](../../../dev
 
 **Location:** `~/.aMule/addresses.dat`
 
-A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the **Auto-update server list at startup** preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
+A plain-text list of `http://` or `https://` URLs from which aMule downloads `server.met` files, on startup (if **Auto-update server list at startup** is enabled) and on a manual update. Each source is merged into `~/.aMule/server.met`; a failing source is skipped. Edit it with **Edit sources...** in the Servers preferences or on the Networks page, also from remote clients.
+
+The old `Ed2kServersUrl` key of [`amule.conf`](./amule-conf.md) is moved to the top of this list and removed. Without one, a new file contains `https://upd.emule-security.org/server.met`.
 
 For its format, see the [`addresses.dat` format reference](../../../developer/file-formats/index.md#addressesdat).
 
@@ -251,7 +255,7 @@ For the complete binary format, see the [nodes.dat reference](../../../developer
 
 **Location:** `~/.aMule/known.met`
 
-Binary file that caches the hashes, names, sizes, modification dates, priorities, and notes of shared files. This prevents aMule from having to rehash every shared file each time it starts — a significant time saving for large files.
+Binary file that caches the hashes, names, sizes, modification dates, priorities, notes and last Verify Local Data result of shared files. This prevents aMule from having to rehash every shared file each time it starts — a significant time saving for large files.
 
 For its format, see the [`known.met` format reference](../../../developer/file-formats/index.md#knownmet).
 
@@ -287,6 +291,14 @@ Binary file storing the MD4 hashes of all downloads the user has cancelled. When
 
 For its format, see the [`canceled.met` format reference](../../../developer/file-formats/index.md#canceledmet).
 
+### `knownhistory.met` {#knownhistorymet}
+
+**Location:** `~/.aMule/knownhistory.met`
+
+Binary file storing the MD4 hashes of files dropped from `known.met` after 30 days not seen on disk (for example a completed download you deleted), so search results still mark them as already downloaded.
+
+For its format, see the [`knownhistory.met` format reference](../../../developer/file-formats/index.md#knownhistorymet).
+
 ### `statistics.dat`
 
 **Location:** `~/.aMule/statistics.dat`
@@ -310,6 +322,12 @@ aMule uses three related files to track shared directories. For how to configure
 When aMule starts and neither `shareddir-explicit.dat` nor `shareddir-recursive.dat` exists (fresh install or migration from an older version), all entries in `shareddir.dat` are loaded as explicit (non-recursive) shares. This is the safe default for migration.
 
 For the shared file format, see the [shared directory files reference](../../../developer/file-formats/index.md#shareddirdat).
+
+### `allowed-remote-dirs.dat` {#allowed-remote-dirsdat}
+
+**Location:** `~/.aMule/allowed-remote-dirs.dat`
+
+Plain-text list of the folders inside which remote clients may set the incoming, temporary, shared and category folders: one absolute path per line, UTF-8; relative paths are ignored. A folder at or below a listed path is allowed. The file is absent by default, so every remote folder change is refused. It is never changed over EC: edit it in the monolithic `amule` (**Folders remote clients may use**), or by hand and restart `amuled`. See [Changing Folders from a Remote Client](../directories.md#changing-folders-from-a-remote-client).
 
 ## IP filter files
 
@@ -432,7 +450,7 @@ Plain-text list of the last 100 search terms, one per line, newest first. The GU
 
 **Location:** `~/.aMule/StoredSearches.met`
 
-Binary file with the results of the searches still open when the core (`amule` or `amuled`) shuts down — at most the 20 most recent searches and 5000 results each; "View Files" listings are not saved. The core reads it on the next start to reopen those searches (see [Saved Searches](../../interfaces/gui/searches.md#saved-searches)). It is written only while **Remember search history** is enabled; with the option disabled, the file is deleted on the next start.
+Binary file with the searches currently open in the core (`amule` or `amuled`) and their results — at most the 20 most recent searches and 5000 results each; "View Files" listings are not saved. It is written at shutdown and at most every 30 seconds while searches change, and also keeps each search's filters. The core reads it on the next start to reopen those searches (see [Saved Searches](../../interfaces/gui/searches.md#saved-searches)). It is written only while **Remember search history** is enabled; with the option disabled, the file is deleted on the next start.
 
 ## Log files
 
@@ -443,6 +461,8 @@ Binary file with the results of the searches still open when the core (`amule` o
 Plain-text log of the current aMule session, capturing all messages, warnings, and errors reported during operation. When a new session starts, the previous `logfile` is renamed to `logfile.bak` and a fresh one is created. Each line is prefixed with a `YYYY-MM-DD HH:MM:SS:` timestamp.
 
 The [`amulegui`](../../interfaces/gui/amulegui.md) writes its own separate log to `~/.aMule/remotelogfile`, in the same format but recording only events from the GUI process.
+
+The log can be moved (for example to a RAM-backed filesystem) with the `LogFilePath` key under `[eMule]` — in [`amule.conf`](./amule-conf.md), or [`remote.conf`](./remote-conf.md) for `amulegui` — or for a single run with `--log-file=<file>`. The backup goes beside it, with `.bak` appended.
 
 ## Version tracking files
 

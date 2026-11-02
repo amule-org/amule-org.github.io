@@ -7,12 +7,15 @@ Solutions to the most common problems encountered when running aMule.
 
 | Section | Contents |
 |---|---|
-| [Common Problems](./common-problems.md) | High CPU at startup, Low ID, lost/paused downloads, disk space, server list issues, permissions, file descriptors, crashes, and more |
+| [Common Problems](./common-problems.md) | High CPU at startup, Low ID, lost/paused downloads, disk space, server list issues, local servers, event commands, chat CAPTCHAs, permissions, file descriptors, crashes, and more |
 | [Slow Download Speeds](./slow-speeds.md) | Configuration checklist, upload-saturation (ACK bottleneck) fixes, network-inherent limitations, aMule slowing other apps |
 | [Fake Files and Servers](./fake-files-and-servers.md) | Detecting fake content, identifying and avoiding malicious servers, IP filtering, maintaining a safe server list |
-| [Remote Access Troubleshooting](./remote-access.md) | `amulecmd` connection errors, `amuleweb` connection and authentication issues |
+| [Remote Access Troubleshooting](./remote-access.md) | `amulecmd` connection errors, refused remote changes, `amuleapi` behind a reverse proxy, `amuleweb` connection and login issues |
 
 ## Quick diagnostics
+
+**Something stopped working after upgrading to aMule 3.2.0**
+→ A few defaults changed for safety. See [Before you upgrade](/changelog/3.2.0#before-you-upgrade) in the 3.2.0 changelog; the most common cases are [remote folder changes refused](./remote-access.md#why-does-the-remote-gui-or-the-web-ui-refuse-to-change-the-download-or-shared-folders), [`amuleweb` guests refused](./remote-access.md#why-cant-guests-log-in-to-amuleweb), [event commands not run](./common-problems.md#why-dont-my-event-commands-run-anymore), [a server on your LAN not contacted](./common-problems.md#why-cant-amule-connect-to-an-ed2k-server-on-my-own-computer-or-my-local-network) and [files no longer shared](../faq.md#why-are-some-of-my-files-not-shared).
 
 **aMule uses a lot of CPU at startup**
 → aMule hashes new or modified shared files on launch — this is normal. If it happens on every startup with no new files, `known.met` may be corrupted. See [Why is aMule taking so much CPU at startup?](./common-problems.md#why-is-amule-taking-so-much-cpu-at-startup).

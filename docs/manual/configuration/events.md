@@ -16,7 +16,7 @@ Four events are supported:
 | **Download completed** | A file finishes downloading. |
 | **New chat session started** | Another user initiates a chat session with you. |
 | **Out of space** | aMule runs out of disk space on the partition used for temporary files. |
-| **Error on completion** | aMule cannot move a completed file from the temporary directory to the incoming directory (typically caused by insufficient disk space). |
+| **Error on completion** | aMule cannot move a completed file from the temporary directory to the incoming directory (typically caused by insufficient disk space). The *Download completed* command is not run for that file. |
 
 ## Command types
 
@@ -29,9 +29,16 @@ For each event you can specify two independent commands:
 
 When running monolithic `amule`, both commands are executed if both are specified.
 
+In `amulegui`, the **Core command** controls are disabled: set Core commands in the daemon's [`amule.conf`](./config-files/amule-conf.md#userevents-section) and restart `amuled`. `amulegui` runs only two GUI commands:
+
+- **New chat session started**.
+- **Download completed**, for downloads that complete while it is connected. `%FILE` is empty, since the file is on the core's machine.
+
+**Out of space** and **Error on completion** are raised only by the core.
+
 ## Variables
 
-Each event exposes a set of variables that are substituted in the command string before execution:
+Each event exposes a set of variables that are substituted into the command's arguments before execution:
 
 ### Download completed
 
@@ -53,7 +60,7 @@ Each event exposes a set of variables that are substituted in the command string
 
 | Variable | Value |
 |---|---|
-| `%PARTITION` | Always substituted with the fixed text `Temporary partition` (the partition used for temporary files), not the real partition name or device. |
+| `%PARTITION` | The path of the temporary directory whose partition is low on space. |
 
 ### Error on completion
 
@@ -68,18 +75,29 @@ aMule does **not** run the command through a shell. The command string is split 
 A command is therefore either a single program with optional parameters, or the path to a script followed by optional parameters:
 
 ```sh
-MyScript.sh %NAME %FILE %HASH %SIZE "%DLACTIVETIME"
+MyScript.sh %NAME %FILE %HASH %SIZE %DLACTIVETIME
 ```
 
-If a variable value may contain spaces (e.g. `%NAME`, `%FILE`, `%DLACTIVETIME`), enclose the variable in quotes:
+Variables are substituted **after** the command is split into arguments, and each value stays inside its argument as literal data. So variables never need quotes, and a value cannot add arguments or commands. Use quotes only around fixed text with spaces, or to combine text and variables in one argument:
 
 ```sh
-MyScript.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
+notify-send "aMule" "Finished %NAME (%SIZE bytes)"
 ```
 
-Inside a shell script, the variables are received as positional parameters `$1`, `$2`, `$3`, etc. The script must be in `$PATH` or specified with a full pathname.
+An older command that relied on one variable expanding into several arguments must list those arguments itself.
 
-If a command fails to execute for any reason, the failure is logged in [aMule's log file](./config-files/index.md).
+Inside a shell script, the variables are received as positional parameters `$1`, `$2`, `$3`, etc. Quote them in the script (`"$1"`). The script must be in `$PATH` or specified with a full pathname.
+
+aMule refuses to run a command that would put an event value where it could be executed as code:
+
+- A variable cannot be (part of) the executable name.
+- A variable cannot be the code or script name of an interpreter (`sh`, `bash`, `python`, `perl`, `node`, …). For inline shell code, pass the values as arguments after it: `sh -c 'mv -- "$1" "/archive/$2"' _ %FILE %NAME`. `sh -c "mv %FILE /archive"` is refused.
+- Launchers such as `powershell`, `env` or `busybox`, and interpreters with options before the script (`python -u script.py %FILE`), cannot receive variables; use a script instead.
+- On Windows, a value containing `"`, `%`, `!` or a line break is refused for `.bat`/`.cmd` files and `cmd /c`; after `cmd /c`, name the program's extension (`.exe`, `.bat`, …) unless it is a built-in command. `.exe` programs receive any value.
+
+If the program accepts `--`, put it before the variables so a value starting with `-` is not read as an option.
+
+If a command is refused or fails to execute for any reason, the reason is logged in [aMule's log file](./config-files/index.md).
 
 ## Examples
 
@@ -90,14 +108,14 @@ The scripts below are minimal, self-contained starting points. Make each one exe
 Sending an email needs a pipe, which aMule cannot run directly (see [Command syntax](#command-syntax) above). Put it in a small script and set the *Out of space* command to:
 
 ```sh
-diskFull.sh "%PARTITION"
+diskFull.sh %PARTITION
 ```
 
 ```bash
 #!/bin/bash
 #
 # diskFull.sh - sends an email when aMule runs out of disk space
-# Call like this: diskFull.sh "%PARTITION"
+# Call like this: diskFull.sh %PARTITION
 
 echo "aMule error: $1 is full." | mail -s "aMule: out of disk space" mymail@domain.tld
 ```
@@ -111,14 +129,14 @@ echo "aMule error: $1 is full." | mail -s "aMule: out of disk space" mymail@doma
 Set the Core command for *Download completed* to:
 
 ```sh
-doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
+doneDL.sh %NAME %FILE %HASH %SIZE %DLACTIVETIME
 ```
 
 ```bash
 #!/bin/bash
 #
 # doneDL.sh - sends an email when an aMule download completes
-# Call like this: doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
+# Call like this: doneDL.sh %NAME %FILE %HASH %SIZE %DLACTIVETIME
 #
 # Enter your email address here:
 EMAIL="youremail@address.com"
@@ -152,16 +170,16 @@ Set the Core command for each event to its matching script:
 
 ```sh
 # Download completed:
-doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
+doneDL.sh %NAME %FILE %HASH %SIZE %DLACTIVETIME
 
 # New chat session:
-newMsg.sh "%SENDER"
+newMsg.sh %SENDER
 
 # Out of space:
-noDiskSpace.sh "%PARTITION"
+noDiskSpace.sh %PARTITION
 
 # Error on completion:
-errorDL.sh "%FILE"
+errorDL.sh %FILE
 ```
 
 **`doneDL.sh`** — download completed:
@@ -170,7 +188,7 @@ errorDL.sh "%FILE"
 #!/bin/bash
 #
 # doneDL.sh — desktop notification on download complete
-# Call like this: doneDL.sh "%NAME" "%FILE" %HASH %SIZE "%DLACTIVETIME"
+# Call like this: doneDL.sh %NAME %FILE %HASH %SIZE %DLACTIVETIME
 #
 # Sound file (the freedesktop sound theme is installed on most desktops):
 soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
@@ -189,7 +207,7 @@ notify-send -i amule "Download completed" \
 #!/bin/bash
 #
 # errorDL.sh — desktop notification on download error
-# Call like this: errorDL.sh "%FILE"
+# Call like this: errorDL.sh %FILE
 #
 soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
@@ -204,7 +222,7 @@ notify-send -i amule "aMule error" \
 #!/bin/bash
 #
 # newMsg.sh — desktop notification on new chat message
-# Call like this: newMsg.sh "%SENDER"
+# Call like this: newMsg.sh %SENDER
 #
 soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
@@ -219,7 +237,7 @@ notify-send -i amule "New message" \
 #!/bin/bash
 #
 # noDiskSpace.sh — desktop notification on disk full
-# Call like this: noDiskSpace.sh "%PARTITION"
+# Call like this: noDiskSpace.sh %PARTITION
 #
 soundPath="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
@@ -248,11 +266,20 @@ param([string]$Name)
 New-BurntToastNotification -Text "aMule", "Download completed: $Name"
 ```
 
+aMule does not pass event values to `powershell.exe` directly, so call it from a batch file. Save this as `C:\Scripts\notify.cmd`, next to the script:
+
+```bat
+@echo off
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0notify.ps1" "%~1"
+```
+
 In **Preferences → Events → Download completed**, enable command execution and set the command to:
 
 ```
-powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\notify.ps1 "%NAME"
+C:\Scripts\notify.cmd %NAME
 ```
+
+File names containing `"`, `%` or `!` get no notification (see [Command syntax](#command-syntax)).
 
 :::note
 The old `net send` / Windows *Messenger* service approach no longer works: that service was removed from Windows starting with Windows Vista. Use toast notifications (as above) on modern Windows.

@@ -40,6 +40,7 @@ Right-click a download and select **Show file details**. The [**File Names**](..
 - **Check extension consistency**: a file named `movie.avi` that has an `application/exe` magic number in the first bytes (visible in a hex editor on the first downloaded chunk) is suspicious.
 - **Prefer files with many complete sources**: the number in brackets in the [search results](../interfaces/gui/searches.md#getting-results) (clients known to have the complete file) correlates with legitimacy, though it is not conclusive.
 - **Use AICH**: the [AICH (Advanced Intelligent Corruption Handler)](../../p2p-networks/ed2k/aich.md) system verifies sub-chunk integrity using a hash tree. While AICH does not detect a fake (a file that is internally consistent but not what you wanted), it does prevent accidentally accepting corrupted chunks from a fake source that has mixed legitimate and corrupted data.
+- **Check your own copies**: **Verify Local Data** in the [Shared Files](../interfaces/gui/shared-files.md#other-menu-options) context menu re-hashes a file on disk, and parts found damaged are not offered to other users. To re-check requested shared files every few days, enable **Verify local data of requested shared files every … days** in [Preferences → Files → Uploads](../interfaces/gui/preferences.md#uploads).
 
 ## Fake servers
 

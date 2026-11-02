@@ -35,6 +35,7 @@ On macOS these shortcuts use the `⌥` (Option) key and are also listed in a nat
 | *Any character* | All lists | Jump to the item whose first-column value starts with the typed string (resets after 1.5 s; pressing the same letter repeatedly cycles through matches) |
 | `Ctrl+A` | All lists | Select all items in the current list (`⌘A` on macOS) |
 | `Shift+F10` or `Menu` key | All lists | Open the context menu of the selected item |
+| `Ctrl+Shift+L` | All lists | Open the column menu to show, hide, fit or restore columns (`⌘⇧L` on macOS; see [Working with lists](./index.md#working-with-lists)) |
 | `Ctrl+C` | [Networks](./networks.md) / ED2K Info / Kad Info | Copy the selected rows (or the whole panel) to the clipboard as tab-separated `label`/`value` pairs |
 | `Ctrl+Q` | All | Exit aMule (`⌘Q` on macOS) |
 | `F1` | All | Open the online documentation in your browser (only when no modifier key is held) |
@@ -54,7 +55,7 @@ On macOS these shortcuts use the `⌥` (Option) key and are also listed in a nat
 | Double-click | [Statistics](./statistics.md) | Expand or collapse the selected statistics node |
 | Hover | [Statistics](./statistics.md) / Kad graph | Show the values of each line at that point in time |
 | Click on a column header | All lists | Sort the list by that column (toggles ascending/descending) |
-| Right-click on a column header | All lists | Show a menu to toggle which columns are visible |
+| Right-click on a column header | All lists | Show the column menu: toggle which columns are visible, fit them to their contents or restore the defaults |
 | Right-click on an item | All | Open the item's context menu |
 | Right-click → Copy | [Networks](./networks.md) / ED2K Info / Kad Info | Copy the selected rows (or the whole panel) to the clipboard |
 | Middle-click on a tab | [Searches](./searches.md) / [Messages](./messages.md) | Close the tab |

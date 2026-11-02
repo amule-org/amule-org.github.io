@@ -13,12 +13,12 @@ Autostart is **off by default**. You can change it in any of these places:
 
 | Where | How |
 |---|---|
-| Windows installer | The **Start aMule when I log in** component — see [Installation → Windows](../installation/index.md#installer). Tick it again when you upgrade. |
+| Windows installer | The **Start aMule when I log in** component — see [Installation → Windows](../installation/index.md#installer). An upgrade keeps the current autostart setting. |
 | [First-run wizard](../../quickstart-guide.md#integrations-optional) | The **Start aMule automatically when I log in** checkbox on the *Integrations (optional)* page |
 | [Preferences → General](../interfaces/gui/preferences.md#general) | The **Start aMule automatically when I log in** checkbox, which takes effect immediately |
 | Command line | `--configure-autostart=on\|off`, accepted by [`amule`](../interfaces/gui/amule.md#starting-amule), [`amulegui`](../interfaces/gui/amulegui.md#command-line-options) and [`amuled`](../interfaces/amuled.md); the program writes or removes the entry and exits |
 
-The entry starts the program it was enabled from — `amule`, `amulegui` or `amuled`. If you move aMule, start the same program once by hand so it updates the entry.
+The entry starts the program it was enabled from — `amule`, `amulegui` or `amuled`. There is one entry per user, so enabling autostart from one program replaces an entry set by another. If you move aMule, start the same program once by hand so it updates the entry. With the [AppImage](../installation/index.md#appimage), the entry points to the `.AppImage` file you started.
 
 The autostart entry starts aMule normally. To have it start in the background, also enable **Start minimized** and, optionally, the [tray icon](../interfaces/gui/tray-icon.md) options in [Preferences → General](../interfaces/gui/preferences.md#general).
 
@@ -28,21 +28,13 @@ The autostart entry starts aMule normally. To have it start in the background, a
 |---|---|
 | Windows | Registry value `aMule` under `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run` |
 | macOS | LaunchAgent `~/Library/LaunchAgents/org.amule.amule.plist` |
-| Linux / BSD | XDG autostart file `$XDG_CONFIG_HOME/autostart/amule.desktop` (usually `~/.config/autostart/amule.desktop`) |
+| Linux / BSD | XDG autostart file `$XDG_CONFIG_HOME/autostart/amule.desktop` (usually `~/.config/autostart/amule.desktop`); `org.amule.aMule.desktop` for the [Flatpak](#flatpak) |
 
-To turn autostart off, use the aMule checkbox or `--configure-autostart=off` rather than disabling the entry in the OS settings: aMule only checks whether the entry exists, so it would still report autostart as on.
+On Windows, Linux and BSD, an entry you switch off in the OS (Task Manager's **Startup** tab or the desktop's startup settings) is shown as off in aMule, and turning autostart on in aMule switches it back on. On macOS, aMule cannot read the OS switch, so turn autostart off with the aMule checkbox or `--configure-autostart=off`.
 
-:::caution Flatpak
-The [Flatpak](../installation/index.md#flatpak) cannot register an autostart entry from inside its sandbox: leave the aMule checkbox off, which has no effect there, and create an entry on the host instead, for example `~/.config/autostart/amule-flatpak.desktop`:
+### Flatpak
 
-```ini
-[Desktop Entry]
-Type=Application
-Name=aMule
-Exec=flatpak run org.amule.aMule
-Terminal=false
-```
-:::
+The [Flatpak](../installation/index.md#flatpak) registers autostart through the desktop's Background portal, which may ask for permission the first time.
 
 ## Running `amuled` as a Service
 

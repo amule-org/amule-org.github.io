@@ -91,6 +91,7 @@ In that case, aMule uses **peer consensus** to establish a **trusted** Root Hash
 - aMule asks multiple clients for the Root Hash of the file.
 - If **at least 10 clients** return the same Root Hash **and** that value represents **≥ 92%** of all responses received, the Root Hash is considered trustworthy.
 - To prevent a single host from faking the consensus, aMule counts **unique IPs by subnet** (only the most significant bits of each address are considered), so multiple replies from the same network count as one.
+- Root Hashes reported in [Kad keyword search results](../kademlia.md#aich-hashes-in-keyword-storage) also count as votes, by the subnet of the Kad node that sent them.
 - This Root Hash is kept **in memory only** (not written to disk) and is **not shared** with other clients until the download is complete.
 
 Once the download completes:
@@ -105,7 +106,9 @@ After a file is downloaded completely, aMule builds and stores the complete AICH
 
 ### Enabling AICH
 
-AICH has **no on/off switch** — it is always active and is used automatically whenever aMule can obtain a trusted Root Hash for a file. The only AICH-related preference is **["Advanced I.C.H. trusts every hash (not recommended)"](../../manual/interfaces/gui/preferences.md#intelligent-corruption-handling-ich)** (off by default): when enabled, aMule trusts any Root Hash it receives **without** requiring the 10-client / ≥ 92% consensus described above. Leaving it off is strongly recommended, as the consensus check is what protects against malicious peers injecting fake hashes.
+AICH has **no on/off switch** — it is always active and is used automatically whenever aMule can obtain a trusted Root Hash for a file. The main AICH-related preference is **["Advanced I.C.H. trusts every hash (not recommended)"](../../manual/interfaces/gui/preferences.md#intelligent-corruption-handling-ich)** (off by default): when enabled, aMule trusts any Root Hash it receives **without** requiring the 10-client / ≥ 92% consensus described above. Leaving it off is strongly recommended, as the consensus check is what protects against malicious peers injecting fake hashes.
+
+**"Share and use file repair hashes (AICH) over Kad"** (on by default, [Preferences → Files](../../manual/interfaces/gui/preferences.md#files)) only controls whether Root Hashes are also exchanged through [Kad keyword storage](../kademlia.md#aich-hashes-in-keyword-storage); AICH between eD2k peers works either way.
 
 ### Summary: ICH vs AICH
 

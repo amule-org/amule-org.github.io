@@ -64,10 +64,12 @@ The graphical interface is shared by the all-in-one [`amule`](./amule.md) client
 Every major list in the interface — servers, search results, downloads and their sources, shared files, clients, friends and the file-names list in [File Details](./file-details.md) — is built on the same list control and behaves the same way:
 
 - **Sorting** — click a column header to sort by that column; click it again to reverse the order. Sorting is live: rows are re-sorted as their values change.
-- **Choosing columns** — right-click a column header to show or hide columns. Column widths, hidden columns and the sort order are remembered between sessions.
+- **Choosing columns** — right-click a column header, or press `Ctrl+Shift+L` (`⌘⇧L` on macOS) in a focused list, to open the column menu: show or hide columns, fit them to their contents, or restore the default columns and widths. Column widths, hidden columns and the sort order are remembered between sessions.
 - **Type to jump** — with the list focused, type the first letters of an entry to jump to it.
 - **Context menus** — right-click a row, or press `Shift+F10` or the `Menu` key, to open its context menu.
 
 See [Keyboard & Mouse Shortcuts](./shortcuts.md) for the full list.
 
-The interface follows the system's light or dark appearance, and the lists paint their colour-coded text (for example the [search result colours](./searches.md#result-row-colours)) in shades that stay readable on either background. On Windows this requires a build against wxWidgets 3.3 or later.
+The interface follows the system's light or dark appearance, and the lists paint their colour-coded text (for example the [search result colours](./searches.md#result-row-colours)) in shades that stay readable on either background. On Windows this requires a build against wxWidgets 3.3 or later. With wxWidgets 3.3 or later, **Appearance** in [Preferences → Interface](./preferences.md#interface) can also force **Light mode** or **Dark mode**.
+
+The main window reopens at its last size and position, moved onto a visible monitor if its previous one is gone.

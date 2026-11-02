@@ -13,7 +13,11 @@ Download and install MSYS2 from [https://www.msys2.org/](https://www.msys2.org/)
 
 After the base installation, open the **MSYS2 MINGW64** terminal (not MSYS2 MSYS or UCRT64) for all subsequent steps.
 
-The Windows build requires CMake ≥ 3.10, wxWidgets ≥ 3.2.0, Boost ≥ 1.70, and crypto++ ≥ 8.1 — the MSYS2 packages below already satisfy these.
+The Windows build requires CMake ≥ 3.12, wxWidgets ≥ 3.2.0, Boost ≥ 1.70, and crypto++ ≥ 8.1 — the MSYS2 packages below already satisfy these.
+
+:::note
+MSYS2 packages only wxWidgets 3.2 for MINGW64, so a MINGW64 build lacks the **Appearance** setting (light/dark mode), which needs wxWidgets 3.3. The release packages and CI build x64 in **CLANG64** instead (see [Packaging](#packaging-portable-zip-and-installer)).
+:::
 
 ## Install Dependencies
 
@@ -128,13 +132,14 @@ The scripts support two architectures, selected by the `WINDOWS_MSYSTEM` value i
 
 | MSYS2 environment | Architecture |
 |---|---|
-| `MINGW64` | x64 |
+| `CLANG64` | x64 (used for the x64 release) |
+| `MINGW64` | x64 (limited to wxWidgets 3.2) |
 | `CLANGARM64` | ARM64 (Windows on ARM) |
 
 `build.sh` takes a subcommand (`build` is the default):
 
 ```sh
-# In the matching MSYS2 shell (MINGW64 for x64, CLANGARM64 for ARM64)
+# In the matching MSYS2 shell (CLANG64 for x64, CLANGARM64 for ARM64)
 
 # 1. Portable .zip — the default action
 packaging/windows/build.sh
@@ -150,10 +155,10 @@ packaging/windows/build.sh sign
 
 The `build` step configures CMake, compiles, installs a portable tree (`bin/{amule,amuled,amulegui,amulecmd,ed2k}.exe` plus the MSYS2 DLLs resolved automatically via `file(GET_RUNTIME_DEPENDENCIES)` and a `ca-bundle.crt` for libcurl HTTPS), and zips it.
 
-To build the x64 release from a MINGW64 shell, either set `WINDOWS_MSYSTEM=MINGW64` in `versions.env` or override it inline:
+To build the x64 release from a CLANG64 shell, either set `WINDOWS_MSYSTEM=CLANG64` in `versions.env` or override it inline:
 
 ```sh
-WINDOWS_MSYSTEM=MINGW64 packaging/windows/build.sh
+WINDOWS_MSYSTEM=CLANG64 packaging/windows/build.sh
 ```
 
 The `installer` subcommand requires `makensis` (NSIS 3.x) on `PATH`. See `packaging/windows/README.md` for installer details and remote (SSH) build instructions.

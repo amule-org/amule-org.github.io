@@ -12,7 +12,7 @@ This page explains the practical steps to make your ports reachable so you get a
 
 ## Ports used by aMule
 
-aMule uses three ports to communicate with other clients and servers. All three can be changed in **Preferences → Connection**.
+aMule uses three ports to communicate with other clients and servers. All three can be changed in **Preferences → Connection**. A port change takes effect without restarting aMule; if the new port cannot be used, aMule keeps the previous one and reports an error.
 
 | Port | Protocol | Direction | Purpose |
 |---|---|---|---|
@@ -28,6 +28,8 @@ Additionally:
 | 4711 | TCP | Incoming | [`amuleweb`](../interfaces/amuleweb.md) (legacy WebUI). |
 | 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) — used by [`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md) and [`amulecmd`](../interfaces/amulecmd.md). |
 | 4713 | TCP | Incoming | [`amuleapi`](../interfaces/amuleapi/index.md) HTTP interface (REST API + Web UI). Default port; configurable. |
+
+In a new configuration, the External Connections port and `amuleapi` accept connections from the same computer only (`127.0.0.1`). To use `amulegui`, `amulecmd` or the Web UI from another computer, set the matching **IP of the listening interface** under [Preferences → Remote Controls](../interfaces/gui/preferences.md#remote-controls) and open the port in your firewall. Do not forward it on your router unless you need access from the internet. A configuration first saved by aMule 2.3.x or 3.0.x keeps its External Connections port listening on every interface.
 
 ### Minimum port requirements by network
 
@@ -47,9 +49,9 @@ See [Kademlia connectivity](#kademlia-connectivity-open-vs-firewalled) below for
 ## Step 1 — Identify your ports
 
 1. Start aMule and open **[Preferences → Connection](../interfaces/gui/preferences.md#connection)**.
-2. Note the value in the **Standard client TCP Port** field (default: `4662`).
-3. Note the value in the **Extended client UDP Port** field (default: TCP + 3 = `4665`).
-4. The Kad UDP port (`4672`) is shown separately in the **Preferences → Connection** page.
+2. Note the value in the **Standard TCP Port** field (default: `4662`).
+3. The **UDP port for server requests (TCP+3)** is shown next to it (default: `4665`); it always follows the TCP port.
+4. Note the value in the **Extended UDP port (Kad / global search)** field (default: `4672`).
 5. Ensure the **"Extended UDP port (Kad / global search)"** checkbox is **ticked** — if it is unchecked, the UDP port (`4672`) is disabled and Kademlia cannot reach "open" status.
 
 You can verify whether a port is reachable from outside your network using an online port checker (see [Testing your port status](#testing-your-port-status) below). A **closed** result means incoming connections to that port are being blocked — either by a firewall, a router doing NAT, or both.
@@ -89,9 +91,9 @@ After configuring, verify the ports are reachable using [Testing your port statu
 
 If you run aMule over a VPN, set **[Preferences → Connection → Limits → Bind to network interface](../interfaces/gui/preferences.md#limits)** (the [`NetworkInterface`](./config-files/amule-conf.md#connection) key) to the VPN interface name (e.g. `tun0`, `wg0`, `en0`) or index; on Windows use the adapter's friendly name (e.g. `Ethernet`). Unlike **Bind local address to IP**, which only chooses the source address, this pins the traffic to the interface so it does not leave through the default route while the interface exists. Changing it requires restarting aMule. Not supported on BSD.
 
-The binding covers all eD2k and Kademlia traffic (including connections through a [proxy](./proxy.md)) and, on macOS and Linux where wxWidgets' curl backend is available, the HTTP downloads (server list, IP filter, [GeoIP database](./ip2country.md), version check). It does not cover the [UPnP](./upnp.md) traffic or the External Connections listener, which has its own setting in [Preferences → Remote Controls](../interfaces/gui/preferences.md#external-connection-parameters).
+The binding covers all eD2k and Kademlia traffic (including connections through a [proxy](./proxy.md)) and, on macOS and Linux where wxWidgets' curl backend is available, the HTTP downloads (server list, IP filter, [GeoIP database](./ip2country.md), version check). An HTTP download that cannot be bound to the interface fails instead of using the default route. The binding does not cover the [UPnP](./upnp.md) traffic or the External Connections listener, which has its own setting in [Preferences → Remote Controls](../interfaces/gui/preferences.md#external-connection-parameters).
 
-If the interface does not exist, aMule logs `WARNING: configured network interface '<name>' was not found …` at startup. On some Linux kernels the binding needs the `CAP_NET_RAW` capability: grant it to the binary (e.g. `sudo setcap cap_net_raw+ep /usr/bin/amule`) instead of running aMule as root.
+If the interface does not exist, aMule logs `WARNING: configured network interface '<name>' was not found …` at startup. On Linux before kernel 5.7 the binding needs the `CAP_NET_RAW` capability: grant it to the binary (e.g. `sudo setcap cap_net_raw+ep /usr/bin/amule`) instead of running aMule as root.
 
 :::warning Not a kill switch
 The binding **fails open**: if the interface does not exist or disappears later (for example, the VPN drops), aMule keeps working through the default route instead of stopping. If traffic must never leave outside the VPN, add a firewall rule that blocks aMule's traffic on every other interface, or use your VPN client's kill-switch feature.
@@ -105,10 +107,13 @@ aMule's network stack is IPv4 only: the hostnames it connects to (servers, the p
 
 With **[Remove dead server after _n_ retries](../interfaces/gui/preferences.md#servers)** enabled (the [`RemoveDeadServer` and `DeadServerRetry`](./config-files/amule-conf.md#server) keys), servers that fail too often are removed from the list. aMule tries to count only the failures that are the server's fault:
 
-- **Counted:** the server refuses the connection, the operating system reports a connection timeout, the server's hostname does not resolve while other servers' hostnames do, and unanswered UDP pings (sent to the servers in the list while aMule is connected to one).
-- **Not counted:** errors that point to your own connection, such as network or host unreachable; aMule's own 25-second connection timeout; and a hostname that does not resolve when no other server's hostname resolves either (DNS is probably down).
+- **Counted:** the server refuses the connection, the server's hostname does not resolve while other servers' hostnames do, and unanswered UDP pings (sent to the servers in the list while aMule is connected to one).
+- **Not counted:** errors that point to your own connection, such as network or host unreachable; connection timeouts, whether aMule's own 25-second timeout or one reported by the operating system; and a hostname that does not resolve when no other server's hostname resolves either (DNS is probably down).
+- A server is removed once it has failed _n_ times.
 - Static servers are never removed.
 - When a whole pass over the server list fails, aMule waits **30 seconds** before trying again, if **Reconnect on loss** is enabled in [Preferences → Connection](../interfaces/gui/preferences.md#networks).
+
+A server on your own computer or LAN can only be used with **Always filter LAN IPs** off in [Preferences → Security → IP-Filtering](../interfaces/gui/preferences.md#ip-filtering).
 
 ## Kademlia connectivity (open vs firewalled)
 
@@ -130,7 +135,7 @@ aMule already tries to cope with this automatically: it asks several Kad nodes w
 **Workaround:**
 
 1. Choose a non-default port number `n` such that `80 < n < 65530` (some values known to work: `4811`, `9870`).
-2. In **[Preferences → Connection](../interfaces/gui/preferences.md#connection)**, set the Standard client TCP port to `n`.
+2. In **[Preferences → Connection](../interfaces/gui/preferences.md#connection)**, set the **Standard TCP Port** to `n`.
 3. Forward the following three ports on your router:
    - TCP port `n` (instead of 4662)
    - UDP port `n + 3` (instead of 4665)

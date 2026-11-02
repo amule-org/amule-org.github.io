@@ -77,7 +77,7 @@ The aMule interface strings are managed with GNU gettext (`.po` files in `po/`).
 |---|---|---|---|
 | `Application` | `po/*.po` | `po/amule.pot` | gettext PO file |
 
-The template `po/amule.pot` is regenerated in git by [`./scripts/update-po.sh`](./index.md#updating-an-existing-translation), which also merges the new and changed strings into every `.po` file; Weblate imports the result when it pulls from git.
+The template `po/amule.pot` is regenerated in git by [`./scripts/update-po.sh`](./index.md#updating-an-existing-translation). Pull requests commit only the template: Weblate merges it into every `po/*.po` file with its **Update PO files to match POT (msgmerge)** add-on, configured to write the same output as `./scripts/update-po.sh --all`, and proposes the merged catalogs in its next pull request. Before a release, that pull request is merged (or the catalogs are merged in git with `--all`), since the release workflow requires every catalog to be merged.
 
 ## Man pages
 

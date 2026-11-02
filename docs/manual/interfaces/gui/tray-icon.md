@@ -6,7 +6,7 @@ title: System Tray Icon
 The system tray icon (also called the notification-area icon or systray icon) gives you quick access to aMule's status and basic controls without opening the [main window](./amule.md).
 
 :::note Platform differences
-The exact menu and behaviour depend on your platform and desktop environment. On Windows and macOS aMule uses the native tray icon described below. Linux and BSD (GTK) builds use a **StatusNotifierItem** indicator instead — the kind modern Linux desktops show (GNOME with the AppIndicators extension, KDE Plasma, Wayland compositors such as Sway) — which offers a smaller menu and no per-icon speed bar or hover tooltip. The indicator requires a build with `libayatana-appindicator`; without it there is no tray icon at all, and **Enable Tray Icon** is greyed out in [Preferences](./preferences.md#general). The differences are noted in each section.
+The exact menu and behaviour depend on your platform and desktop environment. On Windows and macOS aMule uses the native tray icon described below (on macOS, a monochrome menu-bar icon). Linux and BSD builds with `libayatana-appindicator` use a **StatusNotifierItem** indicator instead — the kind modern Linux desktops show (GNOME with the AppIndicators extension, KDE Plasma, Wayland compositors such as Sway) — which offers a smaller menu and no per-icon speed bar or hover tooltip. Other Linux and BSD builds use the native tray icon when the desktop offers a tray; if none is found, **Enable Tray Icon** is greyed out in [Preferences](./preferences.md#general). The differences are noted in each section.
 :::
 
 ## Mouse Clicks
@@ -21,7 +21,7 @@ See [Keyboard & Mouse Shortcuts](./shortcuts.md) for the shortcuts of the main w
 
 ## Context Menu
 
-Right-clicking the tray icon opens a menu. The items below describe the native tray menu (Windows and macOS). The [modern Linux indicator](#modern-linux-statusnotifieritem-menu) shows a reduced version of this menu.
+Right-clicking the tray icon opens a menu. The items below describe the native tray menu (Windows, macOS, and Linux and BSD builds without `libayatana-appindicator`). The [modern Linux indicator](#modern-linux-statusnotifieritem-menu) shows a reduced version of this menu.
 
 | Item | Description |
 |---|---|
@@ -51,7 +51,7 @@ Right-clicking the tray icon opens a menu. The items below describe the native t
 
 ### Speed-limit presets
 
-The **Upload limit** and **Download limit** submenus offer **Unlimited** followed by five presets: the full line capacity, then ½, ¼, 1/10 and 1/50 of it, labelled in KiB/s (for example `2500 KiB/s`). The line capacity is the **Upload graph scale** / **Download graph scale** set in [Preferences → Statistics](./preferences.md#graphs); if it is unlimited, 100 KiB/s is assumed. Picking a preset changes the speed limit in [Preferences → Connection](./preferences.md#bandwidth-limits) immediately.
+The **Upload limit** and **Download limit** submenus offer **Unlimited** followed by five presets: the full line capacity, then ½, ¼, 1/10 and 1/50 of it, labelled in KiB/s (for example `2500 KiB/s`). The line capacity is the **Upload** / **Download** value set in [Preferences → Connection → Line capacities](./preferences.md#line-capacities); if it is unlimited, 100 KiB/s is assumed. Picking a preset changes the speed limit in [Preferences → Connection](./preferences.md#bandwidth-limits) immediately.
 
 ### Modern Linux (StatusNotifierItem) menu
 
@@ -85,16 +85,16 @@ On Wayland sessions, where aMule cannot reliably detect whether the window has b
 The tray icon changes to reflect aMule's current connection status and activity.
 
 :::note
-The speed bar described below applies only to the native tray icon. The [modern Linux indicator](#modern-linux-statusnotifieritem-menu) uses a fixed icon that does not change with the connection state (the state is shown in its menu) and does not draw a speed bar.
+The speed bar described below applies only to the native tray icon. The [modern Linux indicator](#modern-linux-statusnotifieritem-menu) also switches between the three connection-state icons below, but does not draw a speed bar.
 :::
 
 ### Speed Bar
 
-A thin vertical bar along the right edge of the icon shows the **current download speed as a percentage** of the maximum download rate configured for the [graphs in Preferences](./preferences.md#graphs). The higher the bar, the closer to that configured maximum.
+A thin vertical bar along the right edge of the icon shows the **current download speed as a percentage** of the download line capacity set in [Preferences → Connection → Line capacities](./preferences.md#line-capacities). The higher the bar, the closer to that capacity.
 
 ### Mule Head Colour
 
-The mule head in the icon indicates the overall connection status:
+The mule head in the icon indicates the overall connection status. On macOS the icon is monochrome, so the three states differ in shape rather than colour:
 
 | Icon | Meaning |
 |---|---|

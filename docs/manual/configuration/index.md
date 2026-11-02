@@ -12,7 +12,7 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | Page | Description |
 |---|---|
 | [Configuration Files](./config-files/index.md) | Files aMule stores on disk, including the hand-editable `amule.conf` and `remote.conf` |
-| [Directories](./directories.md) | Incoming directory, temporary directory, and shared directories |
+| [Directories](./directories.md) | Incoming directory, temporary directory, shared directories and exclusion patterns, and the folders remote clients may use |
 | [Network Connectivity](./network-connectivity.md) | How to configure your ports to obtain a High ID (eD2k) and open status (Kademlia) |
 | [Bandwidth & Upload Slots](./bandwidth-slots.md) | How upload bandwidth is split into upload slots, and how to tune the Slot Allocation setting |
 | [Firewall](./firewall.md) | How to open the required ports in your firewall |
@@ -22,4 +22,4 @@ Most settings are changed through the graphical **[Preferences](../interfaces/gu
 | [Events](./events.md) | Automating actions on download completion, disk-full alerts, and more |
 | [eD2k and Magnet Links](./ed2k-magnet-links.md) | Accepted link types, every way to add a link, and registering aMule as the handler for `ed2k://`, `magnet:` and `.emulecollection` |
 | [Starting aMule Automatically](./autostart.md) | Starting aMule when you log in, and running `amuled` as a service |
-| [macOS](./macos.md) | macOS-specific notes: context menus, firewall setup, link handling, and video preview |
+| [macOS](./macos.md) | macOS-specific notes: context menus, firewall setup, local network access, link handling, and video preview |

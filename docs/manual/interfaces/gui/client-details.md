@@ -68,7 +68,7 @@ Some fields display a dash (**-**) when the value is not available, or **Unknown
 |---|---|
 | **Not Available** | SUI is not available on your client (cryptography is disabled) |
 | **Not supported** | The remote client does not support SUI |
-| **Failed** | The client failed the SUI challenge |
+| **Failed** | The client failed the SUI challenge; client lists mark it with the [warning overlay](./downloads.md#client-icons) |
 | **Not complete** | The identification process is still in progress |
 | **Bad Guy** | The client's userhash was verified through SUI from a different IP address than the one it uses now (possible userhash theft); its queue score is set to 0 |
 | **Verified - OK** | The client successfully identified through SUI |

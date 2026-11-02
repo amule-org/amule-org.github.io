@@ -64,7 +64,7 @@ This reads `ECPassword` and `ECPort` from [`amule.conf`](../configuration/config
 amulecmd -h hostname -p 4712 -P yourpassword -w
 ```
 
-The `-w` flag writes the connection details to `remote.conf` without starting an interactive session.
+The `-w` flag writes the connection details to `remote.conf` without starting an interactive session. Because it holds the EC password hash, the file is written with mode `0600` (owner only; not on Windows).
 
 You can also copy [`remote.conf`](../configuration/config-files/remote-conf.md) from the host machine and change the `Host=` line accordingly.
 
@@ -99,15 +99,16 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `disconnect` | Disconnect from all networks |
 | `disconnect ed2k` | Disconnect from eD2k only |
 | `disconnect kad` | Disconnect from Kademlia only |
-| `download <number>` | Start downloading file `<number>` from the last search results |
+| `download <number> [id]` | Start downloading file `<number>` as listed by `results` for search `id`. Without an id, the file is taken from the last `results` output, or from the current search (see below) |
 | `pause <hash \| number>` | Pause a download (also accepts `all` or a filename) |
 | `resume <hash \| number>` | Resume a paused download (also accepts `all` or a filename) |
 | `priority <low\|normal\|high\|auto> <hash \| number>` | Set the [priority](gui/priority.md) of a download |
 | `search global <term>` | Search all servers (global search) |
 | `search local <term>` | Search the currently connected server (local search) |
 | `search kad <term>` | Search the Kademlia network |
-| `results [id]` | Show the results of a search; without an id, of the most recently started search |
-| `progress [id]` | Show the progress of a search; without an id, of the most recently started search |
+| `search all <term>` | Search eD2k and Kademlia together (only the available one if the other cannot start). Requires a 3.2.0 or later core |
+| `results [id]` | Show the results of a search; without an id, of the current search (see below) |
+| `progress [id]` | Show the progress of a search; without an id, of the current search |
 | `set bwlimit up <kB/s>` | Set upload bandwidth limit in kB/s (0 = unlimited) |
 | `set bwlimit down <kB/s>` | Set download bandwidth limit in kB/s (0 = unlimited) |
 | `set ipfilter on \| off` | Enable/disable [IP filtering](gui/preferences.md#ip-filtering) for both clients and servers |
@@ -118,7 +119,7 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `get bwlimits` | Show the current bandwidth limits |
 | `get endgame` | Show whether endgame source rotation is enabled |
 | `get ipfilter` | Show IP filtering state and level (subcommands: `get ipfilter state [clients\|servers]`, `get ipfilter level`) |
-| `show dl` | Show the download queue |
+| `show dl` | Show the download queue, with each download's status (such as `Downloading`, `Paused` or `Hashing`) |
 | `show ul` | Show the upload queue |
 | `show log` | Show the aMule log |
 | `show servers` | Show the server list (with each server's country code, e.g. `[de]`, when [IP2Country](../configuration/ip2country.md) is enabled on the core) |
@@ -134,6 +135,8 @@ Commands are case-insensitive. Where a command takes a `<hash | number>`, the `<
 | `quit` | Alias for `exit` |
 
 Every `search` prints a search id (with a 3.1.0 or later core). Several searches can be kept on the core at once, each addressed by its id, but starting an eD2k (local or global) search stops an eD2k search that is still running.
+
+The **current search**, used by `results`, `progress` and `download` when no id is given, is the last search started by this `amulecmd` connection; if it has started none (for example a one-shot `amulecmd -c "results"`), it is the most recent search started by any client.
 
 For the full and current list, run `help` from within `amulecmd`.
 
@@ -181,7 +184,7 @@ Command-line flags:
 | `--version` | Print the program version |
 | `--help` | Show the usage description |
 
-A plain filename (no directory part) given to `-f`/`--config-file` is taken relative to the aMule configuration directory (`~/.aMule`).
+A plain filename (no directory part) given to `-f`/`--config-file` is taken relative to the aMule configuration directory (`~/.aMule`); any other path is used as given, with a leading `~/` expanded to the home directory. When writing the file (`-w`, `--create-config-from`), missing parent directories are created.
 
 ### Output Format
 

@@ -10,7 +10,7 @@ If you are writing an application, a script, a bot or a web front-end, use the *
 :::
 
 :::warning
-EC evolves quickly: opcodes, tag names and tag contents change between releases, often within a single release cycle. This page is only an overview. The authoritative, up-to-date specification is maintained in the aMule source repository (see [Reference](#reference)). The core accepts only clients that announce exactly its own protocol version (`EC_CURRENT_PROTOCOL_VERSION`, `0x0204` in aMule 3.1.0) and refuses any other, so an EC client must announce that version. `0x0204` has not changed since aMule 2.3.x: new features are negotiated as capabilities instead of bumping the version. A release core also refuses clients built from a development snapshot.
+EC evolves quickly: opcodes, tag names and tag contents change between releases, often within a single release cycle. This page is only an overview. The authoritative, up-to-date specification is maintained in the aMule source repository (see [Reference](#reference)). The core accepts only clients that announce exactly its own protocol version (`EC_CURRENT_PROTOCOL_VERSION`, `0x0204` in aMule 3.2.0) and refuses any other, so an EC client must announce that version. `0x0204` has not changed since aMule 2.3.x: new features are negotiated as capabilities instead of bumping the version. A release core also refuses clients built from a development snapshot.
 :::
 
 ## Overview

@@ -31,7 +31,7 @@ The following are **not** routed through the proxy and remain direct:
 
 If aMule is [bound to a network interface](./network-connectivity.md#binding-amule-to-a-network-interface-vpn), the connections to the proxy server are bound to that interface too.
 
-A SOCKS5 proxy must answer with an IPv4 (or, except for the UDP relay, domain-name) address; aMule rejects malformed replies and drops relayed UDP datagrams that do not come from the proxy's relay.
+A SOCKS5 proxy must answer with an IPv4 (or, except for the UDP relay, domain-name) address; aMule rejects malformed replies and drops relayed UDP datagrams that do not come from the proxy's relay. OpenSSH's `ssh -D` and Tor's `SocksPort` work as SOCKS proxies.
 
 ## Configuring the proxy in aMule
 

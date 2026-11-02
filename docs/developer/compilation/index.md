@@ -3,7 +3,7 @@ id: index
 title: Compilation
 ---
 
-aMule uses **CMake** (minimum version 3.10) as its build system. This page covers the complete build, install, and uninstall workflow. Platform-specific dependency installation commands are in the sub-pages for [Windows](windows.md), [macOS](macos.md), [Linux](linux.md), and [BSD](bsd.md).
+aMule uses **CMake** (minimum version 3.12) as its build system. This page covers the complete build, install, and uninstall workflow. Platform-specific dependency installation commands are in the sub-pages for [Windows](windows.md), [macOS](macos.md), [Linux](linux.md), and [BSD](bsd.md).
 
 ## Dependencies
 
@@ -11,7 +11,7 @@ aMule uses **CMake** (minimum version 3.10) as its build system. This page cover
 
 | Package | Minimum version | Notes |
 |---|---|---|
-| CMake | 3.10 | Build system |
+| CMake | 3.12 | Build system (3.14 for `DOWNLOAD_AND_BUILD_DEPS`) |
 | zlib | 1.2.3 | Compression |
 | wxWidgets | 3.2.0 | GUI toolkit (3.2 branch or newer) |
 | Crypto++ | 8.1 | Hashing (MD4, MD5, SHA-1), RSA and [EC encryption](../ec-protocol.md#transport-encryption) — classic or cryptopp-modern |
@@ -83,7 +83,7 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 | `ENABLE_MMAP` | YES | Compile the memory-mapped file I/O path where the platform supports it. Whether it is used is the runtime preference [`MMapEnabled`](../../manual/configuration/config-files/amule-conf.md) (off by default); set this option `NO` only to leave the mmap code out entirely (e.g. sanitizer builds) |
 | `ENABLE_BFD` | YES | Use `libbfd` for in-process backtrace symbol resolution in crash reports; `NO` falls back to `backtrace_symbols()` plus an external `addr2line` |
 | `USE_SYSTEM_PICOJSON` | NO | Build `amuleapi` against a system-installed picojson instead of the bundled copy |
-| `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
+| `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git and CMake ≥ 3.14) |
 | `ENABLE_CCACHE` | AUTO | Use [ccache](https://ccache.dev/) as compiler launcher when found (`AUTO`/`ON`/`OFF`). Set `OFF` for distro builds that wrap the compiler themselves; set `ON` to hard-fail when ccache is missing |
 | `ENABLE_VERSION_CHECK` | ON | Compile in the [in-app new-version check](../../quickstart-guide.md#version-check): the startup and daily check with its notification, the **Periodically check for a new version** preference and the About window's **Check for updates** button. Set `OFF` for OS-package builds: the whole feature is compiled out, nothing contacts GitHub, and the distro's package manager owns updates |
 
@@ -125,15 +125,16 @@ cmake -B build -DBUILD_EVERYTHING=YES
 
 ### Experimental Options
 
-These switches compile in unfinished features. They are all `NO` by default, a build without them behaves exactly like the upstream release, and nothing they enable is exposed as a user preference. See [Experimental Groundwork](../index.md#experimental-groundwork).
+These switches compile in unfinished features. They are all `NO` by default, a build without them behaves exactly like the upstream release, and apart from the IPv6 Connection preferences of an `ENABLE_IPV6` build, nothing they enable is exposed as a user preference. See [Experimental Groundwork](../index.md#experimental-groundwork).
 
 | Option | Default | Enables |
 |---|---|---|
-| `ENABLE_UTP` | NO | Experimental IPv4 uTP transport in `amule`/`amuled`: datagram framing, inbound streams and dialing peers that advertise it (vendored libutp; requires CMake ≥ 3.12). aMule does not advertise uTP itself |
-| `ENABLE_IPV6` | NO | Experimental native IPv6 TCP admission (the IPv6 identity migration is still incomplete) |
-| `ENABLE_KAD_PROTOCOL_10` | NO | Advertise Kademlia protocol version `0x0a` (instead of `0x08`) and the AICH hashes on keyword storage introduced by Kad `0x09` |
+| `ENABLE_UTP` | NO | Experimental IPv4 uTP transport in `amule`/`amuled`: datagram framing, inbound streams and dialing peers that advertise it (vendored libutp). aMule does not advertise uTP itself. Also the transport for `ENABLE_NATT_SERVER_COORDINATION` |
+| `ENABLE_IPV6` | NO | Experimental native IPv6 for eD2k TCP: dual-stack listener, dialing IPv6 peers and sources, advertising an IPv6 address (identity migration still incomplete) |
+| `ENABLE_NATT_SERVER_COORDINATION` | NO | Experimental server-coordinated NAT traversal (Lugdunum callbacks, ed2k-server LowID hole punching). Each mechanism also needs its `amule.conf` runtime setting, off by default |
 | `ENABLE_KAD_NODE_PROTECTION` | NO | Local Kad node-protection heuristics: adaptive request timeouts and Kad identity protections (no wire-protocol change) |
-| `ENABLE_ALL_EXPERIMENTAL` | NO | Turn on every switch above at once. It overrides the individual switches, so `-DENABLE_X=NO` cannot exclude one while it is on — to build all but one, name the others individually |
+| `ENABLE_QUIC` | NO | Experimental QUIC transport for NAT-traversed connections in `amule`/`amuled`. Requires the system `ngtcp2` (≥ 1.0.0) with its GnuTLS crypto library, and `BUILD_MONOLITHIC` or `BUILD_DAEMON` (configure fails otherwise) |
+| `ENABLE_ALL_EXPERIMENTAL` | NO | Turn on every switch above at once. It overrides the individual switches, so `-DENABLE_X=NO` cannot exclude one while it is on — to build all but one, name the others individually. In a build without `amule` and `amuled`, `ENABLE_QUIC` stays off |
 
 :::warning
 Experimental options are for development and testing only. Do not enable them in release or distribution packages.
@@ -166,7 +167,7 @@ Default installation layout under `/usr/local`:
 | Documentation | `/usr/local/share/doc/amule/` |
 | License | `/usr/local/share/LICENSE.md` |
 | Desktop entries | `/usr/local/share/applications/` |
-| Icon | `/usr/local/share/icons/hicolor/128x128/apps/` |
+| Icons | `/usr/local/share/icons/hicolor/{128x128,256x256,scalable}/apps/` |
 | AppStream metadata | `/usr/local/share/metainfo/` |
 
 ### Custom Install Prefix
@@ -205,7 +206,7 @@ xargs rm -f < build/install_manifest.txt
 
 ## Translated Man Pages
 
-The translated man pages are not tracked in git — they are rendered at build time by [po4a](https://po4a.org/) from the English masters (`docs/man/*.1.in`, `src/utils/*/docs/*.1.in`) and the translation catalogs (`docs/man/po/manpages-<lang>.po`), then installed under `<prefix>/share/man/<lang>/man1/`. Rendering is controlled by the `TRANSLATED_MANPAGES` option (default `YES` when `ENABLE_NLS=YES`): if `po4a` is found, the pages are rendered as part of the normal build; if it is missing, the build prints a notice and installs only the English pages — pass `-DTRANSLATED_MANPAGES=NO` to silence it.
+The translated man pages are not tracked in git — they are rendered at build time by [po4a](https://po4a.org/) from the English masters (`docs/man/*.1.in`, `src/utils/*/docs/*.1.in`) and the translation catalogs (`docs/man/po/manpages-<lang>.po`), then installed under `<prefix>/share/man/<lang>/man1/`. Rendering is controlled by the `TRANSLATED_MANPAGES` option (default `YES` when `ENABLE_NLS=YES`): if `po4a` is found, the pages are rendered as part of the normal build; if it is missing, the build prints a notice and installs only the English pages — pass `-DTRANSLATED_MANPAGES=NO` to silence it. po4a skips a page that is less than 70% translated; that page is not installed, and `man` shows the English page instead.
 
 After editing an English master, refresh the translation catalogs with `./scripts/update-manpages-po.sh` and commit the diff (CI checks this). See [Man Page Translations](../translations/index.md#man-page-translations) for the full translation workflow.
 
@@ -224,6 +225,23 @@ All built binaries are placed in `build/` and can be run directly:
 ```
 
 This is the recommended workflow during development — no need to install after every build.
+
+## Development Build Script
+
+`scripts/compile.sh` configures, builds and tests every program (`BUILD_*` targets and `BUILD_TESTING`) in `build/`, with `ENABLE_NLS`, `ENABLE_UPNP` and `ENABLE_IP2COUNTRY` on. Run it from the top of the source tree:
+
+```sh
+./scripts/compile.sh -j"$(nproc)"
+```
+
+| Option | Effect |
+|---|---|
+| `--clean` | Remove the build folder first, for a full rebuild. Without it, the build is incremental |
+| `-d`, `--debug` | `Debug` build instead of `Release` |
+| `-e`, `--experimental` | Also compile every [experimental feature](#experimental-options) (`ENABLE_ALL_EXPERIMENTAL`). Without it the script passes `NO`, so an existing build folder switches back |
+| `-j<n>`, `--jobs <n>` | Run `<n>` build jobs in parallel |
+| `-s`, `--strip` | Show the sizes the executables would have once stripped; the build folder is left untouched |
+| `-c`, `--measure-cache` | Build with an empty, isolated ccache directory and print its size. Skips the tests; implies `--clean` |
 
 ## Speeding Up Builds with ccache
 

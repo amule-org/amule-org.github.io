@@ -27,6 +27,8 @@ In early eMule versions this file stored all user configuration. In current aMul
 
 The [userhash](../../p2p-networks/concepts.md) is a 128-bit value that uniquely identifies a client on the eD2k network. It is used for credit tracking and, when combined with `cryptkey.dat`, for Secure User Identification.
 
+When the file is missing or holds no usable userhash, aMule generates a new random one, as eMule does. A valid userhash is never replaced, so peers' credits stay with it.
+
 ### Format
 
 The userhash is stored as 16 raw bytes, exactly as-is — it is not an integer, so byte order does not apply to it. The version is a single byte (no endianness either).
@@ -129,18 +131,17 @@ Lines beginning with `/` or `#` are treated as comments and ignored. Any line th
 
 ## `addresses.dat` {#addressesdat}
 
-A plain-text list of URLs from which aMule downloads `server.met` files on startup (if the **Auto-update server list at startup** preference is enabled). The downloaded lists are merged into `~/.aMule/server.met`.
+A plain-text list of the URLs from which aMule downloads `server.met` files: on startup (if **Auto-update server list at startup** is enabled) and when the user clicks **Update server list**. Each source is downloaded in turn and merged into `~/.aMule/server.met`; a source that fails is skipped. The list is edited with **Edit sources...** (in Preferences and on the Networks page). The former `Ed2kServersUrl` key of `amule.conf` is migrated into it and removed. When the file does not exist, aMule creates it with `https://upd.emule-security.org/server.met`.
 
 ### Format
 
-One URL per line. Supported schemes: `http://`, `https://`, `ftp://`.
+One URL per line, UTF-8, surrounding whitespace trimmed. Only `http://` and `https://` URLs with a host name are accepted; other lines (`ftp://` URLs, comments, malformed URLs) and duplicates are ignored on read and dropped when aMule saves the list.
 
 ### Example
 
 ```
 https://some.whe.re/server.met
 http://another.file/my_preferred.met
-ftp://localhost/fastservers.met
 ```
 
 ## `known.met` {#knownmet}
@@ -148,6 +149,16 @@ ftp://localhost/fastservers.met
 Binary file that caches the hashes, names, sizes, modification dates, priorities, and notes of shared files. This prevents aMule from having to rehash every shared file each time it starts — a significant time saving for large files.
 
 The file begins with a 1-byte header: `0x0E` (`MET_HEADER`), or `0x0F` (`MET_HEADER_WITH_LARGEFILES`) when the list contains files larger than 4 GiB. It is followed by a 32-bit unsigned, little-endian record count, and then one variable-length block per file. Each block's length depends on the number of metadata tags stored. Updated whenever a file is hashed and when aMule shuts down.
+
+Since aMule 3.2.0 each record can also carry the result of the last **Verify Local Data** check, in aMule-internal tags:
+
+| Tag ID | Constant | Value type | Description |
+|---|---|---|---|
+| `0x58` | `FT_VERIFY_DATE` | uint32 | Time of the last completed check (Unix timestamp); absent if the file was never verified |
+| `0x59` | `FT_VERIFY_CORRUPTMD4` | string | Corrupt parts, as comma-separated part numbers (`p,p,p`); written only when a part failed |
+| `0x5A` | `FT_VERIFY_CORRUPTAICH` | string | Corrupt AICH blocks per part (`p:b.b;p:b`); written only when a block failed |
+
+Records of files that have not been seen on disk for 30 days are pruned from `known.met`; the hash of every pruned record is kept in [`knownhistory.met`](#knownhistorymet).
 
 ## `known2_64.met` {#known2_64met}
 
@@ -166,6 +177,12 @@ Binary file storing the MD4 hashes of all downloads the user has cancelled. When
 | 0 | 1 byte | Magic | Always `0x21` — identifies a valid `canceled.met` |
 | 1 | 4 bytes | Count | Number of hashes stored (32-bit unsigned, little-endian) |
 | 5 | 16 × Count | Hashes | MD4 hash of each cancelled file, 16 bytes each |
+
+## `knownhistory.met` {#knownhistorymet}
+
+Binary file storing the MD4 hashes of records pruned from [`known.met`](#knownmet) (files not seen on disk for 30 days, such as a completed download later deleted or moved). Search results use it, together with `known.met`, to keep marking such files as already downloaded.
+
+Introduced in aMule 3.2.0. The format is the same as [`canceled.met`](#canceledmet): a magic byte `0x21`, a 32-bit unsigned little-endian hash count, and 16 bytes per MD4 hash.
 
 ## Shared directory files {#shareddirdat}
 
@@ -203,6 +220,21 @@ All three files use the same format: one absolute directory path per line, UTF-8
 /mnt/downloads
 /mnt/downloads/series
 /mnt/downloads/series/season1
+```
+
+## `allowed-remote-dirs.dat` {#allowed-remote-dirsdat}
+
+A plain-text list of the folders inside which remote clients ([`amulegui`](../../manual/interfaces/gui/amulegui.md), [`amuleapi`](../../manual/interfaces/amuleapi/index.md), EC scripts) may set the incoming, temporary, shared and category folders. Introduced in aMule 3.2.0; see [`amuled` → Settings Reserved to the Daemon Host](../../manual/interfaces/amuled.md#settings-reserved-to-the-daemon-host) for how it is used.
+
+### Format
+
+One absolute directory path per line, UTF-8, like the [shared directory files](#shareddirdat). Relative paths are ignored (and logged). The monolithic `amule` rewrites the file when the list is edited in Preferences; `amuled` reads it at startup. The list cannot be changed over EC.
+
+### Example
+
+```
+/home/user/aMule
+/mnt/downloads
 ```
 
 ## `ipfilter.dat` and `ipfilter_static.dat` {#ipfilterdat}
@@ -435,6 +467,8 @@ Binary files that store the Kademlia network index data this client maintains as
 - **`load_index.dat`** — stores keyIDs of known Kademlia clients along with the date when each was last seen. Used to calculate load distribution across the Kad network.
 
 All three files are internal to the Kad implementation and are not intended for manual editing.
+
+`key_index.dat` is written as version 4, which adds the AICH hashes of Kad keyword storage (Kad protocol `0x09`), when **Share and use file repair hashes (AICH) over Kad** (`KadProtocol10`) is on; otherwise as version 3, dropping the stored AICH hashes. Both versions are read. String tags in the keyword and source indexes are UTF-8.
 
 ## `statistics.dat` {#statisticsdat}
 

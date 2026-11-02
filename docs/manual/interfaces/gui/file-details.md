@@ -16,7 +16,7 @@ The window can be resized and maximized. Which sections it shows depends on the 
 
 | Section | Shown for |
 |---|---|
-| [General](#general), [Media Info](#media-info), [File Names](#file-names) | Every file |
+| [General](#general), [Media Info](#media-info), [Verify Local Data](#verify-local-data), [File Names](#file-names) | Every file |
 | [Transfer](#transfer), [Intelligent Corruption Handling](#intelligent-corruption-handling) | A file that is still downloading |
 | [Sharing](#sharing) | A completed file, or a download that already has some data downloaded |
 
@@ -104,8 +104,12 @@ Media information read from audio and video files by [media metadata extraction]
 |---|---|
 | **Length** | Playing time |
 | **Bitrate** | Bitrate, e.g. `128 kbps` |
-| **Codec** | Codec name |
+| **Codec** | Codec (e.g. **H.264**, **MPEG-4**) |
 | **Artist**, **Album**, **Title** | Tags of audio files |
+
+### Verify Local Data
+
+The result of the last [Verify Local Data](./shared-files.md#verifying-local-data) check of the file: **OK** or **Failed** with the date and time of the check, or empty if the file has never been checked. After a failed check, a box below lists the corrupt parts.
 
 ### File Names
 

@@ -22,7 +22,7 @@ ctest --test-dir build --output-on-failure
 
 Only `-DBUILD_TESTING=YES` is strictly required to build and run the test suite; the other flags above simply match the configuration used in CI.
 
-`--output-on-failure` prints the full output of any test that fails. The `--timeout 10` flag (used in CI) limits each test to 10 seconds to catch hangs.
+`--output-on-failure` prints the full output of any test that fails. Add `--timeout <seconds>` to stop a test that hangs; CI picks the limit from the test's CTest label (see [Test Labels and Integration Tests](#test-labels-and-integration-tests)).
 
 To run a specific test by name:
 
@@ -48,13 +48,13 @@ unittests/
 │   ├── testregistry.h      # Test registration
 │   └── main.cpp            # Test runner entry point
 ├── tests/                  # Unit tests, one <Name>Test.cpp per suite
-│   └── CMakeLists.txt      # Registers every suite with CTest
+│   └── CMakeLists.txt      # Registers every suite with CTest (*.py: integration tests)
 └── curl-tests/             # HTTP tests against a running daemon
     ├── amuleapi/           # amuleapi REST/SSE suite (see below)
     └── amuleweb-smoke/     # Smoke test for the legacy amuleweb
 ```
 
-`unittests/tests/` holds some 75 suites. They cover, among others:
+`unittests/tests/` holds more than 180 C++ suites, plus Python integration tests. They cover, among others:
 
 - **Core data and file I/O** — tags (`CTagTest`), 128-bit Kad IDs (`CUInt128Test`), binary file I/O (`FileDataIOTest`), `RangeMap`, paths, string formatting, text files, `.emulecollection` and magnet URIs.
 - **Credits and peers** — `clients.met` credits (`ClientCreditsTest`), secure identification (`SecIdentTest`), bans, client version strings, peer capabilities and reserved protocol frames.
@@ -62,8 +62,32 @@ unittests/
 - **`amuleapi`** — config, authentication, JWT, credentials, rate limiting, the SSE event bus and diff engine, JSON writer, ETags, static file serving and range requests.
 - **Networking** — network functions, proxies, the IPv6-capable address type, peer addressing and the uTP dial policy/stream/transport.
 - **Kademlia** — AICH hash lists, entry tag lists and the node-protection heuristics (`FastKadTest`, `SafeKadTest`).
+- **Transfers and storage** — upload packet building and the upload storage-read pool, download write-buffer limits, `.part.met` saving and Verify Local Data results.
+- **Search, chat and GUI** — search requests and source counts, chat spam filter and CAPTCHA, and, with a display, icon rendering, list widgets and window geometry.
 
-Three uTP suites (`UtpContextTest`, `UtpLibraryAdapterTest`, `UtpAdmissionTest`) are built only when the [experimental](./compilation/index.md#experimental-options) `ENABLE_UTP` option is on; every other suite always builds.
+The uTP suites `UtpContextTest`, `UtpLibraryAdapterTest` and `UtpAdmissionTest` are built only with the [experimental](./compilation/index.md#experimental-options) `ENABLE_UTP` option, and the QUIC suites (`QuicContextTest`, `QuicGnuTlsSessionTest`, `QuicNgtcp2AdapterTest`, `QuicNgtcp2HandshakeTest`) only with `ENABLE_QUIC`. GUI suites need a display (they are skipped otherwise), some suites need Python 3 or Node.js, and some are platform-specific.
+
+### Test Labels and Integration Tests
+
+Integration tests are Python scripts (`unittests/tests/*IntegrationTest.py` and similar) that start real aMule programs (`amuled`, `amuleapi`, `amulecmd`) on loopback, with isolated, offline profiles. They are timing-sensitive, so they are registered only with the `ENABLE_INTEGRATION_TESTS` option (default `NO`, so package builds that run `ctest` skip them). Most also need `BUILD_DAEMON`, Python 3 and a Linux or BSD host:
+
+```sh
+cmake -B build -DBUILD_TESTING=YES -DBUILD_DAEMON=YES -DBUILD_AMULEAPI=YES -DENABLE_INTEGRATION_TESTS=YES
+cmake --build build -j"$(nproc)"
+ctest --test-dir build -L '^integration$' --output-on-failure
+```
+
+Each test is labelled next to its `add_test` in `unittests/tests/CMakeLists.txt`, and CI picks the time budget from the label:
+
+| Label | CI time limit |
+|---|---|
+| *(none)* | 10 s |
+| `slow` | 60 s |
+| `integration` | 300 s |
+| `reverify` | 300 s, in a step of its own |
+| `gui` | Needs a display; on Linux CI runs the suite under `xvfb-run` |
+
+Select labels with `ctest -L <regex>` and exclude them with `-LE <regex>`. A GUI test that finds no display is reported as skipped. `unittests/README` describes how to run some integration tests by hand, for example against a sanitizer-instrumented `amuled`.
 
 ### Writing a New Test
 
@@ -187,7 +211,7 @@ Running test-collection "CUInt128Test" with 12 test-cases:
 
 `unittests/curl-tests/amuleapi/` is an end-to-end suite for [`amuleapi`](../manual/interfaces/amuleapi/index.md): shell scripts that drive the REST API and the SSE stream with `curl` (and `jq`) and check the responses. The scripts are numbered in the order they run, roughly one per endpoint group — version and errors, authentication and lockout, read endpoints, downloads, servers, preferences, networks, shared files, categories, search, ETags, SSE heartbeat/diff/replay/resync, CORS, the static Web UI, pagination, known clients, friends, IP filter, chat, media metadata and HTTP conformance. `00-peer-fixture.sh` searches the live network and queues a real download so source-dependent checks have a peer, and `99-peer-fixture-teardown.sh` removes it (without network access the fixture only prints a notice and those checks are skipped).
 
-The suite is **not** run in CI. It needs:
+CI runs the suite in the `amuleapi curl smoke` job against an isolated, offline `amuled`, skipping the scripts that need the live network or the peer fixture. To run it yourself, it needs:
 
 - A running [`amuled`](../manual/interfaces/amuled.md) (or `amule`) with [External Connections enabled](../manual/interfaces/gui/preferences.md#remote-controls).
 - An `amuleapi` binary built from the same tree (`-DBUILD_AMULEAPI=YES`). By default the newest `src/webapi/amuleapi` in the source tree or under a `build*/`, `_build/` or `cmake-build-*/` directory is used; the `PATH` is deliberately not searched.
@@ -274,17 +298,19 @@ If aMule refuses to connect to your local server, try disabling **["Always filte
 
 The CI pipeline runs on every push and pull request via GitHub Actions (`.github/workflows/ccpp.yml`). It runs the full build matrix:
 
-- Windows MSYS2 CLANG64 (Debug + Release; the Debug job also sets `-DENABLE_UTP=YES`)
+- Windows MSYS2 CLANG64 (Debug + Release; the Debug job also sets `-DENABLE_UTP=YES -DENABLE_QUIC=YES`)
 - macOS (Debug + Release)
-- Ubuntu (Debug + Release)
-- Ubuntu Experimental (Debug + Release) — the same build with `-DENABLE_ALL_EXPERIMENTAL=YES` (see [Experimental Options](./compilation/index.md#experimental-options))
+- Ubuntu (Debug + Release; the Release job builds without libbfd, so the `addr2line` backtrace path is tested too)
+- Ubuntu Experimental (Debug + Release) — the same build with `-DENABLE_ALL_EXPERIMENTAL=YES` (see [Experimental Options](./compilation/index.md#experimental-options)), against a pinned and the latest ngtcp2
+- CMake minimum version — configures everything with CMake 3.12, without building
+- `amuleapi` curl smoke — see [`amuleapi` Integration Tests](#amuleapi-integration-tests)
 
-Each job:
+Each build job:
 1. Installs the platform-specific dependencies.
-2. Configures CMake with all optional components enabled (`-DBUILD_ALC=YES -DBUILD_ALCC=YES -DBUILD_AMULECMD=YES -DBUILD_AMULEAPI=YES -DBUILD_CAS=YES -DBUILD_DAEMON=YES -DBUILD_WXCAS=YES -DBUILD_ED2K=YES -DBUILD_MONOLITHIC=YES -DBUILD_REMOTEGUI=YES -DBUILD_TESTING=YES -DBUILD_WEBSERVER=YES -DENABLE_NLS=YES -DENABLE_UPNP=YES`, plus `-DENABLE_IP2COUNTRY=YES`).
+2. Configures CMake with all optional components enabled (`-DBUILD_ALC=YES -DBUILD_ALCC=YES -DBUILD_AMULECMD=YES -DBUILD_AMULEAPI=YES -DBUILD_CAS=YES -DBUILD_DAEMON=YES -DBUILD_WXCAS=YES -DBUILD_ED2K=YES -DBUILD_MONOLITHIC=YES -DBUILD_REMOTEGUI=YES -DBUILD_TESTING=YES -DENABLE_INTEGRATION_TESTS=YES -DBUILD_WEBSERVER=YES -DENABLE_NLS=YES -DENABLE_UPNP=YES`, plus `-DENABLE_IP2COUNTRY=YES`).
 3. Builds everything.
-4. Runs `ctest --test-dir build --output-on-failure --timeout 10`.
+4. Runs the tests with the time limit of each [label](#test-labels-and-integration-tests); only the Ubuntu jobs run the `integration` and `reverify` tests.
 
-A separate i18n workflow validates the translation catalogs on every push and pull request: every `.po` file must compile, the application and man page templates must be in sync with the source and the English man page masters, and the Web UI dictionaries must be consistent with `en.json`. See [Translations](./translations/index.md) for the scripts that keep them in sync.
+A separate i18n workflow validates the translation catalogs on every push and pull request: every `.po` file must compile, the application template must be in sync with the source, the man page catalogs must be in sync with the English masters, and the Web UI dictionaries must be consistent with `en.json`. See [Translations](./translations/index.md) for the scripts that keep them in sync.
 
 Pull requests that fail any CI job will not be merged.

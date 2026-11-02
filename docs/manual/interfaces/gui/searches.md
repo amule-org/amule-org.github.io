@@ -22,6 +22,8 @@ The window is divided into two main areas:
 
 Type what you want to find in the **Name** field and click **Start** (or press **Enter**).
 
+If an identical search is still running, aMule selects its tab instead of starting it again.
+
 Search queries are matched against file names. For example:
 - `amule` — finds files whose name contains "amule"
 - `debian iso` — finds files whose name contains both "debian" and "iso"
@@ -52,12 +54,12 @@ The results list has the following columns:
 |---|---|
 | **File Name** | Name of the file |
 | **Size** | File size |
-| **Sources** | Total sources, followed (when not zero) by the sources holding the complete file in parentheses, and an optional client count in square brackets |
+| **Sources** | Total sources, followed (when not zero) by the sources holding the complete file in parentheses, and an optional client count in square brackets. For an **All networks** search it shows the eD2k and Kad counts separately (e.g. `E:12 K:30`), which may overlap. Hover the cell for details |
 | **Type** | File type, from the extension (see [File Type](#file-type)) |
 | **Rating** | Average [rating](./comments.md) reported for the file, shown as an icon and text (**Invalid / Corrupt / Fake**, **Poor**, **Fair**, **Good**, **Excellent**); empty when the file has not been rated |
 | **FileID** | The file's [eD2k hash](../../../p2p-networks/concepts.md#md4-hash-ed2k-hash) |
 | **Status** | **New**, **Downloaded**, **Queued** or **Canceled** (see [Result Row Colours](#result-row-colours)) |
-| **Length**, **Bitrate**, **Codec** | Playing time, bitrate (e.g. `128 kbps`) and codec of audio and video files, when the network reports them |
+| **Length**, **Bitrate**, **Codec** | Playing time, bitrate (e.g. `128 kbps`) and codec of audio and video files, when the network reports them. Codecs are shown as e.g. **H.264**, **H.265**, **MPEG-4** |
 | **Artist**, **Album**, **Title** | Tags of audio files, when the network reports them |
 | **Directories** | Only populated for results obtained from a [View Files](#browsing-a-clients-shared-files) request |
 
@@ -69,11 +71,11 @@ When no files are found for the query, the results tab is empty. A progress bar 
 
 Click the **Stop** button to halt an active search, or close its tab (described in [Tabs](#tabs) below).
 
-The eD2k protocol allows only one **Local** or **Global** search at a time. If you start one while another is still running, aMule asks before stopping the running search; results already found are kept, only new ones stop arriving. [Kad](#search-type) searches run in parallel and do not trigger this question.
+The eD2k protocol allows only one eD2k search at a time (**eD2k: Current server**, **eD2k: All servers**, or the eD2k part of **All networks**). If you start one while another is still running, aMule asks before stopping the running search; results already found are kept, only new ones stop arriving. [Kad](#search-type) searches run in parallel and do not trigger this question.
 
 ### Extending a Kad Search
 
-For a Kad search, the **Extend** button asks the Kad peers that already answered to widen the search: each click queries the next-closest peer for more contacts, surfacing additional matches the initial search missed. The button is enabled only while the visible tab's Kad search is still running. A search can be widened at most four times; once no further widening is possible (or no peer is left to ask), the button greys out. It works in [`amulegui`](./amulegui.md) as well.
+For a Kad search (or the Kad part of an **All networks** search), the **Extend** button asks the Kad peers that already answered to widen the search: each click queries the next-closest peer for more contacts, surfacing additional matches the initial search missed. The button is enabled only while the visible tab's Kad search is still running. A search can be widened at most four times; once no further widening is possible (or no peer is left to ask), the button greys out. It works in [`amulegui`](./amulegui.md) as well.
 
 ## Downloading from Results
 
@@ -97,7 +99,7 @@ Files in the results list are colour-coded:
 
 | Colour | Meaning |
 |---|---|
-| Green | Already downloaded or currently shared by you |
+| Green | Already downloaded or currently shared by you, including completed downloads you later deleted or moved |
 | Red | Already in the download queue |
 | Blue | Not downloaded and not in the queue. The shade goes from the normal text colour (few sources) to strong blue (many sources) |
 | Magenta | Previously queued for download but cancelled |
@@ -112,17 +114,17 @@ When several results share the same file (identical hash) but differ in name, th
 
 Each search opens its own **results tab**. Starting a new search adds another tab; previous tabs remain accessible, so you can switch between searches and compare them.
 
-The tab label shows the search text followed by the result count in brackets, e.g. `debian iso (42)`. While a Kad search is running its label starts with `!`. When a [filter](#filtering) hides some results, the count appears as `N/M`, where `M` is the total number of results received and `N` is the number currently passing through the filter.
+The tab label shows the search text followed by the result count in brackets, e.g. `debian iso (42)`, next to an icon of the [search type](#search-type) (hover the tab for its name). While a Kad or **All networks** search is running its label starts with `!`. When a [filter](#filtering) hides some results, the count appears as `N/M`, where `M` is the total number of results received and `N` is the number currently passing through the filter.
 
 Searches started from another interface connected to the same core — [`amulegui`](./amulegui.md), [`amulecmd`](../amulecmd.md) or the [`amuleapi` Web UI](../amuleapi/web-ui.md) — also appear as tabs, without taking the focus away from the tab you are on.
 
 ### Saved Searches
 
-With **Remember search history** enabled, the results of the searches still open when aMule exits (the 20 most recent, up to 5000 results each) are saved in `StoredSearches.met` and reopened, unselected, the next time aMule starts. "View Files" tabs are not saved. After disabling the option, the saved results are deleted the next time aMule starts.
+With **Remember search history** enabled, the results of the open searches (the 20 most recent, up to 5000 results each) are saved in `StoredSearches.met` while aMule runs and at exit, and reopened, unselected, the next time aMule starts. "View Files" tabs are not saved. After disabling the option, the saved results are deleted the next time aMule starts.
 
 ### Closing a Tab
 
-Click the close icon on the tab, or middle-click the tab label, to close it. Closing a tab also stops its search if it is still running. When there are more tabs than fit in the window, scroll arrows appear at the ends of the tab bar.
+Click the close icon on the tab, or middle-click anywhere on the tab, to close it. Closing a tab also stops its search if it is still running. When there are more tabs than fit in the window, scroll arrows appear at the ends of the tab bar.
 
 ### Tab Right-Click Menu
 
@@ -140,15 +142,16 @@ Right-clicking a tab opens a menu titled **Close** with three options:
 
 ### Search Type
 
-The **Type** drop-down selects the search method:
+The **Type** drop-down selects the search method. Each type has an icon, also shown on its result tabs; the last type used is remembered.
 
 | Type | Description |
 |---|---|
-| **Local** | Search only against the [server](../../../p2p-networks/ed2k/servers.md) you are currently connected to; instant results |
-| **Global** | Broadcast the query to all known [servers](../../../p2p-networks/ed2k/servers.md); slower but broader results |
+| **eD2k: Current server** | Search only against the [server](../../../p2p-networks/ed2k/servers.md) you are currently connected to; instant results |
+| **eD2k: All servers** | Search the connected server and the other [servers](../../../p2p-networks/ed2k/servers.md) in the server list; slower but broader results |
 | **Kad** | Search across the [Kademlia](../../../p2p-networks/kademlia.md) network; slower, results trickle in over time |
+| **All networks** | Search the eD2k servers (the connected server and the server list) and Kad from one tab, using whichever networks are available |
 
-**Local** and **Global** are offered whenever the eD2k network is enabled, and **Kad** whenever Kademlia is enabled. With both networks disabled no search is possible.
+The two eD2k types are offered whenever the eD2k network is enabled, **Kad** whenever Kademlia is enabled, and **All networks** when both are enabled (in `amulegui`, only if the connected core supports it). With both networks disabled no search is possible.
 
 :::note
 When the same file is reported more than once, aMule merges the source counts differently depending on the network: for **Kad** results it takes the **maximum** of the reported counts, whereas for **eD2k** it **sums** the counts reported by each server.
@@ -223,7 +226,7 @@ Right-clicking on a result row opens this menu:
 | Download | Add selected file(s) to the download queue |
 | Download in category | Add selected file(s) to a specific category (**Main** or one of your categories); disabled when you have no user-defined categories |
 | Get *&lt;stats server&gt;* for this file | Open a browser with the configured statistics server for the file (the first selected file if several are selected). The label shows the configured server name (default: "Shorty's ED2K stats"); this entry only appears when a statistics server is configured |
-| Search related files (eD2k, local server) | Start a new **Local** search for files related to the selected file(s). Requires a connection to a server that supports related-file searches |
+| Search related files (eD2k, local server) | Start a new **eD2k: Current server** search for files related to the selected file(s). Requires a connection to a server that supports related-file searches |
 | Show all comments | Open the [Comments](./comments.md) window for the file, where comments and ratings can also be fetched from Kad. Single selection only |
 | Copy eD2k link(s) to clipboard | Copy the [eD2k link(s)](../../../p2p-networks/ed2k/links.md) of the selection as plain text |
 

@@ -27,7 +27,33 @@ Paste the resulting MD5 hash as the value of `ECPassword` in `~/.aMule/amule.con
 
 The host you gave has no IPv4 (A) record: the remote tools ([`amulegui`](../interfaces/gui/amulegui.md), [`amuleapi`](../interfaces/amuleapi/index.md), [`amulecmd`](../interfaces/amulecmd.md), [`amuleweb`](../interfaces/amuleweb.md)) resolve the core's hostname to IPv4 only (see [IPv4 only](../configuration/network-connectivity.md#ipv4-only)). Use the core's IPv4 address instead, or a hostname that resolves to it. `localhost` always works: it resolves to `127.0.0.1`.
 
+### Why does the remote GUI or the Web UI refuse to change the download or shared folders?
+
+A remote client ([`amulegui`](../interfaces/gui/amulegui.md), the [`amuleapi`](../interfaces/amuleapi/index.md) Web UI or another EC client) can only set the Incoming, Temporary, shared and category folders inside a list of allowed folders kept on the machine that runs the core. The list is **empty by default**, so every remote folder change is refused until you add folders to it: `amulegui` shows *The daemon refused these folders because they are outside the folders it allows*, and `amuleapi` answers `403 path_not_allowed`. Folders already configured keep working.
+
+Add the folders under **Folders remote clients may use** in [**Preferences → Remote Controls**](../interfaces/gui/preferences.md#remote-controls) of the monolithic aMule, or, for `amuled`, in its `allowed-remote-dirs.dat` file followed by a restart. See [Changing Folders from a Remote Client](../configuration/directories.md#changing-folders-from-a-remote-client).
+
+### Why can't I change some preferences from the remote GUI or the Web UI?
+
+Some settings only make sense on the machine that runs the core, so remote clients cannot change them: the `ffprobe` path, the online-signature folder and **Follow symbolic links in shared folders**. `amulegui` shows them read-only, and `amuleapi` refuses a change to any of them with `400 read_only_field`. Change them in the local aMule window or in [`amule.conf`](../configuration/config-files/amule-conf.md).
+
+## `amuleapi`
+
+### Why do my changes in the Web UI fail with 403 behind a reverse proxy?
+
+`amuleapi` refuses changes that come from another origin (another site, or another port of the same host) with `403 forbidden` (*cross-origin request refused*). Older browsers are checked against the `Host` header, so a reverse proxy that sends `amuleapi` its own address as `Host` must pass the name the browser used in `X-Forwarded-Host`, for example in nginx:
+
+```nginx
+proxy_set_header X-Forwarded-Host $http_host;
+```
+
+See the [`amuleapi` security model](../interfaces/amuleapi/index.md#security-model).
+
 ## `amuleweb`
+
+### Why can't guests log in to `amuleweb`?
+
+A guest password alone does not let a guest log in: guest access must also be turned on, with **Enable Low rights User** in [**Preferences → Remote Controls → Web server parameters**](../interfaces/gui/preferences.md#web-server-parameters) when aMule starts `amuleweb`, or with `--allow-guest` when you start it yourself. When a guest password is set but guest access is off, `amuleweb` prints *a guest password is set, but guest access is disabled* at startup. Guests are read-only and cannot add downloads.
 
 ### Why is `amuleweb` failing to connect?
 

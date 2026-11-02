@@ -178,11 +178,17 @@ GNOME Shell's inotify watcher usually picks up new icons on its own within a few
 
 The `libayatana-appindicator3` library provides the **StatusNotifierItem (SNI)** D-Bus backend for the [system tray icon](../../manual/interfaces/gui/tray-icon.md) (included in the dependency lists above). Without it, the tray icon falls back to the legacy `GtkStatusIcon` API, which GNOME Shell removed in 3.26 and wlroots compositors (Sway, Hyprland, etc.) never implemented — so the tray icon is **silently invisible** on vanilla GNOME, Fedora GNOME, and wlroots desktops.
 
-When CMake finds the library it logs:
+A build without the library offers the tray icon only when wxWidgets finds a system tray: an X11 tray, or a StatusNotifierItem host when wxWidgets 3.2.12 or later is built with AppIndicator support.
+
+The SNI backend is used only with **wxGTK3**; other toolkits (wxGTK2, wxQt) use the plain wxWidgets tray icon. When CMake finds the library it logs:
 
 ```
 -- AppIndicator3 found: ... — tray icon uses SNI backend
 ```
+
+Canonical's older `appindicator3-0.1` is accepted as a fallback, with a warning: the tray icon works, but left-click show/hide and the hover title need the Ayatana fork (`ayatana-appindicator3-0.1`).
+
+The SNI backend shows the connection state with the tray icons `org.amule.aMule-tray-{high,low,disconnected}.svg`, installed under `<prefix>/share/icons/hicolor/scalable/apps/`. Without them (for example when running from the build directory), it shows the regular `org.amule.aMule` icon.
 
 ## Troubleshooting
 

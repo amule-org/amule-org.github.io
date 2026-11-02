@@ -33,15 +33,15 @@ The navigation bar exposes the following sections:
 
   ![The Networks section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_networks.png)
 
-- **[Search](../gui/searches.md)** — one tab per search, like the desktop's notebook, so several searches stay open at once.
+- **[Search](../gui/searches.md)** — one tab per search, like the desktop's notebook, so several searches stay open at once. The search type can be **All networks**. **Load search into the form** refills the search form with a tab's query, type and filters, ready to run again.
 
   ![The Search section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_search.png)
 
-- **[Downloads](../gui/downloads.md)** — the download queue with per-file controls. Category management is available inline here (it replaces the category tabs when *Manage categories* is toggled), and a detail panel below the list mirrors the desktop's [File Details](../gui/file-details.md) dialog for the selected download.
+- **[Downloads](../gui/downloads.md)** — the download queue with per-file controls. Category management is available inline here (it replaces the category tabs when *Manage categories* is toggled), and a detail panel below the list mirrors the desktop's [File Details](../gui/file-details.md) dialog for the selected download. **Delete from disk** permanently deletes the selected files after a confirmation; active downloads are cancelled.
 
   ![The Downloads section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_downloads.png)
 
-- **[Shared Files](../gui/shared-files.md)** — a sortable list of your shared files with per-file details.
+- **[Shared Files](../gui/shared-files.md)** — a sortable list of your shared files with per-file details. **Delete from disk** permanently deletes a complete file; cancel unfinished downloads from Downloads instead.
 
   ![The Shared Files section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_shared_files.png)
 
@@ -49,7 +49,7 @@ The navigation bar exposes the following sections:
 
   ![The Clients section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_clients.png)
 
-- **[Messages](../gui/messages.md)** — chat with peers and friends: the friends list on the left, conversations on the right.
+- **[Messages](../gui/messages.md)** — chat with peers and friends: the friends list on the left, conversations on the right. When a peer answers your first message with a CAPTCHA, type the text shown in the image and send it to get your message delivered.
 
   ![The Messages section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_messages.png)
 
@@ -57,7 +57,7 @@ The navigation bar exposes the following sections:
 
   ![The Statistics section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_statistics.png)
 
-- **[Preferences](../gui/preferences.md)** — aMule's configuration, including the shared-directories editor.
+- **[Preferences](../gui/preferences.md)** — aMule's configuration, including the shared-directories editor. Settings that can only be changed on the machine that runs the core, such as **External connections** and **Allowed remote folders**, are shown read-only. Folders outside the allowed list are refused with *Folder not allowed* (see [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host)).
 
   ![The Preferences section of the Web UI](/img/docs/gui_amuleapi/amuleapi_web_ui_preferences.png)
 
@@ -72,7 +72,8 @@ The navigation bar exposes the following sections:
 - **Download to your browser.** Finished shared files have a download button that streams the file straight to the browser, with the correct filename.
 - **[Country flags](../../configuration/ip2country.md)** on peers and servers, as the desktop lists show them.
 - **Comments over SSE.** Kad notes and source comments appear on a file's Comments tab as they arrive, without polling.
-- **Languages.** Internationalized, with support for multiple languages.
+- **Languages.** Internationalized, with support for multiple languages, translated on [Weblate](../../../contributing/translating.md). The language follows the browser by default and can be changed under **Preferences → WebUI → Language**.
+- **Accent-insensitive filters.** The filter boxes above the lists ignore accents, so `cafe` also matches `Café`.
 - **Responsive.** Usable down to phone width.
 
   ![The aMule Web UI on a smartphone](/img/docs/gui_amuleapi/amuleapi_web_ui_smartphone.png)
