@@ -158,7 +158,7 @@ Since aMule 3.2.0 each record can also carry the result of the last **Verify Loc
 | `0x59` | `FT_VERIFY_CORRUPTMD4` | string | Corrupt parts, as comma-separated part numbers (`p,p,p`); written only when a part failed |
 | `0x5A` | `FT_VERIFY_CORRUPTAICH` | string | Corrupt AICH blocks per part (`p:b.b;p:b`); written only when a block failed |
 
-Records of files that have not been seen on disk for 30 days are pruned from `known.met`; the hash of every pruned record is kept in [`knownhistory.met`](#knownhistorymet).
+When the file is saved, after the first full share scan of the session, records whose `FT_LASTSEEN` tag (`0x28`, the last time a share scan matched the file by name, date and size) is more than 30 days old are dropped, unless the file is shared or downloading; their hashes are added to [`knownhistory.met`](#knownhistorymet). A record without the tag, such as one written by eMule or an older aMule, uses the file modification date stored in the record instead.
 
 ## `known2_64.met` {#known2_64met}
 
@@ -180,7 +180,7 @@ Binary file storing the MD4 hashes of all downloads the user has cancelled. When
 
 ## `knownhistory.met` {#knownhistorymet}
 
-Binary file storing the MD4 hashes of records pruned from [`known.met`](#knownmet) (files not seen on disk for 30 days, such as a completed download later deleted or moved). Search results use it, together with `known.met`, to keep marking such files as already downloaded.
+Binary file storing the MD4 hashes of records pruned from [`known.met`](#knownmet) (files no share scan has matched for 30 days, such as a completed download later deleted or moved). Search results use it, together with `known.met`, to keep marking such files as already downloaded. aMule adds hashes when the `known.met` prune drops records and never removes them, so a hash stays even if its file comes back.
 
 Introduced in aMule 3.2.0. The format is the same as [`canceled.met`](#canceledmet): a magic byte `0x21`, a 32-bit unsigned little-endian hash count, and 16 bytes per MD4 hash.
 

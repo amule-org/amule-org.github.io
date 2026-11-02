@@ -42,7 +42,7 @@ Where `amuleweb` renders HTML server-side from templates, `amuleapi` serves a cl
 
 Only one password setter (`--set-*-pass*`) can be given per invocation; with more than one, `amuleapi` exits with an error.
 
-There is deliberately **no `--password` flag**: an EC password passed on the command line would be visible to any local user via `ps`. An auto-started `amuleapi` uses a one-off token (see [Auto-Start](#auto-start)); a hand-started one reads the EC password from its config file (see [EC password for a hand-started `amuleapi`](#ec-password-for-a-hand-started-amuleapi)). Use `--set-admin-pass-stdin` / `--set-guest-pass-stdin` (or [Preferences → Remote Controls](../gui/preferences.md#remote-controls) in the GUI) to set the Web UI login passwords.
+There is deliberately **no `--password` flag**: `amuleapi` is a long-running process, so a password on its command line would stay visible to any local user via `ps` for as long as it runs, and would end up in shell history, service unit files and wrapper scripts. An auto-started `amuleapi` uses a one-off token (see [Auto-Start](#auto-start)); a hand-started one reads the EC password from its config file (see [EC password for a hand-started `amuleapi`](#ec-password-for-a-hand-started-amuleapi)). Use `--set-admin-pass-stdin` / `--set-guest-pass-stdin` (or [Preferences → Remote Controls](../gui/preferences.md#remote-controls) in the GUI) to set the Web UI login passwords.
 
 ## Configuration File
 
@@ -134,7 +134,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 - **Downloads** — the download queue, plus per-file comments, filenames, clients and clear-completed. New downloads can be added from eD2k links or magnet links (with the eD2k hash and file size).
 - **Clients** and **Known clients** — active peers and the credit-store history.
 - **Shared files** — shared files, share directories, verify, media refresh, and deleting a complete file from disk.
-- **Servers** — the eD2k server list, plus the server-list update (`servers_update`).
+- **Servers** — the eD2k server list, plus the server-list update (`POST /api/v1/servers_update`): without a body it downloads every source in the `servers.update_urls` preference, in order; with a `url` it downloads that one list without saving it.
 - **Friends**, **Categories**.
 - **Preferences** — read (`GET`) and update (`PATCH`).
 - **Network control** — networks and Kad control.
@@ -147,7 +147,7 @@ All endpoints live under the base path `/api/v1`. The endpoint groups are:
 - Behind a reverse proxy that rewrites `Host` (as nginx does by default), have the proxy pass the original host in `X-Forwarded-Host` (for nginx: `proxy_set_header X-Forwarded-Host $http_host;`), or older browsers get `403` on their own changes.
 - Listens on **loopback** (`127.0.0.1`) unless `BindAddress` is changed.
 - The config file and the generated secret/token files are restricted to `0600`.
-- **Folder changes need the daemon's permission.** The incoming, temporary, shared and category folders can only be set inside the folders the core allows. The list is empty by default, so such changes are refused with `403 path_not_allowed` until it is filled in. A few daemon-local settings are read-only (`400 read_only_field`). See [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host).
+- **Folder changes need the daemon's permission.** The incoming, temporary, shared and category folders can only be set inside the folders the core allows. The list is empty by default, so such changes are refused with `403 path_not_allowed` until it is filled in. The API exposes the list read-only as the `directories.allowed_remote_roots` preference. A few daemon-local settings are read-only too (`400 read_only_field`): `files.ffprobe_path`, `online_signature.directory` and `directories.follow_symlinks`. See [`amuled` → Settings Reserved to the Daemon Host](../amuled.md#settings-reserved-to-the-daemon-host).
 
 ## Reference
 
