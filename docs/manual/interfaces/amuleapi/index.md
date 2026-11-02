@@ -42,7 +42,7 @@ Where `amuleweb` renders HTML server-side from templates, `amuleapi` serves a cl
 
 Only one password setter (`--set-*-pass*`) can be given per invocation; with more than one, `amuleapi` exits with an error.
 
-There is deliberately **no `--password` flag**: an EC password passed on the command line would be visible to any local user via `ps`. An auto-started `amuleapi` uses a one-off token (see [Auto-Start](#auto-start)); a hand-started one reads the EC password from its config file (see [EC password for a hand-started `amuleapi`](#ec-password-for-a-hand-started-amuleapi)). Use `--set-admin-pass-stdin` / `--set-guest-pass-stdin` (or [Preferences → Remote Controls](../gui/preferences.md#remote-controls) in the GUI) to set the Web UI login passwords.
+There is deliberately **no `--password` flag**: `amuleapi` is a long-running process, so a password on its command line would stay visible to any local user via `ps` for as long as it runs, and would end up in shell history, service unit files and wrapper scripts. An auto-started `amuleapi` uses a one-off token (see [Auto-Start](#auto-start)); a hand-started one reads the EC password from its config file (see [EC password for a hand-started `amuleapi`](#ec-password-for-a-hand-started-amuleapi)). Use `--set-admin-pass-stdin` / `--set-guest-pass-stdin` (or [Preferences → Remote Controls](../gui/preferences.md#remote-controls) in the GUI) to set the Web UI login passwords.
 
 ## Configuration File
 

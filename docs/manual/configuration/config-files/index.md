@@ -257,6 +257,8 @@ For the complete binary format, see the [nodes.dat reference](../../../developer
 
 Binary file that caches the hashes, names, sizes, modification dates, priorities, notes and last Verify Local Data result of shared files. This prevents aMule from having to rehash every shared file each time it starts — a significant time saving for large files.
 
+When the file is saved, records of files that aMule has not found in your shared folders for 30 days are dropped, and their hashes move to [`knownhistory.met`](#knownhistorymet). Files that are still shared or downloading are never dropped.
+
 For its format, see the [`known.met` format reference](../../../developer/file-formats/index.md#knownmet).
 
 ### `known2_64.met`
@@ -295,7 +297,7 @@ For its format, see the [`canceled.met` format reference](../../../developer/fil
 
 **Location:** `~/.aMule/knownhistory.met`
 
-Binary file storing the MD4 hashes of files dropped from `known.met` after 30 days not seen on disk (for example a completed download you deleted), so search results still mark them as already downloaded.
+Binary file storing the MD4 hashes of files dropped from `known.met` after 30 days without being found in your shared folders (for example a completed download you deleted), so search results still mark them as already downloaded.
 
 For its format, see the [`knownhistory.met` format reference](../../../developer/file-formats/index.md#knownhistorymet).
 
