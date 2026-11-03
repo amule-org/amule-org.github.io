@@ -45,13 +45,13 @@ cmake -B build \
 cmake --build build -j"$(nproc)"
 ```
 
-The resulting binaries in `build/` contain full symbol information (function names, line numbers, local variable names). They are significantly larger than release builds — this is expected. A Debug build also defines the `__DEBUG__` preprocessor macro, which enables aMule's per-category runtime debug logging (see [Runtime Debug Logging](#runtime-debug-logging) below).
+The resulting binaries under `build/src/` contain full symbol information (function names, line numbers, local variable names). They are significantly larger than release builds — this is expected. A Debug build also defines the `__DEBUG__` preprocessor macro, which enables aMule's per-category runtime debug logging (see [Runtime Debug Logging](#runtime-debug-logging) below).
 
 :::tip Running Without Installing
-All built binaries can be run directly from `build/` during development:
+The binaries under `build/src/` can be run directly during development (see [Running Without Installing](compilation/index.md#running-without-installing)):
 ```sh
-./build/amule
-./build/amuled
+./build/src/amule
+./build/src/amuled
 ```
 :::
 
@@ -93,7 +93,7 @@ These settings are loaded automatically every time GDB starts.
 ### Running aMule Under GDB
 
 ```sh
-gdb --args build/amule --disable-fatal
+gdb --args build/src/amule --disable-fatal
 (gdb) run
 ```
 
@@ -180,7 +180,7 @@ On macOS the supported debugger is **LLDB**, which ships with the Xcode Command 
 LLDB takes the same role as GDB in this guide — run aMule under it with:
 
 ```sh
-lldb -- build/amule --disable-fatal
+lldb -- build/src/aMule.app/Contents/MacOS/aMule --disable-fatal
 (lldb) run
 ```
 
@@ -240,7 +240,7 @@ valgrind \
     --leak-check=full \
     --num-callers=20 \
     --error-exitcode=1 \
-    build/amule
+    build/src/amule
 ```
 
 - `--leak-check=full` — show a detailed report for each leak. Note this respects the default `--show-leak-kinds=definite,possible`, so it reports *definitely* and *possibly* lost blocks only. Add `--show-leak-kinds=all` to also include *reachable* and *indirectly lost* blocks.
@@ -258,7 +258,7 @@ valgrind \
     --tool=memcheck \
     --vgdb=yes \
     --vgdb-error=1 \
-    build/amule
+    build/src/amule
 ```
 
 When Valgrind detects the first error, it prints a message with a connection command:
@@ -271,7 +271,7 @@ When Valgrind detects the first error, it prints a message with a connection com
 In a second terminal, run:
 
 ```sh
-gdb build/amule
+gdb build/src/amule
 (gdb) target remote | vgdb --pid=12345
 ```
 
@@ -287,7 +287,7 @@ Some Valgrind errors originate in third-party libraries (wxWidgets, OpenSSL, X11
 valgrind \
     --tool=memcheck \
     --gen-suppressions=yes \
-    build/amule --enable-stdin
+    build/src/amule --enable-stdin
 ```
 
 :::caution stdin must stay open
@@ -319,7 +319,7 @@ valgrind \
     --tool=memcheck \
     --leak-check=full \
     --suppressions=amule.supp \
-    build/amule
+    build/src/amule
 ```
 
 ### Recommended Full Invocation
@@ -332,7 +332,7 @@ valgrind \
     --num-callers=20 \
     --suppressions=amule.supp \
     --gen-suppressions=yes \
-    build/amule --enable-stdin
+    build/src/amule --enable-stdin
 ```
 
 On first runs, use `--gen-suppressions=yes` (together with aMule's `--enable-stdin`) to build up the suppression file. Once the file is stable, remove `--gen-suppressions=yes` and use `--error-exitcode=1` to detect regressions.

@@ -158,11 +158,11 @@ cmake --build build -j"$(nproc)"
 
 ### Running from the Build Directory
 
-All built binaries are placed in `build/` and can be run directly without installing:
+The binaries are placed under `build/src/` and can be run directly without installing:
 
 ```sh
-./build/amule
-./build/amuled --full-daemon
+./build/src/amule
+./build/src/amuled --full-daemon
 ```
 
 This is convenient during development — no need to `sudo cmake --install` for every change.

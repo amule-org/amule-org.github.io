@@ -17,7 +17,7 @@ cmake -B build -DBUILD_FILEVIEW=ON
 cmake --build build -j"$(nproc)"
 ```
 
-The resulting `fileview` binary is placed in `build/` and installed to `bin/` on `cmake --install`. See the [Compilation](../compilation/index.md) guides for the full build setup.
+The resulting `fileview` binary is placed in `build/src/utils/fileview/` and installed to `bin/` on `cmake --install`. See the [Compilation](../compilation/index.md) guides for the full build setup.
 
 ## Usage
 

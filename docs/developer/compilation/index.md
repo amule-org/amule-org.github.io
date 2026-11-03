@@ -40,7 +40,7 @@ wxWidgets must be built with Unicode support (the default since wx 3.0). aMule i
 
 ```sh
 # Clone the repository
-git clone https://github.com/amule-org/amule.git
+git clone --branch 3.2.0 https://github.com/amule-org/amule.git
 cd amule
 
 # Install platform-specific dependencies first (see sub-pages)
@@ -216,12 +216,13 @@ To build without `po4a` and still ship translated man pages, use the **source bu
 
 ## Running Without Installing
 
-All built binaries are placed in `build/` and can be run directly:
+The binaries can be run directly from the build tree. `amule`, `amuled`, `amulegui`, `amulecmd` and `ed2k` are placed in `build/src/`, `amuleapi` in `build/src/webapi/`, `amuleweb` in `build/src/webserver/src/`, and the utilities under `build/src/utils/`. On macOS, `amule` and `amulegui` are app bundles (`build/src/aMule.app`, `build/src/aMuleGUI.app`).
 
 ```sh
-./build/amule
-./build/amuled
-./build/amulecmd
+./build/src/amule            # macOS: ./build/src/aMule.app/Contents/MacOS/aMule
+./build/src/amuled
+./build/src/webapi/amuleapi
+./build/src/amulecmd
 ```
 
 This is the recommended workflow during development — no need to install after every build.
