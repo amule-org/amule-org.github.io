@@ -129,7 +129,7 @@ For debugging on Gentoo with split-debug symbols, see [Debugging](../debugging.m
 ## Build
 
 ```sh
-git clone https://github.com/amule-org/amule.git
+git clone --branch 3.2.0 https://github.com/amule-org/amule.git
 cd amule
 
 cmake -B build \
@@ -154,12 +154,13 @@ This enables a common set of components. See [Build Options](index.md#build-opti
 
 ## Running from the Build Directory
 
-All binaries are placed in `build/` and can be run directly without installing:
+The main binaries are placed in `build/src/` (`amuleapi` in `build/src/webapi/`; see [Running Without Installing](index.md#running-without-installing) for the others) and can be run directly without installing:
 
 ```sh
-./build/amule
-./build/amuled
-./build/amulecmd
+./build/src/amule
+./build/src/amuled
+./build/src/webapi/amuleapi
+./build/src/amulecmd
 ```
 
 ## Desktop Integration

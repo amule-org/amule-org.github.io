@@ -65,7 +65,7 @@ On Intel Macs, Homebrew installs to `/usr/local`, which is already on the defaul
 ## Build
 
 ```sh
-git clone https://github.com/amule-org/amule.git
+git clone --branch 3.2.0 https://github.com/amule-org/amule.git
 cd amule
 
 cmake -B build \
@@ -95,13 +95,14 @@ If `ENABLE_NLS=YES` but `msgfmt`/`msgmerge` or `libintl` cannot be found, the co
 
 ## Running from the Build Directory
 
-All binaries are placed in `build/` and can be run directly without installing:
+The main binaries are placed in `build/src/` (`amuleapi` in `build/src/webapi/`; see [Running Without Installing](index.md#running-without-installing) for the others) and can be run directly without installing. `amule` and `amulegui` are built as the `aMule.app` and `aMuleGUI.app` bundles:
 
 ```sh
-./build/amule
-./build/amuled
-./build/amuleapi
-./build/amulecmd
+./build/src/aMule.app/Contents/MacOS/aMule
+./build/src/aMuleGUI.app/Contents/MacOS/aMuleGUI
+./build/src/amuled
+./build/src/webapi/amuleapi
+./build/src/amulecmd
 ```
 
 For how to use each binary, see the User Manual: [amuled](../../manual/interfaces/amuled.md) (daemon), [amuleapi](../../manual/interfaces/amuleapi/index.md) (REST API & Web UI), [amulecmd](../../manual/interfaces/amulecmd.md) (command-line client), and [amuleweb](../../manual/interfaces/amuleweb.md) (legacy WebUI).
