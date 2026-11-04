@@ -387,6 +387,12 @@ cd /usr/pkgsrc/net/amule
 make install clean
 ```
 
+## Android
+
+There is no official aMule for Android. [aMule for Android](https://github.com/XG-DL/amule-android-preview) is an **unofficial, experimental** app that runs [`amuled`](../interfaces/amuled.md) and [`amuleapi`](../interfaces/amuleapi/index.md) on ARM64 phones, with the [Web UI](../interfaces/amuleapi/web-ui.md) or a native Android interface. It is an independent project in an early preview stage, so expect bugs and missing features; report issues on its [own issue tracker](https://github.com/XG-DL/amule-android-preview/issues).
+
+To control an existing aMule from your phone instead, open its [Web UI](../interfaces/amuleapi/web-ui.md) in the phone's browser.
+
 ## Docker
 
 An **unofficial Docker image**, maintained by a member of the aMule Team, is available at [ngosang/docker-amule](https://github.com/ngosang/docker-amule). It runs [`amuled`](../interfaces/amuled.md) with [`amuleapi`](../interfaces/amuleapi/index.md) enabled — serving the REST API and browser [Web UI](../interfaces/amuleapi/web-ui.md) on port 4711 — a headless setup suited to home servers and NAS devices. The image is Linux-based, but it runs on any system with a container runtime, including Windows and macOS via [Docker Desktop](https://www.docker.com/products/docker-desktop/). Images are published on [Docker Hub](https://hub.docker.com/r/ngosang/amule) (`ngosang/amule`) and [GitHub Container Registry](https://github.com/ngosang/docker-amule/pkgs/container/amule) for a wide range of architectures (x64, ARM, RISC-V and more).
@@ -435,9 +441,3 @@ aMule ships with reasonable defaults and can be used as-is. To connect to the [e
 aMule can also be set up to [start automatically when you log in](../configuration/autostart.md) and to [open `ed2k://` and `magnet:` links](../configuration/ed2k-magnet-links.md) clicked in your browser; the first-run wizard offers both.
 
 To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.
-
-## Android
-
-There is no official aMule for Android. [aMule for Android](https://github.com/XG-DL/amule-android-preview) is an **unofficial, experimental** app that runs [`amuled`](../interfaces/amuled.md) and [`amuleapi`](../interfaces/amuleapi/index.md) on ARM64 phones, with the [Web UI](../interfaces/amuleapi/web-ui.md) or a native Android interface. It is an independent project in an early preview stage, so expect bugs and missing features; report issues on its [own issue tracker](https://github.com/XG-DL/amule-android-preview/issues).
-
-To control an existing aMule from your phone instead, open its [Web UI](../interfaces/amuleapi/web-ui.md) in the phone's browser.
