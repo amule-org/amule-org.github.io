@@ -21,7 +21,7 @@ The project publishes **official pre-built binaries** only for Windows, macOS an
 | FreeBSD | x86\_64, ARM64 | [System package or Ports](#freebsd) |
 | OpenBSD | x86\_64 | [System package](#openbsd) |
 
-Additionally, an [unofficial Docker image](#docker) runs aMule on any platform with a container runtime.
+Additionally, an [unofficial Docker image](#docker) runs aMule on any platform with a container runtime, and an [experimental Android app](#android) is available.
 
 ## Downloads
 
@@ -435,3 +435,9 @@ aMule ships with reasonable defaults and can be used as-is. To connect to the [e
 aMule can also be set up to [start automatically when you log in](../configuration/autostart.md) and to [open `ed2k://` and `magnet:` links](../configuration/ed2k-magnet-links.md) clicked in your browser; the first-run wizard offers both.
 
 To receive a [High ID](../configuration/network-connectivity.md) (required for optimal connectivity and download speeds), you will need to open aMule's ports on your firewall or router. The [Firewall configuration](../configuration/firewall.md) page explains how to do this.
+
+## Android
+
+There is no official aMule for Android. [aMule for Android](https://github.com/XG-DL/amule-android-preview) is an **unofficial, experimental** app that runs [`amuled`](../interfaces/amuled.md) and [`amuleapi`](../interfaces/amuleapi/index.md) on ARM64 phones, with the [Web UI](../interfaces/amuleapi/web-ui.md) or a native Android interface. It is an independent project in an early preview stage, so expect bugs and missing features; report issues on its [own issue tracker](https://github.com/XG-DL/amule-android-preview/issues).
+
+To control an existing aMule from your phone instead, open its [Web UI](../interfaces/amuleapi/web-ui.md) in the phone's browser.
